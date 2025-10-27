@@ -25,13 +25,13 @@ export default function InsuranceSection() {
           {visibleProviders?.map((provider, index) => (
             <div
               key={provider.id}
-              className="aspect-square rounded-xl border border-border bg-card p-6 flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02]"
+              className="aspect-square rounded-xl border border-border bg-card overflow-hidden flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02]"
               data-testid={`insurance-${index}`}
             >
               <img 
                 src={provider.logo} 
                 alt={provider.name}
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-full object-cover"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallback = e.currentTarget.parentElement?.querySelector('p');
@@ -41,7 +41,7 @@ export default function InsuranceSection() {
                   }
                 }}
               />
-              <p className="text-sm md:text-base font-medium text-center text-card-foreground hidden items-center justify-center h-full">
+              <p className="text-sm md:text-base font-medium text-center text-card-foreground hidden items-center justify-center h-full p-6">
                 {provider.name}
               </p>
             </div>
