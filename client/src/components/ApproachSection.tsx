@@ -1,6 +1,14 @@
 import approachImage from "@assets/generated_images/Therapy_consultation_session_e4985de5.png";
+import { useQuery } from "@tanstack/react-query";
+import type { SiteContent } from "@shared/schema";
 
 export default function ApproachSection() {
+  const { data: content } = useQuery<SiteContent>({
+    queryKey: ["/api/site-content"],
+  });
+
+  const aboutText = content?.aboutText || "At Empathy Health Clinic, our mission is to serve the community of Orlando, FL, with a range of affordable mental health services. Whether you need to speak with a professional or seek more comprehensive treatment, we can guide you toward the best solution for your needs and well-being.";
+
   const steps = [
     {
       number: "1",
@@ -56,7 +64,7 @@ export default function ApproachSection() {
         
         <div className="mt-16 max-w-4xl mx-auto">
           <p className="text-lg md:text-xl leading-relaxed text-center text-foreground">
-            At Empathy Health Clinic, our mission is to serve the community of Orlando, FL, with a range of affordable mental health services. Whether you need to speak with a professional or seek more comprehensive treatment, we can guide you toward the best solution for your needs and well-being.
+            {aboutText}
           </p>
         </div>
       </div>

@@ -2,9 +2,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import type { SiteContent } from "@shared/schema";
 
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
+
+  const { data: content } = useQuery<SiteContent>({
+    queryKey: ["/api/site-content"],
+  });
+
+  const phone = content?.footerPhone || "386-848-8751";
+  const emailAddress = content?.footerEmail || "info@empathyhealthclinic.com";
+  const address = content?.footerAddress || "Winter Park, Orlando, Florida";
 
   const quickLinks = [
     "Services",
@@ -29,27 +39,27 @@ export default function SiteFooter() {
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <a 
-                  href="tel:3868488751" 
+                  href={`tel:${phone.replace(/[^0-9]/g, '')}`} 
                   className="text-base text-foreground hover:text-primary"
                   data-testid="link-footer-phone"
                 >
-                  386-848-8751
+                  {phone}
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <a 
-                  href="mailto:info@empathyhealthclinic.com" 
+                  href={`mailto:${emailAddress}`} 
                   className="text-base text-foreground hover:text-primary"
                   data-testid="link-footer-email"
                 >
-                  info@empathyhealthclinic.com
+                  {emailAddress}
                 </a>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <span className="text-base text-foreground">
-                  Winter Park, Orlando, Florida
+                  {address}
                 </span>
               </div>
             </div>

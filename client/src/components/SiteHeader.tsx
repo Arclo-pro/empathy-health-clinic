@@ -52,6 +52,13 @@ export default function SiteHeader() {
           <div className="hidden md:flex items-center gap-4">
             <ThemeToggle />
             <Button
+              variant="ghost"
+              onClick={() => window.location.href = '/admin'}
+              data-testid="button-admin-link"
+            >
+              Admin
+            </Button>
+            <Button
               size="lg"
               className="rounded-full px-6"
               data-testid="button-header-appointment"

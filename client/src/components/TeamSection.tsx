@@ -1,32 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import team1 from "@assets/generated_images/Team_member_headshot_1_2f59af5e.png";
-import team2 from "@assets/generated_images/Team_member_headshot_2_6581239e.png";
-import team3 from "@assets/generated_images/Team_member_headshot_3_9a01950e.png";
-import team4 from "@assets/generated_images/Team_member_headshot_4_0db076a8.png";
+import { useQuery } from "@tanstack/react-query";
+import type { TeamMember } from "@shared/schema";
 
 export default function TeamSection() {
-  const teamMembers = [
-    {
-      name: "Alex Regan",
-      credentials: "Psychiatric PA-C",
-      image: team1
-    },
-    {
-      name: "Dr. Robert Glenn",
-      credentials: "MD",
-      image: team2
-    },
-    {
-      name: "Marjorie Felix",
-      credentials: "MSN, APRN, PMHNP-BC",
-      image: team3
-    },
-    {
-      name: "Christine Orr",
-      credentials: "LCSW",
-      image: team4
-    }
-  ];
+  const { data: teamMembers } = useQuery<TeamMember[]>({
+    queryKey: ["/api/team-members"],
+  });
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-background">
@@ -36,9 +15,9 @@ export default function TeamSection() {
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-          {teamMembers.map((member, index) => (
+          {teamMembers?.map((member, index) => (
             <div
-              key={index}
+              key={member.id}
               className="text-center space-y-4"
               data-testid={`team-member-${index}`}
             >

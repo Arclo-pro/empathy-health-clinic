@@ -1,14 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
+import type { InsuranceProvider } from "@shared/schema";
+
 export default function InsuranceSection() {
-  const insuranceProviders = [
-    "Blue Cross Blue Shield",
-    "Aetna",
-    "Optum",
-    "Cigna",
-    "AdventHealth",
-    "UMR",
-    "UnitedHealthcare",
-    "More Providers"
-  ];
+  const { data: providers } = useQuery<InsuranceProvider[]>({
+    queryKey: ["/api/insurance-providers"],
+  });
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-background">
@@ -18,14 +14,14 @@ export default function InsuranceSection() {
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
-          {insuranceProviders.map((provider, index) => (
+          {providers?.map((provider, index) => (
             <div
-              key={index}
+              key={provider.id}
               className="aspect-square rounded-xl border border-border bg-card p-6 flex items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02]"
               data-testid={`insurance-${index}`}
             >
               <p className="text-sm md:text-base font-medium text-center text-card-foreground">
-                {provider}
+                {provider.name}
               </p>
             </div>
           ))}

@@ -1,26 +1,11 @@
 import { Star } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import type { Testimonial } from "@shared/schema";
 
 export default function TestimonialsSection() {
-  const testimonials = [
-    {
-      name: "Chris B.",
-      date: "October 10, 2025",
-      text: "Marjorie spends more time and a more holistic approach to psychiatric care than any other practitioner I have worked with. She works with you to find the best personal treatment.",
-      rating: 5
-    },
-    {
-      name: "Cindy K.",
-      date: "October 1, 2025",
-      text: "Empathy Health Clinic is great! From Chantal in the office to the Medication Managers Tony & Monique, to the quality therapists, especially Christine Orr, I would highly recommend Empathy to anyone.",
-      rating: 5
-    },
-    {
-      name: "Louise",
-      date: "September 3, 2025",
-      text: "Excellent psych medical management. Depression and anxiety are so much more manageable, fewer episodes, finally sleeping through the night. Alex provides exceptional care.",
-      rating: 5
-    }
-  ];
+  const { data: testimonials } = useQuery<Testimonial[]>({
+    queryKey: ["/api/testimonials"],
+  });
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-card">
@@ -33,9 +18,9 @@ export default function TestimonialsSection() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
+          {testimonials?.map((testimonial, index) => (
             <div
-              key={index}
+              key={testimonial.id}
               className="rounded-xl border border-card-border bg-background p-6 md:p-8"
               data-testid={`testimonial-${index}`}
             >

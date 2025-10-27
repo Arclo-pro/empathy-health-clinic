@@ -1,13 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import type { Condition, SiteContent } from "@shared/schema";
 
 export default function ConditionsSection() {
-  const conditions = [
-    "Anxiety disorders, such as generalized anxiety disorder (GAD), social anxiety disorder (SAD) or phobias",
-    "Depression and depressive disorders",
-    "Personality disorders, such as antisocial personality disorder (ASPD) or borderline personality disorder (BPD)",
-    "Conditions on the schizophrenia spectrum, such as schizoaffective disorders"
-  ];
+  const { data: conditions } = useQuery<Condition[]>({
+    queryKey: ["/api/conditions"],
+  });
+
+  const { data: content } = useQuery<SiteContent>({
+    queryKey: ["/api/site-content"],
+  });
+
+  const phone = content?.footerPhone || "386-848-8751";
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-card">
@@ -24,10 +29,10 @@ export default function ConditionsSection() {
             We can help you treat and manage the following:
           </h3>
           <ul className="space-y-4">
-            {conditions.map((condition, index) => (
-              <li key={index} className="flex gap-3" data-testid={`condition-${index}`}>
+            {conditions?.map((condition, index) => (
+              <li key={condition.id} className="flex gap-3" data-testid={`condition-${index}`}>
                 <span className="text-primary mt-1">•</span>
-                <span className="text-base text-foreground leading-relaxed">{condition}</span>
+                <span className="text-base text-foreground leading-relaxed">{condition.description}</span>
               </li>
             ))}
           </ul>
@@ -38,10 +43,10 @@ export default function ConditionsSection() {
             size="lg"
             className="px-8 py-6 text-lg rounded-full"
             data-testid="button-call-clinic"
-            onClick={() => console.log('Call clicked: 386-848-8751')}
+            onClick={() => console.log(`Call clicked: ${phone}`)}
           >
             <Phone className="w-5 h-5 mr-2" />
-            386-848-8751
+            {phone}
           </Button>
           <Button
             size="lg"
