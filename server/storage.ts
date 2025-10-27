@@ -223,7 +223,7 @@ export class MemStorage implements IStorage {
       {
         name: "Monique Walen",
         credentials: "MSN, APRN, PMHNP-BC",
-        image: "/attached_assets/stock_images/professional_healthc_085a6893.jpg",
+        image: "/attached_assets/image_1761603840896.png",
         order: 7,
       },
       {
