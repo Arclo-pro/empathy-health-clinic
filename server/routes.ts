@@ -215,6 +215,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/insurance-providers/slug/:slug", async (req, res) => {
+    try {
+      const provider = await storage.getInsuranceProviderBySlug(req.params.slug);
+      if (!provider) {
+        return res.status(404).json({ error: "Insurance provider not found" });
+      }
+      res.json(provider);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   app.post("/api/insurance-providers", async (req, res) => {
     try {
       const validated = insertInsuranceProviderSchema.parse(req.body);

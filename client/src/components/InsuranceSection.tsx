@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import type { InsuranceProvider } from "@shared/schema";
 
 export default function InsuranceSection() {
@@ -41,17 +42,13 @@ export default function InsuranceSection() {
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="#" 
+          <Link 
+            href="/insurance" 
             className="text-primary font-medium hover:underline"
             data-testid="link-view-all-providers"
-            onClick={(e) => {
-              e.preventDefault();
-              console.log('View all providers clicked');
-            }}
           >
             View All Providers →
-          </a>
+          </Link>
         </div>
       </div>
     </section>

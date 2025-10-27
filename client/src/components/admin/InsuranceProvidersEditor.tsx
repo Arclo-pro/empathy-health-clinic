@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
@@ -26,6 +27,13 @@ export default function InsuranceProvidersEditor() {
     defaultValues: {
       name: "",
       logo: "",
+      slug: "",
+      pageTitle: "",
+      heroTitle: "",
+      heroDescription: "",
+      description: "",
+      coverageDetails: "",
+      faqs: "[]",
       order: providers?.length ? providers.length + 1 : 1,
     },
   });
@@ -110,11 +118,11 @@ export default function InsuranceProvidersEditor() {
               Add Provider
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>{editingProvider ? "Edit Provider" : "Add Provider"}</DialogTitle>
               <DialogDescription>
-                {editingProvider ? "Update provider information" : "Add a new insurance provider"}
+                {editingProvider ? "Update provider information and page content" : "Add a new insurance provider with page details"}
               </DialogDescription>
             </DialogHeader>
             <Form {...form}>
@@ -149,10 +157,114 @@ export default function InsuranceProvidersEditor() {
 
                 <FormField
                   control={form.control}
+                  name="slug"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>URL Slug</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="aetna-aetna-coverage" data-testid="input-provider-slug" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="pageTitle"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Page Title (SEO)</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Find a Psychiatrist That Accepts..." data-testid="input-provider-page-title" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="heroTitle"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Hero Title</FormLabel>
+                      <FormControl>
+                        <Input {...field} placeholder="Main heading for provider page" data-testid="input-provider-hero-title" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="heroDescription"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Hero Description</FormLabel>
+                      <FormControl>
+                        <Textarea {...field} placeholder="Introductory paragraph for provider page" rows={3} data-testid="input-provider-hero-description" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="description"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Full Description</FormLabel>
+                      <FormControl>
+                        <Textarea {...field} placeholder="Detailed description of the provider partnership and services..." rows={4} data-testid="input-provider-description" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="coverageDetails"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Coverage Details</FormLabel>
+                      <FormControl>
+                        <Textarea {...field} placeholder="Information about coverage, copays, plans accepted..." rows={4} data-testid="input-provider-coverage-details" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="faqs"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>FAQs (JSON format)</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          {...field} 
+                          placeholder='[{"question": "Q1?", "answer": "A1"}, {"question": "Q2?", "answer": "A2"}]' 
+                          rows={6} 
+                          className="font-mono text-sm"
+                          data-testid="input-provider-faqs" 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
                   name="order"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Order</FormLabel>
+                      <FormLabel>Display Order</FormLabel>
                       <FormControl>
                         <Input
                           type="number"

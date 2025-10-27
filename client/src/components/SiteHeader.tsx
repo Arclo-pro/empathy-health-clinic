@@ -10,7 +10,7 @@ export default function SiteHeader() {
     { label: "Home", href: "#home" },
     { label: "Services", href: "#services" },
     { label: "Our Team", href: "#team" },
-    { label: "Insurance", href: "#insurance" },
+    { label: "Insurance", href: "/insurance" },
     { label: "Contact", href: "#contact" }
   ];
 
@@ -40,8 +40,10 @@ export default function SiteHeader() {
                 className="text-base font-medium text-foreground hover:text-primary transition-colors"
                 data-testid={`link-nav-${index}`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  console.log(`Navigate to ${item.label}`);
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    console.log(`Navigate to ${item.label}`);
+                  }
                 }}
               >
                 {item.label}
@@ -92,8 +94,10 @@ export default function SiteHeader() {
                 className="block text-base font-medium text-foreground hover:text-primary py-2"
                 data-testid={`link-mobile-nav-${index}`}
                 onClick={(e) => {
-                  e.preventDefault();
-                  console.log(`Navigate to ${item.label}`);
+                  if (item.href.startsWith('#')) {
+                    e.preventDefault();
+                    console.log(`Navigate to ${item.label}`);
+                  }
                   setMobileMenuOpen(false);
                 }}
               >

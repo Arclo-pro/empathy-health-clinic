@@ -93,6 +93,13 @@ export const insuranceProviders = pgTable("insurance_providers", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   name: text("name").notNull(),
   logo: text("logo").notNull(),
+  slug: text("slug").notNull(),
+  pageTitle: text("page_title").notNull(),
+  heroTitle: text("hero_title").notNull(),
+  heroDescription: text("hero_description").notNull(),
+  description: text("description").notNull(),
+  coverageDetails: text("coverage_details").notNull(),
+  faqs: text("faqs").notNull().default('[]'),
   order: integer("order").notNull(),
 });
 
