@@ -87,7 +87,7 @@ export class MemStorage implements IStorage {
       id: randomUUID(),
       heroTitle: "Healing Begins with Empathy",
       heroSubtitle: "Psychiatry, Psychotherapy & Counseling Clinic in Winter Park, Orlando, Florida",
-      heroImage: "/attached_assets/generated_images/Therapist_in_green_forest_d33de759.png",
+      heroImage: "/attached_assets/generated_images/Therapist_right_side_forest_35157883.png",
       reviewCount: 65,
       reviewRating: "EXCELLENT",
       footerPhone: "386-848-8751",
