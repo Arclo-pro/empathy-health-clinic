@@ -24,6 +24,8 @@ A modern, fast website with a content management system for Empathy Health Clini
 - ✅ SEO-optimized insurance provider landing pages with custom URLs
 - ✅ SEO-optimized treatment landing pages with comprehensive content
 - ✅ SEO-optimized therapy landing pages with comprehensive content
+- ✅ SEO-optimized condition landing pages with comprehensive content
+- ✅ Aggressive cross-linking across all content types
 - ✅ High-converting lead capture forms on therapy pages
 - ✅ Patient Portal at `/admin` for editing all content
 - ✅ Real-time content updates from API
@@ -37,10 +39,10 @@ The CMS manages the following content types:
 1. **Site Content** - Hero section, footer info, about text
 2. **Treatments** - Treatment services with comprehensive landing pages
 3. **Therapies** - Therapy modalities with comprehensive landing pages
-4. **Team Members** - Staff profiles with photos and credentials
-5. **Testimonials** - Patient reviews with ratings
-6. **Insurance Providers** - Accepted insurance companies with detailed landing pages
-7. **Conditions** - Mental health conditions treated
+4. **Conditions** - Mental health conditions with comprehensive landing pages
+5. **Team Members** - Staff profiles with photos and credentials
+6. **Testimonials** - Patient reviews with ratings
+7. **Insurance Providers** - Accepted insurance companies with detailed landing pages
 8. **Leads** - Contact form submissions from therapy landing pages
 
 ## Insurance Provider Pages
@@ -128,6 +130,43 @@ Each therapy modality has its own comprehensive SEO-optimized landing page:
 - Alternative call-to-action (phone button)
 - Privacy/security reassurance
 - Mobile-optimized sticky positioning
+
+## Condition Landing Pages
+
+Each mental health condition has its own comprehensive SEO-optimized landing page:
+
+- **Condition Pages:** `/{condition-slug}` - Full condition information pages
+
+### Condition Page Content:
+- Custom hero section with condition title and overview
+- Detailed description of the condition
+- Symptoms section explaining common signs
+- Related treatments section with **clickable links** to treatment pages
+- Related therapies section with **clickable links** to therapy pages
+- Frequently Asked Questions (FAQs) specific to each condition
+- Insurance information
+- Contact and scheduling options
+
+### Available Condition Pages:
+- `/anxiety-disorders` - Anxiety Disorders (GAD, SAD, panic, phobias)
+- `/depression` - Depression and Depressive Disorders
+- `/bipolar-disorder` - Bipolar Disorder (Bipolar I, II, cyclothymic)
+- `/ptsd-trauma` - PTSD & Trauma
+- `/personality-disorders` - Personality Disorders (BPD, ASPD, etc.)
+
+### SEO Features:
+- Custom page titles optimized for search engines
+- SEO-friendly URL slugs
+- Rich, keyword-optimized content
+- Structured FAQ sections
+- Mobile-responsive design
+
+### Aggressive Cross-Linking:
+- **Homepage** - Conditions section links to condition detail pages
+- **Insurance Provider Pages** - "What We Treat" section links to condition detail pages
+- **Condition Pages** - Link to related treatments and therapies
+- **All links** use wouter's Link component for seamless SPA navigation
+- Consistent hover effects and styling across all cross-links
 
 ## How to Edit Your Website
 
