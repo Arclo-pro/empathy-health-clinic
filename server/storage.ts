@@ -122,8 +122,98 @@ export class MemStorage implements IStorage {
     // Initialize default treatments
     const defaultTreatments: InsertTreatment[] = [
       {
+        title: "Psychiatric Evaluation",
+        shortDescription: "Comprehensive mental health assessments to diagnose and create personalized treatment plans.",
+        icon: "Brain",
+        slug: "psychiatric-evaluation",
+        pageTitle: "Psychiatric Evaluation in Winter Park, FL | Mental Health Assessment",
+        heroTitle: "Comprehensive Psychiatric Evaluation",
+        heroDescription: "Thorough mental health evaluations in Winter Park, FL. Our experienced psychiatrists provide detailed assessments to accurately diagnose conditions and develop effective treatment plans tailored to your needs.",
+        description: "A psychiatric evaluation is the foundation of effective mental health treatment. At Empathy Health Clinic, our comprehensive evaluations include a detailed review of your symptoms, medical history, family history, and current life circumstances. We take the time to understand your unique situation and provide an accurate diagnosis that guides your personalized treatment plan.",
+        whoCanBenefit: "Anyone experiencing mental health concerns, changes in mood or behavior, or seeking a second opinion can benefit from a psychiatric evaluation. Whether you're struggling with anxiety, depression, mood swings, or other symptoms, an evaluation provides clarity and direction for treatment.",
+        whatToExpect: "Your initial evaluation typically lasts 60-90 minutes. We'll discuss your symptoms, medical and psychiatric history, current medications, and treatment goals. This comprehensive assessment allows us to provide an accurate diagnosis and recommend the most effective treatment approach, whether that includes medication, therapy, or both.",
+        faqs: JSON.stringify([
+          { question: "How long does an evaluation take?", answer: "Initial psychiatric evaluations typically take 60-90 minutes. This allows us to gather comprehensive information and provide an accurate assessment." },
+          { question: "Will I get a diagnosis?", answer: "Yes, if appropriate. We'll discuss our findings with you and explain any diagnoses, along with recommended treatment options tailored to your needs." },
+          { question: "Do I need a referral?", answer: "No referral is needed. You can schedule directly with our clinic for a psychiatric evaluation." }
+        ]),
+        order: 1,
+      },
+      {
+        title: "Medication Management",
+        shortDescription: "Expert psychiatric medication management for optimal mental health and symptom control.",
+        icon: "Activity",
+        slug: "medication-management",
+        pageTitle: "Psychiatric Medication Management | Winter Park, FL",
+        heroTitle: "Psychiatric Medication Management",
+        heroDescription: "Specialized medication management services in Winter Park, FL. Our psychiatrists expertly prescribe and monitor psychiatric medications to help you achieve optimal mental health with minimal side effects.",
+        description: "Medication can be a crucial component of mental health treatment. Our psychiatric providers specialize in medication management for depression, anxiety, bipolar disorder, ADHD, and other conditions. We carefully select medications based on your specific symptoms, medical history, and treatment goals, then provide ongoing monitoring to ensure effectiveness and minimize side effects.",
+        whoCanBenefit: "Medication management helps individuals with moderate to severe mental health conditions, those who haven't responded well to therapy alone, or anyone needing expert guidance on psychiatric medications. Our providers work with you to find the right medication at the right dose.",
+        whatToExpect: "After your initial evaluation, we'll discuss medication options if appropriate. We start with conservative doses and adjust based on your response. Follow-up appointments monitor your progress, adjust medications as needed, and address any side effects. Most patients see improvement within 4-6 weeks.",
+        faqs: JSON.stringify([
+          { question: "How often will I need appointments?", answer: "Initially, you'll see your provider every 2-4 weeks. Once stable, appointments are typically monthly or quarterly for medication management." },
+          { question: "Can I stop medications once I feel better?", answer: "Never stop psychiatric medications without consulting your provider. We'll work with you to determine the right duration of treatment and safely taper when appropriate." },
+          { question: "What about side effects?", answer: "We carefully select medications to minimize side effects and monitor you closely. Most side effects are mild and temporary. We'll adjust your treatment if side effects are concerning." }
+        ]),
+        order: 2,
+      },
+      {
+        title: "Depression Treatment",
+        shortDescription: "Evidence-based treatment for depression including therapy and medication management.",
+        icon: "Heart",
+        slug: "depression-treatment",
+        pageTitle: "Depression Treatment in Winter Park, FL | Empathy Health Clinic",
+        heroTitle: "Effective Depression Treatment",
+        heroDescription: "Comprehensive depression treatment in Winter Park, FL. Our experienced team provides evidence-based therapy, medication management, and supportive care to help you overcome depression and reclaim your life.",
+        description: "Depression affects millions of people, but with the right treatment, recovery is possible. At Empathy Health Clinic, we offer comprehensive depression treatment combining medication management, psychotherapy, and lifestyle interventions. Our compassionate team understands that depression is a medical condition, not a personal weakness, and we're here to support your recovery.",
+        whoCanBenefit: "Our depression treatment helps individuals experiencing persistent sadness, loss of interest in activities, changes in sleep or appetite, low energy, difficulty concentrating, or thoughts of self-harm. Whether you have mild, moderate, or severe depression, we provide the level of care you need.",
+        whatToExpect: "Treatment typically includes an initial psychiatric evaluation, followed by a personalized treatment plan that may include antidepressant medication, therapy, or both. Most people begin to feel better within 4-8 weeks. We provide ongoing support and adjust treatment as needed to ensure the best outcomes.",
+        faqs: JSON.stringify([
+          { question: "How long does depression treatment take?", answer: "Most people see improvement within 4-8 weeks of starting treatment. Full recovery often takes 3-6 months, though some people benefit from longer-term treatment to prevent relapse." },
+          { question: "Do I need medication for depression?", answer: "Not everyone with depression needs medication. For mild depression, therapy may be sufficient. Moderate to severe depression often responds best to a combination of medication and therapy." },
+          { question: "Will depression come back?", answer: "Depression can recur, but treatment significantly reduces this risk. Many people successfully manage depression long-term with maintenance medication, therapy skills, and lifestyle changes." }
+        ]),
+        order: 3,
+      },
+      {
+        title: "Anxiety Treatment",
+        shortDescription: "Specialized care for anxiety disorders including GAD, panic disorder, and social anxiety.",
+        icon: "Brain",
+        slug: "anxiety-treatment",
+        pageTitle: "Anxiety Treatment in Winter Park, FL | Anxiety Disorder Care",
+        heroTitle: "Expert Anxiety Treatment",
+        heroDescription: "Comprehensive anxiety treatment in Winter Park, FL. Our specialists provide evidence-based therapy and medication management for all types of anxiety disorders, helping you find relief and peace of mind.",
+        description: "Anxiety disorders are among the most common mental health conditions, but they're also highly treatable. Empathy Health Clinic offers specialized treatment for generalized anxiety disorder (GAD), panic disorder, social anxiety, and specific phobias. We combine proven therapies like CBT with medication when needed to help you manage anxiety and live fully.",
+        whoCanBenefit: "Our anxiety treatment helps people experiencing excessive worry, panic attacks, social anxiety, avoidance behaviors, physical symptoms like rapid heartbeat or shortness of breath, or anxiety that interferes with daily life. If anxiety is holding you back, we can help.",
+        whatToExpect: "Treatment begins with a comprehensive evaluation to understand your specific type of anxiety. We may recommend cognitive-behavioral therapy (CBT), exposure therapy, medication, or a combination approach. You'll learn practical skills to manage anxious thoughts and physical symptoms while addressing the root causes of your anxiety.",
+        faqs: JSON.stringify([
+          { question: "What's the difference between normal anxiety and an anxiety disorder?", answer: "Everyone feels anxious sometimes. An anxiety disorder involves persistent, excessive worry that interferes with daily life, lasts for months, and doesn't improve on its own." },
+          { question: "Can anxiety be cured?", answer: "While anxiety disorders are chronic conditions, they're highly treatable. Many people achieve full symptom relief with proper treatment and learn skills to prevent future anxiety episodes." },
+          { question: "How quickly will I feel better?", answer: "Many people notice improvement within 2-4 weeks of starting treatment. Full benefit from medication typically takes 4-6 weeks, while therapy skills develop over 8-12 weeks." }
+        ]),
+        order: 4,
+      },
+      {
+        title: "ADHD Treatment",
+        shortDescription: "Comprehensive ADHD diagnosis and treatment for children, teens, and adults.",
+        icon: "Activity",
+        slug: "adhd-treatment",
+        pageTitle: "ADHD Treatment in Winter Park, FL | Adult & Child ADHD Care",
+        heroTitle: "ADHD Diagnosis & Treatment",
+        heroDescription: "Expert ADHD treatment for all ages in Winter Park, FL. Our specialists provide thorough evaluations, medication management, and behavioral strategies to help you or your child thrive with ADHD.",
+        description: "Attention-Deficit/Hyperactivity Disorder (ADHD) affects both children and adults, impacting focus, organization, and impulse control. At Empathy Health Clinic, we provide comprehensive ADHD assessments and evidence-based treatment including stimulant and non-stimulant medications, behavioral strategies, and coaching to help you succeed at school, work, and in relationships.",
+        whoCanBenefit: "Our ADHD treatment helps children, teens, and adults who struggle with inattention, hyperactivity, impulsivity, difficulty completing tasks, time management challenges, or academic/work performance issues. Whether newly diagnosed or seeking better symptom control, we can help.",
+        whatToExpect: "ADHD evaluation includes detailed symptom assessment, often with rating scales from multiple sources. If diagnosed, treatment typically involves medication management with stimulants or non-stimulants, plus strategies for organization, time management, and behavior modification. Regular follow-ups ensure optimal medication dosing and symptom control.",
+        faqs: JSON.stringify([
+          { question: "Is ADHD overdiagnosed?", answer: "When properly evaluated by trained professionals, ADHD is accurately diagnosed. We use comprehensive assessments and standardized criteria to ensure accurate diagnosis." },
+          { question: "Are ADHD medications safe?", answer: "ADHD medications are safe and effective when properly prescribed and monitored. We start with low doses, adjust carefully, and monitor for any side effects." },
+          { question: "Can adults have ADHD?", answer: "Yes! Many adults have ADHD, often undiagnosed since childhood. Adult ADHD is common and very treatable with proper care." }
+        ]),
+        order: 5,
+      },
+      {
         title: "Bipolar Disorder Treatment",
-        shortDescription: "Personalized plans to stabilize mood and manage bipolar disorder effectively.",
+        shortDescription: "Specialized mood stabilization and comprehensive care for bipolar disorder.",
         icon: "Brain",
         slug: "bipolar-disorder-treatment",
         pageTitle: "Bipolar Disorder Treatment in Winter Park, FL | Empathy Health Clinic",
@@ -137,43 +227,7 @@ export class MemStorage implements IStorage {
           { question: "What medications are used?", answer: "Common medications include mood stabilizers like lithium or valproate, atypical antipsychotics, and sometimes antidepressants. Your psychiatrist will find the right combination for your specific needs." },
           { question: "Can therapy help bipolar disorder?", answer: "Yes! While medication is essential, therapy helps you recognize triggers, develop coping skills, maintain medication compliance, and improve relationships affected by the disorder." }
         ]),
-        order: 1,
-      },
-      {
-        title: "PTSD Treatment",
-        shortDescription: "Expert care to help overcome trauma and regain control of your life.",
-        icon: "Heart",
-        slug: "ptsd-treatment",
-        pageTitle: "PTSD Treatment in Winter Park, FL | Trauma-Informed Care",
-        heroTitle: "Compassionate PTSD Treatment",
-        heroDescription: "Specialized trauma-informed care for PTSD in Winter Park, FL. Our experienced clinicians provide evidence-based therapy and medication management to help you heal from traumatic experiences and reclaim your life.",
-        description: "Post-Traumatic Stress Disorder (PTSD) can develop after experiencing or witnessing traumatic events. At Empathy Health Clinic, we offer trauma-informed care that recognizes the impact of trauma on your mental health and wellbeing. Our comprehensive approach combines specialized therapy techniques with medication when needed to help you process traumatic memories and reduce symptoms.",
-        whoCanBenefit: "Our PTSD treatment is designed for individuals experiencing flashbacks, nightmares, severe anxiety, or intrusive thoughts related to past trauma. Whether your trauma stems from military service, accidents, assault, natural disasters, or other experiences, we provide compassionate support tailored to your needs.",
-        whatToExpect: "Treatment typically involves trauma-focused therapy such as Cognitive Processing Therapy (CPT) or Eye Movement Desensitization and Reprocessing (EMDR). Some patients also benefit from medication to manage anxiety, depression, or sleep difficulties. We create a safe, supportive environment where you can process trauma at your own pace.",
-        faqs: JSON.stringify([
-          { question: "How effective is PTSD treatment?", answer: "Evidence-based treatments for PTSD are highly effective. Studies show that 60-80% of people experience significant improvement with trauma-focused therapy. Many people achieve full recovery or substantial symptom reduction." },
-          { question: "Do I have to talk about my trauma?", answer: "While discussing trauma is part of effective treatment, we work at your pace in a safe, supportive environment. Our therapists are trained in trauma-informed care and will never push you beyond what you're ready to handle." },
-          { question: "Can PTSD be cured?", answer: "Many people fully recover from PTSD with proper treatment. Others learn to manage symptoms effectively so they no longer interfere with daily life. Early treatment generally leads to better outcomes." }
-        ]),
-        order: 2,
-      },
-      {
-        title: "Anger Management",
-        shortDescription: "Guided techniques to manage anger and improve emotional regulation.",
-        icon: "Users",
-        slug: "anger-management-treatment",
-        pageTitle: "Anger Management Treatment in Winter Park, FL | Empathy Health",
-        heroTitle: "Effective Anger Management Treatment",
-        heroDescription: "Professional anger management therapy in Winter Park, FL. Learn healthy coping strategies, improve relationships, and gain control over anger responses with our expert guidance.",
-        description: "Anger is a natural emotion, but when it becomes overwhelming or leads to destructive behavior, professional help can make a significant difference. At Empathy Health Clinic, our anger management program teaches practical skills to identify triggers, manage intense emotions, and respond to frustration in healthier ways. We help you understand the root causes of anger and develop lasting coping strategies.",
-        whoCanBenefit: "Our program helps individuals who struggle with frequent angry outbursts, difficulty controlling temper, relationship problems due to anger, or legal/work issues related to anger. If anger is affecting your personal relationships, career, or overall quality of life, our specialized treatment can help.",
-        whatToExpect: "Treatment involves individual or group therapy sessions where you'll learn to recognize anger triggers, understand the physiological and emotional components of anger, and practice new coping skills. We use cognitive-behavioral techniques, stress management, and communication training to help you respond to challenges more effectively.",
-        faqs: JSON.stringify([
-          { question: "How long is anger management treatment?", answer: "Most people see improvement within 8-12 weeks of consistent therapy. The exact duration depends on individual needs, severity of anger issues, and your commitment to practicing new skills." },
-          { question: "Is anger management just for people with violent tendencies?", answer: "No! Anger management helps anyone whose anger negatively impacts their life, relationships, or wellbeing. You don't need to be violent to benefit from learning better emotional regulation skills." },
-          { question: "Will I ever feel angry again?", answer: "Yes, and that's healthy! The goal isn't to eliminate anger but to respond to it appropriately. You'll learn to express anger constructively without damaging relationships or your wellbeing." }
-        ]),
-        order: 3,
+        order: 6,
       },
     ];
 
