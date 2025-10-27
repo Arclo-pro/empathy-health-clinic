@@ -351,6 +351,70 @@ export class MemStorage implements IStorage {
         order: 7 
       },
       { 
+        name: "Oscar Health", 
+        logo: "/attached_assets/generated_images/Oscar_Health_logo_fabb7b6b.png",
+        slug: "oscar-health-oscar-health-coverage",
+        pageTitle: "Find a Psychiatrist That Accepts Oscar Health",
+        heroTitle: "Find a Psychiatrist That Accepts Oscar Health",
+        heroDescription: "Expert psychiatrist that takes Oscar Health in Winter Park, FL. Our mental health clinic offers comprehensive psychiatric care, medication management, and anxiety and depression treatment for Oscar Health members in the Orlando area.",
+        description: "Empathy Health Clinic is proud to accept Oscar Health insurance for all our mental health services. Our experienced team works with Oscar Health to provide accessible, high-quality psychiatric care with transparent pricing and seamless coverage.",
+        coverageDetails: "Oscar Health insurance provides comprehensive mental health coverage. Most patients pay their standard specialist copay per visit. We accept all Oscar Health plans.",
+        faqs: JSON.stringify([
+          { question: "Do you accept Oscar Health insurance?", answer: "Yes, we are in-network with Oscar Health and accept all their plans." },
+          { question: "What is my copay with Oscar Health?", answer: "Copays typically range from $25-50 per visit depending on your specific Oscar Health plan. We verify your benefits before your first appointment." },
+          { question: "Does Oscar Health cover telehealth?", answer: "Yes, Oscar Health covers telehealth mental health appointments at the same rate as in-person visits." }
+        ]),
+        order: 8 
+      },
+      { 
+        name: "First Health", 
+        logo: "/attached_assets/generated_images/First_Health_logo_b3859bf9.png",
+        slug: "first-health-first-health-coverage",
+        pageTitle: "Find a Psychiatrist That Accepts First Health",
+        heroTitle: "Find a Psychiatrist That Accepts First Health",
+        heroDescription: "Expert psychiatrist that takes First Health in Winter Park, FL. Our mental health clinic offers comprehensive psychiatric care, medication management, and anxiety and depression treatment for First Health members in the Orlando area.",
+        description: "As a First Health network provider, Empathy Health Clinic offers comprehensive mental health services to First Health members. We understand the importance of accessible mental health care and work to provide excellent psychiatric treatment.",
+        coverageDetails: "First Health insurance provides comprehensive mental health coverage. Most patients pay their standard specialist copay per visit. We accept all First Health plans.",
+        faqs: JSON.stringify([
+          { question: "Are you in the First Health network?", answer: "Yes, Empathy Health Clinic is a First Health network provider for mental health services." },
+          { question: "What's the copay with First Health?", answer: "First Health copays vary by employer plan but typically range from $25-50 for behavioral health specialist visits." },
+          { question: "What services are covered?", answer: "First Health covers psychiatric evaluations, medication management, therapy sessions, and telehealth appointments." }
+        ]),
+        order: 9 
+      },
+      { 
+        name: "Medicare", 
+        logo: "/attached_assets/generated_images/Medicare_logo_637d5df1.png",
+        slug: "medicare-medicare-coverage",
+        pageTitle: "Find a Psychiatrist That Accepts Medicare",
+        heroTitle: "Find a Psychiatrist That Accepts Medicare",
+        heroDescription: "Expert psychiatrist that takes Medicare in Winter Park, FL. Our mental health clinic offers comprehensive psychiatric care, medication management, and anxiety and depression treatment for Medicare beneficiaries in the Orlando area.",
+        description: "Empathy Health Clinic is proud to serve Medicare beneficiaries with expert psychiatric care. We accept Medicare and work to ensure you receive the mental health treatment you need with your Medicare benefits.",
+        coverageDetails: "Medicare Part B covers outpatient mental health services including psychiatric evaluations, medication management, and therapy. After you meet your deductible, you typically pay 20% of the Medicare-approved amount.",
+        faqs: JSON.stringify([
+          { question: "Do you accept Medicare?", answer: "Yes, we accept Medicare and are experienced in working with Medicare beneficiaries for mental health services." },
+          { question: "What does Medicare cover for mental health?", answer: "Medicare Part B covers psychiatric evaluations, medication management, individual therapy, and telehealth appointments for mental health." },
+          { question: "What is my cost with Medicare?", answer: "After meeting your Part B deductible, you typically pay 20% of the Medicare-approved amount for outpatient mental health services." }
+        ]),
+        order: 10 
+      },
+      { 
+        name: "Curative Health", 
+        logo: "/attached_assets/generated_images/Curative_Health_logo_f2a91a7b.png",
+        slug: "curative-health-curative-health-coverage",
+        pageTitle: "Find a Psychiatrist That Accepts Curative Health",
+        heroTitle: "Find a Psychiatrist That Accepts Curative Health",
+        heroDescription: "Expert psychiatrist that takes Curative Health in Winter Park, FL. Our mental health clinic offers comprehensive psychiatric care, medication management, and anxiety and depression treatment for Curative Health members in the Orlando area.",
+        description: "Empathy Health Clinic partners with Curative Health to provide accessible mental health services. We're committed to delivering high-quality psychiatric care to Curative Health members throughout the Orlando area.",
+        coverageDetails: "Curative Health insurance provides comprehensive mental health coverage. Most patients pay their standard specialist copay per visit. We accept all Curative Health plans.",
+        faqs: JSON.stringify([
+          { question: "Do you accept Curative Health insurance?", answer: "Yes, we are in-network with Curative Health and accept all their plans." },
+          { question: "What services are covered?", answer: "Curative Health covers psychiatric evaluations, medication management, individual therapy, and telehealth visits." },
+          { question: "What is my copay?", answer: "Copays typically range from $25-50 per visit depending on your specific Curative Health plan." }
+        ]),
+        order: 11 
+      },
+      { 
         name: "More Providers", 
         logo: "/attached_assets/stock_images/medical_health_insur_80f2befe.jpg",
         slug: "more-providers-more-providers-coverage",
@@ -364,7 +428,7 @@ export class MemStorage implements IStorage {
           { question: "What if my insurance isn't listed?", answer: "We're constantly adding new insurance partnerships. Call us to check if we accept your plan or discuss self-pay options." },
           { question: "Do you offer self-pay rates?", answer: "Yes, we offer competitive self-pay rates for patients without insurance or those who prefer not to use insurance." }
         ]),
-        order: 8 
+        order: 12 
       },
     ];
 
