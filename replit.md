@@ -23,6 +23,7 @@ A modern, fast website with a content management system for Empathy Health Clini
 - ✅ Beautiful landing page with all sections
 - ✅ SEO-optimized insurance provider landing pages with custom URLs
 - ✅ SEO-optimized treatment landing pages with comprehensive content
+- ✅ SEO-optimized therapy landing pages with comprehensive content
 - ✅ Admin panel at `/admin` for editing all content
 - ✅ Real-time content updates from API
 - ✅ Mobile-responsive design
@@ -34,10 +35,11 @@ The CMS manages the following content types:
 
 1. **Site Content** - Hero section, footer info, about text
 2. **Treatments** - Treatment services with comprehensive landing pages
-3. **Team Members** - Staff profiles with photos and credentials
-4. **Testimonials** - Patient reviews with ratings
-5. **Insurance Providers** - Accepted insurance companies with detailed landing pages
-6. **Conditions** - Mental health conditions treated
+3. **Therapies** - Therapy modalities with comprehensive landing pages
+4. **Team Members** - Staff profiles with photos and credentials
+5. **Testimonials** - Patient reviews with ratings
+6. **Insurance Providers** - Accepted insurance companies with detailed landing pages
+7. **Conditions** - Mental health conditions treated
 
 ## Insurance Provider Pages
 
@@ -80,6 +82,34 @@ Each treatment service has its own comprehensive SEO-optimized landing page:
 - `/bipolar-disorder-treatment` - Bipolar Disorder Treatment
 - `/ptsd-treatment` - PTSD Treatment
 - `/anger-management-treatment` - Anger Management
+
+### SEO Features:
+- Custom page titles optimized for search engines
+- SEO-friendly URL slugs
+- Rich, keyword-optimized content
+- Structured FAQ sections
+- Mobile-responsive design
+
+## Therapy Landing Pages
+
+Each therapy modality has its own comprehensive SEO-optimized landing page:
+
+- **Main Therapy Page:** `/therapy` - Overview of all therapy services
+- **Therapy Pages:** `/{therapy-slug}` - Full therapy information pages
+
+### Therapy Page Content:
+- Custom hero section with therapy title and overview
+- Detailed therapy description
+- "Who Can Benefit" section targeting specific conditions
+- "What to Expect" section explaining the therapy process
+- Frequently Asked Questions (FAQs) specific to each therapy
+- Therapy approach and methodology
+- Insurance information
+- Contact and scheduling options
+
+### Available Therapy Pages:
+- Therapies can be added/edited via the admin panel
+- Examples: CBT, DBT, EMDR, Psychodynamic Therapy, etc.
 
 ### SEO Features:
 - Custom page titles optimized for search engines
@@ -142,6 +172,22 @@ Until you upload the logos, the insurance section will display provider names as
 - Click "Learn More" on treatment cards to view full landing pages
 - Edit comprehensive content for each treatment service
 
+**Therapies Tab:**
+- Add, edit, or delete therapy modalities
+- Each therapy includes:
+  - Title and short description (for cards)
+  - Icon (Lucide icon name)
+  - URL slug (for SEO-friendly URLs)
+  - Page title (for browser tab and search results)
+  - Hero section (title and description)
+  - Full description
+  - "Who Can Benefit" section
+  - "What to Expect" section
+  - FAQs in JSON format: `[{"question": "...", "answer": "..."}]`
+  - Order (display sequence)
+- Click "Learn More" on therapy cards to view full landing pages
+- Edit comprehensive content for each therapy service
+
 **Team Tab:**
 - Add/remove team members
 - Update names, credentials, and image paths
@@ -188,6 +234,12 @@ All endpoints are prefixed with `/api`:
 - `POST /api/treatments` - Create treatment
 - `PUT /api/treatments/:id` - Update treatment
 - `DELETE /api/treatments/:id` - Delete treatment
+- `GET /api/therapies` - List all therapies
+- `GET /api/therapies/:id` - Get therapy by ID
+- `GET /api/therapies/slug/:slug` - Get therapy by SEO-friendly slug
+- `POST /api/therapies` - Create therapy
+- `PUT /api/therapies/:id` - Update therapy
+- `DELETE /api/therapies/:id` - Delete therapy
 - Similar CRUD endpoints for: `/team-members`, `/testimonials`, `/insurance-providers`, `/conditions`
 - `GET /api/insurance-providers/slug/:slug` - Get provider by SEO-friendly slug
 
@@ -199,16 +251,19 @@ client/
 │   ├── components/          # Reusable UI components
 │   │   ├── admin/          # Admin panel editors
 │   │   │   ├── TreatmentsEditor.tsx
+│   │   │   ├── TherapiesEditor.tsx
 │   │   │   └── ...
 │   │   ├── ui/             # Shadcn components
 │   │   ├── TreatmentsSection.tsx # Treatment cards on home page
 │   │   └── *Section.tsx    # Other landing page sections
 │   ├── pages/              # Route pages
 │   │   ├── Home.tsx        # Landing page
-│   │   ├── Admin.tsx       # Admin panel
+│   │   ├── Admin.tsx       # Admin panel (7 tabs)
 │   │   ├── Insurance.tsx   # Main insurance page
 │   │   ├── ProviderCoverage.tsx # Individual provider pages
 │   │   ├── TreatmentDetail.tsx  # Individual treatment pages
+│   │   ├── Therapy.tsx     # Main therapy listing page
+│   │   ├── TherapyDetail2.tsx   # Individual therapy pages
 │   │   └── PageBySlug.tsx  # Smart router for slug-based pages
 │   └── hooks/              # Custom React hooks
 server/
