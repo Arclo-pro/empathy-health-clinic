@@ -24,7 +24,7 @@ export default function TherapysEditor() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const { data: therapys, isLoading } = useQuery<Therapy[]>({
-    queryKey: ["/api/therapys"],
+    queryKey: ["/api/therapies"],
   });
 
   const form = useForm<InsertTherapy>({
@@ -47,10 +47,10 @@ export default function TherapysEditor() {
 
   const createMutation = useMutation({
     mutationFn: async (data: InsertTherapy) => {
-      return apiRequest("POST", "/api/therapys", data);
+      return apiRequest("POST", "/api/therapies", data);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/therapys"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/therapies"] });
       toast({ title: "Success", description: "Therapy created successfully" });
       setIsDialogOpen(false);
       form.reset();
@@ -62,10 +62,10 @@ export default function TherapysEditor() {
 
   const updateMutation = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: Partial<InsertTherapy> }) => {
-      return apiRequest("PUT", `/api/therapys/${id}`, data);
+      return apiRequest("PUT", `/api/therapies/${id}`, data);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/therapys"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/therapies"] });
       toast({ title: "Success", description: "Therapy updated successfully" });
       setIsDialogOpen(false);
       setEditingTherapy(null);
@@ -78,10 +78,10 @@ export default function TherapysEditor() {
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
-      return apiRequest("DELETE", `/api/therapys/${id}`);
+      return apiRequest("DELETE", `/api/therapies/${id}`);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/therapys"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/therapies"] });
       toast({ title: "Success", description: "Therapy deleted successfully" });
     },
     onError: (error: Error) => {
