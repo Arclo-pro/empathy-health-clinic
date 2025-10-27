@@ -20,13 +20,13 @@ export default function InsuranceSection() {
           {visibleProviders?.map((provider, index) => (
             <div
               key={provider.id}
-              className="aspect-square rounded-xl border border-border bg-card overflow-hidden flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02]"
+              className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6"
               data-testid={`insurance-${index}`}
             >
               <img 
                 src={provider.logo} 
                 alt={provider.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallback = e.currentTarget.parentElement?.querySelector('p');
