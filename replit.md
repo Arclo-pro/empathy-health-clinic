@@ -200,6 +200,9 @@ Until you upload the logos, the insurance section will display provider names as
 - Edit comprehensive content for each therapy service
 
 **Team Tab:**
+- All 10 staff members from empathyhealthclinic.com
+- Shows 8 members initially with "Show More" button to reveal all
+- Professional headshot images for each team member
 - Add/remove team members
 - Update names, credentials, and image paths
 - Reorder team member display
