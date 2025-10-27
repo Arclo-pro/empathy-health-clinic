@@ -21,6 +21,7 @@ A modern, fast website with a content management system for Empathy Health Clini
 
 **Key Features:**
 - ✅ Beautiful landing page with all sections
+- ✅ SEO-optimized insurance provider landing pages with custom URLs
 - ✅ Admin panel at `/admin` for editing all content
 - ✅ Real-time content updates from API
 - ✅ Mobile-responsive design
@@ -34,8 +35,29 @@ The CMS manages the following content types:
 2. **Services** - Treatment services with icons and descriptions
 3. **Team Members** - Staff profiles with photos and credentials
 4. **Testimonials** - Patient reviews with ratings
-5. **Insurance Providers** - Accepted insurance companies
+5. **Insurance Providers** - Accepted insurance companies with detailed landing pages
 6. **Conditions** - Mental health conditions treated
+
+## Insurance Provider Pages
+
+Each insurance provider has a dedicated SEO-optimized landing page:
+
+- **Main Insurance Page:** `/insurance` - Overview of all accepted providers
+- **Provider Pages:** `/{provider}-{provider}-coverage` - Detailed coverage information
+
+### Provider Page Content:
+- Custom hero section with provider logo and title
+- Full description of the partnership
+- Coverage details and plan information
+- Frequently Asked Questions (FAQs)
+- Services offered
+- Contact information and appointment scheduling
+
+### SEO Features:
+- Custom page titles for search engines
+- Provider-specific URLs preserving WordPress SEO structure
+- Rich content for each insurance provider
+- Mobile-responsive design
 
 ## How to Edit Your Website
 
@@ -93,7 +115,14 @@ Until you upload the logos, the insurance section will display provider names as
 
 **Insurance Tab:**
 - Add or remove insurance providers
-- Reorder provider display
+- Edit provider landing page content:
+  - Provider name and logo
+  - URL slug (for SEO-friendly URLs)
+  - Page title and hero section
+  - Full description
+  - Coverage details
+  - FAQs (in JSON format)
+  - Display order
 
 **Conditions Tab:**
 - Add/remove conditions you treat
@@ -118,6 +147,7 @@ All endpoints are prefixed with `/api`:
 - `PUT /api/services/:id` - Update service
 - `DELETE /api/services/:id` - Delete service
 - Similar CRUD endpoints for: `/team-members`, `/testimonials`, `/insurance-providers`, `/conditions`
+- `GET /api/insurance-providers/slug/:slug` - Get provider by SEO-friendly slug
 
 ## Project Structure
 
@@ -130,7 +160,9 @@ client/
 │   │   └── *Section.tsx    # Landing page sections
 │   ├── pages/              # Route pages
 │   │   ├── Home.tsx        # Landing page
-│   │   └── Admin.tsx       # Admin panel
+│   │   ├── Admin.tsx       # Admin panel
+│   │   ├── Insurance.tsx   # Main insurance page
+│   │   └── ProviderCoverage.tsx # Individual provider pages
 │   └── hooks/              # Custom React hooks
 server/
 ├── routes.ts               # API route handlers
