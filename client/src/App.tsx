@@ -6,7 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import Insurance from "@/pages/Insurance";
-import ProviderCoverage from "@/pages/ProviderCoverage";
+import PageBySlug from "@/pages/PageBySlug";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -15,7 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/admin" component={Admin} />
       <Route path="/insurance" component={Insurance} />
-      <Route path="/:slug" component={ProviderCoverage} />
+      <Route path="/:slug" component={PageBySlug} />
       <Route component={NotFound} />
     </Switch>
   );

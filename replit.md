@@ -22,6 +22,7 @@ A modern, fast website with a content management system for Empathy Health Clini
 **Key Features:**
 - ✅ Beautiful landing page with all sections
 - ✅ SEO-optimized insurance provider landing pages with custom URLs
+- ✅ SEO-optimized treatment landing pages with comprehensive content
 - ✅ Admin panel at `/admin` for editing all content
 - ✅ Real-time content updates from API
 - ✅ Mobile-responsive design
@@ -32,7 +33,7 @@ A modern, fast website with a content management system for Empathy Health Clini
 The CMS manages the following content types:
 
 1. **Site Content** - Hero section, footer info, about text
-2. **Services** - Treatment services with icons and descriptions
+2. **Treatments** - Treatment services with comprehensive landing pages
 3. **Team Members** - Staff profiles with photos and credentials
 4. **Testimonials** - Patient reviews with ratings
 5. **Insurance Providers** - Accepted insurance companies with detailed landing pages
@@ -57,6 +58,34 @@ Each insurance provider has a dedicated SEO-optimized landing page:
 - Custom page titles for search engines
 - Provider-specific URLs preserving WordPress SEO structure
 - Rich content for each insurance provider
+- Mobile-responsive design
+
+## Treatment Landing Pages
+
+Each treatment service has its own comprehensive SEO-optimized landing page:
+
+- **Treatment Pages:** `/{treatment-slug}` - Full treatment information pages
+
+### Treatment Page Content:
+- Custom hero section with treatment title and overview
+- Detailed treatment description
+- "Who Can Benefit" section targeting specific symptoms/conditions
+- "What to Expect" section explaining the treatment process
+- Frequently Asked Questions (FAQs) specific to each treatment
+- Treatment approach and methodology
+- Insurance information
+- Contact and scheduling options
+
+### Available Treatment Pages:
+- `/bipolar-disorder-treatment` - Bipolar Disorder Treatment
+- `/ptsd-treatment` - PTSD Treatment
+- `/anger-management-treatment` - Anger Management
+
+### SEO Features:
+- Custom page titles optimized for search engines
+- SEO-friendly URL slugs
+- Rich, keyword-optimized content
+- Structured FAQ sections
 - Mobile-responsive design
 
 ## How to Edit Your Website
@@ -97,10 +126,21 @@ Until you upload the logos, the insurance section will display provider names as
 - Change footer contact information
 - Modify about text
 
-**Services Tab:**
+**Treatments Tab:**
 - Add, edit, or delete treatment services
-- Change service titles, descriptions, and icons
-- Reorder services with the order field
+- Each treatment includes:
+  - Title and short description (for cards)
+  - Icon (Lucide icon name)
+  - URL slug (for SEO-friendly URLs)
+  - Page title (for browser tab and search results)
+  - Hero section (title and description)
+  - Full description
+  - "Who Can Benefit" section
+  - "What to Expect" section
+  - FAQs in JSON format: `[{"question": "...", "answer": "..."}]`
+  - Display order
+- Click "Learn More" on treatment cards to view full landing pages
+- Edit comprehensive content for each treatment service
 
 **Team Tab:**
 - Add/remove team members
@@ -142,10 +182,12 @@ All endpoints are prefixed with `/api`:
 
 - `GET /api/site-content` - Get site content
 - `PUT /api/site-content` - Update site content
-- `GET /api/services` - List all services
-- `POST /api/services` - Create service
-- `PUT /api/services/:id` - Update service
-- `DELETE /api/services/:id` - Delete service
+- `GET /api/treatments` - List all treatments
+- `GET /api/treatments/:id` - Get treatment by ID
+- `GET /api/treatments/slug/:slug` - Get treatment by SEO-friendly slug
+- `POST /api/treatments` - Create treatment
+- `PUT /api/treatments/:id` - Update treatment
+- `DELETE /api/treatments/:id` - Delete treatment
 - Similar CRUD endpoints for: `/team-members`, `/testimonials`, `/insurance-providers`, `/conditions`
 - `GET /api/insurance-providers/slug/:slug` - Get provider by SEO-friendly slug
 
@@ -156,13 +198,18 @@ client/
 ├── src/
 │   ├── components/          # Reusable UI components
 │   │   ├── admin/          # Admin panel editors
+│   │   │   ├── TreatmentsEditor.tsx
+│   │   │   └── ...
 │   │   ├── ui/             # Shadcn components
-│   │   └── *Section.tsx    # Landing page sections
+│   │   ├── TreatmentsSection.tsx # Treatment cards on home page
+│   │   └── *Section.tsx    # Other landing page sections
 │   ├── pages/              # Route pages
 │   │   ├── Home.tsx        # Landing page
 │   │   ├── Admin.tsx       # Admin panel
 │   │   ├── Insurance.tsx   # Main insurance page
-│   │   └── ProviderCoverage.tsx # Individual provider pages
+│   │   ├── ProviderCoverage.tsx # Individual provider pages
+│   │   ├── TreatmentDetail.tsx  # Individual treatment pages
+│   │   └── PageBySlug.tsx  # Smart router for slug-based pages
 │   └── hooks/              # Custom React hooks
 server/
 ├── routes.ts               # API route handlers

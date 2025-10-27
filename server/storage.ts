@@ -3,8 +3,8 @@ import {
   type InsertUser,
   type SiteContent,
   type InsertSiteContent,
-  type Service,
-  type InsertService,
+  type Treatment,
+  type InsertTreatment,
   type TeamMember,
   type InsertTeamMember,
   type Testimonial,
@@ -26,12 +26,13 @@ export interface IStorage {
   getSiteContent(): Promise<SiteContent | undefined>;
   updateSiteContent(content: InsertSiteContent): Promise<SiteContent>;
 
-  // Service methods
-  getAllServices(): Promise<Service[]>;
-  getService(id: string): Promise<Service | undefined>;
-  createService(service: InsertService): Promise<Service>;
-  updateService(id: string, service: Partial<InsertService>): Promise<Service>;
-  deleteService(id: string): Promise<void>;
+  // Treatment methods
+  getAllTreatments(): Promise<Treatment[]>;
+  getTreatment(id: string): Promise<Treatment | undefined>;
+  getTreatmentBySlug(slug: string): Promise<Treatment | undefined>;
+  createTreatment(treatment: InsertTreatment): Promise<Treatment>;
+  updateTreatment(id: string, treatment: Partial<InsertTreatment>): Promise<Treatment>;
+  deleteTreatment(id: string): Promise<void>;
 
   // Team member methods
   getAllTeamMembers(): Promise<TeamMember[]>;
@@ -66,7 +67,7 @@ export interface IStorage {
 export class MemStorage implements IStorage {
   private users: Map<string, User>;
   private siteContent: SiteContent | undefined;
-  private services: Map<string, Service>;
+  private treatments: Map<string, Treatment>;
   private teamMembers: Map<string, TeamMember>;
   private testimonials: Map<string, Testimonial>;
   private insuranceProviders: Map<string, InsuranceProvider>;
@@ -74,7 +75,7 @@ export class MemStorage implements IStorage {
 
   constructor() {
     this.users = new Map();
-    this.services = new Map();
+    this.treatments = new Map();
     this.teamMembers = new Map();
     this.testimonials = new Map();
     this.insuranceProviders = new Map();
@@ -97,34 +98,67 @@ export class MemStorage implements IStorage {
       aboutText: "At Empathy Health Clinic, our mission is to serve the community of Orlando, FL, with a range of affordable mental health services. Whether you need to speak with a professional or seek more comprehensive treatment, we can guide you toward the best solution for your needs and well-being.",
     };
 
-    // Initialize default services
-    const defaultServices: InsertService[] = [
+    // Initialize default treatments
+    const defaultTreatments: InsertTreatment[] = [
       {
         title: "Bipolar Disorder Treatment",
-        description: "Personalized plans to stabilize mood and manage bipolar disorder effectively.",
+        shortDescription: "Personalized plans to stabilize mood and manage bipolar disorder effectively.",
         icon: "Brain",
-        link: "#bipolar",
+        slug: "bipolar-disorder-treatment",
+        pageTitle: "Bipolar Disorder Treatment in Winter Park, FL | Empathy Health Clinic",
+        heroTitle: "Expert Bipolar Disorder Treatment",
+        heroDescription: "Comprehensive psychiatric care for bipolar disorder in Winter Park, FL. Our experienced team provides personalized medication management and therapy to help you achieve mood stability and improve your quality of life.",
+        description: "At Empathy Health Clinic, we understand that living with bipolar disorder can be challenging. Our specialized treatment program combines evidence-based medication management with supportive therapy to help you manage mood swings, reduce symptoms, and maintain stability. We work closely with each patient to develop a personalized treatment plan that addresses your unique needs.",
+        whoCanBenefit: "Our bipolar disorder treatment helps individuals experiencing extreme mood swings between manic highs and depressive lows. If you struggle with energy fluctuations, impulsive behavior during manic episodes, or periods of severe depression, our specialized care can help you find balance and stability.",
+        whatToExpect: "Treatment begins with a comprehensive psychiatric evaluation to understand your specific symptoms and history. We'll develop a personalized medication plan, often including mood stabilizers, and provide ongoing monitoring. Many patients also benefit from psychotherapy to develop coping strategies and recognize early warning signs of mood episodes.",
+        faqs: JSON.stringify([
+          { question: "How long does bipolar treatment take?", answer: "Bipolar disorder is a lifelong condition, but with proper treatment, most people achieve significant stability within 3-6 months. Ongoing medication management and periodic therapy help maintain long-term wellness." },
+          { question: "What medications are used?", answer: "Common medications include mood stabilizers like lithium or valproate, atypical antipsychotics, and sometimes antidepressants. Your psychiatrist will find the right combination for your specific needs." },
+          { question: "Can therapy help bipolar disorder?", answer: "Yes! While medication is essential, therapy helps you recognize triggers, develop coping skills, maintain medication compliance, and improve relationships affected by the disorder." }
+        ]),
         order: 1,
       },
       {
         title: "PTSD Treatment",
-        description: "Expert care to help overcome trauma and regain control of your life.",
+        shortDescription: "Expert care to help overcome trauma and regain control of your life.",
         icon: "Heart",
-        link: "#ptsd",
+        slug: "ptsd-treatment",
+        pageTitle: "PTSD Treatment in Winter Park, FL | Trauma-Informed Care",
+        heroTitle: "Compassionate PTSD Treatment",
+        heroDescription: "Specialized trauma-informed care for PTSD in Winter Park, FL. Our experienced clinicians provide evidence-based therapy and medication management to help you heal from traumatic experiences and reclaim your life.",
+        description: "Post-Traumatic Stress Disorder (PTSD) can develop after experiencing or witnessing traumatic events. At Empathy Health Clinic, we offer trauma-informed care that recognizes the impact of trauma on your mental health and wellbeing. Our comprehensive approach combines specialized therapy techniques with medication when needed to help you process traumatic memories and reduce symptoms.",
+        whoCanBenefit: "Our PTSD treatment is designed for individuals experiencing flashbacks, nightmares, severe anxiety, or intrusive thoughts related to past trauma. Whether your trauma stems from military service, accidents, assault, natural disasters, or other experiences, we provide compassionate support tailored to your needs.",
+        whatToExpect: "Treatment typically involves trauma-focused therapy such as Cognitive Processing Therapy (CPT) or Eye Movement Desensitization and Reprocessing (EMDR). Some patients also benefit from medication to manage anxiety, depression, or sleep difficulties. We create a safe, supportive environment where you can process trauma at your own pace.",
+        faqs: JSON.stringify([
+          { question: "How effective is PTSD treatment?", answer: "Evidence-based treatments for PTSD are highly effective. Studies show that 60-80% of people experience significant improvement with trauma-focused therapy. Many people achieve full recovery or substantial symptom reduction." },
+          { question: "Do I have to talk about my trauma?", answer: "While discussing trauma is part of effective treatment, we work at your pace in a safe, supportive environment. Our therapists are trained in trauma-informed care and will never push you beyond what you're ready to handle." },
+          { question: "Can PTSD be cured?", answer: "Many people fully recover from PTSD with proper treatment. Others learn to manage symptoms effectively so they no longer interfere with daily life. Early treatment generally leads to better outcomes." }
+        ]),
         order: 2,
       },
       {
-        title: "Anger Management Treatment",
-        description: "Guided techniques to manage anger and improve emotional regulation.",
+        title: "Anger Management",
+        shortDescription: "Guided techniques to manage anger and improve emotional regulation.",
         icon: "Users",
-        link: "#anger",
+        slug: "anger-management-treatment",
+        pageTitle: "Anger Management Treatment in Winter Park, FL | Empathy Health",
+        heroTitle: "Effective Anger Management Treatment",
+        heroDescription: "Professional anger management therapy in Winter Park, FL. Learn healthy coping strategies, improve relationships, and gain control over anger responses with our expert guidance.",
+        description: "Anger is a natural emotion, but when it becomes overwhelming or leads to destructive behavior, professional help can make a significant difference. At Empathy Health Clinic, our anger management program teaches practical skills to identify triggers, manage intense emotions, and respond to frustration in healthier ways. We help you understand the root causes of anger and develop lasting coping strategies.",
+        whoCanBenefit: "Our program helps individuals who struggle with frequent angry outbursts, difficulty controlling temper, relationship problems due to anger, or legal/work issues related to anger. If anger is affecting your personal relationships, career, or overall quality of life, our specialized treatment can help.",
+        whatToExpect: "Treatment involves individual or group therapy sessions where you'll learn to recognize anger triggers, understand the physiological and emotional components of anger, and practice new coping skills. We use cognitive-behavioral techniques, stress management, and communication training to help you respond to challenges more effectively.",
+        faqs: JSON.stringify([
+          { question: "How long is anger management treatment?", answer: "Most people see improvement within 8-12 weeks of consistent therapy. The exact duration depends on individual needs, severity of anger issues, and your commitment to practicing new skills." },
+          { question: "Is anger management just for people with violent tendencies?", answer: "No! Anger management helps anyone whose anger negatively impacts their life, relationships, or wellbeing. You don't need to be violent to benefit from learning better emotional regulation skills." },
+          { question: "Will I ever feel angry again?", answer: "Yes, and that's healthy! The goal isn't to eliminate anger but to respond to it appropriately. You'll learn to express anger constructively without damaging relationships or your wellbeing." }
+        ]),
         order: 3,
       },
     ];
 
-    defaultServices.forEach((service) => {
+    defaultTreatments.forEach((treatment) => {
       const id = randomUUID();
-      this.services.set(id, { id, ...service });
+      this.treatments.set(id, { id, ...treatment });
     });
 
     // Initialize default team members
@@ -382,35 +416,39 @@ export class MemStorage implements IStorage {
     return this.siteContent;
   }
 
-  // Service methods
-  async getAllServices(): Promise<Service[]> {
-    return Array.from(this.services.values()).sort((a, b) => a.order - b.order);
+  // Treatment methods
+  async getAllTreatments(): Promise<Treatment[]> {
+    return Array.from(this.treatments.values()).sort((a, b) => a.order - b.order);
   }
 
-  async getService(id: string): Promise<Service | undefined> {
-    return this.services.get(id);
+  async getTreatment(id: string): Promise<Treatment | undefined> {
+    return this.treatments.get(id);
   }
 
-  async createService(service: InsertService): Promise<Service> {
+  async getTreatmentBySlug(slug: string): Promise<Treatment | undefined> {
+    return Array.from(this.treatments.values()).find(t => t.slug === slug);
+  }
+
+  async createTreatment(treatment: InsertTreatment): Promise<Treatment> {
     const id = randomUUID();
-    const newService: Service = { id, ...service };
-    this.services.set(id, newService);
-    return newService;
+    const newTreatment: Treatment = { id, ...treatment };
+    this.treatments.set(id, newTreatment);
+    return newTreatment;
   }
 
-  async updateService(
+  async updateTreatment(
     id: string,
-    service: Partial<InsertService>
-  ): Promise<Service> {
-    const existing = this.services.get(id);
-    if (!existing) throw new Error("Service not found");
-    const updated = { ...existing, ...service };
-    this.services.set(id, updated);
+    treatment: Partial<InsertTreatment>
+  ): Promise<Treatment> {
+    const existing = this.treatments.get(id);
+    if (!existing) throw new Error("Treatment not found");
+    const updated = { ...existing, ...treatment };
+    this.treatments.set(id, updated);
     return updated;
   }
 
-  async deleteService(id: string): Promise<void> {
-    this.services.delete(id);
+  async deleteTreatment(id: string): Promise<void> {
+    this.treatments.delete(id);
   }
 
   // Team member methods

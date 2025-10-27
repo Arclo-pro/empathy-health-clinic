@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SiteContentEditor from "@/components/admin/SiteContentEditor";
-import ServicesEditor from "@/components/admin/ServicesEditor";
+import TreatmentsEditor from "@/components/admin/TreatmentsEditor";
 import TeamMembersEditor from "@/components/admin/TeamMembersEditor";
 import TestimonialsEditor from "@/components/admin/TestimonialsEditor";
 import InsuranceProvidersEditor from "@/components/admin/InsuranceProvidersEditor";
@@ -34,8 +34,8 @@ export default function Admin() {
             <TabsTrigger value="site-content" data-testid="tab-site-content">
               Site Content
             </TabsTrigger>
-            <TabsTrigger value="services" data-testid="tab-services">
-              Services
+            <TabsTrigger value="treatments" data-testid="tab-treatments">
+              Treatments
             </TabsTrigger>
             <TabsTrigger value="team" data-testid="tab-team">
               Team
@@ -55,8 +55,8 @@ export default function Admin() {
             <SiteContentEditor />
           </TabsContent>
 
-          <TabsContent value="services">
-            <ServicesEditor />
+          <TabsContent value="treatments">
+            <TreatmentsEditor />
           </TabsContent>
 
           <TabsContent value="team">

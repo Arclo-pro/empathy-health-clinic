@@ -38,22 +38,29 @@ export const insertSiteContentSchema = createInsertSchema(siteContent).omit({
 export type InsertSiteContent = z.infer<typeof insertSiteContentSchema>;
 export type SiteContent = typeof siteContent.$inferSelect;
 
-// Services/Treatments
-export const services = pgTable("services", {
+// Treatments
+export const treatments = pgTable("treatments", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   title: text("title").notNull(),
-  description: text("description").notNull(),
+  shortDescription: text("short_description").notNull(),
   icon: text("icon").notNull(),
-  link: text("link").notNull(),
+  slug: text("slug").notNull(),
+  pageTitle: text("page_title").notNull(),
+  heroTitle: text("hero_title").notNull(),
+  heroDescription: text("hero_description").notNull(),
+  description: text("description").notNull(),
+  whoCanBenefit: text("who_can_benefit").notNull(),
+  whatToExpect: text("what_to_expect").notNull(),
+  faqs: text("faqs").notNull().default('[]'),
   order: integer("order").notNull(),
 });
 
-export const insertServiceSchema = createInsertSchema(services).omit({
+export const insertTreatmentSchema = createInsertSchema(treatments).omit({
   id: true,
 });
 
-export type InsertService = z.infer<typeof insertServiceSchema>;
-export type Service = typeof services.$inferSelect;
+export type InsertTreatment = z.infer<typeof insertTreatmentSchema>;
+export type Treatment = typeof treatments.$inferSelect;
 
 // Team Members
 export const teamMembers = pgTable("team_members", {

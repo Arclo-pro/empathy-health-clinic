@@ -1,7 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import InsuranceSection from "@/components/InsuranceSection";
-import ServicesSection from "@/components/ServicesSection";
+import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import TeamSection from "@/components/TeamSection";
 import ConditionsSection from "@/components/ConditionsSection";
@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <InsuranceSection />
-        <ServicesSection />
+        <TreatmentsSection />
         <ApproachSection />
         <TeamSection />
         <ConditionsSection />

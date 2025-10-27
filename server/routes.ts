@@ -3,7 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import {
   insertSiteContentSchema,
-  insertServiceSchema,
+  insertTreatmentSchema,
   insertTeamMemberSchema,
   insertTestimonialSchema,
   insertInsuranceProviderSchema,
@@ -31,54 +31,66 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Service routes
-  app.get("/api/services", async (_req, res) => {
+  // Treatment routes
+  app.get("/api/treatments", async (_req, res) => {
     try {
-      const services = await storage.getAllServices();
-      res.json(services);
+      const treatments = await storage.getAllTreatments();
+      res.json(treatments);
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
 
-  app.get("/api/services/:id", async (req, res) => {
+  app.get("/api/treatments/:id", async (req, res) => {
     try {
-      const service = await storage.getService(req.params.id);
-      if (!service) {
-        return res.status(404).json({ error: "Service not found" });
+      const treatment = await storage.getTreatment(req.params.id);
+      if (!treatment) {
+        return res.status(404).json({ error: "Treatment not found" });
       }
-      res.json(service);
+      res.json(treatment);
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
   });
 
-  app.post("/api/services", async (req, res) => {
+  app.get("/api/treatments/slug/:slug", async (req, res) => {
     try {
-      const validated = insertServiceSchema.parse(req.body);
-      const service = await storage.createService(validated);
-      res.json(service);
+      const treatment = await storage.getTreatmentBySlug(req.params.slug);
+      if (!treatment) {
+        return res.status(404).json({ error: "Treatment not found" });
+      }
+      res.json(treatment);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/treatments", async (req, res) => {
+    try {
+      const validated = insertTreatmentSchema.parse(req.body);
+      const treatment = await storage.createTreatment(validated);
+      res.json(treatment);
     } catch (error: any) {
       res.status(400).json({ error: error.message });
     }
   });
 
-  app.put("/api/services/:id", async (req, res) => {
+  app.put("/api/treatments/:id", async (req, res) => {
     try {
-      const validated = insertServiceSchema.partial().parse(req.body);
-      const service = await storage.updateService(req.params.id, validated);
-      res.json(service);
+      const validated = insertTreatmentSchema.partial().parse(req.body);
+      const treatment = await storage.updateTreatment(req.params.id, validated);
+      res.json(treatment);
     } catch (error: any) {
-      if (error.message === "Service not found") {
+      if (error.message === "Treatment not found") {
         return res.status(404).json({ error: error.message });
       }
       res.status(400).json({ error: error.message });
     }
   });
 
-  app.delete("/api/services/:id", async (req, res) => {
+  app.delete("/api/treatments/:id", async (req, res) => {
     try {
-      await storage.deleteService(req.params.id);
+      await storage.deleteTreatment(req.params.id);
       res.json({ success: true });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
