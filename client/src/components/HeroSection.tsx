@@ -3,7 +3,7 @@ import { Phone, Star } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
-import heroImageFallback from "@assets/generated_images/Calming_clinic_waiting_room_1ebe2eda.png";
+import heroImageFallback from "@assets/generated_images/Calming_clinic_waiting_room_883e95f7.png";
 
 export default function HeroSection() {
   const { data: content } = useQuery<SiteContent>({
