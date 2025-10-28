@@ -6,6 +6,7 @@ import TestimonialsEditor from "@/components/admin/TestimonialsEditor";
 import InsuranceProvidersEditor from "@/components/admin/InsuranceProvidersEditor";
 import TherapiesEditor from "@/components/admin/TherapiesEditor";
 import ConditionsEditor from "@/components/admin/ConditionsEditor";
+import NewsletterEditor from "@/components/admin/NewsletterEditor";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import { useLocation } from "wouter";
@@ -41,7 +42,7 @@ export default function Admin() {
         </div>
         
         <Tabs defaultValue="site-content" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-7 gap-2">
+          <TabsList className="grid w-full grid-cols-2 lg:grid-cols-8 gap-2">
             <TabsTrigger value="site-content" data-testid="tab-site-content">
               Site Content
             </TabsTrigger>
@@ -62,6 +63,9 @@ export default function Admin() {
             </TabsTrigger>
             <TabsTrigger value="conditions" data-testid="tab-conditions">
               Conditions
+            </TabsTrigger>
+            <TabsTrigger value="newsletter" data-testid="tab-newsletter">
+              Newsletter
             </TabsTrigger>
           </TabsList>
 
@@ -91,6 +95,10 @@ export default function Admin() {
 
           <TabsContent value="conditions">
             <ConditionsEditor />
+          </TabsContent>
+
+          <TabsContent value="newsletter">
+            <NewsletterEditor />
           </TabsContent>
         </Tabs>
       </div>
