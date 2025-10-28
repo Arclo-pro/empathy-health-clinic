@@ -14,7 +14,6 @@ export default function SiteHeader() {
   const phone = content?.footerPhone || "386-848-8751";
 
   const navItems = [
-    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Team", href: "/team" },
     { label: "Insurance", href: "/insurance" }
@@ -26,13 +25,9 @@ export default function SiteHeader() {
         <div className="flex items-center justify-between h-20 md:h-24">
           <div className="flex items-center">
             <a 
-              href="#" 
-              className="text-xl md:text-2xl font-sans font-medium text-foreground"
+              href="/" 
+              className="text-xl md:text-2xl font-sans font-medium text-foreground hover:text-primary transition-colors"
               data-testid="link-logo"
-              onClick={(e) => {
-                e.preventDefault();
-                console.log('Logo clicked');
-              }}
             >
               Empathy Health Clinic
             </a>
