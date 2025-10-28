@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { Loader2, Video } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import { trackEvent } from "@/lib/analytics";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
 
 export default function VirtualVisit() {
@@ -23,99 +25,105 @@ export default function VirtualVisit() {
     <div className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
       <main className="flex-1">
-        <div className="relative py-16 px-4">
+        <div className="relative py-20 px-4">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${forestBg})` }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
           </div>
-          <div className="container mx-auto max-w-6xl relative z-10">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/90 mb-4">
-                <Video className="h-8 w-8 text-primary" />
-              </div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
-                Virtual Visit
-              </h1>
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto" data-testid="text-hero-description">
-                Connect with your provider from the comfort of your home through our secure telehealth platform
-              </p>
+          <div className="container mx-auto max-w-6xl relative z-10 text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/90 mb-4">
+              <Video className="h-8 w-8 text-primary" />
             </div>
-          </div>
-        </div>
-
-        <div className="container mx-auto px-4 py-12 md:py-16 lg:py-20 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-4">
-              Pick Your Provider
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Select your provider below to start your virtual visit. Make sure you have a scheduled appointment before joining.
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
+              Virtual Visit
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+              Connect with your provider from the comfort of your home through our secure telehealth platform. Select your provider below to start your visit.
             </p>
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers?.map((member, index) => (
-              <div
-                key={member.id}
-                className="rounded-2xl border border-card-border bg-card p-6 hover-elevate transition-transform duration-200"
-                data-testid={`provider-card-${index}`}
-              >
-                <div className="aspect-[3/4] rounded-xl overflow-hidden mb-6 bg-muted">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                    data-testid={`img-provider-${index}`}
-                  />
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl font-semibold text-foreground mb-2" data-testid={`text-provider-name-${index}`}>
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-6" data-testid={`text-provider-credentials-${index}`}>
-                    {member.credentials}
-                  </p>
-                  <Button
-                    size="lg"
-                    className="w-full gap-2"
-                    asChild
-                    data-testid={`button-virtual-visit-${index}`}
-                  >
-                    <a href={member.doxyUrl} target="_blank" rel="noopener noreferrer">
-                      <Video className="h-5 w-5" />
-                      Start Virtual Visit
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-16 bg-card border rounded-xl p-8 md:p-12">
-            <div className="max-w-3xl mx-auto text-center">
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Need to Schedule an Appointment?
-              </h3>
-              <p className="text-muted-foreground mb-8">
-                If you don't have a scheduled appointment yet, contact us to book your virtual visit.
+        <section className="py-16 md:py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-4">
+                Choose Your Provider
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Click on your provider's card to enter their virtual waiting room. Make sure you have a scheduled appointment before joining.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild data-testid="button-request-appointment">
-                  <a href="/request-appointment">
-                    Request Appointment
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild data-testid="button-call-office">
-                  <a href="tel:3868488751">
-                    Call (386) 848-8751
-                  </a>
-                </Button>
-              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {teamMembers?.map((member, index) => (
+                <a
+                  key={member.id}
+                  href={member.doxyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                  data-testid={`link-provider-${index}`}
+                  onClick={() => trackEvent('virtual_visit_click', 'conversion', 'Virtual Visit Provider', member.name)}
+                >
+                  <div
+                    className="bg-card border rounded-lg hover-elevate transition-all duration-200 cursor-pointer h-full"
+                    data-testid={`provider-card-${index}`}
+                  >
+                    <div className="aspect-square rounded-t-lg bg-muted flex items-center justify-center p-4">
+                      <Avatar className="w-full h-full rounded-none">
+                        <AvatarImage 
+                          src={member.image} 
+                          alt={member.name} 
+                          className="object-contain w-full h-full" 
+                        />
+                        <AvatarFallback className="text-4xl rounded-none">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-sans font-bold text-foreground mb-2">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {member.credentials}
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                        <Video className="h-4 w-4" />
+                        Start Virtual Visit →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
+
+        <section className="py-16 bg-card border-t">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-6">
+              Need to Schedule an Appointment?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              If you don't have a scheduled appointment yet, contact us to book your virtual visit.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" asChild data-testid="button-request-appointment">
+                <a href="/request-appointment">
+                  Request Appointment
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild data-testid="button-call-office">
+                <a href="tel:3868488751">
+                  Call (386) 848-8751
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>
