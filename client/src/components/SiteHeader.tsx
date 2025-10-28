@@ -17,8 +17,7 @@ export default function SiteHeader() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Our Team", href: "/team" },
-    { label: "Insurance", href: "/insurance" },
-    { label: "Virtual Visit", href: "/virtual-visit" }
+    { label: "Insurance", href: "/insurance" }
   ];
 
   return (
@@ -58,7 +57,7 @@ export default function SiteHeader() {
             ))}
           </nav>
           
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <a 
               href={`tel:${phone.replace(/[^0-9]/g, '')}`}
               className="flex items-center gap-2 text-primary font-semibold text-lg hover:text-primary/80 transition-colors"
@@ -67,6 +66,15 @@ export default function SiteHeader() {
               <Phone className="h-5 w-5" />
               <span>{phone}</span>
             </a>
+            <Button
+              variant="ghost"
+              asChild
+              data-testid="button-virtual-visit"
+            >
+              <a href="/virtual-visit">
+                Virtual Visit
+              </a>
+            </Button>
             <Button
               variant="ghost"
               asChild
@@ -127,6 +135,26 @@ export default function SiteHeader() {
                 {item.label}
               </a>
             ))}
+            <a
+              href="/virtual-visit"
+              className="block text-base font-medium text-foreground hover:text-primary py-2"
+              data-testid="link-mobile-virtual-visit"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Virtual Visit
+            </a>
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full"
+              data-testid="button-mobile-patient-portal"
+              onClick={() => {
+                window.open('https://www.charmhealth.com/ehr/sign-in.html', '_blank');
+                setMobileMenuOpen(false);
+              }}
+            >
+              Patient Portal
+            </Button>
             <Button
               size="lg"
               className="w-full rounded-full"
