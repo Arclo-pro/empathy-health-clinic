@@ -12,6 +12,8 @@ import TeamMemberDetail from "@/pages/TeamMemberDetail";
 import ServicesPage from "@/pages/ServicesPage";
 import RequestAppointment from "@/pages/RequestAppointment";
 import VirtualVisit from "@/pages/VirtualVisit";
+import BlogListingPage from "@/pages/BlogListingPage";
+import BlogDetailPage from "@/pages/BlogDetailPage";
 import PageBySlug from "@/pages/PageBySlug";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +29,8 @@ function Router() {
       <Route path="/services" component={ServicesPage} />
       <Route path="/request-appointment" component={RequestAppointment} />
       <Route path="/virtual-visit" component={VirtualVisit} />
+      <Route path="/blog" component={BlogListingPage} />
+      <Route path="/blog/:slug" component={BlogDetailPage} />
       <Route path="/:slug" component={PageBySlug} />
       <Route component={NotFound} />
     </Switch>

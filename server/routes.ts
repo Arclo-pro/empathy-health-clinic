@@ -11,6 +11,7 @@ import {
   insertTherapySchema,
   insertConditionSchema,
   insertLeadSchema,
+  insertBlogPostSchema,
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -457,6 +458,72 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const leads = await storage.getAllLeads();
       res.json(leads);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Blog post routes
+  app.get("/api/blog-posts", async (_req, res) => {
+    try {
+      const blogPosts = await storage.getAllBlogPosts();
+      res.json(blogPosts);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/blog-posts/:id", async (req, res) => {
+    try {
+      const blogPost = await storage.getBlogPost(req.params.id);
+      if (!blogPost) {
+        return res.status(404).json({ error: "Blog post not found" });
+      }
+      res.json(blogPost);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/blog-posts/slug/:slug", async (req, res) => {
+    try {
+      const blogPost = await storage.getBlogPostBySlug(req.params.slug);
+      if (!blogPost) {
+        return res.status(404).json({ error: "Blog post not found" });
+      }
+      res.json(blogPost);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/blog-posts", async (req, res) => {
+    try {
+      const validated = insertBlogPostSchema.parse(req.body);
+      const blogPost = await storage.createBlogPost(validated);
+      res.json(blogPost);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.put("/api/blog-posts/:id", async (req, res) => {
+    try {
+      const validated = insertBlogPostSchema.partial().parse(req.body);
+      const blogPost = await storage.updateBlogPost(req.params.id, validated);
+      res.json(blogPost);
+    } catch (error: any) {
+      if (error.message === "Blog post not found") {
+        return res.status(404).json({ error: error.message });
+      }
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.delete("/api/blog-posts/:id", async (req, res) => {
+    try {
+      await storage.deleteBlogPost(req.params.id);
+      res.json({ success: true });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
