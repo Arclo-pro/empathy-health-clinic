@@ -140,7 +140,7 @@ export default function SiteFooter() {
                   <SiGoogle className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://facebook.com/empathyhealthclinic"
+                  href="https://www.facebook.com/profile.php?id=100083226165903"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
