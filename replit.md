@@ -18,8 +18,10 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 - **Email Notifications:** SendGrid integration automatically sends lead notification emails to providers@empathyhealthclinic.com when forms are submitted. Emails include all contact details and form data in a professional HTML format.
 - **SEO Features:** Custom page titles, SEO-friendly URLs (preserving WordPress structure where needed), rich keyword-optimized content, structured FAQ sections, and mobile-responsive design are central to all landing pages (Insurance, Treatment, Therapy, Condition).
 - **Dynamic Content:** Real-time content updates are pulled from the API.
-- **Blog System:** Complete blog with listing page (`/blog`) and individual post pages (`/blog/:slug`). 7 comprehensive mental health articles migrated from existing site.
+- **Blog System:** Complete blog with listing page (`/blog`) and individual post pages (`/blog/:slug`). 7 comprehensive mental health articles migrated from existing site with full SEO optimization.
+- **Blog SEO:** All blog posts include comprehensive SEO metadata (custom meta titles, descriptions, keywords, Open Graph tags, Twitter cards), JSON-LD structured data for rich snippets, related articles, author bios, social sharing, and category filtering.
 - **LiveChat Integration:** Site-wide LiveChat widget (license 17225574) for instant customer support on all pages.
+- **Analytics System:** Comprehensive site health monitoring with Core Web Vitals tracking (LCP, INP, CLS, FCP, TTFB), Google Analytics 4 integration, page view tracking, conversion event tracking, and admin analytics dashboard at `/admin/analytics`.
 
 ### Feature Specifications
 - **Landing Page:** Beautiful, comprehensive landing page.
@@ -29,9 +31,22 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
   - 9 Psychiatric Treatment pages (including ESA Letter service)
   - 15 Therapy Service pages
   - 10 Condition pages (Anxiety, Depression, Bipolar, PTSD, Personality Disorders, ADHD, OCD, Eating Disorders, Substance Use Disorders, Postpartum Depression)
-- **Blog Section (`/blog`):** 7 comprehensive mental health articles covering topics like nervous breakdowns, anxiety careers, infidelity psychology, counselor wellness, sexuality identity, falling in love timelines, and psychotherapy basics.
+- **Blog Section (`/blog`):** 7 SEO-optimized mental health articles with:
+  - Featured post display and category filters (Mental Health, Wellness, Therapy)
+  - JSON-LD structured data for rich Google snippets
+  - Comprehensive meta tags (Open Graph, Twitter Cards, canonical URLs)
+  - Related articles section based on category
+  - Author bios with credentials
+  - Social sharing functionality
+  - Topics: nervous breakdowns, anxiety careers, infidelity psychology, counselor wellness, sexuality identity, falling in love timelines, and psychotherapy basics
 - **Team Page (`/team`):** Displays all 9 staff members with professional photos, credentials, and individual bio pages.
 - **Patient Portal (`/admin`):** A comprehensive CMS for editing all content types (including blog posts) and viewing leads.
+- **Analytics Dashboard (`/admin/analytics`):** Site health monitoring showing:
+  - Core Web Vitals metrics with color-coded ratings (LCP, INP, CLS, FCP, TTFB)
+  - Google Analytics integration status
+  - Page views by URL (7 days, 30 days, all time, top 10 pages)
+  - Conversion tracking (form submissions, phone clicks, virtual visits)
+  - Recent activity log with event timestamps
 - **Lead Capture:** High-converting forms on therapy pages with automatic email notifications to providers@empathyhealthclinic.com.
 - **Trust Factors:** Credibility indicators strategically placed throughout the site.
 - **LiveChat Widget:** Site-wide instant chat support for immediate customer assistance.
@@ -52,8 +67,10 @@ The system uses an in-memory storage solution, simplifying deployment by removin
 - **Zod:** Schema declaration and validation library.
 - **SendGrid:** Email delivery service for lead notifications.
 - **LiveChat:** Real-time customer support chat widget.
+- **web-vitals:** Google's library for measuring Core Web Vitals (LCP, INP, CLS, FCP, TTFB).
 - **Lucide-react:** Icon library for UI elements.
 
 ## Environment Secrets
 - **SENDGRID_API_KEY:** Required for email notifications to providers@empathyhealthclinic.com
 - **SESSION_SECRET:** Required for admin session management
+- **VITE_GA_MEASUREMENT_ID** (Optional): Google Analytics 4 Measurement ID for enhanced tracking and reporting. Get this from your Google Analytics account (Admin > Property > Data Streams > Web). Format: G-XXXXXXXXXX
