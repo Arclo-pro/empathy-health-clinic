@@ -288,3 +288,21 @@ export const insertWebVitalSchema = createInsertSchema(webVitals).omit({
 
 export type InsertWebVital = z.infer<typeof insertWebVitalSchema>;
 export type WebVital = typeof webVitals.$inferSelect;
+
+// Newsletter Subscribers
+export const newsletterSubscribers = pgTable("newsletter_subscribers", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  email: text("email").notNull().unique(),
+  subscribedAt: text("subscribed_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  status: text("status").notNull().default("active"), // 'active' or 'unsubscribed'
+});
+
+export const insertNewsletterSubscriberSchema = createInsertSchema(newsletterSubscribers).omit({
+  id: true,
+  subscribedAt: true,
+}).extend({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+export type InsertNewsletterSubscriber = z.infer<typeof insertNewsletterSubscriberSchema>;
+export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;

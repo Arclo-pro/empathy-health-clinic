@@ -25,6 +25,8 @@ import {
   type InsertAnalyticsEvent,
   type WebVital,
   type InsertWebVital,
+  type NewsletterSubscriber,
+  type InsertNewsletterSubscriber,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -97,6 +99,11 @@ export interface IStorage {
   updateBlogPost(id: string, post: Partial<InsertBlogPost>): Promise<BlogPost>;
   deleteBlogPost(id: string): Promise<void>;
 
+  // Newsletter subscriber methods
+  createNewsletterSubscriber(subscriber: InsertNewsletterSubscriber): Promise<NewsletterSubscriber>;
+  getAllNewsletterSubscribers(): Promise<NewsletterSubscriber[]>;
+  getActiveNewsletterSubscribers(): Promise<NewsletterSubscriber[]>;
+
   // Analytics methods
   trackPageView(data: InsertPageView): Promise<PageView>;
   getPageViews(startDate?: string, endDate?: string): Promise<PageView[]>;
@@ -129,6 +136,7 @@ export class MemStorage implements IStorage {
   private conditions: Map<string, Condition>;
   private leads: Map<string, Lead>;
   private blogPosts: Map<string, BlogPost>;
+  private newsletterSubscribers: Map<string, NewsletterSubscriber>;
   private pageViews: PageView[];
   private analyticsEvents: AnalyticsEvent[];
   private webVitals: WebVital[];
@@ -143,6 +151,7 @@ export class MemStorage implements IStorage {
     this.conditions = new Map();
     this.leads = new Map();
     this.blogPosts = new Map();
+    this.newsletterSubscribers = new Map();
     this.pageViews = [];
     this.analyticsEvents = [];
     this.webVitals = [];
@@ -3463,6 +3472,49 @@ Remember: seeking help is a sign of strength. You deserve support, understanding
 
   async deleteBlogPost(id: string): Promise<void> {
     this.blogPosts.delete(id);
+  }
+
+  // Newsletter subscriber methods
+  async createNewsletterSubscriber(subscriber: InsertNewsletterSubscriber): Promise<NewsletterSubscriber> {
+    // Check if email already exists
+    const existing = Array.from(this.newsletterSubscribers.values()).find(
+      s => s.email.toLowerCase() === subscriber.email.toLowerCase()
+    );
+    
+    if (existing) {
+      // If already exists and is active, return it
+      if (existing.status === 'active') {
+        return existing;
+      }
+      // If unsubscribed, reactivate
+      existing.status = 'active';
+      this.newsletterSubscribers.set(existing.id, existing);
+      return existing;
+    }
+    
+    // Create new subscriber
+    const id = randomUUID();
+    const now = new Date().toISOString();
+    const newSubscriber: NewsletterSubscriber = { 
+      id, 
+      email: subscriber.email,
+      subscribedAt: now,
+      status: subscriber.status || 'active'
+    };
+    this.newsletterSubscribers.set(id, newSubscriber);
+    return newSubscriber;
+  }
+
+  async getAllNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
+    return Array.from(this.newsletterSubscribers.values()).sort(
+      (a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime()
+    );
+  }
+
+  async getActiveNewsletterSubscribers(): Promise<NewsletterSubscriber[]> {
+    return Array.from(this.newsletterSubscribers.values())
+      .filter(s => s.status === 'active')
+      .sort((a, b) => new Date(b.subscribedAt).getTime() - new Date(a.subscribedAt).getTime());
   }
 
   // Analytics methods
