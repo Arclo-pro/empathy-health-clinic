@@ -6,6 +6,7 @@ import type { Treatment } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import TrustFactors from "@/components/TrustFactors";
+import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
 
 export default function TreatmentDetail() {
@@ -181,22 +182,21 @@ export default function TreatmentDetail() {
             <div className="md:col-span-1">
               <div className="bg-card border rounded-lg p-6 sticky top-4">
                 <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Start Your Journey
+                  Request a Free Consultation
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Ready to begin treatment? Contact us today to schedule your initial consultation and take the first step toward healing.
+                  Take the first step toward healing. Fill out the form below and we'll call you within 24 hours to discuss your treatment options.
                 </p>
-                <div className="space-y-3">
-                  <Button className="w-full" asChild data-testid="button-call-office">
+                <ShortContactForm />
+                
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm text-center text-muted-foreground mb-3">
+                    Prefer to call us directly?
+                  </p>
+                  <Button className="w-full" variant="outline" asChild data-testid="button-call-office">
                     <a href="tel:3868488751" className="flex items-center justify-center gap-2">
                       <Phone className="h-4 w-4" />
                       Call (386) 848-8751
-                    </a>
-                  </Button>
-                  <Button variant="outline" className="w-full" asChild data-testid="button-contact-us">
-                    <a href="mailto:info@empathyhealthclinic.com" className="flex items-center justify-center gap-2">
-                      <Mail className="h-4 w-4" />
-                      Email Us
                     </a>
                   </Button>
                 </div>
@@ -243,6 +243,25 @@ export default function TreatmentDetail() {
                   </Button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-16 bg-primary/5 border border-primary/20 rounded-lg p-8 md:p-12">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
+                  Ready to Start Your Treatment Journey?
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Don't wait to get the help you deserve. Request a free consultation and take the first step toward feeling better.
+                </p>
+              </div>
+              <div className="bg-card rounded-lg p-6 md:p-8 shadow-sm">
+                <ShortContactForm />
+              </div>
+              <p className="text-center text-sm text-muted-foreground mt-6">
+                ✓ Most insurance accepted • ✓ Evening & weekend appointments • ✓ Telehealth available
+              </p>
             </div>
           </div>
 
