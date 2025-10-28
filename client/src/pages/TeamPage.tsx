@@ -50,12 +50,12 @@ export default function TeamPage() {
                   className="bg-card border rounded-lg hover-elevate transition-all duration-200"
                   data-testid={`team-member-card-${index}`}
                 >
-                  <div className="aspect-square overflow-hidden rounded-t-lg">
+                  <div className="aspect-square rounded-t-lg bg-muted flex items-center justify-center p-4">
                     <Avatar className="w-full h-full rounded-none">
                       <AvatarImage 
                         src={member.image} 
                         alt={member.name} 
-                        className="object-cover w-full h-full" 
+                        className="object-contain w-full h-full" 
                       />
                       <AvatarFallback className="text-4xl rounded-none">
                         {member.name.split(' ').map(n => n[0]).join('')}
