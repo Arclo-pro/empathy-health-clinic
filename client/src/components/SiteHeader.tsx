@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
 
@@ -67,7 +66,6 @@ export default function SiteHeader() {
               <Phone className="h-5 w-5" />
               <span>{phone}</span>
             </a>
-            <ThemeToggle />
             <Button
               variant="ghost"
               onClick={() => window.location.href = '/admin'}
@@ -86,7 +84,6 @@ export default function SiteHeader() {
           </div>
           
           <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
