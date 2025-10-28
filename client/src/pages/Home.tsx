@@ -31,6 +31,7 @@ export default function Home() {
         <InsuranceSection />
         <TreatmentsSection />
         <ApproachSection />
+        <div className="border-t" />
         <TeamSection />
         <ConditionsSection />
         <div className="border-t" />
