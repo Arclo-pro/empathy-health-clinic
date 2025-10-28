@@ -435,7 +435,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "UnitedHealthcare", 
-        logo: "/attached_assets/stock_images/unitedhealthcare_ins_b1c0510b.jpg",
+        logo: "/attached_assets/stock_images/unitedhealthcare_ins_d2188813.jpg",
         slug: "unitedhealthcare-unitedhealthcare-coverage",
         pageTitle: "Find a Psychiatrist That Accepts UnitedHealthcare",
         heroTitle: "Find a Psychiatrist That Accepts UnitedHealthcare",
