@@ -32,8 +32,12 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white mb-6">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-white/95 leading-relaxed mb-6">
+          <p className="text-lg md:text-xl text-white/95 leading-relaxed mb-4">
             {subtitle}
+          </p>
+          
+          <p className="text-base md:text-lg text-white/90 mb-6 font-light">
+            Private, in-person and telehealth appointments with licensed Florida clinicians.
           </p>
           
           <div className="flex flex-wrap items-center gap-4 mb-8 text-white/95">

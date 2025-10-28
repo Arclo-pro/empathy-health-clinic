@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { initGA } from "@/lib/analytics";
 import { initWebVitals } from "@/lib/web-vitals-tracker";
 import { useAnalytics } from "@/hooks/use-analytics";
+import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import AnalyticsDashboard from "@/pages/AnalyticsDashboard";
@@ -19,29 +20,40 @@ import RequestAppointment from "@/pages/RequestAppointment";
 import VirtualVisit from "@/pages/VirtualVisit";
 import BlogListingPage from "@/pages/BlogListingPage";
 import BlogDetailPage from "@/pages/BlogDetailPage";
+import ThankYou from "@/pages/ThankYou";
 import PageBySlug from "@/pages/PageBySlug";
 import NotFound from "@/pages/not-found";
 
 function Router() {
+  const [location] = useLocation();
   useAnalytics();
   
+  // Don't show sticky CTA on admin pages, thank you page, or request appointment page
+  const showStickyCTA = !location.startsWith('/admin') && 
+                        location !== '/thank-you' && 
+                        location !== '/request-appointment';
+  
   return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/admin/analytics" component={AnalyticsDashboard} />
-      <Route path="/insurance" component={Insurance} />
-      <Route path="/therapy" component={Therapy} />
-      <Route path="/team" component={TeamPage} />
-      <Route path="/team/:slug" component={TeamMemberDetail} />
-      <Route path="/services" component={ServicesPage} />
-      <Route path="/request-appointment" component={RequestAppointment} />
-      <Route path="/virtual-visit" component={VirtualVisit} />
-      <Route path="/blog" component={BlogListingPage} />
-      <Route path="/blog/:slug" component={BlogDetailPage} />
-      <Route path="/:slug" component={PageBySlug} />
-      <Route component={NotFound} />
-    </Switch>
+    <>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/admin/analytics" component={AnalyticsDashboard} />
+        <Route path="/insurance" component={Insurance} />
+        <Route path="/therapy" component={Therapy} />
+        <Route path="/team" component={TeamPage} />
+        <Route path="/team/:slug" component={TeamMemberDetail} />
+        <Route path="/services" component={ServicesPage} />
+        <Route path="/request-appointment" component={RequestAppointment} />
+        <Route path="/virtual-visit" component={VirtualVisit} />
+        <Route path="/thank-you" component={ThankYou} />
+        <Route path="/blog" component={BlogListingPage} />
+        <Route path="/blog/:slug" component={BlogDetailPage} />
+        <Route path="/:slug" component={PageBySlug} />
+        <Route component={NotFound} />
+      </Switch>
+      {showStickyCTA && <StickyMobileCTA />}
+    </>
   );
 }
 

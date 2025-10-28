@@ -140,8 +140,9 @@ export default function LongContactForm() {
       });
     },
     onSuccess: () => {
-      setIsSubmitted(true);
       trackEvent('form_submitted', 'engagement', 'Long Contact Form - Success', 'long');
+      // Redirect to thank you page
+      window.location.href = '/thank-you';
     },
     onError: () => {
       toast({

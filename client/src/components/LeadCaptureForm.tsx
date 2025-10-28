@@ -58,9 +58,9 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       return response.json();
     },
     onSuccess: () => {
-      setSubmitted(true);
-      form.reset();
       trackEvent('form_submission', 'conversion', 'Lead Capture Form', therapyName);
+      // Redirect to thank you page
+      window.location.href = '/thank-you';
     },
   });
 

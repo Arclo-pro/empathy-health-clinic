@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { SiGoogle, SiFacebook, SiInstagram } from "react-icons/si";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
@@ -102,9 +103,9 @@ export default function SiteFooter() {
           <div>
             <h3 className="text-xl font-semibold mb-4 text-foreground">Stay Connected</h3>
             <p className="text-base text-muted-foreground mb-4">
-              Subscribe to our newsletter for mental health tips and updates.
+              Get mental health tips & updates. We respect your privacy — no spam.
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-2 mb-6">
               <Input
                 type="email"
                 placeholder="Your email"
@@ -124,14 +125,53 @@ export default function SiteFooter() {
                 Subscribe
               </Button>
             </div>
+            
+            <div className="pt-4 border-t border-card-border">
+              <h4 className="text-sm font-semibold text-foreground mb-3">Follow Us</h4>
+              <div className="flex gap-4">
+                <a
+                  href="https://www.google.com/maps/place/Empathy+Health+Clinic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-google-business"
+                  aria-label="Google Business Profile"
+                >
+                  <SiGoogle className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://facebook.com/empathyhealthclinic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-facebook"
+                  aria-label="Facebook"
+                >
+                  <SiFacebook className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://instagram.com/empathyhealthclinic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-instagram"
+                  aria-label="Instagram"
+                >
+                  <SiInstagram className="w-6 h-6" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         
         <div className="pt-8 border-t border-card-border text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mb-2">
             © 2025 Empathy Health Clinic. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground/60 mt-3">
+          <p className="text-xs text-muted-foreground/70 mb-2">
+            Licensed mental health providers | FL License #
+          </p>
+          <p className="text-xs text-muted-foreground/60">
             Empathy Health Clinic provides mental wellness and behavioral health services. We do not sell or advertise prescription drugs online.
           </p>
         </div>
