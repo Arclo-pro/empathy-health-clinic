@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, MapPin, Phone, Calendar } from "lucide-react";
-import { SiFacebook, SiInstagram } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiX } from "react-icons/si";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
@@ -148,6 +148,16 @@ export default function SiteFooter() {
                   aria-label="Facebook"
                 >
                   <SiFacebook className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://x.com/clinicempathy12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-twitter"
+                  aria-label="Twitter/X"
+                >
+                  <SiX className="w-6 h-6" />
                 </a>
                 <a
                   href="https://www.instagram.com/empathyhealthfl/?hl=en"
