@@ -78,6 +78,7 @@ const DAYS = [
 
 export default function LongContactForm() {
   const [step, setStep] = useState(1);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
   const formStartedTracked = useRef(false);
   
@@ -139,12 +140,8 @@ export default function LongContactForm() {
       });
     },
     onSuccess: () => {
-      toast({
-        title: "Request Submitted!",
-        description: "We'll contact you soon to schedule your appointment.",
-      });
-      form.reset();
-      setStep(1);
+      setIsSubmitted(true);
+      trackEvent('form_submitted', 'engagement', 'Long Contact Form - Success', 'long');
     },
     onError: () => {
       toast({
@@ -167,6 +164,77 @@ export default function LongContactForm() {
 
   const totalSteps = 5;
   const progress = (step / totalSteps) * 100;
+
+  if (isSubmitted) {
+    return (
+      <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl p-6 md:p-10">
+        <div className="max-w-2xl mx-auto text-center py-8">
+          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 className="h-12 w-12 text-primary" />
+          </div>
+          
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Request Received!
+          </h2>
+          
+          <p className="text-lg text-muted-foreground mb-8">
+            Thank you for reaching out to Empathy Health Clinic. We've received your appointment request and will contact you within 24 hours to confirm your appointment.
+          </p>
+
+          <div className="bg-card border rounded-xl p-6 mb-8">
+            <h3 className="text-xl font-semibold text-foreground mb-4">What Happens Next?</h3>
+            <div className="space-y-4 text-left">
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-primary font-bold">1</span>
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Our team will review your request</p>
+                  <p className="text-sm text-muted-foreground">We'll match you with the best provider for your needs</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-primary font-bold">2</span>
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">We'll call you to schedule</p>
+                  <p className="text-sm text-muted-foreground">Expect a call within 24 hours during business hours</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-primary font-bold">3</span>
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Attend your first session</p>
+                  <p className="text-sm text-muted-foreground">Take the first step toward better mental health</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Need immediate assistance?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button size="lg" variant="outline" asChild>
+                <a href="tel:3868488751">
+                  Call (386) 848-8751
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild>
+                <a href="/">
+                  Return to Home
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl p-6 md:p-10">

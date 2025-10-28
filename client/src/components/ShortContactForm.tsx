@@ -16,7 +16,8 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { CheckCircle2 } from "lucide-react";
 
 const shortFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -36,6 +37,7 @@ interface ShortContactFormProps {
 
 export default function ShortContactForm({ service, className = "" }: ShortContactFormProps) {
   const { toast } = useToast();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const formStartedTracked = useRef(false);
   
   const form = useForm<ShortFormValues>({
@@ -66,11 +68,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
       });
     },
     onSuccess: () => {
-      toast({
-        title: "Request Submitted!",
-        description: "We'll contact you soon to schedule your appointment.",
-      });
-      form.reset();
+      setIsSubmitted(true);
       trackEvent('form_submission', 'conversion', 'Short Contact Form', service);
     },
     onError: () => {
@@ -85,6 +83,57 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
   const onSubmit = (data: ShortFormValues) => {
     submitLead.mutate(data);
   };
+
+  if (isSubmitted) {
+    return (
+      <div className={className}>
+        <div className="bg-card border-2 border-primary/20 rounded-2xl shadow-lg p-6 md:p-8 text-center">
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <CheckCircle2 className="h-10 w-10 text-primary" />
+          </div>
+          
+          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Request Received!
+          </h3>
+          
+          <p className="text-muted-foreground mb-6">
+            Thank you for reaching out. We'll contact you within 24 hours to confirm your appointment.
+          </p>
+
+          <div className="bg-background border rounded-lg p-4 mb-6 text-left">
+            <h4 className="font-semibold text-foreground mb-3">What Happens Next?</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex gap-3">
+                <span className="text-primary font-bold">1.</span>
+                <span className="text-muted-foreground">Our team reviews your request</span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-primary font-bold">2.</span>
+                <span className="text-muted-foreground">We call you to schedule within 24 hours</span>
+              </div>
+              <div className="flex gap-3">
+                <span className="text-primary font-bold">3.</span>
+                <span className="text-muted-foreground">You attend your first session</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button variant="outline" asChild>
+              <a href="tel:3868488751">
+                Call (386) 848-8751
+              </a>
+            </Button>
+            <Button variant="outline" asChild>
+              <a href="/">
+                Return to Home
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
