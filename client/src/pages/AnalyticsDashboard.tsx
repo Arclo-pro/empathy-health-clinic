@@ -83,6 +83,16 @@ function formatWebVitalValue(metricName: string, value: number): string {
   return `${Math.round(value)}ms`;
 }
 
+interface FormConversionMetrics {
+  shortFormStarts: number;
+  shortFormSubmissions: number;
+  longFormStarts: number;
+  longFormSubmissions: number;
+  shortFormDropOffRate: number;
+  longFormDropOffRate: number;
+  totalDropOffRate: number;
+}
+
 export default function AnalyticsDashboard() {
   const [, setLocation] = useLocation();
   const gaActive = isGAActive();
@@ -92,8 +102,13 @@ export default function AnalyticsDashboard() {
     queryKey: ['/api/analytics/dashboard'],
   });
 
+  const { data: formMetrics } = useQuery<FormConversionMetrics>({
+    queryKey: ['/api/analytics/forms'],
+  });
+
   const handleRefresh = () => {
     queryClient.invalidateQueries({ queryKey: ['/api/analytics/dashboard'] });
+    queryClient.invalidateQueries({ queryKey: ['/api/analytics/forms'] });
     refetch();
   };
 
@@ -374,6 +389,130 @@ export default function AnalyticsDashboard() {
             </div>
           </CardContent>
         </Card>
+
+        {/* Form Conversion Metrics */}
+        {formMetrics && (
+          <Card data-testid="card-form-metrics">
+            <CardHeader>
+              <CardTitle>Form Conversion Metrics</CardTitle>
+              <CardDescription>Short vs long form submissions and drop-off rates</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {/* Form Type Comparison */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Short Form */}
+                  <div className="p-4 rounded-lg border">
+                    <h3 className="font-semibold mb-4 flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-primary" />
+                      Short Contact Form
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">Started</span>
+                        <span className="font-semibold" data-testid="text-short-form-starts">
+                          {formMetrics.shortFormStarts}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">Submitted</span>
+                        <span className="font-semibold" data-testid="text-short-form-submissions">
+                          {formMetrics.shortFormSubmissions}
+                        </span>
+                      </div>
+                      <Separator />
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Drop-off Rate</span>
+                        <Badge 
+                          variant={formMetrics.shortFormDropOffRate < 30 ? 'default' : formMetrics.shortFormDropOffRate < 60 ? 'secondary' : 'destructive'}
+                          data-testid="badge-short-form-dropoff"
+                        >
+                          {formMetrics.shortFormDropOffRate.toFixed(1)}%
+                        </Badge>
+                      </div>
+                      <Progress 
+                        value={formMetrics.shortFormDropOffRate} 
+                        className="h-2"
+                        data-testid="progress-short-form-dropoff"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Long Form */}
+                  <div className="p-4 rounded-lg border">
+                    <h3 className="font-semibold mb-4 flex items-center gap-2">
+                      <FileText className="h-4 w-4 text-primary" />
+                      Long Contact Form
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">Started</span>
+                        <span className="font-semibold" data-testid="text-long-form-starts">
+                          {formMetrics.longFormStarts}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-muted-foreground">Submitted</span>
+                        <span className="font-semibold" data-testid="text-long-form-submissions">
+                          {formMetrics.longFormSubmissions}
+                        </span>
+                      </div>
+                      <Separator />
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium">Drop-off Rate</span>
+                        <Badge 
+                          variant={formMetrics.longFormDropOffRate < 30 ? 'default' : formMetrics.longFormDropOffRate < 60 ? 'secondary' : 'destructive'}
+                          data-testid="badge-long-form-dropoff"
+                        >
+                          {formMetrics.longFormDropOffRate.toFixed(1)}%
+                        </Badge>
+                      </div>
+                      <Progress 
+                        value={formMetrics.longFormDropOffRate} 
+                        className="h-2"
+                        data-testid="progress-long-form-dropoff"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Overall Conversion */}
+                <div className="p-4 rounded-lg bg-muted/50">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-semibold flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4" />
+                      Overall Form Performance
+                    </h3>
+                    <Badge 
+                      variant={formMetrics.totalDropOffRate < 30 ? 'default' : formMetrics.totalDropOffRate < 60 ? 'secondary' : 'destructive'}
+                      data-testid="badge-total-dropoff"
+                    >
+                      {formMetrics.totalDropOffRate.toFixed(1)}% drop-off
+                    </Badge>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                      <p className="text-2xl font-bold">{formMetrics.shortFormStarts + formMetrics.longFormStarts}</p>
+                      <p className="text-xs text-muted-foreground">Total Started</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold">{formMetrics.shortFormSubmissions + formMetrics.longFormSubmissions}</p>
+                      <p className="text-xs text-muted-foreground">Total Submitted</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold">{formMetrics.shortFormSubmissions}</p>
+                      <p className="text-xs text-muted-foreground">Short Forms</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold">{formMetrics.longFormSubmissions}</p>
+                      <p className="text-xs text-muted-foreground">Long Forms</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {/* Top Pages */}
         {data?.pageViews.topPages && data.pageViews.topPages.length > 0 && (
