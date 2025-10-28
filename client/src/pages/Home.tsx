@@ -8,10 +8,19 @@ import TeamSection from "@/components/TeamSection";
 import ConditionsSection from "@/components/ConditionsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import SiteFooter from "@/components/SiteFooter";
+import SEOHead from "@/components/SEOHead";
+import OrganizationSchema from "@/components/OrganizationSchema";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEOHead
+        title="Empathy Health Clinic | Compassionate Mental Health Care & Psychiatric Services"
+        description="Expert mental health treatment in Florida. We offer psychiatric evaluations, therapy, medication management, and accept most major insurance. Call 386-848-8751 for compassionate care."
+        keywords={["mental health", "psychiatry", "therapy", "medication management", "mental health Florida", "psychiatric services", "anxiety treatment", "depression treatment"]}
+        canonicalPath="/"
+      />
+      <OrganizationSchema />
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />

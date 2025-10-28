@@ -6,6 +6,7 @@ import type { Condition, Treatment, Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import SEOHead from "@/components/SEOHead";
 
 export default function ConditionDetail() {
   const [, params] = useRoute("/:slug");
@@ -84,6 +85,12 @@ export default function ConditionDetail() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEOHead
+        title={`${condition.title} Treatment | Empathy Health Clinic`}
+        description={condition.heroDescription}
+        keywords={[condition.title, "mental health", "treatment", "therapy", "Florida psychiatry"]}
+        canonicalPath={`/${condition.slug}`}
+      />
       <SiteHeader />
       <main className="flex-1">
         <div className="relative py-16 px-4">

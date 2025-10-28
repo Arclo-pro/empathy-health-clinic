@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustFactors from "@/components/TrustFactors";
 import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import SEOHead from "@/components/SEOHead";
 
 export default function TreatmentDetail() {
   const [, params] = useRoute("/:slug");
@@ -54,6 +55,12 @@ export default function TreatmentDetail() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <SEOHead
+        title={`${treatment.title} | Empathy Health Clinic`}
+        description={treatment.heroDescription}
+        keywords={[treatment.title, "mental health treatment", "psychiatric services", "Florida psychiatry"]}
+        canonicalPath={`/${treatment.slug}`}
+      />
       <SiteHeader />
       <main className="flex-1">
         <div className="relative py-16 px-4">

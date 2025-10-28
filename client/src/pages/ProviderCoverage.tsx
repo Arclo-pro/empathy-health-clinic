@@ -6,6 +6,7 @@ import type { InsuranceProvider, Condition } from "@shared/schema";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import SEOHead from "@/components/SEOHead";
 
 export default function ProviderCoverage() {
   const [, params] = useRoute("/:slug");
@@ -56,6 +57,12 @@ export default function ProviderCoverage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title={`${provider.name} Insurance Coverage | Empathy Health Clinic`}
+        description={provider.heroDescription}
+        keywords={[provider.name, "insurance coverage", "mental health insurance", "Florida psychiatry", "therapy insurance"]}
+        canonicalPath={`/${provider.slug}`}
+      />
       <SiteHeader />
       <div className="relative py-16 px-4">
         <div 

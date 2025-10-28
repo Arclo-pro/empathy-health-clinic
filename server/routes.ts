@@ -687,6 +687,89 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // SEO Routes - XML Sitemap
+  app.get("/sitemap.xml", async (_req, res) => {
+    try {
+      const [treatments, therapies, conditions, insuranceProviders, blogPosts] = await Promise.all([
+        storage.getAllTreatments(),
+        storage.getAllTherapies(),
+        storage.getAllConditions(),
+        storage.getAllInsuranceProviders(),
+        storage.getAllBlogPosts()
+      ]);
+
+      const baseUrl = process.env.REPLIT_DEPLOYMENT === "1" 
+        ? `https://${process.env.REPLIT_DOMAINS?.split(',')[0] || 'empathyhealthclinic.com'}`
+        : "https://empathyhealthclinic.com";
+
+      let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+      xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+      // Homepage
+      xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+
+      // Main pages
+      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy'];
+      mainPages.forEach(page => {
+        xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+      });
+
+      // Treatment pages
+      treatments.forEach(treatment => {
+        xml += `  <url>\n    <loc>${baseUrl}/${treatment.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+      });
+
+      // Therapy pages
+      therapies.forEach(therapy => {
+        xml += `  <url>\n    <loc>${baseUrl}/${therapy.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+      });
+
+      // Condition pages
+      conditions.forEach(condition => {
+        xml += `  <url>\n    <loc>${baseUrl}/${condition.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+      });
+
+      // Insurance provider pages
+      insuranceProviders.forEach(provider => {
+        xml += `  <url>\n    <loc>${baseUrl}/${provider.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+      });
+
+      // Blog posts
+      blogPosts.forEach(post => {
+        const lastMod = post.lastUpdated || post.publishedDate;
+        xml += `  <url>\n    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
+        if (lastMod) {
+          xml += `    <lastmod>${new Date(lastMod).toISOString().split('T')[0]}</lastmod>\n`;
+        }
+        xml += `    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+      });
+
+      xml += '</urlset>';
+
+      res.header('Content-Type', 'application/xml');
+      res.send(xml);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Robots.txt
+  app.get("/robots.txt", (_req, res) => {
+    const baseUrl = process.env.REPLIT_DEPLOYMENT === "1" 
+      ? `https://${process.env.REPLIT_DOMAINS?.split(',')[0] || 'empathyhealthclinic.com'}`
+      : "https://empathyhealthclinic.com";
+
+    const robotsTxt = `User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: ${baseUrl}/sitemap.xml
+`;
+
+    res.header('Content-Type', 'text/plain');
+    res.send(robotsTxt);
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
