@@ -210,25 +210,38 @@ export default function LongContactForm() {
                 name="service"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-lg">Preferred Service *</FormLabel>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        value={field.value}
-                        className="grid grid-cols-1 gap-4"
-                      >
-                        {SERVICES.map((service) => (
-                          <FormItem key={service.value} className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value={service.value} data-testid={`radio-service-${service.value}`} />
-                            </FormControl>
-                            <FormLabel className="font-normal cursor-pointer">
+                    <FormLabel className="text-lg mb-4 block">Preferred Service *</FormLabel>
+                    <div className="grid grid-cols-1 gap-3">
+                      {SERVICES.map((service) => (
+                        <div
+                          key={service.value}
+                          onClick={() => field.onChange(service.value)}
+                          className={`p-4 border-2 rounded-xl cursor-pointer transition-all hover-elevate ${
+                            field.value === service.value
+                              ? 'border-primary bg-primary/5 shadow-md'
+                              : 'border-border bg-card hover:border-primary/50'
+                          }`}
+                          data-testid={`radio-service-${service.value}`}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
+                              field.value === service.value
+                                ? 'border-primary bg-primary'
+                                : 'border-muted-foreground'
+                            }`}>
+                              {field.value === service.value && (
+                                <CheckCircle2 className="h-3 w-3 text-primary-foreground" />
+                              )}
+                            </div>
+                            <span className={`font-medium ${
+                              field.value === service.value ? 'text-foreground' : 'text-foreground'
+                            }`}>
                               {service.label}
-                            </FormLabel>
-                          </FormItem>
-                        ))}
-                      </RadioGroup>
-                    </FormControl>
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -394,25 +407,27 @@ export default function LongContactForm() {
                 name="preferredDay"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Preferred Day of Week</FormLabel>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        value={field.value}
-                        className="grid grid-cols-2 md:grid-cols-3 gap-2"
-                      >
-                        {DAYS.map((day) => (
-                          <FormItem key={day} className="flex items-center space-x-2 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value={day} data-testid={`radio-day-${day}`} />
-                            </FormControl>
-                            <FormLabel className="font-normal cursor-pointer">
-                              {day}
-                            </FormLabel>
-                          </FormItem>
-                        ))}
-                      </RadioGroup>
-                    </FormControl>
+                    <FormLabel className="mb-3 block">Preferred Day of Week</FormLabel>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                      {DAYS.map((day) => (
+                        <div
+                          key={day}
+                          onClick={() => field.onChange(day)}
+                          className={`p-3 border-2 rounded-lg cursor-pointer text-center transition-all hover-elevate ${
+                            field.value === day
+                              ? 'border-primary bg-primary/5 shadow-sm'
+                              : 'border-border bg-card hover:border-primary/50'
+                          }`}
+                          data-testid={`radio-day-${day}`}
+                        >
+                          <span className={`text-sm font-medium ${
+                            field.value === day ? 'text-primary' : 'text-foreground'
+                          }`}>
+                            {day}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </FormItem>
                 )}
               />
@@ -436,27 +451,53 @@ export default function LongContactForm() {
                 name="paymentMethod"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-lg">Payment Method *</FormLabel>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        value={field.value}
-                        className="flex gap-4"
+                    <FormLabel className="text-lg mb-4 block">Payment Method *</FormLabel>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div
+                        onClick={() => field.onChange('insurance')}
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all hover-elevate ${
+                          field.value === 'insurance'
+                            ? 'border-primary bg-primary/5 shadow-md'
+                            : 'border-border bg-card hover:border-primary/50'
+                        }`}
+                        data-testid="radio-payment-insurance"
                       >
-                        <FormItem className="flex items-center space-x-2 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="insurance" data-testid="radio-payment-insurance" />
-                          </FormControl>
-                          <FormLabel className="font-normal cursor-pointer">Insurance</FormLabel>
-                        </FormItem>
-                        <FormItem className="flex items-center space-x-2 space-y-0">
-                          <FormControl>
-                            <RadioGroupItem value="self-pay" data-testid="radio-payment-self-pay" />
-                          </FormControl>
-                          <FormLabel className="font-normal cursor-pointer">Self-pay</FormLabel>
-                        </FormItem>
-                      </RadioGroup>
-                    </FormControl>
+                        <div className="flex items-center gap-3">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
+                            field.value === 'insurance'
+                              ? 'border-primary bg-primary'
+                              : 'border-muted-foreground'
+                          }`}>
+                            {field.value === 'insurance' && (
+                              <CheckCircle2 className="h-3 w-3 text-primary-foreground" />
+                            )}
+                          </div>
+                          <span className="font-medium">Insurance</span>
+                        </div>
+                      </div>
+                      <div
+                        onClick={() => field.onChange('self-pay')}
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all hover-elevate ${
+                          field.value === 'self-pay'
+                            ? 'border-primary bg-primary/5 shadow-md'
+                            : 'border-border bg-card hover:border-primary/50'
+                        }`}
+                        data-testid="radio-payment-self-pay"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors ${
+                            field.value === 'self-pay'
+                              ? 'border-primary bg-primary'
+                              : 'border-muted-foreground'
+                          }`}>
+                            {field.value === 'self-pay' && (
+                              <CheckCircle2 className="h-3 w-3 text-primary-foreground" />
+                            )}
+                          </div>
+                          <span className="font-medium">Self-pay</span>
+                        </div>
+                      </div>
+                    </div>
                   </FormItem>
                 )}
               />
