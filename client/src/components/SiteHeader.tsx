@@ -57,28 +57,19 @@ export default function SiteHeader() {
             ))}
           </nav>
           
-          <div className="hidden md:flex items-center gap-2">
-            <Button
-              variant="ghost"
-              asChild
+          <div className="hidden md:flex items-center gap-4">
+            <a 
+              href={`tel:${phone.replace(/[^0-9]/g, '')}`}
+              className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
               data-testid="link-header-phone"
             >
-              <a href={`tel:${phone.replace(/[^0-9]/g, '')}`} className="flex items-center gap-1.5">
-                <Phone className="h-4 w-4" />
-                <span>{phone}</span>
-              </a>
-            </Button>
+              <Phone className="h-4 w-4" />
+              <span className="text-sm">{phone}</span>
+            </a>
+            <div className="h-6 w-px bg-border" />
             <Button
               variant="ghost"
-              asChild
-              data-testid="button-virtual-visit"
-            >
-              <a href="/virtual-visit">
-                Virtual Visit
-              </a>
-            </Button>
-            <Button
-              variant="ghost"
+              size="sm"
               asChild
               data-testid="button-admin-link"
             >
@@ -87,7 +78,7 @@ export default function SiteHeader() {
               </a>
             </Button>
             <Button
-              className="rounded-full px-6"
+              size="default"
               data-testid="button-header-appointment"
               onClick={() => window.location.href = '/request-appointment'}
             >
