@@ -41,6 +41,7 @@ export interface IStorage {
   // Team member methods
   getAllTeamMembers(): Promise<TeamMember[]>;
   getTeamMember(id: string): Promise<TeamMember | undefined>;
+  getTeamMemberBySlug(slug: string): Promise<TeamMember | undefined>;
   createTeamMember(member: InsertTeamMember): Promise<TeamMember>;
   updateTeamMember(id: string, member: Partial<InsertTeamMember>): Promise<TeamMember>;
   deleteTeamMember(id: string): Promise<void>;
@@ -279,6 +280,12 @@ export class MemStorage implements IStorage {
         credentials: "MSN, APRN, FNP-BC",
         image: "/attached_assets/image_1761612547677.png",
         doxyUrl: "https://doxy.me/Melissanursepractitioner",
+        slug: "melissa-dipaolis",
+        pageTitle: "Melissa DiPaolis, MSN, APRN, FNP-BC | Family Nurse Practitioner | Winter Park, FL",
+        bio: "Melissa DiPaolis is a dedicated Family Nurse Practitioner with extensive experience in providing comprehensive mental health care to patients of all ages. With her warm, compassionate approach and clinical expertise, Melissa helps individuals navigate their mental health journey with confidence and support.",
+        specialties: "Depression, Anxiety, ADHD, Medication Management, Wellness Care",
+        education: "Master of Science in Nursing (MSN), Board Certified Family Nurse Practitioner (FNP-BC)",
+        approach: "Melissa believes in treating the whole person, not just symptoms. Her patient-centered approach combines evidence-based medication management with lifestyle counseling and preventive care. She takes time to listen, understand each patient's unique circumstances, and develop personalized treatment plans that promote long-term wellness.",
         order: 1,
       },
       {
@@ -286,6 +293,12 @@ export class MemStorage implements IStorage {
         credentials: "MSN, APRN, PMHNP-BC",
         image: "/attached_assets/image_1761613541242.png",
         doxyUrl: "https://doxy.me/marjorienursepractitioner",
+        slug: "marjorie-felix",
+        pageTitle: "Marjorie Felix, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL",
+        bio: "Marjorie Felix is a board-certified Psychiatric Mental Health Nurse Practitioner with a passion for helping individuals achieve mental wellness. Known for her holistic approach and genuine care, Marjorie provides comprehensive psychiatric evaluations and medication management for a wide range of mental health conditions.",
+        specialties: "Depression, Anxiety, Bipolar Disorder, PTSD, Medication Management, Holistic Mental Health",
+        education: "Master of Science in Nursing (MSN), Board Certified Psychiatric Mental Health Nurse Practitioner (PMHNP-BC)",
+        approach: "Marjorie takes a holistic, patient-centered approach to mental health care. She spends quality time with each patient to understand their unique needs, medical history, and treatment goals. Her comprehensive evaluations and personalized treatment plans combine medication management with lifestyle recommendations to support overall mental and physical wellness.",
         order: 2,
       },
       {
@@ -293,6 +306,12 @@ export class MemStorage implements IStorage {
         credentials: "MS, PLMHC",
         image: "/attached_assets/image_1761613347362.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "marsha-hassell",
+        pageTitle: "Marsha D. Hassell, MS, PLMHC | Licensed Mental Health Counselor | Winter Park, FL",
+        bio: "Marsha D. Hassell is a Pre-Licensed Mental Health Counselor dedicated to providing compassionate, effective therapy to individuals facing life's challenges. With her empathetic approach and evidence-based techniques, Marsha helps clients develop coping skills and achieve meaningful personal growth.",
+        specialties: "Individual Therapy, Anxiety, Depression, Life Transitions, Stress Management, CBT",
+        education: "Master of Science in Mental Health Counseling (MS), Pre-Licensed Mental Health Counselor (PLMHC)",
+        approach: "Marsha believes in creating a safe, non-judgmental therapeutic space where clients can explore their thoughts and feelings openly. She uses evidence-based approaches including Cognitive Behavioral Therapy (CBT) and mindfulness techniques to help clients develop practical skills for managing stress, anxiety, and depression. Her collaborative approach empowers clients to take an active role in their healing journey.",
         order: 3,
       },
       {
@@ -300,6 +319,12 @@ export class MemStorage implements IStorage {
         credentials: "Psychiatric PA-C",
         image: "/attached_assets/image_1761612254512.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "alex-regan",
+        pageTitle: "Alex Regan, PA-C | Psychiatric Physician Assistant | Winter Park, FL",
+        bio: "Alex Regan is a skilled Psychiatric Physician Assistant with a commitment to providing exceptional mental health care. With expertise in medication management and psychiatric evaluations, Alex helps patients achieve symptom relief and improve their quality of life through personalized treatment plans.",
+        specialties: "Depression, Anxiety, ADHD, Medication Management, Psychiatric Evaluation",
+        education: "Physician Assistant Studies, Board Certified Physician Assistant (PA-C), Specialized training in Psychiatry",
+        approach: "Alex provides thorough psychiatric evaluations and evidence-based medication management with a focus on patient education and shared decision-making. He takes time to explain treatment options, monitor progress carefully, and adjust medications as needed to ensure optimal outcomes with minimal side effects. His approachable demeanor helps patients feel comfortable discussing their mental health concerns.",
         order: 4,
       },
       {
@@ -307,6 +332,12 @@ export class MemStorage implements IStorage {
         credentials: "MS, LMHC",
         image: "/attached_assets/dr_glenn_headshot_square_1761613083513.png",
         doxyUrl: "https://doxy.me/keithspace",
+        slug: "keith-harryhill",
+        pageTitle: "Keith Harryhill, MS, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
+        bio: "Keith Harryhill is a compassionate Licensed Mental Health Counselor with extensive experience helping individuals overcome mental health challenges. Known for his warm, supportive therapeutic style, Keith specializes in helping clients develop insight, build resilience, and create meaningful life changes.",
+        specialties: "Individual Therapy, Depression, Anxiety, Trauma, Relationship Issues, Life Coaching",
+        education: "Master of Science in Mental Health Counseling (MS), Licensed Mental Health Counselor (LMHC)",
+        approach: "Keith employs an integrative therapeutic approach, drawing from CBT, psychodynamic therapy, and solution-focused techniques. He creates a collaborative therapeutic relationship where clients feel heard, understood, and empowered. Keith helps clients identify patterns, develop coping strategies, and work toward their personal goals in a supportive, non-judgmental environment.",
         order: 5,
       },
       {
@@ -314,6 +345,12 @@ export class MemStorage implements IStorage {
         credentials: "LCSW",
         image: "/attached_assets/image_1761615151464.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "rachel-coalburn",
+        pageTitle: "Rachel Coalburn, LCSW | Licensed Clinical Social Worker | Winter Park, FL",
+        bio: "Rachel Coalburn is a dedicated Licensed Clinical Social Worker committed to helping individuals navigate life's challenges with compassion and evidence-based care. With her strengths-based approach, Rachel empowers clients to overcome obstacles and build fulfilling lives.",
+        specialties: "Individual Therapy, Family Therapy, Trauma, Anxiety, Depression, Coping Skills",
+        education: "Master of Social Work (MSW), Licensed Clinical Social Worker (LCSW)",
+        approach: "Rachel uses a strengths-based, person-centered approach to therapy. She helps clients identify their inherent strengths and resources while developing new coping skills and strategies. Rachel specializes in trauma-informed care and creates a safe therapeutic environment where clients can process difficult experiences and work toward healing and growth.",
         order: 6,
       },
       {
@@ -321,6 +358,12 @@ export class MemStorage implements IStorage {
         credentials: "Licensed Mental Health Counselor",
         image: "/attached_assets/headshot_square_carla_1761616851171.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "karla-mcleod",
+        pageTitle: "Karla McLeod, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
+        bio: "Karla McLeod is an experienced Licensed Mental Health Counselor who brings warmth, empathy, and clinical expertise to her therapeutic work. Karla is passionate about helping clients discover their inner strength and develop the tools they need to live more fulfilling lives.",
+        specialties: "Individual Therapy, Anxiety, Depression, Self-Esteem, Life Transitions, Mindfulness",
+        education: "Master's degree in Mental Health Counseling, Licensed Mental Health Counselor (LMHC)",
+        approach: "Karla believes therapy should be a collaborative journey of self-discovery and growth. She integrates various therapeutic approaches including CBT, mindfulness-based techniques, and person-centered therapy to meet each client's unique needs. Karla creates a warm, accepting space where clients can explore their thoughts and feelings while developing practical skills for managing life's challenges.",
         order: 7,
       },
       {
@@ -328,6 +371,12 @@ export class MemStorage implements IStorage {
         credentials: "LCSW",
         image: "/attached_assets/image_1761614480890.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "christine-orr",
+        pageTitle: "Christine Orr, LCSW | Licensed Clinical Social Worker | Winter Park, FL",
+        bio: "Christine Orr is a compassionate Licensed Clinical Social Worker with extensive experience in mental health treatment. Known for her empathetic listening and practical guidance, Christine helps clients navigate depression, anxiety, and life transitions with evidence-based therapeutic approaches.",
+        specialties: "Individual Therapy, Depression, Anxiety, Grief and Loss, Life Transitions, CBT",
+        education: "Master of Social Work (MSW), Licensed Clinical Social Worker (LCSW)",
+        approach: "Christine provides a warm, supportive therapeutic environment where clients feel safe to explore their challenges and work toward positive change. She uses evidence-based approaches including Cognitive Behavioral Therapy and solution-focused techniques to help clients develop insight, build coping skills, and achieve their therapeutic goals. Christine is particularly skilled in helping clients navigate grief, loss, and major life transitions.",
         order: 8,
       },
       {
@@ -335,6 +384,12 @@ export class MemStorage implements IStorage {
         credentials: "MSN, APRN, PMHNP-BC",
         image: "/attached_assets/image_1761603840896.png",
         doxyUrl: "https://doxy.me/empathy1",
+        slug: "monique-walen",
+        pageTitle: "Monique Walen, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL",
+        bio: "Monique Walen is a board-certified Psychiatric Mental Health Nurse Practitioner with a strong commitment to providing compassionate, high-quality mental health care. With her clinical expertise and caring approach, Monique helps patients manage complex psychiatric conditions and improve their overall quality of life.",
+        specialties: "Medication Management, Depression, Anxiety, Bipolar Disorder, ADHD, Psychiatric Evaluation",
+        education: "Master of Science in Nursing (MSN), Board Certified Psychiatric Mental Health Nurse Practitioner (PMHNP-BC)",
+        approach: "Monique provides comprehensive psychiatric evaluations and expert medication management with a focus on building strong therapeutic relationships. She takes time to understand each patient's unique situation, carefully monitors treatment progress, and adjusts medications to optimize effectiveness while minimizing side effects. Her compassionate, patient-centered approach helps individuals achieve mental wellness and live fuller lives.",
         order: 9,
       },
     ];
@@ -1141,6 +1196,10 @@ export class MemStorage implements IStorage {
 
   async getTeamMember(id: string): Promise<TeamMember | undefined> {
     return this.teamMembers.get(id);
+  }
+
+  async getTeamMemberBySlug(slug: string): Promise<TeamMember | undefined> {
+    return Array.from(this.teamMembers.values()).find((m) => m.slug === slug);
   }
 
   async createTeamMember(member: InsertTeamMember): Promise<TeamMember> {

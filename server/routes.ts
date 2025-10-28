@@ -121,6 +121,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/team-members/slug/:slug", async (req, res) => {
+    try {
+      const member = await storage.getTeamMemberBySlug(req.params.slug);
+      if (!member) {
+        return res.status(404).json({ error: "Team member not found" });
+      }
+      res.json(member);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   app.post("/api/team-members", async (req, res) => {
     try {
       const validated = insertTeamMemberSchema.parse(req.body);

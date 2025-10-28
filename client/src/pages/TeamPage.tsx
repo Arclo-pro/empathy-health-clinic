@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Loader2, Mail, Phone } from "lucide-react";
+import { Link } from "wouter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import type { TeamMember } from "@shared/schema";
@@ -45,32 +46,41 @@ export default function TeamPage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               {teamMembers?.map((member, index) => (
-                <div
+                <Link
                   key={member.id}
-                  className="bg-card border rounded-lg hover-elevate transition-all duration-200"
-                  data-testid={`team-member-card-${index}`}
+                  href={`/team/${member.slug}`}
+                  className="block"
+                  data-testid={`link-team-member-${index}`}
                 >
-                  <div className="aspect-square rounded-t-lg bg-muted flex items-center justify-center p-4">
-                    <Avatar className="w-full h-full rounded-none">
-                      <AvatarImage 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="object-contain w-full h-full" 
-                      />
-                      <AvatarFallback className="text-4xl rounded-none">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </AvatarFallback>
-                    </Avatar>
+                  <div
+                    className="bg-card border rounded-lg hover-elevate transition-all duration-200 cursor-pointer h-full"
+                    data-testid={`team-member-card-${index}`}
+                  >
+                    <div className="aspect-square rounded-t-lg bg-muted flex items-center justify-center p-4">
+                      <Avatar className="w-full h-full rounded-none">
+                        <AvatarImage 
+                          src={member.image} 
+                          alt={member.name} 
+                          className="object-contain w-full h-full" 
+                        />
+                        <AvatarFallback className="text-4xl rounded-none">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </AvatarFallback>
+                      </Avatar>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-sans font-bold text-foreground mb-2">
+                        {member.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {member.credentials}
+                      </p>
+                      <span className="text-primary font-medium hover:underline">
+                        View Profile →
+                      </span>
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-sans font-bold text-foreground mb-2">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      {member.credentials}
-                    </p>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

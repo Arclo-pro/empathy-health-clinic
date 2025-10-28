@@ -5,6 +5,7 @@ import ProviderCoverage from "./ProviderCoverage";
 import TreatmentDetail from "./TreatmentDetail";
 import TherapyDetail2 from "./TherapyDetail2";
 import ConditionDetail from "./ConditionDetail";
+import TeamMemberDetail from "./TeamMemberDetail";
 import NotFound from "./not-found";
 
 export default function PageBySlug() {
@@ -55,7 +56,18 @@ export default function PageBySlug() {
     retry: false,
   });
 
-  if (loadingInsurance || loadingTreatment || loadingTherapy || loadingCondition) {
+  const { data: teamMember, isLoading: loadingTeamMember } = useQuery({
+    queryKey: ["/api/team-members/slug", slug],
+    queryFn: async () => {
+      const response = await fetch(`/api/team-members/slug/${slug}`);
+      if (!response.ok) return null;
+      return response.json();
+    },
+    enabled: !!slug && !insuranceProvider && !treatment && !therapy && !condition,
+    retry: false,
+  });
+
+  if (loadingInsurance || loadingTreatment || loadingTherapy || loadingCondition || loadingTeamMember) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
@@ -77,6 +89,10 @@ export default function PageBySlug() {
 
   if (condition) {
     return <ConditionDetail />;
+  }
+
+  if (teamMember) {
+    return <TeamMemberDetail />;
   }
 
   return <NotFound />;

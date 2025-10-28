@@ -8,6 +8,7 @@ import Admin from "@/pages/Admin";
 import Insurance from "@/pages/Insurance";
 import Therapy from "@/pages/Therapy";
 import TeamPage from "@/pages/TeamPage";
+import TeamMemberDetail from "@/pages/TeamMemberDetail";
 import ServicesPage from "@/pages/ServicesPage";
 import RequestAppointment from "@/pages/RequestAppointment";
 import VirtualVisit from "@/pages/VirtualVisit";
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/insurance" component={Insurance} />
       <Route path="/therapy" component={Therapy} />
       <Route path="/team" component={TeamPage} />
+      <Route path="/team/:slug" component={TeamMemberDetail} />
       <Route path="/services" component={ServicesPage} />
       <Route path="/request-appointment" component={RequestAppointment} />
       <Route path="/virtual-visit" component={VirtualVisit} />
