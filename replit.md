@@ -14,10 +14,12 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 ### Technical Implementations
 - **Frontend:** React SPA, TypeScript, Tailwind CSS, Shadcn UI, TanStack Query for data fetching, Wouter for routing.
 - **Backend:** Express.js REST API with an in-memory storage (MemStorage) for content. All API endpoints include Zod validation.
-- **Content Management:** Full CRUD operations are available via an admin panel (`/admin`) for managing site content, treatments, therapies, conditions, team members, testimonials, insurance providers, and leads.
+- **Content Management:** Full CRUD operations are available via an admin panel (`/admin`) for managing site content, treatments, therapies, conditions, team members, testimonials, insurance providers, blog posts, and leads.
 - **Email Notifications:** SendGrid integration automatically sends lead notification emails to providers@empathyhealthclinic.com when forms are submitted. Emails include all contact details and form data in a professional HTML format.
 - **SEO Features:** Custom page titles, SEO-friendly URLs (preserving WordPress structure where needed), rich keyword-optimized content, structured FAQ sections, and mobile-responsive design are central to all landing pages (Insurance, Treatment, Therapy, Condition).
 - **Dynamic Content:** Real-time content updates are pulled from the API.
+- **Blog System:** Complete blog with listing page (`/blog`) and individual post pages (`/blog/:slug`). 7 comprehensive mental health articles migrated from existing site.
+- **LiveChat Integration:** Site-wide LiveChat widget (license 17225574) for instant customer support on all pages.
 
 ### Feature Specifications
 - **Landing Page:** Beautiful, comprehensive landing page.
@@ -27,10 +29,12 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
   - 9 Psychiatric Treatment pages (including ESA Letter service)
   - 15 Therapy Service pages
   - 10 Condition pages (Anxiety, Depression, Bipolar, PTSD, Personality Disorders, ADHD, OCD, Eating Disorders, Substance Use Disorders, Postpartum Depression)
+- **Blog Section (`/blog`):** 7 comprehensive mental health articles covering topics like nervous breakdowns, anxiety careers, infidelity psychology, counselor wellness, sexuality identity, falling in love timelines, and psychotherapy basics.
 - **Team Page (`/team`):** Displays all 9 staff members with professional photos, credentials, and individual bio pages.
-- **Patient Portal (`/admin`):** A comprehensive CMS for editing all content types and viewing leads.
+- **Patient Portal (`/admin`):** A comprehensive CMS for editing all content types (including blog posts) and viewing leads.
 - **Lead Capture:** High-converting forms on therapy pages with automatic email notifications to providers@empathyhealthclinic.com.
 - **Trust Factors:** Credibility indicators strategically placed throughout the site.
+- **LiveChat Widget:** Site-wide instant chat support for immediate customer assistance.
 - **Mobile Responsiveness & Dark Mode:** Full support for various devices and user preferences.
 - **Contact Information:** Prominent phone number (386-848-8751) in sticky header, visible on all pages. Email: providers@empathyhealthclinic.com.
 
@@ -47,6 +51,7 @@ The system uses an in-memory storage solution, simplifying deployment by removin
 - **Express.js:** Backend web application framework.
 - **Zod:** Schema declaration and validation library.
 - **SendGrid:** Email delivery service for lead notifications.
+- **LiveChat:** Real-time customer support chat widget.
 - **Lucide-react:** Icon library for UI elements.
 
 ## Environment Secrets
