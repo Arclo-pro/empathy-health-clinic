@@ -28,12 +28,24 @@ export default function TeamSection() {
               className="text-center space-y-4"
               data-testid={`team-member-${index}`}
             >
-              <Avatar className="w-full aspect-square rounded-lg mx-auto bg-muted p-4">
-                <AvatarImage src={member.image} alt={member.name} className="object-contain" />
-                <AvatarFallback className="text-2xl rounded-lg">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </AvatarFallback>
-              </Avatar>
+              <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const fallback = e.currentTarget.parentElement?.querySelector('p');
+                    if (fallback) {
+                      fallback.classList.remove('hidden');
+                      fallback.classList.add('flex');
+                    }
+                  }}
+                />
+                <p className="text-sm md:text-base font-medium text-center text-muted-foreground hidden items-center justify-center h-full">
+                  Photo Placeholder
+                </p>
+              </div>
               <div>
                 <h3 className="text-xl font-semibold text-foreground mb-1">
                   {member.name}
