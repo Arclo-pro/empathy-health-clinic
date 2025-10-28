@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, MapPin, Phone, Calendar } from "lucide-react";
-import { SiFacebook, SiInstagram, SiX, SiTiktok } from "react-icons/si";
+import { SiFacebook, SiInstagram, SiX, SiTiktok, SiLinkedin } from "react-icons/si";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
@@ -178,6 +178,16 @@ export default function SiteFooter() {
                   aria-label="TikTok"
                 >
                   <SiTiktok className="w-6 h-6" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/empathy-health-clinic/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-linkedin"
+                  aria-label="LinkedIn"
+                >
+                  <SiLinkedin className="w-6 h-6" />
                 </a>
               </div>
             </div>
