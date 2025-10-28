@@ -40,7 +40,9 @@ export default function Insurance() {
               <Card className="h-full hover-elevate active-elevate-2 cursor-pointer transition-all">
                 <CardHeader className="flex flex-col items-center text-center space-y-4 pb-4">
                   {provider.logo ? (
-                    <div className="h-20 w-full flex items-center justify-center">
+                    <div className={`h-20 w-full flex items-center justify-center ${
+                      provider.name === 'UMR' ? 'bg-muted rounded-lg' : ''
+                    }`}>
                       <img
                         src={provider.logo}
                         alt={`${provider.name} logo`}
