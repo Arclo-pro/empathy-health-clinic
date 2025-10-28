@@ -115,7 +115,7 @@ export class MemStorage implements IStorage {
       reviewRating: "EXCELLENT",
       footerPhone: "386-848-8751",
       footerEmail: "provider@empathyhealthclinic.com",
-      footerAddress: "Winter Park, Orlando, Florida",
+      footerAddress: "2281 Lee Rd Suite 102, Winter Park FL",
       aboutText: "At Empathy Health Clinic, our mission is to serve the community of Orlando, FL, with a range of affordable mental health services. Whether you need to speak with a professional or seek more comprehensive treatment, we can guide you toward the best solution for your needs and well-being.",
     };
 
