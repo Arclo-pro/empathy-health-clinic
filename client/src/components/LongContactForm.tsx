@@ -2,13 +2,20 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Form,
   FormControl,
@@ -19,6 +26,7 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { InsuranceProvider } from "@shared/schema";
 
 const longFormSchema = z.object({
   service: z.string().min(1, "Please select a service"),
@@ -65,6 +73,10 @@ const DAYS = [
 export default function LongContactForm() {
   const [step, setStep] = useState(1);
   const { toast } = useToast();
+  
+  const { data: insuranceProviders } = useQuery<InsuranceProvider[]>({
+    queryKey: ["/api/insurance-providers"],
+  });
   
   const form = useForm<LongFormValues>({
     resolver: zodResolver(longFormSchema),
@@ -452,9 +464,24 @@ export default function LongContactForm() {
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Insurance Provider</FormLabel>
-                        <FormControl>
-                          <Input {...field} data-testid="input-insurance-provider" />
-                        </FormControl>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger data-testid="select-insurance-provider">
+                              <SelectValue placeholder="Select your insurance provider" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent>
+                            {insuranceProviders?.map((provider) => (
+                              <SelectItem 
+                                key={provider.id} 
+                                value={provider.name}
+                                data-testid={`select-option-${provider.slug}`}
+                              >
+                                {provider.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
                       </FormItem>
                     )}
                   />
