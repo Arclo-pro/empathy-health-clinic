@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
+import { trackEvent } from "@/lib/analytics";
 
 const shortFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -61,6 +62,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
         description: "We'll contact you soon to schedule your appointment.",
       });
       form.reset();
+      trackEvent('form_submission', 'conversion', 'Short Contact Form', service);
     },
     onError: () => {
       toast({

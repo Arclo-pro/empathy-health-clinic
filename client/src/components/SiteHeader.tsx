@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
 import logoImage from "@assets/image_1761618219825.png";
+import { trackEvent } from "@/lib/analytics";
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -62,6 +63,7 @@ export default function SiteHeader() {
               href={`tel:${phone.replace(/[^0-9]/g, '')}`}
               className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
               data-testid="link-header-phone"
+              onClick={() => trackEvent('phone_click', 'conversion', 'Header Phone', phone)}
             >
               <Phone className="h-4 w-4" />
               <span className="text-sm">{phone}</span>
@@ -106,6 +108,7 @@ export default function SiteHeader() {
               href={`tel:${phone.replace(/[^0-9]/g, '')}`}
               className="flex items-center justify-center gap-2 text-primary font-semibold text-xl py-3 border-b border-border"
               data-testid="link-mobile-phone"
+              onClick={() => trackEvent('phone_click', 'conversion', 'Mobile Header Phone', phone)}
             >
               <Phone className="h-6 w-6" />
               <span>{phone}</span>
@@ -131,7 +134,10 @@ export default function SiteHeader() {
               href="/virtual-visit"
               className="block text-base font-medium text-foreground hover:text-primary py-2"
               data-testid="link-mobile-virtual-visit"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                trackEvent('virtual_visit_click', 'conversion', 'Mobile Header Virtual Visit');
+                setMobileMenuOpen(false);
+              }}
             >
               Virtual Visit
             </a>

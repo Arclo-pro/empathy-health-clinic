@@ -19,6 +19,12 @@ import {
   type InsertLead,
   type BlogPost,
   type InsertBlogPost,
+  type PageView,
+  type InsertPageView,
+  type AnalyticsEvent,
+  type InsertAnalyticsEvent,
+  type WebVital,
+  type InsertWebVital,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -90,6 +96,17 @@ export interface IStorage {
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
   updateBlogPost(id: string, post: Partial<InsertBlogPost>): Promise<BlogPost>;
   deleteBlogPost(id: string): Promise<void>;
+
+  // Analytics methods
+  trackPageView(data: InsertPageView): Promise<PageView>;
+  getPageViews(startDate?: string, endDate?: string): Promise<PageView[]>;
+  getPageViewsByPath(): Promise<{path: string, count: number}[]>;
+  trackEvent(data: InsertAnalyticsEvent): Promise<AnalyticsEvent>;
+  getEvents(eventType?: string, startDate?: string, endDate?: string): Promise<AnalyticsEvent[]>;
+  getEventCounts(): Promise<{eventType: string, count: number}[]>;
+  trackWebVital(data: InsertWebVital): Promise<WebVital>;
+  getWebVitals(metricName?: string): Promise<WebVital[]>;
+  getAverageWebVitals(): Promise<{metricName: string, avgValue: number, rating: string}[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -103,6 +120,9 @@ export class MemStorage implements IStorage {
   private conditions: Map<string, Condition>;
   private leads: Map<string, Lead>;
   private blogPosts: Map<string, BlogPost>;
+  private pageViews: PageView[];
+  private analyticsEvents: AnalyticsEvent[];
+  private webVitals: WebVital[];
 
   constructor() {
     this.users = new Map();
@@ -114,6 +134,9 @@ export class MemStorage implements IStorage {
     this.conditions = new Map();
     this.leads = new Map();
     this.blogPosts = new Map();
+    this.pageViews = [];
+    this.analyticsEvents = [];
+    this.webVitals = [];
     this.initializeDefaultContent();
   }
 
@@ -1314,8 +1337,14 @@ Healing the healer isn't optional. It's essential. Start today with one small st
 Remember: you can't pour from an empty cup. Fill yours regularly, unapologetically, and consistently. The work you do matters, and so do you.`,
         author: "Empathy Health Clinic Writer",
         publishedDate: "2025-08-04",
-        category: "Mental Health",
+        category: "Wellness",
         featuredImage: null,
+        metaTitle: "Wellness Guide for Counselors: Preventing Burnout | Empathy Health",
+        metaDescription: "Essential wellness strategies for mental health professionals. Learn how to prevent burnout, manage compassion fatigue, and thrive in your counseling career.",
+        keywords: ["counselor wellness", "therapist burnout", "compassion fatigue", "mental health professional self-care", "counselor self-care"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "wellness-guide-for-counselors",
+        lastUpdated: "2025-08-04",
         order: 7,
       },
       {
@@ -1517,6 +1546,12 @@ Remember: Your mental health matters. You matter. Help is available, and recover
         publishedDate: "2025-07-04",
         category: "Mental Health",
         featuredImage: null,
+        metaTitle: "Nervous Breakdown Signs You Shouldn't Ignore | Empathy Health",
+        metaDescription: "Discover real signs of a nervous breakdown and when to seek help. Expert mental health guidance from licensed professionals in Winter Park, FL.",
+        keywords: ["nervous breakdown", "mental health crisis", "breakdown signs", "anxiety symptoms", "mental health treatment"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "nervous-breakdown",
+        lastUpdated: "2025-07-04",
         order: 6,
       },
       {
@@ -1790,8 +1825,14 @@ If you're struggling with infidelity (as the betrayed or unfaithful partner), or
 At Empathy Health Clinic, we provide nonjudgmental couples therapy and individual counseling for relationship issues, including infidelity. Healing is possible, and stronger relationships can emerge from crisis—with the right support.`,
         author: "Empathy Health Clinic Writer",
         publishedDate: "2025-03-24",
-        category: "Mental Health",
+        category: "Therapy",
         featuredImage: null,
+        metaTitle: "Who Cheats More: Men or Women? Psychology of Infidelity",
+        metaDescription: "Explore the psychology behind infidelity and understand why people cheat. Evidence-based insights from mental health experts in Winter Park, FL.",
+        keywords: ["infidelity", "cheating psychology", "relationship therapy", "marriage counseling", "trust issues"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "who-cheats-more-men-or-women",
+        lastUpdated: "2025-03-24",
         order: 3,
       },
       {
@@ -2087,6 +2128,12 @@ Remember: everyone deserves to live authentically. Love is love. Your identity i
         publishedDate: "2025-03-17",
         category: "Mental Health",
         featuredImage: null,
+        metaTitle: "10 Signs Someone May Be Hiding Their True Self | Mental Health",
+        metaDescription: "Understanding identity, self-expression, and mental health. Compassionate guidance from LGBTQ-affirming therapists in Winter Park, FL.",
+        keywords: ["sexual identity", "LGBTQ mental health", "coming out", "identity therapy", "self-acceptance"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "signs-guy-pretending-straight",
+        lastUpdated: "2025-03-17",
         order: 2,
       },
       {
@@ -2494,8 +2541,14 @@ If you're struggling with anxiety affecting your work life, professional help ca
 You deserve a career that supports your mental health, not undermines it. With the right job, treatment, and strategies, you can succeed—anxiety and all.`,
         author: "Empathy Health Clinic Writer",
         publishedDate: "2025-03-28",
-        category: "Mental Health",
+        category: "Wellness",
         featuredImage: null,
+        metaTitle: "Best Jobs for People with Anxiety: Career Guide | Empathy Health",
+        metaDescription: "Find your calm and productive career path. Expert guidance on anxiety-friendly jobs and workplace mental health from Winter Park therapists.",
+        keywords: ["anxiety-friendly jobs", "careers for anxious people", "workplace anxiety", "anxiety management", "job stress"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "jobs-for-people-with-anxiety",
+        lastUpdated: "2025-03-28",
         order: 4,
       },
       {
@@ -2783,8 +2836,14 @@ If you're concerned about attachment issues, fear of intimacy, or relationship a
 Love is worth the wait—and worth doing right.`,
         author: "Empathy Health Clinic Writer",
         publishedDate: "2025-04-13",
-        category: "Mental Health",
+        category: "Therapy",
         featuredImage: null,
+        metaTitle: "How Long Does It Take to Fall in Love? Expert Insights",
+        metaDescription: "Understanding love timelines and healthy relationship development. Evidence-based guidance from relationship therapists in Winter Park, FL.",
+        keywords: ["falling in love", "relationship timeline", "love psychology", "couples therapy", "healthy relationships"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "how-long-does-it-take-to-fall-in-love",
+        lastUpdated: "2025-04-13",
         order: 5,
       },
       {
@@ -3065,6 +3124,12 @@ Remember: seeking help is a sign of strength. You deserve support, understanding
         publishedDate: "2024-06-17",
         category: "Mental Health",
         featuredImage: null,
+        metaTitle: "What is Psychotherapy? Types, Benefits & How It Works",
+        metaDescription: "Complete guide to psychotherapy including CBT, DBT, EMDR and more. Learn how therapy works and find the right approach for you in Winter Park, FL.",
+        keywords: ["psychotherapy", "talk therapy", "CBT therapy", "mental health counseling", "therapy types"],
+        ogImage: "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg",
+        canonicalSlug: "what-is-psychotherapy",
+        lastUpdated: "2024-06-17",
         order: 1,
       },
     ];
@@ -3368,6 +3433,128 @@ Remember: seeking help is a sign of strength. You deserve support, understanding
 
   async deleteBlogPost(id: string): Promise<void> {
     this.blogPosts.delete(id);
+  }
+
+  // Analytics methods
+  async trackPageView(data: InsertPageView): Promise<PageView> {
+    const id = randomUUID();
+    const now = new Date().toISOString();
+    const pageView: PageView = { id, ...data, timestamp: now };
+    this.pageViews.push(pageView);
+    return pageView;
+  }
+
+  async getPageViews(startDate?: string, endDate?: string): Promise<PageView[]> {
+    let filtered = this.pageViews;
+    
+    if (startDate) {
+      filtered = filtered.filter(pv => pv.timestamp >= startDate);
+    }
+    if (endDate) {
+      filtered = filtered.filter(pv => pv.timestamp <= endDate);
+    }
+    
+    return filtered.sort((a, b) => 
+      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  }
+
+  async getPageViewsByPath(): Promise<{path: string, count: number}[]> {
+    const pathCounts = new Map<string, number>();
+    
+    for (const pv of this.pageViews) {
+      pathCounts.set(pv.path, (pathCounts.get(pv.path) || 0) + 1);
+    }
+    
+    return Array.from(pathCounts.entries())
+      .map(([path, count]) => ({ path, count }))
+      .sort((a, b) => b.count - a.count);
+  }
+
+  async trackEvent(data: InsertAnalyticsEvent): Promise<AnalyticsEvent> {
+    const id = randomUUID();
+    const now = new Date().toISOString();
+    const event: AnalyticsEvent = { id, ...data, timestamp: now };
+    this.analyticsEvents.push(event);
+    return event;
+  }
+
+  async getEvents(
+    eventType?: string, 
+    startDate?: string, 
+    endDate?: string
+  ): Promise<AnalyticsEvent[]> {
+    let filtered = this.analyticsEvents;
+    
+    if (eventType) {
+      filtered = filtered.filter(e => e.eventType === eventType);
+    }
+    if (startDate) {
+      filtered = filtered.filter(e => e.timestamp >= startDate);
+    }
+    if (endDate) {
+      filtered = filtered.filter(e => e.timestamp <= endDate);
+    }
+    
+    return filtered.sort((a, b) => 
+      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  }
+
+  async getEventCounts(): Promise<{eventType: string, count: number}[]> {
+    const eventCounts = new Map<string, number>();
+    
+    for (const event of this.analyticsEvents) {
+      eventCounts.set(event.eventType, (eventCounts.get(event.eventType) || 0) + 1);
+    }
+    
+    return Array.from(eventCounts.entries())
+      .map(([eventType, count]) => ({ eventType, count }))
+      .sort((a, b) => b.count - a.count);
+  }
+
+  async trackWebVital(data: InsertWebVital): Promise<WebVital> {
+    const id = randomUUID();
+    const now = new Date().toISOString();
+    const webVital: WebVital = { id, ...data, timestamp: now };
+    this.webVitals.push(webVital);
+    return webVital;
+  }
+
+  async getWebVitals(metricName?: string): Promise<WebVital[]> {
+    let filtered = this.webVitals;
+    
+    if (metricName) {
+      filtered = filtered.filter(wv => wv.metricName === metricName);
+    }
+    
+    return filtered.sort((a, b) => 
+      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+  }
+
+  async getAverageWebVitals(): Promise<{metricName: string, avgValue: number, rating: string}[]> {
+    const metricGroups = new Map<string, {total: number, count: number, ratings: string[]}>();
+    
+    for (const vital of this.webVitals) {
+      const existing = metricGroups.get(vital.metricName) || { total: 0, count: 0, ratings: [] };
+      existing.total += parseFloat(vital.value);
+      existing.count += 1;
+      existing.ratings.push(vital.rating);
+      metricGroups.set(vital.metricName, existing);
+    }
+    
+    return Array.from(metricGroups.entries()).map(([metricName, data]) => {
+      const avgValue = data.total / data.count;
+      // Calculate most common rating
+      const ratingCounts = data.ratings.reduce((acc, r) => {
+        acc[r] = (acc[r] || 0) + 1;
+        return acc;
+      }, {} as Record<string, number>);
+      const rating = Object.entries(ratingCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'good';
+      
+      return { metricName, avgValue, rating };
+    });
   }
 }
 

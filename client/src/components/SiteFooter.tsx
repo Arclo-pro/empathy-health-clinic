@@ -4,6 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
+import { trackEvent } from "@/lib/analytics";
 
 export default function SiteFooter() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ export default function SiteFooter() {
                   href={`tel:${phone.replace(/[^0-9]/g, '')}`} 
                   className="text-base text-foreground hover:text-primary"
                   data-testid="link-footer-phone"
+                  onClick={() => trackEvent('phone_click', 'conversion', 'Footer Phone', phone)}
                 >
                   {phone}
                 </a>
@@ -75,6 +77,11 @@ export default function SiteFooter() {
                     href={link.href}
                     className="text-base text-muted-foreground hover:text-primary transition-colors"
                     data-testid={`link-footer-quick-${index}`}
+                    onClick={() => {
+                      if (link.label === 'Virtual Visit') {
+                        trackEvent('virtual_visit_click', 'conversion', 'Footer Virtual Visit');
+                      }
+                    }}
                   >
                     {link.label}
                   </a>

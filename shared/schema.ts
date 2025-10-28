@@ -214,6 +214,13 @@ export const blogPosts = pgTable("blog_posts", {
   publishedDate: text("published_date").notNull(),
   category: text("category").notNull().default("Mental Health"),
   featuredImage: text("featured_image"),
+  // SEO fields
+  metaTitle: text("meta_title"),
+  metaDescription: text("meta_description"),
+  keywords: text("keywords").array(),
+  ogImage: text("og_image"),
+  canonicalSlug: text("canonical_slug"),
+  lastUpdated: text("last_updated"),
   order: integer("order").notNull().default(0),
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
@@ -225,3 +232,58 @@ export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
 
 export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
 export type BlogPost = typeof blogPosts.$inferSelect;
+
+// Analytics - Page Views
+export const pageViews = pgTable("page_views", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  path: text("path").notNull(),
+  timestamp: text("timestamp").notNull().default(sql`CURRENT_TIMESTAMP`),
+  userAgent: text("user_agent"),
+  referrer: text("referrer"),
+});
+
+export const insertPageViewSchema = createInsertSchema(pageViews).omit({
+  id: true,
+  timestamp: true,
+});
+
+export type InsertPageView = z.infer<typeof insertPageViewSchema>;
+export type PageView = typeof pageViews.$inferSelect;
+
+// Analytics - Events (form submissions, calls, clicks, etc.)
+export const analyticsEvents = pgTable("analytics_events", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  eventType: text("event_type").notNull(), // 'form_submission', 'phone_click', 'virtual_visit', etc.
+  eventCategory: text("event_category").notNull(), // 'conversion', 'engagement', etc.
+  eventLabel: text("event_label"), // Additional context
+  value: text("value"), // Event value (e.g., form name, phone number)
+  path: text("path").notNull(), // Where the event occurred
+  timestamp: text("timestamp").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
+export const insertAnalyticsEventSchema = createInsertSchema(analyticsEvents).omit({
+  id: true,
+  timestamp: true,
+});
+
+export type InsertAnalyticsEvent = z.infer<typeof insertAnalyticsEventSchema>;
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
+
+// Analytics - Web Vitals (Core Web Vitals tracking)
+export const webVitals = pgTable("web_vitals", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  metricName: text("metric_name").notNull(), // 'LCP', 'INP', 'CLS', 'FCP', 'TTFB'
+  value: text("value").notNull(), // Numeric value as string
+  rating: text("rating").notNull(), // 'good', 'needs-improvement', 'poor'
+  metricId: text("metric_id").notNull(), // Unique ID for this measurement
+  navigationType: text("navigation_type"), // 'navigate', 'reload', 'back-forward', etc.
+  timestamp: text("timestamp").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
+export const insertWebVitalSchema = createInsertSchema(webVitals).omit({
+  id: true,
+  timestamp: true,
+});
+
+export type InsertWebVital = z.infer<typeof insertWebVitalSchema>;
+export type WebVital = typeof webVitals.$inferSelect;

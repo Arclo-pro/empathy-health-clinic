@@ -30,6 +30,16 @@ export default function Admin() {
       </header>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="mb-6">
+          <Button
+            variant="default"
+            onClick={() => setLocation("/admin/analytics")}
+            data-testid="button-analytics"
+          >
+            View Analytics Dashboard
+          </Button>
+        </div>
+        
         <Tabs defaultValue="site-content" className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-7 gap-2">
             <TabsTrigger value="site-content" data-testid="tab-site-content">

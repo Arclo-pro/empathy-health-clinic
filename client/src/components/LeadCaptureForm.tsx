@@ -16,6 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2, Shield, Phone } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const leadFormSchema = insertLeadSchema.extend({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -58,6 +59,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
     onSuccess: () => {
       setSubmitted(true);
       form.reset();
+      trackEvent('form_submission', 'conversion', 'Lead Capture Form', therapyName);
     },
   });
 

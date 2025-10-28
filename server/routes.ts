@@ -12,6 +12,9 @@ import {
   insertConditionSchema,
   insertLeadSchema,
   insertBlogPostSchema,
+  insertPageViewSchema,
+  insertAnalyticsEventSchema,
+  insertWebVitalSchema,
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -524,6 +527,152 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       await storage.deleteBlogPost(req.params.id);
       res.json({ success: true });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Analytics routes
+  app.post("/api/analytics/page-view", async (req, res) => {
+    try {
+      const validated = insertPageViewSchema.parse(req.body);
+      const pageView = await storage.trackPageView(validated);
+      res.json(pageView);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/analytics/event", async (req, res) => {
+    try {
+      const validated = insertAnalyticsEventSchema.parse(req.body);
+      const event = await storage.trackEvent(validated);
+      res.json(event);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/analytics/vitals", async (req, res) => {
+    try {
+      const validated = insertWebVitalSchema.parse(req.body);
+      const vital = await storage.trackWebVital(validated);
+      res.json(vital);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/page-views", async (req, res) => {
+    try {
+      const { startDate, endDate } = req.query;
+      const pageViews = await storage.getPageViews(
+        startDate as string | undefined,
+        endDate as string | undefined
+      );
+      res.json(pageViews);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/page-views/summary", async (_req, res) => {
+    try {
+      const summary = await storage.getPageViewsByPath();
+      res.json(summary);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/events", async (req, res) => {
+    try {
+      const { eventType, startDate, endDate } = req.query;
+      const events = await storage.getEvents(
+        eventType as string | undefined,
+        startDate as string | undefined,
+        endDate as string | undefined
+      );
+      res.json(events);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/events/summary", async (_req, res) => {
+    try {
+      const summary = await storage.getEventCounts();
+      res.json(summary);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/vitals", async (req, res) => {
+    try {
+      const { metricName } = req.query;
+      const vitals = await storage.getWebVitals(metricName as string | undefined);
+      res.json(vitals);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/vitals/summary", async (_req, res) => {
+    try {
+      const summary = await storage.getAverageWebVitals();
+      res.json(summary);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/dashboard", async (_req, res) => {
+    try {
+      const now = new Date();
+      const last7Days = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
+      const last30Days = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
+
+      const [
+        allPageViews,
+        pageViews7d,
+        pageViews30d,
+        topPages,
+        allEvents,
+        eventSummary,
+        vitalsSummary,
+        leads
+      ] = await Promise.all([
+        storage.getPageViews(),
+        storage.getPageViews(last7Days),
+        storage.getPageViews(last30Days),
+        storage.getPageViewsByPath(),
+        storage.getEvents(),
+        storage.getEventCounts(),
+        storage.getAverageWebVitals(),
+        storage.getAllLeads()
+      ]);
+
+      res.json({
+        pageViews: {
+          total: allPageViews.length,
+          last7Days: pageViews7d.length,
+          last30Days: pageViews30d.length,
+          topPages: topPages.slice(0, 10)
+        },
+        events: {
+          total: allEvents.length,
+          summary: eventSummary,
+          recent: allEvents.slice(0, 20)
+        },
+        vitals: vitalsSummary,
+        conversions: {
+          totalLeads: leads.length,
+          formSubmissions: eventSummary.find(e => e.eventType === 'form_submission')?.count || 0,
+          phoneClicks: eventSummary.find(e => e.eventType === 'phone_click')?.count || 0,
+          virtualVisitRequests: eventSummary.find(e => e.eventType === 'virtual_visit_click')?.count || 0
+        }
+      });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
