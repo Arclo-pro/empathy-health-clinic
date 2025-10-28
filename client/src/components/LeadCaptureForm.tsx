@@ -214,7 +214,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
             ) : (
               <>
                 <Phone className="h-5 w-5 mr-2" />
-                Request Free Consultation
+                Request Appointment
               </>
             )}
           </Button>

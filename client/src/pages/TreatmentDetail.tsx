@@ -198,7 +198,7 @@ export default function TreatmentDetail() {
                     }}
                     data-testid="button-scroll-to-form"
                   >
-                    Request Free Consultation
+                    Request Appointment
                   </Button>
                   <Button 
                     size="lg" 
@@ -285,7 +285,7 @@ export default function TreatmentDetail() {
                     Ready to Start Treatment?
                   </h2>
                   <p className="text-foreground/70 text-lg max-w-xl mx-auto">
-                    Complete the form below and we'll call you within 24 hours to schedule your free consultation.
+                    Complete the form below and we'll call you within 24 hours to schedule your appointment.
                   </p>
                 </div>
                 <div className="bg-background rounded-xl p-6 md:p-8 shadow-sm border">

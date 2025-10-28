@@ -195,7 +195,7 @@ export default function TherapyDetail() {
                     Ready to Begin Therapy?
                   </h2>
                   <p className="text-foreground/70 text-lg max-w-xl mx-auto">
-                    Take the first step toward positive change. Schedule your free consultation today.
+                    Take the first step toward positive change. Schedule your appointment today.
                   </p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
