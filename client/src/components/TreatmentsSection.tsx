@@ -1,6 +1,8 @@
-import { Brain, Heart, Users, Activity } from "lucide-react";
+import { useState } from "react";
+import { Brain, Heart, Users, Activity, ChevronDown, ChevronUp } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 import type { Treatment } from "@shared/schema";
 
 const iconMap: Record<string, any> = {
@@ -11,15 +13,28 @@ const iconMap: Record<string, any> = {
 };
 
 export default function TreatmentsSection() {
+  const [showAll, setShowAll] = useState(false);
   const { data: treatments } = useQuery<Treatment[]>({
     queryKey: ["/api/treatments"],
   });
 
+  const displayedTreatments = showAll ? treatments : treatments?.slice(0, 6);
+  const hasMore = (treatments?.length || 0) > 6;
+
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-card">
+    <section id="treatments" className="py-16 md:py-24 lg:py-32 bg-card">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-foreground mb-4">
+            Featured Services
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Comprehensive psychiatric services, therapy, and specialized mental health care
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {treatments?.map((treatment, index) => {
+          {displayedTreatments?.map((treatment, index) => {
             const Icon = iconMap[treatment.icon] || Brain;
             return (
               <div
@@ -47,6 +62,28 @@ export default function TreatmentsSection() {
             );
           })}
         </div>
+
+        {hasMore && (
+          <div className="mt-12 text-center">
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => setShowAll(!showAll)}
+              className="gap-2"
+              data-testid="button-toggle-treatments"
+            >
+              {showAll ? (
+                <>
+                  Show Less <ChevronUp className="h-4 w-4" />
+                </>
+              ) : (
+                <>
+                  View All Services <ChevronDown className="h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
