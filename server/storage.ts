@@ -451,7 +451,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Oscar Health", 
-        logo: "/attached_assets/generated_images/Oscar_Health_logo_fabb7b6b.png",
+        logo: "/attached_assets/stock_images/oscar_health_insuran_61a50f91.jpg",
         slug: "oscar-health-oscar-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Oscar Health",
         heroTitle: "Find a Psychiatrist That Accepts Oscar Health",
