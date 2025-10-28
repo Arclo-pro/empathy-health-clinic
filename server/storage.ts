@@ -325,7 +325,7 @@ export class MemStorage implements IStorage {
       {
         name: "Karla McLeod",
         credentials: "Licensed Mental Health Counselor",
-        image: "/attached_assets/stock_images/professional_male_do_381973f4.jpg",
+        image: "/attached_assets/image_1761615131457.png",
         order: 10,
       },
     ];
