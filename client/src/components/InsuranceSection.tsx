@@ -17,13 +17,15 @@ export default function InsuranceSection() {
         </h2>
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
-          {visibleProviders?.map((provider, index) => (
-            <Link
-              key={provider.id}
-              href={`/${provider.slug}`}
-              className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6 cursor-pointer"
-              data-testid={`insurance-${index}`}
-            >
+          {visibleProviders?.map((provider, index) => {
+            const isUMR = provider.name.toLowerCase().includes('umr');
+            return (
+              <Link
+                key={provider.id}
+                href={`/${provider.slug}`}
+                className={`aspect-square rounded-xl ${isUMR ? '' : 'border border-border'} bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6 cursor-pointer`}
+                data-testid={`insurance-${index}`}
+              >
               <img 
                 src={provider.logo} 
                 alt={provider.name}
@@ -41,7 +43,8 @@ export default function InsuranceSection() {
                 {provider.name}
               </p>
             </Link>
-          ))}
+            );
+          })}
         </div>
         
         <div className="text-center mt-8">
