@@ -17,7 +17,8 @@ export default function SiteHeader() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Our Team", href: "/team" },
-    { label: "Insurance", href: "/insurance" }
+    { label: "Insurance", href: "/insurance" },
+    { label: "Virtual Visit", href: "/virtual-visit" }
   ];
 
   return (

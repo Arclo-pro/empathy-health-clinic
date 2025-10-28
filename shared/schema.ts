@@ -68,6 +68,7 @@ export const teamMembers = pgTable("team_members", {
   name: text("name").notNull(),
   credentials: text("credentials").notNull(),
   image: text("image").notNull(),
+  doxyUrl: text("doxy_url").notNull().default("https://doxy.me/empathy1"),
   order: integer("order").notNull(),
 });
 
