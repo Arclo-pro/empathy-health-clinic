@@ -41,6 +41,28 @@ export default function ServicesPage() {
       ]
     },
     {
+      icon: Brain,
+      title: "Medication Management",
+      description: "Expert psychiatric medication management with ongoing monitoring and adjustments. Our psychiatrists work with you to find the right medications to manage your symptoms effectively.",
+      features: [
+        "Personalized medication plans",
+        "Regular monitoring and adjustments",
+        "Side effect management",
+        "Coordination with other providers"
+      ]
+    },
+    {
+      icon: FileText,
+      title: "Psychotherapy & Counseling",
+      description: "Evidence-based therapy approaches delivered by licensed therapists. Individual, couples, and family therapy sessions tailored to your specific needs and goals.",
+      features: [
+        "Cognitive Behavioral Therapy (CBT)",
+        "Dialectical Behavior Therapy (DBT)",
+        "Trauma-focused therapy",
+        "Individual and couples counseling"
+      ]
+    },
+    {
       icon: PawPrint,
       title: "ESA Letters",
       description: "Emotional Support Animal (ESA) letters for housing and travel. Our licensed mental health professionals evaluate your need for an ESA and provide legitimate documentation.",
@@ -81,11 +103,11 @@ export default function ServicesPage() {
                 Featured Services
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional psychiatric care and documentation services
+                Comprehensive psychiatric services, therapy, and specialized mental health care
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
               {featuredServices.map((service, index) => (
                 <Card key={index} className="hover-elevate" data-testid={`featured-service-${index}`}>
                   <CardHeader>
