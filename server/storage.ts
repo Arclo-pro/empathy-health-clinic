@@ -241,7 +241,7 @@ export class MemStorage implements IStorage {
       {
         name: "Alex Regan",
         credentials: "Psychiatric PA-C",
-        image: "/attached_assets/stock_images/professional_healthc_117c18e3.jpg",
+        image: "/attached_assets/image_1761611316339.png",
         order: 1,
       },
       {
