@@ -319,7 +319,7 @@ export class MemStorage implements IStorage {
       {
         name: "Marsha D. Hassell",
         credentials: "MS, PLMHC",
-        image: "/attached_assets/stock_images/professional_female__1e16ed38.jpg",
+        image: "/attached_assets/image_1761613347362.png",
         order: 8,
       },
       {
