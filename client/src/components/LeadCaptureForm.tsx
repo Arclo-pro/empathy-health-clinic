@@ -258,9 +258,12 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       </Form>
 
       <div className="mt-5 pt-5 border-t">
-        <div className="flex items-center gap-2 justify-center text-xs text-muted-foreground">
-          <Shield className="h-4 w-4" />
-          <p>Your information is secure and confidential</p>
+        <div className="flex flex-col items-center gap-2 text-center">
+          <div className="flex items-center gap-2 text-xs font-medium text-foreground">
+            <Shield className="h-4 w-4 text-primary" />
+            <span>HIPAA-Compliant | Secure | We'll call you within 24 hours</span>
+          </div>
+          <p className="text-xs text-muted-foreground">Your privacy is protected by federal law</p>
         </div>
       </div>
 

@@ -32,9 +32,24 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white mb-6">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-white/95 leading-relaxed mb-8">
+          <p className="text-lg md:text-xl text-white/95 leading-relaxed mb-6">
             {subtitle}
           </p>
+          
+          <div className="flex flex-wrap items-center gap-4 mb-8 text-white/95">
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-primary" />
+              <span className="text-sm md:text-base font-medium">Same-Week Appointments</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-primary" />
+              <span className="text-sm md:text-base font-medium">Most Insurance Accepted</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-primary" />
+              <span className="text-sm md:text-base font-medium">Telehealth Available</span>
+            </div>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <Button 

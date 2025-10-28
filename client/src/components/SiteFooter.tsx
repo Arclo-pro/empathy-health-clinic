@@ -61,9 +61,18 @@ export default function SiteFooter() {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <span className="text-base text-foreground">
-                  {address}
-                </span>
+                <div className="text-base text-foreground">
+                  <p>{address}</p>
+                  <p className="text-sm text-muted-foreground mt-1">Orlando, FL 32810</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 pt-4 border-t border-card-border">
+              <h4 className="text-sm font-semibold text-foreground mb-2">Office Hours</h4>
+              <div className="space-y-1 text-sm text-muted-foreground">
+                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <p>Saturday: By Appointment</p>
+                <p>Sunday: Closed</p>
               </div>
             </div>
           </div>
