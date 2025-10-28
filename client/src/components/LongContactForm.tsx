@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Briefcase, Heart, Pill, CreditCard, User } from "lucide-react";
+import { CheckCircle2, Briefcase, Heart, Pill, CreditCard, User, Shield } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import {
   Select,
@@ -691,6 +691,16 @@ export default function LongContactForm() {
                 {submitLead.isPending ? "Submitting..." : "Submit"}
               </Button>
             )}
+          </div>
+          
+          <div className="mt-6 pt-6 border-t">
+            <div className="flex flex-col items-center gap-2 text-center">
+              <div className="flex items-center gap-2 text-xs font-medium text-foreground">
+                <Shield className="h-4 w-4 text-primary" />
+                <span>HIPAA-Compliant | Secure | We'll call you within 24 hours</span>
+              </div>
+              <p className="text-xs text-muted-foreground">Your privacy is protected by federal law</p>
+            </div>
           </div>
         </form>
       </Form>
