@@ -47,10 +47,25 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
 
   const mutation = useMutation({
     mutationFn: async (data: LeadFormData) => {
+      // Split name into firstName and lastName
+      const nameParts = data.name.trim().split(' ');
+      const firstName = nameParts[0] || data.name;
+      const lastName = nameParts.slice(1).join(' ') || ' ';
+      
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email: data.email,
+          phone: data.phone,
+          service: data.therapyInterest || therapyName || '',
+          formType: "short",
+          smsOptIn: "false",
+          conditions: '[]',
+          symptoms: '[]',
+        }),
       });
       if (!response.ok) {
         throw new Error("Failed to submit lead");
