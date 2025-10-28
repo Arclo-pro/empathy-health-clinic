@@ -17,11 +17,11 @@ export default function SiteFooter() {
   const address = content?.footerAddress || "2281 Lee Rd Suite 102, Winter Park FL";
 
   const quickLinks = [
-    "Services",
-    "Insurance",
-    "Our Team",
-    "Resources",
-    "Privacy Policy"
+    { label: "Services", href: "/services" },
+    { label: "Insurance", href: "/insurance" },
+    { label: "Team", href: "/team" },
+    { label: "Virtual Visit", href: "/virtual-visit" },
+    { label: "Request Appointment", href: "/request-appointment" }
   ];
 
   return (
@@ -71,15 +71,11 @@ export default function SiteFooter() {
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
-                    href="#"
-                    className="text-base text-muted-foreground hover:text-primary"
+                    href={link.href}
+                    className="text-base text-muted-foreground hover:text-primary transition-colors"
                     data-testid={`link-footer-quick-${index}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      console.log(`Navigate to ${link}`);
-                    }}
                   >
-                    {link}
+                    {link.label}
                   </a>
                 </li>
               ))}
