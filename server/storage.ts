@@ -247,31 +247,31 @@ export class MemStorage implements IStorage {
       {
         name: "Melissa DiPaolis",
         credentials: "MSN, APRN, FNP-BC",
-        image: "/attached_assets/stock_images/professional_healthc_8344522b.jpg",
+        image: "/attached_assets/stock_images/professional_female__d0a8da04.jpg",
         order: 2,
       },
       {
         name: "Dr. Robert Glenn",
         credentials: "MD",
-        image: "/attached_assets/stock_images/professional_healthc_7e52cf74.jpg",
+        image: "/attached_assets/stock_images/professional_male_do_b0030134.jpg",
         order: 3,
       },
       {
         name: "Keith Harryhill",
         credentials: "MS, LMHC",
-        image: "/attached_assets/stock_images/professional_healthc_767b59b6.jpg",
+        image: "/attached_assets/stock_images/professional_male_do_25305d14.jpg",
         order: 4,
       },
       {
         name: "Marjorie Felix",
         credentials: "MSN, APRN, PMHNP-BC",
-        image: "/attached_assets/stock_images/professional_healthc_a9a89fbd.jpg",
+        image: "/attached_assets/stock_images/professional_female__6d45674d.jpg",
         order: 5,
       },
       {
         name: "Rachel Coalburn",
         credentials: "LCSW",
-        image: "/attached_assets/stock_images/professional_healthc_1753b5e3.jpg",
+        image: "/attached_assets/stock_images/professional_female__0892cd68.jpg",
         order: 6,
       },
       {
@@ -283,19 +283,19 @@ export class MemStorage implements IStorage {
       {
         name: "Marsha D. Hassell",
         credentials: "MS, PLMHC",
-        image: "/attached_assets/stock_images/professional_healthc_99dd0856.jpg",
+        image: "/attached_assets/stock_images/professional_female__1e16ed38.jpg",
         order: 8,
       },
       {
         name: "Christine Orr",
         credentials: "LCSW",
-        image: "/attached_assets/stock_images/professional_healthc_ae2cb43f.jpg",
+        image: "/attached_assets/stock_images/professional_male_do_d7ac4a30.jpg",
         order: 9,
       },
       {
         name: "Karla McLeod",
         credentials: "Licensed Mental Health Counselor",
-        image: "/attached_assets/stock_images/professional_healthc_955227e9.jpg",
+        image: "/attached_assets/stock_images/professional_male_do_381973f4.jpg",
         order: 10,
       },
     ];
