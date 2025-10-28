@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
-import logoImage from "@assets/image_1761620487840.png";
+import logoImage from "@assets/image_1761618219825.png";
 
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
