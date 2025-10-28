@@ -16,7 +16,7 @@ export default function SiteHeader() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Our Team", href: "/team" },
+    { label: "Team", href: "/team" },
     { label: "Insurance", href: "/insurance" }
   ];
 
@@ -57,15 +57,17 @@ export default function SiteHeader() {
             ))}
           </nav>
           
-          <div className="hidden md:flex items-center gap-3">
-            <a 
-              href={`tel:${phone.replace(/[^0-9]/g, '')}`}
-              className="flex items-center gap-2 text-primary font-semibold text-lg hover:text-primary/80 transition-colors"
+          <div className="hidden md:flex items-center gap-2">
+            <Button
+              variant="ghost"
+              asChild
               data-testid="link-header-phone"
             >
-              <Phone className="h-5 w-5" />
-              <span>{phone}</span>
-            </a>
+              <a href={`tel:${phone.replace(/[^0-9]/g, '')}`} className="flex items-center gap-1.5">
+                <Phone className="h-4 w-4" />
+                <span>{phone}</span>
+              </a>
+            </Button>
             <Button
               variant="ghost"
               asChild
@@ -85,7 +87,6 @@ export default function SiteHeader() {
               </a>
             </Button>
             <Button
-              size="lg"
               className="rounded-full px-6"
               data-testid="button-header-appointment"
               onClick={() => window.location.href = '/request-appointment'}
