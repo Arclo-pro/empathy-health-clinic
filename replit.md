@@ -15,23 +15,24 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 - **Frontend:** React SPA, TypeScript, Tailwind CSS, Shadcn UI, TanStack Query for data fetching, Wouter for routing.
 - **Backend:** Express.js REST API with an in-memory storage (MemStorage) for content. All API endpoints include Zod validation.
 - **Content Management:** Full CRUD operations are available via an admin panel (`/admin`) for managing site content, treatments, therapies, conditions, team members, testimonials, insurance providers, and leads.
+- **Email Notifications:** SendGrid integration automatically sends lead notification emails to providers@empathyhealthclinic.com when forms are submitted. Emails include all contact details and form data in a professional HTML format.
 - **SEO Features:** Custom page titles, SEO-friendly URLs (preserving WordPress structure where needed), rich keyword-optimized content, structured FAQ sections, and mobile-responsive design are central to all landing pages (Insurance, Treatment, Therapy, Condition).
 - **Dynamic Content:** Real-time content updates are pulled from the API.
 
 ### Feature Specifications
 - **Landing Page:** Beautiful, comprehensive landing page.
-- **Services Page (`/services`):** Overview of all offerings, categorized with cross-links.
+- **Services Page (`/services`):** Overview of all offerings, categorized with cross-links to treatment/therapy pages.
 - **SEO-optimized Landing Pages:** 
   - 12 Insurance Provider pages with comprehensive coverage details
-  - 8 Psychiatric Treatment pages
+  - 9 Psychiatric Treatment pages (including ESA Letter service)
   - 15 Therapy Service pages
   - 10 Condition pages (Anxiety, Depression, Bipolar, PTSD, Personality Disorders, ADHD, OCD, Eating Disorders, Substance Use Disorders, Postpartum Depression)
-- **Team Page (`/team`):** Displays all staff members with professional photos and credentials.
-- **Patient Portal (`/admin`):** A comprehensive CMS for editing all content types.
-- **Lead Capture:** High-converting forms on therapy pages.
+- **Team Page (`/team`):** Displays all 9 staff members with professional photos, credentials, and individual bio pages.
+- **Patient Portal (`/admin`):** A comprehensive CMS for editing all content types and viewing leads.
+- **Lead Capture:** High-converting forms on therapy pages with automatic email notifications to providers@empathyhealthclinic.com.
 - **Trust Factors:** Credibility indicators strategically placed throughout the site.
 - **Mobile Responsiveness & Dark Mode:** Full support for various devices and user preferences.
-- **Contact Information:** Prominent phone number (386-848-8751) in sticky header, visible on all pages.
+- **Contact Information:** Prominent phone number (386-848-8751) in sticky header, visible on all pages. Email: providers@empathyhealthclinic.com.
 
 ### System Design Choices
 The system uses an in-memory storage solution, simplifying deployment by removing the need for a separate database setup, though this means data resets on server restarts. The project structure separates client, server, and shared (schemas) concerns, promoting modularity. Content types are rigorously defined to support detailed and SEO-rich pages, including specialized sections like "Who Can Benefit" and "What to Expect."
@@ -45,4 +46,9 @@ The system uses an in-memory storage solution, simplifying deployment by removin
 - **Wouter:** Lightweight React router.
 - **Express.js:** Backend web application framework.
 - **Zod:** Schema declaration and validation library.
+- **SendGrid:** Email delivery service for lead notifications.
 - **Lucide-react:** Icon library for UI elements.
+
+## Environment Secrets
+- **SENDGRID_API_KEY:** Required for email notifications to providers@empathyhealthclinic.com
+- **SESSION_SECRET:** Required for admin session management

@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { sendLeadNotification } from "./email";
 import {
   insertSiteContentSchema,
   insertTreatmentSchema,
@@ -422,6 +423,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validated = insertLeadSchema.parse(req.body);
       const lead = await storage.createLead(validated);
+      
+      // Send email notification asynchronously (don't wait for it to complete)
+      sendLeadNotification({
+        firstName: validated.firstName,
+        lastName: validated.lastName,
+        email: validated.email,
+        phone: validated.phone,
+        smsOptIn: validated.smsOptIn,
+        service: validated.service,
+        formType: validated.formType,
+        conditions: validated.conditions,
+        symptoms: validated.symptoms,
+        medications: validated.medications,
+        preferredDay: validated.preferredDay,
+        paymentMethod: validated.paymentMethod,
+        insuranceProvider: validated.insuranceProvider,
+        insuredName: validated.insuredName,
+        insuredDob: validated.insuredDob,
+        memberId: validated.memberId,
+      }).catch(error => {
+        console.error('Failed to send lead notification email:', error);
+        // Don't fail the request if email fails
+      });
+      
       res.json(lead);
     } catch (error: any) {
       res.status(400).json({ error: error.message });
