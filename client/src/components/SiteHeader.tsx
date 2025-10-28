@@ -35,9 +35,6 @@ export default function SiteHeader() {
                 alt="Empathy Health Clinic" 
                 className="h-10 md:h-12 w-auto"
               />
-              <span className="text-lg md:text-xl font-sans font-medium text-foreground">
-                Empathy Health Clinic
-              </span>
             </a>
           </div>
           
