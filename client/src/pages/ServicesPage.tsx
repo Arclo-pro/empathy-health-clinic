@@ -107,6 +107,38 @@ export default function ServicesPage() {
           </div>
         </div>
 
+        <section className="py-16 md:py-20 bg-card border-y">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Comprehensive Mental Health Care in Florida</h2>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                At Empathy Health Clinic, we provide comprehensive mental health services that address the full spectrum of psychiatric and psychological needs. Our integrated approach combines psychiatric medication management, evidence-based therapy, and specialized treatment programs to deliver personalized care that produces lasting results. Whether you're seeking help for <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, trauma, or relationship challenges, our experienced team is here to support your journey toward better mental health.
+              </p>
+
+              <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Our Treatment Philosophy</h3>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                We believe that effective mental health treatment requires a holistic approach that addresses both the biological and psychological aspects of mental health conditions. Our psychiatrists and therapists work collaboratively to create integrated treatment plans that may combine medication management with therapeutic interventions for optimal outcomes. This collaborative model ensures that you receive comprehensive care tailored to your unique needs, rather than a one-size-fits-all approach.
+              </p>
+
+              <p className="text-foreground leading-relaxed mb-6">
+                Every person's mental health journey is different, which is why we take time to truly understand your specific situation, goals, and preferences before recommending treatment. We offer both <Link href="/virtual-counseling-services" className="text-primary hover:underline font-medium">virtual visits</Link> and <Link href="/in-person-therapy" className="text-primary hover:underline font-medium">in-person sessions</Link>, making quality mental health care accessible and convenient for patients throughout Florida. Our providers stay current with the latest research and treatment approaches, ensuring you receive evidence-based care that reflects best practices in the field.
+              </p>
+
+              <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">What Sets Us Apart</h3>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                At Empathy Health Clinic, we pride ourselves on providing exceptional mental health care that prioritizes your comfort, privacy, and wellbeing. Our team includes board-certified psychiatrists, licensed therapists, and mental health professionals who bring years of experience and genuine compassion to their work. We accept most major <Link href="/insurance" className="text-primary hover:underline font-medium">insurance plans</Link>, making quality mental health care financially accessible for more patients.
+              </p>
+
+              <p className="text-foreground leading-relaxed mb-6">
+                We understand that seeking mental health treatment can feel overwhelming, which is why we've designed our practice to be welcoming, supportive, and stigma-free. From your first phone call to ongoing treatment sessions, you'll experience a level of care and attention that makes you feel heard, understood, and valued. Same-week appointments are often available for new patients, because we believe that when you're ready to seek help, you shouldn't have to wait weeks to get started.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">

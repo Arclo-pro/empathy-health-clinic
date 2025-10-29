@@ -50,10 +50,19 @@ export default function SiteFooter() {
     { label: "Request Appointment", href: "/request-appointment" }
   ];
 
+  const servicesLinks = [
+    { label: "Psychiatric Evaluation", href: "/psychiatric-evaluation" },
+    { label: "Medication Management", href: "/medication-management" },
+    { label: "Therapy Services", href: "/therapy" },
+    { label: "Anxiety Treatment", href: "/anxiety-disorders" },
+    { label: "Depression Treatment", href: "/depression" },
+    { label: "ADHD Treatment", href: "/adhd" }
+  ];
+
   return (
     <footer className="bg-card border-t border-card-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <h3 className="text-xl font-sans font-medium mb-4 text-foreground">
               Empathy Health Clinic
@@ -115,6 +124,23 @@ export default function SiteFooter() {
                         trackEvent('virtual_visit_click', 'conversion', 'Footer Virtual Visit');
                       }
                     }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-4 text-foreground">Services & Treatments</h3>
+            <ul className="space-y-3">
+              {servicesLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    className="text-base text-muted-foreground hover:text-primary transition-colors"
+                    data-testid={`link-footer-service-${index}`}
                   >
                     {link.label}
                   </a>

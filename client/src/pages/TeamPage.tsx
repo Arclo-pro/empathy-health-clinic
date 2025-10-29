@@ -49,8 +49,55 @@ export default function TeamPage() {
           </div>
         </div>
 
+        <section className="py-16 md:py-20 bg-card border-y">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <div className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Expert Mental Health Professionals</h2>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                At Empathy Health Clinic, our team consists of board-certified psychiatrists, licensed therapists, psychiatric nurse practitioners, and mental health counselors who share a common commitment to providing exceptional, compassionate care. Each member of our team brings specialized expertise in treating a wide range of mental health conditions, from common concerns like <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link> and <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link> to more complex conditions requiring specialized treatment approaches.
+              </p>
+
+              <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Our Collaborative Approach to Care</h3>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                What sets Empathy Health Clinic apart is our collaborative treatment model. Our psychiatrists and therapists work together as a unified team, consulting with one another to ensure you receive comprehensive, coordinated care. When appropriate, your treatment plan may include both <Link href="/medication-management" className="text-primary hover:underline font-medium">medication management</Link> from one of our psychiatrists and regular <Link href="/therapy" className="text-primary hover:underline font-medium">therapy sessions</Link> with a licensed therapist. This integrated approach often produces better outcomes than either treatment alone.
+              </p>
+
+              <p className="text-foreground leading-relaxed mb-6">
+                Our providers communicate regularly to discuss your progress and adjust your treatment plan as needed. This means you benefit from multiple expert perspectives while maintaining a cohesive, well-coordinated treatment experience. We believe that the best mental health care happens when clinicians work together, sharing their unique insights and expertise to support your healing journey.
+              </p>
+
+              <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Experience and Credentials You Can Trust</h3>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                Every member of our clinical team holds advanced degrees and maintains active licenses in good standing. Our psychiatrists are board-certified by the American Board of Psychiatry and Neurology, and our therapists hold master's degrees or higher in counseling, psychology, or social work. Beyond their formal credentials, our providers bring years of hands-on clinical experience treating diverse patient populations and mental health conditions.
+              </p>
+
+              <p className="text-foreground leading-relaxed mb-6">
+                We prioritize ongoing professional development to ensure our team stays current with the latest research, treatment innovations, and best practices in mental health care. Our providers regularly attend conferences, complete continuing education courses, and engage in peer consultation to sharpen their clinical skills. This commitment to excellence means you receive evidence-based care that reflects the most current understanding of mental health treatment.
+              </p>
+
+              <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Finding the Right Provider for Your Needs</h3>
+              
+              <p className="text-foreground leading-relaxed mb-6">
+                We understand that the therapeutic relationship is fundamental to successful treatment outcomes. That's why we take care to match you with a provider whose expertise, personality, and approach align with your specific needs and preferences. During your initial consultation, we'll discuss your concerns and goals to help you find the best fit within our team. Whether you're seeking treatment for <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, <Link href="/ptsd" className="text-primary hover:underline font-medium">PTSD</Link>, relationship challenges, or other mental health concerns, we have experienced providers ready to support you.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
+                Meet Our Providers
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Click on any provider to learn more about their background, specialties, and approach to care
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
               {teamMembers?.map((member, index) => (
                 <Link
