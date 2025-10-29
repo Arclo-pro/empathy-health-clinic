@@ -1,7 +1,7 @@
 # Empathy Health Clinic - Content Management System
 
 ## Overview
-This project delivers a modern, fast Content Management System (CMS) and website for Empathy Health Clinic, replacing their existing WordPress/Elementor setup. The core purpose is to streamline content updates, enhance site performance, provide SEO-optimized landing pages for healthcare services and conditions, and offer a high-converting user experience. It aims to support comprehensive content management and improve online visibility and patient acquisition.
+This project delivers a modern, high-performance CMS and website for Empathy Health Clinic. Its primary goals are to streamline content management, enhance site performance, provide SEO-optimized landing pages for healthcare services and conditions, and offer a high-converting user experience to improve online visibility and patient acquisition.
 
 ## User Preferences
 I want the agent to prioritize high-level features and architectural decisions. Please do not delve into granular implementation details unless specifically asked. I prefer a concise communication style. When making changes, focus on the most impactful elements first.
@@ -9,35 +9,33 @@ I want the agent to prioritize high-level features and architectural decisions. 
 ## System Architecture
 
 ### UI/UX Decisions
-The frontend is a React Single Page Application (SPA) built with TypeScript, utilizing Tailwind CSS and Shadcn UI components for a professional healthcare design. It features a responsive layout with full dark mode support. Typography uses Inter font exclusively, loaded via modern Google Fonts API with preconnect optimization. Aggressive cross-linking is implemented across all content types to enhance user navigation and SEO. Trust factors are prominently displayed throughout the site, and lead capture forms are designed for high conversion.
+The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and Shadcn UI for a professional healthcare design, featuring full dark mode support and Inter font. It emphasizes aggressive cross-linking, prominent trust factors, and high-conversion lead capture forms.
 
 ### Technical Implementations
-- **Frontend:** React SPA, TypeScript, Tailwind CSS, Shadcn UI, TanStack Query for data fetching, Wouter for routing.
-- **Backend:** Express.js REST API with an in-memory storage (MemStorage) for content. All API endpoints include Zod validation.
-- **Content Management:** Full CRUD operations via an admin panel (`/admin`) for managing site content, including treatments, therapies, conditions, team members, testimonials, insurance providers, blog posts, and leads.
-- **Email Notifications:** SendGrid integration sends lead notification emails to specified recipients upon form submission.
-- **SEO Features:** Comprehensive SEO optimization including unique meta tags, canonical tags pointing to preferred domain (https://empathyhealthclinic.com) across all pages, structured data (Organization/LocalBusiness, Article schema), auto-generated XML sitemap, proper robots.txt, SEO-friendly URLs, rich content optimization, mobile-first design, and image alt text.
-- **Dynamic Content:** Real-time content updates are pulled from the API.
-- **Blog System:** Complete blog with listing page (`/blog`) and individual post pages (`/blog/:slug`), featuring extensive SEO metadata, JSON-LD, related articles, author bios, and social sharing. Blog content from WordPress has been migrated, converted to Markdown, and enhanced with internal links and optimized imagery.
-- **Analytics System:** Site health monitoring with Core Web Vitals tracking (LCP, INP, CLS, FCP, TTFB), Google Analytics 4 integration, page view tracking, conversion event tracking, and an admin analytics dashboard at `/admin/analytics`.
-- **SEO Optimization Dashboard:** Comprehensive SEO strategy tools at `/admin/seo` including Search Console integration guidance, content gap analysis for "almost ranking" keywords, internal linking recommendations using hub-and-spoke methodology, and actionable week-by-week implementation checklists. Complete SEO guide available at `SEO_OPTIMIZATION_GUIDE.md`.
+- **Frontend:** React SPA, TypeScript, Tailwind CSS, Shadcn UI, TanStack Query, Wouter.
+- **Backend:** Express.js REST API with in-memory storage (MemStorage) and Zod validation.
+- **Content Management:** Full CRUD operations via an admin panel (`/admin`) for diverse content types (treatments, therapies, conditions, team, testimonials, insurance, blog, leads).
+- **Email Notifications:** SendGrid integration for lead notification emails.
+- **SEO Features:** Unique meta tags, canonical tags, structured data (Organization/LocalBusiness, Article schema), auto-generated XML sitemap, robots.txt, SEO-friendly URLs, rich content optimization, mobile-first design, image alt text.
+- **Dynamic Content:** Real-time content updates from the API.
+- **Blog System:** Comprehensive blog with listing (`/blog`) and individual post pages (`/blog/:slug`), including SEO metadata, JSON-LD, related articles, author bios, and social sharing.
+- **Analytics System:** Core Web Vitals tracking (LCP, INP, CLS, FCP, TTFB), Google Analytics 4, page view tracking, conversion event tracking, and an admin analytics dashboard (`/admin/analytics`).
+- **SEO Optimization Dashboard:** Strategic SEO tools at `/admin/seo` with Search Console guidance, content gap analysis, internal linking recommendations, and actionable checklists.
 
 ### Feature Specifications
-- **Landing Page:** Comprehensive and conversion-focused.
-- **Services Page (`/services`):** Overview of all offerings with cross-links.
-- **SEO-optimized Landing Pages:** Dedicated pages for 12 Insurance Providers, 9 Psychiatric Treatments, 15 Therapy Services, and 10 Conditions.
-- **Blog Section (`/blog`):** 165 migrated and 7 initially created SEO-optimized mental health articles with featured posts, category filters, JSON-LD, meta tags, related articles, author bios, and social sharing.
-- **Team Page (`/team`):** Displays staff members with photos, credentials, and bios.
-- **Patient Portal (`/admin`):** Comprehensive CMS for content editing and lead management.
-- **Analytics Dashboard (`/admin/analytics`):** Monitors Core Web Vitals, GA4 status, page views, and conversion metrics.
-- **SEO Optimization Dashboard (`/admin/seo`):** Strategic SEO tools providing Search Console access, content gap opportunities (targeting keywords in positions 11-30), internal linking strategy recommendations, and actionable checklists for improving organic search performance.
+- **Core Pages:** Comprehensive Landing Page, Services Page (`/services`), SEO-optimized landing pages for 12 Insurance Providers, 9 Psychiatric Treatments, 15 Therapy Services, and 10 Conditions.
+- **Blog Section (`/blog`):** 165 migrated and 7 new SEO-optimized articles with features like category filters and JSON-LD.
+- **Team Page (`/team`):** Displays staff with bios and credentials.
+- **Admin Panel (`/admin`):** CMS for content editing and lead management.
+- **Analytics Dashboard (`/admin/analytics`):** Monitors key performance metrics.
+- **SEO Optimization Dashboard (`/admin/seo`):** Provides strategic SEO insights and tools.
 - **Lead Capture:** High-converting forms with automated email notifications.
-- **Trust Factors:** Credibility indicators like HIPAA compliance messaging and insurance logos are strategically placed.
-- **Mobile Responsiveness & Dark Mode:** Full support across devices and user preferences.
-- **Contact Information:** Prominent display of phone number (386-848-8751) and email (providers@empathyhealthclinic.com).
+- **Trust Factors:** Integration of credibility indicators like HIPAA compliance.
+- **Accessibility:** Mobile responsiveness and dark mode support.
+- **Contact Information:** Prominent display of phone (386-848-8751) and email (providers@empathyhealthclinic.com).
 
 ### System Design Choices
-The system uses an in-memory storage solution for simplified deployment, though this means data resets on server restarts. The project structure separates client, server, and shared concerns for modularity. Content types are rigorously defined to support detailed and SEO-rich pages.
+The system uses an in-memory storage solution for simplified deployment, resulting in data reset on server restarts. The project structure separates client, server, and shared concerns for modularity. Content types are rigorously defined to support detailed and SEO-rich pages.
 
 ## External Dependencies
 - **React:** Frontend library.
@@ -51,119 +49,3 @@ The system uses an in-memory storage solution for simplified deployment, though 
 - **SendGrid:** Email delivery service.
 - **web-vitals:** Core Web Vitals measurement.
 - **Lucide-react:** Icon library.
-
-## Environment Secrets
-- **SENDGRID_API_KEY:** Required for email notifications to providers@empathyhealthclinic.com and kevin.mease@gmail.com
-- **SESSION_SECRET:** Required for admin session management
-- **VITE_GA_MEASUREMENT_ID** (Optional): Google Analytics 4 Measurement ID for enhanced tracking and reporting. Get this from your Google Analytics account (Admin > Property > Data Streams > Web). Format: G-XXXXXXXXXX
-- **VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION** (Optional): Google Search Console verification code for site ownership verification and SEO monitoring.
-
-## Recent SEO Improvements (January 2025)
-
-**Thin Content Resolution:**
-Addressed Google Search Console thin content feedback by expanding four major overview pages with comprehensive, user-focused content:
-
-1. **Insurance Page** (500+ words): Added detailed information about Mental Health Parity Act, insurance benefits, commonly covered services, and how to maximize insurance coverage. Includes strategic internal links to psychiatric evaluations, medication management, therapy, anxiety, depression, ADHD, and PTSD pages.
-
-2. **Therapy Page** (500+ words): Expanded with content about the healing power of therapy, how therapy works, benefits of professional treatment, and guidance on choosing therapeutic approaches. Links to anxiety, depression, CBT, EMDR, couples therapy, and medication management pages.
-
-3. **Services Page** (400+ words): Added comprehensive information about the clinic's mental health care philosophy, treatment approach, and what sets the clinic apart. Internal links to anxiety, depression, ADHD, virtual counseling, in-person therapy, and insurance pages.
-
-4. **Team Page** (500+ words): Enhanced with content about the clinic's expert professionals, collaborative care model, experience and credentials, and finding the right provider. Links to anxiety, depression, medication management, therapy, ADHD, and PTSD pages.
-
-**Enhanced Internal Linking:**
-- Added "Services & Treatments" column to footer with direct links to psychiatric evaluation, medication management, therapy services, anxiety treatment, depression treatment, and ADHD treatment pages
-- Embedded contextual internal links throughout expanded content to strengthen topical authority and crawlability
-- Created comprehensive hub-and-spoke linking structure between overview pages and service/condition detail pages
-
-**Canonical Tag Verification & Cleanup:**
-- Removed duplicate/malformed Google Search Console verification meta tag from index.html
-- Verified all pages render exactly ONE canonical link tag pointing to preferred domain (https://empathyhealthclinic.com)
-- Confirmed no duplicate meta tags across all pages (description, og:title, og:url, google-site-verification)
-- All canonical URLs use proper path normalization (no trailing slashes except root)
-- Tested pages: homepage, insurance, services, therapy, team - all verified correct
-
-**Duplicate Content Resolution:**
-- Identified and fixed duplicate URL routing for team members
-- Removed team member handling from PageBySlug component (previously accessible at both `/team/:slug` and `/:slug`)
-- Team members now ONLY accessible at `/team/:slug` with proper canonical tags
-- Verified: accessing team members at root level `/:slug` returns 404 (prevents duplicate indexing)
-- Content types routing:
-  - Insurance providers: `/:slug` (e.g., `/blue-cross-blue-shield`)
-  - Treatments: `/:slug` (e.g., `/psychiatric-evaluation`)
-  - Therapies: `/:slug` (e.g., `/cognitive-behavioral-therapy`)
-  - Conditions: `/:slug` (e.g., `/anxiety-disorders`)
-  - Team members: `/team/:slug` (e.g., `/team/dr-smith`) - unique route prevents conflicts
-
-**XML Sitemap Improvements:**
-- Added team member pages to sitemap with correct `/team/:slug` format
-- Sitemap now includes all 235+ pages:
-  - Homepage (priority 1.0)
-  - 8 main pages (priority 0.8): services, insurance, team, blog, therapy, new-patients, virtual-visit, request-appointment
-  - 9 treatment pages (priority 0.7)
-  - 15 therapy pages (priority 0.7)
-  - 10 condition pages (priority 0.7)
-  - 12 insurance provider pages (priority 0.6)
-  - 165+ blog posts (priority 0.6)
-  - Team member pages at `/team/:slug` (priority 0.7)
-  - Location pages (priority 0.7)
-- Accessible at: https://empathyhealthclinic.com/sitemap.xml
-- Referenced in robots.txt
-
-**Server Performance Verification:**
-- Excellent response times (all under 50ms):
-  - Homepage: 41ms
-  - Insurance page: 25ms
-  - Therapy page: 23ms
-  - Services page: 10ms
-  - Blog listing: 12ms
-- Fast in-memory storage providing optimal performance
-- All pages returning proper 200 status codes
-
-**Internal Linking Summary:**
-- **Homepage:** Links to all major sections via TreatmentsSection, ConditionsSection, InsuranceSection
-- **Footer:** "Services & Treatments" column with 6 key service links on every page
-- **Overview Pages:** Embedded contextual links throughout expanded content:
-  - Insurance page → psychiatric-evaluation, medication-management, therapy, anxiety, depression, ADHD, PTSD
-  - Therapy page → anxiety, depression, CBT, EMDR, couples-therapy, medication-management
-  - Services page → anxiety, depression, ADHD, virtual-counseling, in-person-therapy, insurance
-  - Team page → anxiety, depression, medication-management, therapy, ADHD, PTSD
-- **Blog Posts:** 165+ articles with internal links to relevant services and conditions
-- **Breadcrumb Navigation:** "Back to All Treatments/Therapies" links on detail pages
-- **Hub-and-Spoke Structure:** Overview pages link to detail pages, detail pages link back to hubs
-
-**Next Actions:**
-1. Submit sitemap to Google Search Console:
-   - Go to https://search.google.com/search-console
-   - Navigate to Sitemaps section (left sidebar)
-   - Enter: https://empathyhealthclinic.com/sitemap.xml
-   - Click "Submit"
-2. Request indexing for key updated pages:
-   - Insurance page: https://empathyhealthclinic.com/insurance
-   - Therapy page: https://empathyhealthclinic.com/therapy
-   - Services page: https://empathyhealthclinic.com/services
-   - Team page: https://empathyhealthclinic.com/team
-3. Monitor Search Console coverage reports for thin content warnings (2-4 weeks)
-4. Track engagement metrics and organic search performance improvements
-
-## Google Search Console Setup Instructions
-
-To enable Google Search Console monitoring for SEO insights:
-
-1. **Go to Google Search Console:** Visit https://search.google.com/search-console
-2. **Add Property:** Click "Add Property" and enter your domain: `empathyhealthclinic.com`
-3. **Choose HTML Tag Verification:** Select the "HTML tag" verification method
-4. **Copy Verification Code:** You'll see a meta tag like: `<meta name="google-site-verification" content="XXXXXXXXXX" />`
-5. **Add to Replit Secrets:** 
-   - Go to your Replit project's Secrets tab (🔒 icon)
-   - Add a new secret named: `VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION`
-   - Paste ONLY the content value (the XXXXXXXXXX part, not the entire meta tag)
-6. **Publish Your Site:** Use the "Publish" button in Replit to deploy your changes
-7. **Verify in Search Console:** Return to Google Search Console and click "Verify"
-
-Once verified, you'll get access to:
-- Search performance data (impressions, clicks, average position)
-- Index coverage reports
-- Mobile usability insights
-- Security issues alerts
-- Sitemap submission and monitoring
