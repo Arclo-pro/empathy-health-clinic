@@ -35,6 +35,15 @@ Successfully restored all 165 published blog posts from WordPress backup:
    - SEO metadata (titles, descriptions) generated from content
    - Posts sorted by publication date (newest first)
 
+5. **Internal Link Enhancement (October 29, 2025):**
+   - Added 362 internal links across 67 blog posts
+   - Links point to treatment pages (anxiety-treatment, depression-treatment, ADHD-treatment, etc.)
+   - Links point to therapy pages (cognitive-behavioral-therapy, EMDR-therapy, couples-therapy, etc.)
+   - Links point to condition pages (anxiety-disorders, depression, bipolar-disorder, PTSD-trauma, etc.)
+   - Preserved 1,200+ existing external authoritative links from WordPress
+   - Average 9.5 links per blog post for improved SEO and user navigation
+   - Scripts created: add-links-to-blogs-v3.ts for processing
+
 ## Recent Improvements (October 2025)
 
 ### Master Landing Page Optimization
