@@ -173,37 +173,40 @@ function assignWordPressImages() {
   
   console.log(`\n📊 Total months with images: ${Object.keys(imagesByMonth).length}\n`);
   
-  // Track image usage to ensure we don't reuse images too frequently
-  const imageUsageCount: Record<string, number> = {};
+  // Track which images have been used (each image used ONLY ONCE)
+  const usedImages = new Set<string>();
   
   let updated = 0;
   let skipped = 0;
   
-  // Update blog posts with WordPress images
+  // Update blog posts with WordPress images - each image used only once
   for (const post of posts) {
     const publishMonth = post.publishedDate.substring(0, 7); // Get YYYY-MM
     
     if (imagesByMonth[publishMonth] && imagesByMonth[publishMonth].length > 0) {
-      const availableImages = imagesByMonth[publishMonth];
+      // Find an unused image from this month's batch
+      let selectedImage: string | null = null;
       
-      // Find the least-used image from this month
-      let selectedImage = availableImages[0];
-      let minUsage = imageUsageCount[selectedImage] || 0;
-      
-      for (const img of availableImages) {
-        const usage = imageUsageCount[img] || 0;
-        if (usage < minUsage) {
+      for (const img of imagesByMonth[publishMonth]) {
+        if (!usedImages.has(img)) {
           selectedImage = img;
-          minUsage = usage;
+          break; // Take the first unused image
         }
       }
       
-      // Update the post
-      post.featuredImage = selectedImage;
-      imageUsageCount[selectedImage] = (imageUsageCount[selectedImage] || 0) + 1;
-      updated++;
-      
-      console.log(`✅ ${post.title.substring(0, 50)}... → ${path.basename(selectedImage)}`);
+      if (selectedImage) {
+        // Mark this image as used
+        usedImages.add(selectedImage);
+        
+        // Update the post
+        post.featuredImage = selectedImage;
+        updated++;
+        
+        console.log(`✅ ${post.title.substring(0, 50)}... → ${path.basename(selectedImage)}`);
+      } else {
+        skipped++;
+        console.log(`⏭️  ${post.title.substring(0, 50)}... (all images used for ${publishMonth})`);
+      }
     } else {
       skipped++;
       console.log(`⏭️  ${post.title.substring(0, 50)}... (no images for ${publishMonth})`);
