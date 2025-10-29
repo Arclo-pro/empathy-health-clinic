@@ -1204,6 +1204,158 @@ export class MemStorage implements IStorage {
       this.conditions.set(id, { id, ...condition });
     });
 
+    // Initialize location pages
+    const defaultLocations: InsertLocation[] = [
+      {
+        title: "Psychiatry Services in Winter Park, FL",
+        slug: "psychiatry-winter-park",
+        city: "Winter Park",
+        serviceType: "psychiatry",
+        pageTitle: "Psychiatrist in Winter Park, FL | Empathy Health Clinic",
+        metaDescription: "Looking for a psychiatrist in Winter Park? Empathy Health Clinic offers comprehensive psychiatric evaluation, medication management, and mental health treatment. Same-week appointments available.",
+        heroTitle: "Trusted Psychiatry Services in Winter Park",
+        heroDescription: "Expert psychiatric care in Winter Park, FL. Our board-certified psychiatrists provide comprehensive mental health evaluations, medication management, and personalized treatment for depression, anxiety, ADHD, bipolar disorder, and more.",
+        description: "Finding the right psychiatrist in Winter Park, FL can make all the difference in your mental health journey. At Empathy Health Clinic, our experienced psychiatric team provides comprehensive mental health care to residents of Winter Park and surrounding areas. We specialize in treating depression, anxiety, ADHD, bipolar disorder, PTSD, and other mental health conditions with evidence-based medication management and supportive therapy. Our Winter Park psychiatry practice offers same-week appointments, accepts most major insurance plans, and provides both in-person and telehealth visits for your convenience.",
+        servicesOffered: JSON.stringify([
+          "Psychiatric Evaluation & Diagnosis",
+          "Medication Management",
+          "Depression Treatment",
+          "Anxiety Treatment",
+          "ADHD Treatment",
+          "Bipolar Disorder Treatment",
+          "PTSD Treatment",
+          "Telehealth Psychiatry"
+        ]),
+        whyChooseUs: "Our Winter Park psychiatry practice combines clinical excellence with compassionate care. We take time to listen, provide thorough evaluations, and develop personalized treatment plans that work for your lifestyle. With convenient telehealth options and same-week appointments, getting quality mental health care in Winter Park has never been easier.",
+        faqs: JSON.stringify([
+          { question: "Do you accept insurance in Winter Park?", answer: "Yes, we accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, Humana, UnitedHealthcare, and more. We also offer self-pay options." },
+          { question: "Can I see a psychiatrist via telehealth in Winter Park?", answer: "Absolutely! We offer secure video visits that let you meet with our psychiatrists from home. Telehealth appointments are just as effective as in-person visits for medication management and follow-ups." },
+          { question: "How quickly can I get an appointment in Winter Park?", answer: "We typically offer same-week appointments for new patients. Call us at 386-848-8751 to schedule your psychiatric evaluation." },
+          { question: "What's the difference between a psychiatrist and a therapist?", answer: "Psychiatrists are medical doctors who can prescribe medication and provide medical treatment for mental health conditions. We also offer therapy services through our licensed counselors for comprehensive care." }
+        ]),
+        order: 1,
+      },
+      {
+        title: "Therapy Services in Winter Park, FL",
+        slug: "therapy-services-winter-park",
+        city: "Winter Park",
+        serviceType: "therapy-services",
+        pageTitle: "Therapy & Counseling in Winter Park, FL | Empathy Health Clinic",
+        metaDescription: "Professional therapy and counseling services in Winter Park, FL. CBT, couples therapy, EMDR, depression counseling, and anxiety treatment. Accepting new patients.",
+        heroTitle: "Compassionate Therapy Services in Winter Park",
+        heroDescription: "Transform your life with expert therapy in Winter Park, FL. Our licensed therapists specialize in CBT, couples counseling, trauma therapy, depression treatment, and anxiety management. In-person and online sessions available.",
+        description: "At Empathy Health Clinic, we provide comprehensive therapy and counseling services to Winter Park residents seeking support for life's challenges. Our experienced licensed therapists offer evidence-based treatments including Cognitive Behavioral Therapy (CBT), EMDR for trauma, couples therapy, grief counseling, and specialized care for depression, anxiety, and relationship issues. Whether you're dealing with stress, life transitions, or mental health concerns, our Winter Park therapy practice offers a safe, supportive environment for healing and growth.",
+        servicesOffered: JSON.stringify([
+          "Cognitive Behavioral Therapy (CBT)",
+          "Individual Therapy",
+          "Couples Therapy & Marriage Counseling",
+          "EMDR Therapy for Trauma",
+          "Depression Counseling",
+          "Anxiety Therapy",
+          "Grief Counseling",
+          "LGBTQ+ Affirming Therapy",
+          "Virtual Counseling Services"
+        ]),
+        whyChooseUs: "Our Winter Park therapists are committed to providing personalized, evidence-based care in a warm, non-judgmental environment. We accept most insurance plans, offer flexible scheduling with evening appointments, and provide both in-person and virtual therapy sessions to fit your lifestyle.",
+        faqs: JSON.stringify([
+          { question: "How do I choose the right therapist in Winter Park?", answer: "We'll help match you with a therapist who specializes in your specific concerns. During your first session, you'll discuss your goals and determine if it's a good fit. You can always request to see a different therapist if needed." },
+          { question: "Does insurance cover therapy in Winter Park?", answer: "Most major insurance plans cover therapy services. We're in-network with Aetna, Blue Cross Blue Shield, Cigna, Humana, and UnitedHealthcare. Our team can verify your benefits before your first appointment." },
+          { question: "Do you offer virtual therapy for Winter Park residents?", answer: "Yes! We provide secure, HIPAA-compliant video therapy sessions that are just as effective as in-person counseling. Perfect for busy schedules or those who prefer therapy from home." },
+          { question: "How long does therapy take?", answer: "The length of therapy varies based on your goals and needs. Some people benefit from short-term therapy (6-12 sessions), while others prefer ongoing support. Your therapist will work with you to create a personalized treatment plan." }
+        ]),
+        order: 2,
+      },
+      {
+        title: "Therapy & Counseling Services in Sanford, FL",
+        slug: "therapy-services-sanford",
+        city: "Sanford",
+        serviceType: "therapy-services",
+        pageTitle: "Therapist in Sanford, FL | Counseling Services | Empathy Health",
+        metaDescription: "Professional therapy and counseling in Sanford, FL. Expert treatment for depression, anxiety, trauma, and relationship issues. Telehealth and in-person sessions available.",
+        heroTitle: "Expert Therapy & Counseling in Sanford",
+        heroDescription: "Quality mental health therapy serving Sanford, FL. Our licensed counselors provide CBT, trauma therapy, couples counseling, and treatment for depression and anxiety. Same-week appointments available.",
+        description: "Empathy Health Clinic brings professional therapy and counseling services to Sanford, Florida residents. Our licensed therapists offer comprehensive mental health care including individual therapy, couples counseling, trauma treatment, and specialized care for depression, anxiety, and life transitions. We understand that seeking therapy is a courageous step, and we're here to support Sanford families and individuals with compassionate, evidence-based care. With convenient telehealth options and flexible scheduling, accessing quality mental health care in Sanford has never been easier.",
+        servicesOffered: JSON.stringify([
+          "Individual Counseling",
+          "Couples Therapy",
+          "Family Therapy",
+          "CBT for Depression & Anxiety",
+          "Trauma & PTSD Therapy",
+          "Grief Counseling",
+          "Anger Management",
+          "Telehealth Counseling"
+        ]),
+        whyChooseUs: "Serving Sanford with personalized, judgment-free therapy that fits your schedule. We accept most insurance plans and offer both virtual and in-person sessions to accommodate your needs. Our therapists have extensive experience helping Sanford residents overcome challenges and build healthier, happier lives.",
+        faqs: JSON.stringify([
+          { question: "Do you have therapists who see Sanford patients?", answer: "Yes! We serve Sanford residents through convenient telehealth sessions and can also arrange in-person appointments. Our therapists are licensed in Florida and experienced in treating a wide range of mental health concerns." },
+          { question: "How much does therapy cost in Sanford?", answer: "Costs vary based on your insurance coverage. We accept most major insurance plans. For self-pay patients, we offer competitive rates and can discuss payment options during your consultation." },
+          { question: "Can I do therapy online if I live in Sanford?", answer: "Absolutely! Virtual therapy is a great option for Sanford residents. You'll meet with your therapist via secure video chat from the comfort of home. It's private, convenient, and just as effective as in-person sessions." }
+        ]),
+        order: 3,
+      },
+      {
+        title: "Therapy & Counseling Services in Lake Mary, FL",
+        slug: "therapy-services-lake-mary",
+        city: "Lake Mary",
+        serviceType: "therapy-services",
+        pageTitle: "Therapist in Lake Mary, FL | Counseling Services | Empathy Health",
+        metaDescription: "Professional therapy and counseling in Lake Mary, FL. Licensed therapists providing CBT, couples therapy, anxiety treatment, and depression counseling. Accepting new patients.",
+        heroTitle: "Compassionate Therapy Services in Lake Mary",
+        heroDescription: "Trusted mental health therapy for Lake Mary, FL residents. Our licensed counselors offer individual therapy, couples counseling, and specialized treatment for anxiety, depression, trauma, and relationship issues.",
+        description: "Lake Mary residents trust Empathy Health Clinic for compassionate, professional therapy and counseling services. Our experienced therapists provide evidence-based treatment for depression, anxiety, relationship challenges, trauma, and life transitions. Whether you're seeking individual counseling, couples therapy, or specialized treatment like CBT or EMDR, our Lake Mary therapy practice offers personalized care in a supportive, non-judgmental environment. We make mental health care accessible with convenient telehealth options, flexible scheduling, and acceptance of most major insurance plans.",
+        servicesOffered: JSON.stringify([
+          "Individual Therapy",
+          "Marriage & Couples Counseling",
+          "CBT Therapy",
+          "Anxiety Counseling",
+          "Depression Treatment",
+          "Stress Management",
+          "Life Coaching",
+          "Virtual Therapy Sessions"
+        ]),
+        whyChooseUs: "Our Lake Mary therapists combine clinical expertise with genuine compassion. We take time to understand your unique situation and develop treatment plans that align with your goals. With evening appointments available and convenient telehealth options, getting the support you need has never been easier.",
+        faqs: JSON.stringify([
+          { question: "Are your therapists licensed to practice in Lake Mary?", answer: "Yes, all our therapists are licensed in Florida and provide services to Lake Mary residents both in-person and via telehealth." },
+          { question: "What types of therapy do you offer in Lake Mary?", answer: "We offer a wide range of therapy approaches including CBT, EMDR, solution-focused therapy, couples counseling, and more. During your consultation, we'll match you with a therapist who specializes in your specific needs." },
+          { question: "Do you accept insurance for Lake Mary patients?", answer: "Yes, we accept most major insurance plans including Aetna, BCBS, Cigna, Humana, and UnitedHealthcare. We can verify your benefits before your first appointment." }
+        ]),
+        order: 4,
+      },
+      {
+        title: "Counseling Services in Winter Park, FL",
+        slug: "counseling-winter-park",
+        city: "Winter Park",
+        serviceType: "counseling",
+        pageTitle: "Counselor in Winter Park, FL | Mental Health Counseling | Empathy Health",
+        metaDescription: "Professional mental health counseling in Winter Park, FL. Licensed counselors providing individual therapy, family counseling, and support for anxiety, depression, and life challenges.",
+        heroTitle: "Professional Counseling Services in Winter Park",
+        heroDescription: "Experienced mental health counselors serving Winter Park, FL. Get support for anxiety, depression, stress, relationships, and life transitions. Compassionate, evidence-based counseling tailored to your needs.",
+        description: "When you're looking for a counselor in Winter Park, FL, Empathy Health Clinic offers the expertise and compassionate care you deserve. Our licensed mental health counselors provide individual counseling, family therapy, and specialized support for anxiety, depression, stress management, grief, and relationship challenges. We create a safe, supportive space where Winter Park residents can explore their feelings, develop coping strategies, and work toward positive change. Whether you're facing a specific challenge or seeking personal growth, our Winter Park counseling services are here to support your mental health journey.",
+        servicesOffered: JSON.stringify([
+          "Individual Counseling",
+          "Family Counseling",
+          "Anxiety Counseling",
+          "Depression Counseling",
+          "Stress Management",
+          "Grief & Loss Support",
+          "Life Transitions Counseling",
+          "Telehealth Counseling"
+        ]),
+        whyChooseUs: "Our Winter Park counselors are dedicated to helping you achieve your mental health goals in a warm, judgment-free environment. We offer flexible scheduling including evening appointments, accept most insurance plans, and provide both in-person and virtual counseling options for your convenience.",
+        faqs: JSON.stringify([
+          { question: "What's the difference between a counselor and a therapist?", answer: "The terms are often used interchangeably. Both counselors and therapists are licensed mental health professionals who provide talk therapy. Our team includes Licensed Mental Health Counselors (LMHCs) who are highly trained to help with a wide range of mental health concerns." },
+          { question: "How do I know if counseling is right for me?", answer: "If you're feeling overwhelmed, struggling with relationships, experiencing anxiety or depression, or simply want support during a difficult time, counseling can help. We offer a consultation to discuss your needs and determine if our services are a good fit." },
+          { question: "Can I see a counselor online in Winter Park?", answer: "Yes! We offer secure, HIPAA-compliant online counseling sessions that are convenient and just as effective as in-person visits. Many Winter Park residents prefer the flexibility of virtual counseling." }
+        ]),
+        order: 5,
+      },
+    ];
+
+    defaultLocations.forEach((location) => {
+      const id = randomUUID();
+      this.locations.set(id, { id, ...location });
+    });
+
     // Initialize default blog posts
     const defaultBlogPosts: InsertBlogPost[] = [
       {

@@ -810,12 +810,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // SEO Routes - XML Sitemap
   app.get("/sitemap.xml", async (_req, res) => {
     try {
-      const [treatments, therapies, conditions, insuranceProviders, blogPosts] = await Promise.all([
+      const [treatments, therapies, conditions, insuranceProviders, blogPosts, locations] = await Promise.all([
         storage.getAllTreatments(),
         storage.getAllTherapies(),
         storage.getAllConditions(),
         storage.getAllInsuranceProviders(),
-        storage.getAllBlogPosts()
+        storage.getAllBlogPosts(),
+        storage.getAllLocations()
       ]);
 
       const baseUrl = process.env.REPLIT_DEPLOYMENT === "1" 
@@ -829,7 +830,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
       // Main pages
-      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy'];
+      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-visit', '/request-appointment'];
       mainPages.forEach(page => {
         xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
       });
@@ -862,6 +863,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           xml += `    <lastmod>${new Date(lastMod).toISOString().split('T')[0]}</lastmod>\n`;
         }
         xml += `    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+      });
+
+      // Location pages
+      locations.forEach(location => {
+        xml += `  <url>\n    <loc>${baseUrl}/locations/${location.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
       });
 
       xml += '</urlset>';

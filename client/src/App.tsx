@@ -20,6 +20,8 @@ import RequestAppointment from "@/pages/RequestAppointment";
 import VirtualVisit from "@/pages/VirtualVisit";
 import BlogListingPage from "@/pages/BlogListingPage";
 import BlogDetailPage from "@/pages/BlogDetailPage";
+import LocationDetail from "@/pages/LocationDetail";
+import NewPatients from "@/pages/NewPatients";
 import ThankYou from "@/pages/ThankYou";
 import PageBySlug from "@/pages/PageBySlug";
 import NotFound from "@/pages/not-found";
@@ -46,9 +48,11 @@ function Router() {
         <Route path="/services" component={ServicesPage} />
         <Route path="/request-appointment" component={RequestAppointment} />
         <Route path="/virtual-visit" component={VirtualVisit} />
+        <Route path="/new-patients" component={NewPatients} />
         <Route path="/thank-you" component={ThankYou} />
         <Route path="/blog" component={BlogListingPage} />
         <Route path="/blog/:slug" component={BlogDetailPage} />
+        <Route path="/locations/:slug" component={LocationDetail} />
         <Route path="/:slug" component={PageBySlug} />
         <Route component={NotFound} />
       </Switch>
