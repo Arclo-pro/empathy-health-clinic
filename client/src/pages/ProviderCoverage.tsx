@@ -3,7 +3,7 @@ import { useRoute, Link } from "wouter";
 import { Loader2, ArrowLeft, Phone, Mail, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { InsuranceProvider, Condition } from "@shared/schema";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/peaceful_green_fores_622c852f.jpg";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";

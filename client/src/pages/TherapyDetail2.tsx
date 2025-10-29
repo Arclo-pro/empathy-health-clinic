@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import TrustFactors from "@/components/TrustFactors";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/misty_forest_morning_3efbbc1d.jpg";
 import SEOHead from "@/components/SEOHead";
 
 export default function TherapyDetail() {

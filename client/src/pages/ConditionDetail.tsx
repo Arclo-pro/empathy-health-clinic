@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import type { Condition, Treatment, Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/peaceful_green_fores_e64064d2.jpg";
 import SEOHead from "@/components/SEOHead";
 
 export default function ConditionDetail() {

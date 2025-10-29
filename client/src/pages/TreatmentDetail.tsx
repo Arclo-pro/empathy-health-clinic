@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import TrustFactors from "@/components/TrustFactors";
 import ShortContactForm from "@/components/ShortContactForm";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/calm_forest_trees_me_62fae749.jpg";
 import SEOHead from "@/components/SEOHead";
 
 export default function TreatmentDetail() {

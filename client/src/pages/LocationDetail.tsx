@@ -6,7 +6,7 @@ import type { Location } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ShortContactForm from "@/components/ShortContactForm";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/peaceful_green_fores_8b0bc1d4.jpg";
 import SEOHead from "@/components/SEOHead";
 
 export default function LocationDetail() {
@@ -249,7 +249,7 @@ export default function LocationDetail() {
                   </div>
                 </div>
 
-                <ShortContactForm serviceName={location.title} />
+                <ShortContactForm service={location.title} />
               </div>
             </div>
           </div>

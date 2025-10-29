@@ -7,7 +7,7 @@ import type { Treatment, Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import TrustFactors from "@/components/TrustFactors";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/calm_forest_trees_me_0c56a0e8.jpg";
 
 export default function ServicesPage() {
   const { data: treatments, isLoading: treatmentsLoading } = useQuery<Treatment[]>({

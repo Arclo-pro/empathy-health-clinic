@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/misty_forest_morning_dffbe3b2.jpg";
 
 export default function TeamPage() {
   const { data: teamMembers, isLoading } = useQuery<TeamMember[]>({

@@ -6,7 +6,7 @@ import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { trackEvent } from "@/lib/analytics";
-import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import forestBg from "@assets/stock_images/peaceful_green_fores_0af17587.jpg";
 
 export default function VirtualVisit() {
   const { data: allTeamMembers, isLoading } = useQuery<TeamMember[]>({
