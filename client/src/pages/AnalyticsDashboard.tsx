@@ -32,6 +32,7 @@ import {
 } from "lucide-react";
 import { useLocation } from "wouter";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import type { Lead, AnalyticsEvent } from "@shared/schema";
 
 interface DashboardData {
@@ -107,6 +108,7 @@ interface FormConversionMetrics {
 
 export default function AnalyticsDashboard() {
   const [, setLocation] = useLocation();
+  const { toast } = useToast();
   const gaActive = isGAActive();
   const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
@@ -132,8 +134,35 @@ export default function AnalyticsDashboard() {
   };
 
   const handleTestGA = () => {
-    trackEvent('test_analytics_tracking', 'admin', 'Dashboard Test');
-    alert('Test event sent! Check your Google Analytics dashboard.');
+    trackEvent('test_analytics_tracking', 'admin', 'Dashboard Test', 'manual_test');
+    
+    const gtagLoaded = typeof window.gtag !== 'undefined';
+    const measurementIdConfigured = !!gaMeasurementId;
+    
+    toast({
+      title: "✅ Test Event Sent!",
+      description: (
+        <div className="space-y-2 mt-2" data-testid="toast-ga-test">
+          <div className="font-semibold">Configuration Status:</div>
+          <div className="text-sm space-y-1">
+            <div>• GA Measurement ID: {measurementIdConfigured ? '✓ Configured' : '✗ Missing'}</div>
+            <div>• gtag loaded: {gtagLoaded ? '✓ Yes' : '✗ No'}</div>
+            <div>• GA Active: {gaActive ? '✓ Yes' : '✗ No'}</div>
+          </div>
+          <div className="text-sm text-muted-foreground mt-3 pt-2 border-t">
+            Check GA4 Realtime reports to see this event appear within 60 seconds.
+          </div>
+        </div>
+      ),
+      duration: 8000,
+    });
+    
+    console.log('📊 GA Configuration Test Results:', {
+      measurementId: gaMeasurementId?.substring(0, 10) + '...',
+      gtagLoaded,
+      gaActive,
+      testEventSent: true
+    });
   };
 
   if (isLoading) {

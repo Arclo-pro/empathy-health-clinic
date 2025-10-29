@@ -9,9 +9,11 @@ export const initGA = () => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   if (!measurementId) {
-    console.warn('Missing Google Analytics Measurement ID');
+    console.warn('⚠️ Google Analytics: Missing VITE_GA_MEASUREMENT_ID environment variable');
     return;
   }
+
+  console.log('✅ Google Analytics: Initializing with Measurement ID:', measurementId.substring(0, 8) + '...');
 
   const script1 = document.createElement('script');
   script1.async = true;
@@ -24,8 +26,11 @@ export const initGA = () => {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', '${measurementId}');
+    console.log('✅ Google Analytics: gtag configured');
   `;
   document.head.appendChild(script2);
+  
+  console.log('✅ Google Analytics: Scripts loaded');
 };
 
 export const trackPageView = (url: string) => {
@@ -71,6 +76,9 @@ export const trackEvent = (
       event_label: label,
       value: value,
     });
+    console.log('📊 GA Event:', { action, category, label, value });
+  } else {
+    console.warn('⚠️ Google Analytics: gtag not loaded, event not sent:', action);
   }
   
   // Track to backend API
