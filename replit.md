@@ -78,7 +78,7 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 - **Frontend:** React SPA, TypeScript, Tailwind CSS, Shadcn UI, TanStack Query for data fetching, Wouter for routing.
 - **Backend:** Express.js REST API with an in-memory storage (MemStorage) for content. All API endpoints include Zod validation.
 - **Content Management:** Full CRUD operations are available via an admin panel (`/admin`) for managing site content, treatments, therapies, conditions, team members, testimonials, insurance providers, blog posts, and leads.
-- **Email Notifications:** SendGrid integration automatically sends lead notification emails to providers@empathyhealthclinic.com when forms are submitted. Emails include all contact details and form data in a professional HTML format.
+- **Email Notifications:** SendGrid integration automatically sends lead notification emails to providers@empathyhealthclinic.com and kevin.mease@gmail.com when forms are submitted. Emails are sent from noreply@empathyhealthclinic.com (domain-authenticated with SendGrid). Includes all contact details and form data in a professional HTML format.
 - **SEO Features:** Comprehensive SEO optimization including:
   - **Meta Tags:** All pages include unique meta titles, descriptions, keywords, Open Graph tags, Twitter Cards, and canonical URLs
   - **Structured Data:** Organization/LocalBusiness JSON-LD schema on homepage; Article schema on blog posts
