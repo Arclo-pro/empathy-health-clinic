@@ -25,9 +25,9 @@ export default function Insurance() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Insurance Coverage | Empathy Health Clinic"
-        description="We accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and more. Learn about your mental health coverage and benefits."
-        keywords={["insurance accepted", "mental health insurance", "Aetna", "Blue Cross", "Cigna", "UnitedHealthcare", "Florida mental health coverage"]}
+        title="Insurance Accepted Winter Park FL | Empathy Health"
+        description="Psychiatry & therapy insurance Winter Park, FL. We accept Aetna, BCBS, Cigna, UnitedHealthcare & more. Mental health parity benefits. Call 386-848-8751."
+        keywords={["psychiatry insurance Winter Park", "therapy insurance Florida", "mental health insurance Winter Park", "Aetna Winter Park", "BCBS Florida", "UnitedHealthcare Orlando"]}
         canonicalPath="/insurance"
       />
       <SiteHeader />

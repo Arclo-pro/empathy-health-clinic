@@ -83,12 +83,35 @@ export default function ConditionDetail() {
     relatedTherapySlugs.includes(t.slug)
   ) || [];
 
+  const createMetaDescription = (title: string): string => {
+    const phone = "Call 386-848-8751.";
+    const location = "Winter Park, FL";
+    
+    const longDesc = `${title} treatment in ${location}. Expert psychiatrists & therapists providing specialized care. ${phone}`;
+    if (longDesc.length <= 155) {
+      return longDesc;
+    }
+    
+    const mediumDesc = `${title} treatment in ${location}. Expert psychiatric care. ${phone}`;
+    if (mediumDesc.length <= 155) {
+      return mediumDesc;
+    }
+    
+    const shortDesc = `${title} - ${location}. Expert psychiatric care. ${phone}`;
+    if (shortDesc.length <= 155) {
+      return shortDesc;
+    }
+    
+    const minDesc = `Treatment in ${location}. Expert psychiatric care. ${phone}`;
+    return minDesc;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title={`${condition.title} Treatment | Empathy Health Clinic`}
-        description={condition.heroDescription}
-        keywords={[condition.title, "mental health", "treatment", "therapy", "Florida psychiatry"]}
+        title={`${condition.title} Treatment Winter Park FL | Empathy`}
+        description={createMetaDescription(condition.title)}
+        keywords={[condition.title, `${condition.title} treatment Winter Park`, `${condition.title} therapy Florida`, "psychiatrist Orlando", "mental health Winter Park FL"]}
         canonicalPath={`/${condition.slug}`}
       />
       <SiteHeader />

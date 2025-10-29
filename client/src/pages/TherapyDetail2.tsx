@@ -53,12 +53,35 @@ export default function TherapyDetail() {
     );
   }
 
+  const createMetaDescription = (title: string): string => {
+    const phone = "Call 386-848-8751.";
+    const location = "Winter Park, FL";
+    
+    const longDesc = `Expert ${title} in ${location}. Licensed therapists providing evidence-based care. ${phone}`;
+    if (longDesc.length <= 155) {
+      return longDesc;
+    }
+    
+    const mediumDesc = `${title} in ${location}. Licensed therapists. Evidence-based care. ${phone}`;
+    if (mediumDesc.length <= 155) {
+      return mediumDesc;
+    }
+    
+    const shortDesc = `${title} - ${location}. Licensed therapists. ${phone}`;
+    if (shortDesc.length <= 155) {
+      return shortDesc;
+    }
+    
+    const minDesc = `Therapy in ${location}. Licensed therapists. ${phone}`;
+    return minDesc;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title={`${therapy.title} | Empathy Health Clinic`}
-        description={therapy.heroDescription}
-        keywords={[therapy.title, "therapy", "counseling", "mental health", "Florida therapy"]}
+        title={`${therapy.title} Winter Park FL | Empathy Health`}
+        description={createMetaDescription(therapy.title)}
+        keywords={[therapy.title, `${therapy.title} Winter Park`, "therapist Winter Park FL", "counseling Orlando", "therapy Florida"]}
         canonicalPath={`/${therapy.slug}`}
       />
       <SiteHeader />

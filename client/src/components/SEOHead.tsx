@@ -10,6 +10,7 @@ interface SEOHeadProps {
   publishedDate?: string;
   modifiedDate?: string;
   author?: string;
+  jsonLd?: object;
 }
 
 export default function SEOHead({
@@ -22,6 +23,7 @@ export default function SEOHead({
   publishedDate,
   modifiedDate,
   author,
+  jsonLd,
 }: SEOHeadProps) {
   useEffect(() => {
     document.title = title;
@@ -104,6 +106,21 @@ export default function SEOHead({
     }
     canonicalLink.setAttribute("href", currentUrl);
 
+    // Add JSON-LD structured data
+    let jsonLdScript = document.querySelector('script[type="application/ld+json"][data-seo-head="true"]');
+    if (jsonLd) {
+      if (!jsonLdScript) {
+        jsonLdScript = document.createElement("script");
+        jsonLdScript.setAttribute("type", "application/ld+json");
+        jsonLdScript.setAttribute("data-seo-head", "true");
+        document.head.appendChild(jsonLdScript);
+      }
+      jsonLdScript.textContent = JSON.stringify(jsonLd);
+    } else if (jsonLdScript) {
+      jsonLdScript.remove();
+      jsonLdScript = null;
+    }
+
     return () => {
       metaTags.forEach(({ name, property }) => {
         const selector = name ? `meta[name="${name}"]` : `meta[property="${property}"]`;
@@ -116,8 +133,12 @@ export default function SEOHead({
       if (canonicalLink && canonicalLink.parentNode) {
         canonicalLink.parentNode.removeChild(canonicalLink);
       }
+
+      if (jsonLdScript && jsonLdScript.parentNode) {
+        jsonLdScript.parentNode.removeChild(jsonLdScript);
+      }
     };
-  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author]);
+  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author, jsonLd]);
 
   return null;
 }

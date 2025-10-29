@@ -26,9 +26,9 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Our Team | Empathy Health Clinic | Expert Mental Health Providers"
-        description="Meet our compassionate team of psychiatrists, therapists, and mental health professionals dedicated to providing exceptional care in Florida. Experienced providers you can trust."
-        keywords={["mental health team", "psychiatrists", "therapists", "mental health professionals", "Florida providers", "psychiatric team"]}
+        title="Psychiatrists & Therapists Winter Park FL | Our Team"
+        description="Board-certified psychiatrists & therapists in Winter Park, FL. Expert care for anxiety, depression & more. Call 386-848-8751 today."
+        keywords={["psychiatrists Winter Park", "therapists Winter Park FL", "mental health professionals Orlando", "psychiatric team Florida", "board certified psychiatrist Winter Park"]}
         canonicalPath="/team"
       />
       <SiteHeader />

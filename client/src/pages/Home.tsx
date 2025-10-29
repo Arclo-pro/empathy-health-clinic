@@ -16,10 +16,85 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEOHead
-        title="Empathy Health Clinic | Compassionate Mental Health Care & Psychiatric Services"
-        description="Expert mental health treatment in Florida. We offer psychiatric evaluations, therapy, medication management, and accept most major insurance. Call 386-848-8751 for compassionate care."
-        keywords={["mental health", "psychiatry", "therapy", "medication management", "mental health Florida", "psychiatric services", "anxiety treatment", "depression treatment"]}
+        title="Psychiatrist Winter Park FL | Empathy Health Clinic"
+        description="Expert psychiatrist & therapist in Winter Park, FL. Psychiatric evaluations, therapy, medication management. Most insurance accepted. Call 386-848-8751."
+        keywords={["psychiatrist Winter Park", "mental health Winter Park FL", "therapy Winter Park", "psychiatric services Florida", "anxiety treatment Orlando", "depression treatment Florida"]}
         canonicalPath="/"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": "https://empathyhealthclinic.com/#organization",
+          "name": "Empathy Health Clinic",
+          "alternateName": "Empathy Health",
+          "description": "Mental health clinic providing psychiatric services, therapy, and medication management in Winter Park, Florida.",
+          "url": "https://empathyhealthclinic.com",
+          "telephone": "+13868488751",
+          "email": "providers@empathyhealthclinic.com",
+          "priceRange": "$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2281 Lee Rd Suite 102",
+            "addressLocality": "Winter Park",
+            "addressRegion": "FL",
+            "postalCode": "32810",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 28.59544,
+            "longitude": -81.36537
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "00:00",
+              "closes": "00:00",
+              "description": "By Appointment"
+            }
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Winter Park",
+            "containedIn": {
+              "@type": "State",
+              "name": "Florida"
+            }
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Mental Health Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Psychiatric Evaluation"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Medication Management"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Therapy Services"
+                }
+              }
+            ]
+          }
+        }}
       />
       <OrganizationSchema />
       <SiteHeader />
