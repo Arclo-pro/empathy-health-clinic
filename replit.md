@@ -47,6 +47,11 @@ Successfully restored all 165 published blog posts from WordPress backup:
 
 6. **Blog Featured Images (October 29, 2025):**
    - Replaced all 161 external WordPress image URLs with locally-hosted stock images
+   - Generated 4 custom AI images using OpenAI DALL-E for specific blog posts:
+     * Understanding Anxiety Disorder → anxiety support therapy image
+     * Role of Therapy in Managing Bipolar Disorder → bipolar therapy session image
+     * Effective Strategies for Managing Bipolar Disorder → wellness strategies image
+     * Navigating Life with Agoraphobia → agoraphobia recovery image
    - Downloaded 25 professional mental health stock images across 5 categories
    - Intelligent image assignment based on blog post topics:
      * Therapy/counseling posts → counseling session images
@@ -54,7 +59,9 @@ Successfully restored all 165 published blog posts from WordPress backup:
      * Depression/anxiety posts → mental health support images
      * Healthcare posts → professional medical images
      * Wellness posts → happy recovery images
-   - All images stored in `/attached_assets/stock_images/`
+   - Fixed BlogDetailPage and BlogListingPage to display featuredImage from API data
+   - All 165 posts now have images: 4 AI-generated + 161 stock images
+   - All images stored locally: `/attached_assets/generated_images/` and `/attached_assets/stock_images/`
    - Site now fully independent from WordPress infrastructure
    - Scripts created: assign-blog-images.ts for automated categorization and assignment
 

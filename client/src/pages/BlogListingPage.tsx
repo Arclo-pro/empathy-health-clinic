@@ -124,7 +124,7 @@ export default function BlogListingPage() {
                       </div>
                       <div 
                         className="hidden md:block bg-cover bg-center min-h-[300px] rounded-r-lg"
-                        style={{ backgroundImage: `url(${forestBg})` }}
+                        style={{ backgroundImage: `url(${featuredPost.featuredImage || forestBg})` }}
                       />
                     </div>
                   </Card>
@@ -142,7 +142,13 @@ export default function BlogListingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts?.map((post, index) => (
                 <Link key={post.id} href={`/blog/${post.slug}`} data-testid={`blog-post-link-${index}`}>
-                  <Card className="h-full hover-elevate cursor-pointer flex flex-col" data-testid={`blog-post-card-${index}`}>
+                  <Card className="h-full hover-elevate cursor-pointer flex flex-col overflow-hidden" data-testid={`blog-post-card-${index}`}>
+                    {post.featuredImage && (
+                      <div 
+                        className="h-48 bg-cover bg-center"
+                        style={{ backgroundImage: `url(${post.featuredImage})` }}
+                      />
+                    )}
                     <CardHeader className="flex-1">
                       <div className="flex items-center gap-2 mb-3">
                         <Badge variant="secondary" data-testid={`badge-category-${index}`}>
