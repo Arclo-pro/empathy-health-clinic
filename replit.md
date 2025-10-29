@@ -49,3 +49,31 @@ The system uses an in-memory storage solution for simplified deployment, though 
 - **SendGrid:** Email delivery service.
 - **web-vitals:** Core Web Vitals measurement.
 - **Lucide-react:** Icon library.
+
+## Environment Secrets
+- **SENDGRID_API_KEY:** Required for email notifications to providers@empathyhealthclinic.com and kevin.mease@gmail.com
+- **SESSION_SECRET:** Required for admin session management
+- **VITE_GA_MEASUREMENT_ID** (Optional): Google Analytics 4 Measurement ID for enhanced tracking and reporting. Get this from your Google Analytics account (Admin > Property > Data Streams > Web). Format: G-XXXXXXXXXX
+- **VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION** (Optional): Google Search Console verification code for site ownership verification and SEO monitoring.
+
+## Google Search Console Setup Instructions
+
+To enable Google Search Console monitoring for SEO insights:
+
+1. **Go to Google Search Console:** Visit https://search.google.com/search-console
+2. **Add Property:** Click "Add Property" and enter your domain: `empathyhealthclinic.com`
+3. **Choose HTML Tag Verification:** Select the "HTML tag" verification method
+4. **Copy Verification Code:** You'll see a meta tag like: `<meta name="google-site-verification" content="XXXXXXXXXX" />`
+5. **Add to Replit Secrets:** 
+   - Go to your Replit project's Secrets tab (🔒 icon)
+   - Add a new secret named: `VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION`
+   - Paste ONLY the content value (the XXXXXXXXXX part, not the entire meta tag)
+6. **Publish Your Site:** Use the "Publish" button in Replit to deploy your changes
+7. **Verify in Search Console:** Return to Google Search Console and click "Verify"
+
+Once verified, you'll get access to:
+- Search performance data (impressions, clicks, average position)
+- Index coverage reports
+- Mobile usability insights
+- Security issues alerts
+- Sitemap submission and monitoring

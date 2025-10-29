@@ -246,6 +246,62 @@ export default function AnalyticsDashboard() {
           </CardContent>
         </Card>
 
+        {/* Google Search Console Status */}
+        <Card data-testid="card-gsc-status">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5" />
+              Google Search Console Status
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div className="flex items-center gap-3">
+                {import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION ? (
+                  <CheckCircle2 className="h-6 w-6 text-green-500" data-testid="icon-gsc-configured" />
+                ) : (
+                  <AlertCircle className="h-6 w-6 text-yellow-500" data-testid="icon-gsc-not-configured" />
+                )}
+                <div>
+                  <p className="font-medium" data-testid="text-gsc-status">
+                    {import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION 
+                      ? 'Verification Meta Tag Configured' 
+                      : 'Not Configured'
+                    }
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION 
+                      ? 'Site ready for Google Search Console verification' 
+                      : 'Add VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION to enable SEO monitoring'
+                    }
+                  </p>
+                </div>
+              </div>
+              {import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION && (
+                <Button 
+                  variant="outline" 
+                  onClick={() => window.open('https://search.google.com/search-console', '_blank')}
+                  data-testid="button-open-gsc"
+                >
+                  Open Search Console
+                </Button>
+              )}
+            </div>
+            {!import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION && (
+              <div className="text-sm text-muted-foreground bg-muted p-4 rounded-md">
+                <p className="font-medium mb-2">Setup Instructions:</p>
+                <ol className="list-decimal list-inside space-y-1 text-xs">
+                  <li>Visit Google Search Console and add your property</li>
+                  <li>Choose "HTML tag" verification method</li>
+                  <li>Copy the verification code from the meta tag</li>
+                  <li>Add it to Replit Secrets as VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION</li>
+                  <li>Publish your site and verify in Search Console</li>
+                </ol>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
         {/* Core Web Vitals */}
         <div>
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
