@@ -2,7 +2,8 @@ import sgMail from '@sendgrid/mail';
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 const TO_EMAILS = ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'];
-const FROM_EMAIL = 'noreply@empathyhealthclinic.com';
+// Using kevin.mease@gmail.com as FROM address - must be verified in SendGrid
+const FROM_EMAIL = 'kevin.mease@gmail.com';
 
 if (SENDGRID_API_KEY) {
   sgMail.setApiKey(SENDGRID_API_KEY);

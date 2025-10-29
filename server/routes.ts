@@ -515,7 +515,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         insuredDob: validated.insuredDob,
         memberId: validated.memberId,
       }).catch(error => {
-        console.error('Failed to send lead notification email:', error);
+        console.error('❌ FAILED to send lead notification email:', error);
+        if (error.response?.body) {
+          console.error('SendGrid error details:', JSON.stringify(error.response.body, null, 2));
+        }
         // Don't fail the request if email fails
       });
       
