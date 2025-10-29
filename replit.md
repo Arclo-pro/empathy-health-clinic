@@ -8,6 +8,35 @@ I want the agent to prioritize high-level features and architectural decisions. 
 
 ## Recent Improvements (October 2025)
 
+### WordPress Blog Migration (October 29, 2025)
+Successfully restored all 165 published blog posts from WordPress backup:
+
+1. **Database Extraction:**
+   - Parsed WordPress SQL dump (10.204.132.146-3306-db_dom376846.sql) to extract all published posts
+   - Extracted post metadata including featured images from wp_postmeta table
+   - Retrieved 1,100 media attachments and linked them to posts
+
+2. **Content Conversion:**
+   - Created Python script to convert WordPress posts to Markdown format
+   - Cleaned HTML content and converted to readable Markdown
+   - Preserved all frontmatter: title, slug, date, excerpt, featured_image
+   - Saved 165 blog posts to /blogs folder with index.md
+
+3. **System Integration:**
+   - Converted all blog posts to JSON format (server/blog-posts-data.json)
+   - Updated storage initialization to load blog posts from JSON
+   - Blog posts now categorized as: Mental Health (majority), Therapy, and Wellness
+   - All posts accessible via /api/blog-posts endpoint
+   - Blog URLs preserved for SEO (e.g., /blog/understanding-anxiety-disorder-symptoms-types-and-diagnosis)
+
+4. **Content Quality:**
+   - All 165 posts include complete content, proper formatting, and metadata
+   - Featured images preserved where available
+   - SEO metadata (titles, descriptions) generated from content
+   - Posts sorted by publication date (newest first)
+
+## Recent Improvements (October 2025)
+
 ### Master Landing Page Optimization
 Completed comprehensive landing page improvements based on conversion best practices checklist:
 
