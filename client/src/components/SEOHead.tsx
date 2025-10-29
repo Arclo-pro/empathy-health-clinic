@@ -43,6 +43,11 @@ export default function SEOHead({
       { name: "twitter:image", content: defaultOgImage },
     ];
 
+    const searchConsoleVerification = import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_VERIFICATION;
+    if (searchConsoleVerification) {
+      metaTags.push({ name: "google-site-verification", content: searchConsoleVerification });
+    }
+
     if (keywords && keywords.length > 0) {
       metaTags.push({ name: "keywords", content: keywords.join(", ") });
     }
