@@ -1349,6 +1349,37 @@ export class MemStorage implements IStorage {
         ]),
         order: 5,
       },
+      {
+        title: "Therapy & Counseling Services in Orlando, FL",
+        slug: "therapy-services-orlando",
+        city: "Orlando",
+        serviceType: "therapy-services",
+        pageTitle: "Affordable Therapy Orlando | Mental Health Therapy | Empathy Health",
+        metaDescription: "Affordable therapy Orlando with most insurance accepted. Mental health therapy Orlando for anxiety, depression, trauma, and relationships. Licensed therapists, same-week appointments.",
+        heroTitle: "Affordable Therapy Orlando | Mental Health Therapy Orlando",
+        heroDescription: "Quality mental health therapy Orlando residents trust. Our licensed therapists provide affordable therapy Orlando with most insurance accepted. Individual counseling, couples therapy, CBT, EMDR, and specialized treatment for anxiety, depression, and trauma. Same-week appointments available.",
+        description: "Looking for affordable therapy Orlando? Empathy Health Clinic provides comprehensive mental health therapy Orlando residents depend on for anxiety, depression, trauma, and relationship issues. Our experienced licensed therapists offer evidence-based treatment including Cognitive Behavioral Therapy (CBT), EMDR for trauma, individual counseling, couples therapy, and specialized care for PTSD and mental health concerns. We accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, and UnitedHealthcare, making affordable therapy Orlando accessible to everyone. With convenient telehealth options and same-week appointments, getting quality mental health therapy Orlando has never been easier.",
+        servicesOffered: JSON.stringify([
+          "Individual Therapy",
+          "Couples & Marriage Counseling",
+          "Cognitive Behavioral Therapy (CBT)",
+          "EMDR Therapy for Trauma",
+          "Anxiety & Depression Treatment",
+          "Family Therapy",
+          "Grief & Loss Counseling",
+          "LGBTQ+ Affirming Therapy",
+          "Affordable Therapy Options",
+          "Telehealth & Virtual Counseling"
+        ]),
+        whyChooseUs: "Our Orlando therapists combine clinical expertise with genuine compassion to help you achieve your mental health goals. We accept most insurance plans including Aetna, Blue Cross Blue Shield, Cigna, and UnitedHealthcare, making quality therapy affordable. With flexible scheduling, evening appointments, and convenient virtual therapy options, accessing mental health care in Orlando has never been easier.",
+        faqs: JSON.stringify([
+          { question: "How much does therapy cost in Orlando?", answer: "Therapy costs vary based on your insurance coverage. We accept most major insurance plans, and our staff can verify your benefits before your first appointment. For self-pay patients, we offer competitive rates and can discuss payment options during your consultation." },
+          { question: "Do you offer affordable therapy options in Orlando?", answer: "Yes! We work with most insurance providers to keep therapy affordable. We're in-network with Aetna, Blue Cross Blue Shield, Cigna, Humana, UnitedHealthcare, and more. Our team can help you understand your coverage and out-of-pocket costs." },
+          { question: "Can I do therapy online if I live in Orlando?", answer: "Absolutely! We offer secure, HIPAA-compliant virtual therapy sessions that are convenient and just as effective as in-person visits. Many Orlando residents prefer telehealth therapy for its flexibility and accessibility." },
+          { question: "What types of therapy do you offer in Orlando?", answer: "We offer a wide range of evidence-based therapies including CBT, EMDR, individual counseling, couples therapy, family therapy, and specialized treatment for anxiety, depression, trauma, and relationship issues. We'll match you with a therapist who specializes in your specific needs." }
+        ]),
+        order: 6,
+      },
     ];
 
     defaultLocations.forEach((location) => {
