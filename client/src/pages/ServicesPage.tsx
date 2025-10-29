@@ -9,6 +9,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import TrustFactors from "@/components/TrustFactors";
 import forestBg from "@assets/stock_images/calm_forest_trees_me_0c56a0e8.jpg";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ServicesPage() {
   const { data: treatments, isLoading: treatmentsLoading } = useQuery<Treatment[]>({
@@ -152,7 +153,12 @@ export default function ServicesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
               {featuredServices.map((service, index) => (
-                <Link key={index} href={service.link} data-testid={`featured-service-link-${index}`}>
+                <Link 
+                  key={index} 
+                  href={service.link} 
+                  data-testid={`featured-service-link-${index}`}
+                  onClick={() => trackEvent('featured_service_click', 'engagement', 'Services Page', service.title)}
+                >
                   <Card className="hover-elevate cursor-pointer h-full" data-testid={`featured-service-${index}`}>
                     <CardHeader>
                       <div className="flex items-center gap-4 mb-4">
@@ -217,7 +223,12 @@ export default function ServicesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {therapies?.slice(0, 6).map((therapy, index) => (
-                <Link key={therapy.id} href={`/${therapy.slug}`} data-testid={`therapy-link-${index}`}>
+                <Link 
+                  key={therapy.id} 
+                  href={`/${therapy.slug}`} 
+                  data-testid={`therapy-link-${index}`}
+                  onClick={() => trackEvent('therapy_service_click', 'engagement', 'Services Page - Therapies', therapy.title)}
+                >
                   <Card className="h-full hover-elevate cursor-pointer">
                     <CardHeader>
                       <CardTitle className="text-xl font-sans flex items-center gap-2">
@@ -265,7 +276,12 @@ export default function ServicesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {treatments?.map((treatment, index) => (
-                <Link key={treatment.id} href={`/${treatment.slug}`} data-testid={`treatment-link-${index}`}>
+                <Link 
+                  key={treatment.id} 
+                  href={`/${treatment.slug}`} 
+                  data-testid={`treatment-link-${index}`}
+                  onClick={() => trackEvent('treatment_click', 'engagement', 'Services Page - Treatments', treatment.title)}
+                >
                   <Card className="h-full hover-elevate cursor-pointer">
                     <CardHeader>
                       <CardTitle className="text-xl font-sans">

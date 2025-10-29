@@ -7,6 +7,7 @@ import type { InsuranceProvider } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Insurance() {
   const { data: providers, isLoading } = useQuery<InsuranceProvider[]>({
@@ -110,7 +111,12 @@ export default function Insurance() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {providers?.map((provider) => (
-            <Link key={provider.id} href={`/${provider.slug}`} data-testid={`link-provider-${provider.id}`}>
+            <Link 
+              key={provider.id} 
+              href={`/${provider.slug}`} 
+              data-testid={`link-provider-${provider.id}`}
+              onClick={() => trackEvent('insurance_provider_click', 'engagement', 'Insurance Page', provider.name)}
+            >
               <Card className="h-full hover-elevate active-elevate-2 cursor-pointer transition-all">
                 <CardHeader className="flex flex-col items-center text-center space-y-4 pb-4">
                   {provider.logo ? (
@@ -180,13 +186,23 @@ export default function Insurance() {
                 Our team is here to help verify your benefits and answer any insurance questions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="default" asChild data-testid="button-call-office">
+                <Button 
+                  variant="default" 
+                  asChild 
+                  data-testid="button-call-office"
+                  onClick={() => trackEvent('phone_click', 'conversion', 'Insurance Page Phone', '386-848-8751')}
+                >
                   <a href="tel:3868488751" className="flex items-center gap-2">
                     <Phone className="h-4 w-4" />
                     Call 386-848-8751
                   </a>
                 </Button>
-                <Button variant="outline" asChild data-testid="button-request-appointment">
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  data-testid="button-request-appointment"
+                  onClick={() => trackEvent('appointment_click', 'conversion', 'Insurance Page CTA')}
+                >
                   <Link href="/request-appointment" className="flex items-center gap-2">
                     <Mail className="h-4 w-4" />
                     Request Appointment

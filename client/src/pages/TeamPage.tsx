@@ -8,6 +8,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import forestBg from "@assets/stock_images/misty_forest_morning_dffbe3b2.jpg";
+import { trackEvent } from "@/lib/analytics";
 
 export default function TeamPage() {
   const { data: teamMembers, isLoading } = useQuery<TeamMember[]>({
@@ -105,6 +106,7 @@ export default function TeamPage() {
                   href={`/team/${member.slug}`}
                   className="block"
                   data-testid={`link-team-member-${index}`}
+                  onClick={() => trackEvent('team_member_click', 'engagement', 'Team Page', member.name)}
                 >
                   <div
                     className="bg-card border rounded-lg hover-elevate transition-all duration-200 cursor-pointer h-full"
@@ -149,14 +151,25 @@ export default function TeamPage() {
               Our team is here to support you. Schedule a consultation to find the right therapist or psychiatrist for your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild data-testid="button-schedule">
+              <Button 
+                size="lg" 
+                asChild 
+                data-testid="button-schedule"
+                onClick={() => trackEvent('phone_click', 'conversion', 'Team Page Phone', '386-848-8751')}
+              >
                 <a href="tel:3868488751" className="gap-2">
                   <Phone className="h-5 w-5" />
                   Call 386-848-8751
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild data-testid="button-email">
-                <a href="mailto:provider@empathyhealthclinic.com" className="gap-2">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                asChild 
+                data-testid="button-email"
+                onClick={() => trackEvent('email_click', 'conversion', 'Team Page Email')}
+              >
+                <a href="mailto:providers@empathyhealthclinic.com" className="gap-2">
                   <Mail className="h-5 w-5" />
                   Email Us
                 </a>

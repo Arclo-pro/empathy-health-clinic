@@ -8,6 +8,7 @@ import type { Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import { trackEvent } from "@/lib/analytics";
 
 export default function TherapyPage() {
   const { data: therapies, isLoading } = useQuery<Therapy[]>({
@@ -122,7 +123,12 @@ export default function TherapyPage() {
             const IconComponent = (Icons as any)[therapy.icon] || Icons.Heart;
             
             return (
-              <Link key={therapy.id} href={`/${therapy.slug}`} data-testid={`link-therapy-${therapy.id}`}>
+              <Link 
+                key={therapy.id} 
+                href={`/${therapy.slug}`} 
+                data-testid={`link-therapy-${therapy.id}`}
+                onClick={() => trackEvent('therapy_service_click', 'engagement', 'Therapy Page', therapy.title)}
+              >
                 <Card className="h-full hover-elevate active-elevate-2 cursor-pointer transition-all">
                   <CardHeader className="flex flex-col items-center text-center space-y-4">
                     <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -157,7 +163,13 @@ export default function TherapyPage() {
               Every journey begins with a single step. Our experienced therapists are here to guide you 
               through evidence-based treatments tailored to your unique needs.
             </p>
-            <Button variant="default" size="lg" asChild data-testid="button-schedule-consultation">
+            <Button 
+              variant="default" 
+              size="lg" 
+              asChild 
+              data-testid="button-schedule-consultation"
+              onClick={() => trackEvent('appointment_click', 'conversion', 'Therapy Page CTA')}
+            >
               <Link href="/#contact">Schedule a Consultation</Link>
             </Button>
           </div>
