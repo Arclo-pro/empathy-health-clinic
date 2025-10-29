@@ -306,3 +306,28 @@ export const insertNewsletterSubscriberSchema = createInsertSchema(newsletterSub
 
 export type InsertNewsletterSubscriber = z.infer<typeof insertNewsletterSubscriberSchema>;
 export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;
+
+// Location Pages (city-specific landing pages)
+export const locations = pgTable("locations", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  slug: text("slug").notNull(),
+  city: text("city").notNull(), // e.g., "Winter Park", "Sanford", "Lake Mary"
+  serviceType: text("service_type").notNull(), // e.g., "psychiatry", "therapy-services", "counseling"
+  pageTitle: text("page_title").notNull(),
+  metaDescription: text("meta_description").notNull(),
+  heroTitle: text("hero_title").notNull(),
+  heroDescription: text("hero_description").notNull(),
+  description: text("description").notNull(),
+  servicesOffered: text("services_offered").notNull().default('[]'),
+  whyChooseUs: text("why_choose_us").notNull(),
+  faqs: text("faqs").notNull().default('[]'),
+  order: integer("order").notNull(),
+});
+
+export const insertLocationSchema = createInsertSchema(locations).omit({
+  id: true,
+});
+
+export type InsertLocation = z.infer<typeof insertLocationSchema>;
+export type Location = typeof locations.$inferSelect;

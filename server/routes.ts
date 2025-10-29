@@ -10,6 +10,7 @@ import {
   insertInsuranceProviderSchema,
   insertTherapySchema,
   insertConditionSchema,
+  insertLocationSchema,
   insertLeadSchema,
   insertBlogPostSchema,
   insertNewsletterSubscriberSchema,
@@ -417,6 +418,72 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/conditions/:id", async (req, res) => {
     try {
       await storage.deleteCondition(req.params.id);
+      res.json({ success: true });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Location routes
+  app.get("/api/locations", async (_req, res) => {
+    try {
+      const locations = await storage.getAllLocations();
+      res.json(locations);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/locations/:id", async (req, res) => {
+    try {
+      const location = await storage.getLocation(req.params.id);
+      if (!location) {
+        return res.status(404).json({ error: "Location not found" });
+      }
+      res.json(location);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/locations/slug/:slug", async (req, res) => {
+    try {
+      const location = await storage.getLocationBySlug(req.params.slug);
+      if (!location) {
+        return res.status(404).json({ error: "Location not found" });
+      }
+      res.json(location);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/locations", async (req, res) => {
+    try {
+      const validated = insertLocationSchema.parse(req.body);
+      const location = await storage.createLocation(validated);
+      res.json(location);
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.put("/api/locations/:id", async (req, res) => {
+    try {
+      const validated = insertLocationSchema.partial().parse(req.body);
+      const location = await storage.updateLocation(req.params.id, validated);
+      res.json(location);
+    } catch (error: any) {
+      if (error.message === "Location not found") {
+        return res.status(404).json({ error: error.message });
+      }
+      res.status(400).json({ error: error.message });
+    }
+  });
+
+  app.delete("/api/locations/:id", async (req, res) => {
+    try {
+      await storage.deleteLocation(req.params.id);
       res.json({ success: true });
     } catch (error: any) {
       res.status(500).json({ error: error.message });

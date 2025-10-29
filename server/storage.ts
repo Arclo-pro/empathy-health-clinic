@@ -27,6 +27,8 @@ import {
   type InsertWebVital,
   type NewsletterSubscriber,
   type InsertNewsletterSubscriber,
+  type Location,
+  type InsertLocation,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -87,6 +89,14 @@ export interface IStorage {
   updateCondition(id: string, condition: Partial<InsertCondition>): Promise<Condition>;
   deleteCondition(id: string): Promise<void>;
 
+  // Location methods
+  getAllLocations(): Promise<Location[]>;
+  getLocation(id: string): Promise<Location | undefined>;
+  getLocationBySlug(slug: string): Promise<Location | undefined>;
+  createLocation(location: InsertLocation): Promise<Location>;
+  updateLocation(id: string, location: Partial<InsertLocation>): Promise<Location>;
+  deleteLocation(id: string): Promise<void>;
+
   // Lead methods
   createLead(lead: InsertLead): Promise<Lead>;
   getAllLeads(): Promise<Lead[]>;
@@ -134,6 +144,7 @@ export class MemStorage implements IStorage {
   private insuranceProviders: Map<string, InsuranceProvider>;
   private therapies: Map<string, Therapy>;
   private conditions: Map<string, Condition>;
+  private locations: Map<string, Location>;
   private leads: Map<string, Lead>;
   private blogPosts: Map<string, BlogPost>;
   private newsletterSubscribers: Map<string, NewsletterSubscriber>;
@@ -149,6 +160,7 @@ export class MemStorage implements IStorage {
     this.insuranceProviders = new Map();
     this.therapies = new Map();
     this.conditions = new Map();
+    this.locations = new Map();
     this.leads = new Map();
     this.blogPosts = new Map();
     this.newsletterSubscribers = new Map();
@@ -3421,6 +3433,41 @@ Remember: seeking help is a sign of strength. You deserve support, understanding
 
   async deleteCondition(id: string): Promise<void> {
     this.conditions.delete(id);
+  }
+
+  // Location methods
+  async getAllLocations(): Promise<Location[]> {
+    return Array.from(this.locations.values()).sort((a, b) => a.order - b.order);
+  }
+
+  async getLocation(id: string): Promise<Location | undefined> {
+    return this.locations.get(id);
+  }
+
+  async getLocationBySlug(slug: string): Promise<Location | undefined> {
+    return Array.from(this.locations.values()).find(l => l.slug === slug);
+  }
+
+  async createLocation(location: InsertLocation): Promise<Location> {
+    const id = randomUUID();
+    const newLocation: Location = { id, ...location };
+    this.locations.set(id, newLocation);
+    return newLocation;
+  }
+
+  async updateLocation(
+    id: string,
+    location: Partial<InsertLocation>
+  ): Promise<Location> {
+    const existing = this.locations.get(id);
+    if (!existing) throw new Error("Location not found");
+    const updated = { ...existing, ...location };
+    this.locations.set(id, updated);
+    return updated;
+  }
+
+  async deleteLocation(id: string): Promise<void> {
+    this.locations.delete(id);
   }
 
   // Lead methods
