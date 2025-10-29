@@ -20,6 +20,7 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 - **Dynamic Content:** Real-time content updates are pulled from the API.
 - **Blog System:** Complete blog with listing page (`/blog`) and individual post pages (`/blog/:slug`), featuring extensive SEO metadata, JSON-LD, related articles, author bios, and social sharing. Blog content from WordPress has been migrated, converted to Markdown, and enhanced with internal links and optimized imagery.
 - **Analytics System:** Site health monitoring with Core Web Vitals tracking (LCP, INP, CLS, FCP, TTFB), Google Analytics 4 integration, page view tracking, conversion event tracking, and an admin analytics dashboard at `/admin/analytics`.
+- **SEO Optimization Dashboard:** Comprehensive SEO strategy tools at `/admin/seo` including Search Console integration guidance, content gap analysis for "almost ranking" keywords, internal linking recommendations using hub-and-spoke methodology, and actionable week-by-week implementation checklists. Complete SEO guide available at `SEO_OPTIMIZATION_GUIDE.md`.
 
 ### Feature Specifications
 - **Landing Page:** Comprehensive and conversion-focused.
@@ -29,6 +30,7 @@ The frontend is a React Single Page Application (SPA) built with TypeScript, uti
 - **Team Page (`/team`):** Displays staff members with photos, credentials, and bios.
 - **Patient Portal (`/admin`):** Comprehensive CMS for content editing and lead management.
 - **Analytics Dashboard (`/admin/analytics`):** Monitors Core Web Vitals, GA4 status, page views, and conversion metrics.
+- **SEO Optimization Dashboard (`/admin/seo`):** Strategic SEO tools providing Search Console access, content gap opportunities (targeting keywords in positions 11-30), internal linking strategy recommendations, and actionable checklists for improving organic search performance.
 - **Lead Capture:** High-converting forms with automated email notifications.
 - **Trust Factors:** Credibility indicators like HIPAA compliance messaging and insurance logos are strategically placed.
 - **Mobile Responsiveness & Dark Mode:** Full support across devices and user preferences.
