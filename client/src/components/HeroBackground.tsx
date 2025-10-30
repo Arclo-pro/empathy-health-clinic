@@ -16,7 +16,6 @@ export default function HeroBackground({ imageSrc, children, priority = false }:
           className="w-full h-full object-cover"
           loading={priority ? 'eager' : 'lazy'}
           decoding={priority ? 'sync' : 'async'}
-          fetchPriority={priority ? 'high' : 'auto'}
           width={1920}
           height={400}
         />

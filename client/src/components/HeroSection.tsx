@@ -25,7 +25,6 @@ export default function HeroSection() {
           width={1920}
           height={800}
           loading="eager"
-          fetchPriority="high"
           decoding="sync"
           style={{ backgroundColor: '#2d5f4a' }}
         />
