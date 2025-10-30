@@ -200,6 +200,12 @@ export const leads = pgTable("leads", {
   utmCampaign: text("utm_campaign"), // Campaign name
   utmTerm: text("utm_term"), // Keyword clicked (most important for Google Ads!)
   utmContent: text("utm_content"), // Ad variation
+  // Conversion tracking
+  status: text("status").default("new"), // new, contacted, signed_up, rejected, no_show
+  rejectionReason: text("rejection_reason"), // Insurance issues, requires specific provider, etc.
+  notes: text("notes"), // Internal notes about the lead
+  contactedAt: text("contacted_at"), // When we first contacted them
+  convertedAt: text("converted_at"), // When they signed up
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 

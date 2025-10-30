@@ -41,6 +41,13 @@ export default function Admin() {
           </Button>
           <Button
             variant="outline"
+            onClick={() => setLocation("/admin/lead-insights")}
+            data-testid="button-lead-insights"
+          >
+            Lead Insights
+          </Button>
+          <Button
+            variant="outline"
             onClick={() => setLocation("/admin/seo")}
             data-testid="button-seo-optimization"
           >

@@ -17,7 +17,7 @@ import {
 import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 import { useRef, useState } from "react";
-import { CheckCircle2, Shield, Lock } from "lucide-react";
+import { CheckCircle2, Shield, Lock, Calendar, Clock } from "lucide-react";
 
 const shortFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -138,10 +138,19 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
   return (
     <div className={className}>
       <div className="bg-card border rounded-lg overflow-hidden">
+        <div className="bg-primary/10 border-b px-6 py-3">
+          <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+            <Calendar className="h-4 w-4" />
+            <span className="text-sm">Same-Day Appointments Available</span>
+          </div>
+        </div>
         <div className="p-6">
-          <h3 className="text-2xl font-sans font-bold text-foreground mb-6">
+          <h3 className="text-2xl font-sans font-bold text-foreground mb-2">
             Request an Appointment
           </h3>
+          <p className="text-muted-foreground text-sm mb-6">
+            Most patients scheduled within 24 hours • All insurance accepted
+          </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -266,10 +275,11 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
             data-testid="button-submit-form"
             onClick={form.handleSubmit(onSubmit)}
           >
-            {submitLead.isPending ? "Submitting..." : "Request Appointment"}
+            {submitLead.isPending ? "Submitting..." : "Get Scheduled Today"}
           </Button>
-          <p className="text-center text-xs text-muted-foreground mt-3">
-            Response within 24 hours • Most insurance accepted
+          <p className="text-center text-xs text-muted-foreground mt-3 flex items-center justify-center gap-1">
+            <Clock className="h-3 w-3" />
+            <span>Response within 24 hours • Same-day scheduling available</span>
           </p>
         </div>
       </div>

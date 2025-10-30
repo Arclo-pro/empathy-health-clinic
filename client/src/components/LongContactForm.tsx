@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle2, Briefcase, Heart, Pill, CreditCard, User, Shield } from "lucide-react";
+import { CheckCircle2, Briefcase, Heart, Pill, CreditCard, User, Shield, Calendar, Clock } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { getUTMDataForLead } from "@/lib/utm-tracker";
 import {
@@ -247,23 +247,30 @@ export default function LongContactForm() {
   }
 
   return (
-    <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl p-6 md:p-10">
-      <div className="mb-8">
-        <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-medium text-muted-foreground">
-            Step {step} of {totalSteps}
-          </span>
-          <span className="text-sm font-medium text-primary">
-            {Math.round(progress)}% Complete
-          </span>
-        </div>
-        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-300 ease-in-out"
-            style={{ width: `${progress}%` }}
-          />
+    <div className="bg-background border-2 border-primary/20 rounded-2xl shadow-xl overflow-hidden">
+      <div className="bg-primary/10 border-b px-6 py-3">
+        <div className="flex items-center justify-center gap-2 text-primary font-semibold">
+          <Calendar className="h-4 w-4" />
+          <span className="text-sm">Same-Day Appointments Available • Most Patients Scheduled Within 24 Hours</span>
         </div>
       </div>
+      <div className="p-6 md:p-10">
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-sm font-medium text-muted-foreground">
+              Step {step} of {totalSteps}
+            </span>
+            <span className="text-sm font-medium text-primary">
+              {Math.round(progress)}% Complete
+            </span>
+          </div>
+          <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
+            <div 
+              className="h-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-300 ease-in-out"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -701,6 +708,7 @@ export default function LongContactForm() {
           </div>
         </form>
       </Form>
+      </div>
     </div>
   );
 }
