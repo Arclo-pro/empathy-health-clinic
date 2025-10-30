@@ -15,7 +15,7 @@ if (typeof window !== 'undefined') {
 
 export const initGA = () => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-  const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
+  const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_ID;
 
   if (!measurementId) {
     console.warn('⚠️ Google Analytics: Missing VITE_GA_MEASUREMENT_ID environment variable');
@@ -170,7 +170,7 @@ export const isGAActive = (): boolean => {
 export const trackGoogleAdsConversion = async (conversionLabel: string, value?: number) => {
   if (typeof window === 'undefined') return;
   
-  const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
+  const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_ID;
   
   if (!adsConversionId || !conversionLabel) {
     console.warn('⚠️ Google Ads: Missing conversion ID or label');
