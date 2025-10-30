@@ -260,7 +260,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
           </div>
           <Button 
             type="submit" 
-            className="w-full text-lg py-6 font-semibold" 
+            className="w-full text-lg font-semibold" 
             size="lg"
             disabled={submitLead.isPending}
             data-testid="button-submit-form"

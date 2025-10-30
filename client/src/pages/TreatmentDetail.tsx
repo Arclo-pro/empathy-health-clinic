@@ -227,7 +227,7 @@ export default function TreatmentDetail() {
                 <div className="space-y-4 mb-6">
                   <Button 
                     size="lg" 
-                    className="w-full text-lg py-6 font-semibold" 
+                    className="w-full text-lg font-semibold" 
                     onClick={() => {
                       const form = document.querySelector('#contact-form');
                       form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -239,7 +239,7 @@ export default function TreatmentDetail() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="w-full text-lg py-6 font-semibold border-2" 
+                    className="w-full text-lg font-semibold border-2" 
                     asChild 
                     data-testid="button-call-office"
                   >
