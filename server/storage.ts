@@ -29,9 +29,15 @@ import {
   type InsertNewsletterSubscriber,
   type Location,
   type InsertLocation,
+  leads,
+  webVitals,
+  analyticsEvents,
+  pageViews,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 import blogPostsData from "./blog-posts-data.json";
+import { db } from "./db";
+import { eq, sql, and, gte, lte, desc } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -1678,17 +1684,12 @@ export class MemStorage implements IStorage {
 
   // Lead methods
   async createLead(lead: InsertLead): Promise<Lead> {
-    const id = randomUUID();
-    const now = new Date().toISOString();
-    const newLead: Lead = { id, ...lead, createdAt: now };
-    this.leads.set(id, newLead);
+    const [newLead] = await db.insert(leads).values(lead).returning();
     return newLead;
   }
 
   async getAllLeads(): Promise<Lead[]> {
-    return Array.from(this.leads.values()).sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    );
+    return await db.select().from(leads).orderBy(desc(leads.createdAt));
   }
 
   // Blog post methods
@@ -1772,46 +1773,42 @@ export class MemStorage implements IStorage {
 
   // Analytics methods
   async trackPageView(data: InsertPageView): Promise<PageView> {
-    const id = randomUUID();
-    const now = new Date().toISOString();
-    const pageView: PageView = { id, ...data, timestamp: now };
-    this.pageViews.push(pageView);
-    return pageView;
+    const [newPageView] = await db.insert(pageViews).values(data).returning();
+    return newPageView;
   }
 
   async getPageViews(startDate?: string, endDate?: string): Promise<PageView[]> {
-    let filtered = this.pageViews;
+    const conditions = [];
     
     if (startDate) {
-      filtered = filtered.filter(pv => pv.timestamp >= startDate);
+      conditions.push(gte(pageViews.timestamp, startDate));
     }
     if (endDate) {
-      filtered = filtered.filter(pv => pv.timestamp <= endDate);
+      conditions.push(lte(pageViews.timestamp, endDate));
     }
     
-    return filtered.sort((a, b) => 
-      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-    );
+    if (conditions.length > 0) {
+      return await db.select().from(pageViews).where(and(...conditions)).orderBy(desc(pageViews.timestamp));
+    }
+    
+    return await db.select().from(pageViews).orderBy(desc(pageViews.timestamp));
   }
 
   async getPageViewsByPath(): Promise<{path: string, count: number}[]> {
-    const pathCounts = new Map<string, number>();
+    const result = await db.select({
+      path: pageViews.path,
+      count: sql<number>`count(*)::int`
+    })
+    .from(pageViews)
+    .groupBy(pageViews.path)
+    .orderBy(desc(sql`count(*)`));
     
-    for (const pv of this.pageViews) {
-      pathCounts.set(pv.path, (pathCounts.get(pv.path) || 0) + 1);
-    }
-    
-    return Array.from(pathCounts.entries())
-      .map(([path, count]) => ({ path, count }))
-      .sort((a, b) => b.count - a.count);
+    return result;
   }
 
   async trackEvent(data: InsertAnalyticsEvent): Promise<AnalyticsEvent> {
-    const id = randomUUID();
-    const now = new Date().toISOString();
-    const event: AnalyticsEvent = { id, ...data, timestamp: now };
-    this.analyticsEvents.push(event);
-    return event;
+    const [newEvent] = await db.insert(analyticsEvents).values(data).returning();
+    return newEvent;
   }
 
   async getEvents(
@@ -1819,33 +1816,35 @@ export class MemStorage implements IStorage {
     startDate?: string, 
     endDate?: string
   ): Promise<AnalyticsEvent[]> {
-    let filtered = this.analyticsEvents;
+    const conditions = [];
     
     if (eventType) {
-      filtered = filtered.filter(e => e.eventType === eventType);
+      conditions.push(eq(analyticsEvents.eventType, eventType));
     }
     if (startDate) {
-      filtered = filtered.filter(e => e.timestamp >= startDate);
+      conditions.push(gte(analyticsEvents.timestamp, startDate));
     }
     if (endDate) {
-      filtered = filtered.filter(e => e.timestamp <= endDate);
+      conditions.push(lte(analyticsEvents.timestamp, endDate));
     }
     
-    return filtered.sort((a, b) => 
-      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-    );
+    if (conditions.length > 0) {
+      return await db.select().from(analyticsEvents).where(and(...conditions)).orderBy(desc(analyticsEvents.timestamp));
+    }
+    
+    return await db.select().from(analyticsEvents).orderBy(desc(analyticsEvents.timestamp));
   }
 
   async getEventCounts(): Promise<{eventType: string, count: number}[]> {
-    const eventCounts = new Map<string, number>();
+    const result = await db.select({
+      eventType: analyticsEvents.eventType,
+      count: sql<number>`count(*)::int`
+    })
+    .from(analyticsEvents)
+    .groupBy(analyticsEvents.eventType)
+    .orderBy(desc(sql`count(*)`));
     
-    for (const event of this.analyticsEvents) {
-      eventCounts.set(event.eventType, (eventCounts.get(event.eventType) || 0) + 1);
-    }
-    
-    return Array.from(eventCounts.entries())
-      .map(([eventType, count]) => ({ eventType, count }))
-      .sort((a, b) => b.count - a.count);
+    return result;
   }
 
   async getFormConversionMetrics(): Promise<{
@@ -1858,22 +1857,27 @@ export class MemStorage implements IStorage {
     totalDropOffRate: number;
   }> {
     // Count form starts by type (from analytics events)
-    const shortFormStarts = this.analyticsEvents.filter(
-      e => e.eventType === 'form_started' && e.value === 'short'
-    ).length;
+    const shortFormStartsResult = await db.select({ count: sql<number>`count(*)::int` })
+      .from(analyticsEvents)
+      .where(and(eq(analyticsEvents.eventType, 'form_started'), eq(analyticsEvents.value, 'short')));
     
-    const longFormStarts = this.analyticsEvents.filter(
-      e => e.eventType === 'form_started' && e.value === 'long'
-    ).length;
+    const longFormStartsResult = await db.select({ count: sql<number>`count(*)::int` })
+      .from(analyticsEvents)
+      .where(and(eq(analyticsEvents.eventType, 'form_started'), eq(analyticsEvents.value, 'long')));
     
     // Count form submissions by type (from leads table)
-    const shortFormSubmissions = Array.from(this.leads.values()).filter(
-      l => l.formType === 'short'
-    ).length;
+    const shortFormSubmissionsResult = await db.select({ count: sql<number>`count(*)::int` })
+      .from(leads)
+      .where(eq(leads.formType, 'short'));
     
-    const longFormSubmissions = Array.from(this.leads.values()).filter(
-      l => l.formType === 'long'
-    ).length;
+    const longFormSubmissionsResult = await db.select({ count: sql<number>`count(*)::int` })
+      .from(leads)
+      .where(eq(leads.formType, 'long'));
+    
+    const shortFormStarts = shortFormStartsResult[0]?.count || 0;
+    const longFormStarts = longFormStartsResult[0]?.count || 0;
+    const shortFormSubmissions = shortFormSubmissionsResult[0]?.count || 0;
+    const longFormSubmissions = longFormSubmissionsResult[0]?.count || 0;
     
     // Calculate drop-off rates
     const shortFormDropOffRate = shortFormStarts > 0
@@ -1902,47 +1906,28 @@ export class MemStorage implements IStorage {
   }
 
   async trackWebVital(data: InsertWebVital): Promise<WebVital> {
-    const id = randomUUID();
-    const now = new Date().toISOString();
-    const webVital: WebVital = { id, ...data, timestamp: now };
-    this.webVitals.push(webVital);
-    return webVital;
+    const [newWebVital] = await db.insert(webVitals).values(data).returning();
+    return newWebVital;
   }
 
   async getWebVitals(metricName?: string): Promise<WebVital[]> {
-    let filtered = this.webVitals;
-    
     if (metricName) {
-      filtered = filtered.filter(wv => wv.metricName === metricName);
+      return await db.select().from(webVitals).where(eq(webVitals.metricName, metricName)).orderBy(desc(webVitals.timestamp));
     }
     
-    return filtered.sort((a, b) => 
-      new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-    );
+    return await db.select().from(webVitals).orderBy(desc(webVitals.timestamp));
   }
 
   async getAverageWebVitals(): Promise<{metricName: string, avgValue: number, rating: string}[]> {
-    const metricGroups = new Map<string, {total: number, count: number, ratings: string[]}>();
+    const result = await db.select({
+      metricName: webVitals.metricName,
+      avgValue: sql<number>`AVG(CAST(${webVitals.value} AS NUMERIC))`,
+      rating: sql<string>`MODE() WITHIN GROUP (ORDER BY ${webVitals.rating})`
+    })
+    .from(webVitals)
+    .groupBy(webVitals.metricName);
     
-    for (const vital of this.webVitals) {
-      const existing = metricGroups.get(vital.metricName) || { total: 0, count: 0, ratings: [] };
-      existing.total += parseFloat(vital.value);
-      existing.count += 1;
-      existing.ratings.push(vital.rating);
-      metricGroups.set(vital.metricName, existing);
-    }
-    
-    return Array.from(metricGroups.entries()).map(([metricName, data]) => {
-      const avgValue = data.total / data.count;
-      // Calculate most common rating
-      const ratingCounts = data.ratings.reduce((acc, r) => {
-        acc[r] = (acc[r] || 0) + 1;
-        return acc;
-      }, {} as Record<string, number>);
-      const rating = Object.entries(ratingCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'good';
-      
-      return { metricName, avgValue, rating };
-    });
+    return result;
   }
 }
 
