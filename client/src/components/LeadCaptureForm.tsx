@@ -261,7 +261,8 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
 
           <Button
             type="submit"
-            className="w-full text-lg py-6"
+            size="lg"
+            className="w-full"
             disabled={mutation.isPending}
             data-testid="button-submit-lead"
           >
@@ -269,7 +270,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
               "Submitting..."
             ) : (
               <>
-                <Phone className="h-5 w-5 mr-2" />
+                <Phone className="h-4 w-4 mr-2" />
                 Request Appointment
               </>
             )}
