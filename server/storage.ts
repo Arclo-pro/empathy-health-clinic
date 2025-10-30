@@ -1927,7 +1927,11 @@ export class MemStorage implements IStorage {
     .from(webVitals)
     .groupBy(webVitals.metricName);
     
-    return result;
+    // Ensure avgValue is a number, not a string
+    return result.map(r => ({
+      ...r,
+      avgValue: typeof r.avgValue === 'string' ? parseFloat(r.avgValue) : r.avgValue
+    }));
   }
 }
 
