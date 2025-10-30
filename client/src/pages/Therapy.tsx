@@ -29,7 +29,7 @@ export default function TherapyPage() {
     <div className="min-h-screen bg-background">
       <SEOHead
         title="Therapist Winter Park FL | CBT, DBT & Counseling"
-        description="Licensed therapists in Winter Park, FL. CBT, DBT, trauma & couples therapy. Evidence-based treatment. Insurance accepted. Call 386-848-8751."
+        description="Mental health therapy services at Empathy Clinic. Expert care & treatment for disorders. CBT, DBT. Winter Park, FL. Call 386-848-8751."
         keywords={["therapist Winter Park", "counseling Winter Park FL", "CBT therapist Orlando", "DBT therapy Florida", "couples therapy Winter Park", "trauma therapist Florida"]}
         canonicalPath="/therapy"
       />

@@ -88,22 +88,22 @@ export default function ConditionDetail() {
     const phone = "Call 386-848-8751.";
     const location = "Winter Park, FL";
     
-    const longDesc = `${title} treatment in ${location}. Expert psychiatrists & therapists providing specialized care. ${phone}`;
+    const longDesc = `${title} disorder treatment at Empathy Health Clinic in ${location}. Expert mental health care services for psychiatric disorders. ${phone}`;
     if (longDesc.length <= 155) {
       return longDesc;
     }
     
-    const mediumDesc = `${title} treatment in ${location}. Expert psychiatric care. ${phone}`;
+    const mediumDesc = `${title} disorder treatment at Empathy Clinic, ${location}. Mental health care services. ${phone}`;
     if (mediumDesc.length <= 155) {
       return mediumDesc;
     }
     
-    const shortDesc = `${title} - ${location}. Expert psychiatric care. ${phone}`;
+    const shortDesc = `Mental health disorder treatment services & care - ${title}. Empathy Clinic. ${phone}`;
     if (shortDesc.length <= 155) {
       return shortDesc;
     }
     
-    const minDesc = `Treatment in ${location}. Expert psychiatric care. ${phone}`;
+    const minDesc = `Mental health disorder treatment services & care. Empathy Clinic, ${location}. ${phone}`;
     return minDesc;
   };
 
