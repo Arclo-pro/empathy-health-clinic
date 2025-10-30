@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import TrustFactors from "@/components/TrustFactors";
 import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/calm_forest_trees_me_62fae749.jpg";
+import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 
 export default function TreatmentDetail() {
@@ -86,30 +87,22 @@ export default function TreatmentDetail() {
       />
       <SiteHeader />
       <main className="flex-1">
-        <div className="relative py-16 px-4">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${forestBg})` }}
+        <HeroBackground imageSrc={forestBg}>
+          <Link 
+            href="/#treatments" 
+            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors" 
+            data-testid="link-back-to-home"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
-          </div>
-          <div className="container mx-auto max-w-4xl relative z-10">
-            <Link 
-              href="/#treatments" 
-              className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors" 
-              data-testid="link-back-to-home"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to All Treatments
-            </Link>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
-              {treatment.heroTitle}
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed" data-testid="text-hero-description">
-              {treatment.heroDescription}
-            </p>
-          </div>
-        </div>
+            <ArrowLeft className="h-4 w-4" />
+            Back to All Treatments
+          </Link>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
+            {treatment.heroTitle}
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed" data-testid="text-hero-description">
+            {treatment.heroDescription}
+          </p>
+        </HeroBackground>
 
         <div className="container mx-auto px-4 py-12 max-w-4xl">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
