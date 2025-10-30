@@ -130,6 +130,8 @@ function App() {
         analytics.initGA();
         webVitals.initWebVitals();
         utm.initUTMTracking();
+      }).catch((error) => {
+        console.error('Failed to load analytics:', error);
       });
     };
 
