@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2, Shield, Phone } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { getUTMDataForLead } from "@/lib/utm-tracker";
 
 const leadFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -52,6 +53,9 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       const firstName = nameParts[0] || data.name;
       const lastName = nameParts.slice(1).join(' ') || ' ';
       
+      // Get UTM parameters for Google Ads attribution
+      const utmData = getUTMDataForLead();
+      
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -65,6 +69,13 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
           smsOptIn: "false",
           conditions: '[]',
           symptoms: '[]',
+          // Include UTM tracking data
+          landingPage: utmData.landingPage,
+          utmSource: utmData.utmSource,
+          utmMedium: utmData.utmMedium,
+          utmCampaign: utmData.utmCampaign,
+          utmTerm: utmData.utmTerm,
+          utmContent: utmData.utmContent,
         }),
       });
       if (!response.ok) {

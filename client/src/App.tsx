@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { initGA } from "@/lib/analytics";
 import { initWebVitals } from "@/lib/web-vitals-tracker";
+import { initUTMTracking } from "@/lib/utm-tracker";
 import { useAnalytics } from "@/hooks/use-analytics";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import Home from "@/pages/Home";
@@ -73,6 +74,7 @@ function App() {
   useEffect(() => {
     initGA();
     initWebVitals();
+    initUTMTracking();
   }, []);
 
   return (

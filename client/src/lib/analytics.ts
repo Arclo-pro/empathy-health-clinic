@@ -46,14 +46,25 @@ export const trackPageView = (url: string) => {
     }
   }
   
-  // Track to backend API
+  // Extract UTM parameters from current URL
+  const searchParams = new URLSearchParams(window.location.search);
+  const utmData = {
+    utmSource: searchParams.get('utm_source') || undefined,
+    utmMedium: searchParams.get('utm_medium') || undefined,
+    utmCampaign: searchParams.get('utm_campaign') || undefined,
+    utmTerm: searchParams.get('utm_term') || undefined,
+    utmContent: searchParams.get('utm_content') || undefined,
+  };
+  
+  // Track to backend API with UTM data
   fetch('/api/analytics/page-view', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       path: url,
       userAgent: navigator.userAgent,
-      referrer: document.referrer || undefined
+      referrer: document.referrer || undefined,
+      ...utmData
     }),
     keepalive: true
   }).catch(() => {

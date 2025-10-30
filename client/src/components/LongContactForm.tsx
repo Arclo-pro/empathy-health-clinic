@@ -11,6 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2, Briefcase, Heart, Pill, CreditCard, User, Shield } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { getUTMDataForLead } from "@/lib/utm-tracker";
 import {
   Select,
   SelectContent,
@@ -120,6 +121,9 @@ export default function LongContactForm() {
         concerns.push(data.concernsOther);
       }
 
+      // Get UTM parameters for Google Ads attribution
+      const utmData = getUTMDataForLead();
+
       return apiRequest("POST", "/api/leads", {
         firstName: data.firstName,
         lastName: data.lastName,
@@ -137,6 +141,13 @@ export default function LongContactForm() {
         insuredDob: data.insuredDob,
         memberId: data.memberId,
         smsOptIn: "false",
+        // Include UTM tracking data
+        landingPage: utmData.landingPage,
+        utmSource: utmData.utmSource,
+        utmMedium: utmData.utmMedium,
+        utmCampaign: utmData.utmCampaign,
+        utmTerm: utmData.utmTerm,
+        utmContent: utmData.utmContent,
       });
     },
     onSuccess: () => {
