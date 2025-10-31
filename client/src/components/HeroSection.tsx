@@ -39,7 +39,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
       </div>
       
-      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
+      <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 pt-8 pb-20">
         <div className="max-w-6xl mx-auto text-center">
           {/* Logo */}
           <div className="flex justify-center">
