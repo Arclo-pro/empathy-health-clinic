@@ -66,32 +66,35 @@ export default function HeroSection() {
             <HeroLeadForm />
           </div>
           
-          <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 max-w-sm shadow-xl">
-            <div className="text-center mb-3">
-              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">4.8 EXCELLENT</div>
-              <div className="flex justify-center gap-0.5 mb-2">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                ))}
+          <div className="flex flex-wrap gap-3 items-start">
+            <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl flex-1 min-w-[280px] max-w-sm">
+              <div className="text-center mb-3">
+                <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">4.8 EXCELLENT</div>
+                <div className="flex justify-center gap-0.5 mb-2">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+              </div>
+              <div className="border-t pt-3">
+                <p className="text-foreground text-sm italic mb-1 text-center">
+                  "Absolutely wonderful experience!"
+                </p>
+                <p className="text-muted-foreground text-xs text-center">
+                  — Current Patient
+                </p>
               </div>
             </div>
-            <div className="border-t pt-3 pb-2">
-              <p className="text-foreground text-sm italic mb-1 text-center">
-                "Absolutely wonderful experience!"
+            
+            <div className="bg-white/95 backdrop-blur-md rounded-xl p-4 shadow-xl flex-1 min-w-[280px] max-w-sm">
+              <p className="text-xs text-muted-foreground text-center mb-3 uppercase tracking-wide font-medium">
+                Verified On
               </p>
-              <p className="text-muted-foreground text-xs text-center mb-3">
-                — Current Patient
-              </p>
-              <div className="border-t pt-3">
-                <p className="text-xs text-muted-foreground text-center mb-2 uppercase tracking-wide font-medium">
-                  Verified On
-                </p>
-                <div className="flex items-center justify-center gap-3 flex-wrap">
-                  <img src={healthgradesLogo} alt="Healthgrades" className="h-6 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-healthgrades" />
-                  <img src={zocdocLogo} alt="Zocdoc" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-zocdoc" />
-                  <img src={googleLogo} alt="Google" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-google" />
-                  <img src={yelpLogo} alt="Yelp" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-yelp" />
-                </div>
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <img src={healthgradesLogo} alt="Healthgrades" className="h-6 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-healthgrades" />
+                <img src={zocdocLogo} alt="Zocdoc" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-zocdoc" />
+                <img src={googleLogo} alt="Google" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-google" />
+                <img src={yelpLogo} alt="Yelp" className="h-5 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity" data-testid="badge-yelp" />
               </div>
             </div>
           </div>
