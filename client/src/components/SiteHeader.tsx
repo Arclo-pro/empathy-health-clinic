@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
-import logoImage from "@assets/image_1761877985362.png";
+import logoImage from "@assets/image_1761920964846.png";
 import { trackEvent } from "@/lib/analytics";
 
 export default function SiteHeader() {
@@ -34,7 +34,7 @@ export default function SiteHeader() {
               <img 
                 src={logoImage} 
                 alt="Empathy Health Clinic" 
-                className="h-28 md:h-32 w-auto"
+                className="h-16 md:h-20 w-auto"
               />
             </a>
           </div>
