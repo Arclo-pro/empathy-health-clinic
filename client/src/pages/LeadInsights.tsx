@@ -30,7 +30,7 @@ export default function LeadInsights() {
   const conversionRate = totalLeads > 0 ? ((signedUpLeads / totalLeads) * 100).toFixed(1) : "0";
 
   // Form performance
-  const shortFormLeads = leads?.filter(l => l.formType === "short") || [];
+  const shortFormLeads = leads?.filter(l => l.formType === "short" || l.formType === "hero") || [];
   const longFormLeads = leads?.filter(l => l.formType === "long") || [];
   const phoneLeads = leads?.filter(l => l.formType === "phone") || [];
 

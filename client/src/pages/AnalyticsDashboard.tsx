@@ -834,7 +834,7 @@ export default function AnalyticsDashboard() {
                             {lead.firstName} {lead.lastName}
                           </p>
                           <Badge variant="outline" className="mt-1" data-testid={`lead-form-type-${index}`}>
-                            {lead.formType === 'short' ? 'Quick Contact' : 'Full Application'}
+                            {lead.formType === 'long' ? 'Full Application' : 'Quick Contact'}
                           </Badge>
                         </div>
                       </div>
