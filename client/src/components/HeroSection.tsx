@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
-import heroImage from "@assets/heroimage_1761605616315.png";
+import heroImage from "@assets/image_1761931078555.png";
 import HeroLeadForm from "@/components/HeroLeadForm";
 
 export default function HeroSection() {
