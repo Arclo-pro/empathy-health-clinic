@@ -103,7 +103,6 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <InsuranceSection />
-        <ReviewsAndBadges />
         <section className="py-12 md:py-16 bg-card border-y">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-8">
@@ -121,6 +120,7 @@ export default function Home() {
         <ApproachSection />
         <div className="border-t" />
         <ComparisonSection />
+        <ReviewsAndBadges />
         <div className="border-t" />
         <TeamSection />
         <ConditionsSection />
