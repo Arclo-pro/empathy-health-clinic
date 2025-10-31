@@ -75,10 +75,10 @@ export default function HeroLeadForm() {
   return (
     <form 
       onSubmit={handleSubmit}
-      className="bg-white/95 backdrop-blur-md rounded-full shadow-2xl p-2 w-full"
+      className="bg-white/95 backdrop-blur-md rounded-2xl md:rounded-full shadow-2xl p-3 md:p-2 w-full"
       data-testid="form-hero-lead"
     >
-      <div className="flex flex-col md:flex-row gap-2">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-2">
         {/* Name Input */}
         <div className="flex-1 min-w-0">
           <Input
@@ -86,7 +86,7 @@ export default function HeroLeadForm() {
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="h-12 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70"
+            className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-name"
             required
           />
@@ -99,7 +99,7 @@ export default function HeroLeadForm() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="h-12 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70"
+            className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-email"
             required
           />
@@ -112,7 +112,7 @@ export default function HeroLeadForm() {
             placeholder="Phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="h-12 border-0 bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70"
+            className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-phone"
             required
           />
@@ -122,7 +122,7 @@ export default function HeroLeadForm() {
         <div className="flex-1 min-w-0">
           <Select value={service} onValueChange={setService}>
             <SelectTrigger 
-              className="h-12 border-0 bg-transparent focus:ring-0 focus:ring-offset-0 text-base"
+              className="h-12 border-0 bg-white/50 md:bg-transparent focus:ring-0 focus:ring-offset-0 text-base rounded-xl md:rounded-none"
               data-testid="select-hero-service"
             >
               <SelectValue placeholder="Select Service" />
@@ -143,7 +143,7 @@ export default function HeroLeadForm() {
           type="submit"
           size="lg"
           disabled={submitLead.isPending}
-          className="h-12 px-8 bg-primary text-primary-foreground border border-primary-border rounded-full whitespace-nowrap font-semibold"
+          className="h-12 px-8 bg-primary text-primary-foreground border border-primary-border rounded-full whitespace-nowrap font-semibold w-full md:w-auto"
           data-testid="button-hero-submit"
         >
           <Calendar className="w-5 h-5 mr-2" />
