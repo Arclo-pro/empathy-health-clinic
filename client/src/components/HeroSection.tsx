@@ -1,7 +1,7 @@
 import { Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
-import heroImage from "@assets/hero-forest-person.png";
+import heroImage from "@assets/image_1761933517108.png";
 import HeroLeadForm from "@/components/HeroLeadForm";
 import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 import googleLogo from "@assets/google-wordmark.webp";
