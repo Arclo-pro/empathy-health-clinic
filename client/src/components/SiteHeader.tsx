@@ -34,7 +34,7 @@ export default function SiteHeader() {
               <img 
                 src={logoImage} 
                 alt="Empathy Health Clinic" 
-                className="h-20 md:h-24 w-auto"
+                className="h-28 md:h-32 w-auto"
               />
             </a>
           </div>
