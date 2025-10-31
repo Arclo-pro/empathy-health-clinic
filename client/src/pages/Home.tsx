@@ -1,3 +1,4 @@
+import TopBanner from "@/components/TopBanner";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
@@ -99,6 +100,7 @@ export default function Home() {
         }}
       />
       <OrganizationSchema />
+      <TopBanner />
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
