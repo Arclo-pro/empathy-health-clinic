@@ -5,6 +5,7 @@ import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import useEmblaCarousel from "embla-carousel-react";
 import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
+import googleLogo from "@assets/google-wordmark.webp";
 
 const PLATFORM_BADGES = [
   {
@@ -18,7 +19,7 @@ const PLATFORM_BADGES = [
   },
   {
     name: "Google",
-    icon: SiGoogle,
+    logo: googleLogo,
     alt: "Verified on Google"
   }
 ];
@@ -89,12 +90,7 @@ export default function ReviewsAndBadges() {
                 className="flex items-center justify-center h-12 opacity-100 hover:opacity-70 transition-opacity"
                 data-testid={`badge-${platform.name.toLowerCase()}`}
               >
-                {platform.icon ? (
-                  <div className="flex items-center gap-2">
-                    <platform.icon className="h-8 w-8 text-foreground" />
-                    <span className="text-xl font-semibold text-foreground">{platform.name}</span>
-                  </div>
-                ) : platform.logo ? (
+                {platform.logo ? (
                   <img 
                     src={platform.logo} 
                     alt={platform.alt}
