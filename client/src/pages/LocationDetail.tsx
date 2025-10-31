@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/peaceful_green_fores_8b0bc1d4.jpg";
 import SEOHead from "@/components/SEOHead";
+import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 
 export default function LocationDetail() {
   const [, params] = useRoute("/locations/:slug");
@@ -75,6 +76,13 @@ export default function LocationDetail() {
         description={location.metaDescription}
         keywords={[location.city, location.serviceType, "mental health", "Florida", "therapy", "psychiatry", "counseling"]}
         canonicalPath={`/locations/${location.slug}`}
+      />
+      <LocalBusinessSchema 
+        city={location.city}
+        serviceType={location.serviceType}
+        name={location.title}
+        description={location.metaDescription}
+        slug={location.slug}
       />
       <SiteHeader />
       <main className="flex-1">
@@ -211,6 +219,27 @@ export default function LocationDetail() {
                   <span className="px-3 py-1 bg-white dark:bg-gray-800 border rounded-full text-sm text-foreground">
                     Central Florida
                   </span>
+                </div>
+              </section>
+
+              <section className="border rounded-lg p-6 bg-card">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  Additional Resources
+                </h2>
+                <p className="text-foreground mb-4">
+                  Explore our full range of mental health services and learn more about how we can support your wellness journey.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="outline" asChild data-testid="link-services">
+                    <Link href="/services">
+                      View All Services
+                    </Link>
+                  </Button>
+                  <Button variant="outline" asChild data-testid="link-contact">
+                    <Link href="/contact">
+                      Contact Us
+                    </Link>
+                  </Button>
                 </div>
               </section>
             </div>
