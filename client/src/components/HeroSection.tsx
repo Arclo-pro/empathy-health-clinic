@@ -35,7 +35,7 @@ export default function HeroSection() {
       </div>
       
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        <div className="max-w-3xl pr-8">
+        <div className="max-w-5xl pr-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white mb-6">
             {title}
           </h1>
