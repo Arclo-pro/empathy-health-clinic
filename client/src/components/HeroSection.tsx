@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
-import { Phone, Star } from "lucide-react";
-import { SiGoogle } from "react-icons/si";
+import { Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
 import heroImage from "@assets/heroimage_1761605616315.png";
+import HeroLeadForm from "@/components/HeroLeadForm";
 
 export default function HeroSection() {
   const { data: content } = useQuery<SiteContent>({
@@ -59,27 +58,8 @@ export default function HeroSection() {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <Button 
-              size="lg"
-              className="bg-primary text-primary-foreground border border-primary-border px-8 py-6 text-lg rounded-full backdrop-blur-md"
-              data-testid="button-request-appointment"
-              asChild
-            >
-              <a href="/request-appointment">Request Appointment</a>
-            </Button>
-            <Button 
-              size="lg"
-              variant="outline"
-              className="px-8 py-6 text-lg rounded-full backdrop-blur-md bg-white/10 text-white border-white/30"
-              data-testid="button-call-now"
-              asChild
-            >
-              <a href="tel:3868488751" className="flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                Call Now
-              </a>
-            </Button>
+          <div className="mb-8">
+            <HeroLeadForm />
           </div>
           
           <div className="flex items-center gap-3 text-white/95">
