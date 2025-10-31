@@ -124,10 +124,10 @@ export interface IStorage {
   // Analytics methods
   trackPageView(data: InsertPageView): Promise<PageView>;
   getPageViews(startDate?: string, endDate?: string): Promise<PageView[]>;
-  getPageViewsByPath(): Promise<{path: string, count: number}[]>;
+  getPageViewsByPath(startDate?: string, endDate?: string): Promise<{path: string, count: number}[]>;
   trackEvent(data: InsertAnalyticsEvent): Promise<AnalyticsEvent>;
   getEvents(eventType?: string, startDate?: string, endDate?: string): Promise<AnalyticsEvent[]>;
-  getEventCounts(): Promise<{eventType: string, count: number}[]>;
+  getEventCounts(startDate?: string, endDate?: string): Promise<{eventType: string, count: number}[]>;
   getFormConversionMetrics(): Promise<{
     shortFormStarts: number;
     shortFormSubmissions: number;
@@ -139,7 +139,7 @@ export interface IStorage {
   }>;
   trackWebVital(data: InsertWebVital): Promise<WebVital>;
   getWebVitals(metricName?: string): Promise<WebVital[]>;
-  getAverageWebVitals(): Promise<{metricName: string, avgValue: number, rating: string}[]>;
+  getAverageWebVitals(startDate?: string, endDate?: string): Promise<{metricName: string, avgValue: number, rating: string}[]>;
   
   // UTM Analytics methods
   getLeadsByUTMSource(): Promise<{utmSource: string | null, count: number}[]>;
@@ -1950,12 +1950,22 @@ export class MemStorage implements IStorage {
     return await db.select().from(pageViews).orderBy(desc(pageViews.timestamp));
   }
 
-  async getPageViewsByPath(): Promise<{path: string, count: number}[]> {
+  async getPageViewsByPath(startDate?: string, endDate?: string): Promise<{path: string, count: number}[]> {
+    const conditions = [];
+    
+    if (startDate) {
+      conditions.push(gte(pageViews.timestamp, startDate));
+    }
+    if (endDate) {
+      conditions.push(lte(pageViews.timestamp, endDate));
+    }
+
     const result = await db.select({
       path: pageViews.path,
       count: sql<number>`count(*)::int`
     })
     .from(pageViews)
+    .where(conditions.length > 0 ? and(...conditions) : undefined)
     .groupBy(pageViews.path)
     .orderBy(desc(sql`count(*)`));
     
@@ -1991,12 +2001,22 @@ export class MemStorage implements IStorage {
     return await db.select().from(analyticsEvents).orderBy(desc(analyticsEvents.timestamp));
   }
 
-  async getEventCounts(): Promise<{eventType: string, count: number}[]> {
+  async getEventCounts(startDate?: string, endDate?: string): Promise<{eventType: string, count: number}[]> {
+    const conditions = [];
+    
+    if (startDate) {
+      conditions.push(gte(analyticsEvents.timestamp, startDate));
+    }
+    if (endDate) {
+      conditions.push(lte(analyticsEvents.timestamp, endDate));
+    }
+
     const result = await db.select({
       eventType: analyticsEvents.eventType,
       count: sql<number>`count(*)::int`
     })
     .from(analyticsEvents)
+    .where(conditions.length > 0 ? and(...conditions) : undefined)
     .groupBy(analyticsEvents.eventType)
     .orderBy(desc(sql`count(*)`));
     
@@ -2074,13 +2094,23 @@ export class MemStorage implements IStorage {
     return await db.select().from(webVitals).orderBy(desc(webVitals.timestamp));
   }
 
-  async getAverageWebVitals(): Promise<{metricName: string, avgValue: number, rating: string}[]> {
+  async getAverageWebVitals(startDate?: string, endDate?: string): Promise<{metricName: string, avgValue: number, rating: string}[]> {
+    const conditions = [];
+    
+    if (startDate) {
+      conditions.push(gte(webVitals.timestamp, startDate));
+    }
+    if (endDate) {
+      conditions.push(lte(webVitals.timestamp, endDate));
+    }
+
     const result = await db.select({
       metricName: webVitals.metricName,
       avgValue: sql<number>`AVG(CAST(${webVitals.value} AS NUMERIC))`,
       rating: sql<string>`MODE() WITHIN GROUP (ORDER BY ${webVitals.rating})`
     })
     .from(webVitals)
+    .where(conditions.length > 0 ? and(...conditions) : undefined)
     .groupBy(webVitals.metricName);
     
     // Ensure avgValue is a number, not a string

@@ -5,6 +5,13 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -109,11 +116,17 @@ interface FormConversionMetrics {
 export default function AnalyticsDashboard() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const [timeRange, setTimeRange] = useState<string>("all");
   const gaActive = isGAActive();
   const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
   const { data, isLoading, refetch } = useQuery<DashboardData>({
-    queryKey: ['/api/analytics/dashboard'],
+    queryKey: ['/api/analytics/dashboard', timeRange],
+    queryFn: async () => {
+      const response = await fetch(`/api/analytics/dashboard?timeRange=${timeRange}`);
+      if (!response.ok) throw new Error('Failed to fetch analytics');
+      return response.json();
+    },
   });
 
   const { data: formMetrics } = useQuery<FormConversionMetrics>({
@@ -188,7 +201,19 @@ export default function AnalyticsDashboard() {
               Site health, web vitals, and user engagement metrics
             </p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
+            <Select value={timeRange} onValueChange={setTimeRange}>
+              <SelectTrigger className="w-[180px]" data-testid="select-time-range">
+                <Clock className="w-4 h-4 mr-2" />
+                <SelectValue placeholder="Select time range" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="today">Today</SelectItem>
+                <SelectItem value="7d">Last 7 Days</SelectItem>
+                <SelectItem value="30d">Last 30 Days</SelectItem>
+                <SelectItem value="all">All Time</SelectItem>
+              </SelectContent>
+            </Select>
             <Button
               variant="outline"
               onClick={handleRefresh}
@@ -378,7 +403,9 @@ export default function AnalyticsDashboard() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <p className="text-sm text-muted-foreground">Total (All Time)</p>
+                <p className="text-sm text-muted-foreground">
+                  {timeRange === 'today' ? 'Today' : timeRange === '7d' ? 'Last 7 Days' : timeRange === '30d' ? 'Last 30 Days' : 'Total (All Time)'}
+                </p>
                 <p className="text-3xl font-bold" data-testid="text-total-views">
                   {data?.pageViews.total.toLocaleString() || 0}
                 </p>

@@ -817,9 +817,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/analytics/dashboard", async (_req, res) => {
+  app.get("/api/analytics/dashboard", async (req, res) => {
     try {
+      const timeRange = req.query.timeRange as string || 'all';
       const now = new Date();
+      
+      // Calculate date filters based on time range
+      let startDate: string | undefined;
+      if (timeRange === 'today') {
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        startDate = todayStart.toISOString();
+      } else if (timeRange === '7d') {
+        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
+      } else if (timeRange === '30d') {
+        startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
+      }
+      // 'all' means no filter (undefined startDate)
+
       const last7Days = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString();
       const last30Days = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
@@ -833,15 +847,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         vitalsSummary,
         leads
       ] = await Promise.all([
-        storage.getPageViews(),
+        storage.getPageViews(startDate),
         storage.getPageViews(last7Days),
         storage.getPageViews(last30Days),
-        storage.getPageViewsByPath(),
-        storage.getEvents(),
-        storage.getEventCounts(),
-        storage.getAverageWebVitals(),
+        storage.getPageViewsByPath(startDate),
+        storage.getEvents(startDate),
+        storage.getEventCounts(startDate),
+        storage.getAverageWebVitals(startDate),
         storage.getAllLeads()
       ]);
+
+      // Filter leads by time range
+      const filteredLeads = startDate 
+        ? leads.filter(lead => new Date(lead.createdAt || '').toISOString() >= startDate!)
+        : leads;
 
       res.json({
         pageViews: {
@@ -857,7 +876,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         },
         vitals: vitalsSummary,
         conversions: {
-          totalLeads: leads.length,
+          totalLeads: filteredLeads.length,
           formSubmissions: eventSummary.find(e => e.eventType === 'form_submission')?.count || 0,
           phoneClicks: eventSummary.find(e => e.eventType === 'phone_click')?.count || 0,
           virtualVisitRequests: eventSummary.find(e => e.eventType === 'virtual_visit_click')?.count || 0
