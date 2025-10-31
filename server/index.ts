@@ -46,15 +46,15 @@ app.use((req, res, next) => {
     '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
     '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving/': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
     
-    // BPD article → blog homepage (content to be created)
-    '/understanding-4-types-of-bpd': '/blog',
-    '/understanding-4-types-of-bpd/': '/blog',
+    // BPD article → new comprehensive BPD guide
+    '/understanding-4-types-of-bpd': '/blog/understanding-4-types-of-bpd',
+    '/understanding-4-types-of-bpd/': '/blog/understanding-4-types-of-bpd',
     
-    // Narcissistic behavior articles → blog homepage (content to be created)
-    '/narcissistic-behavior-in-a-relationship': '/blog',
-    '/narcissistic-behavior-in-a-relationship/': '/blog',
-    '/narcissisticbehavior-in-a-relationship': '/blog',
-    '/narcissisticbehavior-in-a-relationship/': '/blog',
+    // Narcissistic behavior articles → new narcissism guide
+    '/narcissistic-behavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
+    '/narcissistic-behavior-in-a-relationship/': '/blog/narcissistic-behavior-in-relationships',
+    '/narcissisticbehavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
+    '/narcissisticbehavior-in-a-relationship/': '/blog/narcissistic-behavior-in-relationships',
   };
 
   const redirectTo = redirectMap[req.path];
