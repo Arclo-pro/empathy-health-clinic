@@ -40,11 +40,11 @@ const PLATFORM_BADGES = [
 
 export default function ReviewsAndBadges() {
   return (
-    <section className="py-12 md:py-16 bg-background border-b">
+    <section className="pt-4 pb-12 md:pb-16 bg-background border-b">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Platform Badges */}
         <div>
-          <h3 className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">
+          <h3 className="text-center text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-8">
             Verified On
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">

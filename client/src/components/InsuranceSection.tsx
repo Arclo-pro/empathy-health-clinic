@@ -12,14 +12,14 @@ export default function InsuranceSection() {
   const totalCount = providers?.length || 0;
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background">
+    <section className="py-12 md:py-16 bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-sans font-medium mb-3">
-            Find an in-network doctor from over 1,000 insurance plans
+            Find an in-network provider from most insurance plans
           </h2>
           <p className="text-base md:text-lg text-muted-foreground">
-            Add your insurance to see in-network primary care doctors
+            Add your insurance to see in-network mental health providers
           </p>
         </div>
         
