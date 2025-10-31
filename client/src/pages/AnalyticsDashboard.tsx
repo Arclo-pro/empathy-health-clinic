@@ -116,7 +116,7 @@ interface FormConversionMetrics {
 export default function AnalyticsDashboard() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
-  const [timeRange, setTimeRange] = useState<string>("all");
+  const [timeRange, setTimeRange] = useState<string>("today");
   const gaActive = isGAActive();
   const gaMeasurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
 
@@ -130,7 +130,12 @@ export default function AnalyticsDashboard() {
   });
 
   const { data: formMetrics } = useQuery<FormConversionMetrics>({
-    queryKey: ['/api/analytics/forms'],
+    queryKey: ['/api/analytics/forms', timeRange],
+    queryFn: async () => {
+      const response = await fetch(`/api/analytics/forms?timeRange=${timeRange}`);
+      if (!response.ok) throw new Error('Failed to fetch form metrics');
+      return response.json();
+    },
   });
 
   const { data: leads, isLoading: leadsLoading } = useQuery<Lead[]>({

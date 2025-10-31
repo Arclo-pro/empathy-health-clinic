@@ -128,7 +128,7 @@ export interface IStorage {
   trackEvent(data: InsertAnalyticsEvent): Promise<AnalyticsEvent>;
   getEvents(eventType?: string, startDate?: string, endDate?: string): Promise<AnalyticsEvent[]>;
   getEventCounts(startDate?: string, endDate?: string): Promise<{eventType: string, count: number}[]>;
-  getFormConversionMetrics(): Promise<{
+  getFormConversionMetrics(startDate?: string, endDate?: string): Promise<{
     shortFormStarts: number;
     shortFormSubmissions: number;
     longFormStarts: number;
@@ -2023,7 +2023,7 @@ export class MemStorage implements IStorage {
     return result;
   }
 
-  async getFormConversionMetrics(): Promise<{
+  async getFormConversionMetrics(startDate?: string, endDate?: string): Promise<{
     shortFormStarts: number;
     shortFormSubmissions: number;
     longFormStarts: number;
@@ -2032,24 +2032,77 @@ export class MemStorage implements IStorage {
     longFormDropOffRate: number;
     totalDropOffRate: number;
   }> {
-    // Count form starts by type (from analytics events)
-    const shortFormStartsResult = await db.select({ count: sql<number>`count(*)::int` })
-      .from(analyticsEvents)
-      .where(and(eq(analyticsEvents.eventType, 'form_started'), eq(analyticsEvents.value, 'short')));
+    // Build date filter conditions
+    const eventConditions = [];
+    const leadConditions = [];
     
-    const longFormStartsResult = await db.select({ count: sql<number>`count(*)::int` })
-      .from(analyticsEvents)
-      .where(and(eq(analyticsEvents.eventType, 'form_started'), eq(analyticsEvents.value, 'long')));
+    if (startDate) {
+      eventConditions.push(gte(analyticsEvents.timestamp, startDate));
+      leadConditions.push(gte(leads.createdAt, startDate));
+    }
+    if (endDate) {
+      eventConditions.push(lte(analyticsEvents.timestamp, endDate));
+      leadConditions.push(lte(leads.createdAt, endDate));
+    }
+    
+    // Count form starts by type (from analytics events)
+    const shortFormStartsQuery = db.select({ count: sql<number>`count(*)::int` })
+      .from(analyticsEvents);
+    
+    const shortFormStartsWhere = eventConditions.length > 0
+      ? and(
+          eq(analyticsEvents.eventType, 'form_started'),
+          eq(analyticsEvents.value, 'short'),
+          and(...eventConditions)
+        )
+      : and(
+          eq(analyticsEvents.eventType, 'form_started'),
+          eq(analyticsEvents.value, 'short')
+        );
+    
+    const shortFormStartsResult = await shortFormStartsQuery.where(shortFormStartsWhere);
+    
+    const longFormStartsQuery = db.select({ count: sql<number>`count(*)::int` })
+      .from(analyticsEvents);
+    
+    const longFormStartsWhere = eventConditions.length > 0
+      ? and(
+          eq(analyticsEvents.eventType, 'form_started'),
+          eq(analyticsEvents.value, 'long'),
+          and(...eventConditions)
+        )
+      : and(
+          eq(analyticsEvents.eventType, 'form_started'),
+          eq(analyticsEvents.value, 'long')
+        );
+    
+    const longFormStartsResult = await longFormStartsQuery.where(longFormStartsWhere);
     
     // Count form submissions by type (from leads table)
     // Note: "hero" and "short" both count as short form submissions
-    const shortFormSubmissionsResult = await db.select({ count: sql<number>`count(*)::int` })
-      .from(leads)
-      .where(or(eq(leads.formType, 'short'), eq(leads.formType, 'hero')));
+    const shortFormQuery = db.select({ count: sql<number>`count(*)::int` })
+      .from(leads);
     
-    const longFormSubmissionsResult = await db.select({ count: sql<number>`count(*)::int` })
-      .from(leads)
-      .where(eq(leads.formType, 'long'));
+    const shortFormWhere = leadConditions.length > 0
+      ? and(
+          or(eq(leads.formType, 'short'), eq(leads.formType, 'hero')),
+          and(...leadConditions)
+        )
+      : or(eq(leads.formType, 'short'), eq(leads.formType, 'hero'));
+    
+    const shortFormSubmissionsResult = await shortFormQuery.where(shortFormWhere);
+    
+    const longFormQuery = db.select({ count: sql<number>`count(*)::int` })
+      .from(leads);
+    
+    const longFormWhere = leadConditions.length > 0
+      ? and(
+          eq(leads.formType, 'long'),
+          and(...leadConditions)
+        )
+      : eq(leads.formType, 'long');
+    
+    const longFormSubmissionsResult = await longFormQuery.where(longFormWhere);
     
     const shortFormStarts = shortFormStartsResult[0]?.count || 0;
     const longFormStarts = longFormStartsResult[0]?.count || 0;

@@ -826,9 +826,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/analytics/forms", async (_req, res) => {
+  app.get("/api/analytics/forms", async (req, res) => {
     try {
-      const metrics = await storage.getFormConversionMetrics();
+      const timeRange = req.query.timeRange as string || 'today';
+      const now = new Date();
+      
+      // Helper function to convert Date to PostgreSQL format (stored as text)
+      const toPgFormat = (date: Date): string => {
+        return date.toISOString()
+          .replace('T', ' ')
+          .replace('Z', '+00')
+          .replace(/\.\d{3}/, (match) => match); // Keep milliseconds
+      };
+      
+      // Calculate date filters based on time range  
+      let startDate: string | undefined;
+      let endDate: string | undefined;
+      
+      if (timeRange === 'today') {
+        const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+        startDate = toPgFormat(todayStart);
+        endDate = toPgFormat(todayEnd);
+      } else if (timeRange === '7d') {
+        startDate = toPgFormat(new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000));
+      } else if (timeRange === '30d') {
+        startDate = toPgFormat(new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000));
+      }
+      // 'all' means no filter (undefined startDate)
+      
+      const metrics = await storage.getFormConversionMetrics(startDate, endDate);
       res.json(metrics);
     } catch (error: any) {
       res.status(500).json({ error: error.message });
