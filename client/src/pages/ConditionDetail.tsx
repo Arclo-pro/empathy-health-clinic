@@ -8,6 +8,7 @@ import SiteFooter from "@/components/SiteFooter";
 import forestBg from "@assets/stock_images/peaceful_green_fores_e64064d2.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
+import FAQSchema from "@/components/FAQSchema";
 
 export default function ConditionDetail() {
   const [, params] = useRoute("/:slug");
@@ -107,6 +108,14 @@ export default function ConditionDetail() {
     return minDesc;
   };
 
+  const parsedFaqs = (() => {
+    try {
+      return JSON.parse(condition.faqs || '[]');
+    } catch {
+      return [];
+    }
+  })();
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -115,6 +124,7 @@ export default function ConditionDetail() {
         keywords={[condition.title, `${condition.title} treatment Winter Park`, `${condition.title} therapy Florida`, "psychiatrist Orlando", "mental health Winter Park FL"]}
         canonicalPath={`/${condition.slug}`}
       />
+      <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />
       <main className="flex-1">
         <HeroBackground imageSrc={forestBg}>

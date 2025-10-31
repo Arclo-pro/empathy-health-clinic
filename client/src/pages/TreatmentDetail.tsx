@@ -10,6 +10,7 @@ import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/calm_forest_trees_me_62fae749.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
+import FAQSchema from "@/components/FAQSchema";
 
 export default function TreatmentDetail() {
   const [, params] = useRoute("/:slug");
@@ -77,6 +78,14 @@ export default function TreatmentDetail() {
     return minDesc;
   };
 
+  const parsedFaqs = (() => {
+    try {
+      return JSON.parse(treatment.faqs || '[]');
+    } catch {
+      return [];
+    }
+  })();
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -85,6 +94,7 @@ export default function TreatmentDetail() {
         keywords={[treatment.title, `${treatment.title} Winter Park`, `${treatment.title} Florida`, "psychiatric services Orlando", "mental health treatment Winter Park"]}
         canonicalPath={`/${treatment.slug}`}
       />
+      <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />
       <main className="flex-1">
         <HeroBackground imageSrc={forestBg}>

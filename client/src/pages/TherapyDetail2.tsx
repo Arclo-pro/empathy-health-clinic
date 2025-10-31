@@ -10,6 +10,7 @@ import TrustFactors from "@/components/TrustFactors";
 import forestBg from "@assets/stock_images/misty_forest_morning_3efbbc1d.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
+import FAQSchema from "@/components/FAQSchema";
 
 export default function TherapyDetail() {
   const [, params] = useRoute("/:slug");
@@ -77,6 +78,14 @@ export default function TherapyDetail() {
     return minDesc;
   };
 
+  const parsedFaqs = (() => {
+    try {
+      return JSON.parse(therapy.faqs || '[]');
+    } catch {
+      return [];
+    }
+  })();
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -85,6 +94,7 @@ export default function TherapyDetail() {
         keywords={[therapy.title, `${therapy.title} Winter Park`, "therapist Winter Park FL", "counseling Orlando", "therapy Florida"]}
         canonicalPath={`/${therapy.slug}`}
       />
+      <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />
       <main className="flex-1">
         <HeroBackground imageSrc={forestBg}>
