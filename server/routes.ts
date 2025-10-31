@@ -914,7 +914,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         vitals: vitalsSummary,
         conversions: {
           totalLeads: filteredLeads.length,
-          formSubmissions: eventSummary.find(e => e.eventType === 'form_submission')?.count || 0,
+          formSubmissions: filteredLeads.length, // Count actual leads, not analytics events
           phoneClicks: eventSummary.find(e => e.eventType === 'phone_click')?.count || 0,
           virtualVisitRequests: eventSummary.find(e => e.eventType === 'virtual_visit_click')?.count || 0
         }

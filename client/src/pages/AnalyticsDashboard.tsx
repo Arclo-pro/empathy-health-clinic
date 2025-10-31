@@ -806,8 +806,24 @@ export default function AnalyticsDashboard() {
               <Users className="h-5 w-5" />
               Lead Submissions
             </CardTitle>
-            <CardDescription>
-              All form submissions from your website (most recent first)
+            <CardDescription className="flex items-center gap-4 flex-wrap">
+              <span>
+                All form submissions from your website (most recent first)
+              </span>
+              {leads && leads.length > 0 && (() => {
+                // Use local timezone (clinic's timezone) for "today" calculation
+                const now = new Date();
+                const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const todayLeads = leads.filter(l => {
+                  const leadDate = new Date(l.createdAt);
+                  return leadDate >= todayStart;
+                });
+                return (
+                  <Badge variant="secondary" className="ml-auto" data-testid="badge-today-leads">
+                    {todayLeads.length} today · {leads.length} total
+                  </Badge>
+                );
+              })()}
             </CardDescription>
           </CardHeader>
           <CardContent>
