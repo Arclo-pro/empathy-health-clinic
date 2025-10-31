@@ -46,7 +46,7 @@ export default function HeroSection() {
             <img 
               src={empathyLogo} 
               alt="Empathy Health Clinic" 
-              className="h-64 md:h-80 w-auto drop-shadow-lg -mb-20"
+              className="h-64 md:h-80 w-auto drop-shadow-lg -mb-32"
             />
           </div>
           
