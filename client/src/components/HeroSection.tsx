@@ -42,11 +42,11 @@ export default function HeroSection() {
       <div className="relative w-full max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="max-w-6xl mx-auto text-center">
           {/* Logo */}
-          <div className="mb-4 flex justify-center">
+          <div className="mb-2 flex justify-center">
             <img 
               src={empathyLogo} 
               alt="Empathy Health Clinic" 
-              className="h-88 md:h-104 w-auto drop-shadow-lg"
+              className="h-64 md:h-80 w-auto drop-shadow-lg"
             />
           </div>
           
