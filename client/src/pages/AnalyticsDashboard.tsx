@@ -514,10 +514,9 @@ export default function AnalyticsDashboard() {
                 </div>
                 <div>
                   <p className="text-2xl font-bold">
-                    {(data?.events.total || 0) - 
-                     (data?.conversions.formSubmissions || 0) - 
+                    {Math.max(0, (data?.events.total || 0) - 
                      (data?.conversions.phoneClicks || 0) - 
-                     (data?.conversions.virtualVisitRequests || 0)}
+                     (data?.conversions.virtualVisitRequests || 0))}
                   </p>
                   <p className="text-sm text-muted-foreground">Other Events</p>
                 </div>
