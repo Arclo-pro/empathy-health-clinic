@@ -4,12 +4,14 @@ import { Mail, MapPin, Phone, Calendar } from "lucide-react";
 import { SiFacebook, SiInstagram, SiX, SiTiktok, SiLinkedin } from "react-icons/si";
 import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import type { SiteContent } from "@shared/schema";
 import { trackEvent } from "@/lib/analytics";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
 export default function SiteFooter() {
+  const [location] = useLocation();
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
@@ -245,52 +247,54 @@ export default function SiteFooter() {
           </div>
         </div>
         
-        {/* Map Section */}
-        <div className="pt-8 border-t border-card-border">
-          <h3 className="text-xl font-semibold mb-6 text-foreground text-center">Visit Our Clinic</h3>
-          <div className="grid md:grid-cols-2 gap-6 items-center">
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.0746!2d-81.3503!3d28.5947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77b3b0c9c0001%3A0x1!2s2281%20Lee%20Rd%20%23102%2C%20Winter%20Park%2C%20FL%2032810!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Empathy Health Clinic Location Map"
-                data-testid="map-embed-footer"
-              />
-            </div>
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold text-foreground mb-2">Location</h4>
-                <p className="text-muted-foreground">{address}</p>
-                <p className="text-muted-foreground">Winter Park, FL 32810</p>
+        {/* Map Section - Hide on request-appointment page since it has its own map */}
+        {location !== '/request-appointment' && (
+          <div className="pt-8 border-t border-card-border">
+            <h3 className="text-xl font-semibold mb-6 text-foreground text-center">Visit Our Clinic</h3>
+            <div className="grid md:grid-cols-2 gap-6 items-center">
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.0746!2d-81.3503!3d28.5947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77b3b0c9c0001%3A0x1!2s2281%20Lee%20Rd%20%23102%2C%20Winter%20Park%2C%20FL%2032810!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="300"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Empathy Health Clinic Location Map"
+                  data-testid="map-embed-footer"
+                />
               </div>
-              <div>
-                <Button 
-                  asChild
-                  variant="outline"
-                  data-testid="button-get-directions"
-                  onClick={() => trackEvent('directions_click', 'conversion', 'Footer Directions')}
-                >
-                  <a 
-                    href="https://www.google.com/maps/dir/?api=1&destination=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">Location</h4>
+                  <p className="text-muted-foreground">{address}</p>
+                  <p className="text-muted-foreground">Winter Park, FL 32810</p>
+                </div>
+                <div>
+                  <Button 
+                    asChild
+                    variant="outline"
+                    data-testid="button-get-directions"
+                    onClick={() => trackEvent('directions_click', 'conversion', 'Footer Directions')}
                   >
-                    <MapPin className="h-4 w-4 mr-2" />
-                    Get Directions
-                  </a>
-                </Button>
+                    <a 
+                      href="https://www.google.com/maps/dir/?api=1&destination=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <MapPin className="h-4 w-4 mr-2" />
+                      Get Directions
+                    </a>
+                  </Button>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Serving Winter Park, Orlando, Altamonte Springs, and surrounding Central Florida areas.
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground">
-                Serving Winter Park, Orlando, Altamonte Springs, and surrounding Central Florida areas.
-              </p>
             </div>
           </div>
-        </div>
+        )}
         
         <div className="pt-8 border-t border-card-border text-center">
           <p className="text-sm text-muted-foreground mb-2">
