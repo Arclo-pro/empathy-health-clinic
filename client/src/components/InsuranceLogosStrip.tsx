@@ -18,7 +18,7 @@ export default function InsuranceLogosStrip() {
           {topProviders?.map((provider) => (
             <div 
               key={provider.id}
-              className="h-12 w-24 md:h-14 md:w-28 flex items-center justify-center grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100"
+              className="h-12 w-24 md:h-14 md:w-28 flex items-center justify-center transition-all opacity-100 hover:opacity-70"
               data-testid={`logo-insurance-${provider.slug}`}
             >
               <img 
