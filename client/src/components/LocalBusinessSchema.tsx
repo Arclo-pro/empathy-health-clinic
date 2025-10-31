@@ -32,24 +32,74 @@ export default function LocalBusinessSchema({
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "2281 Lee Rd Suite 102",
-        "addressLocality": city,
+        "addressLocality": "Winter Park",
         "addressRegion": "FL",
-        "postalCode": city === "Winter Park" ? "32789" : "",
+        "postalCode": "32789",
         "addressCountry": "US"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": city === "Winter Park" ? "28.6000" : "",
-        "longitude": city === "Winter Park" ? "-81.3392" : ""
+        "latitude": "28.6000",
+        "longitude": "-81.3392"
       },
-      "areaServed": {
-        "@type": "City",
-        "name": city,
-        "containedInPlace": {
-          "@type": "State",
-          "name": "Florida"
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": city,
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Winter Park",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Orlando",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Altamonte Springs",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Maitland",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Casselberry",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Lake Mary",
+          "containedInPlace": {
+            "@type": "State",
+            "name": "Florida"
+          }
         }
-      },
+      ],
       "priceRange": "$$",
       "currenciesAccepted": "USD",
       "paymentAccepted": "Insurance, Credit Card, Cash",
