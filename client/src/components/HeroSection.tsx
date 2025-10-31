@@ -65,12 +65,11 @@ export default function HeroSection() {
           <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 max-w-md shadow-xl">
             <div className="text-center mb-4">
               <div className="text-6xl font-bold text-foreground mb-1">4.8 EXCELLENT</div>
-              <div className="flex justify-center gap-1 mb-2">
-                {[...Array(4)].map((_, i) => (
+              <div className="flex justify-center gap-1 mb-3">
+                {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <div className="text-lg font-bold text-foreground uppercase tracking-wider mb-3">Excellent</div>
             </div>
             <div className="border-t pt-4">
               <p className="text-foreground text-lg italic mb-2 text-center">
