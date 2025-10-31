@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import type { SiteContent } from "@shared/schema";
+import type { SiteContent, InsuranceProvider } from "@shared/schema";
 import heroImage from "@assets/image_1761934471053.png";
 import empathyLogo from "@assets/image_1761934454982.png";
 import HeroLeadForm from "@/components/HeroLeadForm";
@@ -12,6 +12,10 @@ import yelpLogo from "@assets/image_1761925935867.png";
 export default function HeroSection() {
   const { data: content } = useQuery<SiteContent>({
     queryKey: ["/api/site-content"],
+  });
+
+  const { data: insuranceProviders } = useQuery<InsuranceProvider[]>({
+    queryKey: ["/api/insurance-providers"],
   });
 
   const title = content?.heroTitle || "Healing Begins with Empathy";
@@ -95,7 +99,17 @@ export default function HeroSection() {
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-lg px-6 py-3 shadow-md">
-              <span className="text-foreground font-semibold text-sm">Most Insurances Accepted</span>
+              <div className="flex items-center gap-3">
+                <span className="text-foreground font-semibold text-sm">Most Insurances Accepted</span>
+                {insuranceProviders?.slice(0, 3).map((provider) => (
+                  <img
+                    key={provider.id}
+                    src={provider.logo}
+                    alt={provider.name}
+                    className="h-6 w-auto object-contain"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
