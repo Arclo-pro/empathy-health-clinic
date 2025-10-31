@@ -6,10 +6,12 @@ import { SiGoogle } from "react-icons/si";
 import useEmblaCarousel from "embla-carousel-react";
 import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 import googleLogo from "@assets/google-wordmark.webp";
+import healthgradesLogo from "@assets/healthgrades-logo.png";
 
 const PLATFORM_BADGES = [
   {
     name: "Healthgrades",
+    logo: healthgradesLogo,
     alt: "Verified on Healthgrades"
   },
   {
