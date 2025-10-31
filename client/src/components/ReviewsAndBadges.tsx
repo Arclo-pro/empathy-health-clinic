@@ -20,7 +20,7 @@ const PLATFORM_BADGES = [
     name: "Google",
     logo: googleLogo,
     alt: "Verified on Google",
-    height: "h-10"
+    height: "h-8"
   },
   {
     name: "Yelp",
