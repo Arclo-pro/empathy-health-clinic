@@ -222,10 +222,13 @@ function App() {
       });
     };
 
+    // Use requestIdleCallback to defer analytics loading until browser is idle
+    // This ensures analytics don't block critical rendering or user interactions
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => loadAnalytics());
+      requestIdleCallback(() => loadAnalytics(), { timeout: 2000 });
     } else {
-      setTimeout(() => loadAnalytics(), 1000);
+      // Fallback for browsers without requestIdleCallback (Safari)
+      setTimeout(() => loadAnalytics(), 1500);
     }
   }, []);
 
