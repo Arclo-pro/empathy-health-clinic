@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import useEmblaCarousel from "embla-carousel-react";
+import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 
 const PLATFORM_BADGES = [
   {
@@ -12,6 +13,7 @@ const PLATFORM_BADGES = [
   },
   {
     name: "Zocdoc",
+    logo: zocdocLogo,
     alt: "Verified on Zocdoc"
   },
   {
@@ -92,6 +94,12 @@ export default function ReviewsAndBadges() {
                     <platform.icon className="h-8 w-8 text-foreground" />
                     <span className="text-xl font-semibold text-foreground">{platform.name}</span>
                   </div>
+                ) : platform.logo ? (
+                  <img 
+                    src={platform.logo} 
+                    alt={platform.alt}
+                    className="h-10 w-auto"
+                  />
                 ) : (
                   <div className="flex items-center gap-2 px-6 py-2 border-2 rounded-lg">
                     <span className="text-xl font-bold text-foreground">{platform.name}</span>
