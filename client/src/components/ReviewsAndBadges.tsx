@@ -1,7 +1,6 @@
 import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 import googleLogo from "@assets/google-wordmark.webp";
 import healthgradesLogo from "@assets/healthgrades-logo.png";
-import goodTherapyLogo from "@assets/stock_images/goodtherapy_logo_off_4f39ac80.jpg";
 import yelpLogo from "@assets/image_1761925935867.png";
 
 const PLATFORM_BADGES = [
@@ -19,11 +18,6 @@ const PLATFORM_BADGES = [
     name: "Google",
     logo: googleLogo,
     alt: "Verified on Google"
-  },
-  {
-    name: "GoodTherapy",
-    logo: goodTherapyLogo,
-    alt: "Verified on GoodTherapy"
   },
   {
     name: "Yelp",
