@@ -7,22 +7,26 @@ const PLATFORM_BADGES = [
   {
     name: "Healthgrades",
     logo: healthgradesLogo,
-    alt: "Verified on Healthgrades"
+    alt: "Verified on Healthgrades",
+    height: "h-20"
   },
   {
     name: "Zocdoc",
     logo: zocdocLogo,
-    alt: "Verified on Zocdoc"
+    alt: "Verified on Zocdoc",
+    height: "h-10"
   },
   {
     name: "Google",
     logo: googleLogo,
-    alt: "Verified on Google"
+    alt: "Verified on Google",
+    height: "h-10"
   },
   {
     name: "Yelp",
     logo: yelpLogo,
-    alt: "Verified on Yelp"
+    alt: "Verified on Yelp",
+    height: "h-10"
   }
 ];
 
@@ -45,7 +49,7 @@ export default function ReviewsAndBadges() {
                 <img 
                   src={platform.logo} 
                   alt={platform.alt}
-                  className="h-10 w-auto object-contain"
+                  className={`${platform.height} w-auto object-contain`}
                 />
               </div>
             ))}
