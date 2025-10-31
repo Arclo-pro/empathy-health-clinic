@@ -2,6 +2,7 @@ import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 import googleLogo from "@assets/google-wordmark.webp";
 import healthgradesLogo from "@assets/healthgrades-logo.png";
 import yelpLogo from "@assets/image_1761925935867.png";
+import goodTherapyLogo from "@assets/image_1761927553793.png";
 
 const PLATFORM_BADGES = [
   {
@@ -27,6 +28,12 @@ const PLATFORM_BADGES = [
     logo: yelpLogo,
     alt: "Verified on Yelp",
     height: "h-32"
+  },
+  {
+    name: "GoodTherapy",
+    logo: goodTherapyLogo,
+    alt: "GoodTherapy Verified Credentials",
+    height: "h-16"
   }
 ];
 
