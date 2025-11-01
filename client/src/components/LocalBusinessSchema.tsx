@@ -111,7 +111,8 @@ export default function LocalBusinessSchema({
             "Tuesday",
             "Wednesday",
             "Thursday",
-            "Friday"
+            "Friday",
+            "Saturday"
           ],
           "opens": "09:00",
           "closes": "17:00"
