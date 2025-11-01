@@ -248,6 +248,25 @@ export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
 export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
 export type BlogPost = typeof blogPosts.$inferSelect;
 
+// Blog Image Tracking (for global deduplication across all blogs)
+export const usedBlogImages = pgTable("used_blog_images", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  imageUrl: text("image_url").notNull().unique(),
+  description: text("description").notNull(),
+  altText: text("alt_text").notNull(),
+  source: text("source").notNull().default("unsplash"), // 'unsplash', 'stock', 'generated'
+  usedInBlogPostId: varchar("used_in_blog_post_id"),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
+export const insertUsedBlogImageSchema = createInsertSchema(usedBlogImages).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertUsedBlogImage = z.infer<typeof insertUsedBlogImageSchema>;
+export type UsedBlogImage = typeof usedBlogImages.$inferSelect;
+
 // Analytics - Page Views
 export const pageViews = pgTable("page_views", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),

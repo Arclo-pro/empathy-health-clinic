@@ -38,6 +38,7 @@ const SEOOptimization = lazy(() => import("@/pages/SEOOptimization"));
 const GoogleAdsPerformance = lazy(() => import("@/pages/GoogleAdsPerformance"));
 const GoogleAdsSetup = lazy(() => import("@/pages/GoogleAdsSetup"));
 const LeadInsights = lazy(() => import("@/pages/LeadInsights"));
+const AdminBlogGenerator = lazy(() => import("@/pages/AdminBlogGenerator"));
 
 // Blog pages
 const BlogListingPage = lazy(() => import("@/pages/BlogListingPage"));
@@ -94,6 +95,11 @@ function Router() {
         <Route path="/admin/lead-insights">
           <Suspense fallback={<LoadingFallback />}>
             <LeadInsights />
+          </Suspense>
+        </Route>
+        <Route path="/admin/blog">
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminBlogGenerator />
           </Suspense>
         </Route>
         <Route path="/insurance">

@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendLeadNotification } from "./email";
 import * as googleAdsService from "./google-ads-service";
+import { blogGeneratorService } from "./blog-generator-service";
 import {
   insertSiteContentSchema,
   insertTreatmentSchema,
@@ -735,6 +736,70 @@ export async function registerRoutes(app: Express): Promise<Server> {
       await storage.deleteBlogPost(req.params.id);
       res.json({ success: true });
     } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Blog generation with AI (follows all 32 best practices)
+  app.post("/api/generate-blog", async (req, res) => {
+    try {
+      const { topic, keywords, city, imageStyle } = req.body;
+
+      if (!topic || !keywords) {
+        return res.status(400).json({ error: "Topic and keywords are required" });
+      }
+
+      console.log(`📝 Generating blog: ${topic}`);
+      
+      const result = await blogGeneratorService.generateBlog({
+        topic,
+        keywords,
+        city,
+        imageStyle,
+      });
+
+      res.json({
+        success: true,
+        data: result,
+        message: `Blog generated successfully! SEO Score: ${result.seoScore}/100`,
+      });
+    } catch (error: any) {
+      console.error("❌ Blog generation error:", error);
+      res.status(500).json({ 
+        error: error.message || "Blog generation failed",
+        details: error instanceof Error ? error.stack : undefined
+      });
+    }
+  });
+
+  // Publish generated blog directly to CMS
+  app.post("/api/publish-generated-blog", async (req, res) => {
+    try {
+      const blogData = req.body;
+
+      // Create blog post with all the generated content
+      const blogPost = await storage.createBlogPost({
+        title: blogData.title,
+        slug: blogData.slug,
+        excerpt: blogData.excerpt,
+        content: blogData.content,
+        author: "Empathy Health Clinic",
+        publishedDate: new Date().toISOString(),
+        category: "Mental Health",
+        featuredImage: blogData.featuredImage,
+        metaTitle: blogData.title,
+        metaDescription: blogData.metaDescription,
+        keywords: blogData.keywords || [],
+        order: 0,
+      });
+
+      res.json({
+        success: true,
+        blogPost,
+        message: "Blog published successfully!",
+      });
+    } catch (error: any) {
+      console.error("❌ Blog publishing error:", error);
       res.status(500).json({ error: error.message });
     }
   });
