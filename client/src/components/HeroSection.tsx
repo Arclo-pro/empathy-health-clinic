@@ -56,13 +56,8 @@ export default function HeroSection() {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/95 mb-6 drop-shadow font-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-white/95 mb-10 drop-shadow font-light max-w-3xl mx-auto">
             {subtitle}
-          </p>
-          
-          {/* Additional descriptive text for SEO */}
-          <p className="text-base md:text-lg text-white/90 mb-10 drop-shadow font-light max-w-3xl mx-auto">
-            Our compassionate team of board-certified psychiatrists and licensed therapists provides comprehensive mental health treatment for anxiety, depression, ADHD, bipolar disorder, PTSD, and more. We accept most major insurance plans and offer same-week appointments for both in-person and telehealth visits throughout Florida.
           </p>
           
           {/* Lead Form */}
