@@ -3,16 +3,18 @@ import { db } from "./db";
 import { usedBlogImages } from "@shared/schema";
 import { sql } from "drizzle-orm";
 
+// This is using Replit's AI Integrations service, which provides OpenAI-compatible API access without requiring your own OpenAI API key.
 // Lazy initialization of OpenAI client to ensure env vars are loaded
 let openai: OpenAI | null = null;
 
 function getOpenAI(): OpenAI {
   if (!openai) {
-    if (!process.env.OPENAI_API_KEY) {
-      throw new Error("OPENAI_API_KEY environment variable is not set");
+    if (!process.env.AI_INTEGRATIONS_OPENAI_API_KEY || !process.env.AI_INTEGRATIONS_OPENAI_BASE_URL) {
+      throw new Error("Replit AI Integrations not configured. Please ensure the OpenAI integration is set up.");
     }
     openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
+      apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
     });
   }
   return openai;
@@ -158,11 +160,11 @@ Examples of good styles:
 Return ONLY the title, nothing else.`;
 
     const completion = await getOpenAI().chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-4o", // Using gpt-4o - compatible with chat completions API via Replit AI Integrations
       messages: [
         { role: "user", content: prompt }
       ],
-      temperature: 0.9, // Higher temperature for more creative titles
+      temperature: 0.9, // Higher temperature for creative titles
       max_tokens: 100,
     });
 
@@ -349,14 +351,14 @@ CRITICAL RULES:
       
       // Call OpenAI API
       const completion = await getOpenAI().chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4o", // Using gpt-4o - compatible with chat completions API via Replit AI Integrations
         response_format: { type: "json_object" },
         messages: [
           { role: "system", content: systemPrompt },
           { role: "user", content: `Generate a comprehensive blog post about: ${topic}` }
         ],
         temperature: 0.7,
-        max_tokens: 8000,
+        max_tokens: 8192,
       });
 
       const result = JSON.parse(completion.choices[0].message.content || "{}");
