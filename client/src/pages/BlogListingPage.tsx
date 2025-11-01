@@ -34,9 +34,9 @@ export default function BlogListingPage() {
   });
 
   const { data: latestData } = useQuery<BlogPostsResponse>({
-    queryKey: ["/api/blog-posts", { page: 1, pageSize: 9, offset: 2 }],
+    queryKey: ["/api/blog-posts", { page: 1, pageSize: 11 }],
     queryFn: async () => {
-      const response = await fetch("/api/blog-posts?page=1&pageSize=9&offset=2");
+      const response = await fetch("/api/blog-posts?page=1&pageSize=11");
       return response.json();
     }
   });
@@ -57,7 +57,8 @@ export default function BlogListingPage() {
   });
 
   const featuredPosts = featuredData?.posts || [];
-  const latestPosts = latestData?.posts || [];
+  const featuredPostIds = new Set(featuredPosts.map(post => post.id));
+  const latestPosts = (latestData?.posts || []).filter(post => !featuredPostIds.has(post.id)).slice(0, 9);
   const paginatedPosts = paginatedData?.posts || [];
   const totalPages = paginatedData?.totalPages || 1;
 
