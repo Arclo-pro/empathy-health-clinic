@@ -638,10 +638,40 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Blog post routes
-  app.get("/api/blog-posts", async (_req, res) => {
+  app.get("/api/blog-posts", async (req, res) => {
     try {
-      const blogPosts = await storage.getAllBlogPosts();
-      res.json(blogPosts);
+      const category = req.query.category as string | undefined;
+      const page = parseInt(req.query.page as string) || 1;
+      const pageSize = parseInt(req.query.pageSize as string) || 15;
+      const featured = req.query.featured === 'true';
+      
+      let blogPosts = await storage.getAllBlogPosts();
+      
+      // Filter by category if specified
+      if (category && category !== 'All') {
+        blogPosts = blogPosts.filter(post => post.category === category);
+      }
+      
+      // Filter for featured posts if requested
+      if (featured) {
+        // Return only the 2 most recent posts for featured section
+        blogPosts = blogPosts.slice(0, 2);
+        return res.json({ posts: blogPosts, total: blogPosts.length, page: 1, pageSize: 2 });
+      }
+      
+      const total = blogPosts.length;
+      const totalPages = Math.ceil(total / pageSize);
+      const startIndex = (page - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const paginatedPosts = blogPosts.slice(startIndex, endIndex);
+      
+      res.json({
+        posts: paginatedPosts,
+        total,
+        page,
+        pageSize,
+        totalPages
+      });
     } catch (error: any) {
       res.status(500).json({ error: error.message });
     }
