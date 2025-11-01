@@ -3,9 +3,20 @@ import { db } from "./db";
 import { usedBlogImages } from "@shared/schema";
 import { sql } from "drizzle-orm";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Lazy initialization of OpenAI client to ensure env vars are loaded
+let openai: OpenAI | null = null;
+
+function getOpenAI(): OpenAI {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error("OPENAI_API_KEY environment variable is not set");
+    }
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  return openai;
+}
 
 interface BlogGenerationRequest {
   topic: string;
@@ -300,7 +311,7 @@ CRITICAL RULES:
       console.log("🤖 Generating blog with OpenAI GPT-4...");
       
       // Call OpenAI API
-      const completion = await openai.chat.completions.create({
+      const completion = await getOpenAI().chat.completions.create({
         model: "gpt-4o",
         response_format: { type: "json_object" },
         messages: [
