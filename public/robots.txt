@@ -8,6 +8,13 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
+# Block legacy WordPress URLs (site migrated from WordPress)
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-*.php
+
 # Allow crawling of all assets
 Allow: /attached_assets/
 Allow: /*.css$

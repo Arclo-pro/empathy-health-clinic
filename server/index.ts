@@ -39,6 +39,28 @@ app.use((req, res, next) => {
   next();
 });
 
+// 410 Gone: Legacy WordPress URLs that no longer exist
+app.use((req, res, next) => {
+  // Block old WordPress admin, login, and content URLs with 410 Gone
+  // 410 tells search engines these resources are permanently removed
+  if (
+    req.path.startsWith('/wp-content/') ||
+    req.path.startsWith('/wp-includes/') ||
+    req.path.startsWith('/wp-admin/') ||
+    req.path === '/wp-login.php' ||
+    req.path.match(/^\/wp-.*\.php$/)
+  ) {
+    return res.status(410).send('Gone - This WordPress resource no longer exists after site migration.');
+  }
+  
+  // Block Replit dev/workspace iframes from being tracked
+  if (req.path.includes('__replco') || req.path.includes('workspace_iframe')) {
+    return res.status(404).send('Not Found');
+  }
+  
+  next();
+});
+
 // 301 Redirects: Old WordPress URLs to preserve backlink SEO value
 app.use((req, res, next) => {
   const redirectMap: Record<string, string> = {
