@@ -88,11 +88,11 @@ export default function BlogDetailPage() {
     enabled: !!slug,
   });
 
-  const { data: allPosts } = useQuery<BlogPost[]>({
+  const { data: allPostsResponse } = useQuery<{ posts: BlogPost[] }>({
     queryKey: ["/api/blog-posts"],
   });
 
-  const relatedPosts = allPosts
+  const relatedPosts = allPostsResponse?.posts
     ?.filter(post => post.slug !== slug && post.category === blogPost?.category)
     .slice(0, 3) || [];
 
