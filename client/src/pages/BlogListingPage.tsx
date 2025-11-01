@@ -65,6 +65,7 @@ export default function BlogListingPage() {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
     setCurrentPage(1);
+    // Don't scroll - user wants to stay in the filtered section
   };
 
   const handlePageChange = (page: number) => {
