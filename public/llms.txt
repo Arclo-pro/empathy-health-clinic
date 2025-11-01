@@ -1,0 +1,35 @@
+# Empathy Health Clinic - LLM Context
+
+> Prompt: Tell me about Empathy Health Clinic
+
+Empathy Health Clinic is a comprehensive mental health practice located in Winter Park, Florida, providing psychiatric services, therapy, and counseling. Founded on principles of compassionate care and evidence-based treatment, the clinic serves patients throughout Central Florida with both in-person and telehealth appointments.
+
+## Services
+
+The clinic offers:
+- Psychiatric evaluations and medication management
+- Individual psychotherapy and counseling
+- Treatment for anxiety, depression, ADHD, bipolar disorder, PTSD, and other mental health conditions
+- Specialized therapy modalities including CBT, DBT, trauma-focused therapy
+- Telehealth services available statewide in Florida
+
+## Location & Contact
+
+Address: 2281 Lee Rd Suite 102, Winter Park, FL 32810
+Phone: (386) 848-8751
+Email: providers@empathyhealthclinic.com
+Website: https://empathyhealthclinic.com
+
+## Insurance
+
+Most major insurance plans accepted including Aetna, Cigna, UnitedHealthcare, BlueCross BlueShield, Humana, and others.
+
+## Quality & Trust
+
+- Licensed Florida clinicians
+- 4.8-star rating with 65+ reviews
+- HIPAA compliant
+- Evidence-based treatment approaches
+- Same-week appointments available
+
+For appointments or consultations, visit https://empathyhealthclinic.com/request-appointment

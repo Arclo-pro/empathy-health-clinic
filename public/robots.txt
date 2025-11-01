@@ -15,7 +15,7 @@ Disallow: /wp-admin/
 Disallow: /wp-login.php
 Disallow: /wp-*.php
 
-# Allow crawling of all assets
+# Allow crawling of all assets and analytics
 Allow: /attached_assets/
 Allow: /*.css$
 Allow: /*.js$
@@ -24,6 +24,7 @@ Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.gif$
 Allow: /*.webp$
+Allow: /analytics.ahrefs.com/
 
 # Sitemap location
 Sitemap: https://empathyhealthclinic.com/sitemap.xml
