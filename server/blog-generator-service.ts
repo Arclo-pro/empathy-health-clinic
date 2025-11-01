@@ -40,20 +40,24 @@ interface BlogGenerationResult {
 export class BlogGeneratorService {
   /**
    * Fetch unique images from Unsplash that haven't been used in any blog
+   * Handles race conditions by retrying if images are taken by concurrent requests
    */
   private async fetchUniqueImages(
     query: string,
-    count: number
+    count: number,
+    retryCount = 0
   ): Promise<Array<{ url: string; description: string }>> {
+    const MAX_RETRIES = 3;
+    
     try {
-      // Get all previously used image URLs from database
+      // Get all previously used image URLs from database (with fresh read)
       const usedImages = await db.select({ imageUrl: usedBlogImages.imageUrl })
         .from(usedBlogImages);
       const usedUrls = new Set(usedImages.map(img => img.imageUrl));
 
       // Fetch more images than needed to account for duplicates
       const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=30&client_id=YOUR_UNSPLASH_ACCESS_KEY`
+        `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=30&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
       );
       
       if (!response.ok) {
@@ -69,12 +73,49 @@ export class BlogGeneratorService {
           description: img.description || img.alt_description || query,
         }));
 
-      return availableImages;
+      // Immediately try to reserve these images in the database
+      const successfullyReserved: Array<{ url: string; description: string }> = [];
+      
+      for (const img of availableImages) {
+        try {
+          // Try to insert - if it conflicts (another request took it), skip it
+          await db.insert(usedBlogImages).values({
+            imageUrl: img.url,
+            description: img.description,
+            altText: img.description,
+            source: "unsplash",
+          });
+          // If insert succeeded, this image is ours
+          successfullyReserved.push(img);
+        } catch (error) {
+          // Image was taken by another concurrent request, skip it
+          console.log(`Image ${img.url} already taken, skipping`);
+        }
+        
+        // Stop once we have enough images
+        if (successfullyReserved.length >= count) {
+          break;
+        }
+      }
+
+      // If we didn't get enough unique images, retry with a fresh fetch
+      if (successfullyReserved.length < count && retryCount < MAX_RETRIES) {
+        console.log(`Only got ${successfullyReserved.length}/${count} images, retrying (attempt ${retryCount + 1}/${MAX_RETRIES})...`);
+        const additionalNeeded = count - successfullyReserved.length;
+        const additionalImages = await this.fetchUniqueImages(query, additionalNeeded, retryCount + 1);
+        return [...successfullyReserved, ...additionalImages];
+      }
+
+      return successfullyReserved;
     } catch (error) {
       console.error("Error fetching Unsplash images:", error);
-      // Fallback: use stock images from our assets
+      
+      // Fallback: Generate unique placeholder URLs using timestamp + random
+      // Don't mark these as "used" since they're fallbacks
+      const timestamp = Date.now();
+      const randomId = Math.random().toString(36).substring(7);
       return Array(count).fill(null).map((_, i) => ({
-        url: `/attached_assets/stock_images/mental-health-placeholder-${i}.jpg`,
+        url: `/attached_assets/stock_images/fallback-${timestamp}-${randomId}-${i}.jpg`,
         description: query,
       }));
     }
@@ -273,6 +314,7 @@ CRITICAL RULES:
       const result = JSON.parse(completion.choices[0].message.content || "{}");
       
       // Fetch unique images that haven't been used before
+      // Images are automatically reserved in the database during fetch to prevent race conditions
       console.log("🖼️  Fetching unique images from Unsplash...");
       const featuredImages = await this.fetchUniqueImages(
         result.featuredImageQuery || imageStyle || "mental health wellness",
@@ -282,16 +324,6 @@ CRITICAL RULES:
         result.contentImageQueries?.[0] || "therapy counseling",
         3
       );
-
-      // Track images in database to prevent future reuse
-      for (const img of [...featuredImages, ...contentImages]) {
-        await db.insert(usedBlogImages).values({
-          imageUrl: img.url,
-          description: img.description,
-          altText: img.description,
-          source: "unsplash",
-        }).onConflictDoNothing();
-      }
 
       // Validate links
       console.log("🔗 Validating all links...");

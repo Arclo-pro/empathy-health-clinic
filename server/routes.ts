@@ -4,6 +4,8 @@ import { storage } from "./storage";
 import { sendLeadNotification } from "./email";
 import * as googleAdsService from "./google-ads-service";
 import { blogGeneratorService } from "./blog-generator-service";
+import { db } from "./db";
+import { sql } from "drizzle-orm";
 import {
   insertSiteContentSchema,
   insertTreatmentSchema,
@@ -792,6 +794,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
         keywords: blogData.keywords || [],
         order: 0,
       });
+
+      // Update used images to associate them with this blog post
+      // Images are already marked as used during generation, but now we link them to the post
+      const allImageUrls = [
+        blogData.featuredImage,
+        ...(blogData.contentImages || []).map((img: any) => img.url)
+      ].filter(Boolean);
+
+      for (const imageUrl of allImageUrls) {
+        await db.execute(sql`
+          UPDATE used_blog_images 
+          SET used_in_blog_post_id = ${blogPost.id}
+          WHERE image_url = ${imageUrl}
+        `);
+      }
 
       res.json({
         success: true,
