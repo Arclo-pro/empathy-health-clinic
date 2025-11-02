@@ -456,18 +456,23 @@ Return ONLY the title, nothing else.`;
     // RULE 1: Basic Content Generation (No restrictions)
     // ═══════════════════════════════════════════════════════════════
     console.log("\n📝 RULE 1: Generate basic blog content about the topic");
-    const step1Prompt = `Write a comprehensive blog post about: ${topic}
+    const step1Prompt = `CONTEXT: You are beginning a multi-stage blog refinement process. This is Step 1.
+Each subsequent step will improve specific aspects while preserving all existing content.
+Never shorten or summarize content in future steps - only add or refine.
+
+TASK: Write a comprehensive blog post about: ${topic}
 
 Keywords to naturally include: ${keywords}
 
 Requirements:
 - Write professional, helpful content about ${topic}
 - Include a title
-- Include a meta description (any length)
+- Include a meta description (any length for now - will be refined later)
 - Write in HTML format with headings and paragraphs
 - Target audience: Adults seeking mental health treatment
+- Aim for substantial content (will be refined to 2000 words in next step)
 
-Return JSON:
+Return COMPLETE blog in JSON format:
 {
   "title": "Blog title",
   "metaDescription": "Meta description",
@@ -479,7 +484,7 @@ Return JSON:
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step1Prompt }],
-      temperature: 0.7,
+      temperature: 0.6,
       max_tokens: 16000,
     });
     
@@ -499,42 +504,57 @@ Return JSON:
     // RULE 2: Word Count (2000±5 words)
     // ═══════════════════════════════════════════════════════════════
     console.log("\n📊 RULE 2: Enforce EXACTLY 2000 words (±5)");
-    const step2Prompt = `Your blog has ${wordCount} words. It MUST be exactly 2000 words (±5 allowed: 1995-2005 total).
+    const step2Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 2 of 8. Never shorten or summarize existing content unless absolutely necessary to meet word count.
+Always preserve all existing sections and structure.
+
+CURRENT STATE: Your blog has ${wordCount} words.
+TARGET: Exactly 2000 words (±5 allowed: 1995-2005 total)
 
 Current blog:
 ${JSON.stringify(currentBlog, null, 2)}
 
-TASK: ${wordCount < 1995 ? `ADD ${1995 - wordCount} more words` : wordCount > 2005 ? `REMOVE ${wordCount - 2005} words` : 'Perfect! Return as-is'}
+CONDITIONAL TASK:
+${wordCount >= 1995 && wordCount <= 2005 ? `
+✓ Word count is perfect! Return the blog exactly as-is with no modifications.
+` : wordCount < 1995 ? `
+⚠️ Blog is too short (${wordCount} words). ADD ${1995 - wordCount} more words.
 
-${wordCount !== 2000 ? `
-HOW TO FIX:
-${wordCount < 1995 ? `
-- Expand each section with more detailed explanations
-- Add more examples and use cases
-- Include additional H2/H3 sections if needed
+IF the blog already has good structure:
+- Expand each existing section with more detailed explanations
+- Add more examples, use cases, and practical tips
+- Include additional H2/H3 subsections where appropriate
 - Each H2 section should be 250-300 words
-` : `
-- Remove verbose phrases
-- Trim redundant content
-- Make sentences more concise
-`}
-` : ''}
+- DO NOT remove any existing content
 
-Return the blog with EXACTLY 1995-2005 words. Count carefully!
+ELSE (if blog lacks structure):
+- Add new comprehensive sections to reach 2000 words
+` : `
+⚠️ Blog is too long (${wordCount} words). REMOVE ${wordCount - 2005} words.
+
+IF the blog has verbose or redundant sections:
+- Remove only redundant phrases and duplicate content
+- Make overly verbose sentences more concise
+- DO NOT remove entire sections
+- Preserve all key information and structure
+`}
+
+CRITICAL: Return the COMPLETE updated blog with EXACTLY 1995-2005 words.
+Never truncate or summarize - always preserve full content.
 
 Return EXACT same JSON structure:
 {
   "title": "...",
   "metaDescription": "...",
   "slug": "...",
-  "content": "... HTML string ..."
+  "content": "... COMPLETE HTML string ..."
 }`;
 
     let step2 = await getOpenAI().chat.completions.create({
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step2Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -555,28 +575,46 @@ Return EXACT same JSON structure:
     // ═══════════════════════════════════════════════════════════════
     console.log("\n📝 RULE 3: Meta description must be 150-160 characters with keyword");
     const metaLength = currentBlog.metaDescription?.length || 0;
-    const step3Prompt = `Fix the meta description to be EXACTLY 150-160 characters with keyword "${primaryKeyword}".
+    const step3Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 3 of 8. Never shorten or summarize existing content.
+Always preserve all existing sections, structure, and word count.
 
-Current meta (${metaLength} chars): "${currentBlog.metaDescription}"
+CURRENT STATE: Meta description is ${metaLength} characters.
+TARGET: Exactly 150-160 characters with keyword "${primaryKeyword}"
 
-${metaLength < 150 || metaLength > 160 ? `
-TASK: Rewrite to be 150-160 chars and include "${primaryKeyword}"
-Example: "Discover evidence-based ${primaryKeyword} in Orlando. Expert care at Empathy Health Clinic for adults 18+." (Check length!)
-` : 'Meta description is perfect!'}
+Current meta: "${currentBlog.metaDescription}"
+
+CONDITIONAL TASK:
+${metaLength >= 150 && metaLength <= 160 && currentBlog.metaDescription?.toLowerCase().includes(primaryKeyword.toLowerCase()) ? `
+✓ Meta description is perfect! Return the blog exactly as-is with no modifications.
+` : `
+⚠️ Meta description needs adjustment.
+
+IF meta description exists but is wrong length or missing keyword:
+- Rewrite ONLY the metaDescription field to be 150-160 chars and include "${primaryKeyword}"
+- Example: "Discover evidence-based ${primaryKeyword} in Orlando. Expert care at Empathy Health Clinic for adults 18+."
+- DO NOT modify title, slug, or content
+
+ELSE (if no meta description exists):
+- Create a compelling 150-160 char description with "${primaryKeyword}"
+`}
+
+CRITICAL: Return the COMPLETE blog with ALL content preserved.
+Only modify the metaDescription field - everything else stays identical.
 
 Return EXACT same JSON structure:
 {
   "title": "...",
   "metaDescription": "... 150-160 chars ...",
   "slug": "...",
-  "content": "... HTML string ..."
+  "content": "... COMPLETE HTML string - NO CHANGES ..."
 }`;
 
     let step3 = await getOpenAI().chat.completions.create({
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step3Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -598,33 +636,50 @@ Return EXACT same JSON structure:
     const h2Count = (currentBlog.content?.match(/<h2>/gi) || []).length;
     const h3Count = (currentBlog.content?.match(/<h3>/gi) || []).length;
     
-    const step4Prompt = `Fix heading structure:
+    const step4Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 4 of 8. Never shorten or summarize existing content.
+Always preserve all text, sections, and word count (~${wordCount} words).
 
-Current: ${h1Count} H1, ${h2Count} H2, ${h3Count} H3
-Required: 1 H1, 6+ H2, multiple H3
+CURRENT STATE: ${h1Count} H1, ${h2Count} H2, ${h3Count} H3 tags
+TARGET: Exactly 1 H1, at least 6 H2, multiple H3 tags
 
-${h1Count !== 1 || h2Count < 6 || h3Count < 6 ? `
-TASK: Restructure content to have:
-- Exactly 1 <h1> tag (main title)
-- At least 6 <h2> tags (main sections)
-- At least 2 <h3> tags under each H2
+CONDITIONAL TASK:
+${h1Count === 1 && h2Count >= 6 && h3Count >= 6 ? `
+✓ Heading structure is perfect! Return the blog exactly as-is with no modifications.
+` : `
+⚠️ Heading structure needs adjustment.
 
-Keep total word count at ${wordCount} words!
-` : 'Structure is perfect!'}
+IF content has wrong heading levels (too many H1s, not enough H2s/H3s):
+- Adjust ONLY the heading tags to match the required structure:
+  * Exactly 1 <h1> tag (main title at the very top)
+  * At least 6 <h2> tags (main sections throughout the article)
+  * At least 2 <h3> tags under each H2 (subsections)
+- DO NOT change any paragraph text
+- DO NOT add or remove content
+- DO NOT change the word count
+- Simply re-tag existing headings to the proper levels
+
+ELSE (if content lacks sufficient sections):
+- Add new H2/H3 sections to existing content (preserving all original text)
+- Ensure word count stays at ~${wordCount} words
+`}
+
+CRITICAL: Return the COMPLETE blog with ALL ${wordCount} words preserved.
+Only modify heading tags - preserve all paragraph content verbatim.
 
 Return EXACT same JSON structure:
 {
   "title": "...",
   "metaDescription": "...",
   "slug": "...",
-  "content": "... HTML string with proper headings ..."
+  "content": "... COMPLETE HTML with proper heading structure ..."
 }`;
 
     let step4 = await getOpenAI().chat.completions.create({
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step4Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -643,23 +698,38 @@ Return EXACT same JSON structure:
     // RULE 5: Links (4+ internal, 3+ external)
     // ═══════════════════════════════════════════════════════════════
     console.log("\n🔗 RULE 5: Add internal and external links");
-    const step5Prompt = `Add links to the content:
+    const step5Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 5 of 8. Never shorten or summarize existing content.
+Always preserve all text, sections, headings, and word count (~${wordCount} words).
 
-Requirements:
-- 4+ internal links from: /services, /emdr-therapy, /depression-counseling, /anxiety-therapy, /request-appointment, /team
-- 3+ external links from: https://www.nimh.nih.gov/, https://www.apa.org/, https://www.samhsa.gov/
+TARGET: Add hyperlinks to existing content
+- 4+ internal links to: /services, /emdr-therapy, /depression-counseling, /anxiety-therapy, /request-appointment, /team
+- 3+ external links to: https://www.nimh.nih.gov/, https://www.apa.org/, https://www.samhsa.gov/
 - ALL anchor text must be unique (no "learn more" twice)
 
-Examples:
-- <a href="/services">explore our mental health services</a>
-- <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">research on anxiety disorders</a>
+CONDITIONAL TASK:
+IF the blog already has sufficient links (4+ internal, 3+ external):
+- Return the blog exactly as-is with no modifications
+- Just add the internalLinks and externalLinks arrays
+
+ELSE (if blog needs more links):
+- Add hyperlinks to EXISTING text by wrapping relevant phrases in <a> tags
+- DO NOT add new sentences or paragraphs
+- DO NOT change word count
+- Simply turn existing phrases into links
+- Examples:
+  * "mental health services" → <a href="/services">mental health services</a>
+  * "anxiety disorders" → <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">anxiety disorders</a>
+
+CRITICAL: Return the COMPLETE blog with ALL content preserved.
+Only add <a> tags around existing text - do not add new text.
 
 Return JSON with:
 {
   "title": "...",
   "metaDescription": "...",
   "slug": "...",
-  "content": "... with links added ...",
+  "content": "... COMPLETE HTML with links added to existing phrases ...",
   "internalLinks": ["/services", "/emdr-therapy", ...],
   "externalLinks": ["https://www.nimh.nih.gov/...", ...]
 }`;
@@ -668,7 +738,7 @@ Return JSON with:
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step5Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -683,24 +753,43 @@ Return JSON with:
     const winterParkCount = (currentBlog.content?.match(/winter park/gi) || []).length;
     const adultsCount = (currentBlog.content?.match(/(adults|18\+)/gi) || []).length;
 
-    const step6Prompt = `Add local SEO mentions:
+    const step6Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 6 of 8. Never shorten or summarize existing content.
+Always preserve all text, sections, headings, links, and word count (~${wordCount} words).
 
-Current: "Orlando" ${orlandoCount}x, "Winter Park" ${winterParkCount}x, "adults/18+" ${adultsCount}x
-Required: "Orlando" 2+x, "Winter Park" 1+x, "adults/18+" 1+x
+CURRENT STATE: "Orlando" ${orlandoCount}x, "Winter Park" ${winterParkCount}x, "adults/18+" ${adultsCount}x
+TARGET: "Orlando" 2+x, "Winter Park" 1+x, "adults/18+" 1+x
 
-${orlandoCount < 2 || winterParkCount < 1 || adultsCount < 1 ? `
-Add natural mentions like:
-- "Empathy Health Clinic serves Orlando and Winter Park"
-- "Our Orlando-based practice specializes in adult mental health"
-- "We provide services for adults 18+ in the Orlando area"
-` : 'Local SEO is perfect!'}
+CONDITIONAL TASK:
+${orlandoCount >= 2 && winterParkCount >= 1 && adultsCount >= 1 ? `
+✓ Local SEO is perfect! Return the blog exactly as-is with no modifications.
+` : `
+⚠️ Local SEO needs improvement.
+
+IF the blog already has some local mentions but not enough:
+- Add natural mentions to EXISTING paragraphs (don't create new paragraphs)
+- Insert phrases like:
+  * "in Orlando" or "at our Orlando practice"
+  * "serving Winter Park" or "located in Winter Park"
+  * "for adults 18+" or "adult mental health services"
+- DO NOT change existing content
+- DO NOT add new sections
+- Simply weave in the missing location mentions naturally
+
+ELSE (if no local mentions exist):
+- Add location context to existing paragraphs
+- Keep all original content intact
+`}
+
+CRITICAL: Return the COMPLETE blog with ALL content preserved.
+Only add local SEO phrases to existing sentences - do not remove anything.
 
 Return EXACT same JSON structure:
 {
   "title": "...",
   "metaDescription": "...",
   "slug": "...",
-  "content": "... HTML string with local SEO mentions ...",
+  "content": "... COMPLETE HTML with local SEO added naturally ...",
   "internalLinks": [...],
   "externalLinks": [...]
 }`;
@@ -709,7 +798,7 @@ Return EXACT same JSON structure:
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step6Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -720,17 +809,37 @@ Return EXACT same JSON structure:
     // RULE 7: Keyword Optimization (in title, meta, first paragraph)
     // ═══════════════════════════════════════════════════════════════
     console.log("\n🎯 RULE 7: Optimize keyword placement");
-    const step7Prompt = `Ensure primary keyword "${primaryKeyword}" appears in:
+    const step7Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 7 of 8. Never shorten or summarize existing content.
+Always preserve all text, sections, headings, links, local SEO, and word count (~${wordCount} words).
+
+TARGET: Ensure primary keyword "${primaryKeyword}" appears in:
 1. Title (currently: "${currentBlog.title}")
 2. Meta description (currently: "${currentBlog.metaDescription}")
 3. First paragraph of content
+
+CONDITIONAL TASK:
+IF keyword already appears in all three locations:
+- Return the blog exactly as-is with no modifications
+
+ELSE (if keyword is missing from any location):
+- Add "${primaryKeyword}" naturally to the missing locations:
+  * If missing from title: Adjust title to include keyword (keep under 60 chars)
+  * If missing from meta: Already should have it from Step 3, but verify
+  * If missing from first paragraph: Add keyword naturally to EXISTING first paragraph
+- DO NOT rewrite entire sections
+- DO NOT change word count
+- Simply insert the keyword where needed
+
+CRITICAL: Return the COMPLETE blog with ALL content preserved.
+Only add keyword where missing - preserve everything else verbatim.
 
 Return EXACT same JSON structure:
 {
   "title": "... with keyword ...",
   "metaDescription": "... with keyword ...",
   "slug": "...",
-  "content": "... HTML string with keyword in first paragraph ...",
+  "content": "... COMPLETE HTML with keyword in first paragraph ...",
   "internalLinks": [...],
   "externalLinks": [...]
 }`;
@@ -739,7 +848,7 @@ Return EXACT same JSON structure:
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step7Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
@@ -750,20 +859,36 @@ Return EXACT same JSON structure:
     // RULE 8: CTAs and Final Polish
     // ═══════════════════════════════════════════════════════════════
     console.log("\n📞 RULE 8: Add CTAs and final polish");
-    const step8Prompt = `Add call-to-action phrases and final polish:
+    const step8Prompt = `CONTEXT: You are improving an existing long-form blog post across multiple refinement stages.
+This is Step 8 of 8 - the FINAL step. Never shorten or summarize existing content.
+Always preserve all text, sections, headings, links, local SEO, keywords, and word count (~${wordCount} words).
 
-Requirements:
+TARGET: Add CTAs and generate image queries
 - Include CTA phrases like "Contact us", "Schedule an appointment", "Request a consultation"
 - Add excerpt (first 200 chars of content, plain text)
 - Generate image queries (hope, healing, professional themes - NO pills or sadness)
+
+CONDITIONAL TASK:
+IF the blog already has CTAs in the content:
+- Return the blog exactly as-is
+- Just add excerpt and image queries to the JSON
+
+ELSE (if blog needs CTAs):
+- Add CTA phrases to EXISTING conclusion or final paragraphs
+- DO NOT create new sections
+- DO NOT change word count
+- Simply insert phrases like "Contact Empathy Health Clinic today" into existing text
+
+CRITICAL: This is the FINAL step. Return the COMPLETE blog with ALL content preserved.
+The blog should have ~${wordCount} words, proper headings, links, local SEO, and keywords.
 
 Return complete JSON:
 {
   "title": "...",
   "metaDescription": "...",
   "slug": "...",
-  "excerpt": "First 200 chars",
-  "content": "...",
+  "excerpt": "First 200 chars of content (plain text, no HTML)",
+  "content": "... COMPLETE HTML with ALL ${wordCount} words preserved ...",
   "internalLinks": [...],
   "externalLinks": [...],
   "featuredImageQuery": "peaceful nature healing hope wellness",
@@ -774,7 +899,7 @@ Return complete JSON:
       model: "gpt-4o",
       response_format: { type: "json_object" },
       messages: [{ role: "user", content: step8Prompt }],
-      temperature: 0.3,
+      temperature: 0.6,
       max_tokens: 16000,
     });
 
