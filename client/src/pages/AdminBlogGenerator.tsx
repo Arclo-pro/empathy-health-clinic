@@ -449,21 +449,122 @@ export default function AdminBlogGenerator() {
               <CardTitle className="text-base">32 Automated Quality Standards</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
+              {/* Critical Standards (-20 to -25 points) */}
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>Exactly 2,000 words (±5 tolerance)</span>
+                <span>Meta description 150-160 characters (-25 pts)</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>Meta description 150-160 characters</span>
+                <span>Exactly 2,000 words (±5 tolerance) (-25 pts)</span>
               </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Exactly one H1 tag (-20 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>No placeholder text or brackets (-15 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Authoritative links (NIMH, APA, SAMHSA) (-15 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Local SEO: Orlando/Winter Park 2+ mentions (-12 pts)</span>
+              </div>
+              
+              {/* Important Standards (-7 to -10 points) */}
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>100% unique anchor text on all links (-10 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Primary keyword in title (-8 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Primary keyword in meta description (-8 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>At least 4 internal links (-8 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>At least 3 external links (-8 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Clear call-to-action (CTA) (-8 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Keyword density 0.5-3% (-7 pts)</span>
+              </div>
+              
+              {/* Standard Checks (-3 to -5 points) */}
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>At least 6 H2 subheadings (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Primary keyword in first paragraph (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Title length ≤60 characters (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Proper HTML structure (p, h2, h3 tags) (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Valid internal link paths (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Adult content indicator (18+) (-5 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Proper heading hierarchy (H3 under H2) (-3 pts)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Multiple H3 subheadings for depth (-3 pts)</span>
+              </div>
+              
+              {/* Image & Technical Standards */}
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                 <span>Global image deduplication (no repeats)</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>100% unique anchor text on all links</span>
+                <span>Professional image search queries</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>High-quality featured image</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Multiple content images (3+)</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Alt text for all images</span>
+              </div>
+              
+              {/* Link & Content Quality */}
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span>Validated links (no 404s)</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -471,15 +572,21 @@ export default function AdminBlogGenerator() {
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>Validated links (no 404s)</span>
+                <span>Professional tone and empathy</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>Local SEO for Orlando/Winter Park</span>
+                <span>Citations from authoritative sources</span>
               </div>
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                <span>SEO score ≥80 for auto-publish</span>
+                <span>Target audience: Adults 18+ seeking treatment</span>
+              </div>
+              
+              {/* Publication Standard */}
+              <div className="flex items-start gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <span className="font-medium">SEO score ≥80 for auto-publish</span>
               </div>
             </CardContent>
           </Card>
