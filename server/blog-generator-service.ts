@@ -1958,6 +1958,129 @@ Return the fully repaired blog as valid JSON with all fields.`;
       throw new Error(`Blog generation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
+
+  /**
+   * Improve an existing blog based on user-provided instructions
+   * This allows unlimited revisions with human-in-the-loop feedback
+   */
+  async improveBlog(
+    currentBlog: any,
+    improvementInstructions: string,
+    keywords: string
+  ): Promise<any> {
+    try {
+      console.log(`\n🔧 BLOG IMPROVEMENT REQUEST`);
+      console.log(`   Current Score: ${currentBlog.seoScore}/100`);
+      console.log(`   Current Word Count: ${currentBlog.wordCount}`);
+      console.log(`   User Instructions: ${improvementInstructions}`);
+
+      // Run current validation to identify issues
+      const currentValidation = this.calculateSEOScore(
+        currentBlog.content,
+        currentBlog.metaDescription,
+        currentBlog.title,
+        currentBlog.internalLinks || [],
+        currentBlog.externalLinks || [],
+        keywords
+      );
+
+      console.log(`   Current Issues: ${currentValidation.validationResults.issues.join(', ')}`);
+
+      // Build improvement prompt with user instructions + SEO feedback
+      const improvementPrompt = `🔧 BLOG IMPROVEMENT TASK
+
+USER REQUESTED CHANGES:
+${improvementInstructions}
+
+CURRENT BLOG STATUS:
+- SEO Score: ${currentBlog.seoScore}/100
+- Word Count: ${currentBlog.wordCount}
+- Issues: ${currentValidation.validationResults.issues.join(', ')}
+
+CURRENT BLOG CONTENT:
+${JSON.stringify({
+  title: currentBlog.title,
+  metaDescription: currentBlog.metaDescription,
+  slug: currentBlog.slug,
+  content: currentBlog.content,
+  internalLinks: currentBlog.internalLinks,
+  externalLinks: currentBlog.externalLinks,
+  excerpt: currentBlog.excerpt,
+}, null, 2)}
+
+INSTRUCTIONS:
+1. Apply the user's requested changes EXACTLY as specified
+2. Fix any SEO issues mentioned above
+3. Maintain word count between 1800-2200 words
+4. Preserve all HTML structure, headings, and working elements
+5. Keep all internal/external links unless user asks to change them
+6. Return the COMPLETE updated blog in JSON format
+
+Return valid JSON with all fields (title, metaDescription, slug, content, excerpt, internalLinks, externalLinks).`;
+
+      const improvementCompletion = await getOpenAI().chat.completions.create({
+        model: "gpt-4o",
+        response_format: { type: "json_object" },
+        messages: [
+          { 
+            role: "system", 
+            content: "You are a senior content editor and SEO specialist. Apply user-requested improvements while maintaining SEO best practices." 
+          },
+          { role: "user", content: improvementPrompt }
+        ],
+        temperature: 0.3,
+        max_tokens: 16000,
+      });
+
+      let improvedBlog = JSON.parse(improvementCompletion.choices[0].message.content || "{}");
+
+      // Run word count adjustment to ensure 1800-2200 range
+      console.log("📝 Adjusting word count to ensure 1800-2200 range...");
+      improvedBlog.content = await this.adjustWordCount(
+        improvedBlog.content,
+        2000,
+        keywords
+      );
+
+      // Validate improved blog
+      const validation = this.calculateSEOScore(
+        improvedBlog.content,
+        improvedBlog.metaDescription,
+        improvedBlog.title,
+        improvedBlog.internalLinks || [],
+        improvedBlog.externalLinks || [],
+        keywords
+      );
+
+      const scoreChange = validation.score - currentBlog.seoScore;
+      const scoreEmoji = scoreChange > 0 ? "📈" : scoreChange < 0 ? "📉" : "➡️";
+      
+      console.log(`\n${scoreEmoji} IMPROVEMENT RESULTS:`);
+      console.log(`   Previous Score: ${currentBlog.seoScore}/100`);
+      console.log(`   New Score: ${validation.score}/100 (${scoreChange >= 0 ? '+' : ''}${scoreChange})`);
+      console.log(`   Word Count: ${validation.validationResults.wordCount}`);
+      this.formatValidationTable(validation.validationResults);
+
+      return {
+        title: improvedBlog.title,
+        slug: improvedBlog.slug,
+        metaDescription: improvedBlog.metaDescription,
+        content: improvedBlog.content,
+        excerpt: improvedBlog.excerpt,
+        featuredImage: currentBlog.featuredImage, // Preserve existing image
+        featuredImageAlt: currentBlog.featuredImageAlt,
+        contentImages: currentBlog.contentImages, // Preserve existing images
+        internalLinks: improvedBlog.internalLinks,
+        externalLinks: improvedBlog.externalLinks,
+        seoScore: validation.score,
+        wordCount: validation.validationResults.wordCount,
+        validationResults: validation.validationResults,
+      };
+    } catch (error) {
+      console.error("❌ Error improving blog:", error);
+      throw new Error(`Blog improvement failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
 }
 
 export const blogGeneratorService = new BlogGeneratorService();

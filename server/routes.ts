@@ -935,6 +935,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Improve existing blog with user-provided instructions
+  app.post("/api/improve-blog", async (req, res) => {
+    try {
+      const { currentBlog, improvementInstructions, keywords } = req.body;
+
+      if (!currentBlog || !improvementInstructions) {
+        return res.status(400).json({ error: "Current blog and improvement instructions are required" });
+      }
+
+      console.log(`🔧 Improving blog: ${currentBlog.title}`);
+      console.log(`   Instructions: ${improvementInstructions.substring(0, 100)}...`);
+      
+      const result = await blogGeneratorService.improveBlog(
+        currentBlog,
+        improvementInstructions,
+        keywords
+      );
+
+      res.json({
+        success: true,
+        data: result,
+        message: `Blog improved! New SEO Score: ${result.seoScore}/100`,
+      });
+    } catch (error: any) {
+      console.error("❌ Blog improvement error:", error);
+      res.status(500).json({ 
+        error: error.message || "Blog improvement failed",
+        details: error instanceof Error ? error.stack : undefined
+      });
+    }
+  });
+
   // Publish generated blog directly to CMS
   app.post("/api/publish-generated-blog", async (req, res) => {
     try {

@@ -50,6 +50,8 @@ export default function AdminBlogGenerator() {
   const [publishing, setPublishing] = useState(false);
   const [generatingTitle, setGeneratingTitle] = useState(false);
   const [autoGenerating, setAutoGenerating] = useState(false);
+  const [improving, setImproving] = useState(false);
+  const [improvementRequest, setImprovementRequest] = useState("");
   const [generatedBlog, setGeneratedBlog] = useState<GeneratedBlogResult | null>(null);
   const { toast } = useToast();
 
@@ -108,6 +110,8 @@ export default function AdminBlogGenerator() {
     setGeneratedBlog(null);
 
     try {
+      console.log("🚀 Starting blog generation...");
+      
       // Use 'title' instead of 'topic' in the request
       const response = await apiRequest("POST", "/api/generate-blog", {
         topic: data.title,  // Backend still expects 'topic'
@@ -115,25 +119,36 @@ export default function AdminBlogGenerator() {
         city: data.city,
         imageStyle: data.imageStyle,
       });
+      
+      console.log("📥 Received response, parsing JSON...");
       const responseData = await response.json() as { success: boolean; data: GeneratedBlogResult; message: string };
+      console.log("✅ Response parsed:", { success: responseData.success, hasData: !!responseData.data });
 
       if (responseData.success && responseData.data) {
         setGeneratedBlog(responseData.data);
+        
+        // Show success toast even if score is below 80 (user's idea: show everything and allow revisions)
+        const scoreStatus = responseData.data.seoScore >= 80 
+          ? "✅ Ready to publish!" 
+          : "⚠️ Needs improvement";
+        
         toast({
-          title: "✅ Blog Generated Successfully!",
-          description: responseData.message,
+          title: `Blog Generated! ${scoreStatus}`,
+          description: `SEO Score: ${responseData.data.seoScore}/100, Word Count: ${responseData.data.wordCount}`,
+          variant: responseData.data.seoScore >= 80 ? "default" : "destructive",
         });
       } else {
         throw new Error("Invalid response from server");
       }
     } catch (error) {
-      console.error("Blog generation error:", error);
+      console.error("❌ Blog generation error:", error);
       toast({
         title: "❌ Generation Failed",
         description: error instanceof Error ? error.message : "An error occurred while generating the blog",
         variant: "destructive",
       });
     } finally {
+      console.log("🏁 Generation complete, resetting state");
       setGenerating(false);
     }
   };
@@ -174,6 +189,55 @@ export default function AdminBlogGenerator() {
       });
     } finally {
       setPublishing(false);
+    }
+  };
+
+  const handleImproveBlog = async () => {
+    if (!generatedBlog || !improvementRequest.trim()) {
+      toast({
+        title: "⚠️ Missing Information",
+        description: "Please enter specific improvements you'd like to make",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setImproving(true);
+
+    try {
+      console.log("🔧 Requesting blog improvements...");
+      
+      const response = await apiRequest("POST", "/api/improve-blog", {
+        currentBlog: generatedBlog,
+        improvementInstructions: improvementRequest,
+        keywords: form.getValues("keywords"),
+      });
+      
+      const responseData = await response.json() as { success: boolean; data: GeneratedBlogResult; message: string };
+
+      if (responseData.success && responseData.data) {
+        setGeneratedBlog(responseData.data);
+        setImprovementRequest(""); // Clear the improvement field
+        
+        const scoreChange = responseData.data.seoScore - generatedBlog.seoScore;
+        const scoreEmoji = scoreChange > 0 ? "📈" : scoreChange < 0 ? "📉" : "➡️";
+        
+        toast({
+          title: `✅ Blog Improved! ${scoreEmoji}`,
+          description: `New Score: ${responseData.data.seoScore}/100 (${scoreChange >= 0 ? '+' : ''}${scoreChange} points)`,
+        });
+      } else {
+        throw new Error("Invalid response from server");
+      }
+    } catch (error) {
+      console.error("❌ Blog improvement error:", error);
+      toast({
+        title: "❌ Improvement Failed",
+        description: error instanceof Error ? error.message : "An error occurred while improving the blog",
+        variant: "destructive",
+      });
+    } finally {
+      setImproving(false);
     }
   };
 
@@ -710,6 +774,47 @@ export default function AdminBlogGenerator() {
                       </div>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+
+              {/* Request Improvements Section */}
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-base">Request Improvements</CardTitle>
+                  <CardDescription>
+                    Ask for specific changes or improvements to this blog
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <Textarea
+                    placeholder="Example: Add more statistics about treatment effectiveness, expand the section on coping strategies, make the tone more empathetic..."
+                    value={improvementRequest}
+                    onChange={(e) => setImprovementRequest(e.target.value)}
+                    className="min-h-[100px]"
+                    data-testid="input-improvement-request"
+                  />
+                  <Button
+                    onClick={handleImproveBlog}
+                    disabled={improving || !improvementRequest.trim()}
+                    className="w-full"
+                    variant="outline"
+                    data-testid="button-improve-blog"
+                  >
+                    {improving ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Improving Blog...
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="mr-2 h-4 w-4" />
+                        Apply Improvements
+                      </>
+                    )}
+                  </Button>
+                  <p className="text-xs text-muted-foreground text-center">
+                    💡 Unlimited revisions available • Changes tracked • Previous version preserved
+                  </p>
                 </CardContent>
               </Card>
 
