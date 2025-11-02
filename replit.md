@@ -33,14 +33,21 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **AI Blog Generator (`/admin/blog`):** Automated blog generation using Replit AI Integrations (OpenAI GPT-4o) capable of producing 2,000-word, SEO-optimized, HIPAA-compliant blogs. Features include clickbait title generation, image deduplication, Unsplash API integration, link validation, a 100-point SEO scoring system with 32 automated quality checks, and one-click publishing. This includes an **Autonomous Blog Generation** system that identifies content gaps, selects strategic topics, and generates complete blogs with strict quality gates (minimum 80/100 SEO score).
 
   **Generation Approaches:**
-  - **3-Stage Generator with Contextual Feedback Loop (Production):** Uses Planner → Drafter → Formatter stages, followed by intelligent retry system (up to 10 attempts) that feeds structured validation failures back to GPT. Each retry receives detailed rule-by-rule feedback showing which of the 32 quality standards failed, point penalties, severity levels (CRITICAL/IMPORTANT/STANDARD), and specific fix instructions. Tracks improvement deltas per retry and exits early if no progress (3 consecutive rounds). Pre-validation layer catches malformed inputs before expensive API calls. Enhanced console logging with ANSI color-coded severity (red/yellow/cyan) for debugging. **Consistently achieves 100/100 SEO scores with 1995-2005 word blogs.**
+  - **3-Stage Generator with Contextual Feedback Loop (Current - UNRELIABLE):** Uses Planner → Drafter → Formatter stages, followed by intelligent retry system (up to 10 attempts) that feeds structured validation failures back to GPT. Each retry receives detailed rule-by-rule feedback showing which of the 32 quality standards failed, point penalties, severity levels (CRITICAL/IMPORTANT/STANDARD), and specific fix instructions. Tracks improvement deltas per retry and exits early if no progress (3 consecutive rounds). Pre-validation layer catches malformed inputs before expensive API calls. Enhanced console logging with ANSI color-coded severity (red/yellow/cyan) for debugging. **CURRENT STATUS: Inconsistent results - scores range from 43-100/100, word counts vary 1840-2055 (target: 1995-2005). Repair loop exits before fixing word count issues.**
   
-  **Prompt Engineering Insights (Critical for Maintenance):**
-  - **Simplicity Over Micro-Management:** The drafter prompt works best when kept simple and focused on a single goal ("write a detailed, valuable 2000-word article") rather than over-constrained with conflicting instructions like "be precise" + "add detail" + "don't overshoot."
-  - **Tested Progression:** Initial attempts at micro-management caused regressions: baseline 75/100 (1690 words) → "add more detail" 68/100 (2054 words, overshot) → "be precise" 38/100 (1443 words, major regression) → **simplified approach 100/100 (1998 words, perfect)**.
-  - **Key Success Factors:** (1) Clear 2000-word target without contradictory guidance, (2) Natural language instructions for keyword density (2-3 mentions per section), (3) Let GPT work naturally, (4) Trust repair loop for refinement rather than trying to perfect initial draft.
-  - **Keyword Density Repairs:** Enhanced with specific examples and calculations (e.g., "Add 'depression therapy' 3 more times. Examples: 'Understanding depression therapy', 'When considering depression therapy...'") to guide GPT-4o effectively.
-  - **Anti-Pattern:** Avoid adding precise numerical constraints (e.g., "1998-2002 words exactly") as GPT-4o becomes overly conservative and undershoots. Better to set aspirational goal and rely on repair loop.
+  **Known Issues (As of Nov 2024):**
+  - **Word Count Inconsistency:** Generator produces blogs ranging from 1840-2055 words despite 1995-2005 requirement
+  - **Prompt Tuning Challenges:** Multiple attempts to balance prompt specificity vs flexibility have shown:
+    - Too vague → undershoots 100-200 words (1840-1893)
+    - Too strict → overshoots 40-60 words (2045-2055)
+    - Single 100/100 test result was not reproducible across different topics
+  - **Repair Loop Limitations:** Exits after 3 consecutive no-progress rounds, often before fixing critical word count issues
+  - **Keyword Density:** Often falls just below 0.5% threshold (0.42-0.49%) despite repair instructions
+  
+  **Recommended Next Steps:**
+  - Consider porting working blogarchitect implementation which has proven reliability
+  - Alternative: Increase repair loop patience (more than 3 no-progress rounds) or adjust word count tolerance
+  - Alternative: Pre-generate multiple drafts and select best scoring option
   
   - **Progressive Generator (Failed Experiment - DO NOT USE):** Alternative approach (`/api/generate-blog-progressive`) that attempted incremental validation across 8 separate API calls. Despite implementing preservation guardrails (conditional instructions, context anchors, temperature tuning), the approach suffered from cumulative context loss: mid-process steps showed temporary success (1721 words at step 2) but final output collapsed to 375 words with 0/100 score. Root cause: Each separate GPT-4o call loses shared state and re-summarizes previous text despite explicit "preserve all content" instructions. Conclusion: Iterative prompting across multiple API calls fundamentally degrades quality regardless of prompt engineering techniques. Endpoint remains in codebase as a documented failed experiment but should not be used in production.
 - **Social Media Integration:** Links to major social platforms in the footer.

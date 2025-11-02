@@ -1153,57 +1153,46 @@ QUALITY REQUIREMENTS:
 ✓ Links: All anchor text must be unique (no "learn more" twice)
 ✓ Generic references only: "individuals", "a person", "someone", "many people" (NO patient names or ages)`;
 
-      const drafterPrompt = `Write comprehensive blog content following this outline. Your PRIMARY goal is to write exactly 2000 words (±5 allowed).
+      const drafterPrompt = `Write a comprehensive, detailed 2000-word blog following this outline.
 
 OUTLINE:
 ${JSON.stringify(outline, null, 2)}
 
-⚠️ WORD COUNT REQUIREMENT: 2000 words total (minimum 1995, maximum 2005)
-
 CONTENT REQUIREMENTS:
-1. Intro section (220-250 words):
+1. Intro (~220 words):
    - Include primary keyword "${keywords.split(',')[0].trim()}" in first paragraph
    - Mention Orlando and "adults 18+"
-   - Provide context and overview
-   - Write 2-3 substantial paragraphs
+   - Set context for the article
    
-2. Each H2 section (280-300 words EACH):
-   - Write complete, detailed explanations with H3 subsections
+2. Each H2 section:
+   - Write detailed explanations with H3 subsections where helpful
    - Include clinical examples, case scenarios, research findings
-   - Add practical, actionable information
    - Use the primary keyword "${keywords.split(',')[0].trim()}" naturally 2-3 times per section
-   - Each section needs 3-4 full paragraphs to reach 280+ words
+   - Provide practical, actionable information
    
-3. Conclusion (80-100 words):
-   - Summarize key takeaways
-   - Include clear CTA ("Contact us", "Schedule appointment")
-   - Mention Orlando
+3. Conclusion (~80 words):
+   - Summarize key points
+   - Include clear CTA with Orlando mention
 
-CRITICAL WRITING GUIDELINES:
-- Each H2 section MUST be 280-300 words (not 150, not 200 - full 280-300)
-- Write in complete, detailed paragraphs - no bullet points or short summaries
-- Include specific examples: "For instance...", "One approach involves...", "Research shows..."
-- Add context and depth: "This is important because...", "Many individuals find that..."
-- Total target: exactly ${outline.outline.length * 285} words across all sections
-
-VERIFICATION BEFORE RETURNING:
-- Count total words in your content
-- If under 1995 words: Add 1-2 paragraphs with clinical examples to shortest sections
-- If over 2005 words: Trim only redundant phrases, keep all substance
-- Aim for 1998-2002 words for perfect score
+WRITING APPROACH:
+- Write naturally with depth and detail
+- Each section should be thorough and valuable
+- Use complete paragraphs with supporting evidence
+- Include examples where relevant
+- Target approximately 2000 words total
 
 RETURN JSON:
 {
   "content": "<h1>...</h1><p>Intro content...</p><h2>Section 1</h2>...",
   "wordCountBySection": [
-    {"section": "intro", "words": 230, "runningTotal": 230},
-    {"section": "H2-1", "words": 285, "runningTotal": 515},
+    {"section": "intro", "words": 220, "runningTotal": 220},
+    {"section": "H2-1", "words": 280, "runningTotal": 500},
     ...
   ],
   "finalWordCount": 2000
 }
 
-Write comprehensive, detailed content now. Each section needs substance and depth.`;
+Write detailed, valuable content now.`;
 
       const drafterCompletion = await getOpenAI().chat.completions.create({
         model: "gpt-4o",
