@@ -1152,32 +1152,32 @@ YOUR TASK: Create the final JSON output ensuring it passes all validation rules 
 📋 22 AUTOMATED VALIDATION RULES (MUST PASS):
 
 CRITICAL RULES (High Penalties):
-1. ✅ Meta Description: 150-160 characters and includes primary keyword "${keywords.split(',')[0].trim()}"
-2. ✅ Word Count: Exactly 2000 ±5 words (1995-2005)
-3. ✅ H1 Tag: Exactly ONE <h1> tag (no more, no less)
-4. ✅ Placeholder Text: NO [brackets], "TODO", "Lorem ipsum", "TBD", etc.
-5. ✅ Authoritative Links: At least 1 link to NIMH, APA, SAMHSA, WHO, CDC, Mayo Clinic, or Psychology Today
-6. ✅ Local SEO: Mention "Orlando" or "Winter Park" at least 2x total
+1. ✅ Meta Description (-25 pts): 150-160 characters and includes primary keyword "${keywords.split(',')[0].trim()}"
+2. ✅ Word Count (-25 pts): Exactly 2000 ±5 words (1995-2005)
+3. ✅ H1 Tag (-20 pts): Exactly ONE <h1> tag (no more, no less)
+4. ✅ Placeholder Text (-15 pts): NO [brackets], "TODO", "Lorem ipsum", "TBD", etc.
+5. ✅ Authoritative Links (-15 pts): At least 1 link to NIMH, APA, SAMHSA, WHO, CDC, Mayo Clinic, or Psychology Today
+6. ✅ Local SEO (-12 pts): Mention "Orlando" or "Winter Park" at least 2x total
 
 IMPORTANT RULES (Medium Penalties):
-7. ✅ Unique Anchor Text: All link text must be unique (no "learn more" twice)
-8. ✅ Keyword in Title: Primary keyword must appear in title
-9. ✅ Keyword in Meta: Primary keyword must appear in meta description
-10. ✅ Internal Links: At least 4 links to /services, /team, /request-appointment, etc.
-11. ✅ External Links: At least 3 authoritative external links
-12. ✅ CTA: Include call-to-action ("contact us", "schedule", "get help")
-13. ✅ Keyword Density: 0.5-3% of total words
+7. ✅ Unique Anchor Text (-10 pts): All link text must be unique (no "learn more" twice)
+8. ✅ Keyword in Title (-8 pts): Primary keyword must appear in title
+9. ✅ Keyword in Meta (-8 pts): Primary keyword must appear in meta description
+10. ✅ Internal Links (-8 pts): At least 4 links to /services, /team, /request-appointment, etc.
+11. ✅ External Links (-8 pts): At least 3 authoritative external links
+12. ✅ CTA (-8 pts): Include call-to-action ("contact us", "schedule", "get help")
+13. ✅ Keyword Density (-7 pts): 0.5-3% of total words
 
 STANDARD RULES (Lower Penalties):
-14. ✅ H2 Subheadings: At least 6 <h2> tags for structure
-15. ✅ Keyword in First Paragraph: Primary keyword in first 300 characters
-16. ✅ Title Length: ≤60 characters
-17. ✅ Proper HTML: All content wrapped in <p>, <h2>, <h3> tags
-18. ✅ Valid Internal Links: Only link to valid pages (listed above)
-19. ✅ Adult Indicator: Include "adults", "18+", "over 18" at least once
-20. ✅ Heading Hierarchy: H3 tags nested under H2 sections
-21. ✅ Link Validation: No broken or placeholder URLs
-22. ✅ Image Queries: Professional, hopeful themes (NO pills or sadness)
+14. ✅ H2 Subheadings (-5 pts): At least 6 <h2> tags for structure
+15. ✅ Keyword in First Paragraph (-5 pts): Primary keyword in first 300 characters
+16. ✅ Title Length (-5 pts): ≤60 characters
+17. ✅ Proper HTML (-5 pts): All content wrapped in <p>, <h2>, <h3> tags
+18. ✅ Valid Internal Links (-5 pts): Only link to valid pages (listed above)
+19. ✅ Adult Indicator (-5 pts): Include "adults", "18+", "over 18" at least once
+20. ✅ Heading Hierarchy (-3 pts): H3 tags nested under H2 sections
+21. ✅ Link Validation (-3 pts): No broken or placeholder URLs
+22. ✅ Image Queries (-3 pts): Professional, hopeful themes (NO pills or sadness)
 
 OUTPUT JSON:
 {
