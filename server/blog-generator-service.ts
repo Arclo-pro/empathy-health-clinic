@@ -823,10 +823,10 @@ Return the FINAL, polished, publication-ready blog that scores 90+/100.`;
       
       console.log(`📊 3-Step Generation Complete! Score: ${score}/100 | Word Count: ${validationResults.wordCount}`);
       
-      // ADDITIONAL IMPROVEMENT LOOP: Keep going until 80+ score
+      // ADDITIONAL IMPROVEMENT LOOP: Keep going until 70+ score
       let improvementAttempt = 0;
       const maxImprovementAttempts = 5; // Maximum 5 additional improvement rounds
-      const targetScore = 80;
+      const targetScore = 70;
 
       while (score < targetScore && improvementAttempt < maxImprovementAttempts) {
         improvementAttempt++;

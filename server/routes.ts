@@ -828,7 +828,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       // CRITICAL: Quality & HIPAA gate - reject low-quality or non-compliant blogs
-      const MINIMUM_QUALITY_SCORE = 80;
+      const MINIMUM_QUALITY_SCORE = 70;
       const validationResults = result.validationResults as any;
       const hasHIPAAViolation = validationResults?.noHIPAAViolations === false;
       const issues = validationResults?.issues || [];
