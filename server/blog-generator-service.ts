@@ -427,8 +427,6 @@ Return ONLY the title, nothing else.`;
         primaryKeywordInFirstPara: primaryKeyword ? firstParagraph.includes(primaryKeyword) : true,
         keywordDensity: keywordDensity.toFixed(2) + '%',
         localSEOMentions: localMatches?.length || 0,
-        noHIPAAViolations: hipaaViolationsFound.length === 0,
-        hipaaViolationsFound, // Include exact violations for feedback
         noPlaceholders: !placeholderText.test(content),
         hasCTA: ctaPatterns.test(content),
         validInternalLinks: invalidInternalLinks.length === 0,
@@ -446,245 +444,192 @@ Return ONLY the title, nothing else.`;
   async generateBlog(request: BlogGenerationRequest): Promise<BlogGenerationResult> {
     const { topic, keywords, city, imageStyle } = request;
 
-    // Build the comprehensive prompt following all 32 standards
+    // Simplified system prompt (detailed requirements passed per-stage)
     const systemPrompt = `You are an expert medical content writer for Empathy Health Clinic, a mental health practice in Winter Park and Orlando, Florida specializing in adult mental health services (18+).
 
-⚠️ CRITICAL: This content will be automatically validated. Blogs scoring below 90/100 will be rejected. Follow EVERY requirement EXACTLY.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MANDATORY REQUIREMENTS (AUTOMATIC VALIDATION):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-📊 WORD COUNT (NON-NEGOTIABLE - WILL BE REJECTED IF WRONG):
-✓ EXACTLY 2,000 words (±5 words maximum tolerance: 1995-2005 words)
-✓ Word count calculation: strip ALL HTML tags, count remaining words
-✓ MANDATORY STRUCTURE to reach 2000 words:
-  - Introduction paragraph: 200-250 words (NOT in a section, just paragraphs before first H2)
-  - EXACTLY 6-8 main sections with <h2> headings
-  - Each H2 section: 250-350 words with multiple paragraphs
-  - Each H2 should have 2-3 <h3> subsections  
-  - Conclusion section: 200-250 words with final thoughts and CTA
-✓ DO NOT write short 100-word sections - you will fail
-✓ DO NOT skip sections - write ALL sections fully
-✓ This is automatically validated - wrong word count = automatic rejection
-
-📝 META DESCRIPTION (STRICTLY ENFORCED):
-✓ EXACTLY 150-160 characters (not 149, not 161)
-✓ MUST include primary keyword: "${keywords.split(',')[0].trim()}"
-✓ Example length: "Discover evidence-based anxiety treatment options in Orlando. Expert therapists at Empathy Health Clinic provide personalized care for adults 18+." (159 chars)
-
-🎯 HEADINGS (EXACT STRUCTURE REQUIRED):
-✓ Exactly ONE <h1> tag (no more, no less)
-✓ Minimum SIX <h2> tags for main sections
-✓ Multiple <h3> tags under each <h2> for subsections
-✓ Example structure:
-  <h1>Main Title</h1>
-  <h2>Section 1</h2>
-  <h3>Subsection 1.1</h3>
-  <h3>Subsection 1.2</h3>
-  <h2>Section 2</h2>
-  <h3>Subsection 2.1</h3>
-
-🔗 INTERNAL LINKS (MINIMUM 4 REQUIRED):
-✓ Use these exact paths ONLY:
-  • /services
-  • /emdr-therapy
-  • /depression-counseling
-  • /anxiety-therapy
-  • /virtual-therapy
-  • /crisis-therapy
-  • /request-appointment
-  • /team
-  • /conditions
-  • /treatments
-✓ Each link MUST have 100% unique anchor text
-✓ BAD: "learn more" used twice
-✓ GOOD: "explore our services", "discover EMDR therapy", "schedule a consultation", "meet our team"
-
-🔗 EXTERNAL LINKS (MINIMUM 3 AUTHORITATIVE SOURCES):
-✓ MUST include links from these authoritative sources:
-  • https://www.nimh.nih.gov/ (National Institute of Mental Health)
-  • https://www.apa.org/ (American Psychological Association)
-  • https://www.samhsa.gov/ (SAMHSA)
-  • https://www.who.int/ (World Health Organization)
-  • https://www.cdc.gov/ (CDC)
-✓ Each link MUST have unique anchor text
-
-✓ PATIENT REFERENCES:
-Use natural, relatable language when discussing patient experiences:
-  • "a patient", "an individual", "someone", "a person"
-  • "individuals experiencing...", "people with...", "those who struggle with..."
-  • "patients often report...", "many people find..."
-
-📍 LOCAL SEO (REQUIRED):
-✓ Mention "Orlando" at least TWICE
-✓ Mention "Winter Park" at least ONCE
-✓ Mention "adults" or "18+" at least ONCE
-✓ Example: "Our Orlando-based clinic serves adults 18+ in Winter Park and surrounding areas"
-
-🎯 KEYWORD OPTIMIZATION:
-✓ Primary keyword "${keywords.split(',')[0].trim()}" in:
-  • Title (first 30 characters preferred)
-  • Meta description
-  • First paragraph (first 150 words)
-✓ Keyword density: 0.5-3% throughout content
-✓ Natural placement - never forced or repetitive
-
-📞 CALL-TO-ACTION (REQUIRED):
-✓ MUST include CTA phrases:
-  • "Contact us", "Schedule an appointment", "Call us today"
-  • "Reach out for help", "Book your consultation"
-  • "Request an appointment", "Connect with our team"
-
-📸 IMAGE SEARCH QUERIES (CRITICAL - BRAND STANDARDS):
-✗ NEVER use queries that might return:
-  • Pills, medication, pharmaceuticals, or prescriptions
-  • Overly sad, dark, or distressing imagery
-  • People crying, in obvious distress, or looking severely depressed
-  • Clinical settings with medical equipment
-  • Isolation imagery (person alone in darkness)
-✓ ALWAYS use queries focused on:
-  • Hope, healing, growth, and recovery
-  • Nature scenes (sunrise, peaceful landscapes, trees, water)
-  • Professional therapy environments (bright, welcoming offices)
-  • Wellness and self-care (meditation, mindfulness, peaceful moments)
-  • Support and connection (warm, professional, uplifting)
-✓ Example GOOD queries:
-  • "peaceful nature healing sunrise hope"
-  • "professional therapy office bright welcoming"
-  • "wellness mindfulness calm serene"
-  • "mental health recovery growth journey"
-  • "supportive counseling warm environment"
-  • "therapy session professional bright office"
-✗ Example BAD queries (NEVER USE):
-  • "depression medication pills" ❌
-  • "sad person crying dark" ❌
-  • "mental illness distress" ❌
-  • "pharmaceutical treatment" ❌
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OUTPUT FORMAT (JSON):
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-{
-  "title": "Under 60 chars, includes primary keyword, compelling",
-  "metaDescription": "EXACTLY 150-160 characters including primary keyword",
-  "slug": "url-friendly-slug-from-title",
-  "excerpt": "First 200 characters from content",
-  "content": "FULL 2000-word HTML article - see structure below",
-  "featuredImageQuery": "peaceful nature healing sunrise hope mental wellness",
-  "contentImageQueries": ["professional therapy office bright welcoming", "wellness mindfulness calm serene", "supportive counseling warm environment"],
-  "internalLinks": ["/services", "/emdr-therapy", "/depression-counseling", "/request-appointment"],
-  "externalLinks": ["https://www.nimh.nih.gov/health/topics/...", "https://www.apa.org/topics/...", "https://www.samhsa.gov/..."]
-}
-
-CONTENT STRUCTURE EXAMPLE:
-<h1>Understanding ${topic}</h1>
-
-<p>Opening paragraph with primary keyword "${keywords.split(',')[0].trim()}" in first 150 words. Mention Orlando and that services are for adults 18+.</p>
-
-<h2>What Is [Topic]?</h2>
-<h3>Definition and Overview</h3>
-<p>Detailed content with <a href="/services">unique anchor text 1</a>...</p>
-<h3>Common Symptoms</h3>
-<p>More content...</p>
-
-<h2>Evidence-Based Treatment Approaches</h2>
-<h3>Cognitive Behavioral Therapy</h3>
-<p>Content with <a href="https://www.nimh.nih.gov/health/topics/...">authoritative source</a>...</p>
-<h3>Medication Management</h3>
-<p>Content...</p>
-
-<h2>How Therapy Helps</h2>
-<h3>Building Coping Skills</h3>
-<p>Content with <a href="/emdr-therapy">unique anchor text 2</a>...</p>
-<h3>Long-term Benefits</h3>
-<p>Content...</p>
-
-<h2>Finding the Right Treatment</h2>
-<h3>Assessment Process</h3>
-<p>Content...</p>
-<h3>Personalized Care Plans</h3>
-<p>Content...</p>
-
-<h2>What to Expect in Treatment</h2>
-<h3>Initial Consultation</h3>
-<p>Content with Winter Park mention...</p>
-<h3>Ongoing Support</h3>
-<p>Content...</p>
-
-<h2>Getting Started with Treatment in Orlando</h2>
-<h3>Why Choose Empathy Health Clinic</h3>
-<p>Content with <a href="/request-appointment">schedule your consultation</a> CTA...</p>
-<h3>Contact Information</h3>
-<p>Final CTA: "Contact us today to begin your journey to mental wellness."</p>
-
-INPUT PARAMETERS:
-- Topic: ${topic}
-- Primary Keyword: ${keywords.split(',')[0].trim()}
-- All Keywords: ${keywords}
-- Location: ${city || 'Orlando/Winter Park'}
-- Image Style: ${imageStyle || 'calming, professional mental health'}
-
-FINAL CHECKLIST BEFORE SUBMITTING:
-☑ Exactly 2000 words (±5)
-☑ Meta description 150-160 characters with keyword
-☑ One H1, 6+ H2s, multiple H3s
-☑ 4+ internal links, all unique anchor text
-☑ 3+ authoritative external links
-☑ "Orlando" mentioned 2+ times
-☑ "Winter Park" mentioned 1+ time
-☑ "adults" or "18+" mentioned
-☑ NO patient identifiers (HIPAA)
-☑ CTA included
-☑ Keyword in title, meta, first paragraph`;
+⚠️ TARGET: Blogs must score 80+/100 to publish. Follow all requirements precisely.`;
 
     try {
-      console.log("🤖 Starting 3-step iterative blog generation...");
+      console.log("🤖 Starting 3-STAGE blog generation (Planner → Drafter → Formatter)...");
       
       let result: any;
       let score = 0;
       let validationResults: any;
 
-      // STEP 1: Generate base content with focus on structure and word count
-      console.log("📝 STEP 1/3: Generating base content (structure + 2000 words)...");
-      const step1Prompt = `Generate a comprehensive blog post about: ${topic}
+      // ═══════════════════════════════════════════════════════════════
+      // STAGE 1: PLANNER - Create detailed outline with word budgets
+      // ═══════════════════════════════════════════════════════════════
+      console.log("📋 STAGE 1/3: Creating content plan with word-count budgets...");
+      const plannerPrompt = `Create a detailed content outline for a mental health blog about: ${topic}
 
-PRIMARY FOCUS FOR THIS STEP:
-1. Create EXACTLY 2000 words (±5 words: 1995-2005 words total)
-2. Proper heading structure: One H1, 6-8 H2 sections, multiple H3 subsections
-3. Professional medical content about the topic
-4. Natural, flowing paragraphs
+TARGET: Exactly 2000 words (±5 allowed: 1995-2005 total)
+PRIMARY KEYWORD: ${keywords.split(',')[0].trim()}
 
-Word Count Strategy to Reach 2000 Words:
-- Introduction: 200-250 words
-- 6-8 Main Sections (H2 headings): 250-350 words each
-- Conclusion: 200-250 words
-- Total: ~2000 words
+INSTRUCTIONS:
+1. Create 6-8 H2 sections relevant to "${topic}"
+2. Each H2 should have 2 H3 subsections
+3. Assign word budgets that sum to EXACTLY 2000 words:
+   - Introduction: 220 words
+   - Each H2 section: 280 words
+   - Conclusion: 80 words
+4. Calculate and verify total before output
 
-Basic Requirements:
-- Title under 60 characters
-- Meta description 150-160 characters with keyword "${keywords.split(',')[0].trim()}"
-- Include some internal links to /services, /request-appointment
-- Mention Orlando and Winter Park
-- NO patient names or ages (use "individuals", "a person", "someone")
+OUTPUT JSON:
+{
+  "title": "Under 60 chars with keyword '${keywords.split(',')[0].trim()}'",
+  "metaDescription": "Exactly 150-160 chars with keyword",
+  "slug": "url-friendly-slug",
+  "outline": [
+    {"section": "intro", "wordBudget": 220, "notes": "Must include keyword in first paragraph, mention Orlando, mention 'adults 18+'"},
+    {"section": "h2", "heading": "[Topic-Relevant Title]", "wordBudget": 280, "h3s": ["Subsection 1", "Subsection 2"], "notes": "Include internal link to /services"},
+    {"section": "h2", "heading": "[Another Relevant Title]", "wordBudget": 280, "h3s": ["Subsection 1", "Subsection 2"], "notes": "Include external link to NIMH/APA/SAMHSA"}
+    ... (5-7 more H2 sections)
+    {"section": "conclusion", "wordBudget": 80, "notes": "Final CTA: Contact us, schedule appointment, mention Orlando"}
+  ],
+  "totalWordBudget": 2000,
+  "requirements": {
+    "internalLinks": ["Must link to: /services, /request-appointment, and 2 others (e.g., /emdr-therapy, /depression-counseling)"],
+    "externalLinks": ["Must link to 3+ authoritative sources (NIMH, APA, SAMHSA, WHO, CDC)"],
+    "localSEO": ["Orlando 2x", "Winter Park 1x", "adults/18+ 1x"],
+    "uniqueAnchors": ["All link anchor texts must be unique - no duplicates"]
+  }
+}
 
-Generate the base content now. Don't worry about perfection - we'll improve it in the next steps.`;
+MATH CHECK: Verify outline.wordBudget values sum to 1995-2005. Adjust if needed.`;
 
-      const step1Completion = await getOpenAI().chat.completions.create({
+      const plannerCompletion = await getOpenAI().chat.completions.create({
         model: "gpt-4o",
         response_format: { type: "json_object" },
         messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: step1Prompt }
+          { role: "user", content: plannerPrompt }
         ],
         temperature: 0.7,
+        max_tokens: 3000,
+      });
+
+      const outline = JSON.parse(plannerCompletion.choices[0].message.content || "{}");
+      console.log(`   ✓ Outline created: ${outline.outline?.length || 0} sections, ${outline.totalWordBudget || 0} word budget`);
+
+      // ═══════════════════════════════════════════════════════════════
+      // STAGE 2: DRAFTER - Write content following the outline
+      // ═══════════════════════════════════════════════════════════════
+      console.log("✍️  STAGE 2/3: Writing content section-by-section...");
+      const drafterSystemPrompt = `You are a professional mental health content writer for Empathy Health Clinic in Winter Park, Florida.
+
+QUALITY REQUIREMENTS:
+✓ Target audience: Adults 18+ seeking mental health treatment in Orlando/Winter Park
+✓ Tone: Professional, empathetic, authoritative
+✓ Citations: Use authoritative sources (NIMH, APA, SAMHSA, WHO, CDC)
+✓ Local SEO: Mention Orlando 2x, Winter Park 1x
+✓ CTAs: Include clear calls-to-action (Contact us, Schedule appointment)
+✓ Links: All anchor text must be unique (no "learn more" twice)
+✓ Generic references only: "individuals", "a person", "someone", "many people" (NO patient names or ages)`;
+
+      const drafterPrompt = `Write blog content following this outline EXACTLY. CRITICAL: You MUST hit the exact word budget for each section.
+
+OUTLINE:
+${JSON.stringify(outline, null, 2)}
+
+WRITING PROCESS:
+1. Write intro (${outline.outline.find((s: any) => s.section === 'intro')?.wordBudget || 220} words):
+   - Include primary keyword "${keywords.split(',')[0].trim()}" in first paragraph
+   - Mention Orlando and "adults 18+"
+   
+2. Write each H2 section (280 words each):
+   - Follow word budget precisely
+   - Include H3 subsections as specified
+   - Add required links with unique anchor text
+   
+3. Write conclusion (80 words):
+   - Final CTA with Orlando mention
+
+WORD COUNT TRACKING:
+After EACH section, verify word count:
+- Count words in that section
+- Report running total
+- If off-target, adjust next section
+
+EXAMPLE OUTPUT:
+Intro: 220 words | Running total: 220
+Section 1: 280 words | Running total: 500
+Section 2: 280 words | Running total: 780
+...
+Conclusion: 80 words | Final total: 2000
+
+RETURN JSON:
+{
+  "content": "<h1>...</h1><p>Intro content...</p><h2>Section 1</h2>...",
+  "wordCountBySection": [
+    {"section": "intro", "words": 220, "runningTotal": 220},
+    {"section": "H2-1", "words": 280, "runningTotal": 500},
+    ...
+  ],
+  "finalWordCount": 2000
+}
+
+START WRITING NOW. Hit those word budgets!`;
+
+      const drafterCompletion = await getOpenAI().chat.completions.create({
+        model: "gpt-4o",
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "system", content: drafterSystemPrompt },
+          { role: "user", content: drafterPrompt }
+        ],
+        temperature: 0.6,
         max_tokens: 16000,
       });
 
-      result = JSON.parse(step1Completion.choices[0].message.content || "{}");
+      const draftedContent = JSON.parse(drafterCompletion.choices[0].message.content || "{}");
+      console.log(`   ✓ Content drafted: ${draftedContent.finalWordCount || 0} words`);
+
+      // ═══════════════════════════════════════════════════════════════
+      // STAGE 3: FORMATTER - Assemble final JSON with all elements
+      // ═══════════════════════════════════════════════════════════════
+      console.log("🎨 STAGE 3/3: Formatting final output with images and links...");
+      const formatterPrompt = `Assemble the final blog post JSON output.
+
+TITLE: ${outline.title}
+META DESCRIPTION: ${outline.metaDescription}
+SLUG: ${outline.slug}
+CONTENT: ${draftedContent.content}
+
+YOUR TASK: Create the final JSON output with all required fields.
+
+CRITICAL REQUIREMENTS:
+1. Extract internal links from content - ensure 4+ unique links
+2. Extract external links from content - ensure 3+ authoritative links
+3. Verify ALL anchor texts are unique (no duplicates)
+4. Create excerpt (first 200 chars of content, plain text)
+5. Generate image search queries (avoid pills, sadness; use hope, healing, nature themes)
+6. Verify meta description is 150-160 chars with primary keyword "${keywords.split(',')[0].trim()}"
+
+OUTPUT JSON:
+{
+  "title": "${outline.title}",
+  "metaDescription": "150-160 char description",
+  "slug": "${outline.slug}",
+  "excerpt": "First 200 chars as plain text",
+  "content": "${draftedContent.content}",
+  "featuredImageQuery": "peaceful nature healing sunrise hope mental wellness",
+  "contentImageQueries": ["professional therapy bright welcoming", "wellness mindfulness calm", "supportive healing environment"],
+  "internalLinks": ["/services", "/emdr-therapy", "/depression-counseling", "/request-appointment"],
+  "externalLinks": ["https://www.nimh.nih.gov/...", "https://www.apa.org/...", "https://www.samhsa.gov/..."]
+}`;
+
+      const formatterCompletion = await getOpenAI().chat.completions.create({
+        model: "gpt-4o",
+        response_format: { type: "json_object" },
+        messages: [
+          { role: "user", content: formatterPrompt }
+        ],
+        temperature: 0.3,
+        max_tokens: 16000,
+      });
+
+      result = JSON.parse(formatterCompletion.choices[0].message.content || "{}");
       
-      // Validate step 1
+      // Validate initial generation
       let validation = this.calculateSEOScore(
         result.content,
         result.metaDescription,
@@ -696,122 +641,7 @@ Generate the base content now. Don't worry about perfection - we'll improve it i
       score = validation.score;
       validationResults = validation.validationResults;
       
-      console.log(`   Step 1 Score: ${score}/100 | Word Count: ${validationResults.wordCount}`);
-      console.log(`   Issues: ${validationResults.issues.slice(0, 3).join(', ')}`);
-
-      // STEP 2: Review and enhance SEO elements
-      console.log("🎯 STEP 2/3: Enhancing SEO elements (keywords, links, meta)...");
-      const step2Prompt = `Review the blog you just created and improve the SEO elements.
-
-CURRENT BLOG:
-Title: ${result.title}
-Meta Description: ${result.metaDescription}
-Word Count: ${validationResults.wordCount}
-Current Score: ${score}/100
-
-CONTENT PREVIEW (first 500 chars):
-${result.content.substring(0, 500)}...
-
-ISSUES TO FIX:
-${validationResults.issues.map((issue: string, i: number) => `${i + 1}. ${issue}`).join('\n')}
-
-STEP 2 IMPROVEMENTS NEEDED:
-1. Fix meta description to be EXACTLY 150-160 characters with keyword "${keywords.split(',')[0].trim()}"
-2. Add 4+ internal links with UNIQUE anchor text:
-   - Use /services, /emdr-therapy, /depression-counseling, /anxiety-therapy, /request-appointment, /team
-   - Each link needs different anchor text (BAD: "learn more" twice; GOOD: "explore our services", "schedule consultation")
-3. Add 3+ authoritative external links from NIMH, APA, SAMHSA with unique anchor text
-4. Ensure primary keyword "${keywords.split(',')[0].trim()}" appears in: title, meta description, AND first paragraph
-5. If word count is not 1995-2005, adjust content length accordingly
-6. Check for any patient identifiers (names, ages, cities) and remove them - use only "individuals", "a person", "someone"
-
-Return the IMPROVED blog with all SEO fixes applied. Keep the same general content but enhance the SEO elements.`;
-
-      const step2Completion = await getOpenAI().chat.completions.create({
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: step1Prompt },
-          { role: "assistant", content: JSON.stringify(result) },
-          { role: "user", content: step2Prompt }
-        ],
-        temperature: 0.5,
-        max_tokens: 16000,
-      });
-
-      result = JSON.parse(step2Completion.choices[0].message.content || "{}");
-      
-      // Validate step 2
-      validation = this.calculateSEOScore(
-        result.content,
-        result.metaDescription,
-        result.title,
-        result.internalLinks || [],
-        result.externalLinks || [],
-        keywords
-      );
-      score = validation.score;
-      validationResults = validation.validationResults;
-      
-      console.log(`   Step 2 Score: ${score}/100 | Word Count: ${validationResults.wordCount}`);
-      console.log(`   Remaining Issues: ${validationResults.issues.slice(0, 3).join(', ')}`);
-
-      // STEP 3: Final polish for compliance and quality
-      console.log("✨ STEP 3/3: Final polish (HIPAA, formatting, quality)...");
-      const step3Prompt = `Final quality check and polish of your blog.
-
-CURRENT STATUS:
-Score: ${score}/100
-Word Count: ${validationResults.wordCount}
-Meta Length: ${result.metaDescription?.length || 0} chars
-
-REMAINING ISSUES:
-${validationResults.issues.map((issue: string, i: number) => `${i + 1}. ${issue}`).join('\n')}
-
-FINAL POLISH CHECKLIST:
-1. CRITICAL HIPAA CHECK: Scan for ANY patient identifiers:
-   - Remove: "Sarah", "John", "35-year-old", "age 42", "patient from Orlando"
-   - Use ONLY: "a patient", "an individual", "someone", "a person", "individuals experiencing..."
-2. Word Count: If not 1995-2005 words, add or trim content as needed
-3. Meta Description: Must be EXACTLY 150-160 characters (current: ${result.metaDescription?.length || 0})
-4. Anchor Text: Verify ALL links have unique anchor text (no duplicates like "learn more" appearing twice)
-5. CTAs: Add clear call-to-action phrases: "Contact us", "Schedule an appointment", "Request a consultation"
-6. Local SEO: Verify "Orlando" appears 2+ times, "Winter Park" 1+ time, "adults" or "18+" mentioned
-7. Formatting: Clean HTML, proper paragraph breaks, professional structure
-
-Return the FINAL, polished, publication-ready blog that scores 90+/100.`;
-
-      const step3Completion = await getOpenAI().chat.completions.create({
-        model: "gpt-4o",
-        response_format: { type: "json_object" },
-        messages: [
-          { role: "system", content: systemPrompt },
-          { role: "user", content: step1Prompt },
-          { role: "assistant", content: step1Completion.choices[0].message.content || "{}" },
-          { role: "user", content: step2Prompt },
-          { role: "assistant", content: JSON.stringify(result) },
-          { role: "user", content: step3Prompt }
-        ],
-        temperature: 0.3, // Lower temperature for precise fixes
-        max_tokens: 16000,
-      });
-
-      result = JSON.parse(step3Completion.choices[0].message.content || "{}");
-      
-      // Final validation
-      validation = this.calculateSEOScore(
-        result.content,
-        result.metaDescription,
-        result.title,
-        result.internalLinks || [],
-        result.externalLinks || [],
-        keywords
-      );
-      score = validation.score;
-      validationResults = validation.validationResults;
-      
-      console.log(`📊 3-Step Generation Complete! Score: ${score}/100 | Word Count: ${validationResults.wordCount}`);
+      console.log(`📊 3-STAGE Generation Complete! Score: ${score}/100 | Word Count: ${validationResults.wordCount}`);
       
       // ADDITIONAL IMPROVEMENT LOOP: Keep going until 80+ score
       let improvementAttempt = 0;
@@ -821,76 +651,68 @@ Return the FINAL, polished, publication-ready blog that scores 90+/100.`;
       while (score < targetScore && improvementAttempt < maxImprovementAttempts) {
         improvementAttempt++;
         console.log(`🔄 IMPROVEMENT ROUND ${improvementAttempt}/${maxImprovementAttempts}: Current Score ${score}/100 → Target: ${targetScore}/100`);
-        console.log(`   Issues to fix: ${validationResults.issues.slice(0, 5).join(', ')}`);
+        console.log(`   Top issues: ${validationResults.issues.slice(0, 3).join(', ')}`);
 
-        const improvementPrompt = `Your blog currently scores ${score}/100. We need ${targetScore}/100 to publish.
+        // Build focused improvement prompt - only address failing validations
+        let focusedFixes = '';
+        
+        // Priority 1: Word count (biggest penalty)
+        if (validationResults.issues.includes('Word count must be 2000±5 words')) {
+          const wordsNeeded = validationResults.wordCount < 1995 
+            ? 1995 - validationResults.wordCount 
+            : validationResults.wordCount - 2005;
+          
+          focusedFixes += `
+1. WORD COUNT FIX (HIGHEST PRIORITY):
+   Current: ${validationResults.wordCount} words | Required: 1995-2005 words
+   ${validationResults.wordCount < 1995 
+     ? `Action: ADD exactly ${wordsNeeded} words by expanding 2-3 existing sections with detailed examples and explanations`
+     : `Action: REMOVE exactly ${wordsNeeded} words by trimming verbose phrases and redundant content`
+   }
+   After: Report new word count`;
+        }
+        
+        // Priority 2: Meta description (25 point penalty)
+        if (validationResults.issues.some((i: string) => i.includes('Meta description'))) {
+          focusedFixes += `
 
-CURRENT BLOG STATUS:
-- Title: ${result.title}
-- Meta Description (${result.metaDescription?.length || 0} chars): ${result.metaDescription}
-- Word Count: ${validationResults.wordCount} words
-- Current Score: ${score}/100
+2. META DESCRIPTION FIX:
+   Current: ${result.metaDescription?.length || 0} chars | Required: 150-160 chars
+   Current text: "${result.metaDescription}"
+   Action: ${result.metaDescription?.length < 150 ? 'Expand' : 'Trim'} to exactly 150-160 chars, keep keyword "${keywords.split(',')[0].trim()}"`;
+        }
+        
+        // Priority 3: Other issues
+        const otherIssues = validationResults.issues.filter((i: string) => 
+          !i.includes('Word count') && !i.includes('Meta description')
+        );
+        if (otherIssues.length > 0) {
+          focusedFixes += `
 
-CRITICAL ISSUES BLOCKING PUBLICATION:
-${validationResults.issues.map((issue: string, i: number) => `${i + 1}. ${issue}`).join('\n')}
+3. OTHER FIXES:
+${otherIssues.slice(0, 3).map((issue: string) => `   - ${issue}`).join('\n')}`;
+        }
 
-SPECIFIC FIXES NEEDED:
+        const improvementPrompt = `TARGETED FIX REQUIRED - Current Score: ${score}/100 | Target: ${targetScore}/100
 
-${validationResults.issues.includes('Word count must be 2000±5 words') ? `
-🔴 WORD COUNT ISSUE (CRITICAL):
-Your blog has ${validationResults.wordCount} words. It MUST be between 1995-2005 words.
-${validationResults.wordCount < 1995 ? `ADD ${1995 - validationResults.wordCount} more words by:
-- Expanding each section with 2-3 more paragraphs
-- Adding more detailed examples and explanations
-- Creating additional H3 subsections under existing H2s` : `REMOVE ${validationResults.wordCount - 2005} words by:
-- Trimming redundant paragraphs
-- Making sentences more concise
-- Removing repetitive content`}
-` : ''}
+${focusedFixes}
 
-${validationResults.issues.some((i: string) => i.includes('Meta description')) ? `
-🔴 META DESCRIPTION ISSUE (CRITICAL):
-Current length: ${result.metaDescription?.length || 0} characters
-Required: EXACTLY 150-160 characters with keyword "${keywords.split(',')[0].trim()}"
-${result.metaDescription?.length < 150 ? 'ADD more words to reach 150-160 chars' : 'TRIM to 150-160 chars'}
-` : ''}
+INSTRUCTIONS:
+1. Make ONLY the specific changes listed above
+2. DO NOT rebuild the entire blog - make targeted edits
+3. Report your changes: "Fixed [X], new word count: [Y]"
+4. Return the complete updated blog JSON
 
-${validationResults.issues.some((i: string) => i.includes('Keyword density')) ? `
-🔴 KEYWORD DENSITY ISSUE:
-The primary keyword "${keywords.split(',')[0].trim()}" needs to appear more naturally throughout the content.
-Add it to 2-3 more paragraphs in a natural way.
-` : ''}
-
-${validationResults.issues.some((i: string) => i.includes('anchor text')) ? `
-🔴 DUPLICATE ANCHOR TEXT:
-Each link MUST have unique anchor text. Don't use "learn more" twice.
-Use: "explore our services", "schedule a consultation", "discover treatment options", "meet our team"
-` : ''}
-
-
-${validationResults.issues.some((i: string) => i.includes('first paragraph')) ? `
-🔴 KEYWORD IN FIRST PARAGRAPH:
-The primary keyword "${keywords.split(',')[0].trim()}" MUST appear in the first paragraph (first 150 words).
-Add it naturally to the opening paragraph.
-` : ''}
-
-Return the IMPROVED blog with ALL issues fixed. This is attempt ${improvementAttempt + 3}/${maxImprovementAttempts + 3}.`;
+Current blog to edit:
+${JSON.stringify({ title: result.title, metaDescription: result.metaDescription, slug: result.slug, content: result.content, internalLinks: result.internalLinks, externalLinks: result.externalLinks, excerpt: result.excerpt, featuredImageQuery: result.featuredImageQuery, contentImageQueries: result.contentImageQueries }, null, 2)}`;
 
         const improvementCompletion = await getOpenAI().chat.completions.create({
           model: "gpt-4o",
           response_format: { type: "json_object" },
           messages: [
-            { role: "system", content: systemPrompt },
-            { role: "user", content: `CRITICAL: Fix ALL issues to reach ${targetScore}/100. Current score: ${score}/100.
-
-${improvementPrompt}
-
-REMEMBER:
-- Be VERBOSE and COMPREHENSIVE in each section to hit 2000 words
-- Write 3-4 paragraphs per H2 section (250-350 words each)
-- Include detailed examples, explanations, and guidance` }
+            { role: "user", content: improvementPrompt }
           ],
-          temperature: 0.3, // Lower temperature for more focused improvements
+          temperature: 0.2, // Very low temperature for precise fixes
           max_tokens: 16000,
         });
 
