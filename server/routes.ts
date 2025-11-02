@@ -873,7 +873,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Progressive blog generation - adds rules one at a time (slower but more reliable)
+  // ⚠️ EXPERIMENTAL: Progressive blog generation - NOT RECOMMENDED FOR PRODUCTION
+  // Adds validation rules incrementally across 8 separate API calls, but produces poor quality
+  // (typically 0-20/100 score vs 80+/100 from 3-stage generator) due to context loss.
+  // Use /api/generate-blog instead for production-quality blogs.
   app.post("/api/generate-blog-progressive", async (req, res) => {
     try {
       const { topic, keywords, city, imageStyle } = req.body;
@@ -882,9 +885,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ error: "Topic and keywords are required" });
       }
 
-      console.log(`🎯 PROGRESSIVE blog generation: ${topic}`);
-      console.log(`   Keywords: ${keywords}`);
-      console.log(`   This will add rules one at a time - may take 3-5 minutes`);
+      console.log(`⚠️ EXPERIMENTAL: PROGRESSIVE blog generation: ${topic}`);
+      console.log(`   This is an experimental endpoint that typically produces low-quality output`);
+      console.log(`   Recommend using /api/generate-blog instead`);
       
       const result = await blogGeneratorService.generateBlogProgressive({
         topic,
