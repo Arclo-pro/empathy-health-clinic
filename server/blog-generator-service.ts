@@ -52,6 +52,35 @@ interface BlogGenerationResult {
 
 export class BlogGeneratorService {
   /**
+   * Pre-validate input before running expensive GPT calls
+   */
+  private preValidateInput(request: BlogGenerationRequest): void {
+    const errors: string[] = [];
+    
+    if (!request.topic?.trim()) {
+      errors.push("Missing topic");
+    }
+    
+    if (!request.keywords?.trim()) {
+      errors.push("Missing keywords");
+    }
+    
+    if (request.topic && request.topic.length < 10) {
+      errors.push("Topic too short (minimum 10 characters)");
+    }
+    
+    if (request.keywords && request.keywords.length < 5) {
+      errors.push("Keywords too short (minimum 5 characters)");
+    }
+    
+    if (errors.length > 0) {
+      throw new Error(`❌ Input Validation Failed: ${errors.join(", ")}`);
+    }
+    
+    console.log("✅ Input validation passed");
+  }
+
+  /**
    * Fetch unique images from Unsplash that haven't been used in any blog
    * Handles race conditions by retrying if images are taken by concurrent requests
    */
@@ -193,9 +222,19 @@ Return ONLY the title, nothing else.`;
   }
 
   /**
-   * Format validation results as a detailed table for logging
+   * Format validation results as a detailed table for logging with severity colors
    */
   private formatValidationTable(validationResults: any): void {
+    // ANSI color codes
+    const colors = {
+      reset: '\x1b[0m',
+      red: '\x1b[31m',
+      green: '\x1b[32m',
+      yellow: '\x1b[33m',
+      blue: '\x1b[34m',
+      gray: '\x1b[90m',
+    };
+
     const rules = [
       { name: 'Meta Description Length', passed: validationResults.metaDescriptionValid, points: 25, details: `${validationResults.metaDescriptionValid ? '✅' : '❌'} 150-160 chars` },
       { name: 'Word Count', passed: validationResults.wordCountValid, points: 25, details: `${validationResults.wordCount} words` },
@@ -218,13 +257,42 @@ Return ONLY the title, nothing else.`;
       { name: 'Heading Hierarchy', passed: validationResults.hasProperHeadingHierarchy, points: 3, details: `${validationResults.h3Count} H3s` },
     ];
 
+    // Count failures by severity
+    const criticalFails = rules.filter(r => !r.passed && r.points >= 15).length;
+    const importantFails = rules.filter(r => !r.passed && r.points >= 8 && r.points < 15).length;
+    const standardFails = rules.filter(r => !r.passed && r.points < 8).length;
+
     console.log('\n📊 DETAILED VALIDATION BREAKDOWN:');
-    console.table(rules.map(r => ({
-      Rule: r.name,
-      Status: r.passed ? '✅ Pass' : '❌ Fail',
-      Points: r.points,
-      Details: r.details
-    })));
+    console.table(rules.map(r => {
+      const severity = r.points >= 15 ? `${colors.yellow}HIGH${colors.reset}` : 
+                       r.points >= 8 ? `${colors.blue}MED${colors.reset}` : 
+                       `${colors.gray}LOW${colors.reset}`;
+      
+      const status = r.passed ? 
+        `${colors.green}✅ Pass${colors.reset}` : 
+        `${colors.red}❌ Fail${colors.reset}`;
+      
+      // Only show negative points for failed rules
+      const pointsDisplay = r.passed ? r.points : `${colors.red}-${r.points}${colors.reset}`;
+
+      return {
+        Rule: r.name,
+        Status: status,
+        Points: pointsDisplay,
+        Severity: severity,
+        Details: r.details
+      };
+    }));
+
+    // Summary
+    if (criticalFails > 0 || importantFails > 0 || standardFails > 0) {
+      console.log(`\n⚠️  Failures by Severity:`);
+      if (criticalFails > 0) console.log(`   ${colors.yellow}HIGH${colors.reset}: ${criticalFails} rule(s)`);
+      if (importantFails > 0) console.log(`   ${colors.blue}MED${colors.reset}: ${importantFails} rule(s)`);
+      if (standardFails > 0) console.log(`   ${colors.gray}LOW${colors.reset}: ${standardFails} rule(s)`);
+    } else {
+      console.log(`\n${colors.green}✅ All validation rules passed!${colors.reset}`);
+    }
   }
 
   /**
@@ -479,6 +547,10 @@ Return ONLY the title, nothing else.`;
    */
   async generateBlogProgressive(request: BlogGenerationRequest): Promise<BlogGenerationResult> {
     const { topic, keywords, city, imageStyle } = request;
+    
+    // Pre-validate input before running expensive GPT calls
+    this.preValidateInput(request);
+    
     const primaryKeyword = keywords.split(',')[0].trim();
 
     console.log("🎯 PROGRESSIVE BLOG GENERATION - Adding Rules One at a Time");
@@ -996,6 +1068,9 @@ Return complete JSON:
    */
   async generateBlog(request: BlogGenerationRequest): Promise<BlogGenerationResult> {
     const { topic, keywords, city, imageStyle } = request;
+
+    // Pre-validate input before running expensive GPT calls
+    this.preValidateInput(request);
 
     // Simplified system prompt (detailed requirements passed per-stage)
     const systemPrompt = `You are an expert medical content writer for Empathy Health Clinic, a mental health practice in Winter Park and Orlando, Florida specializing in adult mental health services (18+).
