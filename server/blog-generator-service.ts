@@ -296,8 +296,23 @@ Return ONLY the title, nothing else.`;
     }
 
     // Check for HIPAA compliance indicators (no specific patient identifiers)
-    const hipaaViolations = /(patient named|john doe|jane doe|patient's name is|mr\.|mrs\.|ms\.)\s+[A-Z][a-z]+/i;
-    if (hipaaViolations.test(content)) {
+    // Comprehensive detection of names, ages, and identifying details
+    const hipaaPatterns = {
+      names: /\b(mr\.|mrs\.|ms\.|dr\.)\s+[A-Z][a-z]+|\b(sarah|john|jane|mary|michael|david|lisa|jennifer|robert|tom|emily|james|patricia|linda|elizabeth|barbara|susan|jessica|karen|nancy|betty|margaret|sandra|ashley|dorothy|kimberly|donna|carol|michelle|amanda|melissa|deborah|stephanie|rebecca|laura|sharon|cynthia|kathleen|helen|amy|shirley|angela|anna|brenda|pamela|nicole|samantha|katherine|christine|debra|rachel|catherine|janet|emma|carolyn|ruth|maria|heather|diane|virginia|julie|joyce|victoria|kelly|christina|lauren|joan|evelyn|judith|megan|cheryl|andrea|hannah|jacqueline|martha|gloria|teresa|sara|janice|jean|alice|kathryn|doris|madison|abigail|julia|judy|grace|denise|amber|olivia|marie|danielle|brittany|rose|diana|natalie|sophia|alexis|lori|kayla|jane)\b(?!\s+(?:Therapy|Treatment|Disorder|Clinic|Health|Care))/gi,
+      ages: /\b\d{1,2}[\s-]?year[\s-]?old\b|\bat\s+age\s+\d{1,2}\b|\baged?\s+\d{1,2}\b|\ban?\s+(elderly|young|middle-aged)\s+(man|woman|patient|individual)/gi,
+      patientIdentifiers: /(patient named|patient'?s? name is|patient called)\s+[A-Z][a-z]+/gi,
+      locations: /\b(patient|individual|person|client)\s+(from|in|living in|residing in|based in)\s+(orlando|winter park|maitland|altamonte|casselberry|lake mary|florida)/gi,
+    };
+    
+    let hipaaViolationsFound: string[] = [];
+    Object.entries(hipaaPatterns).forEach(([type, pattern]) => {
+      const matches = content.match(pattern);
+      if (matches) {
+        hipaaViolationsFound.push(...matches.map(m => `${type}: "${m}"`));
+      }
+    });
+    
+    if (hipaaViolationsFound.length > 0) {
       score -= 15;
       issues.push("Possible HIPAA violation - avoid specific patient identifiers");
     }
@@ -389,7 +404,7 @@ Return ONLY the title, nothing else.`;
     }
 
     // Enhanced penalty for critical HIPAA violations
-    if (hipaaViolations.test(content)) {
+    if (hipaaViolationsFound.length > 0) {
       score -= 10; // Additional penalty for HIPAA (total -25)
       issues.push("CRITICAL: Potential HIPAA violation detected - must remove patient identifiers");
     }
@@ -435,7 +450,8 @@ Return ONLY the title, nothing else.`;
         primaryKeywordInFirstPara: primaryKeyword ? firstParagraph.includes(primaryKeyword) : true,
         keywordDensity: keywordDensity.toFixed(2) + '%',
         localSEOMentions: localMatches?.length || 0,
-        noHIPAAViolations: !hipaaViolations.test(content),
+        noHIPAAViolations: hipaaViolationsFound.length === 0,
+        hipaaViolationsFound, // Include exact violations for feedback
         noPlaceholders: !placeholderText.test(content),
         hasCTA: ctaPatterns.test(content),
         validInternalLinks: invalidInternalLinks.length === 0,
@@ -465,12 +481,15 @@ MANDATORY REQUIREMENTS (AUTOMATIC VALIDATION):
 📊 WORD COUNT (NON-NEGOTIABLE - WILL BE REJECTED IF WRONG):
 ✓ EXACTLY 2,000 words (±5 words maximum tolerance: 1995-2005 words)
 ✓ Word count calculation: strip ALL HTML tags, count remaining words
-✓ To reach 2000 words:
-  - 6-8 main sections (H2 headings)
-  - Each section: 250-350 words
-  - Introduction: 200-250 words  
-  - Conclusion: 200-250 words
-✓ This is automatically validated - wrong word count = automatic failure
+✓ MANDATORY STRUCTURE to reach 2000 words:
+  - Introduction paragraph: 200-250 words (NOT in a section, just paragraphs before first H2)
+  - EXACTLY 6-8 main sections with <h2> headings
+  - Each H2 section: 250-350 words with multiple paragraphs
+  - Each H2 should have 2-3 <h3> subsections  
+  - Conclusion section: 200-250 words with final thoughts and CTA
+✓ DO NOT write short 100-word sections - you will fail
+✓ DO NOT skip sections - write ALL sections fully
+✓ This is automatically validated - wrong word count = automatic rejection
 
 📝 META DESCRIPTION (STRICTLY ENFORCED):
 ✓ EXACTLY 150-160 characters (not 149, not 161)
@@ -877,13 +896,17 @@ Each link MUST have unique anchor text. Don't use "learn more" twice.
 Use: "explore our services", "schedule a consultation", "discover treatment options", "meet our team"
 ` : ''}
 
-${validationResults.issues.some((i: string) => i.toLowerCase().includes('hipaa')) ? `
-🔴 CRITICAL HIPAA VIOLATION:
-REMOVE ALL patient identifiers immediately:
-- NO names: "Sarah", "John", "Mary", "Mr. Smith", "Mrs. Johnson"
+${validationResults.issues.some((i: string) => i.toLowerCase().includes('hipaa')) && validationResults.hipaaViolationsFound ? `
+🔴 CRITICAL HIPAA VIOLATION - EXACT VIOLATIONS DETECTED:
+Found ${validationResults.hipaaViolationsFound.length} HIPAA violation(s). DELETE these EXACT phrases:
+
+${validationResults.hipaaViolationsFound.slice(0, 10).map((v: string) => `  ❌ ${v}`).join('\n')}
+
+RULES:
+- NO names: "Sarah", "John", "Mary", "Mr. Smith", "Mrs. Johnson"  
 - NO ages: "35-year-old", "age 42", "elderly patient"
-- NO locations for patients: "patient from Orlando", "resident of Winter Park"
-ONLY use generic references: "a patient", "an individual", "someone experiencing...", "many people find..."
+- NO locations: "patient from Orlando", "resident of Winter Park"
+ONLY use: "a patient", "an individual", "someone experiencing...", "many people find...", "individuals often..."
 ` : ''}
 
 ${validationResults.issues.some((i: string) => i.includes('first paragraph')) ? `
@@ -899,9 +922,17 @@ Return the IMPROVED blog with ALL issues fixed. This is attempt ${improvementAtt
           response_format: { type: "json_object" },
           messages: [
             { role: "system", content: systemPrompt },
-            { role: "user", content: `Review and fix this blog to score ${targetScore}+/100:\n\n${improvementPrompt}` }
+            { role: "user", content: `CRITICAL: Fix ALL issues to reach ${targetScore}/100. Current score: ${score}/100.
+
+${improvementPrompt}
+
+REMEMBER:
+- Be VERBOSE and COMPREHENSIVE in each section to hit 2000 words
+- Write 3-4 paragraphs per H2 section (250-350 words each)
+- Include detailed examples, explanations, and guidance
+- REMOVE all patient identifiers (names, ages, locations)` }
           ],
-          temperature: 0.4,
+          temperature: 0.3, // Lower temperature for more focused improvements
           max_tokens: 16000,
         });
 
