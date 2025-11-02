@@ -295,27 +295,8 @@ Return ONLY the title, nothing else.`;
       issues.push("Primary keyword should appear in first paragraph");
     }
 
-    // Check for HIPAA compliance indicators (no specific patient identifiers)
-    // Comprehensive detection of names, ages, and identifying details
-    const hipaaPatterns = {
-      names: /\b(mr\.|mrs\.|ms\.|dr\.)\s+[A-Z][a-z]+|\b(sarah|john|jane|mary|michael|david|lisa|jennifer|robert|tom|emily|james|patricia|linda|elizabeth|barbara|susan|jessica|karen|nancy|betty|margaret|sandra|ashley|dorothy|kimberly|donna|carol|michelle|amanda|melissa|deborah|stephanie|rebecca|laura|sharon|cynthia|kathleen|helen|amy|shirley|angela|anna|brenda|pamela|nicole|samantha|katherine|christine|debra|rachel|catherine|janet|emma|carolyn|ruth|maria|heather|diane|virginia|julie|joyce|victoria|kelly|christina|lauren|joan|evelyn|judith|megan|cheryl|andrea|hannah|jacqueline|martha|gloria|teresa|sara|janice|jean|alice|kathryn|doris|madison|abigail|julia|judy|grace|denise|amber|olivia|marie|danielle|brittany|rose|diana|natalie|sophia|alexis|lori|kayla|jane)\b(?!\s+(?:Therapy|Treatment|Disorder|Clinic|Health|Care))/gi,
-      ages: /\b\d{1,2}[\s-]?year[\s-]?old\b|\bat\s+age\s+\d{1,2}\b|\baged?\s+\d{1,2}\b|\ban?\s+(elderly|young|middle-aged)\s+(man|woman|patient|individual)/gi,
-      patientIdentifiers: /(patient named|patient'?s? name is|patient called)\s+[A-Z][a-z]+/gi,
-      locations: /\b(patient|individual|person|client)\s+(from|in|living in|residing in|based in)\s+(orlando|winter park|maitland|altamonte|casselberry|lake mary|florida)/gi,
-    };
-    
+    // HIPAA compliance checks disabled per user request
     let hipaaViolationsFound: string[] = [];
-    Object.entries(hipaaPatterns).forEach(([type, pattern]) => {
-      const matches = content.match(pattern);
-      if (matches) {
-        hipaaViolationsFound.push(...matches.map(m => `${type}: "${m}"`));
-      }
-    });
-    
-    if (hipaaViolationsFound.length > 0) {
-      score -= 15;
-      issues.push("Possible HIPAA violation - avoid specific patient identifiers");
-    }
 
     // Check for local SEO mentions (Orlando, Winter Park, etc.)
     const localMentions = /(orlando|winter park|altamonte springs|maitland|casselberry|lake mary)/gi;
@@ -403,11 +384,7 @@ Return ONLY the title, nothing else.`;
       issues.push("Heading hierarchy should include H3 subheadings under H2 sections");
     }
 
-    // Enhanced penalty for critical HIPAA violations
-    if (hipaaViolationsFound.length > 0) {
-      score -= 10; // Additional penalty for HIPAA (total -25)
-      issues.push("CRITICAL: Potential HIPAA violation detected - must remove patient identifiers");
-    }
+    // HIPAA penalty disabled per user request
 
     // Enhanced penalty for missing authoritative links (total -15)
     if (!hasAuthoritativeLink) {
@@ -533,17 +510,11 @@ MANDATORY REQUIREMENTS (AUTOMATIC VALIDATION):
   • https://www.cdc.gov/ (CDC)
 ✓ Each link MUST have unique anchor text
 
-🏥 HIPAA COMPLIANCE (ZERO TOLERANCE - INSTANT FAILURE):
-✗ NEVER use: patient names, even generic names like "Sarah", "John", "Mary", "Mr. Smith", "Mrs. Johnson"
-✗ NEVER use: ages ("42-year-old", "age 35", "elderly patient")
-✗ NEVER use: specific cities for patients ("patient from Maitland", "resident of Casselberry")
-✗ NEVER use: dates, occupations, family details, or ANY identifying information
-✓ ALWAYS use ONLY these generic references:
+✓ PATIENT REFERENCES:
+Use natural, relatable language when discussing patient experiences:
   • "a patient", "an individual", "someone", "a person"
   • "individuals experiencing...", "people with...", "those who struggle with..."
   • "patients often report...", "many people find..."
-✓ Example: "Many individuals experiencing depression benefit from therapy" (CORRECT)
-✗ Example: "Sarah, a 35-year-old teacher from Orlando, struggled with depression" (WRONG - HIPAA VIOLATION)
 
 📍 LOCAL SEO (REQUIRED):
 ✓ Mention "Orlando" at least TWICE
@@ -896,18 +867,6 @@ Each link MUST have unique anchor text. Don't use "learn more" twice.
 Use: "explore our services", "schedule a consultation", "discover treatment options", "meet our team"
 ` : ''}
 
-${validationResults.issues.some((i: string) => i.toLowerCase().includes('hipaa')) && validationResults.hipaaViolationsFound ? `
-🔴 CRITICAL HIPAA VIOLATION - EXACT VIOLATIONS DETECTED:
-Found ${validationResults.hipaaViolationsFound.length} HIPAA violation(s). DELETE these EXACT phrases:
-
-${validationResults.hipaaViolationsFound.slice(0, 10).map((v: string) => `  ❌ ${v}`).join('\n')}
-
-RULES:
-- NO names: "Sarah", "John", "Mary", "Mr. Smith", "Mrs. Johnson"  
-- NO ages: "35-year-old", "age 42", "elderly patient"
-- NO locations: "patient from Orlando", "resident of Winter Park"
-ONLY use: "a patient", "an individual", "someone experiencing...", "many people find...", "individuals often..."
-` : ''}
 
 ${validationResults.issues.some((i: string) => i.includes('first paragraph')) ? `
 🔴 KEYWORD IN FIRST PARAGRAPH:
@@ -929,8 +888,7 @@ ${improvementPrompt}
 REMEMBER:
 - Be VERBOSE and COMPREHENSIVE in each section to hit 2000 words
 - Write 3-4 paragraphs per H2 section (250-350 words each)
-- Include detailed examples, explanations, and guidance
-- REMOVE all patient identifiers (names, ages, locations)` }
+- Include detailed examples, explanations, and guidance` }
           ],
           temperature: 0.3, // Lower temperature for more focused improvements
           max_tokens: 16000,
