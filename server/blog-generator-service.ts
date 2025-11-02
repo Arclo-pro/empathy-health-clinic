@@ -1153,43 +1153,36 @@ QUALITY REQUIREMENTS:
 ✓ Links: All anchor text must be unique (no "learn more" twice)
 ✓ Generic references only: "individuals", "a person", "someone", "many people" (NO patient names or ages)`;
 
-      const drafterPrompt = `Write blog content following this outline EXACTLY. 
-
-⚠️ CRITICAL WORD COUNT REQUIREMENT: Target EXACTLY 2000 words. Acceptable range: 1995-2005 words.
-- Below 1995 = REJECTED (-25 points)
-- Above 2005 = REJECTED (-25 points)
-- Sweet spot: 1998-2002 words
+      const drafterPrompt = `Write comprehensive blog content following this outline. Your goal is to write a detailed, valuable 2000-word article.
 
 OUTLINE:
 ${JSON.stringify(outline, null, 2)}
 
-WRITING STRATEGY TO HIT 2000 WORDS (±2):
-1. Write intro (${outline.outline.find((s: any) => s.section === 'intro')?.wordBudget || 220} words):
+WORD COUNT TARGET: 2000 words total
+
+CONTENT REQUIREMENTS:
+1. Intro (~220 words):
    - Include primary keyword "${keywords.split(',')[0].trim()}" in first paragraph
    - Mention Orlando and "adults 18+"
-   - Be thorough but controlled
+   - Set context for the article
    
-2. Write each H2 section (~280 words each):
-   - Follow word budget precisely - NOT 350, NOT 200 - aim for 280
-   - Include H3 subsections with complete explanations
-   - Add clinical examples, research findings
+2. Each H2 section (~280 words):
+   - Write complete, detailed explanations with H3 subsections
+   - Include clinical examples, case scenarios, research findings
    - Add required links with unique anchor text
-   - Include the primary keyword "${keywords.split(',')[0].trim()}" naturally 2-3 times per section
+   - Use the primary keyword "${keywords.split(',')[0].trim()}" naturally 2-3 times per section
+   - Provide practical, actionable information
    
-3. Write conclusion (80 words):
-   - Final CTA with Orlando mention
+3. Conclusion (~80 words):
+   - Summarize key points
+   - Include clear CTA with Orlando mention
 
-🎯 WORD COUNT PRECISION:
-- Target 2000 words TOTAL (verify at end)
-- Each H2 section: ~280 words (not 350, not 150)
-- Use full paragraphs, but don't ramble
-- Quality over quantity - but hit the target
-
-WORD COUNT VERIFICATION:
-After writing, count total words. Adjust if needed:
-- If under 1995: Add 1-2 paragraphs to shortest sections
-- If over 2005: Trim verbose sentences, remove redundancies
-- GOAL: Land in 1998-2002 word range
+WRITING APPROACH:
+- Write naturally and thoroughly - aim for comprehensive coverage
+- Each section should feel complete and valuable
+- Use full paragraphs with supporting details
+- Include examples and evidence where relevant
+- Write approximately ${outline.outline.length * 280} words total across all sections
 
 RETURN JSON:
 {
@@ -1202,7 +1195,7 @@ RETURN JSON:
   "finalWordCount": 2000
 }
 
-START WRITING NOW. Target: 1998-2002 words. Precision matters.`;
+Write detailed, comprehensive content now.`;
 
       const drafterCompletion = await getOpenAI().chat.completions.create({
         model: "gpt-4o",
