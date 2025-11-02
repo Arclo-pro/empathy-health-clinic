@@ -166,3 +166,16 @@ app.use((req, res, next) => {
     log(`serving on port ${port}`);
   });
 })();
+
+// Global error handlers to prevent server crashes
+process.on('unhandledRejection', (reason: any, promise) => {
+  console.error('⚠️ Unhandled Promise Rejection:', reason);
+  console.error('Promise:', promise);
+  // Log the error but don't crash the server
+});
+
+process.on('uncaughtException', (error: Error) => {
+  console.error('⚠️ Uncaught Exception:', error);
+  // For uncaught exceptions, we should log and potentially restart gracefully
+  // but for now just log to prevent crashes during development
+});
