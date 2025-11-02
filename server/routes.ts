@@ -873,6 +873,33 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Progressive blog generation - adds rules one at a time (slower but more reliable)
+  app.post("/api/generate-blog-progressive", async (req, res) => {
+    try {
+      const { topic, keywords, city, imageStyle } = req.body;
+
+      if (!topic || !keywords) {
+        return res.status(400).json({ error: "Topic and keywords are required" });
+      }
+
+      console.log(`🎯 PROGRESSIVE blog generation: ${topic}`);
+      console.log(`   Keywords: ${keywords}`);
+      console.log(`   This will add rules one at a time - may take 3-5 minutes`);
+      
+      const result = await blogGeneratorService.generateBlogProgressive({
+        topic,
+        keywords,
+        city,
+        imageStyle,
+      });
+
+      res.json(result);
+    } catch (error: any) {
+      console.error("❌ Progressive blog generation failed:", error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Blog generation with AI (follows all 32 best practices)
   app.post("/api/generate-blog", async (req, res) => {
     try {

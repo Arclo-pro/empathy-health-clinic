@@ -439,6 +439,333 @@ Return ONLY the title, nothing else.`;
   }
 
   /**
+   * Progressive blog generation - adds rules one at a time
+   */
+  async generateBlogProgressive(request: BlogGenerationRequest): Promise<BlogGenerationResult> {
+    const { topic, keywords, city, imageStyle } = request;
+    const primaryKeyword = keywords.split(',')[0].trim();
+
+    console.log("🎯 PROGRESSIVE BLOG GENERATION - Adding Rules One at a Time");
+    console.log(`Topic: ${topic}`);
+    console.log(`Keywords: ${keywords}`);
+
+    let currentBlog: any = {};
+    let currentScore = 0;
+    
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 1: Basic Content Generation (No restrictions)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n📝 RULE 1: Generate basic blog content about the topic");
+    const step1Prompt = `Write a comprehensive blog post about: ${topic}
+
+Keywords to naturally include: ${keywords}
+
+Requirements:
+- Write professional, helpful content about ${topic}
+- Include a title
+- Include a meta description (any length)
+- Write in HTML format with headings and paragraphs
+- Target audience: Adults seeking mental health treatment
+
+Return JSON:
+{
+  "title": "Blog title",
+  "metaDescription": "Meta description",
+  "slug": "url-slug",
+  "content": "<h1>Title</h1><p>Content...</p>"
+}`;
+
+    let step1 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step1Prompt }],
+      temperature: 0.7,
+      max_tokens: 16000,
+    });
+    
+    currentBlog = JSON.parse(step1.choices[0].message.content || "{}");
+    let wordCount = currentBlog.content?.split(/\s+/).filter((w: string) => w.length > 0).length || 0;
+    console.log(`   ✓ Generated ${wordCount} words`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 2: Word Count (2000±5 words)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n📊 RULE 2: Enforce EXACTLY 2000 words (±5)");
+    const step2Prompt = `Your blog has ${wordCount} words. It MUST be exactly 2000 words (±5 allowed: 1995-2005 total).
+
+Current blog:
+${JSON.stringify(currentBlog, null, 2)}
+
+TASK: ${wordCount < 1995 ? `ADD ${1995 - wordCount} more words` : wordCount > 2005 ? `REMOVE ${wordCount - 2005} words` : 'Perfect! Return as-is'}
+
+${wordCount !== 2000 ? `
+HOW TO FIX:
+${wordCount < 1995 ? `
+- Expand each section with more detailed explanations
+- Add more examples and use cases
+- Include additional H2/H3 sections if needed
+- Each H2 section should be 250-300 words
+` : `
+- Remove verbose phrases
+- Trim redundant content
+- Make sentences more concise
+`}
+` : ''}
+
+Return the blog with EXACTLY 1995-2005 words. Count carefully!
+
+Return JSON with same structure.`;
+
+    let step2 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step2Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step2.choices[0].message.content || "{}");
+    wordCount = currentBlog.content?.split(/\s+/).filter((w: string) => w.length > 0).length || 0;
+    console.log(`   ✓ Now ${wordCount} words (target: 1995-2005)`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 3: Meta Description (150-160 chars with keyword)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n📝 RULE 3: Meta description must be 150-160 characters with keyword");
+    const metaLength = currentBlog.metaDescription?.length || 0;
+    const step3Prompt = `Fix the meta description to be EXACTLY 150-160 characters with keyword "${primaryKeyword}".
+
+Current meta (${metaLength} chars): "${currentBlog.metaDescription}"
+
+${metaLength < 150 || metaLength > 160 ? `
+TASK: Rewrite to be 150-160 chars and include "${primaryKeyword}"
+Example: "Discover evidence-based ${primaryKeyword} in Orlando. Expert care at Empathy Health Clinic for adults 18+." (Check length!)
+` : 'Meta description is perfect!'}
+
+Return full blog JSON with updated metaDescription.`;
+
+    let step3 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step3Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step3.choices[0].message.content || "{}");
+    console.log(`   ✓ Meta description: ${currentBlog.metaDescription?.length || 0} chars`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 4: Heading Structure (1 H1, 6+ H2s, H3s)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n🎯 RULE 4: Proper heading structure (1 H1, 6+ H2s, multiple H3s)");
+    const h1Count = (currentBlog.content?.match(/<h1>/gi) || []).length;
+    const h2Count = (currentBlog.content?.match(/<h2>/gi) || []).length;
+    const h3Count = (currentBlog.content?.match(/<h3>/gi) || []).length;
+    
+    const step4Prompt = `Fix heading structure:
+
+Current: ${h1Count} H1, ${h2Count} H2, ${h3Count} H3
+Required: 1 H1, 6+ H2, multiple H3
+
+${h1Count !== 1 || h2Count < 6 || h3Count < 6 ? `
+TASK: Restructure content to have:
+- Exactly 1 <h1> tag (main title)
+- At least 6 <h2> tags (main sections)
+- At least 2 <h3> tags under each H2
+
+Keep total word count at ${wordCount} words!
+` : 'Structure is perfect!'}
+
+Return full blog JSON with proper heading structure.`;
+
+    let step4 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step4Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step4.choices[0].message.content || "{}");
+    console.log(`   ✓ Headings: ${(currentBlog.content?.match(/<h1>/gi) || []).length} H1, ${(currentBlog.content?.match(/<h2>/gi) || []).length} H2, ${(currentBlog.content?.match(/<h3>/gi) || []).length} H3`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 5: Links (4+ internal, 3+ external)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n🔗 RULE 5: Add internal and external links");
+    const step5Prompt = `Add links to the content:
+
+Requirements:
+- 4+ internal links from: /services, /emdr-therapy, /depression-counseling, /anxiety-therapy, /request-appointment, /team
+- 3+ external links from: https://www.nimh.nih.gov/, https://www.apa.org/, https://www.samhsa.gov/
+- ALL anchor text must be unique (no "learn more" twice)
+
+Examples:
+- <a href="/services">explore our mental health services</a>
+- <a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">research on anxiety disorders</a>
+
+Return JSON with:
+{
+  "title": "...",
+  "metaDescription": "...",
+  "slug": "...",
+  "content": "... with links added ...",
+  "internalLinks": ["/services", "/emdr-therapy", ...],
+  "externalLinks": ["https://www.nimh.nih.gov/...", ...]
+}`;
+
+    let step5 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step5Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step5.choices[0].message.content || "{}");
+    console.log(`   ✓ Links: ${currentBlog.internalLinks?.length || 0} internal, ${currentBlog.externalLinks?.length || 0} external`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 6: Local SEO (Orlando 2x, Winter Park 1x, adults 18+)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n📍 RULE 6: Add local SEO mentions");
+    const orlandoCount = (currentBlog.content?.match(/orlando/gi) || []).length;
+    const winterParkCount = (currentBlog.content?.match(/winter park/gi) || []).length;
+    const adultsCount = (currentBlog.content?.match(/(adults|18\+)/gi) || []).length;
+
+    const step6Prompt = `Add local SEO mentions:
+
+Current: "Orlando" ${orlandoCount}x, "Winter Park" ${winterParkCount}x, "adults/18+" ${adultsCount}x
+Required: "Orlando" 2+x, "Winter Park" 1+x, "adults/18+" 1+x
+
+${orlandoCount < 2 || winterParkCount < 1 || adultsCount < 1 ? `
+Add natural mentions like:
+- "Empathy Health Clinic serves Orlando and Winter Park"
+- "Our Orlando-based practice specializes in adult mental health"
+- "We provide services for adults 18+ in the Orlando area"
+` : 'Local SEO is perfect!'}
+
+Return full blog JSON with local mentions added.`;
+
+    let step6 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step6Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step6.choices[0].message.content || "{}");
+    console.log(`   ✓ Local SEO added`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 7: Keyword Optimization (in title, meta, first paragraph)
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n🎯 RULE 7: Optimize keyword placement");
+    const step7Prompt = `Ensure primary keyword "${primaryKeyword}" appears in:
+1. Title (currently: "${currentBlog.title}")
+2. Meta description (currently: "${currentBlog.metaDescription}")
+3. First paragraph of content
+
+Return full blog JSON with keyword optimized.`;
+
+    let step7 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step7Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step7.choices[0].message.content || "{}");
+    console.log(`   ✓ Keyword optimized`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // RULE 8: CTAs and Final Polish
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n📞 RULE 8: Add CTAs and final polish");
+    const step8Prompt = `Add call-to-action phrases and final polish:
+
+Requirements:
+- Include CTA phrases like "Contact us", "Schedule an appointment", "Request a consultation"
+- Add excerpt (first 200 chars of content, plain text)
+- Generate image queries (hope, healing, professional themes - NO pills or sadness)
+
+Return complete JSON:
+{
+  "title": "...",
+  "metaDescription": "...",
+  "slug": "...",
+  "excerpt": "First 200 chars",
+  "content": "...",
+  "internalLinks": [...],
+  "externalLinks": [...],
+  "featuredImageQuery": "peaceful nature healing hope wellness",
+  "contentImageQueries": ["professional therapy bright", "wellness mindfulness", "supportive environment"]
+}`;
+
+    let step8 = await getOpenAI().chat.completions.create({
+      model: "gpt-4o",
+      response_format: { type: "json_object" },
+      messages: [{ role: "user", content: step8Prompt }],
+      temperature: 0.3,
+      max_tokens: 16000,
+    });
+
+    currentBlog = JSON.parse(step8.choices[0].message.content || "{}");
+    console.log(`   ✓ CTAs and polish added`);
+
+    // ═══════════════════════════════════════════════════════════════
+    // FINAL VALIDATION
+    // ═══════════════════════════════════════════════════════════════
+    console.log("\n✅ VALIDATING FINAL BLOG...");
+    const validation = this.calculateSEOScore(
+      currentBlog.content,
+      currentBlog.metaDescription,
+      currentBlog.title,
+      currentBlog.internalLinks || [],
+      currentBlog.externalLinks || [],
+      keywords
+    );
+
+    console.log(`\n🎉 FINAL SCORE: ${validation.score}/100`);
+    console.log(`   Word Count: ${validation.validationResults.wordCount}`);
+    console.log(`   Issues: ${validation.validationResults.issues.length > 0 ? validation.validationResults.issues.join(', ') : 'None!'}`);
+
+    // Fetch images
+    console.log("\n🖼️  Fetching images...");
+    const featuredImages = await this.fetchUniqueImages(
+      currentBlog.featuredImageQuery || "peaceful nature healing hope wellness",
+      1
+    );
+    const contentImages = await this.fetchUniqueImages(
+      currentBlog.contentImageQueries?.[0] || "professional therapy bright welcoming",
+      3
+    );
+
+    return {
+      title: currentBlog.title,
+      slug: currentBlog.slug,
+      metaDescription: currentBlog.metaDescription,
+      content: currentBlog.content,
+      excerpt: currentBlog.excerpt,
+      featuredImage: featuredImages[0]?.url || "",
+      featuredImageAlt: featuredImages[0]?.description || "",
+      contentImages: contentImages.map(img => ({
+        url: img.url,
+        alt: img.description,
+        description: img.description,
+      })),
+      internalLinks: currentBlog.internalLinks || [],
+      externalLinks: currentBlog.externalLinks || [],
+      seoScore: validation.score,
+      wordCount: validation.validationResults.wordCount,
+      validationResults: validation.validationResults,
+    };
+  }
+
+  /**
    * Generate blog post using GPT-4 with all 32 best practices
    */
   async generateBlog(request: BlogGenerationRequest): Promise<BlogGenerationResult> {
