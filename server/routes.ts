@@ -25,7 +25,15 @@ import {
 } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Legacy URL redirects for SEO
+  // Specific treatment redirects (must come BEFORE catch-all)
+  app.get("/treatments/psychiatric-services", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/treatments/psychiatric-services/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  
+  // Legacy URL redirects for SEO (catch-all patterns)
   app.get("/treatments/:slug", (req, res) => {
     res.redirect(301, `/${req.params.slug}`);
   });
@@ -259,6 +267,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/blog/cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios");
   });
   
+  app.get("/who-cheats-more-men-or-women", (req, res) => {
+    res.redirect(301, "/blog/who-cheats-more-men-or-women");
+  });
+  app.get("/who-cheats-more-men-or-women/", (req, res) => {
+    res.redirect(301, "/blog/who-cheats-more-men-or-women");
+  });
+  
   // Double slash typo fix
   app.get("/what-is-mental-breakdown//", (req, res) => {
     res.redirect(301, "/blog/what-is-mental-breakdown");
@@ -272,9 +287,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/lgbtq-therapy");
   });
   
+  app.get("/therapy/intimacy-therapy-sexual-wellness", (req, res) => {
+    res.redirect(301, "/intimacy-therapy");
+  });
+  app.get("/therapy/intimacy-therapy-sexual-wellness/", (req, res) => {
+    res.redirect(301, "/intimacy-therapy");
+  });
+  
   // WordPress date archive URLs - redirect to blog
   const dateArchivePatterns = [
-    '/2025/10/06/', '/2025/09/30/', '/2025/09/28/', '/2025/09/25/', '/2025/09/27/', '/2025/09/29/'
+    '/2025/10/06/', '/2025/09/30/', '/2025/09/28/', '/2025/09/25/', '/2025/09/27/', '/2025/09/29/', '/2025/10/01/'
   ];
   dateArchivePatterns.forEach(pattern => {
     app.get(pattern, (req, res) => {
@@ -303,12 +325,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
     next();
   });
   
-  // Additional location redirect - Wekiwa Springs doesn't exist, use Orlando
+  // Additional location redirects - non-existent locations
   app.get("/locations/psychiatry-wekiwa-springs", (req, res) => {
     res.redirect(301, "/locations/psychiatrist-orlando");
   });
   app.get("/locations/psychiatry-wekiwa-springs/", (req, res) => {
     res.redirect(301, "/locations/psychiatrist-orlando");
+  });
+  
+  app.get("/locations/therapy-services-pine-hills", (req, res) => {
+    res.redirect(301, "/therapy-services-orlando");
+  });
+  app.get("/locations/therapy-services-pine-hills/", (req, res) => {
+    res.redirect(301, "/therapy-services-orlando");
   });
   
   // Old WordPress category/service pages
