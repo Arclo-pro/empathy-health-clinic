@@ -23,7 +23,15 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Analytics System:** PostgreSQL-backed analytics tracking Core Web Vitals, Google Analytics 4, Facebook Pixel, page views, conversion events, and Google Ads conversions. Includes a dedicated admin analytics dashboard and Google Ads API integration for paid vs organic attribution with daily auto-refresh. Phone call tracking is also integrated.
 - **SEO Optimization Dashboard:** Strategic SEO tools at `/admin/seo` offering Search Console guidance, content gap analysis, and internal linking recommendations.
 - **Performance Optimizations:** Mobile-first approach with code splitting, analytics deferral, resource hints (dns-prefetch, preconnect), script optimization, and hero image preloading.
-- **URL Redirects:** 301 permanent redirects for `www` to `non-www` and old WordPress blog URLs to preserve SEO value.
+- **URL Redirects:** Comprehensive 301 permanent redirects to preserve SEO value:
+  - `www` to `non-www` for domain consistency
+  - Old WordPress blog URLs to new `/blog/` structure
+  - Legacy location page patterns (`/locations/psychiatry-X/` → `/locations/psychiatrist-X/`)
+  - Non-existent location pages to nearest alternative (e.g., Oviedo → Orlando)
+  - Old assessment pages to relevant service pages
+  - Deprecated treatment URLs with `/treatments/` prefix to root-level slugs
+  - Feed URLs and other WordPress artifacts to appropriate destinations
+  - All redirects tested and verified working (Nov 2024)
 
 ### Feature Specifications
 - **Core Pages:** Comprehensive landing pages for services, 12 insurance providers, 9 psychiatric treatments, 15 therapy services, and 10 conditions.

@@ -74,13 +74,87 @@ export async function registerRoutes(app: Express): Promise<Server> {
     'bbp-certification-worker-safety',
     'how-psychiatry-clinics-improve-revenue',
     'balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses',
-    'wellness-guide-for-counselors'
+    'wellness-guide-for-counselors',
+    'finding-comfort-self-care-tips-for-those-who-are-grieving',
+    'ltr-relationship-meaning-guide'
   ];
   
   guestPostSlugs.forEach(slug => {
     app.get(`/${slug}`, (req, res) => {
       res.redirect(301, `/blog/${slug}`);
     });
+  });
+
+  // Old blog post feed URLs - redirect to main blog
+  app.get("/mindful-dating-a-guide-to-building-strong-connections/feed/", (req, res) => {
+    res.redirect(301, "/blog");
+  });
+
+  // Old health-and-wellness-blog redirect
+  app.get("/health-and-wellness-blog/", (req, res) => {
+    res.redirect(301, "/blog");
+  });
+
+  // Location page redirects - old location naming patterns
+  const locationRedirects = {
+    // Therapy services locations that don't exist - redirect to main Orlando therapy page
+    'therapy-services-oviedo': 'therapy-services-orlando',
+    'therapy-services-richmond-heights': 'therapy-services-orlando',
+    'therapy-services-apopka': 'therapy-services-orlando',
+    
+    // Psychiatry locations - redirect to correct slug or closest alternative
+    'psychiatry-aloma': 'psychiatrist-orlando',
+    'psychiatry-fairview-shores': 'psychiatrist-orlando',
+    'psychiatry-pine-hills': 'psychiatrist-orlando',
+    'psychiatry-richmond-heights': 'psychiatrist-orlando',
+    
+    // Fix old naming pattern (psychiatry vs psychiatrist)
+    'psychiatry-altamonte-springs': 'psychiatrist-altamonte-springs',
+    'psychiatry-casselberry': 'psychiatrist-casselberry',
+    'psychiatry-lake-mary': 'psychiatrist-lake-mary',
+    'psychiatry-maitland': 'psychiatrist-maitland',
+    'psychiatry-winter-park': 'psychiatry-winter-park'
+  };
+  
+  Object.entries(locationRedirects).forEach(([oldSlug, newSlug]) => {
+    app.get(`/locations/${oldSlug}`, (req, res) => {
+      res.redirect(301, `/locations/${newSlug}`);
+    });
+    app.get(`/locations/${oldSlug}/`, (req, res) => {
+      res.redirect(301, `/locations/${newSlug}`);
+    });
+  });
+
+  // Old assessment pages - redirect to services or request appointment
+  app.get("/anxiety-assessment/", (req, res) => {
+    res.redirect(301, "/anxiety-therapy");
+  });
+  app.get("/adhd-assessment-page/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/adhd-test", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/psychological-assessment", (req, res) => {
+    res.redirect(301, "/services");
+  });
+
+  // Old treatment/therapy URLs with different patterns
+  app.get("/trauma-therapy", (req, res) => {
+    res.redirect(301, "/therapy");
+  });
+  app.get("/supplements/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+
+  // FAQ page (if it doesn't exist as a route)
+  app.get("/faq", (req, res) => {
+    res.redirect(301, "/services");
+  });
+
+  // Old "our-approach" page
+  app.get("/our-approach-1", (req, res) => {
+    res.redirect(301, "/services");
   });
 
   // Site content routes
