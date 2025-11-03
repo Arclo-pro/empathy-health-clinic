@@ -157,6 +157,125 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/services");
   });
 
+  // Additional WordPress legacy redirects from Google Search Console
+  app.get("/team", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/team/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  
+  app.get("/contact", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/contact/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  
+  app.get("/home", (req, res) => {
+    res.redirect(301, "/");
+  });
+  app.get("/home/", (req, res) => {
+    res.redirect(301, "/");
+  });
+  
+  app.get("/pricing", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  app.get("/pricing/", (req, res) => {
+    res.redirect(301, "/services");
+  });
+  
+  app.get("/mood-disorder-questionnaire", (req, res) => {
+    res.redirect(301, "/bipolar-disorder-treatment");
+  });
+  app.get("/mood-disorder-questionnaire/", (req, res) => {
+    res.redirect(301, "/bipolar-disorder-treatment");
+  });
+  
+  // Condition page short URLs without -treatment suffix
+  app.get("/adhd", (req, res) => {
+    res.redirect(301, "/adhd-treatment");
+  });
+  app.get("/adhd/", (req, res) => {
+    res.redirect(301, "/adhd-treatment");
+  });
+  
+  app.get("/anxiety", (req, res) => {
+    res.redirect(301, "/anxiety-treatment");
+  });
+  app.get("/anxiety/", (req, res) => {
+    res.redirect(301, "/anxiety-treatment");
+  });
+  
+  app.get("/bipolar-disorder", (req, res) => {
+    res.redirect(301, "/bipolar-disorder-treatment");
+  });
+  app.get("/bipolar-disorder/", (req, res) => {
+    res.redirect(301, "/bipolar-disorder-treatment");
+  });
+  
+  // Old WordPress blog post URLs accessed without /blog/ prefix
+  app.get("/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness", (req, res) => {
+    res.redirect(301, "/blog/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness");
+  });
+  app.get("/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness/", (req, res) => {
+    res.redirect(301, "/blog/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness");
+  });
+  
+  app.get("/overcoming-social-anxiety", (req, res) => {
+    res.redirect(301, "/blog/overcoming-social-anxiety");
+  });
+  app.get("/overcoming-social-anxiety/", (req, res) => {
+    res.redirect(301, "/blog/overcoming-social-anxiety");
+  });
+  
+  app.get("/practical-strategies-for-managing-anxiety-in-daily-life", (req, res) => {
+    res.redirect(301, "/blog/practical-strategies-for-managing-anxiety-in-daily-life");
+  });
+  app.get("/practical-strategies-for-managing-anxiety-in-daily-life/", (req, res) => {
+    res.redirect(301, "/blog/practical-strategies-for-managing-anxiety-in-daily-life");
+  });
+  
+  // Double slash typo fix
+  app.get("/what-is-mental-breakdown//", (req, res) => {
+    res.redirect(301, "/blog/what-is-mental-breakdown");
+  });
+  
+  // Old therapy URL patterns
+  app.get("/therapy/lgbt-therapy-services", (req, res) => {
+    res.redirect(301, "/lgbtq-therapy");
+  });
+  app.get("/therapy/lgbt-therapy-services/", (req, res) => {
+    res.redirect(301, "/lgbtq-therapy");
+  });
+  
+  // WordPress date archive URLs - redirect to blog
+  const dateArchivePatterns = [
+    '/2025/10/06/', '/2025/09/30/', '/2025/09/28/', '/2025/09/25/', '/2025/09/27/', '/2025/09/29/'
+  ];
+  dateArchivePatterns.forEach(pattern => {
+    app.get(pattern, (req, res) => {
+      res.redirect(301, "/blog");
+    });
+  });
+  
+  // WordPress query string URLs
+  app.get("/", (req, res, next) => {
+    if (req.query.page_id) {
+      return res.redirect(301, "/");
+    }
+    next();
+  });
+  
+  // Additional location redirect - Wekiwa Springs doesn't exist, use Orlando
+  app.get("/locations/psychiatry-wekiwa-springs", (req, res) => {
+    res.redirect(301, "/locations/psychiatrist-orlando");
+  });
+  app.get("/locations/psychiatry-wekiwa-springs/", (req, res) => {
+    res.redirect(301, "/locations/psychiatrist-orlando");
+  });
+
   // Insurance provider slug fixes - remove duplicate naming
   const insuranceSlugRedirects = {
     'optum-optum-coverage': 'optum-coverage',
