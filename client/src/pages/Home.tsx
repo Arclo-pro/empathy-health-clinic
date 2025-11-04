@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
-import IntroTextSection from "@/components/IntroTextSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
@@ -107,7 +106,6 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
-        <IntroTextSection />
         <InsuranceSection />
         <section className="py-12 md:py-16 bg-card border-y">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

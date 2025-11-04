@@ -70,8 +70,7 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Google Ads Setup:** OAuth setup page for Google Ads account connection.
 - **SEO Optimization Dashboard:** Provides strategic SEO insights.
 - **Competitive Comparison Section:** Homepage section highlighting Empathy Health Clinic's differentiators.
-- **Homepage Intro Section:** Centered introductory paragraph immediately after hero section explaining the clinic's mission and service offerings for Winter Park, Orlando, and Florida.
-- **Homepage About Section:** Keyword-rich "About Empathy Health Clinic" section on homepage featuring location, services, specializations, and mission statement for improved SEO.
+- **Homepage About Section:** Keyword-rich "About Empathy Health Clinic" section on homepage featuring mission statement, location (Winter Park, Orlando, Florida), services, specializations, and telehealth/insurance information for improved SEO.
 - **Homepage FAQ Section:** Accordion-based FAQ section answering common questions about telehealth and insurance acceptance.
 - **Lead Capture:** High-converting forms with automated email notifications.
 - **Trust Factors:** Integration of HIPAA compliance and other credibility indicators.
