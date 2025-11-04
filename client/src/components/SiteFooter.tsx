@@ -257,8 +257,8 @@ export default function SiteFooter() {
           </div>
         </div>
         
-        {/* Map Section - Hide on request-appointment page since it has its own map */}
-        {location !== '/request-appointment' && (
+        {/* Map Section - Hide on homepage and request-appointment page (both have LocationSection) */}
+        {location !== '/request-appointment' && location !== '/' && (
           <div className="pt-8 border-t border-card-border">
             <h3 className="text-xl font-semibold mb-6 text-foreground text-center">Visit Our Clinic</h3>
             <div className="grid md:grid-cols-2 gap-6 items-center">

@@ -14,27 +14,35 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/png" href="/favicon.png" />
     
-    <!-- Preload critical hero image for faster LCP -->
-    <link rel="preload" as="image" href="/attached_assets/heroimage_1761605616315.png" fetchpriority="high" />
+    <!-- CRITICAL LCP OPTIMIZATION: Preload actual hero image used in HeroSection -->
+    <link rel="preload" as="image" href="/attached_assets/image_1761934471053.png" fetchpriority="high" />
     
-    <!-- DNS prefetch for faster lookups (fallback for older browsers) -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://www.google.com" />
-    
-    <!-- Preconnect to external domains for faster connections -->
+    <!-- CRITICAL: Preconnect to fonts domain for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://analytics.ahrefs.com" />
-    <link rel="preconnect" href="https://www.google.com" />
     
-    <!-- Load fonts with display=swap to prevent FOIT -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Load fonts asynchronously with display=swap to prevent FOIT and reduce TBT -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
     
-    <!-- Ahrefs Analytics - deferred for better performance -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="UwaotSgl+e0M6ZzvV4xHYA" defer></script>
+    <!-- DNS prefetch for analytics (loaded after window.load) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+    <link rel="dns-prefetch" href="https://connect.facebook.net" />
+    
+    <!-- CRITICAL TBT OPTIMIZATION: Delay Ahrefs Analytics until after window.load -->
+    <script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://analytics.ahrefs.com/analytics.js';
+          s.setAttribute('data-key', 'UwaotSgl+e0M6ZzvV4xHYA');
+          document.head.appendChild(s);
+        }, 1000);
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
