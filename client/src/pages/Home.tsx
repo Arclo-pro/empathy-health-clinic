@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
+import AboutSection from "@/components/AboutSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
@@ -118,6 +119,7 @@ export default function Home() {
             <TrustFactors />
           </div>
         </section>
+        <AboutSection />
         <TreatmentsSection />
         <ApproachSection />
         <div className="border-t" />
