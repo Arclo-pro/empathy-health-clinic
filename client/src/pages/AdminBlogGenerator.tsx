@@ -821,9 +821,10 @@ export default function AdminBlogGenerator() {
               {/* Publish Button */}
               <Button
                 onClick={handlePublish}
-                disabled={publishing || generatedBlog.seoScore < 80}
+                disabled={publishing}
                 className="w-full"
                 size="lg"
+                variant={generatedBlog.seoScore >= 80 ? "default" : "destructive"}
                 data-testid="button-publish-blog"
               >
                 {publishing ? (
@@ -839,14 +840,18 @@ export default function AdminBlogGenerator() {
                 ) : (
                   <>
                     <AlertCircle className="mr-2 h-4 w-4" />
-                    SEO Score Too Low (Need ≥80)
+                    Publish Anyway (Score: {generatedBlog.seoScore}/100)
                   </>
                 )}
               </Button>
 
-              {generatedBlog.seoScore >= 80 && (
+              {generatedBlog.seoScore >= 80 ? (
                 <div className="text-sm text-green-600 dark:text-green-400 text-center">
                   ✅ This blog meets all quality standards and is ready to publish!
+                </div>
+              ) : (
+                <div className="text-sm text-orange-600 dark:text-orange-400 text-center">
+                  ⚠️ Blog is below the recommended quality threshold (80). Consider using "Apply Improvements" first.
                 </div>
               )}
             </div>
