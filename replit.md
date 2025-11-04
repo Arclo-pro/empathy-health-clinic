@@ -16,7 +16,7 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Backend:** Express.js REST API utilizing hybrid storage: in-memory for content (MemStorage) and PostgreSQL for analytics and leads, with Zod for validation.
 - **Content Management:** Full CRUD operations via an admin panel (`/admin`) for diverse content types including treatments, therapies, conditions, team, testimonials, insurance, blog, and leads.
 - **Email Notifications:** SendGrid integration for lead notification emails.
-- **SEO Features:** Comprehensive SEO implementation including unique meta tags, canonical tags, structured data (Organization/LocalBusiness, Article schema), auto-generated XML sitemap, robots.txt, SEO-friendly URLs, rich content optimization, mobile-first design, and image alt text.
+- **SEO Features:** Comprehensive SEO implementation including unique meta tags, canonical tags, structured data (Organization/LocalBusiness, Article schema), auto-generated XML sitemap, robots.txt, SEO-friendly URLs, rich content optimization, mobile-first design, and image alt text. All 37 pages have SEO-optimized H1 tags (100% coverage as of Nov 2024), including homepage H1: "Empathy Health Clinic – Psychiatry, Therapy & Counseling in Winter Park, FL".
 - **Google Maps Integration:** Embedded map on the homepage for local SEO and user convenience, with conditional display.
 - **Dynamic Content:** Real-time content updates from the API.
 - **Blog System:** A comprehensive blog with listing and individual post pages, including SEO metadata, JSON-LD, related articles, author bios, social sharing, and category filtering.
@@ -70,6 +70,8 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Google Ads Setup:** OAuth setup page for Google Ads account connection.
 - **SEO Optimization Dashboard:** Provides strategic SEO insights.
 - **Competitive Comparison Section:** Homepage section highlighting Empathy Health Clinic's differentiators.
+- **Homepage About Section:** Keyword-rich "About Empathy Health Clinic" section on homepage featuring location, services, specializations, and mission statement for improved SEO.
+- **Homepage FAQ Section:** Accordion-based FAQ section answering common questions about telehealth and insurance acceptance.
 - **Lead Capture:** High-converting forms with automated email notifications.
 - **Trust Factors:** Integration of HIPAA compliance and other credibility indicators.
 - **Accessibility:** Mobile responsiveness and dark mode.

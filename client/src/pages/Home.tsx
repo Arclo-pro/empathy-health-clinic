@@ -5,6 +5,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
 import AboutSection from "@/components/AboutSection";
+import FAQSection from "@/components/FAQSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
@@ -125,6 +126,8 @@ export default function Home() {
         <div className="border-t" />
         <ComparisonSection />
         <ReviewsAndBadges />
+        <div className="border-t" />
+        <FAQSection />
         <div className="border-t" />
         <Suspense fallback={<div className="py-20" />}>
           <TeamSection />
