@@ -6,6 +6,16 @@ This project delivers a modern, high-performance CMS and website for Empathy Hea
 ## User Preferences
 I want the agent to prioritize high-level features and architectural decisions. Please do not delve into granular implementation details unless specifically asked. I prefer a concise communication style. When making changes, focus on the most impactful elements first.
 
+## Authentication & Security (November 2024)
+**Secure Admin Access**: All admin pages (`/admin/*`) are protected by authentication requiring login credentials (providers@empathyhealthclinic.com / Milly2025). Implemented using Passport.js LocalStrategy with scrypt password hashing, express-session with MemoryStore, and React context for client-side state management.
+
+**Security Features**:
+- No public registration endpoint (admin accounts pre-created only)
+- Session cookies with httpOnly, secure (in production), and sameSite='lax' flags
+- 1 week session duration with automatic expiration
+- Protected route component redirects unauthenticated users to `/auth` login page
+- Authenticated users automatically redirected from `/auth` to `/admin`
+
 ## System Architecture
 
 ### UI/UX Decisions
