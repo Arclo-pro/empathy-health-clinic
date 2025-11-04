@@ -52,17 +52,12 @@ export default function HeroSection() {
           
           {/* SEO-Optimized H1 */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-white mb-4 drop-shadow-lg max-w-5xl mx-auto leading-tight">
-            Empathy Health Clinic – Psychiatry, Therapy & Counseling in Winter Park, FL
+            Psychiatry, Therapy & Counseling in Winter Park, FL
           </h1>
           
           {/* Tagline */}
-          <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/95 mb-2 drop-shadow-lg">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/95 mb-10 drop-shadow-lg">
             {title}
-          </p>
-          
-          {/* Subtitle */}
-          <p className="text-base md:text-lg text-white/90 mb-10 drop-shadow font-light max-w-3xl mx-auto">
-            {subtitle}
           </p>
           
           {/* Lead Form */}
