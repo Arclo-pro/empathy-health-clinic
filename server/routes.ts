@@ -1707,7 +1707,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         storage.getPageViews(last7Days),
         storage.getPageViews(last30Days),
         storage.getPageViewsByPath(startDate),
-        storage.getEvents(startDate),
+        storage.getEvents(undefined, startDate),
         storage.getEventCounts(startDate),
         storage.getAverageWebVitals(startDate),
         storage.getAllLeads()
