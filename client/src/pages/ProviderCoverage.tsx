@@ -70,7 +70,7 @@ export default function ProviderCoverage() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${forestBg})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
         </div>
         <div className="container mx-auto max-w-4xl relative z-10">
           <Link href="/insurance" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors" data-testid="link-back-to-insurance">
@@ -92,9 +92,35 @@ export default function ProviderCoverage() {
               </h1>
             </div>
           </div>
-          <p className="text-lg text-white/90 leading-relaxed" data-testid="text-hero-description">
+          <p className="text-lg text-white/90 leading-relaxed mb-8" data-testid="text-hero-description">
             {provider.heroDescription}
           </p>
+          <div className="flex flex-col sm:flex-row gap-3 mt-8">
+            <Button 
+              size="lg" 
+              asChild 
+              data-testid="button-hero-request-appointment"
+              onClick={() => trackEvent('appointment_request', 'conversion', `${provider.name} Insurance Page - Hero CTA`)}
+            >
+              <Link href="/request-appointment" className="flex items-center justify-center gap-2">
+                <Mail className="h-5 w-5" />
+                Request Appointment
+              </Link>
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 text-white hover:text-white"
+              asChild 
+              data-testid="button-hero-call"
+              onClick={() => trackEvent('phone_click', 'conversion', `${provider.name} Insurance Page - Hero CTA`)}
+            >
+              <a href="tel:3868488751" className="flex items-center justify-center gap-2">
+                <Phone className="h-5 w-5" />
+                Call (386) 848-8751
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 

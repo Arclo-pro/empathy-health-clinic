@@ -104,9 +104,35 @@ export default function ServicesPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
               Mental Health Clinic in Winter Park & Orlando, FL
             </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
               Full-service mental health clinic with board-certified psychiatrists and licensed therapists. Medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy services in Winter Park and Orlando. Comprehensive care tailored to your needs.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+              <Button 
+                size="lg" 
+                asChild 
+                data-testid="button-hero-request-appointment"
+                onClick={() => trackEvent('appointment_request', 'conversion', 'Services Page - Hero CTA')}
+              >
+                <Link href="/request-appointment" className="flex items-center justify-center gap-2">
+                  <Mail className="h-5 w-5" />
+                  Request Appointment
+                </Link>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 text-white hover:text-white"
+                asChild 
+                data-testid="button-hero-call"
+                onClick={() => trackEvent('phone_click', 'conversion', 'Services Page - Hero CTA')}
+              >
+                <a href="tel:3868488751" className="flex items-center justify-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Call (386) 848-8751
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 
