@@ -125,7 +125,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     'psychiatry-casselberry': 'psychiatrist-casselberry',
     'psychiatry-lake-mary': 'psychiatrist-lake-mary',
     'psychiatry-maitland': 'psychiatrist-maitland',
-    'psychiatry-winter-park': 'psychiatry-winter-park'
+    'psychiatry-winter-park': 'winter-park'
   };
   
   Object.entries(locationRedirects).forEach(([oldSlug, newSlug]) => {
