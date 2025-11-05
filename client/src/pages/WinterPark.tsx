@@ -1,12 +1,175 @@
+import { Suspense, lazy } from "react";
+import { useQuery } from "@tanstack/react-query";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import InsuranceSection from "@/components/InsuranceSection";
+import TrustFactors from "@/components/TrustFactors";
+import ReviewsAndBadges from "@/components/ReviewsAndBadges";
+import ApproachSection from "@/components/ApproachSection";
+import ComparisonSection from "@/components/ComparisonSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { MapPin, Phone, Mail, Clock, Shield, Users, Heart, CheckCircle, Stethoscope, Brain } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Shield, Users, Heart, CheckCircle, Stethoscope, Brain, Star } from "lucide-react";
 import healthcareBg from "@assets/stock_images/healthcare_professio_70df12ba.jpg";
 import { trackEvent } from "@/lib/analytics";
+
+const TeamSection = lazy(() => import("@/components/TeamSection"));
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+
+// Curated Winter Park Team Section - showing first 4 providers
+function WinterParkTeamSection() {
+  const { data: teamMembers } = useQuery<{ id: string; name: string; credentials: string; image: string; }[]>({
+    queryKey: ["/api/team-members"],
+  });
+
+  const featuredMembers = teamMembers?.slice(0, 4); // Show first 4 providers
+
+  return (
+    <section className="py-16 md:py-20 bg-card border-y">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-4">
+          Meet Our Providers
+        </h2>
+        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+          Board-certified psychiatrists and licensed therapists available at our Winter Park office
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          {featuredMembers?.map((member, index) => (
+            <div
+              key={member.id}
+              className="text-center space-y-4"
+              data-testid={`team-member-${index}`}
+            >
+              <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  width={400}
+                  height={400}
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    const fallback = e.currentTarget.parentElement?.querySelector('p');
+                    if (fallback) {
+                      fallback.classList.remove('hidden');
+                      fallback.classList.add('flex');
+                    }
+                  }}
+                />
+                <p className="text-sm md:text-base font-medium text-center text-muted-foreground hidden items-center justify-center h-full">
+                  Photo Placeholder
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {member.credentials}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            asChild
+            variant="outline"
+            size="lg"
+            data-testid="button-view-all-team"
+          >
+            <Link href="/team">
+              View All Providers
+            </Link>
+          </Button>
+          <p className="text-sm text-muted-foreground mt-4">
+            In-person appointments available at our Winter Park office | Telehealth throughout Florida
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Curated Winter Park Testimonials - showing first 3 reviews
+function WinterParkTestimonialsSection() {
+  const { data: testimonials } = useQuery<{ id: string; name: string; rating: number; review: string; date: string; verified: boolean; }[]>({
+    queryKey: ["/api/testimonials"],
+  });
+
+  const featuredTestimonials = testimonials?.slice(0, 3); // Show first 3 testimonials
+
+  return (
+    <section className="py-12 md:py-16 lg:py-20 bg-background">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-center mb-3">
+          What Our Patients Say
+        </h2>
+        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10">
+          Real reviews from patients who've received care at Empathy Health Clinic
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8">
+          {featuredTestimonials?.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className="rounded-xl border bg-card p-6 hover-elevate transition-all"
+              data-testid={`testimonial-${index}`}
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
+                  index % 6 === 0 ? 'bg-blue-500' :
+                  index % 6 === 1 ? 'bg-purple-500' :
+                  index % 6 === 2 ? 'bg-pink-500' :
+                  index % 6 === 3 ? 'bg-green-500' :
+                  index % 6 === 4 ? 'bg-orange-500' : 'bg-teal-500'
+                }`}>
+                  {testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold text-foreground">{testimonial.name}</h3>
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-4 w-4 ${
+                          i < testimonial.rating
+                            ? 'fill-yellow-400 text-yellow-400'
+                            : 'fill-muted text-muted'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "{testimonial.review}"
+              </p>
+              {testimonial.verified && (
+                <div className="flex items-center gap-1 text-xs text-primary">
+                  <CheckCircle className="h-3 w-3" />
+                  <span>Verified Patient</span>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground">
+            Trusted by hundreds of patients in Winter Park and Central Florida
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function WinterPark() {
   const handlePhoneClick = () => {
@@ -111,6 +274,39 @@ export default function WinterPark() {
             </div>
           </div>
         </div>
+
+        {/* Key Benefits Bar */}
+        <section className="py-8 bg-card border-b">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-lg font-semibold text-foreground">4.8</span>
+                <span className="text-sm text-muted-foreground">Google Reviews</span>
+              </div>
+              <div className="hidden sm:block h-6 w-px bg-border" />
+              <div className="flex items-center gap-2 text-sm text-foreground">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span>Same-Week Appointments Available</span>
+              </div>
+              <div className="hidden sm:block h-6 w-px bg-border" />
+              <div className="flex items-center gap-2 text-sm text-foreground">
+                <Shield className="h-4 w-4 text-primary" />
+                <span>HIPAA Compliant & Confidential</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Insurance Section */}
+        <InsuranceSection />
+
+        {/* Trust Badges */}
+        <ReviewsAndBadges />
 
         {/* Location & Contact Info */}
         <section className="py-16 md:py-20 bg-background">
@@ -334,6 +530,21 @@ export default function WinterPark() {
           </div>
         </section>
 
+        {/* Trust Factors Section */}
+        <section className="py-16 md:py-20 bg-card border-y">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
+                Why Choose Empathy Health Clinic
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Trusted mental health care with a commitment to excellence and compassion
+              </p>
+            </div>
+            <TrustFactors />
+          </div>
+        </section>
+
         {/* Why Choose Us Section */}
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
@@ -416,6 +627,21 @@ export default function WinterPark() {
             </div>
           </div>
         </section>
+
+        {/* Comparison Section */}
+        <ComparisonSection />
+
+        {/* Our Approach Step by Step */}
+        <ApproachSection />
+
+        {/* Meet Our Winter Park Providers - Featured Team */}
+        <Suspense fallback={<div className="py-20" />}>
+          <WinterParkTeamSection />
+          
+          {/* Testimonials - Featured Reviews */}
+          <div className="border-t" />
+          <WinterParkTestimonialsSection />
+        </Suspense>
 
         {/* Contact CTA Section */}
         <section className="py-16 md:py-20 bg-primary/5">
