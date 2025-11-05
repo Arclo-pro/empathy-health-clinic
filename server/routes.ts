@@ -208,10 +208,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   
   app.get("/anxiety", (req, res) => {
-    res.redirect(301, "/anxiety-treatment");
+    res.redirect(301, "/anxiety-therapy");
   });
   app.get("/anxiety/", (req, res) => {
-    res.redirect(301, "/anxiety-treatment");
+    res.redirect(301, "/anxiety-therapy");
+  });
+  
+  app.get("/anxiety-treatment", (req, res) => {
+    res.redirect(301, "/anxiety-therapy");
+  });
+  app.get("/anxiety-treatment/", (req, res) => {
+    res.redirect(301, "/anxiety-therapy");
   });
   
   app.get("/bipolar-disorder", (req, res) => {
