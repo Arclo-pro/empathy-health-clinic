@@ -87,7 +87,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     'balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses',
     'wellness-guide-for-counselors',
     'finding-comfort-self-care-tips-for-those-who-are-grieving',
-    'ltr-relationship-meaning-guide'
+    'ltr-relationship-meaning-guide',
+    'hidden-anxiety-treatment-dbt-skills-you-can-use-at-home'
   ];
   
   guestPostSlugs.forEach(slug => {
