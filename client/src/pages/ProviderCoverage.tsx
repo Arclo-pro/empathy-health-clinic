@@ -206,10 +206,14 @@ export default function ProviderCoverage() {
           <div className="md:col-span-1">
             <div className="bg-card border rounded-lg p-6 sticky top-4">
               <h3 className="text-xl font-semibold text-foreground mb-4">
-                Schedule an Appointment
+                {provider.name === "Medicare" 
+                  ? "Schedule a Medicare-Covered Appointment" 
+                  : "Schedule an Appointment"}
               </h3>
               <p className="text-muted-foreground mb-6">
-                Ready to get started? Contact us today to verify your {provider.name} benefits and schedule your first appointment.
+                {provider.name === "Medicare"
+                  ? "We accept all Medicare plans. Contact us today to schedule your Medicare-covered psychiatric appointment."
+                  : `Ready to get started? Contact us today to verify your ${provider.name} benefits and schedule your first appointment.`}
               </p>
               <div className="space-y-3">
                 <Button className="w-full" asChild data-testid="button-call-office">
@@ -254,10 +258,14 @@ export default function ProviderCoverage() {
                     <CheckCircle2 className="h-8 w-8 text-primary" />
                   </div>
                   <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 break-words">
-                    Verify Your {provider.name} Benefits
+                    {provider.name === "Medicare" 
+                      ? "Schedule Your Medicare-Covered Appointment" 
+                      : `Verify Your ${provider.name} Benefits`}
                   </h2>
                   <p className="text-foreground/70 text-lg max-w-xl mx-auto">
-                    We'll verify your coverage and help you understand your benefits. Contact us today to get started.
+                    {provider.name === "Medicare"
+                      ? "We accept Original Medicare, Medicare Advantage, and Medicare Supplement plans. Contact us today to schedule your appointment."
+                      : "We'll verify your coverage and help you understand your benefits. Contact us today to get started."}
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 max-w-lg mx-auto">
