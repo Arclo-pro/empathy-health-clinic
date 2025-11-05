@@ -43,6 +43,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/medication-management");
   });
   
+  app.get("/treatments/virtual-counseling", (req, res) => {
+    res.redirect(301, "/virtual-therapy");
+  });
+  app.get("/treatments/virtual-counseling/", (req, res) => {
+    res.redirect(301, "/virtual-therapy");
+  });
+  
+  app.get("/treatments/couples-therapy", (req, res) => {
+    res.redirect(301, "/therapy");
+  });
+  app.get("/treatments/couples-therapy/", (req, res) => {
+    res.redirect(301, "/therapy");
+  });
+  
+  app.get("/treatments/grief-counseling-services", (req, res) => {
+    res.redirect(301, "/therapy");
+  });
+  app.get("/treatments/grief-counseling-services/", (req, res) => {
+    res.redirect(301, "/therapy");
+  });
+  
   // Legacy URL redirects for SEO (catch-all patterns - MOVED to end of file to avoid overriding specific redirects)
   
   // WordPress URL redirects

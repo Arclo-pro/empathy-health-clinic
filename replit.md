@@ -40,6 +40,8 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
   - Non-existent location pages to nearest alternative (e.g., Oviedo → Orlando)
   - Old assessment pages to relevant service pages
   - Deprecated treatment URLs with `/treatments/` prefix to root-level slugs
+  - Specific Google Ads URLs: `/treatments/virtual-counseling/` → `/virtual-therapy`, `/treatments/couples-therapy/` → `/therapy`, `/treatments/grief-counseling-services/` → `/therapy`
+  - Anxiety URL variations: `/anxiety`, `/anxiety-treatment` → `/anxiety-therapy`
   - Feed URLs and other WordPress artifacts to appropriate destinations
   - All redirects tested and verified working (Nov 2024)
 
