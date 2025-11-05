@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle2 } from "lucide-react";
+import { Loader2, CheckCircle2, MapPin, Phone, Clock } from "lucide-react";
 import * as Icons from "lucide-react";
 import type { Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
@@ -30,9 +30,9 @@ export default function TherapyPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Therapist in Winter Park & Orlando, FL | CBT, DBT, EMDR Therapy"
-        description="Licensed therapists in Winter Park & Orlando, FL. Evidence-based therapy including CBT, DBT, EMDR, trauma therapy, and couples counseling. Same-week appointments. Call 386-848-8751."
-        keywords={["therapist Winter Park", "therapist Orlando FL", "CBT therapist Orlando", "DBT therapy Winter Park", "EMDR therapy Orlando", "couples therapy Winter Park", "trauma therapist Orlando"]}
+        title="Therapist Near You | Winter Park & Orlando, FL | Licensed Counselors"
+        description="Find a licensed therapist near you in Winter Park & Orlando. Expert CBT, DBT, EMDR therapy. Same-week appointments, in-person & telehealth. 1155 Louisiana Ave Suite 202. Call 386-848-8751."
+        keywords={["therapist near me", "good therapist near me", "therapist Winter Park", "therapist Orlando FL", "counselor near me", "therapy near me", "CBT therapist near me", "licensed therapist near me"]}
         canonicalPath="/therapy"
       />
       <SiteHeader />
@@ -68,6 +68,65 @@ export default function TherapyPage() {
           </div>
         </div>
       </div>
+
+      {/* Location & Contact Banner - Optimized for "therapist near me" */}
+      <section className="py-8 bg-primary/5 border-y">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-start gap-3" data-testid="location-info">
+              <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Our Winter Park Location</h3>
+                <p className="text-sm text-muted-foreground">
+                  1155 Louisiana Ave Suite 202<br />
+                  Winter Park, FL 32789
+                </p>
+                <a 
+                  href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary hover:underline mt-1 inline-block"
+                  data-testid="link-directions"
+                >
+                  Get Directions →
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3" data-testid="contact-info">
+              <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Call or Text</h3>
+                <a 
+                  href="tel:386-848-8751" 
+                  className="text-lg font-bold text-primary hover:underline"
+                  data-testid="link-phone"
+                >
+                  386-848-8751
+                </a>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Same-week appointments available
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3" data-testid="hours-info">
+              <Clock className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Office Hours</h3>
+                <p className="text-sm text-muted-foreground">
+                  Mon-Fri: 9:00 AM - 6:00 PM<br />
+                  Telehealth available
+                </p>
+                <p className="text-sm text-primary mt-1 font-medium">
+                  <CheckCircle2 className="h-4 w-4 inline mr-1" />
+                  Accepting new clients
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <div className="container mx-auto px-4 py-16 max-w-6xl">
 
