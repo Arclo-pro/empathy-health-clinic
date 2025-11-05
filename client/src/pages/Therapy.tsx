@@ -30,9 +30,9 @@ export default function TherapyPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Therapist Winter Park FL | CBT, DBT & Counseling"
-        description="Mental health therapy services at Empathy Clinic. Expert care & treatment for disorders. CBT, DBT. Winter Park, FL. Call 386-848-8751."
-        keywords={["therapist Winter Park", "counseling Winter Park FL", "CBT therapist Orlando", "DBT therapy Florida", "couples therapy Winter Park", "trauma therapist Florida"]}
+        title="Therapist in Winter Park & Orlando, FL | CBT, DBT, EMDR Therapy"
+        description="Licensed therapists in Winter Park & Orlando, FL. Evidence-based therapy including CBT, DBT, EMDR, trauma therapy, and couples counseling. Same-week appointments. Call 386-848-8751."
+        keywords={["therapist Winter Park", "therapist Orlando FL", "CBT therapist Orlando", "DBT therapy Winter Park", "EMDR therapy Orlando", "couples therapy Winter Park", "trauma therapist Orlando"]}
         canonicalPath="/therapy"
       />
       <SiteHeader />
@@ -51,11 +51,10 @@ export default function TherapyPage() {
         <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-foreground mb-6">
-              Expert Therapy Services in Winter Park
+              Therapist in Winter Park & Orlando, FL
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Evidence-based therapeutic approaches tailored to your unique needs. 
-              Begin your healing journey with compassionate, professional care.
+              Licensed therapists providing CBT, DBT, EMDR, trauma therapy, and couples counseling in Winter Park and Orlando. Evidence-based care tailored to your needs with flexible in-person and telehealth appointments.
             </p>
             <Button 
               variant="default" 
@@ -74,14 +73,14 @@ export default function TherapyPage() {
 
         <div className="max-w-4xl mx-auto mb-16">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-sans font-bold text-foreground mb-6">The Healing Power of Therapy</h2>
+            <h2 className="text-3xl font-sans font-bold text-foreground mb-6">Professional Therapy Services in Winter Park & Orlando</h2>
             
             <p className="text-foreground leading-relaxed mb-6">
-              Therapy provides a safe, confidential space to explore your thoughts, feelings, and behaviors with a trained mental health professional. Whether you're facing a specific challenge like <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link> or <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, navigating a major life transition, or simply seeking personal growth, therapy offers powerful tools for understanding yourself better and creating lasting positive change.
+              When you need a trusted therapist in Winter Park or Orlando, FL, Empathy Health Clinic provides expert mental health therapy for adults, adolescents, and couples. Our licensed therapists specialize in evidence-based treatments including Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), EMDR for trauma, couples counseling, and anxiety/depression treatment. Whether you're facing <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, relationship challenges, or trauma, therapy offers powerful tools for creating lasting positive change.
             </p>
 
             <p className="text-foreground leading-relaxed mb-6">
-              At Empathy Health Clinic, our licensed therapists utilize evidence-based therapeutic approaches proven effective through decades of clinical research. We recognize that every person's journey is unique, which is why we tailor our therapeutic interventions to your specific needs, goals, and circumstances. Our therapists are experienced in working with a wide range of mental health conditions and life challenges, from trauma recovery to relationship issues to stress management.
+              At our Winter Park location serving the greater Orlando area, our licensed therapists utilize evidence-based approaches proven effective through decades of clinical research. We recognize that every person's journey is unique, which is why we tailor our therapeutic interventions to your specific needs and goals. With convenient telehealth appointments and same-week availability, accessing quality therapy in Winter Park and Orlando has never been easier.
             </p>
 
             <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">How Does Therapy Work?</h3>

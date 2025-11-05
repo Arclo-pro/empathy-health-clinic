@@ -85,9 +85,9 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatric & Counseling Services | Empathy Health Clinic Orlando"
-        description="Comprehensive psychiatric services in Orlando, FL. Medication management, therapy, psychiatric evaluations & counseling. Most insurance accepted."
-        keywords={["psychiatric services Winter Park", "mental health services Orlando", "psychiatrist Winter Park FL", "medication management Florida", "psychiatric evaluation Orlando"]}
+        title="Psychiatrist & Therapist in Winter Park & Orlando, FL | Empathy Health"
+        description="Board-certified psychiatrists and licensed therapists in Winter Park & Orlando, FL. Medication management, therapy, psychiatric evaluations, CBT, DBT, EMDR. Same-week appointments. Call 386-848-8751."
+        keywords={["psychiatrist Winter Park", "therapist Orlando FL", "psychiatric services Winter Park", "mental health services Orlando", "medication management Winter Park", "psychiatric evaluation Orlando"]}
         canonicalPath="/services"
       />
       <SiteHeader />
@@ -101,10 +101,10 @@ export default function ServicesPage() {
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Our Services
+              Psychiatrist & Therapist in Winter Park & Orlando, FL
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive mental health care tailored to your unique needs. From psychiatric evaluations to specialized therapy and evidence-based treatments.
+              Board-certified psychiatrists and licensed therapists providing medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy in Winter Park and Orlando. Comprehensive mental health care tailored to your needs.
             </p>
           </div>
         </div>
@@ -119,30 +119,30 @@ export default function ServicesPage() {
         <section className="py-16 md:py-20 bg-card border-y">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Comprehensive Mental Health Care in Florida</h2>
+              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Comprehensive Mental Health Care in Winter Park & Orlando</h2>
               
               <p className="text-foreground leading-relaxed mb-6">
-                At Empathy Health Clinic, we provide comprehensive mental health services that address the full spectrum of psychiatric and psychological needs. Our integrated approach combines psychiatric medication management, evidence-based therapy, and specialized treatment programs to deliver personalized care that produces lasting results. Whether you're seeking help for <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, trauma, or relationship challenges, our experienced team is here to support your journey toward better mental health.
+                When you need a psychiatrist or therapist in Winter Park or Orlando, FL, Empathy Health Clinic provides comprehensive mental health services including psychiatric medication management, psychiatric evaluations, CBT, DBT, EMDR, and specialized therapy. Our board-certified psychiatrists and licensed therapists work collaboratively to deliver personalized care for <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, trauma, bipolar disorder, and relationship challenges. Serving the greater Orlando area from our Winter Park location, we're here to support your journey toward better mental health.
               </p>
 
               <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Our Treatment Philosophy</h3>
               
               <p className="text-foreground leading-relaxed mb-6">
-                We believe that effective mental health treatment requires a holistic approach that addresses both the biological and psychological aspects of mental health conditions. Our psychiatrists and therapists work collaboratively to create integrated treatment plans that may combine medication management with therapeutic interventions for optimal outcomes. This collaborative model ensures that you receive comprehensive care tailored to your unique needs, rather than a one-size-fits-all approach.
+                Our Winter Park clinic serving the Orlando area offers a collaborative approach where psychiatrists and therapists work together to create integrated treatment plans combining medication management with therapeutic interventions like Cognitive Behavioral Therapy (CBT), Dialectical Behavior Therapy (DBT), and EMDR for trauma. This ensures comprehensive care tailored to your unique needs, rather than a one-size-fits-all approach.
               </p>
 
               <p className="text-foreground leading-relaxed mb-6">
-                Every person's mental health journey is different, which is why we take time to truly understand your specific situation, goals, and preferences before recommending treatment. We offer both <Link href="/virtual-counseling-services" className="text-primary hover:underline font-medium">virtual visits</Link> and <Link href="/in-person-therapy" className="text-primary hover:underline font-medium">in-person sessions</Link>, making quality mental health care accessible and convenient for patients throughout Florida. Our providers stay current with the latest research and treatment approaches, ensuring you receive evidence-based care that reflects best practices in the field.
+                We take time to understand your specific situation before recommending treatment. With both <Link href="/virtual-counseling-services" className="text-primary hover:underline font-medium">telehealth</Link> and <Link href="/in-person-therapy" className="text-primary hover:underline font-medium">in-person sessions</Link> available at our Winter Park location, quality mental health care is accessible and convenient for patients throughout the Orlando area. Same-week appointments are often available for new patients—when you're ready to seek help, you shouldn't have to wait weeks to get started.
               </p>
 
               <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">What Sets Us Apart</h3>
               
               <p className="text-foreground leading-relaxed mb-6">
-                At Empathy Health Clinic, we pride ourselves on providing exceptional mental health care that prioritizes your comfort, privacy, and wellbeing. Our team includes board-certified psychiatrists, licensed therapists, and mental health professionals who bring years of experience and genuine compassion to their work. We accept most major <Link href="/insurance" className="text-primary hover:underline font-medium">insurance plans</Link>, making quality mental health care financially accessible for more patients.
+                Our Winter Park team serving the greater Orlando area includes board-certified psychiatrists, licensed therapists, and mental health professionals who bring years of experience treating depression, anxiety, ADHD, bipolar disorder, PTSD, and other conditions. We accept most major <Link href="/insurance" className="text-primary hover:underline font-medium">insurance plans</Link> including Aetna, Blue Cross Blue Shield, Cigna, Humana, UnitedHealthcare, and Medicare, making quality psychiatric and therapy services financially accessible.
               </p>
 
               <p className="text-foreground leading-relaxed mb-6">
-                We understand that seeking mental health treatment can feel overwhelming, which is why we've designed our practice to be welcoming, supportive, and stigma-free. From your first phone call to ongoing treatment sessions, you'll experience a level of care and attention that makes you feel heard, understood, and valued. Same-week appointments are often available for new patients, because we believe that when you're ready to seek help, you shouldn't have to wait weeks to get started.
+                We understand that seeking mental health treatment can feel overwhelming, which is why we've designed our Winter Park practice to be welcoming, supportive, and stigma-free. From your first phone call to ongoing treatment sessions, you'll experience compassionate care that makes you feel heard and valued. Call 386-848-8751 to schedule with a psychiatrist or therapist in Winter Park or Orlando today.
               </p>
             </div>
           </div>
