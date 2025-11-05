@@ -7,6 +7,7 @@ import forestBg from "@assets/stock_images/peaceful_green_fores_622c852f.jpg";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ProviderCoverage() {
   const [, params] = useRoute("/:slug");
@@ -216,13 +217,24 @@ export default function ProviderCoverage() {
                   : `Ready to get started? Contact us today to verify your ${provider.name} benefits and schedule your first appointment.`}
               </p>
               <div className="space-y-3">
-                <Button className="w-full" asChild data-testid="button-call-office">
+                <Button 
+                  className="w-full" 
+                  asChild 
+                  data-testid="button-call-office"
+                  onClick={() => trackEvent('phone_click', 'conversion', `${provider.name} Insurance Page - Sidebar`)}
+                >
                   <a href="tel:3868488751" className="flex items-center justify-center gap-2">
                     <Phone className="h-4 w-4" />
                     Call 386-848-8751
                   </a>
                 </Button>
-                <Button variant="outline" className="w-full" asChild data-testid="button-request-appointment">
+                <Button 
+                  variant="outline" 
+                  className="w-full" 
+                  asChild 
+                  data-testid="button-request-appointment"
+                  onClick={() => trackEvent('appointment_request', 'conversion', `${provider.name} Insurance Page - Sidebar`)}
+                >
                   <Link href="/request-appointment" className="flex items-center justify-center gap-2">
                     <Mail className="h-4 w-4" />
                     Request Appointment
@@ -269,12 +281,25 @@ export default function ProviderCoverage() {
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 max-w-lg mx-auto">
-                  <Button size="lg" className="gap-2 flex-1" asChild data-testid="button-request-appointment">
+                  <Button 
+                    size="lg" 
+                    className="gap-2 flex-1" 
+                    asChild 
+                    data-testid="button-request-appointment"
+                    onClick={() => trackEvent('appointment_request', 'conversion', `${provider.name} Insurance Page - Form Section`)}
+                  >
                     <Link href="/request-appointment">
                       Request Appointment
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="gap-2 flex-1" asChild data-testid="button-call-now">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="gap-2 flex-1" 
+                    asChild 
+                    data-testid="button-call-now"
+                    onClick={() => trackEvent('phone_click', 'conversion', `${provider.name} Insurance Page - Form Section`)}
+                  >
                     <a href="tel:3868488751" className="flex items-center justify-center gap-2">
                       <Phone className="h-5 w-5" />
                       <span>Call (386) 848-8751</span>

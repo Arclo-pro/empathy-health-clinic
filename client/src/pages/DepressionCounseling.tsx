@@ -9,25 +9,58 @@ import TrustFactors from "@/components/TrustFactors";
 import HeroBackground from "@/components/HeroBackground";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
 import { trackEvent } from "@/lib/analytics";
+import FAQSchema from "@/components/FAQSchema";
 
 export default function DepressionCounseling() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "MedicalTherapy",
-    "name": "Depression Counseling & Treatment",
-    "description": "Depression counseling and psychiatric treatment in Winter Park and Orlando, FL. Evidence-based therapy, medication management, and comprehensive mental health care for depression.",
-    "provider": {
-      "@type": "MedicalClinic",
-      "name": "Empathy Health Clinic",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2153 Park Center Drive",
-        "addressLocality": "Winter Park",
-        "addressRegion": "FL",
-        "postalCode": "32792"
-      },
-      "telephone": "386-848-8751"
+  const faqs = [
+    {
+      question: "How long does depression treatment take?",
+      answer: "Most people begin feeling better within 4-6 weeks of starting treatment. However, full recovery often takes 3-6 months or longer. Continuing treatment even after feeling better helps prevent relapse."
     },
+    {
+      question: "Do I need medication for depression?",
+      answer: "Not always. Mild depression may respond to therapy alone. Moderate to severe depression typically benefits from a combination of medication and therapy. Your psychiatrist will recommend the best approach for your specific situation."
+    },
+    {
+      question: "Will antidepressants change my personality?",
+      answer: "No. Antidepressants don't change who you are - they help restore your brain chemistry to normal levels so you can feel like yourself again. Any concerning changes should be reported to your psychiatrist immediately."
+    },
+    {
+      question: "What if my depression doesn't improve?",
+      answer: "Some people need to try different medications or combinations to find what works. We also offer advanced treatments for treatment-resistant depression. Don't give up - there are many effective options available."
+    }
+  ];
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Empathy Health Clinic",
+    "description": "Depression counseling and psychiatric treatment in Winter Park and Orlando, FL. Evidence-based therapy, medication management, and comprehensive mental health care for depression.",
+    "url": "https://empathyhealthclinic.com/depression-counseling",
+    "telephone": "386-848-8751",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2153 Park Center Drive",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32792",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "28.5989",
+      "longitude": "-81.3392"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "$$",
+    "medicalSpecialty": "Psychiatry",
     "areaServed": ["Orlando", "Winter Park", "Altamonte Springs", "Maitland", "Central Florida"]
   };
 
@@ -38,8 +71,9 @@ export default function DepressionCounseling() {
         description="Depression counseling in Orlando and Winter Park, FL. Expert therapy and medication management for major depression, persistent depressive disorder, and mood disorders. Same-week appointments. Call 386-848-8751."
         keywords={["depression counseling Orlando FL", "depression counseling Winter Park FL", "depression treatment Orlando", "depression therapy Florida", "therapist for depression near me", "depression psychiatrist Orlando", "antidepressant medication management"]}
         canonicalPath="/depression-counseling"
-        jsonLd={jsonLd}
+        jsonLd={localBusinessSchema}
       />
+      <FAQSchema faqs={faqs} />
       <SiteHeader />
       <main className="flex-1">
         <HeroBackground imageSrc={heroImage}>

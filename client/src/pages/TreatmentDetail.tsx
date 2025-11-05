@@ -11,6 +11,7 @@ import forestBg from "@assets/stock_images/calm_forest_trees_me_62fae749.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
+import { trackEvent } from "@/lib/analytics";
 
 export default function TreatmentDetail() {
   const [, params] = useRoute("/:slug");
@@ -103,6 +104,38 @@ export default function TreatmentDetail() {
     return plainText.substring(0, maxLength - 3) + '...';
   };
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Empathy Health Clinic",
+    "description": `${treatment.title} services in Winter Park, Orlando, FL. Professional mental health care and psychiatric treatment.`,
+    "url": `https://empathyhealthclinic.com/${treatment.slug}`,
+    "telephone": "386-848-8751",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2153 Park Center Drive",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32792",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "28.5989",
+      "longitude": "-81.3392"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ],
+    "priceRange": "$$",
+    "medicalSpecialty": "Psychiatry"
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -110,6 +143,7 @@ export default function TreatmentDetail() {
         description={getMetaDescription()}
         keywords={[treatment.title, `${treatment.title} Winter Park`, `${treatment.title} Florida`, "psychiatric services Orlando", "mental health treatment Winter Park"]}
         canonicalPath={`/${treatment.slug}`}
+        jsonLd={localBusinessSchema}
       />
       <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />
@@ -126,9 +160,35 @@ export default function TreatmentDetail() {
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
             {treatment.heroTitle}
           </h1>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed" data-testid="text-hero-description">
+          <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-6" data-testid="text-hero-description">
             {treatment.heroDescription}
           </p>
+          <div className="flex flex-wrap gap-4">
+            <Button 
+              variant="default" 
+              size="lg" 
+              onClick={() => {
+                trackEvent(`${treatment.slug}_hero_cta`, 'conversion', `${treatment.title} Page`);
+                const form = document.querySelector('#contact-form');
+                form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }}
+              data-testid="button-hero-cta"
+            >
+              {treatment.slug === 'adhd-treatment' ? 'Schedule ADHD Testing' : 
+               treatment.slug === 'esa-letter' ? 'Get Your ESA Letter' : 
+               'Start Treatment Today'}
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              asChild 
+              className="bg-background/20 backdrop-blur-sm border-white/30 text-white hover:bg-background/30"
+              data-testid="button-hero-phone"
+              onClick={() => trackEvent('phone_click', 'conversion', `${treatment.title} Page - Hero`)}
+            >
+              <a href="tel:386-848-8751">Call 386-848-8751</a>
+            </Button>
+          </div>
         </HeroBackground>
 
         {treatment.slug === 'adhd-treatment' && (
@@ -256,6 +316,7 @@ export default function TreatmentDetail() {
                     size="lg" 
                     className="w-full text-lg font-semibold" 
                     onClick={() => {
+                      trackEvent(`${treatment.slug}_sidebar_cta`, 'conversion', `${treatment.title} Page - Sidebar`);
                       const form = document.querySelector('#contact-form');
                       form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }}
@@ -269,6 +330,7 @@ export default function TreatmentDetail() {
                     className="w-full text-lg font-semibold border-2" 
                     asChild 
                     data-testid="button-call-office"
+                    onClick={() => trackEvent('phone_click', 'conversion', `${treatment.title} Page - Sidebar`)}
                   >
                     <a href="tel:3868488751" className="flex items-center justify-center gap-2">
                       <Phone className="h-5 w-5" />
