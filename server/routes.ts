@@ -36,22 +36,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/services");
   });
   
-  // Legacy URL redirects for SEO (catch-all patterns)
-  app.get("/treatments/:slug", (req, res) => {
-    res.redirect(301, `/${req.params.slug}`);
-  });
-  
-  app.get("/therapies/:slug", (req, res) => {
-    res.redirect(301, `/${req.params.slug}`);
-  });
-  
-  app.get("/conditions/:slug", (req, res) => {
-    res.redirect(301, `/${req.params.slug}`);
-  });
-  
-  app.get("/insurance/:slug", (req, res) => {
-    res.redirect(301, `/${req.params.slug}`);
-  });
+  // Legacy URL redirects for SEO (catch-all patterns - MOVED to end of file to avoid overriding specific redirects)
   
   // WordPress URL redirects
   app.get("/psychiatric-services", (req, res) => {
@@ -152,6 +137,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
   app.get("/psychological-assessment", (req, res) => {
     res.redirect(301, "/services");
+  });
+  app.get("/psychiatric-evaluation-page", (req, res) => {
+    res.redirect(301, "/psychiatric-evaluation");
+  });
+  app.get("/psychiatric-evaluation-page/", (req, res) => {
+    res.redirect(301, "/psychiatric-evaluation");
   });
 
   // Old treatment/therapy URLs with different patterns
@@ -561,6 +552,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
     app.get(`/${oldSlug}/`, (req, res) => {
       res.redirect(301, `/${newSlug}`);
     });
+  });
+
+  // Legacy URL catch-all redirects (placed at end to avoid overriding specific redirects above)
+  // These handle any remaining /treatments/, /therapies/, /conditions/, /insurance/ URLs not caught by specific rules
+  app.get("/treatments/:slug", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  app.get("/treatments/:slug/", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  
+  app.get("/therapies/:slug", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  app.get("/therapies/:slug/", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  
+  app.get("/conditions/:slug", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  app.get("/conditions/:slug/", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  
+  app.get("/insurance/:slug", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
+  });
+  app.get("/insurance/:slug/", (req, res) => {
+    res.redirect(301, `/${req.params.slug}`);
   });
 
   // Site content routes
