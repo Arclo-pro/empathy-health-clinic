@@ -36,7 +36,6 @@ const longFormSchema = z.object({
   concerns: z.array(z.string()).default([]),
   concernsOther: z.string().optional(),
   medications: z.string().optional(),
-  preferredDay: z.string().optional(),
   paymentMethod: z.enum(["insurance", "self-pay"]),
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -72,10 +71,6 @@ const CONCERNS = [
   "Other"
 ];
 
-const DAYS = [
-  "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-];
-
 export default function LongContactForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -93,7 +88,6 @@ export default function LongContactForm() {
       concerns: [],
       concernsOther: "",
       medications: "",
-      preferredDay: "",
       paymentMethod: "insurance",
       firstName: "",
       lastName: "",
@@ -133,7 +127,6 @@ export default function LongContactForm() {
         conditions: JSON.stringify(concerns),
         symptoms: JSON.stringify(concerns),
         medications: data.medications,
-        preferredDay: data.preferredDay,
         paymentMethod: data.paymentMethod,
         insuranceProvider: data.insuranceProvider,
         insuredName: "",
@@ -461,36 +454,6 @@ export default function LongContactForm() {
 
               <FormField
                 control={form.control}
-                name="preferredDay"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Preferred Day (Optional)</FormLabel>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2">
-                      {DAYS.map((day) => (
-                        <div
-                          key={day}
-                          onClick={() => field.onChange(day)}
-                          className={`p-2 border-2 rounded-lg cursor-pointer text-center transition-all hover-elevate ${
-                            field.value === day
-                              ? 'border-primary bg-primary/5'
-                              : 'border-border bg-card hover:border-primary/50'
-                          }`}
-                          data-testid={`radio-day-${day}`}
-                        >
-                          <span className={`text-xs font-medium ${
-                            field.value === day ? 'text-primary' : 'text-foreground'
-                          }`}>
-                            {day.substring(0, 3)}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </FormItem>
-                )}
-              />
-              
-              <FormField
-                control={form.control}
                 name="paymentMethod"
                 render={({ field }) => (
                   <FormItem>
@@ -631,13 +594,6 @@ export default function LongContactForm() {
                   <p className="text-xs text-muted-foreground mb-1">Service Requested</p>
                   <p className="font-medium">{form.watch("service")}</p>
                 </div>
-
-                {form.watch("preferredDay") && (
-                  <div className="border-t pt-3">
-                    <p className="text-xs text-muted-foreground mb-1">Preferred Day</p>
-                    <p className="font-medium">{form.watch("preferredDay")}</p>
-                  </div>
-                )}
 
                 <div className="border-t pt-3">
                   <p className="text-xs text-muted-foreground mb-1">Payment Method</p>
