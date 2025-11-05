@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { Loader2, FileText, PawPrint, Brain, Stethoscope, ArrowRight, MapPin, Phone, Clock, CheckCircle2 } from "lucide-react";
+import { Loader2, FileText, PawPrint, Brain, Stethoscope, ArrowRight, MapPin, Phone, Clock, CheckCircle2, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
