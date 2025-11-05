@@ -7,7 +7,7 @@ import SEOHead from "@/components/SEOHead";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import TrustFactors from "@/components/TrustFactors";
 import HeroBackground from "@/components/HeroBackground";
-import heroImage from "@assets/stock_images/calm_peaceful_therap_89f82c5d.jpg";
+import heroImage from "@assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
 
 export default function VirtualTherapy() {
