@@ -43,10 +43,10 @@ export default function TeamPage() {
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Female Therapists & Psychiatrists in Orlando, FL
+              Meet Our Team
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Compassionate female therapists and psychiatrists serving Orlando, Winter Park, and Central Florida. Expert women's mental health care for anxiety, depression, trauma, and relationship challenges. Same-week appointments available.
+              Board-certified psychiatrists, licensed therapists, and mental health counselors dedicated to your wellness. Our experienced team provides compassionate, collaborative care in Winter Park and Orlando.
             </p>
           </div>
         </div>
