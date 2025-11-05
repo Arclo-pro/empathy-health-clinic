@@ -85,9 +85,9 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist & Therapist in Winter Park & Orlando, FL | Empathy Health"
-        description="Board-certified psychiatrists and licensed therapists in Winter Park & Orlando, FL. Medication management, therapy, psychiatric evaluations, CBT, DBT, EMDR. Same-week appointments. Call 386-848-8751."
-        keywords={["psychiatrist Winter Park", "therapist Orlando FL", "psychiatric services Winter Park", "mental health services Orlando", "medication management Winter Park", "psychiatric evaluation Orlando"]}
+        title="Mental Health Clinic Winter Park & Orlando FL | Psychiatric Services"
+        description="Full-service mental health clinic in Winter Park & Orlando, FL. Board-certified psychiatrists, therapists, medication management, psychiatric evaluations. Same-week appointments. Call 386-848-8751."
+        keywords={["mental health clinic Winter Park", "mental health clinic Orlando", "psychiatric clinic Winter Park FL", "mental health services Orlando", "psychiatric services Winter Park", "psychiatric clinic Orlando"]}
         canonicalPath="/services"
       />
       <SiteHeader />
@@ -101,10 +101,10 @@ export default function ServicesPage() {
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Psychiatrist & Therapist in Winter Park & Orlando, FL
+              Mental Health Clinic in Winter Park & Orlando, FL
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Board-certified psychiatrists and licensed therapists providing medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy in Winter Park and Orlando. Comprehensive mental health care tailored to your needs.
+              Full-service mental health clinic with board-certified psychiatrists and licensed therapists. Medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy services in Winter Park and Orlando. Comprehensive care tailored to your needs.
             </p>
           </div>
         </div>
@@ -119,10 +119,10 @@ export default function ServicesPage() {
         <section className="py-16 md:py-20 bg-card border-y">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Comprehensive Mental Health Care in Winter Park & Orlando</h2>
+              <h2 className="text-3xl font-sans font-bold text-foreground mb-6 text-center">Your Trusted Mental Health Clinic in Winter Park & Orlando</h2>
               
               <p className="text-foreground leading-relaxed mb-6">
-                When you need a psychiatrist or therapist in Winter Park or Orlando, FL, Empathy Health Clinic provides comprehensive mental health services including psychiatric medication management, psychiatric evaluations, CBT, DBT, EMDR, and specialized therapy. Our board-certified psychiatrists and licensed therapists work collaboratively to deliver personalized care for <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, trauma, bipolar disorder, and relationship challenges. Serving the greater Orlando area from our Winter Park location, we're here to support your journey toward better mental health.
+                Empathy Health Clinic is a full-service mental health clinic serving Winter Park, Orlando, and Central Florida. Our clinic provides comprehensive psychiatric services including medication management, psychiatric evaluations, CBT, DBT, EMDR, and specialized therapy. Our board-certified psychiatrists and licensed therapists work collaboratively to deliver personalized care for <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd" className="text-primary hover:underline font-medium">ADHD</Link>, trauma, bipolar disorder, and relationship challenges. As your local mental health clinic, we're here to support your journey toward better mental health.
               </p>
 
               <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Our Treatment Philosophy</h3>

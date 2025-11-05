@@ -7,6 +7,7 @@ import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import forestBg from "@assets/stock_images/misty_forest_morning_dffbe3b2.jpg";
 import { trackEvent } from "@/lib/analytics";
 
@@ -26,9 +27,9 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrists & Therapists Winter Park FL | Our Team"
-        description="Board-certified psychiatrists & therapists in Winter Park, FL. Expert care for anxiety, depression & more. Call 386-848-8751 today."
-        keywords={["psychiatrists Winter Park", "therapists Winter Park FL", "mental health professionals Orlando", "psychiatric team Florida", "board certified psychiatrist Winter Park"]}
+        title="Female Therapists & Psychiatrists Orlando FL | Winter Park"
+        description="Female therapists and psychiatrists in Orlando and Winter Park, FL. Compassionate women's mental health care for anxiety, depression, trauma & more. Call 386-848-8751."
+        keywords={["female therapist Orlando", "female psychiatrist Orlando FL", "women therapists Winter Park", "female mental health professionals Orlando", "women's therapy Orlando", "female counselor Orlando"]}
         canonicalPath="/team"
       />
       <SiteHeader />
@@ -42,10 +43,10 @@ export default function TeamPage() {
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Meet Our Team
+              Female Therapists & Psychiatrists in Orlando, FL
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Our compassionate team of experienced psychiatrists, therapists, and mental health professionals is dedicated to providing exceptional care tailored to your unique needs.
+              Compassionate female therapists and psychiatrists serving Orlando, Winter Park, and Central Florida. Expert women's mental health care for anxiety, depression, trauma, and relationship challenges. Same-week appointments available.
             </p>
           </div>
         </div>
@@ -142,13 +143,47 @@ export default function TeamPage() {
           </div>
         </section>
 
+        <section className="py-16 md:py-20 bg-background border-t">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-6">
+                  Schedule Your First Appointment
+                </h2>
+                <p className="text-lg text-muted-foreground mb-6">
+                  Connect with one of our female therapists or psychiatrists in Orlando. We'll match you with the right provider for your needs and schedule your first appointment—often within the same week.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex gap-3">
+                    <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground mb-1">Call Us Directly</p>
+                      <a href="tel:3868488751" className="text-primary hover:underline text-lg font-medium" data-testid="link-phone">386-848-8751</a>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Mail className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-foreground mb-1">Email Our Team</p>
+                      <a href="mailto:providers@empathyhealthclinic.com" className="text-primary hover:underline" data-testid="link-email">providers@empathyhealthclinic.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="contact-form">
+                <LeadCaptureForm therapyName="Team Consultation" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 bg-card border-t">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-6">
-              Start Your Journey to Better Mental Health
+              Same-Week Appointments in Orlando
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our team is here to support you. Schedule a consultation to find the right therapist or psychiatrist for your needs.
+              Our female therapists and psychiatrists are accepting new patients in Orlando, Winter Park, and surrounding areas. Most insurance plans accepted.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
