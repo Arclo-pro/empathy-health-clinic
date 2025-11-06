@@ -110,19 +110,14 @@ export default function ServicesPage() {
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
               Full-service mental health clinic with board-certified psychiatrists and licensed therapists. Medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy services in Winter Park and Orlando. Comprehensive care tailored to your needs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-              <Button 
-                size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white"
-                asChild 
-                data-testid="button-hero-request-appointment"
-                onClick={() => trackEvent('appointment_request', 'conversion', 'Services Page - Hero CTA')}
-              >
-                <Link href="/request-appointment" className="flex items-center justify-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Request Appointment
-                </Link>
-              </Button>
+            
+            {/* Hero Lead Form */}
+            <div className="mb-8 w-full max-w-5xl mx-auto">
+              <HeroLeadForm />
+            </div>
+
+            {/* Phone Button */}
+            <div className="flex justify-center">
               <Button 
                 size="lg" 
                 className="bg-green-600 hover:bg-green-700 text-white"
@@ -224,13 +219,6 @@ export default function ServicesPage() {
 
         {/* Insurance Section */}
         <InsuranceSection />
-
-        {/* Lead Form Section */}
-        <section className="py-12 bg-background border-b">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <HeroLeadForm />
-          </div>
-        </section>
 
         <section className="py-16 md:py-20 bg-card border-y">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
