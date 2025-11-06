@@ -680,33 +680,6 @@ export default function WinterPark() {
             </div>
           </div>
         </section>
-
-        {/* Map Section - Above Footer */}
-        <section className="py-12 md:py-16 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
-                Visit Our Winter Park Office
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Conveniently located in the heart of Winter Park, serving the greater Orlando area
-              </p>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-lg max-w-5xl mx-auto">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.0746!2d-81.3503!3d28.5947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77b3b0c9c0001%3A0x1!2s2281%20Lee%20Rd%20%23102%2C%20Winter%20Park%2C%20FL%2032810!5e0!3m2!1sen!2sus!4v1234567890"
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Empathy Health Clinic Location Map"
-                data-testid="map-embed"
-              />
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </div>
