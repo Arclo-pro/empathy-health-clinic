@@ -33,6 +33,7 @@ import {
   webVitals,
   analyticsEvents,
   pageViews,
+  blogPosts,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 import blogPostsData from "./blog-posts-data.json";
@@ -169,7 +170,6 @@ export class MemStorage implements IStorage {
   private conditions: Map<string, Condition>;
   private locations: Map<string, Location>;
   private leads: Map<string, Lead>;
-  private blogPosts: Map<string, BlogPost>;
   private newsletterSubscribers: Map<string, NewsletterSubscriber>;
   private pageViews: PageView[];
   private analyticsEvents: AnalyticsEvent[];
@@ -188,7 +188,6 @@ export class MemStorage implements IStorage {
     this.conditions = new Map();
     this.locations = new Map();
     this.leads = new Map();
-    this.blogPosts = new Map();
     this.newsletterSubscribers = new Map();
     this.pageViews = [];
     this.analyticsEvents = [];
@@ -1563,14 +1562,30 @@ export class MemStorage implements IStorage {
       this.locations.set(id, { id, ...location });
     });
 
-    // Initialize default blog posts from JSON file
-    const defaultBlogPosts: InsertBlogPost[] = blogPostsData;
+    // Initialize default blog posts from JSON file into PostgreSQL
+    this.initializeBlogPosts();
+  }
 
-    defaultBlogPosts.forEach((post) => {
-      const id = randomUUID();
-      const now = new Date().toISOString();
-      this.blogPosts.set(id, { id, ...post, createdAt: now });
-    });
+  private async initializeBlogPosts() {
+    try {
+      // Check if blog posts already exist in database
+      const existingPosts = await db.select().from(blogPosts).limit(1);
+      
+      if (existingPosts.length === 0) {
+        // Database is empty, seed from JSON file
+        console.log('📝 Seeding blog posts from JSON file into PostgreSQL...');
+        const defaultBlogPosts: InsertBlogPost[] = blogPostsData;
+        
+        if (defaultBlogPosts.length > 0) {
+          await db.insert(blogPosts).values(defaultBlogPosts);
+          console.log(`✅ Successfully seeded ${defaultBlogPosts.length} blog posts into database`);
+        }
+      } else {
+        console.log('✅ Blog posts already exist in database, skipping seed');
+      }
+    } catch (error) {
+      console.error('❌ Error initializing blog posts:', error);
+    }
   }
 
   // User methods
@@ -1861,24 +1876,24 @@ export class MemStorage implements IStorage {
     return await db.select().from(leads).orderBy(desc(leads.createdAt));
   }
 
-  // Blog post methods
+  // Blog post methods - NOW USING POSTGRESQL FOR PERSISTENCE
   async getAllBlogPosts(): Promise<BlogPost[]> {
-    return Array.from(this.blogPosts.values()).sort((a, b) => b.order - a.order);
+    const posts = await db.select().from(blogPosts).orderBy(desc(blogPosts.order));
+    return posts;
   }
 
   async getBlogPost(id: string): Promise<BlogPost | undefined> {
-    return this.blogPosts.get(id);
+    const [post] = await db.select().from(blogPosts).where(eq(blogPosts.id, id));
+    return post;
   }
 
   async getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
-    return Array.from(this.blogPosts.values()).find(p => p.slug === slug);
+    const [post] = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug));
+    return post;
   }
 
   async createBlogPost(post: InsertBlogPost): Promise<BlogPost> {
-    const id = randomUUID();
-    const now = new Date().toISOString();
-    const newPost: BlogPost = { id, ...post, createdAt: now };
-    this.blogPosts.set(id, newPost);
+    const [newPost] = await db.insert(blogPosts).values(post).returning();
     return newPost;
   }
 
@@ -1886,15 +1901,18 @@ export class MemStorage implements IStorage {
     id: string,
     post: Partial<InsertBlogPost>
   ): Promise<BlogPost> {
-    const existing = this.blogPosts.get(id);
-    if (!existing) throw new Error("Blog post not found");
-    const updated = { ...existing, ...post };
-    this.blogPosts.set(id, updated);
+    const [updated] = await db
+      .update(blogPosts)
+      .set(post)
+      .where(eq(blogPosts.id, id))
+      .returning();
+    
+    if (!updated) throw new Error("Blog post not found");
     return updated;
   }
 
   async deleteBlogPost(id: string): Promise<void> {
-    this.blogPosts.delete(id);
+    await db.delete(blogPosts).where(eq(blogPosts.id, id));
   }
 
   // Newsletter subscriber methods
