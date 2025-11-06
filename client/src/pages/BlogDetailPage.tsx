@@ -430,6 +430,16 @@ export default function BlogDetailPage() {
         <div className="container mx-auto px-4 py-12 max-w-7xl">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
+              {/* Hero CTA - Lead Capture Optimized */}
+              <div className="mb-8 bg-primary/5 border border-primary/20 rounded-lg p-6 text-center" data-testid="hero-cta">
+                <p className="text-lg text-foreground mb-4 font-medium">
+                  Struggling with anxiety, depression, or stress? Our licensed therapists in Orlando are here to help.
+                </p>
+                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700" data-testid="button-hero-cta">
+                  <Link href="/request-appointment">Book a Free Consultation</Link>
+                </Button>
+              </div>
+
               <article 
                 className="prose prose-lg max-w-none prose-headings:font-sans prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-li:text-foreground prose-strong:text-foreground prose-a:text-primary hover:prose-a:text-primary/80"
                 data-testid="article-content"
@@ -441,6 +451,8 @@ export default function BlogDetailPage() {
                   let currentParagraph: string[] = [];
                   let inList = false;
                   let listItems: JSX.Element[] = [];
+                  let paragraphCount = 0;
+                  let h2Count = 0;
                   
                   const flushParagraph = (index: number) => {
                     if (currentParagraph.length > 0) {
@@ -450,6 +462,22 @@ export default function BlogDetailPage() {
                           {renderTextWithLinks(text)}
                         </p>
                       );
+                      paragraphCount++;
+                      
+                      // Inline CTA after 3-4 paragraphs
+                      if (paragraphCount === 3) {
+                        elements.push(
+                          <div key="inline-cta" className="my-8 p-4 bg-muted/50 border-l-4 border-primary rounded-r-lg" data-testid="inline-cta">
+                            <p className="text-foreground mb-2">
+                              <strong className="text-primary">Did you know?</strong> Evidence-based therapy can significantly improve symptoms of anxiety, depression, and stress.
+                            </p>
+                            <Link href="/cognitive-behavioral-therapy" className="text-primary hover:text-primary/80 underline font-medium">
+                              Learn more about CBT therapy →
+                            </Link>
+                          </div>
+                        );
+                      }
+                      
                       currentParagraph = [];
                     }
                   };
@@ -493,6 +521,37 @@ export default function BlogDetailPage() {
                           {renderTextWithLinks(heading)}
                         </h2>
                       );
+                      h2Count++;
+                      
+                      // Mid-page conversion CTA after 3rd H2 section (~60% through)
+                      if (h2Count === 3) {
+                        elements.push(
+                          <div key="mid-cta" className="my-12 p-8 bg-primary text-primary-foreground rounded-lg text-center" data-testid="mid-page-cta">
+                            <h3 className="text-2xl font-bold mb-4">Ready to Start Therapy?</h3>
+                            <p className="text-lg mb-6 opacity-95">
+                              Take the first step toward feeling better. Our Orlando therapists specialize in evidence-based treatment for anxiety, depression, and more.
+                            </p>
+                            <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90" data-testid="button-mid-cta">
+                              <Link href="/request-appointment">Schedule Your Appointment</Link>
+                            </Button>
+                            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm opacity-90">
+                              <span className="flex items-center gap-2">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                                Licensed Therapists
+                              </span>
+                              <span className="flex items-center gap-2">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                                HIPAA Secure
+                              </span>
+                              <span className="flex items-center gap-2">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
+                                Insurance Accepted
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      }
+                      
                       return;
                     }
                     
@@ -542,6 +601,23 @@ export default function BlogDetailPage() {
                 })()}
               </article>
 
+              {/* Testimonial Block - Trust & Social Proof */}
+              <section className="mt-12 p-8 bg-card border border-card-border rounded-lg" data-testid="testimonial-block">
+                <h3 className="text-2xl font-sans font-bold mb-6 text-foreground text-center">What Our Patients Say</h3>
+                <blockquote className="text-center mb-6">
+                  <p className="text-lg italic text-muted-foreground mb-4">
+                    "The therapy I received at Empathy Health Clinic helped me take control of my anxiety and feel like myself again. The therapists are compassionate and truly understand what I'm going through."
+                  </p>
+                  <cite className="text-sm font-medium text-foreground">— Verified Patient</cite>
+                </blockquote>
+                <p className="text-center">
+                  <Link href="/request-appointment" className="text-primary hover:text-primary/80 font-medium underline">
+                    Schedule a consultation
+                  </Link>
+                  {' '}and begin your journey to wellness today.
+                </p>
+              </section>
+
               {relatedPosts.length > 0 && (
                 <section className="mt-16 pt-16 border-t" data-testid="section-related-articles">
                   <h2 className="text-3xl font-sans font-bold mb-8 text-foreground">Related Articles</h2>
@@ -571,6 +647,17 @@ export default function BlogDetailPage() {
                   </div>
                 </section>
               )}
+
+              {/* Final CTA - Always Present */}
+              <section className="mt-12 p-10 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-lg text-center" data-testid="final-cta">
+                <h3 className="text-3xl font-sans font-bold mb-4 text-foreground">Take the First Step Toward Healing</h3>
+                <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                  Empathy Health Clinic offers personalized, evidence-based therapy for adults and teens in Orlando and Winter Park. Start your journey to wellness today.
+                </p>
+                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700" data-testid="button-final-cta">
+                  <Link href="/request-appointment">Book Your Appointment Now</Link>
+                </Button>
+              </section>
             </div>
 
             <aside className="lg:col-span-1">
