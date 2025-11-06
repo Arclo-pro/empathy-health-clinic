@@ -278,7 +278,7 @@ export default function WinterPark() {
         {/* Key Benefits Bar */}
         <section className="py-8 bg-card border-b">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 flex-wrap">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 flex-wrap">
               <div className="flex items-center gap-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
@@ -288,7 +288,9 @@ export default function WinterPark() {
                 <span className="text-lg font-semibold text-foreground">4.8</span>
                 <span className="text-sm text-muted-foreground">Google Reviews</span>
               </div>
-              <div className="hidden sm:block h-6 w-px bg-border" />
+              <div className="hidden lg:block h-6 w-px bg-border" />
+              <VerifiedOnBadge />
+              <div className="hidden lg:block h-6 w-px bg-border" />
               <div className="flex items-center gap-2 text-sm text-foreground">
                 <CheckCircle className="h-4 w-4 text-primary" />
                 <span>Same-Week Appointments Available</span>
@@ -507,15 +509,6 @@ export default function WinterPark() {
                   View All Services
                 </Link>
               </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* Verified On Section */}
-        <section className="py-12 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex justify-center">
-              <VerifiedOnBadge />
             </div>
           </div>
         </section>
