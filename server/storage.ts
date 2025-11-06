@@ -156,6 +156,9 @@ export interface IStorage {
   getLeadsByLandingPage(): Promise<{landingPage: string | null, count: number}[]>;
   getPageViewsByUTMSource(): Promise<{utmSource: string | null, count: number}[]>;
   getPageViewsByUTMCampaign(): Promise<{utmCampaign: string | null, count: number}[]>;
+  
+  // Link Monitor methods
+  getPageBounceRates(): Promise<{path: string, views: number, bounces: number, bounceRate: number}[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -2294,6 +2297,49 @@ export class MemStorage implements IStorage {
       ...r,
       count: typeof r.count === 'string' ? parseInt(r.count) : r.count
     }));
+  }
+
+  async getPageBounceRates(): Promise<{path: string, views: number, bounces: number, bounceRate: number}[]> {
+    // Get all page views grouped by path
+    const viewsByPath = await db.select({
+      path: pageViews.path,
+      views: sql<number>`COUNT(*)::int`
+    })
+    .from(pageViews)
+    .groupBy(pageViews.path)
+    .orderBy(sql`COUNT(*) DESC`);
+
+    // Calculate estimated bounce rate
+    // A "bounce" is when there's only 1 page view from a session
+    // Since we don't have session IDs yet, we'll estimate using referrer data
+    // Pages with no internal referrer are likely entry points
+    const bounceEstimates = await db.select({
+      path: pageViews.path,
+      bounces: sql<number>`COUNT(CASE WHEN ${pageViews.referrer} IS NULL OR ${pageViews.referrer} NOT LIKE '%empathyhealthclinic%' THEN 1 END)::int`
+    })
+    .from(pageViews)
+    .groupBy(pageViews.path);
+
+    // Combine the data
+    const bounceMap = new Map(bounceEstimates.map(b => [b.path, b.bounces || 0]));
+    
+    const result = viewsByPath.map(v => {
+      const views = typeof v.views === 'string' ? parseInt(v.views) : v.views;
+      const bounces = bounceMap.get(v.path) || 0;
+      const bounceRate = views > 0 ? Math.round((bounces / views) * 100) : 0;
+      
+      return {
+        path: v.path,
+        views,
+        bounces,
+        bounceRate
+      };
+    });
+
+    // Return pages sorted by bounce rate (highest first), showing only pages with significant traffic
+    return result
+      .filter(r => r.views >= 5) // Only show pages with at least 5 views
+      .sort((a, b) => b.bounceRate - a.bounceRate);
   }
 }
 

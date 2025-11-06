@@ -1920,6 +1920,59 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Link Monitor - Bounce Rates & Dead Links
+  app.get("/api/analytics/bounce-rates", async (req, res) => {
+    try {
+      const data = await storage.getPageBounceRates();
+      res.json(data);
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/analytics/link-monitor", async (_req, res) => {
+    try {
+      const { getCacheStatus } = await import("./clarity-api");
+      
+      // Get bounce rate data from our analytics
+      const bounceRates = await storage.getPageBounceRates();
+      
+      // Get Clarity cache status (we're being careful not to exceed 10 calls/day)
+      const cacheStatus = getCacheStatus();
+      
+      res.json({
+        bounceRates,
+        clarityCache: cacheStatus,
+        note: cacheStatus.cached 
+          ? `Using cached Clarity data (${cacheStatus.age} minutes old)` 
+          : 'No Clarity data cached yet. Run a manual scan to fetch.'
+      });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/analytics/clarity/refresh", async (_req, res) => {
+    try {
+      const { clearClarityCache, getClarityPageMetrics } = await import("./clarity-api");
+      
+      // Clear the cache and fetch fresh data (uses 1 of 10 daily calls)
+      clearClarityCache();
+      const metrics = await getClarityPageMetrics();
+      
+      res.json({
+        success: true,
+        message: 'Clarity data refreshed successfully',
+        data: metrics,
+      });
+    } catch (error: any) {
+      res.status(500).json({ 
+        success: false,
+        error: error.message 
+      });
+    }
+  });
+
   // Google Ads API Routes
   app.get("/api/google-ads/status", async (_req, res) => {
     try {
