@@ -690,9 +690,9 @@ export class MemStorage implements IStorage {
         name: "Medicare", 
         logo: "/attached_assets/Medicare-Logo-1536x864_1761603097276.png",
         slug: "medicare-medicare-coverage",
-        pageTitle: "Find a Psychiatrist That Accepts Medicare",
-        heroTitle: "Find a Psychiatrist That Accepts Medicare",
-        heroDescription: "Expert psychiatrist that takes Medicare in Winter Park, FL. Our mental health clinic offers comprehensive psychiatric care, medication management, and anxiety and depression treatment for Medicare beneficiaries in the Orlando area.",
+        pageTitle: "We Accept Medicare - Mental Health Services in Winter Park FL",
+        heroTitle: "We Accept Medicare",
+        heroDescription: "Expert psychiatry and therapy services for Medicare beneficiaries in Winter Park, FL. Comprehensive mental health care, medication management, and anxiety and depression treatment covered by Medicare in the Orlando area.",
         description: "Empathy Health Clinic is proud to serve Medicare beneficiaries with expert psychiatric care. We accept Original Medicare (Part B), Medicare Advantage plans, and Medicare supplemental insurance. Our experienced team works to ensure you receive the mental health treatment you need with your Medicare benefits, making quality psychiatric care accessible and affordable for seniors and eligible individuals.",
         coverageDetails: "Medicare Part B covers outpatient mental health services including psychiatric evaluations (typically 80% coverage after deductible), medication management visits, individual therapy sessions, and telehealth appointments. We accept Original Medicare, Medicare Advantage (Part C) plans from major carriers including Humana, UnitedHealthcare, and Aetna, and Medicare Supplement (Medigap) policies. After you meet your Part B deductible ($240 for 2024), you typically pay 20% of the Medicare-approved amount for outpatient mental health services. Many Medicare Advantage plans offer enhanced mental health benefits with lower copays.",
         faqs: JSON.stringify([
