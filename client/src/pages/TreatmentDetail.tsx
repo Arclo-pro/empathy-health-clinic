@@ -12,6 +12,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ShortContactForm from "@/components/ShortContactForm";
 import forestBg from "@assets/stock_images/calm_forest_trees_me_62fae749.jpg";
 import darkTherapyBg from "@assets/stock_images/calm_peaceful_therap_b118766b.jpg";
+import professionalTherapyBg from "@assets/stock_images/therapy_session_coun_12fe243b.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
@@ -140,8 +141,10 @@ export default function TreatmentDetail() {
     "medicalSpecialty": "Psychiatry"
   };
 
-  // Use darker background for ADHD page for better text contrast
-  const heroBackgroundImage = treatment.slug === 'adhd-treatment' ? darkTherapyBg : forestBg;
+  // Use darker backgrounds for better text contrast
+  const heroBackgroundImage = treatment.slug === 'adhd-treatment' ? darkTherapyBg : 
+                               treatment.slug === 'esa-letter' ? professionalTherapyBg : 
+                               forestBg;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

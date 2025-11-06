@@ -255,272 +255,198 @@ export default function VirtualTherapy() {
           </div>
         </section>
 
-        {/* How It Works Section */}
-        <section className="py-16 md:py-20 bg-background">
-          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        {/* Team Section */}
+        <section className="py-16 md:py-20 bg-background border-y">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-center mb-4">
+              Meet Our Virtual Providers
+            </h2>
+            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+              Board-certified psychiatrists and licensed therapists available via secure telehealth
+            </p>
+            
+            {loadingTeam ? (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              </div>
+            ) : (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+                  {featuredMembers?.map((member, index) => (
+                    <div
+                      key={member.id}
+                      className="text-center space-y-4"
+                      data-testid={`team-member-${index}`}
+                    >
+                      <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6">
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="w-full h-full object-contain"
+                          loading="lazy"
+                          decoding="async"
+                          width={400}
+                          height={400}
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.parentElement?.querySelector('p');
+                            if (fallback) {
+                              fallback.classList.remove('hidden');
+                              fallback.classList.add('flex');
+                            }
+                          }}
+                        />
+                        <p className="text-sm md:text-base font-medium text-center text-muted-foreground hidden items-center justify-center h-full">
+                          Photo Placeholder
+                        </p>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-1">
+                          {member.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {member.credentials}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="text-center mt-12">
+                  <Button 
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    data-testid="button-view-all-team"
+                  >
+                    <Link href="/team">
+                      View All Providers
+                    </Link>
+                  </Button>
+                  <p className="text-sm text-muted-foreground mt-4">
+                    Telehealth appointments available throughout Florida
+                  </p>
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+
+        {/* Trust Factors Section */}
+        <section className="py-16 md:py-20 bg-card border-y">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
-                How Virtual Appointments Work
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Simple, secure, and effective telehealth in four easy steps
-              </p>
-            </div>
-
-            <div className="space-y-6">
-              <div className="space-y-4">
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Professional Mental Health Care from Anywhere in Florida
-                </h2>
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-foreground leading-relaxed mb-4">
-                    Empathy Health Clinic brings expert psychiatric care and therapy directly to you through secure telehealth appointments. Whether you're in Orlando, Miami, Tampa, Jacksonville, or anywhere in Florida, you can access the same high-quality mental health treatment from the comfort and privacy of your home.
-                  </p>
-                  <p className="text-foreground leading-relaxed">
-                    Our virtual psychiatry and therapy services are just as effective as in-person visits, offering convenience without compromising quality of care. All sessions are conducted through HIPAA-compliant video platforms to protect your privacy and confidentiality.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Virtual Services We Offer
-                </h2>
-                <div className="prose prose-lg max-w-none">
-                  <ul className="space-y-3 text-foreground">
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>Psychiatric Medication Management</strong> - Prescription and monitoring of psychiatric medications for depression, anxiety, ADHD, bipolar disorder, and more</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>Online Therapy & Counseling</strong> - CBT, DBT, trauma therapy, grief counseling, and other evidence-based therapies</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>Virtual EMDR Therapy</strong> - Trauma and PTSD treatment via secure telehealth</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>ADHD Evaluations</strong> - Comprehensive ADHD testing and diagnosis online</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>Follow-Up Care</strong> - Ongoing psychiatric follow-ups and medication adjustments</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <span><strong>Crisis Support</strong> - Urgent mental health consultations when you need help fast</span>
-                    </li>
-                  </ul>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Benefits of Virtual Psychiatry & Therapy
-                </h2>
-                <div className="grid sm:grid-cols-2 gap-6 mb-6">
-                  <div className="flex gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg h-fit">
-                      <Clock className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Save Time</h3>
-                      <p className="text-sm text-muted-foreground">No commute, no waiting room. Log in from home, work, or anywhere.</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg h-fit">
-                      <Calendar className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Flexible Scheduling</h3>
-                      <p className="text-sm text-muted-foreground">Evening and weekend appointments available</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg h-fit">
-                      <Shield className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">Privacy & Comfort</h3>
-                      <p className="text-sm text-muted-foreground">Receive care in the privacy of your own space</p>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <div className="p-3 bg-primary/10 rounded-lg h-fit">
-                      <Monitor className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-1">HIPAA Secure</h3>
-                      <p className="text-sm text-muted-foreground">Fully encrypted, compliant video platform</p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  How Virtual Appointments Work
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">1. Schedule Your Appointment</h3>
-                    <p className="text-muted-foreground">Contact us by phone or complete the form below to schedule your virtual visit. We'll confirm your appointment time and send you secure video link instructions.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">2. Join from Any Device</h3>
-                    <p className="text-muted-foreground">Use your smartphone, tablet, or computer. No special software needed - just click the secure link we provide.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">3. Meet with Your Provider</h3>
-                    <p className="text-muted-foreground">Your psychiatrist or therapist will conduct your appointment just like an in-person visit - discussing symptoms, creating treatment plans, and answering questions.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">4. Follow-Up Care</h3>
-                    <p className="text-muted-foreground">Prescriptions are sent electronically to your pharmacy. Schedule follow-ups as needed - all from the comfort of home.</p>
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Does insurance cover virtual psychiatry?</h3>
-                    <p className="text-muted-foreground">Yes! Most insurance plans, including Blue Cross Blue Shield, Cigna, Aetna, and UnitedHealthcare, cover telehealth psychiatry and therapy services. Contact us to verify your benefits.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Can I get prescriptions through virtual visits?</h3>
-                    <p className="text-muted-foreground">Absolutely. Our psychiatrists can prescribe and manage medications for depression, anxiety, ADHD, bipolar disorder, and other conditions during virtual appointments. Prescriptions are sent directly to your pharmacy.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Is virtual therapy as effective as in-person?</h3>
-                    <p className="text-muted-foreground">Research shows that telehealth therapy and psychiatry are just as effective as in-person treatment for most conditions. Many patients prefer the convenience and comfort of virtual care.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Who can I see for virtual appointments in Florida?</h3>
-                    <p className="text-muted-foreground">All Florida residents can access our virtual psychiatry and therapy services. Our providers are licensed in Florida and available statewide.</p>
-                  </div>
-                </div>
-              </section>
-
-              <section id="virtual-visit">
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Start Your Virtual Visit
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Click on your provider's card below to enter their virtual waiting room. Make sure you have a scheduled appointment before joining.
-                </p>
-                
-                {loadingTeam ? (
-                  <div className="flex items-center justify-center py-12">
-                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 gap-6 mb-8">
-                    {teamMembers?.map((member, index) => (
-                      <a
-                        key={member.id}
-                        href={member.doxyUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                        data-testid={`link-provider-${index}`}
-                        onClick={() => trackEvent('virtual_visit_click', 'conversion', 'Virtual Therapy Provider', member.name)}
-                      >
-                        <div
-                          className="bg-card border rounded-lg hover-elevate transition-all duration-200 cursor-pointer flex gap-4 p-4"
-                          data-testid={`provider-card-${index}`}
-                        >
-                          <div className="w-24 h-24 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-                            <Avatar className="w-full h-full rounded-lg">
-                              <AvatarImage 
-                                src={member.image} 
-                                alt={member.name} 
-                                className="object-cover w-full h-full" 
-                              />
-                              <AvatarFallback className="text-2xl rounded-lg">
-                                {member.name.split(' ').map(n => n[0]).join('')}
-                              </AvatarFallback>
-                            </Avatar>
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-lg font-sans font-bold text-foreground mb-1">
-                              {member.name}
-                            </h3>
-                            <p className="text-sm text-muted-foreground mb-3">
-                              {member.credentials}
-                            </p>
-                            <span className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
-                              <Video className="h-4 w-4" />
-                              Start Virtual Visit →
-                            </span>
-                          </div>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </section>
-            </div>
-
-            <div className="md:col-span-1 space-y-6">
-
-              <div className="bg-card border border-border rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Related Services
-                </h3>
-                <div className="space-y-3">
-                  <Link 
-                    href="/emdr-therapy" 
-                    className="block text-primary hover:underline underline-offset-2"
-                    data-testid="link-emdr"
-                  >
-                    → Virtual EMDR Therapy
-                  </Link>
-                  <Link 
-                    href="/adhd-treatment-winter-park" 
-                    className="block text-primary hover:underline underline-offset-2"
-                    data-testid="link-adhd"
-                  >
-                    → ADHD Treatment
-                  </Link>
-                  <Link 
-                    href="/anxiety-therapy" 
-                    className="block text-primary hover:underline underline-offset-2"
-                    data-testid="link-anxiety"
-                  >
-                    → Anxiety Therapy
-                  </Link>
-                  <Link 
-                    href="/depression-counseling" 
-                    className="block text-primary hover:underline underline-offset-2"
-                    data-testid="link-depression"
-                  >
-                    → Depression Counseling
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 bg-gradient-to-br from-primary/5 to-primary/10 border-2 border-primary/20 rounded-lg p-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-sans font-bold text-foreground mb-3">
                 Why Choose Empathy Health Clinic
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                 Professional, secure telehealth mental health care
               </p>
             </div>
-            <TrustFactors variant="compact" limit={4} />
+            <TrustFactors />
           </div>
-        </div>
+        </section>
+
+        {/* Trust Badges */}
+        <ReviewsAndBadges />
+
+        {/* Testimonials Section */}
+        <section className="py-12 md:py-16 lg:py-20 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-center mb-3">
+              Our Testimonials
+            </h2>
+            <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10">
+              Real reviews from patients who've received care at Empathy Health Clinic
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8">
+              {featuredTestimonials?.map((testimonial, index) => (
+                <div
+                  key={testimonial.id}
+                  className="rounded-xl border bg-card p-6 hover-elevate transition-all"
+                  data-testid={`testimonial-${index}`}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
+                      index % 6 === 0 ? 'bg-blue-500' :
+                      index % 6 === 1 ? 'bg-purple-500' :
+                      index % 6 === 2 ? 'bg-pink-500' :
+                      index % 6 === 3 ? 'bg-green-500' :
+                      index % 6 === 4 ? 'bg-orange-500' : 'bg-teal-500'
+                    }`}>
+                      {testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-foreground">{testimonial.name}</h3>
+                      <div className="flex items-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-4 w-4 ${
+                              i < testimonial.rating
+                                ? 'fill-yellow-400 text-yellow-400'
+                                : 'fill-muted text-muted'
+                            }`}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    "{testimonial.text}"
+                  </p>
+                  {testimonial.verified && (
+                    <div className="flex items-center gap-1 text-xs text-primary">
+                      <CheckCircle className="h-3 w-3" />
+                      <span>Verified Patient</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground">
+                Trusted by hundreds of patients throughout Florida
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 md:py-20 bg-card border-y">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
+              Ready to Start Virtual Therapy?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Schedule your secure telehealth appointment today. Same-week availability with board-certified psychiatrists and licensed therapists.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild
+                size="lg"
+                data-testid="button-cta-phone"
+              >
+                <a href="tel:3868488751" onClick={handlePhoneClick}>
+                  <Phone className="h-5 w-5 mr-2" />
+                  Call 386-848-8751
+                </a>
+              </Button>
+              <Button 
+                asChild
+                size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white border-green-600"
+                data-testid="button-cta-appointment"
+              >
+                <Link href="/request-appointment">
+                  Request Appointment
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>
