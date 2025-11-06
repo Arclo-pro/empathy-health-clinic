@@ -24,6 +24,19 @@ export const initMicrosoftClarity = () => {
     return;
   }
 
+  // Skip Clarity on admin pages to avoid recording internal admin work
+  const currentPath = window.location.pathname;
+  if (currentPath.startsWith('/admin') || currentPath.startsWith('/login')) {
+    console.log('🔒 Microsoft Clarity: Skipping initialization on admin/login pages');
+    return;
+  }
+
+  // Prevent duplicate script injection on hot reloads
+  if (typeof window.clarity !== 'undefined') {
+    console.log('⚠️ Microsoft Clarity: Already initialized, skipping duplicate injection');
+    return;
+  }
+
   console.log('✅ Microsoft Clarity: Initializing with Project ID:', clarityId.substring(0, 8) + '...');
 
   // Load Microsoft Clarity script
