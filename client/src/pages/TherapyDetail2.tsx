@@ -1,16 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRoute, Link } from "wouter";
-import { Loader2, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { Loader2, ArrowLeft, CheckCircle2, Star, CheckCircle, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import TrustFactors from "@/components/TrustFactors";
+import InsuranceSection from "@/components/InsuranceSection";
+import ReviewsAndBadges from "@/components/ReviewsAndBadges";
+import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import forestBg from "@assets/stock_images/misty_forest_morning_3efbbc1d.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
+import { trackEvent } from "@/lib/analytics";
 
 export default function TherapyDetail() {
   const [, params] = useRoute("/:slug");
@@ -114,22 +118,77 @@ export default function TherapyDetail() {
       <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />
       <main className="flex-1">
-        <HeroBackground imageSrc={forestBg}>
-          <Link 
-            href="/therapy" 
-            className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors" 
-            data-testid="link-back-to-therapies"
+        {/* Hero Section */}
+        <div className="relative py-20 px-4">
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${forestBg})` }}
           >
-            <ArrowLeft className="h-4 w-4" />
-            Back to All Therapies
-          </Link>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
-            {therapy.heroTitle}
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed" data-testid="text-hero-description">
-            {therapy.heroDescription}
-          </p>
-        </HeroBackground>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
+          </div>
+          
+          <div className="container mx-auto max-w-6xl relative z-10 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-hero-title">
+              {therapy.heroTitle}
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8" data-testid="text-hero-description">
+              {therapy.heroDescription}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white"
+                asChild 
+                data-testid="button-hero-request-appointment"
+                onClick={() => trackEvent('appointment_request', 'conversion', `${therapy.title} Page - Hero CTA`)}
+              >
+                <Link href="/request-appointment" className="flex items-center justify-center gap-2">
+                  <Mail className="h-5 w-5" />
+                  Request Appointment
+                </Link>
+              </Button>
+              <Button 
+                size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white"
+                asChild 
+                data-testid="button-hero-call"
+                onClick={() => trackEvent('phone_click', 'conversion', `${therapy.title} Page - Hero CTA`)}
+              >
+                <a href="tel:3868488751" className="flex items-center justify-center gap-2">
+                  <Phone className="h-5 w-5" />
+                  Call (386) 848-8751
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Benefits Bar */}
+        <section className="py-8 bg-card border-b">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 flex-wrap">
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-lg font-semibold text-foreground">4.8</span>
+                <span className="text-sm text-muted-foreground">Google Reviews</span>
+              </div>
+              <div className="hidden lg:block h-6 w-px bg-border" />
+              <VerifiedOnBadge />
+              <div className="hidden lg:block h-6 w-px bg-border" />
+              <div className="flex items-center gap-2 text-sm text-foreground">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span>Same-Week Appointments Available</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Insurance Section */}
+        <InsuranceSection />
 
         <div className="container mx-auto px-4 py-12 max-w-4xl">
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -249,14 +308,14 @@ export default function TherapyDetail() {
                   </p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-                  <Button size="lg" className="gap-2" asChild data-testid="button-request-appointment">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white gap-2" asChild data-testid="button-request-appointment">
                     <Link href="/request-appointment">
                       Request Appointment
                     </Link>
                   </Button>
-                  <Button size="lg" variant="outline" className="gap-2" asChild data-testid="button-call-now">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white gap-2" asChild data-testid="button-call-now">
                     <a href="tel:3868488751">
-                      <CheckCircle2 className="h-5 w-5" />
+                      <Phone className="h-5 w-5" />
                       Call (386) 848-8751
                     </a>
                   </Button>
@@ -291,6 +350,9 @@ export default function TherapyDetail() {
             <TrustFactors variant="compact" limit={4} />
           </div>
         </div>
+
+        {/* Trust Badges */}
+        <ReviewsAndBadges />
       </main>
       <SiteFooter />
     </div>
