@@ -100,7 +100,7 @@ function WinterParkTeamSection() {
 
 // Curated Winter Park Testimonials - showing first 3 reviews
 function WinterParkTestimonialsSection() {
-  const { data: testimonials } = useQuery<{ id: string; name: string; rating: number; review: string; date: string; verified: boolean; }[]>({
+  const { data: testimonials } = useQuery<{ id: string; name: string; rating: number; text: string; date: string; verified: boolean; }[]>({
     queryKey: ["/api/testimonials"],
   });
 
@@ -150,7 +150,7 @@ function WinterParkTestimonialsSection() {
                 </div>
               </div>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                "{testimonial.review}"
+                "{testimonial.text}"
               </p>
               {testimonial.verified && (
                 <div className="flex items-center gap-1 text-xs text-primary">
