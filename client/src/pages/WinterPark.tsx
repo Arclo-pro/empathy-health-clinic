@@ -396,15 +396,6 @@ export default function WinterPark() {
           </div>
         </section>
 
-        {/* Verified On Section */}
-        <section className="py-12 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="flex justify-center">
-              <VerifiedOnBadge />
-            </div>
-          </div>
-        </section>
-
         {/* Services Section */}
         <section className="py-16 md:py-20 bg-card border-y">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -516,6 +507,15 @@ export default function WinterPark() {
                   View All Services
                 </Link>
               </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Verified On Section */}
+        <section className="py-12 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex justify-center">
+              <VerifiedOnBadge />
             </div>
           </div>
         </section>
