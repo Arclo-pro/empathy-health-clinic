@@ -125,8 +125,7 @@ export default function ServicesPage() {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
-                className="bg-white/10 backdrop-blur-sm border-white/30 hover:bg-white/20 text-white hover:text-white"
+                className="bg-green-600 hover:bg-green-700 text-white"
                 asChild 
                 data-testid="button-hero-call"
                 onClick={() => trackEvent('phone_click', 'conversion', 'Services Page - Hero CTA')}
@@ -210,7 +209,7 @@ export default function ServicesPage() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Office Hours</h3>
                   <p className="text-sm text-muted-foreground">
-                    Mon-Fri: 9:00 AM - 6:00 PM<br />
+                    Mon-Sat: 9:00 AM - 6:00 PM<br />
                     Telehealth available
                   </p>
                   <p className="text-sm text-primary mt-1 font-medium">
