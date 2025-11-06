@@ -526,15 +526,15 @@ export default function BlogDetailPage() {
                       // Mid-page conversion CTA after 3rd H2 section (~60% through)
                       if (h2Count === 3) {
                         elements.push(
-                          <div key="mid-cta" className="my-12 p-8 bg-primary text-primary-foreground rounded-lg text-center" data-testid="mid-page-cta">
-                            <h3 className="text-2xl font-bold mb-4">Ready to Start Therapy?</h3>
-                            <p className="text-lg mb-6 opacity-95">
+                          <div key="mid-cta" className="my-12 p-10 bg-gradient-to-br from-green-600 to-green-700 rounded-xl text-center shadow-lg" data-testid="mid-page-cta">
+                            <h3 className="text-3xl font-bold mb-4 text-white">Ready to Start Therapy?</h3>
+                            <p className="text-lg mb-8 text-white/95 max-w-2xl mx-auto">
                               Take the first step toward feeling better. Our Orlando therapists specialize in evidence-based treatment for anxiety, depression, and more.
                             </p>
-                            <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90" data-testid="button-mid-cta">
+                            <Button asChild size="lg" className="bg-white text-green-700 hover:bg-white/95 font-semibold shadow-md" data-testid="button-mid-cta">
                               <Link href="/request-appointment">Schedule Your Appointment</Link>
                             </Button>
-                            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm opacity-90">
+                            <div className="mt-8 flex flex-wrap justify-center gap-8 text-sm text-white/95">
                               <span className="flex items-center gap-2">
                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
                                 Licensed Therapists

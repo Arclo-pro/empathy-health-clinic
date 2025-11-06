@@ -37,15 +37,8 @@ export default function HeroLeadForm() {
       });
     },
     onSuccess: () => {
-      toast({
-        title: "Request Submitted!",
-        description: "We'll contact you within 24 hours to schedule your appointment.",
-      });
-      // Reset form
-      setName("");
-      setEmail("");
-      setPhone("");
-      setService("");
+      // Redirect to thank you page for consistent user experience
+      window.location.href = '/thank-you';
     },
     onError: () => {
       toast({
