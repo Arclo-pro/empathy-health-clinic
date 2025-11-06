@@ -8,7 +8,7 @@ interface HeroBackgroundProps {
 
 export default function HeroBackground({ imageSrc, children, priority = false }: HeroBackgroundProps) {
   return (
-    <div className="relative py-16 px-4">
+    <div className="relative py-16 px-4 min-h-[400px]">
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={imageSrc}

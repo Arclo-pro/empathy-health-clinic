@@ -231,8 +231,44 @@ export default function BlogDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      <div className="min-h-screen flex flex-col bg-background">
+        <SiteHeader />
+        <main className="flex-1">
+          {/* Hero Skeleton */}
+          <div className="relative py-16 px-4 min-h-[400px] bg-muted">
+            <div className="container mx-auto max-w-4xl">
+              <div className="h-4 w-32 bg-muted-foreground/20 rounded mb-6 animate-pulse" />
+              <div className="h-12 w-3/4 bg-muted-foreground/20 rounded mb-4 animate-pulse" />
+              <div className="h-4 w-64 bg-muted-foreground/20 rounded animate-pulse" />
+            </div>
+          </div>
+          {/* Content Skeleton */}
+          <div className="container mx-auto px-4 py-12 max-w-7xl">
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 space-y-4">
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-5/6 bg-muted rounded animate-pulse" />
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-4/5 bg-muted rounded animate-pulse" />
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-3/4 bg-muted rounded animate-pulse" />
+                <div className="mt-8 h-8 w-2/3 bg-muted rounded animate-pulse" />
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-5/6 bg-muted rounded animate-pulse" />
+                <div className="h-6 w-full bg-muted rounded animate-pulse" />
+                <div className="h-6 w-4/5 bg-muted rounded animate-pulse" />
+              </div>
+              <aside className="lg:col-span-1">
+                <div className="sticky top-24 space-y-8 min-h-[600px]">
+                  <div className="h-64 w-full bg-muted rounded-lg animate-pulse" />
+                  <div className="h-48 w-full bg-muted rounded-lg animate-pulse" />
+                </div>
+              </aside>
+            </div>
+          </div>
+        </main>
+        <SiteFooter />
       </div>
     );
   }
@@ -274,7 +310,7 @@ export default function BlogDetailPage() {
       {detectedFAQs.length > 0 && <FAQSchema faqs={detectedFAQs} />}
       <SiteHeader />
       <main className="flex-1">
-        <div className="relative py-16 px-4">
+        <div className="relative py-16 px-4 min-h-[400px]">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${blogPost.featuredImage || forestBg})`, filter: 'brightness(1.3)' }}
@@ -456,7 +492,7 @@ export default function BlogDetailPage() {
               {relatedPosts.length > 0 && (
                 <section className="mt-16 pt-16 border-t" data-testid="section-related-articles">
                   <h2 className="text-3xl font-sans font-bold mb-8 text-foreground">Related Articles</h2>
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-2 gap-6 min-h-[300px]">
                     {relatedPosts.map((post, index) => (
                       <Link key={post.id} href={`/blog/${post.slug}`} data-testid={`link-related-article-${index}`}>
                         <Card className="h-full hover-elevate cursor-pointer">
@@ -485,7 +521,7 @@ export default function BlogDetailPage() {
             </div>
 
             <aside className="lg:col-span-1">
-              <div className="sticky top-24 space-y-8">
+              <div className="sticky top-24 space-y-8 min-h-[600px]">
                 <Card data-testid="card-author-bio">
                   <CardHeader>
                     <CardTitle className="text-xl font-sans">About the Author</CardTitle>
