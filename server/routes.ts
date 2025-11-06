@@ -101,11 +101,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     'wellness-guide-for-counselors',
     'finding-comfort-self-care-tips-for-those-who-are-grieving',
     'ltr-relationship-meaning-guide',
-    'hidden-anxiety-treatment-dbt-skills-you-can-use-at-home'
+    'hidden-anxiety-treatment-dbt-skills-you-can-use-at-home',
+    'how-to-improve-concentration-and-focus-expert-tips',
+    'top-10-best-low-stress-jobs',
+    'how-long-does-it-take-to-fall-in-love-timelines-what-to-expect',
+    'what-is-a-short-term-relationship',
+    'how-introverts-with-adhd-can-excel-in-the-workplace',
+    'how-to-be-productive',
+    'petulant-bpd-symptoms-and-treatment',
+    'how-to-get-wife-more-intimate',
+    'how-bipolar-disorder-impacts-interpersonal-dynamics',
+    'cbt-therapy-improving-mental-health-in-winter-park',
+    'signs-guy-pretending-straight',
+    'dating-someone-with-bpd',
+    'what-is-love-bombing',
+    'signs-of-attention-seeking-behavior',
+    'understanding-social-exhaustion-adhd-brain',
+    'who-cheats-more-men-or-women'
   ];
   
   guestPostSlugs.forEach(slug => {
     app.get(`/${slug}`, (req, res) => {
+      res.redirect(301, `/blog/${slug}`);
+    });
+    app.get(`/${slug}/`, (req, res) => {
       res.redirect(301, `/blog/${slug}`);
     });
   });
@@ -120,18 +139,51 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/blog");
   });
 
+  // WordPress tag pages - redirect to blog
+  app.get(/^\/tag\/.*/, (req, res) => {
+    res.redirect(301, "/blog");
+  });
+
+  // WordPress author pages - redirect to blog
+  app.get(/^\/author\/.*/, (req, res) => {
+    res.redirect(301, "/blog");
+  });
+
+  // WordPress date archives - redirect to blog
+  app.get(/^\/\d{4}\/\d{2}\/.*/, (req, res) => {
+    res.redirect(301, "/blog");
+  });
+
+  // Old therapy URL patterns (/therapy/X)
+  app.get("/therapy/intimacy-therapy-sexual-wellness", (req, res) => {
+    res.redirect(301, "/intimacy-therapy");
+  });
+  app.get("/therapy/intimacy-therapy-sexual-wellness/", (req, res) => {
+    res.redirect(301, "/intimacy-therapy");
+  });
+
+  // Dialectical behavioral therapy variations
+  app.get("/dialectical-behavioral-therapy", (req, res) => {
+    res.redirect(301, "/blog/dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing");
+  });
+  app.get("/dialectical-behavioral-therapy/", (req, res) => {
+    res.redirect(301, "/blog/dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing");
+  });
+
   // Location page redirects - old location naming patterns
   const locationRedirects = {
     // Therapy services locations that don't exist - redirect to main Orlando therapy page
     'therapy-services-oviedo': 'therapy-services-orlando',
     'therapy-services-richmond-heights': 'therapy-services-orlando',
     'therapy-services-apopka': 'therapy-services-orlando',
+    'therapy-services-pine-hills': 'therapy-services-orlando',
     
     // Psychiatry locations - redirect to correct slug or closest alternative
     'psychiatry-aloma': 'psychiatrist-orlando',
     'psychiatry-fairview-shores': 'psychiatrist-orlando',
     'psychiatry-pine-hills': 'psychiatrist-orlando',
     'psychiatry-richmond-heights': 'psychiatrist-orlando',
+    'psychiatry-lockhart': 'psychiatrist-orlando',
     
     // Fix old naming pattern (psychiatry vs psychiatrist)
     'psychiatry-altamonte-springs': 'psychiatrist-altamonte-springs',

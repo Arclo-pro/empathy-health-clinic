@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { Link } from "wouter";
 import SiteHeader from "@/components/SiteHeader";
 import HeroSection from "@/components/HeroSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
@@ -122,6 +123,134 @@ export default function Home() {
         </section>
         <AboutSection />
         <TreatmentsSection />
+        
+        <section className="py-12 md:py-16 bg-background border-y">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
+                Specialized Therapy Services
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Evidence-based therapeutic approaches to help you thrive
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Link 
+                href="/cognitive-behavioral-therapy" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-cbt-therapy"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  Cognitive Behavioral Therapy (CBT)
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Transform negative thought patterns and behaviors with proven CBT techniques
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/anger-management" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-anger-management"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  Anger Management
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Learn healthy ways to manage and express anger constructively
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/ptsd-treatment" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-ptsd-treatment"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  PTSD Treatment
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Specialized trauma therapy to help you heal and move forward
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/esa-letter" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-esa-letter"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  ESA Letter
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Get a legitimate emotional support animal letter from licensed professionals
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/concentration-and-focus-therapy" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-concentration-therapy"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  Focus & Concentration Therapy
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Improve attention, focus, and productivity through targeted interventions
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/virtual-counseling-services" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-virtual-counseling"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  Virtual Counseling
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Access quality mental health care from the comfort of your home
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/in-person-therapy" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-in-person-therapy"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  In-Person Therapy
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Face-to-face therapy sessions at our Winter Park location
+                </p>
+                <span className="text-sm text-primary font-medium">Learn More →</span>
+              </Link>
+
+              <Link 
+                href="/services" 
+                className="group p-6 rounded-lg border border-border bg-card hover-elevate transition-all"
+                data-testid="link-view-all-services"
+              >
+                <h3 className="text-lg font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
+                  View All Services
+                </h3>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Explore our complete range of mental health services
+                </p>
+                <span className="text-sm text-primary font-medium">See All →</span>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <ApproachSection />
         <div className="border-t" />
         <ComparisonSection />

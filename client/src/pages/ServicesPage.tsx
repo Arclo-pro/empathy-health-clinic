@@ -334,7 +334,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {therapies?.slice(0, 6).map((therapy, index) => (
+              {therapies?.map((therapy, index) => (
                 <Link 
                   key={therapy.id} 
                   href={`/${therapy.slug}`} 
@@ -362,16 +362,6 @@ export default function ServicesPage() {
                 </Link>
               ))}
             </div>
-
-            {therapies && therapies.length > 6 && (
-              <div className="text-center mt-8">
-                <Button size="lg" variant="outline" asChild data-testid="button-view-all-therapies">
-                  <Link href="/therapy">
-                    View All Therapy Services
-                  </Link>
-                </Button>
-              </div>
-            )}
           </div>
         </section>
 
