@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { CheckCircle2, Monitor, Shield, Calendar, Clock } from "lucide-react";
+import { CheckCircle2, Monitor, Shield, Calendar, Clock, Video, Loader2 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useQuery } from "@tanstack/react-query";
+import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
@@ -10,6 +13,12 @@ import heroImage from "@assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
 
 export default function VirtualTherapy() {
+  const { data: allTeamMembers, isLoading: loadingTeam } = useQuery<TeamMember[]>({
+    queryKey: ["/api/team-members"],
+  });
+
+  // Filter out Dr. Glenn from virtual visits
+  const teamMembers = allTeamMembers?.filter(member => member.slug !== 'dr-robert-glenn');
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
@@ -221,6 +230,65 @@ export default function VirtualTherapy() {
                     <p className="text-muted-foreground">All Florida residents can access our virtual psychiatry and therapy services. Our providers are licensed in Florida and available statewide.</p>
                   </div>
                 </div>
+              </section>
+
+              <section id="virtual-visit">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  Start Your Virtual Visit
+                </h2>
+                <p className="text-muted-foreground mb-6">
+                  Click on your provider's card below to enter their virtual waiting room. Make sure you have a scheduled appointment before joining.
+                </p>
+                
+                {loadingTeam ? (
+                  <div className="flex items-center justify-center py-12">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 gap-6 mb-8">
+                    {teamMembers?.map((member, index) => (
+                      <a
+                        key={member.id}
+                        href={member.doxyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                        data-testid={`link-provider-${index}`}
+                        onClick={() => trackEvent('virtual_visit_click', 'conversion', 'Virtual Therapy Provider', member.name)}
+                      >
+                        <div
+                          className="bg-card border rounded-lg hover-elevate transition-all duration-200 cursor-pointer flex gap-4 p-4"
+                          data-testid={`provider-card-${index}`}
+                        >
+                          <div className="w-24 h-24 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
+                            <Avatar className="w-full h-full rounded-lg">
+                              <AvatarImage 
+                                src={member.image} 
+                                alt={member.name} 
+                                className="object-cover w-full h-full" 
+                              />
+                              <AvatarFallback className="text-2xl rounded-lg">
+                                {member.name.split(' ').map(n => n[0]).join('')}
+                              </AvatarFallback>
+                            </Avatar>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-lg font-sans font-bold text-foreground mb-1">
+                              {member.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground mb-3">
+                              {member.credentials}
+                            </p>
+                            <span className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                              <Video className="h-4 w-4" />
+                              Start Virtual Visit →
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                )}
               </section>
             </div>
 

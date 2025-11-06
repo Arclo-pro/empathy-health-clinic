@@ -19,7 +19,6 @@ const TeamPage = lazy(() => import("@/pages/TeamPage"));
 const TeamMemberDetail = lazy(() => import("@/pages/TeamMemberDetail"));
 const ServicesPage = lazy(() => import("@/pages/ServicesPage"));
 const RequestAppointment = lazy(() => import("@/pages/RequestAppointment"));
-const VirtualVisit = lazy(() => import("@/pages/VirtualVisit"));
 const NewPatients = lazy(() => import("@/pages/NewPatients"));
 const AffordableCare = lazy(() => import("@/pages/AffordableCare"));
 const Pricing = lazy(() => import("@/pages/Pricing"));
@@ -140,11 +139,6 @@ function Router() {
         <Route path="/request-appointment">
           <Suspense fallback={<LoadingFallback />}>
             <RequestAppointment />
-          </Suspense>
-        </Route>
-        <Route path="/virtual-visit">
-          <Suspense fallback={<LoadingFallback />}>
-            <VirtualVisit />
           </Suspense>
         </Route>
         <Route path="/new-patients">

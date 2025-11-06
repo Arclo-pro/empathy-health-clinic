@@ -54,7 +54,7 @@ export default function SEOOptimization() {
     {
       keyword: "online therapy orlando",
       opportunity: "High",
-      action: "Optimize /virtual-visit page with more telehealth keywords",
+      action: "Optimize /virtual-therapy page with more telehealth keywords",
       priority: 1,
     },
     {

@@ -48,7 +48,7 @@ export default function SiteFooter() {
     { label: "Insurance", href: "/insurance" },
     { label: "Team", href: "/team" },
     { label: "Blog", href: "/blog" },
-    { label: "Virtual Visit", href: "/virtual-visit" },
+    { label: "Virtual Therapy", href: "/virtual-therapy" },
     { label: "Request Appointment", href: "/request-appointment" }
   ];
 

@@ -64,6 +64,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/therapy");
   });
   
+  // Duplicate content redirect: /virtual-visit → /virtual-therapy
+  app.get("/virtual-visit", (req, res) => {
+    res.redirect(301, "/virtual-therapy");
+  });
+  app.get("/virtual-visit/", (req, res) => {
+    res.redirect(301, "/virtual-therapy");
+  });
+  
   // Legacy URL redirects for SEO (catch-all patterns - MOVED to end of file to avoid overriding specific redirects)
   
   // WordPress URL redirects
@@ -2032,7 +2040,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
       // Main pages
-      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-visit', '/request-appointment', '/psychotherapist-orlando'];
+      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando'];
       mainPages.forEach(page => {
         xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
       });
