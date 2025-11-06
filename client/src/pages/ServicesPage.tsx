@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
-import { Loader2, FileText, PawPrint, Brain, Stethoscope, ArrowRight, MapPin, Phone, Clock, CheckCircle2, Mail } from "lucide-react";
+import { Loader2, FileText, PawPrint, Brain, Stethoscope, ArrowRight, MapPin, Phone, Clock, CheckCircle2, Mail, Star, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -9,6 +9,9 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import TrustFactors from "@/components/TrustFactors";
+import InsuranceSection from "@/components/InsuranceSection";
+import ReviewsAndBadges from "@/components/ReviewsAndBadges";
+import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroLeadForm from "@/components/HeroLeadForm";
 import forestBg from "@assets/stock_images/calm_forest_trees_me_0c56a0e8.jpg";
 import { trackEvent } from "@/lib/analytics";
@@ -110,6 +113,7 @@ export default function ServicesPage() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
               <Button 
                 size="lg" 
+                className="bg-green-600 hover:bg-green-700 text-white"
                 asChild 
                 data-testid="button-hero-request-appointment"
                 onClick={() => trackEvent('appointment_request', 'conversion', 'Services Page - Hero CTA')}
@@ -135,6 +139,30 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
+
+        {/* Key Benefits Bar */}
+        <section className="py-8 bg-card border-b">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-6 flex-wrap">
+              <div className="flex items-center gap-2">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-lg font-semibold text-foreground">4.8</span>
+                <span className="text-sm text-muted-foreground">Google Reviews</span>
+              </div>
+              <div className="hidden lg:block h-6 w-px bg-border" />
+              <VerifiedOnBadge />
+              <div className="hidden lg:block h-6 w-px bg-border" />
+              <div className="flex items-center gap-2 text-sm text-foreground">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                <span>Same-Week Appointments Available</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Location & Contact Banner - Optimized for "mental health clinic near me" */}
         <section className="py-8 bg-primary/5 border-y">
@@ -194,6 +222,9 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Insurance Section */}
+        <InsuranceSection />
 
         {/* Lead Form Section */}
         <section className="py-12 bg-background border-b">
@@ -421,6 +452,9 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Trust Badges */}
+        <ReviewsAndBadges />
       </main>
       <SiteFooter />
     </div>
