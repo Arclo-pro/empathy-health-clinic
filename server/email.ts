@@ -219,8 +219,12 @@ Empathy Health Clinic | 2281 Lee Rd Suite 102, Winter Park FL | (386) 848-8751
 
   const msg = {
     to: TO_EMAILS,
-    from: FROM_EMAIL,
-    subject: `Appointment Request: ${fullName} - Empathy Health Clinic`,
+    from: {
+      email: FROM_EMAIL,
+      name: 'Empathy Health Clinic'
+    },
+    replyTo: 'providers@empathyhealthclinic.com',
+    subject: `New Appointment Request: ${fullName}`,
     text: textContent,
     html: htmlContent,
   };
@@ -350,8 +354,12 @@ Visit Website: https://empathyhealthclinic.com
   const promises = subscribers.map(subscriber => {
     const msg = {
       to: subscriber.email,
-      from: FROM_EMAIL,
-      subject: 'Latest Mental Health & Wellness Articles - Empathy Health Clinic',
+      from: {
+        email: FROM_EMAIL,
+        name: 'Empathy Health Clinic'
+      },
+      replyTo: 'providers@empathyhealthclinic.com',
+      subject: 'Latest Mental Health & Wellness Articles',
       text: textContent,
       html: htmlContent,
     };

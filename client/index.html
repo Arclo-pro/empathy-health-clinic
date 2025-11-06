@@ -14,44 +14,33 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/png" href="/favicon.png" />
     
-    <!-- CRITICAL LCP OPTIMIZATION: Preload actual hero image used in HeroSection -->
+    <!-- CRITICAL LCP OPTIMIZATION: Preload hero image and logo -->
     <link rel="preload" as="image" href="/attached_assets/image_1761934471053.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/attached_assets/image_1761934454982.png" fetchpriority="high" />
     
-    <!-- CRITICAL: Preconnect to fonts domain for faster font loading -->
+    <!-- CRITICAL: Preconnect to fonts and analytics domains for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     
     <!-- Load fonts asynchronously with display=swap to prevent FOIT and reduce TBT -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
     
-    <!-- DNS prefetch for analytics (loaded after window.load) -->
+    <!-- CRITICAL LCP OPTIMIZATION: DNS prefetch only (scripts load deferred in App.tsx) -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
     <link rel="dns-prefetch" href="https://connect.facebook.net" />
     
-    <!-- Google tag (gtag.js) - Loaded in HTML for reliable detection -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10824864818"></script>
+    <!-- REMOVED: Google Analytics/Ads scripts moved to deferred loading in App.tsx for better LCP -->
+    <!-- Analytics now load after page is fully rendered via requestIdleCallback -->
+    
+    <!-- Initialize gtag stub to prevent errors before full script loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-10824864818');
-      gtag('config', 'G-JKLLK1WJ47');
-    </script>
-    
-    <!-- CRITICAL TBT OPTIMIZATION: Delay Ahrefs Analytics until after window.load -->
-    <script>
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          var s = document.createElement('script');
-          s.async = true;
-          s.src = 'https://analytics.ahrefs.com/analytics.js';
-          s.setAttribute('data-key', 'UwaotSgl+e0M6ZzvV4xHYA');
-          document.head.appendChild(s);
-        }, 1000);
-      });
     </script>
   </head>
   <body>
