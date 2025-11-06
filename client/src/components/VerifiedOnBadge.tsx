@@ -31,21 +31,21 @@ export default function VerifiedOnBadge() {
         {VERIFICATION_BADGES.map((platform) => (
           <div
             key={platform.name}
-            className={`flex items-center justify-center ${
-              platform.name === "Google" ? "h-4 w-auto" : "h-5 w-auto"
-            }`}
+            className="flex items-center justify-center w-auto"
             data-testid={`verified-badge-${platform.name.toLowerCase()}`}
           >
             <img 
               src={platform.logo} 
               alt={platform.alt}
               className={`object-contain opacity-90 ${
-                platform.name === "Healthgrades" || platform.name === "Zocdoc" 
-                  ? "h-5" 
+                platform.name === "Healthgrades" 
+                  ? "h-10" 
+                  : platform.name === "Zocdoc"
+                  ? "h-5"
                   : "h-4"
               }`}
               style={{ 
-                maxHeight: platform.name === "Google" ? "16px" : "20px",
+                maxHeight: platform.name === "Healthgrades" ? "40px" : platform.name === "Google" ? "16px" : "20px",
                 width: "auto"
               }}
             />
