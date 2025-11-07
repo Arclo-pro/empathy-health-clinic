@@ -85,6 +85,8 @@ export default function TrustFactors({ variant = "grid", limit }: TrustFactorsPr
                   src={factor.logo} 
                   alt={factor.title}
                   className="h-6 w-auto object-contain"
+                  width={120}
+                  height={24}
                 />
               ) : factor.icon ? (
                 <factor.icon className="h-6 w-6 text-primary" />
@@ -116,6 +118,8 @@ export default function TrustFactors({ variant = "grid", limit }: TrustFactorsPr
                 src={factor.logo} 
                 alt={factor.title}
                 className="h-8 w-auto object-contain max-w-[8rem]"
+                width={128}
+                height={32}
               />
             ) : factor.icon ? (
               <factor.icon className="h-8 w-8 text-primary" />

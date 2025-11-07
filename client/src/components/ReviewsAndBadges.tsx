@@ -62,6 +62,8 @@ export default function ReviewsAndBadges() {
                   src={platform.logo} 
                   alt={platform.alt}
                   className="max-h-full max-w-full object-contain"
+                  width={platform.name === "Healthgrades" ? 240 : 112}
+                  height={platform.name === "Healthgrades" ? 120 : 56}
                 />
               </div>
             ))}

@@ -99,7 +99,7 @@ export default function HeroSection() {
                   ))}
                 </div>
                 <span className="text-foreground font-semibold text-sm">4.8 EXCELLENT</span>
-                <img src={googleLogo} alt="Google" className="h-3 w-auto object-contain" data-testid="badge-google" style={{ filter: 'saturate(1.3) contrast(1.1)' }} />
+                <img src={googleLogo} alt="Google" className="h-3 w-auto object-contain" width={52} height={18} data-testid="badge-google" style={{ filter: 'saturate(1.3) contrast(1.1)' }} />
               </div>
             </div>
             <div className="bg-white/80 backdrop-blur-sm rounded-lg px-6 py-3 shadow-md">
@@ -111,6 +111,8 @@ export default function HeroSection() {
                     src={provider.logo}
                     alt={provider.name}
                     className="h-6 w-auto object-contain"
+                    width={80}
+                    height={24}
                   />
                 ))}
               </div>

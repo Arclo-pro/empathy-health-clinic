@@ -37,6 +37,8 @@ export default function InsuranceSection() {
                   src={provider.logo} 
                   alt={provider.name}
                   className="max-w-full max-h-full object-contain"
+                  width={160}
+                  height={96}
                   loading="lazy"
                   decoding="async"
                   onError={(e) => {
