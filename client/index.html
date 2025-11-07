@@ -42,6 +42,71 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
     </script>
+    
+    <!-- Remove LiveChat on Mobile Devices -->
+    <script>
+      (function() {
+        // Detect mobile devices
+        function isMobile() {
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                 || window.innerWidth <= 768;
+        }
+        
+        // Remove LiveChat if on mobile
+        if (isMobile()) {
+          // Prevent LiveChat from loading
+          window.__lc = { asyncInit: false };
+          
+          // Remove LiveChat elements if they exist
+          function removeLiveChat() {
+            // Remove LiveChat widget
+            const liveChatWidget = document.querySelector('#chat-widget-container');
+            if (liveChatWidget) {
+              liveChatWidget.remove();
+            }
+            
+            // Remove LiveChat iframe
+            const liveChatIframe = document.querySelector('iframe[title*="chat" i], iframe[src*="livechat" i]');
+            if (liveChatIframe) {
+              liveChatIframe.remove();
+            }
+            
+            // Remove LiveChat button
+            const liveChatButton = document.querySelector('[id*="livechat" i], [class*="livechat" i]');
+            if (liveChatButton && liveChatButton.id !== 'root') {
+              liveChatButton.remove();
+            }
+          }
+          
+          // Run immediately
+          removeLiveChat();
+          
+          // Run after DOM loads
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', removeLiveChat);
+          }
+          
+          // Run periodically to catch late-loading widgets
+          setInterval(removeLiveChat, 1000);
+        }
+      })();
+    </script>
+    
+    <!-- Hide LiveChat on mobile with CSS -->
+    <style>
+      @media (max-width: 768px) {
+        #chat-widget-container,
+        iframe[title*="chat" i],
+        iframe[src*="livechat" i],
+        [id*="livechat" i]:not(#root),
+        [class*="livechat" i] {
+          display: none !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
