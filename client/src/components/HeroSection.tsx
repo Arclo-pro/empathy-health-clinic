@@ -105,16 +105,20 @@ export default function HeroSection() {
             <div className="bg-white/80 backdrop-blur-sm rounded-lg px-6 py-3 shadow-md">
               <div className="flex items-center gap-3">
                 <span className="text-foreground font-semibold text-sm">Most Insurances Accepted</span>
-                {insuranceProviders?.slice(0, 3).map((provider) => (
-                  <img
-                    key={provider.id}
-                    src={provider.logo}
-                    alt={provider.name}
-                    className="h-6 w-auto object-contain"
-                    width={80}
-                    height={24}
-                  />
-                ))}
+                <div className="flex items-center gap-3 min-w-[240px]">
+                  {insuranceProviders?.slice(0, 3).map((provider) => (
+                    <img
+                      key={provider.id}
+                      src={provider.logo}
+                      alt={provider.name}
+                      className="h-6 w-20 object-contain"
+                      width={80}
+                      height={24}
+                      loading="eager"
+                      decoding="sync"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>

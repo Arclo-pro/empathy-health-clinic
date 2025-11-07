@@ -256,7 +256,7 @@ export default function Home() {
         <ComparisonSection />
         <ReviewsAndBadges />
         <div className="border-t" />
-        <Suspense fallback={<div className="py-20" />}>
+        <Suspense fallback={<div className="min-h-[2400px] py-20 bg-background" />}>
           <TestimonialsSection />
           <div className="border-t" />
           <TeamSection />
