@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -6,8 +6,26 @@ import type { SiteContent } from "@shared/schema";
 import logoImage from "@assets/image_1761920964846.png";
 import { trackEvent } from "@/lib/analytics";
 
+function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    media.addEventListener("change", listener);
+    return () => media.removeEventListener("change", listener);
+  }, [matches, query]);
+
+  return matches;
+}
+
 export default function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isTablet = useMediaQuery("(min-width: 768px)");
 
   const { data: content } = useQuery<SiteContent>({
     queryKey: ["/api/site-content"],
@@ -24,7 +42,7 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/95 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           <div className="flex items-center">
             <a 
               href="/" 
@@ -34,75 +52,97 @@ export default function SiteHeader() {
               <img 
                 src={logoImage} 
                 alt="Empathy Health Clinic" 
-                className="h-16 md:h-20 w-auto"
+                className="h-16 lg:h-20 w-auto"
               />
             </a>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                className="text-base font-medium text-foreground hover:text-primary transition-colors"
-                data-testid={`link-nav-${index}`}
-                onClick={(e) => {
-                  if (item.href.startsWith('#')) {
-                    e.preventDefault();
-                    console.log(`Navigate to ${item.label}`);
-                  }
-                }}
+          {isDesktop && (
+            <nav className="flex items-center space-x-6 xl:space-x-8">
+              {navItems.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="text-sm xl:text-base font-medium text-foreground hover:text-primary transition-colors whitespace-nowrap"
+                  data-testid={`link-nav-${index}`}
+                  onClick={(e) => {
+                    if (item.href.startsWith('#')) {
+                      e.preventDefault();
+                      console.log(`Navigate to ${item.label}`);
+                    }
+                  }}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          )}
+          
+          {isTablet && (
+            <div className="flex items-center gap-3 lg:gap-4">
+              {isDesktop && (
+                <>
+                  <a 
+                    href={`tel:${phone.replace(/[^0-9]/g, '')}`}
+                    className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
+                    data-testid="link-header-phone"
+                    onClick={() => trackEvent('phone_click', 'conversion', 'Header Phone', phone)}
+                  >
+                    <Phone className="h-4 w-4" />
+                    <span className="text-sm">{phone}</span>
+                  </a>
+                  <div className="h-6 w-px bg-border" />
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    asChild
+                    data-testid="button-admin-link"
+                  >
+                    <a href="https://www.charmhealth.com/ehr/sign-in.html" target="_blank" rel="noopener noreferrer">
+                      Patient Portal
+                    </a>
+                  </Button>
+                </>
+              )}
+              <Button
+                size="default"
+                data-testid="button-header-appointment"
+                onClick={() => window.location.href = '/request-appointment'}
+                className="text-sm md:text-base"
               >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+                Request Appointment
+              </Button>
+            </div>
+          )}
           
-          <div className="hidden md:flex items-center gap-4">
-            <a 
-              href={`tel:${phone.replace(/[^0-9]/g, '')}`}
-              className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium"
-              data-testid="link-header-phone"
-              onClick={() => trackEvent('phone_click', 'conversion', 'Header Phone', phone)}
-            >
-              <Phone className="h-4 w-4" />
-              <span className="text-sm">{phone}</span>
-            </a>
-            <div className="h-6 w-px bg-border" />
-            <Button
-              variant="ghost"
-              size="sm"
-              asChild
-              data-testid="button-admin-link"
-            >
-              <a href="https://www.charmhealth.com/ehr/sign-in.html" target="_blank" rel="noopener noreferrer">
-                Patient Portal
-              </a>
-            </Button>
-            <Button
-              size="default"
-              data-testid="button-header-appointment"
-              onClick={() => window.location.href = '/request-appointment'}
-            >
-              Request Appointment
-            </Button>
-          </div>
-          
-          <div className="flex md:hidden items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
+          {!isDesktop && (
+            <div className="flex items-center gap-2 md:gap-3">
+              {isTablet && (
+                <a 
+                  href={`tel:${phone.replace(/[^0-9]/g, '')}`}
+                  className="flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
+                  data-testid="link-header-phone-tablet"
+                  onClick={() => trackEvent('phone_click', 'conversion', 'Header Phone Tablet', phone)}
+                >
+                  <Phone className="h-4 w-4" />
+                  <span className="text-xs">{phone}</span>
+                </a>
+              )}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                data-testid="button-mobile-menu"
+              >
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
+          )}
         </div>
       </div>
       
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background">
+      {mobileMenuOpen && !isDesktop && (
+        <div className="border-t border-border bg-background">
           <div className="px-6 py-4 space-y-4">
             <a 
               href={`tel:${phone.replace(/[^0-9]/g, '')}`}
