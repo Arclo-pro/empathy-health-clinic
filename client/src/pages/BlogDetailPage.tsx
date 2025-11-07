@@ -13,6 +13,15 @@ import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
 import forestBg from "@assets/stock_images/misty_forest_morning_c7552d0a.jpg";
 
+function optimizeUnsplashUrl(url: string, width: number, height: number): string {
+  if (!url || !url.includes('unsplash.com')) {
+    return url;
+  }
+  
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}w=${width}&h=${height}&q=80&fm=webp&fit=crop&auto=format`;
+}
+
 function stripHtmlTags(text: string): string {
   let cleaned = text;
   
@@ -346,6 +355,10 @@ export default function BlogDetailPage() {
 
   const showLastUpdated = blogPost.lastUpdated && blogPost.lastUpdated !== blogPost.publishedDate;
 
+  const optimizedHeroImage = blogPost.featuredImage 
+    ? optimizeUnsplashUrl(blogPost.featuredImage, 1200, 600)
+    : forestBg;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -358,21 +371,22 @@ export default function BlogDetailPage() {
         publishedDate={blogPost.publishedDate}
         modifiedDate={blogPost.lastUpdated || blogPost.publishedDate}
         author={blogPost.author}
-        preloadImage={blogPost.featuredImage || forestBg}
+        preloadImage={optimizedHeroImage}
       />
       {detectedFAQs.length > 0 && <FAQSchema faqs={detectedFAQs} />}
       <SiteHeader />
       <main className="flex-1">
         <div className="relative py-16 px-4 min-h-[400px] overflow-hidden">
           <img
-            src={blogPost.featuredImage || forestBg}
+            src={optimizedHeroImage}
             alt={blogPost.title}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: 'brightness(1.3)' }}
             loading="eager"
             fetchpriority="high"
+            decoding="async"
             width={1200}
-            height={400}
+            height={600}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
           <div className="container mx-auto max-w-4xl relative z-10">
