@@ -1,6 +1,6 @@
 import { Shield, Award, Calendar, Heart, Users, CheckCircle, Lock, Sparkles } from "lucide-react";
-import psychologyTodayLogo from "@assets/image_1761922062341.png";
-import goodTherapyLogo from "@assets/image_1761922436191.png";
+import psychologyTodayLogo from "@assets/image_1761922062341.webp";
+import goodTherapyLogo from "@assets/image_1761922436191.webp";
 
 interface TrustFactor {
   icon?: React.ElementType;

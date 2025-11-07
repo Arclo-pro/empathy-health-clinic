@@ -2,8 +2,8 @@ import zocdocLogo from "@assets/logo_lockup_positive_rgb_1761921702261.png";
 import googleLogo from "@assets/google-wordmark.webp";
 import healthgradesLogo from "@assets/healthgrades-logo.png";
 import yelpLogo from "@assets/image_1761925935867.png";
-import goodTherapyLogo from "@assets/image_1761927553793.png";
-import scoreMyReviewsLogo from "@assets/image_1761927693804.png";
+import goodTherapyLogo from "@assets/image_1761927553793.webp";
+import scoreMyReviewsLogo from "@assets/image_1761927693804.webp";
 
 const PLATFORM_BADGES = [
   {
