@@ -62,14 +62,13 @@ export default function EMDRTherapy() {
               <a href="#contact-form">Start Your Healing Journey</a>
             </Button>
             <Button 
-              variant="outline" 
               size="lg" 
               asChild 
-              className="bg-background/20 backdrop-blur-sm border-white/30 text-white hover:bg-background/30"
+              className="bg-green-600 hover:bg-green-700 text-white"
               data-testid="button-hero-phone"
               onClick={() => trackEvent('phone_click', 'conversion', 'EMDR Page - Hero')}
             >
-              <a href="tel:386-848-8751">Call 386-848-8751</a>
+              <a href="tel:3868488751">Call 386-848-8751</a>
             </Button>
           </div>
         </HeroBackground>

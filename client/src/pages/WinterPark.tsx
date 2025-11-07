@@ -254,6 +254,7 @@ export default function WinterPark() {
               <Button 
                 asChild
                 size="lg"
+                className="bg-green-600 hover:bg-green-700 text-white"
                 data-testid="button-call-now-hero"
               >
                 <a href="tel:3868488751" onClick={handlePhoneClick}>
@@ -263,8 +264,9 @@ export default function WinterPark() {
               </Button>
               <Button 
                 asChild
+                variant="outline"
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white border-green-600"
+                className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20"
                 data-testid="button-request-appointment-hero"
               >
                 <Link href="/request-appointment">
