@@ -44,6 +44,8 @@ export default function VerifiedOnBadge() {
                   ? "h-5"
                   : "h-4"
               }`}
+              width={platform.name === "Healthgrades" ? 120 : platform.name === "Zocdoc" ? 80 : 52}
+              height={platform.name === "Healthgrades" ? 60 : platform.name === "Zocdoc" ? 20 : 16}
               style={{ 
                 maxHeight: platform.name === "Healthgrades" ? "60px" : platform.name === "Google" ? "16px" : "20px",
                 width: "auto"

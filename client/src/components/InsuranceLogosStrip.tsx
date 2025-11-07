@@ -25,6 +25,8 @@ export default function InsuranceLogosStrip() {
                 src={provider.logo} 
                 alt={`${provider.name} accepted`}
                 className="max-h-full max-w-full object-contain"
+                width={112}
+                height={56}
               />
             </div>
           ))}
