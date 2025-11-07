@@ -12,6 +12,7 @@ interface SEOHeadProps {
   author?: string;
   jsonLd?: object;
   pageDesignType?: string;
+  preloadImage?: string;
 }
 
 export default function SEOHead({
@@ -26,6 +27,7 @@ export default function SEOHead({
   author,
   jsonLd,
   pageDesignType,
+  preloadImage,
 }: SEOHeadProps) {
   useEffect(() => {
     document.title = title;
@@ -112,6 +114,23 @@ export default function SEOHead({
     }
     canonicalLink.setAttribute("href", currentUrl);
 
+    // Preload critical LCP image for better performance
+    let preloadLink = document.querySelector('link[rel="preload"][data-seo-head="true"]');
+    if (preloadImage) {
+      if (!preloadLink) {
+        preloadLink = document.createElement("link");
+        preloadLink.setAttribute("rel", "preload");
+        preloadLink.setAttribute("as", "image");
+        preloadLink.setAttribute("fetchpriority", "high");
+        preloadLink.setAttribute("data-seo-head", "true");
+        document.head.appendChild(preloadLink);
+      }
+      preloadLink.setAttribute("href", preloadImage);
+    } else if (preloadLink) {
+      preloadLink.remove();
+      preloadLink = null;
+    }
+
     // Add JSON-LD structured data
     let jsonLdScript = document.querySelector('script[type="application/ld+json"][data-seo-head="true"]');
     if (jsonLd) {
@@ -143,8 +162,13 @@ export default function SEOHead({
       if (jsonLdScript && jsonLdScript.parentNode) {
         jsonLdScript.parentNode.removeChild(jsonLdScript);
       }
+
+      const preloadLink = document.querySelector('link[rel="preload"][data-seo-head="true"]');
+      if (preloadLink && preloadLink.parentNode) {
+        preloadLink.parentNode.removeChild(preloadLink);
+      }
     };
-  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author, jsonLd]);
+  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author, jsonLd, preloadImage]);
 
   return null;
 }
