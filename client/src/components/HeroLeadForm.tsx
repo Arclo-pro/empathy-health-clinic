@@ -77,9 +77,11 @@ export default function HeroLeadForm() {
         <div className="flex-1 min-w-0">
           <Input
             type="text"
+            name="name"
             placeholder="Full Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            autoComplete="name"
             className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-name"
             required
@@ -90,9 +92,11 @@ export default function HeroLeadForm() {
         <div className="flex-1 min-w-0">
           <Input
             type="email"
+            name="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            autoComplete="email"
             className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-email"
             required
@@ -103,9 +107,11 @@ export default function HeroLeadForm() {
         <div className="flex-1 min-w-0">
           <Input
             type="tel"
+            name="phone"
             placeholder="Phone"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            autoComplete="tel"
             className="h-12 border-0 bg-white/50 md:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 text-base placeholder:text-muted-foreground/70 rounded-xl md:rounded-none"
             data-testid="input-hero-phone"
             required

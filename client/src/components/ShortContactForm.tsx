@@ -164,6 +164,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
                         <Input 
                           placeholder="John" 
                           {...field}
+                          autoComplete="given-name"
                           onFocus={handleFormStarted}
                           data-testid="input-first-name"
                         />
@@ -182,6 +183,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
                         <Input 
                           placeholder="Doe" 
                           {...field}
+                          autoComplete="family-name"
                           onFocus={handleFormStarted}
                           data-testid="input-last-name"
                         />
@@ -203,6 +205,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
                         type="email" 
                         placeholder="john@example.com" 
                         {...field}
+                        autoComplete="email"
                         onFocus={handleFormStarted}
                         data-testid="input-email"
                       />
@@ -223,6 +226,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
                         type="tel" 
                         placeholder="(386) 555-1234" 
                         {...field}
+                        autoComplete="tel"
                         onFocus={handleFormStarted}
                         data-testid="input-phone"
                       />

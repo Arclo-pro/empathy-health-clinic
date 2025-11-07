@@ -380,7 +380,7 @@ export default function LongContactForm() {
                     <FormItem>
                       <FormLabel>First Name *</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="John" data-testid="input-first-name" />
+                        <Input {...field} placeholder="John" autoComplete="given-name" data-testid="input-first-name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -393,7 +393,7 @@ export default function LongContactForm() {
                     <FormItem>
                       <FormLabel>Last Name *</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="Doe" data-testid="input-last-name" />
+                        <Input {...field} placeholder="Doe" autoComplete="family-name" data-testid="input-last-name" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -408,7 +408,7 @@ export default function LongContactForm() {
                   <FormItem>
                     <FormLabel>Email *</FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} placeholder="john@example.com" data-testid="input-email" />
+                      <Input type="email" {...field} placeholder="john@example.com" autoComplete="email" data-testid="input-email" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -422,7 +422,7 @@ export default function LongContactForm() {
                   <FormItem>
                     <FormLabel>Phone *</FormLabel>
                     <FormControl>
-                      <Input type="tel" {...field} placeholder="(555) 123-4567" data-testid="input-phone" />
+                      <Input type="tel" {...field} placeholder="(555) 123-4567" autoComplete="tel" data-testid="input-phone" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -576,7 +576,7 @@ export default function LongContactForm() {
                         <FormItem>
                           <FormLabel>Date of Birth *</FormLabel>
                           <FormControl>
-                            <Input type="date" {...field} data-testid="input-insured-dob" />
+                            <Input type="date" {...field} autoComplete="bday" data-testid="input-insured-dob" />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

@@ -188,6 +188,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
                   <Input
                     placeholder="John Smith"
                     {...field}
+                    autoComplete="name"
                     className="bg-white dark:bg-background"
                     data-testid="input-lead-name"
                   />
@@ -208,6 +209,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
                     type="email"
                     placeholder="john@example.com"
                     {...field}
+                    autoComplete="email"
                     className="bg-white dark:bg-background"
                     data-testid="input-lead-email"
                   />
@@ -228,6 +230,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
                     type="tel"
                     placeholder="(386) 555-1234"
                     {...field}
+                    autoComplete="tel"
                     className="bg-white dark:bg-background"
                     data-testid="input-lead-phone"
                   />
