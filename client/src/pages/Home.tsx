@@ -24,7 +24,7 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <SEOHead
         title="Empathy Health Clinic | Psychiatry, Therapy & Counseling in Winter Park FL"
-        description="Expert psychiatry & therapy in Winter Park, FL. Comprehensive mental health care including medication management & counseling. Most insurance accepted."
+        description="Expert psychiatry & therapy in Winter Park, FL serving Orlando, Lake Mary & Altamonte Springs. Same-week appointments, medication management & counseling. Most insurance accepted."
         keywords={["psychiatrist Winter Park", "mental health Winter Park FL", "therapy Winter Park", "psychiatric services Florida", "anxiety treatment Orlando", "depression treatment Florida"]}
         canonicalPath="/"
         jsonLd={{
