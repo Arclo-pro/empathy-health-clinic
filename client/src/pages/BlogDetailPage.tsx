@@ -680,6 +680,63 @@ export default function BlogDetailPage() {
                 </section>
               )}
 
+              {/* Professional Mental Health Support - Internal Links Section */}
+              <section className="mt-12 pt-12 border-t" data-testid="section-related-resources">
+                <h3 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-8 text-center">
+                  Professional Mental Health Support
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <Link href="/services" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-services">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Our Services
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Comprehensive mental health services including therapy, psychiatry, and counseling
+                    </p>
+                  </Link>
+                  <Link href="/therapy" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-therapy">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Therapy Options
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Evidence-based therapeutic approaches tailored to your needs
+                    </p>
+                  </Link>
+                  <Link href="/team" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-team">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Meet Our Team
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Licensed, experienced mental health professionals dedicated to your care
+                    </p>
+                  </Link>
+                  <Link href="/blog" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-blog">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Mental Health Blog
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Expert insights and resources on mental health topics
+                    </p>
+                  </Link>
+                  <Link href="/virtual-therapy" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-virtual">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Virtual Therapy
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Convenient telehealth sessions from the comfort of home
+                    </p>
+                  </Link>
+                  <Link href="/request-appointment" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-appointment">
+                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                      Request Appointment
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Schedule your first consultation with our compassionate team
+                    </p>
+                  </Link>
+                </div>
+              </section>
+
               {/* Final CTA - Always Present */}
               <section className="mt-12 p-10 bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-lg text-center" data-testid="final-cta">
                 <h3 className="text-3xl font-sans font-bold mb-4 text-foreground">Take the First Step Toward Healing</h3>
