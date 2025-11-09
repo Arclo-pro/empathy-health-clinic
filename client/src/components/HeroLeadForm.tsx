@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -14,6 +15,7 @@ export default function HeroLeadForm() {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   const { data: treatments } = useQuery<Treatment[]>({
     queryKey: ["/api/treatments"],
@@ -37,8 +39,7 @@ export default function HeroLeadForm() {
       });
     },
     onSuccess: () => {
-      // Redirect to thank you page for consistent user experience
-      window.location.href = '/thank-you';
+      setLocation('/thank-you');
     },
     onError: () => {
       toast({
