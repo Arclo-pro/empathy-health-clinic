@@ -85,6 +85,90 @@ const featuredResources = [
     icon: Lightbulb,
     description: "Discover the least stressful jobs that pay well and support mental health.",
     category: "Career & Wellness"
+  },
+  {
+    title: "Understanding Nervous Breakdown",
+    slug: "nervous-breakdown",
+    icon: Brain,
+    description: "Recognizing the signs of a nervous breakdown and finding professional support.",
+    category: "Mental Health"
+  },
+  {
+    title: "Nocturnal Panic Attacks",
+    slug: "nocturnal-panic-attacks-night-treatment",
+    icon: Shield,
+    description: "Learn about nighttime panic attacks, their causes, and effective treatment strategies.",
+    category: "Anxiety"
+  },
+  {
+    title: "Types of Anxiety Disorders",
+    slug: "types-of-anxiety-disorders-explained",
+    icon: Shield,
+    description: "Comprehensive guide to different anxiety disorders and their unique symptoms.",
+    category: "Anxiety"
+  },
+  {
+    title: "Psychotherapist vs Psychologist",
+    slug: "what-is-a-psychotherapist-vs-psychologist",
+    icon: BookOpen,
+    description: "Understanding the differences between psychotherapists and psychologists.",
+    category: "Mental Health"
+  },
+  {
+    title: "How to Get Over Someone",
+    slug: "how-to-get-over-someone-and-move-on-with-your-life",
+    icon: Heart,
+    description: "Practical strategies for healing after a breakup and moving forward with confidence.",
+    category: "Relationships"
+  },
+  {
+    title: "LGBTQIA2S+ Identity Guide",
+    slug: "lgbtqia2s-identity-explained",
+    icon: Users,
+    description: "Understanding LGBTQIA2S+ identities and supporting mental health in the community.",
+    category: "Mental Health"
+  },
+  {
+    title: "Narcissistic Behavior in Relationships",
+    slug: "narcissistic-behavior-in-a-relationship",
+    icon: Heart,
+    description: "Identifying narcissistic patterns and protecting yourself from emotional harm.",
+    category: "Relationships"
+  },
+  {
+    title: "Psychiatrist vs Psychologist",
+    slug: "psychiatrist-vs-psychologist-whats-the-difference",
+    icon: BookOpen,
+    description: "Key differences between psychiatrists and psychologists to help you choose.",
+    category: "Mental Health"
+  },
+  {
+    title: "Psychotherapy vs Counseling",
+    slug: "psychotherapy-vs-counseling-therapy-what-is-the-difference",
+    icon: BookOpen,
+    description: "Understanding the distinctions between psychotherapy and counseling therapy.",
+    category: "Mental Health"
+  },
+  {
+    title: "Attention-Seeking Behavior",
+    slug: "signs-of-attention-seeking-behavior",
+    icon: Users,
+    description: "Recognizing attention-seeking behavior patterns and their underlying causes.",
+    category: "Mental Health"
+  },
+  {
+    title: "Functional Depression Guide",
+    slug: "what-is-functional-depression",
+    icon: Brain,
+    description: "Understanding high-functioning depression and when to seek professional help.",
+    category: "Mental Health"
+  },
+  {
+    title: "What Is Time Blindness?",
+    slug: "what-is-time-blindness",
+    icon: Lightbulb,
+    description: "Learn about time blindness in ADHD and strategies to manage it effectively.",
+    category: "ADHD"
   }
 ];
 
