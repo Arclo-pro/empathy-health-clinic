@@ -218,14 +218,13 @@ export default function FeaturedResourcesSection() {
         </div>
 
         <div className="text-center mt-10">
-          <Link href="/blog">
-            <button
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover-elevate active-elevate-2"
-              data-testid="button-view-all-articles"
-            >
-              <BookOpen className="h-5 w-5" />
-              View All Articles
-            </button>
+          <Link 
+            href="/blog"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover-elevate active-elevate-2 cursor-pointer"
+            data-testid="button-view-all-articles"
+          >
+            <BookOpen className="h-5 w-5" />
+            View All Articles
           </Link>
         </div>
       </div>
