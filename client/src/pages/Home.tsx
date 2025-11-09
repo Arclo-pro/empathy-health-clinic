@@ -10,6 +10,7 @@ import FAQSection from "@/components/FAQSection";
 import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
+import FeaturedResourcesSection from "@/components/FeaturedResourcesSection";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -290,6 +291,8 @@ export default function Home() {
           <ConditionsSection />
           <div className="border-t" />
           <FAQSection />
+          <div className="border-t" />
+          <FeaturedResourcesSection />
           <div className="border-t" />
           <LocationSection />
         </Suspense>
