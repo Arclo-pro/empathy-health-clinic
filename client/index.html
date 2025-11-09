@@ -94,10 +94,17 @@
         function init() {
           purge();
           var observer = armObserver();
-          requestIdleCallback(function () {
-            purge();
-            if (observer) observer.disconnect();
-          }, { timeout: 2000 });
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function () {
+              purge();
+              if (observer) observer.disconnect();
+            }, { timeout: 2000 });
+          } else {
+            setTimeout(function () {
+              purge();
+              if (observer) observer.disconnect();
+            }, 500);
+          }
         }
 
         if (document.readyState === 'loading') {
