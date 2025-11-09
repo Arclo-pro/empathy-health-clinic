@@ -42,7 +42,7 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Competitive Comparison Section:** Homepage section highlighting differentiators.
 - **Homepage About Section:** Keyword-rich "About" section for improved SEO.
 - **Homepage FAQ Section:** Accordion-based FAQ section.
-- **Lead Capture:** High-converting forms with automated email notifications.
+- **Lead Capture:** High-converting forms with automated email notifications. **Mobile Fix (Nov 2025):** Resolved homepage hero form hanging issue on mobile by replacing window.location.href redirect with Wouter's setLocation() for client-side navigation, eliminating full page reload delays.
 - **Trust Factors:** Integration of HIPAA compliance and other credibility indicators.
 - **Accessibility:** Mobile responsiveness and dark mode.
 - **Contact Information:** Prominent display of phone and email.
