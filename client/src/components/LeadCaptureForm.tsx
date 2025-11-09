@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -34,6 +35,7 @@ interface LeadCaptureFormProps {
 
 export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const [, setLocation] = useLocation();
 
   const form = useForm<LeadFormData>({
     resolver: zodResolver(leadFormSchema),
@@ -85,8 +87,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
     },
     onSuccess: () => {
       trackEvent('form_submission', 'conversion', 'Lead Capture Form', therapyName);
-      // Redirect to thank you page
-      window.location.href = '/thank-you';
+      setLocation('/thank-you');
     },
   });
 

@@ -1153,6 +1153,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/leads", async (req, res) => {
     try {
       const validated = insertLeadSchema.parse(req.body);
+      
+      // Check for duplicate submission within last 5 minutes (deduplication)
+      const allLeads = await storage.getAllLeads();
+      const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+      const recentDuplicate = allLeads.find(existingLead => {
+        const leadCreatedAt = new Date(existingLead.createdAt);
+        return (
+          existingLead.email === validated.email &&
+          existingLead.phone === validated.phone &&
+          leadCreatedAt >= fiveMinutesAgo
+        );
+      });
+      
+      // If duplicate found, return success but don't create new lead
+      if (recentDuplicate) {
+        console.log(`🔄 Duplicate lead submission prevented: ${validated.email} (${validated.phone})`);
+        return res.json(recentDuplicate);
+      }
+      
       const lead = await storage.createLead(validated);
       
       // Send email notification asynchronously ONLY for form submissions (not phone clicks)
