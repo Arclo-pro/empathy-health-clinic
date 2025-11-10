@@ -113,11 +113,19 @@ export default function SEMrushOptimizer() {
   const semrushData = semrushResponse?.data || [];
 
   const pageOptimizations: PageOptimization[] = useMemo(() => {
-    return semrushData.map(data => {
-      const cleanUrl = data.url.replace(/\/$/, '');
+    let unmatchedCount = 0;
+    
+    const results = semrushData.map(data => {
+      let normalizedPath = data.url;
+      try {
+        const urlObj = new URL(data.url, 'https://empathyhealthclinic.com');
+        normalizedPath = urlObj.pathname.toLowerCase().trim().replace(/\/$/, '');
+      } catch {
+        normalizedPath = data.url.toLowerCase().trim().replace(/\/$/, '');
+      }
       
       const issue = {
-        url: cleanUrl,
+        url: normalizedPath,
         keyword: data.keywords[0] || '',
         priority: data.priority,
         issues: data.issues.map(i => 
@@ -129,14 +137,17 @@ export default function SEMrushOptimizer() {
         missingInternalLinks: data.issues.includes('missing_internal_links')
       };
       
-      const slug = cleanUrl.replace(/^\/blog\//, '').replace(/^\//, '');
+      const slug = normalizedPath.replace(/^\/blog\//, '').replace(/^\//, '');
       const post = posts.find(p => 
         p.slug === slug || 
-        `/blog/${p.slug}` === cleanUrl ||
-        p.slug === cleanUrl.replace(/^\//, '')
+        `/blog/${p.slug}` === normalizedPath ||
+        p.slug === normalizedPath.replace(/^\//, '')
       );
       
       if (!post) {
+        unmatchedCount++;
+        console.log(`⚠️ SEMrush URL not matched: ${data.url} → ${normalizedPath} (slug: ${slug})`);
+        
         return {
           url: issue.url,
           slug,
@@ -145,7 +156,7 @@ export default function SEMrushOptimizer() {
           currentMetaDescription: "",
           currentH1: "",
           currentKeywords: [],
-          targetKeywords: [issue.keyword],
+          targetKeywords: data.keywords,
           priority: issue.priority,
           issues: issue.issues,
           optimizationScore: 0
@@ -168,7 +179,13 @@ export default function SEMrushOptimizer() {
         issues: issue.issues,
         optimizationScore: calculateOptimizationScore(post, data.keywords[0] || '')
       };
-    }).filter(opt => 
+    });
+    
+    if (unmatchedCount > 0) {
+      console.log(`ℹ️ Total unmatched SEMrush URLs: ${unmatchedCount} out of ${semrushData.length}`);
+    }
+    
+    return results.filter(opt => 
       opt.currentTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
       opt.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
       opt.targetKeywords.some(k => k.toLowerCase().includes(searchQuery.toLowerCase()))
