@@ -25,6 +25,12 @@ app.use(canonicalizationMiddleware);
 
 // X-Robots-Tag: Exclude admin routes from search engine indexing
 // Prevents 573 orphaned admin pages from appearing in GA4/SEMrush
+// 
+// NOTE: In development (*.replit.dev domains), Replit infrastructure automatically
+// adds "X-Robots-Tag: none, noindex, noarchive, nofollow, nositelinkssearchbox, noimageindex"
+// to ALL pages. This is expected behavior to prevent dev environments from being indexed.
+// When published to production (custom domain), this middleware ensures ONLY admin routes
+// are excluded from indexing while public pages remain indexable.
 app.use((req, res, next) => {
   if (
     req.path.startsWith('/admin') || 

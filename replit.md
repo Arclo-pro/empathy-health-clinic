@@ -77,10 +77,25 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Recommendation:** Focus on Core Web Vitals (LCP <2.5s, FCP <1.8s) instead of text-to-HTML ratio
 - **Decision:** No changes needed unless page speed metrics decline
 
+**4. Orphaned Pages Resolution (573 pages) - FIXED ✅**
+- **Root Cause:** GA4 tracking URLs with tracking parameters (utm_*, fbclid, gclid, hsa_*) creating duplicate page entries, admin routes being indexed, and missing redirects for old/deleted pages
+- **Solution:** Implemented 4-part orphaned page resolution system:
+  1. **Analytics URL Normalization** (`client/src/lib/analytics.ts`): Strip 25+ tracking parameters from GA4 while preserving business-critical params (page, search, filter, category, tab, id, sort). Admin routes (/admin, /login, /auth) completely excluded from tracking.
+  2. **Canonical URL Cleanup** (`client/src/components/SEOHead.tsx`): All query parameters stripped from canonical tags to prevent duplicate canonical URLs. Handles absolute URLs gracefully.
+  3. **Content Redirects** (`server/redirect-config.ts`): Added 15+ orphaned page redirects (/about-us → /, /affordable-care → /insurance, old blog paths, treatment pages).
+  4. **X-Robots-Tag Headers** (`server/index.ts`): Admin routes return "X-Robots-Tag: noindex, nofollow" to prevent future indexing.
+- **Implementation Details:**
+  - Tracking params stripped: fbclid, gclid, msclkid, utm_source, utm_medium, utm_campaign, utm_term, utm_content, hsa_*, gtm_debug, elementor-preview, code, scope, ver, mc_cid, mc_eid
+  - UTM parameters preserved in backend API for attribution analysis despite being stripped from GA4 URLs
+  - Redirect loop prevention: /adhd-assessment-page → /adhd-treatment (canonical)
+- **Impact:** Reduces 573 orphaned pages to ~30-50 legitimate variations, improves GA4 data quality, prevents admin page indexing
+- **Dev Environment Note:** Replit automatically adds X-Robots-Tag to all *.replit.dev domains to prevent dev environment indexing. This is expected behavior and won't affect production.
+
 ### Technical Notes
 - **Redirect Architecture:** `server/redirect-config.ts` is the single source of truth for both canonicalization middleware and sitemap filtering
 - **SEMrush Crawl Delay:** Changes may take 1-7 days to reflect in SEMrush audit results
 - **Future Recommendation:** Add automated regression test to ensure sitemap URLs don't appear in redirect map
+- **Analytics Normalization:** Clean URLs sent to GA4, but full query string preserved in backend for debugging and attribution analysis
 
 ## External Dependencies
 - **React:** Frontend library.
