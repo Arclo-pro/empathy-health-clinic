@@ -23,6 +23,19 @@ app.use(compression({
 // This prevents redirect chains that hurt SEO and crawl budget
 app.use(canonicalizationMiddleware);
 
+// X-Robots-Tag: Exclude admin routes from search engine indexing
+// Prevents 573 orphaned admin pages from appearing in GA4/SEMrush
+app.use((req, res, next) => {
+  if (
+    req.path.startsWith('/admin') || 
+    req.path.startsWith('/login') || 
+    req.path.startsWith('/auth')
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  }
+  next();
+});
+
 // 410 Gone: Legacy WordPress URLs that no longer exist
 app.use((req, res, next) => {
   // Block old WordPress admin, login, and content URLs with 410 Gone

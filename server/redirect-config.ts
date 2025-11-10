@@ -61,6 +61,29 @@ export const contentRedirectMap: Record<string, string> = {
   '/narcissistic-behavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
   '/narcissisticbehavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
   '/dialectical-behavioral-therapy': '/blog/dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing',
+  
+  // SEMrush orphaned pages (November 2025) - About/Info pages
+  '/about-us': '/',
+  '/affordable-care': '/insurance',
+  '/affordable-emotional-support-letter-online': '/services',
+  
+  // SEMrush orphaned pages - Old assessment/test pages
+  '/autism-assessment': '/services',
+  
+  // SEMrush orphaned pages - Duplicate/old blog paths (without /blog prefix)
+  '/8-physical-signs-stress-is-impacting-your-body': '/blog/8-physical-signs-stress-is-impacting-your-body',
+  '/best-jobs-for-people-with-depression': '/blog/best-jobs-for-people-with-depression',
+  '/bipolar-psychosis-symptoms-treatment-recovery': '/blog/bipolar-psychosis-symptoms-treatment-recovery',
+  '/best-dental-implants-kingston-smiles-ny': '/blog/best-dental-implants-kingston-smiles-ny',
+  '/blog-wellness-guide-for-counselors': '/blog/blog-wellness-guide-for-counselors',
+  
+  // SEMrush orphaned pages - Old treatment pages
+  '/anxiety-treatment': '/anxiety-therapy',
+  '/adhd-treatment': '/adhd-assessment-page',
+  '/anxiety': '/anxiety-therapy',
+  
+  // SEMrush orphaned pages - Insurance pages
+  '/adventhealth-adventhealth-coverage': '/insurance',
 };
 
 /**

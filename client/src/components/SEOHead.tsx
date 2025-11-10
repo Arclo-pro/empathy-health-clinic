@@ -32,20 +32,46 @@ export default function SEOHead({
   useEffect(() => {
     document.title = title;
 
+    /**
+     * Normalize path for canonical URL:
+     * - Strips tracking parameters (fbclid, utm_*, hsa_*, etc.)
+     * - Normalizes slashes and trailing slashes
+     * - Handles malformed URLs gracefully
+     */
     const normalizePath = (path: string): string => {
       if (!path) return '/';
       
-      let normalized = path.replace(/\/+/g, '/');
-      
-      if (!normalized.startsWith('/')) {
-        normalized = '/' + normalized;
+      try {
+        // Strip query parameters entirely from canonical URLs
+        let cleanPath = path.split('?')[0].split('#')[0];
+        
+        // Normalize multiple slashes
+        cleanPath = cleanPath.replace(/\/+/g, '/');
+        
+        // Ensure leading slash
+        if (!cleanPath.startsWith('/')) {
+          cleanPath = '/' + cleanPath;
+        }
+        
+        // Remove trailing slash (except for root)
+        if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+          cleanPath = cleanPath.slice(0, -1);
+        }
+        
+        // Trim whitespace and decode
+        cleanPath = decodeURIComponent(cleanPath.trim());
+        
+        // Validate it's a proper path
+        if (!cleanPath || cleanPath === ' ' || !cleanPath.startsWith('/')) {
+          return '/';
+        }
+        
+        return cleanPath;
+      } catch (e) {
+        // Fallback for malformed URLs
+        console.warn('SEO: Invalid canonical path:', path);
+        return '/';
       }
-      
-      if (normalized.length > 1 && normalized.endsWith('/')) {
-        normalized = normalized.slice(0, -1);
-      }
-      
-      return normalized;
     };
 
     const preferredDomain = "https://empathyhealthclinic.com";

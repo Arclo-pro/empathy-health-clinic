@@ -155,15 +155,87 @@ export const initGA = () => {
   }
 };
 
+/**
+ * Tracking parameters to strip from analytics URLs
+ * These create duplicate page tracking and orphaned pages in GA4/SEMrush
+ */
+const TRACKING_PARAMS_TO_STRIP = [
+  'fbclid',      // Facebook click ID
+  'gclid',       // Google click ID
+  'msclkid',     // Microsoft click ID
+  'mc_cid',      // MailChimp campaign ID
+  'mc_eid',      // MailChimp email ID
+  'utm_source',  // UTM parameters (tracked separately in backend)
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'hsa_acc',     // Google Ads Hub Spot Analytics params
+  'hsa_cam',
+  'hsa_grp',
+  'hsa_ad',
+  'hsa_src',
+  'hsa_tgt',
+  'hsa_kw',
+  'hsa_mt',
+  'hsa_net',
+  'hsa_ver',
+  'gtm_debug',   // Google Tag Manager debug mode
+  'elementor-preview', // Page builder preview mode
+  'code',        // OAuth callback codes
+  'scope',       // OAuth scopes
+  'ver'          // Version/cache busting params
+];
+
+/**
+ * Normalize URL for analytics by stripping tracking parameters
+ * Preserves business-critical params like ?search, ?page, ?category
+ */
+function normalizeAnalyticsUrl(rawUrl: string): string {
+  try {
+    const url = new URL(rawUrl, window.location.origin);
+    
+    // Strip tracking parameters while preserving business params
+    const cleanParams = new URLSearchParams();
+    url.searchParams.forEach((value, key) => {
+      if (!TRACKING_PARAMS_TO_STRIP.includes(key.toLowerCase())) {
+        cleanParams.set(key, value);
+      }
+    });
+    
+    // Reconstruct clean URL
+    let cleanPath = url.pathname;
+    const queryString = cleanParams.toString();
+    if (queryString) {
+      cleanPath += '?' + queryString;
+    }
+    
+    return cleanPath;
+  } catch (e) {
+    // Fallback: trim whitespace and decode
+    return decodeURIComponent(rawUrl.trim()).replace(/\s+/g, '-');
+  }
+}
+
 export const trackPageView = (url: string) => {
   if (typeof window === 'undefined') return;
   
-  // Track to Google Analytics
+  // Exclude admin routes from analytics tracking
+  const pathname = url.split('?')[0];
+  if (pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/auth')) {
+    console.log('🔒 Analytics: Skipping admin/auth route:', pathname);
+    return;
+  }
+  
+  // Normalize URL by stripping tracking parameters
+  const cleanUrl = normalizeAnalyticsUrl(url);
+  
+  // Track to Google Analytics with clean URL
   if (window.gtag) {
     const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
     if (measurementId) {
       window.gtag('config', measurementId, {
-        page_path: url
+        page_path: cleanUrl
       });
     }
   }
@@ -173,7 +245,7 @@ export const trackPageView = (url: string) => {
     window.fbq('track', 'PageView');
   }
   
-  // Extract UTM parameters from current URL
+  // Extract UTM parameters from current URL for backend attribution
   const searchParams = new URLSearchParams(window.location.search);
   const utmData = {
     utmSource: searchParams.get('utm_source') || undefined,
@@ -183,14 +255,15 @@ export const trackPageView = (url: string) => {
     utmContent: searchParams.get('utm_content') || undefined,
   };
   
-  // Track to backend API with UTM data
+  // Track to backend API with clean URL but preserve UTM for attribution
   fetch('/api/analytics/page-view', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      path: url,
+      path: cleanUrl,
       userAgent: navigator.userAgent,
       referrer: document.referrer || undefined,
+      queryParams: window.location.search, // Preserve full query string for debugging
       ...utmData
     }),
     keepalive: true
