@@ -14,6 +14,15 @@ import { Home, Search, TrendingUp, AlertCircle, CheckCircle2, Download, Upload, 
 import { useLocation } from "wouter";
 import type { BlogPost } from "@shared/schema";
 
+const SEO_THRESHOLDS = {
+  TITLE_MAX_LENGTH: 60,
+  DESCRIPTION_MIN_LENGTH: 120,
+  DESCRIPTION_MAX_LENGTH: 160,
+  DUPLICATE_H1_TITLE_PENALTY: 15,
+  KEYWORD_DENSITY_MIN: 0.5,
+  KEYWORD_DENSITY_MAX: 2.5
+} as const;
+
 interface SEMrushData {
   url: string;
   priority: number;
@@ -45,6 +54,7 @@ interface PageOptimization {
   issues: string[];
   optimizationScore: number;
   hasDuplicateH1Title?: boolean;
+  hasTitleTooLong?: boolean;
 }
 
 function calculateOptimizationScore(post: BlogPost, targetKeyword: string): number {
@@ -60,20 +70,20 @@ function calculateOptimizationScore(post: BlogPost, targetKeyword: string): numb
   const actualTitle = (post.metaTitle || post.title).trim();
   const actualH1 = h1.trim();
   if (actualH1 && actualTitle.toLowerCase() === actualH1.toLowerCase()) {
-    score -= 15;
+    score -= SEO_THRESHOLDS.DUPLICATE_H1_TITLE_PENALTY;
   }
   
   if (!title.includes(keyword)) score -= 25;
   
   if (!h1.toLowerCase().includes(keyword)) score -= 20;
   
-  if (!post.metaDescription || post.metaDescription.length < 120) score -= 15;
+  if (!post.metaDescription || post.metaDescription.length < SEO_THRESHOLDS.DESCRIPTION_MIN_LENGTH) score -= 15;
   if (!post.metaDescription?.toLowerCase().includes(keyword)) score -= 15;
   
   const keywordMatches = (content.match(new RegExp(keyword.replace(/\s+/g, '\\s+'), 'gi')) || []).length;
   const wordCount = post.content.split(/\s+/).length;
   const density = (keywordMatches / wordCount) * 100;
-  if (density < 0.5 || density > 2.5) score -= 25;
+  if (density < SEO_THRESHOLDS.KEYWORD_DENSITY_MIN || density > SEO_THRESHOLDS.KEYWORD_DENSITY_MAX) score -= 25;
   
   return Math.max(0, score);
 }
@@ -85,6 +95,7 @@ export default function SEMrushOptimizer() {
   const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<"priority" | "score">("priority");
   const [filterDuplicateH1, setFilterDuplicateH1] = useState(false);
+  const [filterTitleTooLong, setFilterTitleTooLong] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [editedPost, setEditedPost] = useState<Partial<BlogPost>>({});
 
@@ -178,6 +189,11 @@ export default function SEMrushOptimizer() {
       const actualTitle = (post.metaTitle || post.title).trim();
       const actualH1 = h1.trim();
       const hasDuplicateH1Title = Boolean(actualH1 && actualTitle.toLowerCase() === actualH1.toLowerCase());
+      const hasTitleTooLong = actualTitle.length > SEO_THRESHOLDS.TITLE_MAX_LENGTH;
+      
+      let combinedIssues = [...issue.issues];
+      if (hasDuplicateH1Title) combinedIssues.push("Duplicate H1 And Title");
+      if (hasTitleTooLong) combinedIssues.push("Title Too Long");
 
       return {
         url: issue.url,
@@ -189,9 +205,10 @@ export default function SEMrushOptimizer() {
         currentKeywords: post.keywords || [],
         targetKeywords: data.keywords,
         priority: issue.priority,
-        issues: hasDuplicateH1Title ? [...issue.issues, "Duplicate H1 And Title"] : issue.issues,
+        issues: combinedIssues,
         optimizationScore: calculateOptimizationScore(post, data.keywords[0] || ''),
-        hasDuplicateH1Title
+        hasDuplicateH1Title,
+        hasTitleTooLong
       };
     });
     
@@ -213,13 +230,17 @@ export default function SEMrushOptimizer() {
       filtered = filtered.filter(opt => opt.hasDuplicateH1Title);
     }
     
+    if (filterTitleTooLong) {
+      filtered = filtered.filter(opt => opt.hasTitleTooLong);
+    }
+    
     return filtered.sort((a, b) => {
       if (sortBy === "priority") {
         return b.priority - a.priority;
       }
       return a.optimizationScore - b.optimizationScore;
     });
-  }, [pageOptimizations, sortBy, filterDuplicateH1]);
+  }, [pageOptimizations, sortBy, filterDuplicateH1, filterTitleTooLong]);
 
   const selectedOptimization = selectedUrl ? pageOptimizations.find(o => o.url === selectedUrl) : null;
   const selectedPost = selectedOptimization ? posts.find(p => p.slug === selectedOptimization.slug) : null;
@@ -291,7 +312,8 @@ export default function SEMrushOptimizer() {
       lowTimeOnPage: 0,
       missingLinks: 0,
       poorOptimization: 0,
-      duplicateH1Title: 0
+      duplicateH1Title: 0,
+      titleTooLong: 0
     };
     
     pageOptimizations.forEach(opt => {
@@ -299,6 +321,7 @@ export default function SEMrushOptimizer() {
       if (opt.issues.includes("Low time on page")) issues.lowTimeOnPage++;
       if (opt.issues.includes("Missing internal links")) issues.missingLinks++;
       if (opt.issues.includes("Duplicate H1 And Title")) issues.duplicateH1Title++;
+      if (opt.issues.includes("Title Too Long")) issues.titleTooLong++;
       if (opt.optimizationScore < 60) issues.poorOptimization++;
     });
     
@@ -523,7 +546,7 @@ export default function SEMrushOptimizer() {
       </header>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid md:grid-cols-4 gap-4 mb-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
           <Card>
             <CardHeader className="pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Average Score</CardTitle>
@@ -536,7 +559,27 @@ export default function SEMrushOptimizer() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">High Bounce Rate</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Duplicate H1</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-purple-600">{issuesByType.duplicateH1Title}</div>
+              <p className="text-xs text-muted-foreground mt-1">H1 = Title</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">Title Too Long</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-blue-600">{issuesByType.titleTooLong}</div>
+              <p className="text-xs text-muted-foreground mt-1">Over 60 chars</p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">High Bounce</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange-600">{issuesByType.highBounceRate}</div>
@@ -556,11 +599,11 @@ export default function SEMrushOptimizer() {
 
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">Poor Optimization</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Poor Score</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-yellow-600">{issuesByType.poorOptimization}</div>
-              <p className="text-xs text-muted-foreground mt-1">Score below 60%</p>
+              <p className="text-xs text-muted-foreground mt-1">Below 60%</p>
             </CardContent>
           </Card>
         </div>
@@ -603,7 +646,16 @@ export default function SEMrushOptimizer() {
               data-testid="button-filter-duplicate-h1"
             >
               <AlertCircle className="w-4 h-4 mr-2" />
-              {filterDuplicateH1 ? "Show All" : "H1=Title Only"}
+              {filterDuplicateH1 ? "Show All" : "H1=Title"}
+            </Button>
+            <Button
+              variant={filterTitleTooLong ? "default" : "outline"}
+              size="sm"
+              onClick={() => setFilterTitleTooLong(!filterTitleTooLong)}
+              data-testid="button-filter-title-too-long"
+            >
+              <AlertCircle className="w-4 h-4 mr-2" />
+              {filterTitleTooLong ? "Show All" : "Long Titles"}
             </Button>
           </div>
         </div>
