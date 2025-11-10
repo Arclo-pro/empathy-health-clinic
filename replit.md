@@ -23,6 +23,7 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Link & Performance Monitor (`/admin/link-monitor`):** Comprehensive bounce rate tracking dashboard with Microsoft Clarity API integration.
 - **SEO Optimization Dashboard:** Strategic SEO tools at `/admin/seo` for Search Console guidance, content gap analysis, and internal linking recommendations.
 - **Blog SEO Optimizer (`/admin/blog-seo`):** Comprehensive blog post optimization tool with real-time SEO scoring based on SEMrush criteria, supporting metadata, content, and ratings editing.
+- **SEMrush Keyword Optimizer (`/admin/semrush-optimizer`):** Production-ready dashboard with API-based data loading from 459 audit issues across 20 URLs, featuring automated detection of duplicate H1/title tags (50 pages), long title tags over 60 characters (9 pages), high bounce rates, missing internal links, and poor keyword optimization. Includes quick filters, 6-card stats dashboard, and configurable SEO thresholds.
 - **Performance Optimizations:** Mobile-first approach with code splitting, analytics deferral, resource hints, script optimization, and hero image preloading.
 - **Email Deliverability:** SendGrid sender configuration with comprehensive DNS authentication guidance.
 - **Google Indexing Strategy:** Implemented comprehensive action plan to address unindexed URLs and soft 404 errors through 301 redirects, enhanced internal linking, and improved site structure.
