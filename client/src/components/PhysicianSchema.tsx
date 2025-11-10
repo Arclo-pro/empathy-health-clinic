@@ -19,7 +19,8 @@ export default function PhysicianSchema({ teamMember }: PhysicianSchemaProps) {
       "name": teamMember.name,
       "hasCredential": {
         "@type": "EducationalOccupationalCredential",
-        "credentialCategory": teamMember.credentials
+        "name": teamMember.credentials,
+        "credentialCategory": "MedicalCredential"
       },
       "image": teamMember.image,
       "url": `${baseUrl}/team/${teamMember.slug}`,
