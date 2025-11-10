@@ -7,6 +7,7 @@ import { blogGeneratorService } from "./blog-generator-service";
 import { ContentAnalyzerService } from "./content-analyzer-service";
 import { db } from "./db";
 import { sql } from "drizzle-orm";
+import { contentRedirectMap } from './redirect-config';
 import {
   insertSiteContentSchema,
   insertTreatmentSchema,
@@ -2118,56 +2119,84 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Always use production domain for sitemap (required for Google Search Console)
       const baseUrl = "https://empathyhealthclinic.com";
 
+      // Helper function to check if a URL redirects
+      const isRedirectingUrl = (path: string): boolean => {
+        return path in contentRedirectMap;
+      };
+
       let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
       xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
       // Homepage
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
-      // Main pages
+      // Main pages (filter out any that redirect)
       const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando'];
       mainPages.forEach(page => {
-        xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
-      });
-
-      // Treatment pages
-      treatments.forEach(treatment => {
-        xml += `  <url>\n    <loc>${baseUrl}/${treatment.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-      });
-
-      // Therapy pages
-      therapies.forEach(therapy => {
-        xml += `  <url>\n    <loc>${baseUrl}/${therapy.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-      });
-
-      // Condition pages
-      conditions.forEach(condition => {
-        xml += `  <url>\n    <loc>${baseUrl}/${condition.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
-      });
-
-      // Insurance provider pages
-      insuranceProviders.forEach(provider => {
-        xml += `  <url>\n    <loc>${baseUrl}/${provider.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
-      });
-
-      // Blog posts
-      blogPosts.forEach(post => {
-        const lastMod = post.lastUpdated || post.publishedDate;
-        xml += `  <url>\n    <loc>${baseUrl}/blog/${post.slug}</loc>\n`;
-        if (lastMod) {
-          xml += `    <lastmod>${new Date(lastMod).toISOString().split('T')[0]}</lastmod>\n`;
+        if (!isRedirectingUrl(page)) {
+          xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
         }
-        xml += `    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
       });
 
-      // Location pages
+      // Treatment pages (filter out any that redirect)
+      treatments.forEach(treatment => {
+        const path = `/${treatment.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        }
+      });
+
+      // Therapy pages (filter out any that redirect)
+      therapies.forEach(therapy => {
+        const path = `/${therapy.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        }
+      });
+
+      // Condition pages (filter out any that redirect)
+      conditions.forEach(condition => {
+        const path = `/${condition.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        }
+      });
+
+      // Insurance provider pages (filter out any that redirect)
+      insuranceProviders.forEach(provider => {
+        const path = `/${provider.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+        }
+      });
+
+      // Blog posts (filter out any that redirect)
+      blogPosts.forEach(post => {
+        const path = `/blog/${post.slug}`;
+        if (!isRedirectingUrl(path)) {
+          const lastMod = post.lastUpdated || post.publishedDate;
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n`;
+          if (lastMod) {
+            xml += `    <lastmod>${new Date(lastMod).toISOString().split('T')[0]}</lastmod>\n`;
+          }
+          xml += `    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>\n`;
+        }
+      });
+
+      // Location pages (filter out any that redirect)
       locations.forEach(location => {
-        xml += `  <url>\n    <loc>${baseUrl}/locations/${location.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        const path = `/locations/${location.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        }
       });
 
-      // Team member pages
+      // Team member pages (filter out any that redirect)
       teamMembers.forEach(member => {
-        xml += `  <url>\n    <loc>${baseUrl}/team/${member.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        const path = `/team/${member.slug}`;
+        if (!isRedirectingUrl(path)) {
+          xml += `  <url>\n    <loc>${baseUrl}${path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+        }
       });
 
       xml += '</urlset>';
