@@ -92,8 +92,25 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Solution:** Enhanced `LongContactForm.tsx` nextStep() function with:
   1. Toast notification when validation fails ("Please complete all required fields")
   2. Auto-scroll to first error field with smooth animation
-  3. Auto-focus on error field for immediate correction
+  3. Auto-focus on error field for immediate correction (with safety check for focusable elements)
 - **Result:** Users now receive clear, immediate feedback when clicking "Next" with incomplete fields, eliminating confusion and reducing form abandonment
+
+**Missing Lead Submission Issue - UNDER INVESTIGATION ⚠️ (November 10, 2025)**
+- **Root Cause:** Microsoft Clarity session (user 1ma58rp, 10:53-11:07 AM EST) reached /thank-you page but NO lead was created in database and NO email was sent
+- **Impact:** Critical data loss - users completing forms but clinic not receiving their information
+- **Analysis:**
+  - User reached /thank-you (only happens on successful API response)
+  - Database shows no lead for this timeframe (gap between 10:47 AM and 11:00 AM EST)
+  - Possible causes: (1) Deduplication logic returning old lead without email notification, (2) Database write failure, (3) Server restart during submission
+- **Solution Implemented:**
+  - Added comprehensive logging to `/api/leads` endpoint:
+    - Logs every submission received with email/phone/formType/source
+    - Logs when deduplication triggers (with existing lead ID)
+    - Logs when new leads are created (with new lead ID)  
+    - Logs when email notifications are sent (with success/failure status)
+  - Logging will help diagnose future occurrences
+- **Status:** Monitoring for recurrence with enhanced logging. If deduplication is the cause, may need to send admin notification even for duplicate submissions
+- **Action Required:** User to review server logs from 10:50-11:10 AM EST on Nov 10 if available, and monitor for future occurrences
 
 ### Technical Notes
 - **SEMrush Crawl Delay:** Changes may take 1-7 days to reflect in SEMrush audit results

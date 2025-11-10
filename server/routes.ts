@@ -1154,6 +1154,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/leads", async (req, res) => {
     try {
       const validated = insertLeadSchema.parse(req.body);
+      console.log(`📝 Lead submission received: ${validated.email} (${validated.phone}) - ${validated.formType} from ${validated.source}`);
       
       // Check for duplicate submission within last 5 minutes (deduplication)
       const allLeads = await storage.getAllLeads();
@@ -1169,14 +1170,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // If duplicate found, return success but don't create new lead
       if (recentDuplicate) {
-        console.log(`🔄 Duplicate lead submission prevented: ${validated.email} (${validated.phone})`);
+        console.log(`🔄 Duplicate lead submission prevented: ${validated.email} (${validated.phone}) - Returning existing lead ID: ${recentDuplicate.id}`);
         return res.json(recentDuplicate);
       }
       
+      console.log(`✅ Creating new lead: ${validated.email} (${validated.phone})`);
       const lead = await storage.createLead(validated);
+      console.log(`💾 Lead saved to database: ID ${lead.id}`);
       
       // Send email notification asynchronously ONLY for form submissions (not phone clicks)
       if (validated.formType !== 'phone_click') {
+        console.log(`📧 Sending email notification for: ${validated.email} (${validated.formType} form)`);
         sendLeadNotification({
           firstName: validated.firstName,
           lastName: validated.lastName,
@@ -1194,8 +1198,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           insuredName: validated.insuredName,
           insuredDob: validated.insuredDob,
           memberId: validated.memberId,
+        }).then(() => {
+          console.log(`✅ Email notification sent successfully for: ${validated.email}`);
         }).catch(error => {
-          console.error('❌ FAILED to send lead notification email:', error);
+          console.error(`❌ FAILED to send lead notification email for ${validated.email}:`, error);
           if (error.response?.body) {
             console.error('SendGrid error details:', JSON.stringify(error.response.body, null, 2));
           }
