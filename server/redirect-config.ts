@@ -11,6 +11,8 @@ export const contentRedirectMap: Record<string, string> = {
   '/treatments/couples-therapy': '/therapy',
   '/treatments/grief-counseling-services': '/therapy',
   '/treatments/in-person-therapy-orlando': '/in-person-therapy',
+  '/treatments/anxiety': '/anxiety-therapy',
+  '/treatments/anxiety-treatment': '/anxiety-therapy',
   
   // Duplicate content redirects
   '/virtual-visit': '/virtual-therapy',
@@ -80,7 +82,6 @@ export const contentRedirectMap: Record<string, string> = {
   // SEMrush orphaned pages - Old treatment pages
   '/anxiety-treatment': '/anxiety-therapy',
   '/anxiety': '/anxiety-therapy',
-  '/adhd-assessment-page': '/adhd-treatment',
   
   // SEMrush orphaned pages - Insurance pages
   '/adventhealth-adventhealth-coverage': '/insurance',

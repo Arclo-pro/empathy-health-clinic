@@ -91,6 +91,32 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Impact:** Reduces 573 orphaned pages to ~30-50 legitimate variations, improves GA4 data quality, prevents admin page indexing
 - **Dev Environment Note:** Replit automatically adds X-Robots-Tag to all *.replit.dev domains to prevent dev environment indexing. This is expected behavior and won't affect production.
 
+**5. Redirect Chains (5 additional errors) - FIXED ✅ (November 10, 2025)**
+- **Root Cause:** Blog posts linking to `/treatments/anxiety/` and `/treatments/anxiety-treatment/` which created 4-hop redirect chains to the final destination `/anxiety-therapy`
+- **Solution:** Added direct redirect mappings to eliminate multi-hop chains:
+  - `/treatments/anxiety` → `/anxiety-therapy`
+  - `/treatments/anxiety-treatment` → `/anxiety-therapy`
+- **Implementation:** Updated `server/redirect-config.ts` with new direct redirect rules
+- **Impact:** Converted 4-hop redirect chains into single-hop 301 redirects, improving crawl efficiency and SEO performance
+- **Affected Blog Posts:**
+  - practical-strategies-for-managing-anxiety-in-daily-life
+  - psychotherapy-vs-counseling-therapy-what-is-the-difference
+  - signs-of-crippling-anxiety
+  - what-is-a-psychotherapist-vs-psychologist
+  - what-is-love-bombing
+- **Verification:** E2E tests confirm all four URL variations (with/without trailing slashes) now redirect directly to `/anxiety-therapy` in a single hop
+
+**6. Broken External Links (2 errors) - FIXED ✅ (November 10, 2025)**
+- **Root Cause:** Two blog posts contained broken external links that returned HTTP errors (429, 404)
+- **Solution:** Replaced with working alternative URLs:
+  1. **ResearchGate link (429 error):** Replaced `https://www.researchgate.net/publication/323968416...` with DOI link `https://doi.org/10.1007/s10508-018-1178-7`
+  2. **GoodTherapy link (404 error):** Replaced `https://www.goodtherapy.org/learn-about-therapy/` with `https://www.goodtherapy.org/blog/`
+- **Implementation:** Updated blog post content in PostgreSQL database
+- **Impact:** Eliminates broken link errors, improves user experience, maintains citation authority with permanent DOI links
+- **Affected Blog Posts:**
+  - open-relationship-guide (ResearchGate → DOI)
+  - psychiatrist-winter-park-comprehensive-care (GoodTherapy)
+
 ### Technical Notes
 - **Redirect Architecture:** `server/redirect-config.ts` is the single source of truth for both canonicalization middleware and sitemap filtering
 - **SEMrush Crawl Delay:** Changes may take 1-7 days to reflect in SEMrush audit results
