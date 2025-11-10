@@ -200,6 +200,25 @@ export default function LongContactForm() {
         handleFormStarted();
       }
       setStep(step + 1);
+    } else {
+      // Provide visual feedback when validation fails
+      toast({
+        variant: "destructive",
+        title: "Please complete all required fields",
+        description: "Check the form for error messages and fill in any missing information.",
+      });
+      
+      // Scroll to the first error field
+      setTimeout(() => {
+        const firstError = document.querySelector('[aria-invalid="true"]') as HTMLElement;
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Focus only if the element is focusable (safety check for custom widgets)
+          if (typeof firstError.focus === 'function') {
+            firstError.focus();
+          }
+        }
+      }, 100);
     }
   };
 

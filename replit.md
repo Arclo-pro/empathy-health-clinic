@@ -84,9 +84,21 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Verification:** SQL query confirmed 0 posts over 60 characters, 0 duplicates
 - **Future Consideration:** Replace "2025" suffix with evergreen alternative before calendar year turnover to avoid dated appearance
 
+### Critical UX Fixes (November 10, 2025)
+
+**Lead Form "Dead Click" Issue - FIXED ✅**
+- **Root Cause:** Microsoft Clarity session (user ldb413) revealed "dead click" on appointment form "Next" button - user clicked but nothing happened due to validation failure with no visual feedback
+- **Impact:** Critical conversion blocker - users abandoning form due to confusing UX when required fields incomplete
+- **Solution:** Enhanced `LongContactForm.tsx` nextStep() function with:
+  1. Toast notification when validation fails ("Please complete all required fields")
+  2. Auto-scroll to first error field with smooth animation
+  3. Auto-focus on error field for immediate correction
+- **Result:** Users now receive clear, immediate feedback when clicking "Next" with incomplete fields, eliminating confusion and reducing form abandonment
+
 ### Technical Notes
 - **SEMrush Crawl Delay:** Changes may take 1-7 days to reflect in SEMrush audit results
 - **Title Optimization Workflow:** Future blog posts automatically receive unique, optimized metaTitles via publishing safeguards
+- **Form Validation UX:** All multi-step forms now provide visual feedback (toast + scroll) on validation failures
 
 ## External Dependencies
 - **React:** Frontend library.
