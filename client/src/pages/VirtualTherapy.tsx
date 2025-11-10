@@ -300,12 +300,14 @@ export default function VirtualTherapy() {
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                   {featuredMembers?.map((member, index) => (
-                    <div
+                    <Link
                       key={member.id}
-                      className="text-center space-y-4"
-                      data-testid={`team-member-${index}`}
+                      href={`/team/${member.slug}`}
+                      className="block text-center space-y-4"
+                      data-testid={`link-team-member-${index}`}
+                      onClick={() => trackEvent('team_member_click', 'engagement', 'Virtual Therapy Page', member.name)}
                     >
-                      <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6">
+                      <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6 cursor-pointer">
                         <img 
                           src={member.image} 
                           alt={member.name}
@@ -335,7 +337,7 @@ export default function VirtualTherapy() {
                           {member.credentials}
                         </p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
