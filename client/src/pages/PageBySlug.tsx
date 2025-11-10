@@ -29,7 +29,7 @@ export default function PageBySlug() {
       if (!response.ok) return null;
       return response.json();
     },
-    enabled: !!slug && !insuranceProvider,
+    enabled: !!slug,
     retry: false,
   });
 
@@ -40,7 +40,7 @@ export default function PageBySlug() {
       if (!response.ok) return null;
       return response.json();
     },
-    enabled: !!slug && !insuranceProvider && !treatment,
+    enabled: !!slug,
     retry: false,
   });
 
@@ -51,18 +51,11 @@ export default function PageBySlug() {
       if (!response.ok) return null;
       return response.json();
     },
-    enabled: !!slug && !insuranceProvider && !treatment && !therapy,
+    enabled: !!slug,
     retry: false,
   });
 
-  if (loadingInsurance || loadingTreatment || loadingTherapy || loadingCondition) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <Loader2 className="h-12 w-12 animate-spin text-primary" />
-      </div>
-    );
-  }
-
+  // Render as soon as we have a match, don't wait for all queries
   if (insuranceProvider) {
     return <ProviderCoverage />;
   }
@@ -79,5 +72,15 @@ export default function PageBySlug() {
     return <ConditionDetail />;
   }
 
+  // Only show loading if we're still waiting for queries and no match found
+  if (loadingInsurance || loadingTreatment || loadingTherapy || loadingCondition) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // All queries completed with no match
   return <NotFound />;
 }
