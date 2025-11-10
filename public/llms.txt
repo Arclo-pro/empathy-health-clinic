@@ -1,28 +1,37 @@
-# llms.txt for https://empathyhealthclinic.com/
-# Controls access for AI and Large Language Model crawlers
-# Learn more: https://llmspec.org/
+# Empathy Health Clinic
 
-User-agent: ChatGPT-User
-Allow: /
+> Expert psychiatry, therapy, and counseling services in Winter Park, Florida. Licensed mental health professionals providing medication management, psychotherapy, and comprehensive psychiatric care for adults. Most insurance accepted, including Cigna, Aetna, and United Healthcare.
 
-User-agent: GPTBot
-Allow: /
+We specialize in treating anxiety, depression, PTSD, bipolar disorder, ADHD, and other mental health conditions through evidence-based approaches including cognitive behavioral therapy (CBT), medication management, and trauma-informed care.
 
-User-agent: OAI-SearchBot
-Allow: /
+## Services
 
-User-agent: Google-Extended
-Allow: /
+- [Psychiatric Evaluation](https://empathyhealthclinic.com/psychiatric-evaluation): Comprehensive mental health assessments by board-certified psychiatrists
+- [Medication Management](https://empathyhealthclinic.com/medication-management): Expert psychiatric medication prescribing and monitoring
+- [Therapy Services](https://empathyhealthclinic.com/therapy): Individual therapy, couples counseling, and trauma therapy
+- [Anxiety Treatment](https://empathyhealthclinic.com/anxiety-therapy): Specialized treatment for anxiety disorders and panic attacks
+- [Depression Treatment](https://empathyhealthclinic.com/depression-treatment): Evidence-based depression therapy and medication management
+- [ADHD Treatment](https://empathyhealthclinic.com/adhd-treatment): Comprehensive ADHD evaluation and treatment for adults
 
-User-agent: PerplexityBot
-Allow: /
+## Mental Health Conditions
 
-User-agent: ClaudeBot
-Allow: /
+- [Anxiety Disorders](https://empathyhealthclinic.com/conditions/anxiety): Generalized anxiety, panic disorder, social anxiety
+- [Depression](https://empathyhealthclinic.com/conditions/depression): Major depressive disorder and persistent depressive disorder
+- [Bipolar Disorder](https://empathyhealthclinic.com/bipolar-disorder-treatment): Mood stabilization and comprehensive bipolar care
+- [PTSD](https://empathyhealthclinic.com/ptsd-treatment): Trauma-focused therapy and PTSD treatment
+- [OCD](https://empathyhealthclinic.com/conditions/ocd): Obsessive-compulsive disorder treatment
 
-# Disallow any other unknown AI crawlers
-User-agent: *
-Disallow: /
+## Insurance & Access
 
-# Sitemap reference for contextual crawling
-Sitemap: https://empathyhealthclinic.com/sitemap.xml
+- [Insurance Providers](https://empathyhealthclinic.com/insurance): Accepted insurance plans including Cigna, Aetna, United Healthcare, Tricare
+- [Virtual Therapy](https://empathyhealthclinic.com/virtual-therapy): Telehealth appointments throughout Florida
+- [In-Person Therapy](https://empathyhealthclinic.com/in-person-therapy): Office visits in Winter Park, FL
+- [Request Appointment](https://empathyhealthclinic.com/request-appointment): Schedule a same-week appointment
+
+## Mental Health Resources
+
+- [Blog](https://empathyhealthclinic.com/blog): Mental health articles, treatment guides, and wellness tips
+- [About Our Team](https://empathyhealthclinic.com/team): Licensed psychiatrists and therapists
+- [Locations](https://empathyhealthclinic.com/locations): Serving Winter Park, Orlando, Lake Mary, and Altamonte Springs
+
+Contact: (386) 848-8751 | providers@empathyhealthclinic.com

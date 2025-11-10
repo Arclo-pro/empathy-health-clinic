@@ -2289,6 +2289,21 @@ Sitemap: ${baseUrl}/sitemap_index.xml
     res.send(robotsTxt);
   });
 
+  // LLMs.txt - AI crawler guidance file (Markdown format)
+  app.get("/llms.txt", async (_req, res) => {
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public', 'llms.txt');
+      const llmsTxt = await fs.readFile(filePath, 'utf-8');
+      
+      res.header('Content-Type', 'text/plain; charset=utf-8');
+      res.send(llmsTxt);
+    } catch (error: any) {
+      res.status(500).send('# Error\n\n> Could not load llms.txt file');
+    }
+  });
+
   // NOTE: Blog post redirects (/{slug} → /blog/{slug}) are now handled by the 
   // canonicalization middleware via the blog slug cache. This provides early-stage 
   // redirect handling before route processing for optimal performance and SEO.
