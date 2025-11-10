@@ -7,7 +7,7 @@ import { blogGeneratorService } from "./blog-generator-service";
 import { ContentAnalyzerService } from "./content-analyzer-service";
 import { db } from "./db";
 import { sql } from "drizzle-orm";
-import { contentRedirectMap, normalizePath } from './redirect-config';
+import { contentRedirectMap, normalizePath, setBlogSlugChecker } from './redirect-config';
 import {
   insertSiteContentSchema,
   insertTreatmentSchema,
@@ -29,6 +29,10 @@ import { setupAuth } from "./auth";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Initialize blog slug cache at startup
   await initBlogSlugCache();
+  
+  // Connect blog slug checker to canonicalization middleware
+  // This enables dynamic /{slug} → /blog/{slug} redirects
+  setBlogSlugChecker(isBlogPostSlug);
   
   // Setup authentication routes (/api/register, /api/login, /api/logout, /api/user)
   setupAuth(app);
@@ -2285,49 +2289,9 @@ Sitemap: ${baseUrl}/sitemap_index.xml
     res.send(robotsTxt);
   });
 
-  // Dynamic catch-all blog redirect handler
-  // This must come AFTER all specific redirects but BEFORE the SPA fallback
-  // Redirects /{slug} to /blog/{slug} if the slug exists in the blog post database
-  app.get("/:slug", (req, res, next) => {
-    const rawPath = req.path;
-    const normalizedPath = normalizePath(rawPath);
-    
-    // Guard 1: Skip if path has multiple segments (e.g., /foo/bar)
-    const segments = normalizedPath.split('/').filter(s => s.length > 0);
-    if (segments.length !== 1) {
-      return next();
-    }
-    
-    const slug = segments[0];
-    
-    // Guard 2: Skip if this path is already handled by contentRedirectMap
-    if (contentRedirectMap[normalizedPath]) {
-      return next(); // Let the canonicalization middleware handle it
-    }
-    
-    // Guard 3: Skip reserved top-level routes to avoid conflicts
-    const reservedRoutes = new Set([
-      'api', 'admin', 'blog', 'services', 'therapy', 'insurance', 
-      'conditions', 'locations', 'team', 'about', 'contact', 'sitemap.xml',
-      'robots.txt', 'attached_assets', 'virtual-therapy', 'in-person-therapy',
-      'anxiety-therapy', 'adhd-treatment', 'depression-treatment', 
-      'bipolar-disorder-treatment', 'medication-management', 'psychiatric-evaluation',
-      'intimacy-therapy', 'couples-therapy', 'cognitive-behavioral-therapy',
-      'psychotherapy', 'request-appointment'
-    ]);
-    
-    if (reservedRoutes.has(slug)) {
-      return next();
-    }
-    
-    // Check if this slug matches a blog post
-    if (isBlogPostSlug(slug)) {
-      return res.redirect(301, `/blog/${slug}`);
-    }
-    
-    // Not a blog post - let it fall through to 404/SPA fallback
-    next();
-  });
+  // NOTE: Blog post redirects (/{slug} → /blog/{slug}) are now handled by the 
+  // canonicalization middleware via the blog slug cache. This provides early-stage 
+  // redirect handling before route processing for optimal performance and SEO.
 
   const httpServer = createServer(app);
   return httpServer;

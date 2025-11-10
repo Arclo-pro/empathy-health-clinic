@@ -3,6 +3,13 @@
  * Single source of truth for all URL redirects
  */
 
+// Import blog slug cache checker (will be set at runtime)
+let blogSlugChecker: ((slug: string) => boolean) | null = null;
+
+export function setBlogSlugChecker(checker: (slug: string) => boolean): void {
+  blogSlugChecker = checker;
+}
+
 export const contentRedirectMap: Record<string, string> = {
   // Treatment redirects
   '/treatments/psychiatric-services': '/services',
@@ -135,9 +142,28 @@ export function getCanonicalUrl(
   // Step 3: Normalize path (remove trailing slash, collapse duplicates)
   const normalizedPath = normalizePath(path);
   
-  // Step 4: Check for content redirects
-  const contentRedirect = contentRedirectMap[normalizedPath];
-  const canonicalPath = contentRedirect || normalizedPath;
+  // Step 4: Check for content redirects in the map
+  let canonicalPath = contentRedirectMap[normalizedPath];
+  
+  // Step 5: Check if this is a blog post slug (dynamic redirect)
+  if (!canonicalPath && blogSlugChecker) {
+    const segments = normalizedPath.split('/').filter(s => s.length > 0);
+    
+    // Only check single-segment paths (e.g., /foo but not /foo/bar)
+    if (segments.length === 1) {
+      const slug = segments[0];
+      
+      // Check if this slug matches a blog post
+      if (blogSlugChecker(slug)) {
+        canonicalPath = `/blog/${slug}`;
+      }
+    }
+  }
+  
+  // If no redirect found, use the normalized path
+  if (!canonicalPath) {
+    canonicalPath = normalizedPath;
+  }
   
   // Construct the canonical URL
   const canonical = `${canonicalProtocol}://${canonicalHost}${canonicalPath}${query}`;
