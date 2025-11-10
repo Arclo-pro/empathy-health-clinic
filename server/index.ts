@@ -2,6 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { canonicalizationMiddleware } from "./canonicalization-middleware";
 import path from "path";
 
 const app = express();
@@ -17,49 +18,10 @@ app.use(compression({
   threshold: 1024
 }));
 
-// 301 Redirect: www to non-www (preserves SEO & domain authority)
-app.use((req, res, next) => {
-  const host = req.headers.host || '';
-  
-  // Check if the request is coming from www subdomain
-  if (host.startsWith('www.')) {
-    // Get the protocol (http or https)
-    const protocol = req.protocol || (req.secure ? 'https' : 'http');
-    
-    // Remove 'www.' from the host
-    const newHost = host.substring(4);
-    
-    // Construct the new URL
-    const newUrl = `${protocol}://${newHost}${req.originalUrl}`;
-    
-    // Send 301 permanent redirect
-    return res.redirect(301, newUrl);
-  }
-  
-  next();
-});
-
-// 301 Redirect: Remove trailing slashes (fixes "Alternate page with proper canonical tag" in GSC)
-// Google prefers 301 redirects over canonical tags for duplicate URLs
-app.use((req, res, next) => {
-  // Only redirect if:
-  // 1. Path ends with a trailing slash
-  // 2. Path is not just "/" (homepage)
-  // 3. Path is not an API route (they're fine with trailing slashes)
-  if (req.path !== '/' && req.path.endsWith('/') && !req.path.startsWith('/api/')) {
-    // Remove trailing slash
-    const pathWithoutSlash = req.path.slice(0, -1);
-    
-    // Preserve query string if present
-    const query = req.url.slice(req.path.length);
-    const newUrl = pathWithoutSlash + query;
-    
-    // Send 301 permanent redirect
-    return res.redirect(301, newUrl);
-  }
-  
-  next();
-});
+// Unified canonicalization middleware
+// Handles www removal, trailing slash removal, and content redirects in ONE redirect
+// This prevents redirect chains that hurt SEO and crawl budget
+app.use(canonicalizationMiddleware);
 
 // 410 Gone: Legacy WordPress URLs that no longer exist
 app.use((req, res, next) => {
@@ -80,36 +42,6 @@ app.use((req, res, next) => {
     return res.status(404).send('Not Found');
   }
   
-  next();
-});
-
-// 301 Redirects: Old WordPress URLs to preserve backlink SEO value
-app.use((req, res, next) => {
-  const redirectMap: Record<string, string> = {
-    // Therapy page redirect → in-person therapy page
-    '/therapy/in-person-therapy': '/in-person-therapy',
-    '/therapy/in-person-therapy/': '/in-person-therapy',
-    
-    // Grief self-care article → existing grief counseling post
-    '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
-    '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving/': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
-    
-    // BPD article → new comprehensive BPD guide
-    '/understanding-4-types-of-bpd': '/blog/understanding-4-types-of-bpd',
-    '/understanding-4-types-of-bpd/': '/blog/understanding-4-types-of-bpd',
-    
-    // Narcissistic behavior articles → new narcissism guide
-    '/narcissistic-behavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
-    '/narcissistic-behavior-in-a-relationship/': '/blog/narcissistic-behavior-in-relationships',
-    '/narcissisticbehavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
-    '/narcissisticbehavior-in-a-relationship/': '/blog/narcissistic-behavior-in-relationships',
-  };
-
-  const redirectTo = redirectMap[req.path];
-  if (redirectTo) {
-    return res.redirect(301, redirectTo);
-  }
-
   next();
 });
 
