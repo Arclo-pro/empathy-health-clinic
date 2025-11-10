@@ -89,17 +89,29 @@ function renderTextWithLinks(text: string) {
     const linkUrl = match[2];
     const isExternal = linkUrl.startsWith('http');
     
-    parts.push(
-      <a
-        key={match.index}
-        href={linkUrl}
-        className="text-primary hover:text-primary/80 underline"
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-      >
-        {linkText}
-      </a>
-    );
+    if (isExternal) {
+      parts.push(
+        <a
+          key={match.index}
+          href={linkUrl}
+          className="text-primary hover:text-primary/80 underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {linkText}
+        </a>
+      );
+    } else {
+      parts.push(
+        <Link
+          key={match.index}
+          href={linkUrl}
+          className="text-primary hover:text-primary/80 underline"
+        >
+          {linkText}
+        </Link>
+      );
+    }
     
     lastIndex = match.index + match[0].length;
   }

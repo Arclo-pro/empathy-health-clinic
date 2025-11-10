@@ -184,9 +184,9 @@ export default function Orlando() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Empathy Health Clinic - Orlando",
-    "description": "Mental health clinic serving Orlando, FL. Expert psychiatric services, therapy, and counseling for anxiety, depression, ADHD, trauma, and more.",
-    "url": "https://empathyhealthclinic.com/locations/therapy-services-orlando",
+    "name": "Empathy Health Clinic - Psychiatrist in Orlando, FL",
+    "description": "Board-certified psychiatrists providing expert psychiatric care in Orlando, FL. Specializing in depression, anxiety, ADHD, PTSD, and comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/locations/orlando",
     "telephone": "386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -211,17 +211,52 @@ export default function Orlando() {
     }
   };
 
+  const medicalClinicSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Empathy Health Clinic - Psychiatrist in Orlando, FL",
+    "description": "Board-certified psychiatrists providing expert psychiatric care in Orlando, FL. Specializing in depression, anxiety, ADHD, PTSD, and comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/locations/orlando",
+    "telephone": "386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry",
+    "availableService": [
+      {
+        "@type": "MedicalTherapy",
+        "name": "Psychiatric Evaluation and Treatment"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Medication Management"
+      },
+      {
+        "@type": "MedicalTherapy",
+        "name": "Psychotherapy and Counseling"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Orlando FL | Mental Health Therapy Near Me"
-        description="Expert psychiatrists and therapists serving Orlando, FL. Compassionate treatment for depression, anxiety, ADHD, and more. Insurance accepted. Call 386-848-8751."
-        keywords={["psychiatrist Orlando", "therapist Orlando FL", "mental health Orlando", "psychiatrist near me Orlando", "anxiety treatment Orlando", "depression therapy Orlando", "ADHD psychiatrist Orlando", "counseling Orlando FL"]}
-        canonicalPath="/locations/therapy-services-orlando"
+        title="Psychiatrist in Orlando, FL | Board-Certified Psychiatric Services"
+        description="Top-rated psychiatrist in Orlando, FL. Board-certified psychiatric care for depression, anxiety, ADHD, PTSD & more. Same-week appointments. Insurance accepted. Call 386-848-8751."
+        keywords={["psychiatrist Orlando", "psychiatrist in Orlando FL", "Orlando psychiatrist", "psychiatry Orlando", "psychiatrist near me Orlando", "anxiety psychiatrist Orlando", "depression psychiatrist Orlando", "ADHD psychiatrist Orlando", "psychiatry services Orlando"]}
+        canonicalPath="/locations/orlando"
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalClinicSchema) }}
       />
       <SiteHeader />
       <main className="flex-1">
@@ -235,13 +270,13 @@ export default function Orlando() {
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/90 mb-4">
-              <MapPin className="h-8 w-8 text-primary" />
+              <Brain className="h-8 w-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Orlando Psychiatry & Therapy Services
+              Psychiatrist in Orlando, FL
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Empathy Health Clinic serves the greater Orlando area with compassionate, evidence-based mental health care. Our experienced psychiatrists and therapists help you thrive.
+              Board-certified psychiatrists and licensed therapists providing compassionate, evidence-based psychiatric care in Orlando. Specializing in depression, anxiety, ADHD, PTSD, and comprehensive mental health treatment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -407,10 +442,10 @@ export default function Orlando() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
-                Mental Health Services for Orlando Residents
+                Psychiatry Services in Orlando, FL
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Comprehensive psychiatric and therapy services close to home
+                Our board-certified psychiatrists provide comprehensive psychiatric care for Orlando residents
               </p>
             </div>
 
@@ -522,10 +557,10 @@ export default function Orlando() {
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-sans font-bold text-foreground mb-4">
-                Why Choose Empathy Health Clinic
+                Why Choose Our Orlando Psychiatrists
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Trusted mental health care with a commitment to excellence and compassion
+                Board-certified psychiatric care in Orlando with a commitment to excellence and compassion
               </p>
             </div>
             <TrustFactors />
@@ -539,7 +574,7 @@ export default function Orlando() {
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-4xl mx-auto px-6 lg:px-8">
             <h2 className="text-3xl font-sans font-bold text-foreground mb-8 text-center">
-              Why Orlando Residents Choose Empathy Health Clinic
+              Why Choose Our Psychiatrists in Orlando, FL
             </h2>
             
             <div className="space-y-6">
@@ -548,9 +583,9 @@ export default function Orlando() {
                   ✓
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2 text-lg">Convenient Location - Minutes from Orlando</h3>
+                  <h3 className="font-semibold text-foreground mb-2 text-lg">Convenient Psychiatry Services Near Orlando</h3>
                   <p className="text-muted-foreground">
-                    Easy access from downtown Orlando, Lake Nona, Dr. Phillips, and surrounding areas. Our Winter Park office is just a short drive via I-4.
+                    Easy access from downtown Orlando, Lake Nona, Dr. Phillips, and surrounding areas. Our Winter Park psychiatric clinic is just minutes away via I-4.
                   </p>
                 </div>
               </div>
@@ -560,9 +595,9 @@ export default function Orlando() {
                   ✓
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-2 text-lg">Experienced, Licensed Professionals</h3>
+                  <h3 className="font-semibold text-foreground mb-2 text-lg">Board-Certified Psychiatrists</h3>
                   <p className="text-muted-foreground">
-                    Our psychiatrists and therapists are board-certified, fully licensed mental health professionals with extensive experience treating diverse conditions.
+                    Our Orlando-area psychiatrists are board-certified, fully licensed psychiatric professionals with extensive experience in medication management and psychiatric treatment.
                   </p>
                 </div>
               </div>
