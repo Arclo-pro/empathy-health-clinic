@@ -15,26 +15,27 @@ export default function PhysicianSchema({ teamMember }: PhysicianSchemaProps) {
     
     const physicianSchema = {
       "@context": "https://schema.org",
-      "@type": "Physician",
+      "@type": ["Person", "Physician"],
       "name": teamMember.name,
-      "honorificSuffix": teamMember.credentials,
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": teamMember.credentials
+      },
       "image": teamMember.image,
       "url": `${baseUrl}/team/${teamMember.slug}`,
       "description": teamMember.bio,
       "medicalSpecialty": teamMember.specialties.split(',').map(s => s.trim()),
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": teamMember.education
-      },
-      "worksFor": {
+      "affiliation": {
         "@type": "MedicalOrganization",
         "name": "Empathy Health Clinic",
         "url": baseUrl,
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "2281 Lee Rd Suite 102",
           "addressLocality": "Winter Park",
           "addressRegion": "FL",
+          "postalCode": "32810",
           "addressCountry": "US"
         }
       },

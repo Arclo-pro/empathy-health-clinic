@@ -12,21 +12,20 @@ import { trackEvent } from "@/lib/analytics";
 export default function CrisisTherapy() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "EmergencyService",
-    "name": "Crisis Counseling & Urgent Mental Health Care",
+    "@type": ["MedicalClinic", "EmergencyService"],
+    "name": "Empathy Health Clinic - Crisis Counseling & Urgent Mental Health Care",
     "description": "Urgent mental health support and crisis counseling in Winter Park, FL. Same-day appointments available for mental health emergencies, suicidal thoughts, panic attacks, and acute distress.",
-    "provider": {
-      "@type": "MedicalClinic",
-      "name": "Empathy Health Clinic",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2153 Park Center Drive",
-        "addressLocality": "Winter Park",
-        "addressRegion": "FL",
-        "postalCode": "32792"
-      },
-      "telephone": "386-848-8751"
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
     },
+    "telephone": "+1-386-848-8751",
+    "url": window.location.origin,
+    "serviceType": "Crisis Mental Health Counseling",
     "areaServed": ["Orlando", "Winter Park", "Altamonte Springs", "Maitland", "Central Florida"]
   };
 

@@ -38,22 +38,27 @@ export default function VirtualTherapy() {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Virtual Psychiatry & Therapy Services - Empathy Health Clinic",
+    "@type": ["MedicalClinic", "MedicalBusiness"],
+    "name": "Empathy Health Clinic - Virtual Psychiatry & Therapy Services",
     "description": "Online psychiatry and therapy services throughout Florida. Secure telehealth appointments for medication management, therapy, and mental health treatment.",
-    "provider": {
-      "@type": "MedicalClinic",
-      "name": "Empathy Health Clinic",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2281 Lee Rd Suite 102",
-        "addressLocality": "Winter Park",
-        "addressRegion": "FL",
-        "postalCode": "32810"
-      },
-      "telephone": "386-848-8751"
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
     },
-    "areaServed": "Florida"
+    "telephone": "+1-386-848-8751",
+    "url": window.location.origin,
+    "availableService": {
+      "@type": "MedicalTherapy",
+      "name": "Virtual Psychiatry and Therapy"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Florida"
+    }
   };
 
   return (
