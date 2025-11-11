@@ -1383,6 +1383,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.get("/api/serp/orlando-analysis-enriched", async (_req, res) => {
+    try {
+      const { runOrlandoSEOAnalysis } = await import('./gsc-service');
+      const result = await runOrlandoSEOAnalysis(true); // Enable SERP enrichment
+      res.json(result);
+    } catch (error: any) {
+      console.error('❌ SERP Orlando Analysis Error:', error);
+      res.status(500).json({ success: false, error: error.message });
+    }
+  });
+
   // SEMrush data route
   app.get("/api/semrush-data", async (_req, res) => {
     try {

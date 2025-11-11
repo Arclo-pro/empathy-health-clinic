@@ -17,6 +17,9 @@ interface SEOTask {
   current_position?: number;
   current_ctr?: number;
   impressions?: number;
+  serp_position?: number | null;
+  serp_url?: string | null;
+  rank_on_wrong_url?: boolean;
 }
 
 const ORLANDO_TARGETS = [
@@ -198,17 +201,23 @@ export function generateSEOTasks(gscData: GSCRow[]): SEOTask[] {
   });
 }
 
-export async function runOrlandoSEOAnalysis() {
+export async function runOrlandoSEOAnalysis(enrichWithSERP = false) {
   try {
     const gscData = await fetchGSCData(28, 0);
     const tasks = generateSEOTasks(gscData);
+    
+    let enrichedTasks = tasks;
+    
+    if (enrichWithSERP) {
+      enrichedTasks = await enrichTasksWithSERPPositions(tasks);
+    }
     
     return {
       success: true,
       data: {
         totalQueries: gscData.length,
         analyzedTargets: ORLANDO_TARGETS.length,
-        tasks,
+        tasks: enrichedTasks,
         dataRange: {
           start: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
           end: new Date().toISOString().split('T')[0],
@@ -222,4 +231,59 @@ export async function runOrlandoSEOAnalysis() {
       error: error.message,
     };
   }
+}
+
+async function enrichTasksWithSERPPositions(tasks: SEOTask[]): Promise<SEOTask[]> {
+  const { getGoogleRanking, urlsMatch } = await import('./serp-service');
+  const enrichedTasks: SEOTask[] = [];
+  
+  for (const task of tasks) {
+    try {
+      const ranking = await getGoogleRanking(task.target_query);
+      
+      const enrichedTask: SEOTask = {
+        ...task,
+        serp_position: ranking.position,
+        serp_url: ranking.url,
+        rank_on_wrong_url: false,
+      };
+      
+      // Check if ranking on wrong URL using normalized URL comparison
+      if (ranking.position && task.suggested_url && ranking.url) {
+        enrichedTask.rank_on_wrong_url = !urlsMatch(ranking.url, task.suggested_url);
+      }
+      
+      // Refine action based on SERP position
+      if (ranking.position !== null) {
+        if (ranking.position <= 3) {
+          // Already in top 3 - maintain position with supporting content
+          enrichedTask.type = 'supporting-blog';
+          enrichedTask.rationale = `Position ${ranking.position} (Top 3) - defend with supporting content and internal links`;
+        } else if (ranking.position <= 10) {
+          // Page 1 but not top 3 - optimize to climb higher
+          enrichedTask.type = 'improve-landing';
+          enrichedTask.rationale = `Position ${ranking.position} (Page 1) - optimize title/meta/content to push into Top 3`;
+        } else {
+          // Page 2+ - needs major work or new landing page
+          if (enrichedTask.rank_on_wrong_url) {
+            enrichedTask.type = 'create-landing';
+            enrichedTask.rationale = `Position ${ranking.position} on wrong URL - create focused landing page for target query`;
+          } else {
+            enrichedTask.type = 'improve-landing';
+            enrichedTask.rationale = `Position ${ranking.position} (Page 2+) - significantly improve content and on-page SEO`;
+          }
+        }
+      }
+      
+      enrichedTasks.push(enrichedTask);
+      
+      // Rate limiting: wait 1.2 seconds between requests
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+    } catch (error: any) {
+      console.error(`Failed to enrich task for "${task.target_query}":`, error.message);
+      enrichedTasks.push(task);
+    }
+  }
+  
+  return enrichedTasks;
 }
