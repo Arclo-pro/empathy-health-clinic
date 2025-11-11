@@ -76,6 +76,13 @@ export default function Admin() {
           </Button>
           <Button
             variant="outline"
+            onClick={() => setLocation("/admin/utm-tracker")}
+            data-testid="button-utm-tracker"
+          >
+            UTM Tracker (Clarity Fix)
+          </Button>
+          <Button
+            variant="outline"
             onClick={() => setLocation("/admin/google-ads")}
             data-testid="button-google-ads"
           >

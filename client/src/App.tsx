@@ -46,6 +46,7 @@ const AdminLinkMonitor = lazy(() => import("@/pages/AdminLinkMonitor"));
 const AdminBlogGenerator = lazy(() => import("@/pages/AdminBlogGenerator"));
 const BlogSEOOptimizer = lazy(() => import("@/pages/BlogSEOOptimizer"));
 const SEMrushOptimizer = lazy(() => import("@/pages/SEMrushOptimizer"));
+const AdminUTMTracker = lazy(() => import("@/pages/AdminUTMTracker"));
 
 // Blog pages
 const BlogListingPage = lazy(() => import("@/pages/BlogListingPage"));
@@ -132,6 +133,11 @@ function Router() {
         <ProtectedRoute path="/admin/semrush" component={() => (
           <Suspense fallback={<LoadingFallback />}>
             <SEMrushOptimizer />
+          </Suspense>
+        )} />
+        <ProtectedRoute path="/admin/utm-tracker" component={() => (
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminUTMTracker />
           </Suspense>
         )} />
         <Route path="/insurance">
