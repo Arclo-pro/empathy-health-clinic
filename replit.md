@@ -62,3 +62,32 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **PostgreSQL:** Database for analytics and leads.
 - **Unsplash API:** For professional stock images.
 - **Microsoft Clarity API:** Optional integration for enhanced link monitoring and dead link detection.
+
+## SEO Automation Pipeline (November 2025)
+Automated daily SEO workflow orchestrating GSC data, SERP tracking, tech audits, and task prioritization:
+
+### Pipeline Components
+- **main.py:** Fetches Google Search Console data and generates initial tasks.csv
+- **step2_serp_update_tasks.py:** Checks live SERP rankings via Serper.dev API, enriches tasks with position data
+- **step3_parse_sf_exports.py:** Parses Screaming Frog technical audit exports (internal_all.csv)
+- **step4_merge_and_prioritize_simple.py:** Combines all data sources, calculates impact/effort scores, outputs tasks_final.csv
+- **daily_seo_pipeline.py:** Full orchestration script with SendGrid email notifications
+
+### Deployment Options
+1. **Replit Scheduled Deployment:** Daily cron job (`0 7 * * *` = 2 AM EST) runs full pipeline
+2. **Manual Execution:** Run `python3 daily_seo_pipeline.py` on-demand
+3. **Continuous Integration:** Trigger via GitHub Actions or external scheduler
+
+### Task Prioritization Algorithm
+- **Impact Score:** Position-based opportunity (page 2+ = +5, page 1 bottom = +4) + tech issue severity (http-error = +6, performance issues = +2-3)
+- **Effort Score:** create-landing = 3.0, supporting-blog = 2.0, improve-landing = 1.5, tech-fix = 1.5-2.5
+- **Priority Score:** Impact - (0.8 × Effort)
+
+### Email Reports
+Daily summary emails via SendGrid to providers@empathyhealthclinic.com, kevin.mease@gmail.com containing:
+- Top 10 priority tasks with scores, actions, SERP positions
+- Tech issue flags (http-error, slow-mobile, thin-content, missing SEO elements)
+- File generation status (tasks.csv, serp_ranks.csv, tech_audit.csv, tasks_final.csv)
+
+### Cost
+~$0.30/month (Serper.dev SERP checks at $0.001/query × ~12 queries/day)
