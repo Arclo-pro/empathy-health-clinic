@@ -1,11 +1,1 @@
-url,status,title,h1,meta_desc,canonical,wordcount,issues
-http://localhost:5000/telepsychiatry-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/adhd-psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/anxiety-psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/medication-management-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/same-day-psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/services,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/child-psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
-http://localhost:5000/bipolar-psychiatrist-orlando,,,,,,0,"missing-title,missing-h1,missing-meta,thin-content"
+url,issues

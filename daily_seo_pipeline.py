@@ -64,23 +64,43 @@ else:
 
 # 3) Parse Screaming Frog export OR run tech audit
 print("\nStep 3: Analyzing technical SEO signals...")
+tech_audit_ran = False
+
 if os.path.exists("internal_all.csv"):
     # Use freshly downloaded or existing Screaming Frog export
     if os.path.exists("step3_parse_sf_exports.py"):
-        run(["python3", "step3_parse_sf_exports.py"])
+        if run(["python3", "step3_parse_sf_exports.py"]):
+            tech_audit_ran = True
+            print("✅ Technical audit completed using Screaming Frog data")
+        else:
+            print("⚠️ Screaming Frog parsing failed, continuing without tech audit")
     else:
         print("⚠️ step3_parse_sf_exports.py not found")
 elif os.path.exists("attached_assets/internal_all_1762887563969.csv"):
     # Fallback to old uploaded export
     if os.path.exists("step3_parse_sf_exports.py"):
-        run(["python3", "step3_parse_sf_exports.py"])
+        if run(["python3", "step3_parse_sf_exports.py"]):
+            tech_audit_ran = True
+            print("✅ Technical audit completed using Screaming Frog data")
+        else:
+            print("⚠️ Screaming Frog parsing failed, continuing without tech audit")
     else:
         print("⚠️ step3_parse_sf_exports.py not found")
 elif os.path.exists("step3_tech_audit.py"):
     # Fallback to live tech audit
-    run(["python3", "step3_tech_audit.py"])
+    if run(["python3", "step3_tech_audit.py"]):
+        tech_audit_ran = True
+        print("✅ Technical audit completed using live crawl")
+    else:
+        print("⚠️ Live tech audit failed, continuing without tech audit")
 else:
     print("⚠️ No tech audit script found, skipping")
+
+if not tech_audit_ran:
+    print("⚠️ Pipeline will continue without technical SEO data")
+    # Create empty tech_audit.csv so merge step doesn't fail
+    with open("tech_audit.csv", "w") as f:
+        f.write("url,issues\n")
 
 # 4) Merge + prioritize → tasks_final.csv
 print("\nStep 4: Merging and prioritizing tasks...")
