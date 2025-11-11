@@ -2438,6 +2438,53 @@ Sitemap: ${baseUrl}/sitemap_index.xml
   // canonicalization middleware via the blog slug cache. This provides early-stage 
   // redirect handling before route processing for optimal performance and SEO.
 
+  // Daily SEO Pipeline Trigger (for UptimeRobot/cron-job.org pings)
+  app.get("/api/seo/trigger-daily-pipeline", async (req, res) => {
+    try {
+      // Security: Require secret key to prevent abuse
+      const SECRET_KEY = process.env.SEO_PIPELINE_SECRET || "change-me-in-production";
+      const providedKey = req.query.key || req.headers['x-api-key'];
+      
+      if (providedKey !== SECRET_KEY) {
+        console.log("⚠️ Unauthorized pipeline trigger attempt");
+        return res.status(401).json({ 
+          error: "Unauthorized",
+          message: "Invalid or missing API key"
+        });
+      }
+
+      console.log("🚀 Daily SEO Pipeline triggered via ping");
+      
+      // Execute pipeline asynchronously (don't block response)
+      const { exec } = await import('child_process');
+      const util = await import('util');
+      const execPromise = util.promisify(exec);
+      
+      // Fire and forget - pipeline runs in background
+      execPromise('python3 daily_seo_pipeline.py')
+        .then(() => {
+          console.log("✅ Daily SEO Pipeline completed successfully");
+        })
+        .catch((error) => {
+          console.error("❌ Daily SEO Pipeline error:", error);
+        });
+      
+      // Return immediately
+      res.json({ 
+        success: true,
+        message: "SEO pipeline triggered",
+        timestamp: new Date().toISOString()
+      });
+      
+    } catch (error: any) {
+      console.error("Pipeline trigger error:", error);
+      res.status(500).json({ 
+        error: "Internal server error",
+        message: error.message 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
