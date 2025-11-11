@@ -76,10 +76,12 @@ class TaskImplementer:
             return False
     
     def capture_git_diff(self) -> str:
-        """Capture git diff after implementation"""
+        """Capture git diff of the last commit (for email audit trail)"""
         try:
+            # Use 'git show HEAD' to get the diff of the last commit
+            # This works even after committing changes
             result = subprocess.run(
-                ["git", "diff", "HEAD"],
+                ["git", "show", "HEAD", "--stat", "--patch"],
                 capture_output=True,
                 text=True,
                 timeout=10
