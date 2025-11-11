@@ -377,3 +377,25 @@ export const insertLocationSchema = createInsertSchema(locations).omit({
 
 export type InsertLocation = z.infer<typeof insertLocationSchema>;
 export type Location = typeof locations.$inferSelect;
+
+export const emailFailures = pgTable("email_failures", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  leadId: varchar("lead_id"),
+  emailType: text("email_type").notNull(),
+  recipientEmail: text("recipient_email").notNull(),
+  errorMessage: text("error_message").notNull(),
+  errorDetails: text("error_details"),
+  retryCount: integer("retry_count").notNull().default(0),
+  lastRetryAt: text("last_retry_at"),
+  resolved: boolean("resolved").notNull().default(false),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  resolvedAt: text("resolved_at"),
+});
+
+export const insertEmailFailureSchema = createInsertSchema(emailFailures).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertEmailFailure = z.infer<typeof insertEmailFailureSchema>;
+export type EmailFailure = typeof emailFailures.$inferSelect;

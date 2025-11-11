@@ -29,11 +29,14 @@ import {
   type InsertNewsletterSubscriber,
   type Location,
   type InsertLocation,
+  type EmailFailure,
+  type InsertEmailFailure,
   leads,
   webVitals,
   analyticsEvents,
   pageViews,
   blogPosts,
+  emailFailures,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 import blogPostsData from "./blog-posts-data.json";
@@ -159,6 +162,12 @@ export interface IStorage {
   
   // Link Monitor methods
   getPageBounceRates(): Promise<{path: string, views: number, bounces: number, bounceRate: number}[]>;
+  
+  // Email failure tracking methods
+  logEmailFailure(failure: InsertEmailFailure): Promise<EmailFailure>;
+  getEmailFailures(resolved?: boolean): Promise<EmailFailure[]>;
+  retryEmailFailure(id: string): Promise<EmailFailure>;
+  resolveEmailFailure(id: string): Promise<EmailFailure>;
 }
 
 export class MemStorage implements IStorage {
@@ -2363,6 +2372,40 @@ export class MemStorage implements IStorage {
     return result
       .filter(r => r.views >= 5) // Only show pages with at least 5 views
       .sort((a, b) => b.bounceRate - a.bounceRate);
+  }
+
+  async logEmailFailure(failure: InsertEmailFailure): Promise<EmailFailure> {
+    const [result] = await db.insert(emailFailures).values(failure).returning();
+    return result;
+  }
+
+  async getEmailFailures(resolved?: boolean): Promise<EmailFailure[]> {
+    if (resolved !== undefined) {
+      return db.select().from(emailFailures).where(eq(emailFailures.resolved, resolved)).orderBy(desc(emailFailures.createdAt));
+    }
+    return db.select().from(emailFailures).orderBy(desc(emailFailures.createdAt));
+  }
+
+  async retryEmailFailure(id: string): Promise<EmailFailure> {
+    const [result] = await db.update(emailFailures)
+      .set({ 
+        retryCount: sql`${emailFailures.retryCount} + 1`,
+        lastRetryAt: new Date().toISOString()
+      })
+      .where(eq(emailFailures.id, id))
+      .returning();
+    return result;
+  }
+
+  async resolveEmailFailure(id: string): Promise<EmailFailure> {
+    const [result] = await db.update(emailFailures)
+      .set({ 
+        resolved: true,
+        resolvedAt: new Date().toISOString()
+      })
+      .where(eq(emailFailures.id, id))
+      .returning();
+    return result;
   }
 }
 

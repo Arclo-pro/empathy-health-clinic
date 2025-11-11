@@ -1183,6 +1183,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (validated.formType !== 'phone_click') {
         console.log(`📧 Sending email notification for: ${validated.email} (${validated.formType} form)`);
         sendLeadNotification({
+          leadId: lead.id,
           firstName: validated.firstName,
           lastName: validated.lastName,
           email: validated.email,
@@ -1206,7 +1207,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           if (error.response?.body) {
             console.error('SendGrid error details:', JSON.stringify(error.response.body, null, 2));
           }
-          // Don't fail the request if email fails
+          // Email failure is already logged to database in email.ts
         });
       } else {
         console.log(`📞 Phone click lead tracked: ${validated.phone || 'No phone'} from ${validated.source || 'Unknown source'}`);
@@ -1260,6 +1261,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ success: true, message: "Email notification resent successfully" });
     } catch (error: any) {
       console.error('❌ Failed to resend lead notification:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // Email failure tracking routes
+  app.get("/api/email-failures", async (req, res) => {
+    try {
+      const resolved = req.query.resolved === 'true' ? true : req.query.resolved === 'false' ? false : undefined;
+      const failures = await storage.getEmailFailures(resolved);
+      res.json(failures);
+    } catch (error: any) {
+      console.error('❌ Failed to fetch email failures:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/email-failures/:id/retry", async (req, res) => {
+    try {
+      const failure = await storage.retryEmailFailure(req.params.id);
+      
+      const leads = await storage.getAllLeads();
+      const lead = leads.find(l => l.id === failure.leadId);
+      
+      if (lead && failure.emailType === 'lead_notification') {
+        await sendLeadNotification({
+          leadId: lead.id,
+          firstName: lead.firstName,
+          lastName: lead.lastName,
+          email: lead.email,
+          phone: lead.phone,
+          smsOptIn: lead.smsOptIn,
+          service: lead.service,
+          formType: lead.formType,
+          conditions: lead.conditions,
+          symptoms: lead.symptoms,
+          medications: lead.medications,
+          preferredDay: lead.preferredDay,
+          paymentMethod: lead.paymentMethod,
+          insuranceProvider: lead.insuranceProvider,
+          insuredName: lead.insuredName,
+          insuredDob: lead.insuredDob,
+          memberId: lead.memberId,
+        });
+        
+        await storage.resolveEmailFailure(req.params.id);
+        console.log(`✅ Email failure ${req.params.id} retried and resolved successfully`);
+      }
+      
+      res.json({ success: true, failure });
+    } catch (error: any) {
+      console.error('❌ Failed to retry email:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.post("/api/email-failures/:id/resolve", async (req, res) => {
+    try {
+      const failure = await storage.resolveEmailFailure(req.params.id);
+      console.log(`✅ Email failure ${req.params.id} marked as resolved`);
+      res.json(failure);
+    } catch (error: any) {
+      console.error('❌ Failed to resolve email failure:', error);
       res.status(500).json({ error: error.message });
     }
   });

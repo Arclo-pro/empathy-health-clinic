@@ -1,4 +1,5 @@
 import sgMail from '@sendgrid/mail';
+import { storage } from './storage';
 
 const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
 const TO_EMAILS = ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'];
@@ -10,6 +11,7 @@ if (SENDGRID_API_KEY) {
 }
 
 export interface LeadEmailData {
+  leadId?: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -234,9 +236,33 @@ Empathy Health Clinic | 2281 Lee Rd Suite 102, Winter Park FL | (386) 848-8751
     console.log(`Lead notification email sent successfully to ${TO_EMAILS.join(', ')}`);
   } catch (error: any) {
     console.error('Error sending lead notification email:', error);
+    
+    const errorMessage = error.message || 'Unknown email sending error';
+    const errorDetails = error.response?.body ? JSON.stringify(error.response.body) : JSON.stringify(error);
+    
     if (error.response) {
       console.error('SendGrid error response:', error.response.body);
     }
+    
+    for (const recipientEmail of TO_EMAILS) {
+      try {
+        await storage.logEmailFailure({
+          leadId: data.leadId || null,
+          emailType: 'lead_notification',
+          recipientEmail,
+          errorMessage,
+          errorDetails,
+          retryCount: 0,
+          lastRetryAt: null,
+          resolved: false,
+          resolvedAt: null,
+        });
+        console.log(`📝 Email failure logged for recipient: ${recipientEmail}`);
+      } catch (dbError) {
+        console.error('Failed to log email failure to database:', dbError);
+      }
+    }
+    
     throw error;
   }
 }
