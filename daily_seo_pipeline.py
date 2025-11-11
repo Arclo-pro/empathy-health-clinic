@@ -91,6 +91,26 @@ elif os.path.exists("step4_merge_and_prioritize.py"):
 else:
     print("⚠️ No merge script found, skipping prioritization")
 
+# 4.5) AUTONOMOUS IMPLEMENTATION - Automatically implement high-priority tasks
+print("\nStep 4.5: Autonomously implementing high-priority tasks...")
+implementation_summary = {}
+if os.path.exists("auto_implement_tasks.py"):
+    if run(["python3", "auto_implement_tasks.py"]):
+        # Read implementation summary if it exists
+        if os.path.exists("implementation_summary.json"):
+            try:
+                with open("implementation_summary.json", 'r') as f:
+                    implementation_summary = json.load(f)
+                print(f"✅ Autonomous implementation complete:")
+                print(f"   Implemented: {implementation_summary.get('implemented', 0)}")
+                print(f"   Failed: {implementation_summary.get('failed', 0)}")
+            except Exception as e:
+                print(f"⚠️ Could not read implementation summary: {e}")
+    else:
+        print("⚠️ Autonomous implementation failed")
+else:
+    print("⚠️ auto_implement_tasks.py not found, skipping autonomous implementation")
+
 # 5) Build summary message
 print("\nStep 5: Building summary report...")
 summary = []
@@ -132,16 +152,55 @@ print("\n" + msg_text)
 print("\nStep 6: Sending email notification...")
 if SENDGRID_API_KEY and EMAIL_TO:
     try:
+        # Add autonomous implementation summary to email
+        auto_impl_section = ""
+        if implementation_summary:
+            auto_impl_section = f"""
+                <h2 style="color: #2563eb; margin-top: 30px;">🤖 Autonomous Implementation</h2>
+                <div style="background: #f0f9ff; padding: 15px; border-radius: 5px; border-left: 4px solid #2563eb;">
+                    <p><strong>Implemented:</strong> {implementation_summary.get('implemented', 0)}</p>
+                    <p><strong>Failed:</strong> {implementation_summary.get('failed', 0)}</p>
+                    <p><strong>Skipped:</strong> {implementation_summary.get('skipped', 0)}</p>
+                    
+                    {f'''
+                    <h3 style="margin-top: 20px;">✅ Successfully Implemented:</h3>
+                    <ul>
+                        {"".join(f"<li>{task.get('action')}: {task.get('query')}</li>" for task in implementation_summary.get('details', {}).get('implemented', []))}
+                    </ul>
+                    ''' if implementation_summary.get('details', {}).get('implemented') else ''}
+                    
+                    {f'''
+                    <h3 style="margin-top: 20px;">❌ Failed to Implement:</h3>
+                    <ul>
+                        {"".join(f"<li>{task.get('action')}: {task.get('query')}</li>" for task in implementation_summary.get('details', {}).get('failed', []))}
+                    </ul>
+                    ''' if implementation_summary.get('details', {}).get('failed') else ''}
+                    
+                    {f'''
+                    <h3 style="margin-top: 20px;">📝 Git Changes:</h3>
+                    <pre style="background: #1f2937; color: #10b981; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 11px; max-height: 400px;">{implementation_summary.get('git_diff', 'No changes')[:3000]}</pre>
+                    <p style="color: #666; font-size: 12px;">
+                        🔄 Rollback: <code>git reset --hard HEAD~1</code>
+                    </p>
+                    ''' if implementation_summary.get('git_diff') else ''}
+                </div>
+            """
+        
         subject = f"Empathy Health SEO Daily Report - {datetime.utcnow().strftime('%Y-%m-%d')}"
+        if implementation_summary.get('implemented', 0) > 0:
+            subject += f" [{implementation_summary.get('implemented')} tasks implemented]"
         
         # Build HTML email
         html_content = f"""
         <html>
         <body style="font-family: monospace; background-color: #f5f5f5; padding: 20px;">
-            <div style="max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 5px;">
+            <div style="max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 5px;">
                 <h1 style="color: #2563eb;">Empathy Health Clinic - SEO Daily Report</h1>
                 <p style="color: #666;">Generated: {datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')}</p>
                 
+                {auto_impl_section}
+                
+                <h2 style="color: #2563eb; margin-top: 30px;">📊 Recommended Tasks</h2>
                 <pre style="background: #f8f9fa; padding: 20px; border-radius: 5px; overflow-x: auto;">
 {msg_text}
                 </pre>
