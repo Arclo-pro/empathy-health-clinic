@@ -58,6 +58,11 @@ const CrisisTherapy = lazy(() => import("@/pages/CrisisTherapy"));
 const DepressionCounseling = lazy(() => import("@/pages/DepressionCounseling"));
 const AnxietyTherapy = lazy(() => import("@/pages/AnxietyTherapy"));
 
+// Legal & Info Pages
+const About = lazy(() => import("@/pages/About"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const MedicalDisclaimer = lazy(() => import("@/pages/MedicalDisclaimer"));
+
 // Components
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
@@ -237,6 +242,21 @@ function Router() {
         <Route path="/anxiety-therapy">
           <Suspense fallback={<LoadingFallback />}>
             <AnxietyTherapy />
+          </Suspense>
+        </Route>
+        <Route path="/about">
+          <Suspense fallback={<LoadingFallback />}>
+            <About />
+          </Suspense>
+        </Route>
+        <Route path="/privacy-policy">
+          <Suspense fallback={<LoadingFallback />}>
+            <PrivacyPolicy />
+          </Suspense>
+        </Route>
+        <Route path="/medical-disclaimer">
+          <Suspense fallback={<LoadingFallback />}>
+            <MedicalDisclaimer />
           </Suspense>
         </Route>
         <Route path="/locations/:slug">

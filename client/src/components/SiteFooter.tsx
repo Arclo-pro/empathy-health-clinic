@@ -52,6 +52,12 @@ export default function SiteFooter() {
     { label: "Request Appointment", href: "/request-appointment" }
   ];
 
+  const legalLinks = [
+    { label: "About Us", href: "/about" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Medical Disclaimer", href: "/medical-disclaimer" }
+  ];
+
   const servicesLinks = [
     { label: "Psychiatric Evaluation", href: "/psychiatric-evaluation" },
     { label: "Medication Management", href: "/medication-management" },
@@ -332,14 +338,28 @@ export default function SiteFooter() {
           </div>
         )}
         
-        <div className="pt-8 border-t border-card-border text-center">
-          <p className="text-sm text-muted-foreground mb-2">
-            © 2025 Empathy Health Clinic. All rights reserved.
+        <div className="pt-8 border-t border-card-border">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+            <p className="text-sm text-muted-foreground">
+              © 2025 Empathy Health Clinic. All rights reserved.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              {legalLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <p className="text-xs text-muted-foreground/70 mb-2 text-center">
+            Licensed mental health providers | FL License # | Psychiatrist Orlando FL
           </p>
-          <p className="text-xs text-muted-foreground/70 mb-2">
-            Licensed mental health providers | FL License #
-          </p>
-          <p className="text-xs text-muted-foreground/60">
+          <p className="text-xs text-muted-foreground/60 text-center">
             Empathy Health Clinic provides mental wellness and behavioral health services. We do not sell or advertise prescription drugs online.
           </p>
         </div>
