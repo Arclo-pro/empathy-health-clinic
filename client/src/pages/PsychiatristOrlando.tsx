@@ -16,56 +16,103 @@ import { trackEvent } from "@/lib/analytics";
 export default function PsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-    "name": "Empathy Health Clinic - Psychiatrist Orlando FL",
-    "description": "Board-certified psychiatrists in Orlando, FL providing medication management, psychiatric evaluations, and comprehensive mental health treatment for anxiety, depression, ADHD, bipolar disorder, and more.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando",
-    "telephone": "+1-386-848-8751",
-    "email": "providers@empathyhealthclinic.com",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
-      "addressRegion": "FL",
-      "postalCode": "32810",
-      "addressCountry": "US"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Orlando" },
-      { "@type": "City", "name": "Winter Park" },
-      { "@type": "City", "name": "Altamonte Springs" },
-      { "@type": "City", "name": "Lake Mary" },
-      { "@type": "City", "name": "Maitland" }
-    ],
-    "medicalSpecialty": "Psychiatry",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Psychiatric Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "MedicalTherapy",
-            "name": "Medication Management"
-          }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://empathyhealthclinic.com/#website",
+        "url": "https://empathyhealthclinic.com/",
+        "name": "Empathy Health Clinic",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "MedicalOrganization",
+        "@id": "https://empathyhealthclinic.com/#organization",
+        "name": "Empathy Health Clinic",
+        "url": "https://empathyhealthclinic.com/",
+        "telephone": "+1-386-848-8751",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2281 Lee Road Suite 102",
+          "addressLocality": "Winter Park",
+          "addressRegion": "FL",
+          "postalCode": "32810",
+          "addressCountry": "US"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "MedicalTherapy",
-            "name": "Psychiatric Evaluation"
+        "medicalSpecialty": [
+          "Psychiatry",
+          "MentalHealth"
+        ],
+        "areaServed": [
+          "Orlando, Florida",
+          "Winter Park, Florida",
+          "Greater Orlando"
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "09:00",
+            "closes": "19:00"
           }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://empathyhealthclinic.com/psychiatrist-orlando/#webpage",
+        "url": "https://empathyhealthclinic.com/psychiatrist-orlando",
+        "name": "Psychiatrist in Orlando, Florida | Empathy Health Clinic",
+        "isPartOf": {
+          "@id": "https://empathyhealthclinic.com/#website"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "MedicalTherapy",
-            "name": "Telepsychiatry"
-          }
+        "inLanguage": "en",
+        "about": {
+          "@id": "https://empathyhealthclinic.com/#organization"
+        },
+        "description": "Empathy Health Clinic provides psychiatric care in Orlando with evaluations, treatment planning, supportive follow-up, and both online and in-office appointments. Serving patients across the Greater Orlando area.",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://empathyhealthclinic.com" + heroImage
         }
-      ]
-    }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://empathyhealthclinic.com/psychiatrist-orlando/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you offer online psychiatry for Orlando patients?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Empathy Health Clinic offers online visits for many Orlando-area patients who prefer or need virtual care. Our providers support both virtual and in-person appointments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can I be seen by a psychiatric provider?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Availability can vary, but most patients are scheduled quickly. Our goal is to provide timely access to psychiatric care for adults in the Greater Orlando area."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you accept insurance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Empathy Health Clinic works with many major insurance plans. Contact our team and we can help you confirm your specific coverage and benefits."
+            }
+          }
+        ]
+      }
+    ]
   };
 
   const handlePhoneClick = () => {
