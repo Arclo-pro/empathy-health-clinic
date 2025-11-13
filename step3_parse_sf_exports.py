@@ -1,49 +1,96 @@
 import os
-import pandas as pd
-from caas_jupyter_tools import display_dataframe_to_user
+import csv
 
 # Path to Screaming Frog export (fetched from iCloud or manually uploaded)
 CSV_PATH = "internal_all.csv" if os.path.exists("internal_all.csv") else "attached_assets/internal_all_1762887563969.csv"
 
-# Read the CSV
-df = pd.read_csv(CSV_PATH)
+# Read the CSV with flexible encoding
+try:
+    with open(CSV_PATH, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+except UnicodeDecodeError:
+    with open(CSV_PATH, 'r', encoding='latin-1') as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+
+if not rows:
+    print("⚠️ No data rows in CSV")
+    with open("tech_audit.csv", "w") as f:
+        f.write("url,issues\n")
+    exit(0)
 
 # Normalize column names
-df.columns = [c.strip().lower() for c in df.columns]
+normalized_rows = []
+for row in rows:
+    normalized_rows.append({k.strip().lower(): v for k, v in row.items()})
 
 # Identify the common Screaming Frog columns
-url_col = next((c for c in df.columns if "address" in c or "url" in c), None)
-status_col = next((c for c in df.columns if "status" in c), None)
-title_col = next((c for c in df.columns if "title" in c), None)
-h1_col = next((c for c in df.columns if "h1" in c), None)
-meta_col = next((c for c in df.columns if "meta" in c), None)
-word_col = next((c for c in df.columns if "word" in c and "count" in c), None)
-
-core_cols = [x for x in [url_col, status_col, title_col, h1_col, meta_col, word_col] if x]
-df_core = df[core_cols].copy()
-df_core.rename(columns={
-    url_col: "url",
-    status_col: "status",
-    title_col: "title",
-    h1_col: "h1",
-    meta_col: "meta_desc",
-    word_col: "wordcount"
-}, inplace=True)
+if normalized_rows:
+    columns = normalized_rows[0].keys()
+    url_col = next((c for c in columns if "address" in c or "url" in c), None)
+    status_col = next((c for c in columns if "status" in c), None)
+    title_col = next((c for c in columns if "title" in c), None)
+    h1_col = next((c for c in columns if "h1" in c), None)
+    meta_col = next((c for c in columns if "meta" in c and "description" in c), None)
+    word_col = next((c for c in columns if "word" in c and "count" in c), None)
+else:
+    print("⚠️ No data in CSV")
+    with open("tech_audit.csv", "w") as f:
+        f.write("url,issues\n")
+    exit(0)
 
 # Add issue flags
-def flag(row):
+def flag_issues(row):
     issues = []
-    if pd.notna(row.get("status")) and row["status"] >= 400:
-        issues.append("http-error")
-    if not row.get("title"): issues.append("missing-title")
-    if not row.get("h1"): issues.append("missing-h1")
-    if not row.get("meta_desc"): issues.append("missing-meta")
-    if pd.notna(row.get("wordcount")) and row["wordcount"] < 500:
-        issues.append("thin-content")
+    status = row.get(status_col, '')
+    title = row.get(title_col, '')
+    h1 = row.get(h1_col, '')
+    meta_desc = row.get(meta_col, '')
+    wordcount = row.get(word_col, '')
+    
+    # Check for HTTP errors
+    if status and status.strip():
+        try:
+            if int(status) >= 400:
+                issues.append("http-error")
+        except ValueError:
+            pass
+    
+    # Check for missing elements
+    if not title or not title.strip():
+        issues.append("missing-title")
+    if not h1 or not h1.strip():
+        issues.append("missing-h1")
+    if not meta_desc or not meta_desc.strip():
+        issues.append("missing-meta")
+    
+    # Check for thin content
+    if wordcount and wordcount.strip():
+        try:
+            if int(wordcount) < 500:
+                issues.append("thin-content")
+        except ValueError:
+            pass
+    
     return ",".join(issues)
 
-df_core["issues"] = df_core.apply(flag, axis=1)
-df_core.to_csv("tech_audit.csv", index=False)
+# Process rows and write to tech_audit.csv
+with open("tech_audit.csv", "w", newline='', encoding='utf-8') as f:
+    writer = csv.DictWriter(f, fieldnames=["url", "status", "title", "h1", "meta_desc", "wordcount", "issues"])
+    writer.writeheader()
+    
+    for row in normalized_rows:
+        output_row = {
+            "url": row.get(url_col, ''),
+            "status": row.get(status_col, ''),
+            "title": row.get(title_col, ''),
+            "h1": row.get(h1_col, ''),
+            "meta_desc": row.get(meta_col, ''),
+            "wordcount": row.get(word_col, ''),
+            "issues": flag_issues(row)
+        }
+        writer.writerow(output_row)
 
-display_dataframe_to_user("Parsed Screaming Frog Crawl (tech audit)", df_core.head(20))
-print(f"✅ Wrote tech_audit.csv with {len(df_core)} pages")
+print(f"✅ Wrote tech_audit.csv with {len(normalized_rows)} pages")
+print(f"   Found {sum(1 for r in normalized_rows if flag_issues(r))} pages with issues")
