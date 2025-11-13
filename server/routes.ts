@@ -23,6 +23,7 @@ import {
   insertPageViewSchema,
   insertAnalyticsEventSchema,
   insertWebVitalSchema,
+  blogPosts as blogPostsTable,
 } from "@shared/schema";
 import { setupAuth } from "./auth";
 
@@ -1419,6 +1420,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       let blogPosts = await storage.getAllBlogPosts();
       
+      // Filter out draft and scheduled posts (only show published)
+      blogPosts = blogPosts.filter(post => post.status === 'published');
+      
       // Filter by category if specified
       if (category && category !== 'All') {
         blogPosts = blogPosts.filter(post => post.category === category);
@@ -2437,6 +2441,110 @@ Sitemap: ${baseUrl}/sitemap_index.xml
   // NOTE: Blog post redirects (/{slug} → /blog/{slug}) are now handled by the 
   // canonicalization middleware via the blog slug cache. This provides early-stage 
   // redirect handling before route processing for optimal performance and SEO.
+
+  // Automated Blog Publishing Endpoint (for daily cron jobs)
+  app.post("/api/admin/publish-scheduled", async (req, res) => {
+    try {
+      // Security: Enforce dedicated BLOG_PUBLISHER_SECRET (no SESSION_SECRET fallback)
+      const SECRET_KEY = process.env.BLOG_PUBLISHER_SECRET;
+      
+      if (!SECRET_KEY) {
+        console.error("❌ BLOG_PUBLISHER_SECRET not configured");
+        return res.status(500).json({ 
+          error: "Configuration error",
+          message: "BLOG_PUBLISHER_SECRET environment variable not set"
+        });
+      }
+
+      const providedKey = req.headers['x-api-key'] || req.body.apiKey;
+      
+      if (!providedKey || providedKey !== SECRET_KEY) {
+        console.log("⚠️ Unauthorized blog publishing attempt");
+        return res.status(401).json({ 
+          error: "Unauthorized",
+          message: "Invalid or missing API key"
+        });
+      }
+
+      console.log("🚀 Checking for scheduled blog posts to publish...");
+      
+      // Atomic publish operation in transaction: SELECT FOR UPDATE LIMIT 1 then UPDATE by ID
+      const now = new Date().toISOString();
+      const result = await db.transaction(async (tx) => {
+        // Find the earliest scheduled post that's due
+        const duePosts = await tx
+          .select()
+          .from(blogPostsTable)
+          .where(sql`${blogPostsTable.status} = 'scheduled' AND ${blogPostsTable.scheduledPublishAt} <= ${now}`)
+          .orderBy(sql`${blogPostsTable.scheduledPublishAt} ASC`)
+          .limit(1)
+          .for('update');
+
+        if (duePosts.length === 0) {
+          return null;
+        }
+
+        const postToPublish = duePosts[0];
+
+        // Update only this specific post by ID
+        const published = await tx
+          .update(blogPostsTable)
+          .set({
+            status: 'published',
+            publishedAt: now,
+            scheduledPublishAt: null
+          })
+          .where(sql`${blogPostsTable.id} = ${postToPublish.id}`)
+          .returning();
+
+        return published[0];
+      });
+
+      if (!result) {
+        console.log("ℹ️ No posts due for publishing");
+        return res.json({ 
+          success: true,
+          message: "No posts due for publishing",
+          timestamp: now
+        });
+      }
+
+      console.log(`✅ Published blog post: "${result.title}" (${result.slug})`);
+
+      // Trigger sitemap regeneration asynchronously (don't block response)
+      try {
+        const { exec } = await import('child_process');
+        exec('npm run generate-sitemap', (error) => {
+          if (error) {
+            console.error("⚠️ Sitemap regeneration failed:", error.message);
+          } else {
+            console.log("✅ Sitemap regenerated after blog publish");
+          }
+        });
+      } catch (sitemapError) {
+        console.error("⚠️ Sitemap trigger error:", sitemapError);
+      }
+      
+      res.json({ 
+        success: true,
+        message: "Blog post published successfully",
+        post: {
+          id: result.id,
+          title: result.title,
+          slug: result.slug,
+          publishedAt: now
+        },
+        timestamp: now
+      });
+      
+    } catch (error: any) {
+      console.error("❌ Blog publishing error:", error);
+      res.status(500).json({ 
+        error: "Internal server error",
+        message: error.message 
+      });
+    }
+  });
 
   // Daily SEO Pipeline Trigger (for UptimeRobot/cron-job.org pings)
   app.get("/api/seo/trigger-daily-pipeline", async (req, res) => {
