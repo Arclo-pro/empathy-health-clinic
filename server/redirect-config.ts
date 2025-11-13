@@ -156,6 +156,49 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Query parameter pages
   '/treatments/adhd-treatment': '/adhd-treatment',
+  
+  // Google Search Console - Soft 404 errors (November 2025)
+  // Blog posts without /blog prefix
+  '/understanding-identity-exploration': '/blog/understanding-identity-exploration',
+  '/can-you-pass-out-from-a-panic-attack': '/blog/can-you-pass-out-from-a-panic-attack',
+  '/prodromal-stage-mental-health': '/blog/prodromal-stage-mental-health',
+  '/jobs-for-people-with-anxiety': '/blog/jobs-for-people-with-anxiety',
+  '/silent-panic-attacks-causes-symptoms-relief': '/blog/silent-panic-attacks-causes-symptoms-relief',
+  '/bpd-vs-npd': '/blog/bpd-vs-npd',
+  '/open-relationship-guide': '/blog/open-relationship-guide',
+  '/how-to-leave-toxic-relationship': '/blog/how-to-leave-toxic-relationship',
+  '/understanding-the-4-types-of-bpd': '/blog/understanding-the-4-types-of-bpd',
+  '/is-more-espresso-less-depresso-true': '/blog/is-more-espresso-less-depresso-true',
+  '/reactive-attachment-disorder-in-adults': '/blog/reactive-attachment-disorder-in-adults',
+  '/what-is-time-blindness': '/blog/what-is-time-blindness',
+  '/school-psychology-career-guide': '/blog/school-psychology-career-guide',
+  '/understanding-adhd-masking': '/blog/understanding-adhd-masking',
+  '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025': '/blog/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025',
+  '/bpd-men-guide': '/blog/bpd-men-guide',
+  '/unburdened-the-key-to-mental-clarity': '/blog/unburdened-the-key-to-mental-clarity',
+  '/overcoming-anxiety-with-cognitive-behavioral-therapy': '/blog/overcoming-anxiety-with-cognitive-behavioral-therapy',
+  '/hidden-anxiety-treatment-dbt-skills-you-can-use-at-home': '/blog/hidden-anxiety-treatment-dbt-skills-you-can-use-at-home',
+  '/cbt-therapy-improving-mental-health-in-winter-park': '/blog/cbt-therapy-improving-mental-health-in-winter-park',
+  
+  // Treatment/therapy pages
+  '/therapy-treatment': '/therapy',
+  '/treatments/orlando-marriage-counseling-services': '/couples-therapy',
+  '/treatments/intimacy-therapy-sexual-wellness': '/intimacy-therapy',
+  
+  // Location pages
+  '/locations/therapy-services-lockhart': '/therapy-services-orlando',
+  '/locations/psychiatry-oviedo': '/locations/psychiatrist-orlando',
+  
+  // Tag pages
+  '/tag/housing-accommodation-rights': '/blog',
+  '/tag/neuroscience-research': '/blog',
+  
+  // Date archives
+  '/2025/10/01': '/blog',
+  '/2025/10/06': '/blog',
+  
+  // Resources page
+  '/resources': '/blog',
 };
 
 /**
