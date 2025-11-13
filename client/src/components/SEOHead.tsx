@@ -170,9 +170,9 @@ export default function SEOHead({
       
       // Add responsive image hints for better performance on mobile
       if (preloadImage.includes('unsplash.com')) {
-        // Match the optimized sizes from BlogDetailPage for consistency
-        const mobileImage = preloadImage.replace(/w=\d+&h=\d+&q=\d+/, 'w=640&h=400&q=70');
-        const tabletImage = preloadImage.replace(/w=\d+&h=\d+&q=\d+/, 'w=1024&h=500&q=72');
+        // ULTRA-AGGRESSIVE: Match the optimized sizes from BlogDetailPage
+        const mobileImage = preloadImage.replace(/w=\d+&h=\d+&q=\d+/, 'w=640&h=300&q=65');
+        const tabletImage = preloadImage.replace(/w=\d+&h=\d+&q=\d+/, 'w=1024&h=400&q=70');
         preloadLink.setAttribute("imagesrcset", `${mobileImage} 640w, ${tabletImage} 1024w, ${preloadImage} 1200w`);
         preloadLink.setAttribute("imagesizes", "(max-width: 768px) 640px, (max-width: 1024px) 1024px, 1200px");
       }

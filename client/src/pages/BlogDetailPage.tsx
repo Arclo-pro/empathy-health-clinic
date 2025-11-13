@@ -368,20 +368,20 @@ export default function BlogDetailPage() {
 
   const showLastUpdated = blogPost.lastUpdated && blogPost.lastUpdated !== blogPost.publishedDate;
 
-  // Aggressive image optimization for faster LCP
-  // Mobile: 640px width, quality 70 (smallest file size)
-  // Tablet: 1024px width, quality 72 (balanced)
-  // Desktop: 1200px width, quality 75 (best quality)
+  // ULTRA-AGGRESSIVE image optimization for fastest LCP
+  // Mobile: 640px width, 300px height, quality 65 (maximum compression)
+  // Tablet: 1024px width, 400px height, quality 70 (balanced)
+  // Desktop: 1200px width, 500px height, quality 72 (good quality)
   const heroImageMobile = blogPost.featuredImage 
-    ? optimizeUnsplashUrl(blogPost.featuredImage, 640, 400, 70)
+    ? optimizeUnsplashUrl(blogPost.featuredImage, 640, 300, 65)
     : forestBg;
   
   const heroImageTablet = blogPost.featuredImage 
-    ? optimizeUnsplashUrl(blogPost.featuredImage, 1024, 500, 72)
+    ? optimizeUnsplashUrl(blogPost.featuredImage, 1024, 400, 70)
     : forestBg;
   
   const optimizedHeroImage = blogPost.featuredImage 
-    ? optimizeUnsplashUrl(blogPost.featuredImage, 1200, 600, 75)
+    ? optimizeUnsplashUrl(blogPost.featuredImage, 1200, 500, 72)
     : forestBg;
 
   return (
@@ -401,7 +401,7 @@ export default function BlogDetailPage() {
       {detectedFAQs.length > 0 && <FAQSchema faqs={detectedFAQs} />}
       <SiteHeader />
       <main className="flex-1">
-        <div className="relative py-16 px-4 min-h-[400px] overflow-hidden">
+        <div className="relative py-12 md:py-16 px-4 min-h-[300px] md:min-h-[400px] overflow-hidden">
           <img
             src={optimizedHeroImage}
             srcSet={`${heroImageMobile} 640w, ${heroImageTablet} 1024w, ${optimizedHeroImage} 1200w`}
@@ -413,7 +413,7 @@ export default function BlogDetailPage() {
             fetchPriority="high"
             decoding="async"
             width={1200}
-            height={600}
+            height={500}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
           <div className="container mx-auto max-w-4xl relative z-10">
