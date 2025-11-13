@@ -59,7 +59,7 @@ export default function BlueCrossBlueShieldTherapy() {
           <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-3xl" data-testid="text-hero-description">
             Find BCBS-covered therapists in Orlando. We accept all Blue Cross Blue Shield plans. Professional therapy for anxiety, depression, trauma, and more. Verify your coverage and copay. Same-week appointments available.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4" data-testid="hero-cta-cluster">
             <Button 
               size="lg" 
               asChild 
@@ -85,7 +85,7 @@ export default function BlueCrossBlueShieldTherapy() {
         <section className="py-8 bg-card border-b">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 flex-wrap">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2" data-testid="benefit-google-reviews">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -97,12 +97,12 @@ export default function BlueCrossBlueShieldTherapy() {
               <div className="hidden lg:block h-6 w-px bg-border" />
               <VerifiedOnBadge />
               <div className="hidden lg:block h-6 w-px bg-border" />
-              <div className="flex items-center gap-2 text-sm text-foreground">
+              <div className="flex items-center gap-2 text-sm text-foreground" data-testid="benefit-bcbs-plans">
                 <CheckCircle className="h-4 w-4 text-primary" />
                 <span>All BCBS Plans Accepted</span>
               </div>
               <div className="hidden lg:block h-6 w-px bg-border" />
-              <div className="flex items-center gap-2 text-sm text-foreground">
+              <div className="flex items-center gap-2 text-sm text-foreground" data-testid="benefit-same-week">
                 <CheckCircle className="h-4 w-4 text-primary" />
                 <span>Same-Week Appointments</span>
               </div>
@@ -158,7 +158,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     All of our licensed therapists accept Blue Cross Blue Shield insurance and are credentialed with BCBS as in-network providers:
                   </p>
                   <div className="space-y-3">
-                    <div className="flex gap-3">
+                    <div className="flex gap-3" data-testid="card-credential-lcsw">
                       <Users className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-semibold text-foreground mb-1">Licensed Clinical Social Workers (LCSW)</h3>
@@ -167,7 +167,7 @@ export default function BlueCrossBlueShieldTherapy() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3" data-testid="card-credential-lmhc">
                       <Users className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-semibold text-foreground mb-1">Licensed Mental Health Counselors (LMHC)</h3>
@@ -176,7 +176,7 @@ export default function BlueCrossBlueShieldTherapy() {
                         </p>
                       </div>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3" data-testid="card-credential-lmft">
                       <Users className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-semibold text-foreground mb-1">Licensed Marriage & Family Therapists (LMFT)</h3>
@@ -195,7 +195,7 @@ export default function BlueCrossBlueShieldTherapy() {
                   Therapy Services Covered by Blue Cross Blue Shield
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="bg-primary/5 border rounded-lg p-4">
+                  <div className="bg-primary/5 border rounded-lg p-4" data-testid="card-service-individual">
                     <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary" />
                       Individual Therapy
@@ -209,7 +209,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </ul>
                   </div>
 
-                  <div className="bg-primary/5 border rounded-lg p-4">
+                  <div className="bg-primary/5 border rounded-lg p-4" data-testid="card-service-family">
                     <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary" />
                       Family & Couples Therapy
@@ -223,7 +223,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </ul>
                   </div>
 
-                  <div className="bg-primary/5 border rounded-lg p-4">
+                  <div className="bg-primary/5 border rounded-lg p-4" data-testid="card-service-specialized">
                     <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary" />
                       Specialized Therapy
@@ -237,7 +237,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </ul>
                   </div>
 
-                  <div className="bg-primary/5 border rounded-lg p-4">
+                  <div className="bg-primary/5 border rounded-lg p-4" data-testid="card-service-telehealth">
                     <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                       <CheckCircle2 className="h-5 w-5 text-primary" />
                       Telehealth Therapy
@@ -269,19 +269,19 @@ export default function BlueCrossBlueShieldTherapy() {
                       Typical BCBS Patient Costs
                     </h3>
                     <div className="space-y-2 text-sm">
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center" data-testid="row-copay-ppo">
                         <span className="text-muted-foreground">BCBS PPO Copay:</span>
                         <span className="font-semibold text-foreground">$20 - $50 per session</span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center" data-testid="row-copay-hmo">
                         <span className="text-muted-foreground">BCBS HMO Copay:</span>
                         <span className="font-semibold text-foreground">$10 - $30 per session</span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center" data-testid="row-copay-hdhp">
                         <span className="text-muted-foreground">BCBS High Deductible Plans:</span>
                         <span className="font-semibold text-foreground">Deductible applies, then coinsurance</span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="flex justify-between items-center" data-testid="row-copay-sessions">
                         <span className="text-muted-foreground">Sessions Covered:</span>
                         <span className="font-semibold text-foreground">Typically 20-30 sessions/year</span>
                       </div>
@@ -326,7 +326,7 @@ export default function BlueCrossBlueShieldTherapy() {
                   How to Use Your BCBS Coverage for Therapy
                 </h2>
                 <div className="space-y-4">
-                  <div className="flex gap-4">
+                  <div className="flex gap-4" data-testid="step-coverage-01">
                     <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
                       1
                     </div>
@@ -338,7 +338,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4" data-testid="step-coverage-02">
                     <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
                       2
                     </div>
@@ -350,7 +350,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4" data-testid="step-coverage-03">
                     <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
                       3
                     </div>
@@ -362,7 +362,7 @@ export default function BlueCrossBlueShieldTherapy() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4" data-testid="step-coverage-04">
                     <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
                       4
                     </div>
@@ -381,31 +381,31 @@ export default function BlueCrossBlueShieldTherapy() {
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-4">
-                  <div>
+                  <div data-testid="faq-item-01">
                     <h3 className="font-semibold text-foreground mb-2">Do you accept all Blue Cross Blue Shield plans?</h3>
                     <p className="text-muted-foreground">
                       Yes! We're in-network with all Blue Cross Blue Shield plans, including BCBS PPO, HMO, Blue Choice, Blue Advantage, and BCBS Federal Employee Program (FEP). We also accept BCBS plans from other states for telehealth therapy.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-02">
                     <h3 className="font-semibold text-foreground mb-2">Do I need a referral from my doctor?</h3>
                     <p className="text-muted-foreground">
                       Most BCBS plans do not require a referral for therapy. However, some HMO plans may require one. We'll check your specific plan requirements when you call to schedule.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-03">
                     <h3 className="font-semibold text-foreground mb-2">How do I find out my BCBS copay?</h3>
                     <p className="text-muted-foreground">
                       Call us at 386-848-8751 with your BCBS member ID, and we'll verify your benefits and tell you your exact copay before your first appointment. You can also check your BCBS insurance card or call the number on the back.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-04">
                     <h3 className="font-semibold text-foreground mb-2">Does BCBS cover telehealth therapy?</h3>
                     <p className="text-muted-foreground">
                       Yes! Blue Cross Blue Shield covers telehealth therapy sessions at the same rate as in-person visits. You'll pay the same copay whether you choose in-person or online therapy.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-05">
                     <h3 className="font-semibold text-foreground mb-2">How many therapy sessions does BCBS cover?</h3>
                     <p className="text-muted-foreground">
                       BCBS typically covers 20-30 outpatient therapy sessions per year, though some plans offer more. We'll verify your specific session limit when we check your benefits.

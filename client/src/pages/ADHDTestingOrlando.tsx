@@ -61,7 +61,7 @@ export default function ADHDTestingOrlando() {
           <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-3xl" data-testid="text-hero-description">
             Professional ADHD testing for adults and teens in Orlando. Comprehensive evaluations by board-certified psychiatrists. Get clarity, accurate diagnosis, and personalized treatment recommendations. Same-week appointments available.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4" data-testid="hero-cta-cluster">
             <Button 
               size="lg" 
               asChild 
@@ -87,7 +87,7 @@ export default function ADHDTestingOrlando() {
         <section className="py-8 bg-card border-b">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-6 flex-wrap">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2" data-testid="benefit-google-reviews">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
@@ -99,12 +99,12 @@ export default function ADHDTestingOrlando() {
               <div className="hidden lg:block h-6 w-px bg-border" />
               <VerifiedOnBadge />
               <div className="hidden lg:block h-6 w-px bg-border" />
-              <div className="flex items-center gap-2 text-sm text-foreground">
+              <div className="flex items-center gap-2 text-sm text-foreground" data-testid="benefit-board-certified">
                 <CheckCircle className="h-4 w-4 text-primary" />
                 <span>Board-Certified Psychiatrists</span>
               </div>
               <div className="hidden lg:block h-6 w-px bg-border" />
-              <div className="flex items-center gap-2 text-sm text-foreground">
+              <div className="flex items-center gap-2 text-sm text-foreground" data-testid="benefit-same-week">
                 <CheckCircle className="h-4 w-4 text-primary" />
                 <span>Same-Week Testing Available</span>
               </div>
@@ -201,7 +201,7 @@ export default function ADHDTestingOrlando() {
                   What's Included in ADHD Testing
                 </h2>
                 <div className="space-y-4">
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" data-testid="card-service-clinical-interview">
                     <ClipboardCheck className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Comprehensive Clinical Interview (60-90 minutes)</h3>
@@ -211,7 +211,7 @@ export default function ADHDTestingOrlando() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" data-testid="card-service-rating-scales">
                     <FileCheck className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">ADHD Symptom Rating Scales</h3>
@@ -221,7 +221,7 @@ export default function ADHDTestingOrlando() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" data-testid="card-service-differential-diagnosis">
                     <Brain className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Differential Diagnosis Assessment</h3>
@@ -231,7 +231,7 @@ export default function ADHDTestingOrlando() {
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-3" data-testid="card-service-treatment-plan">
                     <Award className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-foreground mb-2">Diagnosis & Treatment Plan</h3>
@@ -314,7 +314,7 @@ export default function ADHDTestingOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
+                    <div data-testid="comparison-evaluation">
                       <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
                         <ClipboardCheck className="h-5 w-5 text-primary" />
                         ADHD Evaluation/Testing
@@ -328,7 +328,7 @@ export default function ADHDTestingOrlando() {
                         <li className="flex gap-2"><span className="text-primary">•</span> <span>Provides treatment recommendations</span></li>
                       </ul>
                     </div>
-                    <div>
+                    <div data-testid="comparison-treatment">
                       <h3 className="text-lg font-semibold text-foreground mb-3 flex items-center gap-2">
                         <Brain className="h-5 w-5 text-primary" />
                         ADHD Treatment
@@ -355,7 +355,7 @@ export default function ADHDTestingOrlando() {
                   Who We Test for ADHD
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="bg-primary/5 border rounded-lg p-6">
+                  <div className="bg-primary/5 border rounded-lg p-6" data-testid="card-audience-adults">
                     <h3 className="text-xl font-semibold text-foreground mb-3">Adult ADHD Testing (Ages 18+)</h3>
                     <p className="text-muted-foreground mb-4">
                       Many adults with ADHD weren't diagnosed as children. We specialize in adult ADHD evaluation, recognizing that symptoms often manifest differently in adults than in children.
@@ -368,7 +368,7 @@ export default function ADHDTestingOrlando() {
                     </ul>
                   </div>
 
-                  <div className="bg-primary/5 border rounded-lg p-6">
+                  <div className="bg-primary/5 border rounded-lg p-6" data-testid="card-audience-teens">
                     <h3 className="text-xl font-semibold text-foreground mb-3">Teen ADHD Testing (Ages 13-17)</h3>
                     <p className="text-muted-foreground mb-4">
                       Adolescent ADHD testing helps identify attention difficulties that impact academic performance, social relationships, and emotional regulation during critical teenage years.
@@ -393,27 +393,27 @@ export default function ADHDTestingOrlando() {
                     ADHD testing is typically covered by most insurance plans as a diagnostic psychiatric evaluation. We accept the following insurance providers:
                   </p>
                   <div className="grid sm:grid-cols-2 gap-3 mb-4">
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-bcbs">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>Blue Cross Blue Shield</strong> - All BCBS plans</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-aetna">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>Aetna</strong> - Most Aetna plans</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-cigna">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>Cigna</strong> - All Cigna plans</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-uhc">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>UnitedHealthcare</strong> - UHC plans</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-humana">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>Humana</strong> - Most Humana plans</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2" data-testid="insurance-medicare">
                       <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-foreground"><strong>Medicare</strong> - Medicare Advantage plans</span>
                     </div>
@@ -429,31 +429,31 @@ export default function ADHDTestingOrlando() {
                   Frequently Asked Questions
                 </h2>
                 <div className="space-y-4">
-                  <div>
+                  <div data-testid="faq-item-01">
                     <h3 className="font-semibold text-foreground mb-2">How long does ADHD testing take?</h3>
                     <p className="text-muted-foreground">
                       The initial ADHD evaluation appointment typically lasts 60-90 minutes. You'll receive preliminary results during that visit, with a complete written report available within 1 week.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-02">
                     <h3 className="font-semibold text-foreground mb-2">Do I need a referral for ADHD testing?</h3>
                     <p className="text-muted-foreground">
                       No referral is required to schedule ADHD testing at our clinic. However, some insurance plans may require a referral for coverage, so check with your insurance provider beforehand.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-03">
                     <h3 className="font-semibold text-foreground mb-2">What should I bring to my ADHD testing appointment?</h3>
                     <p className="text-muted-foreground">
                       Bring your insurance card, photo ID, list of current medications, and any previous psychological testing, school records, or performance reviews that document attention difficulties. If possible, have a family member or close friend who knows you well provide input on your symptoms.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-04">
                     <h3 className="font-semibold text-foreground mb-2">Can ADHD testing be done via telehealth?</h3>
                     <p className="text-muted-foreground">
                       Yes! We offer telehealth ADHD testing appointments. The clinical interview and rating scales can be completed effectively via secure video call, making testing convenient for busy adults and teens.
                     </p>
                   </div>
-                  <div>
+                  <div data-testid="faq-item-05">
                     <h3 className="font-semibold text-foreground mb-2">What if the test shows I don't have ADHD?</h3>
                     <p className="text-muted-foreground">
                       If testing doesn't confirm ADHD, we'll provide alternative explanations for your symptoms and recommend appropriate treatment. Many conditions can mimic ADHD (anxiety, depression, sleep disorders), and accurate diagnosis ensures you get the right help.
