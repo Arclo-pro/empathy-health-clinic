@@ -199,6 +199,10 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Resources page
   '/resources': '/blog',
+  
+  // Google Search Console - Canonical tag issues (November 2025)
+  // Blog post doesn't exist in system, redirect to blog listing
+  '/blog/varicose-veins-and-mental-health': '/blog',
 };
 
 /**

@@ -9,7 +9,7 @@ I want the agent to prioritize high-level features and architectural decisions. 
 ## Recent Changes (November 13, 2025)
 - **Google Ads Tracking:** Added gclid/fbclid columns to leads table, updated forms to submit click IDs, deployed parameter preservation script to maintain UTM/GCLID across navigation
 - **Blog Post Links:** Added external source links to ACLS blog (BLS, University of California, ACLSNow) plus internal service links
-- **Google Search Console Fixes:** Added 85+ redirect rules for legacy URLs, WordPress paths, author/tag pages, and date archives (all validated working)
+- **Google Search Console Fixes:** Fixed 127+ total errors including 85+ "Page with redirect" errors, 42 Soft 404 errors, and 1 canonical tag issue (varicose-veins blog post redirect)
 - **Services Page Layout:** Fixed hero section vertical overlap between description and HeroLeadForm by implementing flex column with space-y-8/10 spacing
 
 ## System Architecture
