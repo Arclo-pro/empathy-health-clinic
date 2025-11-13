@@ -104,32 +104,34 @@ export default function ServicesPage() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/60" />
           </div>
           <div className="container mx-auto max-w-6xl relative z-10 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              Mental Health Clinic in Winter Park & Orlando, FL
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Full-service mental health clinic with board-certified psychiatrists and licensed therapists. Medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy services in Winter Park and Orlando. Comprehensive care tailored to your needs.
-            </p>
-            
-            {/* Hero Lead Form */}
-            <div className="mb-8 w-full max-w-5xl mx-auto">
-              <HeroLeadForm />
-            </div>
+            <div className="flex flex-col space-y-8 md:space-y-10">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white" data-testid="text-page-title">
+                Mental Health Clinic in Winter Park & Orlando, FL
+              </h1>
+              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                Full-service mental health clinic with board-certified psychiatrists and licensed therapists. Medication management, psychiatric evaluations, CBT, DBT, EMDR, and therapy services in Winter Park and Orlando. Comprehensive care tailored to your needs.
+              </p>
+              
+              {/* Hero Lead Form */}
+              <div className="w-full max-w-5xl mx-auto">
+                <HeroLeadForm />
+              </div>
 
-            {/* Phone Button */}
-            <div className="flex justify-center">
-              <Button 
-                size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white"
-                asChild 
-                data-testid="button-hero-call"
-                onClick={() => trackEvent('phone_click', 'conversion', 'Services Page - Hero CTA')}
-              >
-                <a href="tel:3868488751" className="flex items-center justify-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  Call (386) 848-8751
-                </a>
-              </Button>
+              {/* Phone Button */}
+              <div className="flex justify-center">
+                <Button 
+                  size="lg" 
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                  asChild 
+                  data-testid="button-hero-call"
+                  onClick={() => trackEvent('phone_click', 'conversion', 'Services Page - Hero CTA')}
+                >
+                  <a href="tel:3868488751" className="flex items-center justify-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    Call (386) 848-8751
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

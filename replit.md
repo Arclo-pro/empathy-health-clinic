@@ -6,6 +6,12 @@ This project delivers a modern, high-performance CMS and website for Empathy Hea
 ## User Preferences
 I want the agent to prioritize high-level features and architectural decisions. Please do not delve into granular implementation details unless specifically asked. I prefer a concise communication style. When making changes, focus on the most impactful elements first.
 
+## Recent Changes (November 13, 2025)
+- **Google Ads Tracking:** Added gclid/fbclid columns to leads table, updated forms to submit click IDs, deployed parameter preservation script to maintain UTM/GCLID across navigation
+- **Blog Post Links:** Added external source links to ACLS blog (BLS, University of California, ACLSNow) plus internal service links
+- **Google Search Console Fixes:** Added 85+ redirect rules for legacy URLs, WordPress paths, author/tag pages, and date archives (all validated working)
+- **Services Page Layout:** Fixed hero section vertical overlap between description and HeroLeadForm by implementing flex column with space-y-8/10 spacing
+
 ## System Architecture
 ### UI/UX Decisions
 The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and Shadcn UI. It features a professional healthcare design, full dark mode support, the Inter font, aggressive cross-linking, prominent trust factors, and high-conversion lead capture forms.
