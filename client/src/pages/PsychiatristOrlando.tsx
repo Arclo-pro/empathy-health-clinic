@@ -217,13 +217,13 @@ export default function PsychiatristOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Finding the right psychiatrist in Orlando can be overwhelming. At Empathy Health Clinic, our board-certified psychiatrists provide comprehensive mental health care for adults and adolescents throughout the Orlando metropolitan area, including Winter Park, Altamonte Springs, Lake Mary, and Maitland.
+                    When you're struggling with your mental health, finding the right psychiatrist matters. At Empathy Health Clinic, we understand that reaching out for help takes courage - and we're here to support you every step of the way. Our board-certified psychiatrists provide compassionate, evidence-based mental health care for adults and adolescents throughout Orlando, Winter Park, Altamonte Springs, Lake Mary, and Maitland.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
-                    Our Orlando psychiatrists specialize in medication management, psychiatric evaluations, and evidence-based treatment for a wide range of mental health conditions. Whether you're experiencing <Link href="/anxiety-therapy" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression-counseling" className="text-primary hover:underline font-medium">depression</Link>, ADHD, bipolar disorder, or other psychiatric concerns, we provide personalized care tailored to your unique needs.
+                    Whether you're experiencing persistent <Link href="/anxiety-therapy" className="text-primary hover:underline font-medium">anxiety</Link>, overwhelming <Link href="/depression-counseling" className="text-primary hover:underline font-medium">depression</Link>, difficulty with focus and attention (ADHD), mood swings, or other mental health challenges, you don't have to navigate this alone. Our Orlando psychiatrists specialize in medication management, comprehensive psychiatric evaluations, and personalized treatment plans designed around your unique needs and goals.
                   </p>
                   <p className="text-foreground leading-relaxed">
-                    We accept most major insurance plans and offer both in-person visits at our Winter Park office (convenient to Orlando) and secure telepsychiatry appointments throughout Florida. Same-week appointments are typically available for new patients.
+                    We make getting help easier. Same-week appointments are typically available, we accept most major insurance plans, and you can choose between in-person visits at our Winter Park office or secure telepsychiatry appointments from the comfort of your home. Your path to feeling better starts here.
                   </p>
                 </div>
               </section>
