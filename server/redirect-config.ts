@@ -101,6 +101,61 @@ export const contentRedirectMap: Record<string, string> = {
   // Google Search Console - Legacy URLs (November 2025)
   '/therapy-services-orlando-mental-health-support': '/therapy-services-orlando',
   '/hm05': '/services',
+  
+  // Google Search Console - Page with redirect errors (November 2025)
+  // Home page variants
+  '/home': '/',
+  
+  // Treatment page redirects
+  '/treatments/adhd': '/adhd-treatment',
+  '/treatments/bipolar-disorder': '/bipolar-disorder-treatment',
+  '/treatments/therapy-services': '/therapy',
+  '/adhd': '/adhd-treatment',
+  
+  // Therapy subcategory redirects
+  '/therapy/lgbt-therapy-services': '/therapy',
+  
+  // Location service redirects
+  '/locations/therapy-services-apopka': '/therapy-services-orlando',
+  '/locations/therapy-services-oviedo': '/therapy-services-orlando',
+  '/locations/therapy-services-richmond-heights': '/therapy-services-orlando',
+  '/locations/psychiatry-winter-park': '/locations/psychiatrist-winter-park',
+  
+  // Pricing and contact pages
+  '/pricing': '/insurance',
+  '/contact': '/contact-us',
+  
+  // Medication management
+  '/medication-management': '/services',
+  
+  // Old blog post paths (without /blog prefix)
+  '/who-cheats-more-men-or-women': '/blog/who-cheats-more-men-or-women',
+  '/ltr-relationship-meaning-guide': '/blog/ltr-relationship-meaning-guide',
+  '/mood-disorder-questionnaire': '/blog/mood-disorder-questionnaire',
+  '/overcoming-social-anxiety': '/blog/overcoming-social-anxiety',
+  '/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness': '/blog/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness',
+  '/practical-strategies-for-managing-anxiety-in-daily-life': '/blog/practical-strategies-for-managing-anxiety-in-daily-life',
+  '/what-is-mental-breakdown': '/blog/what-is-mental-breakdown',
+  
+  // WordPress author and tag pages - redirect to blog
+  '/author/rachelleandreaastudillo': '/blog',
+  '/author/reganalex30': '/blog',
+  '/tag/adhd-diagnostic-evaluation': '/blog',
+  '/tag/best-ai-scribes-for-doctors': '/blog',
+  '/tag/stress-management': '/blog',
+  '/tag/psychiatrist-orlando-fl': '/blog',
+  '/tag/continuing-education-for-nurses': '/blog',
+  '/tag/psychiatry-technology': '/blog',
+  
+  // WordPress date archives - redirect to blog
+  '/2025/09/25': '/blog',
+  '/2025/09/27': '/blog',
+  '/2025/09/28': '/blog',
+  '/2025/09/29': '/blog',
+  '/2025/09/30': '/blog',
+  
+  // Query parameter pages
+  '/treatments/adhd-treatment': '/adhd-treatment',
 };
 
 /**
