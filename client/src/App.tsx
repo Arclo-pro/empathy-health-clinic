@@ -81,6 +81,13 @@ const TherapistAcceptsUMR = lazy(() => import("@/pages/TherapistAcceptsUMR"));
 const TherapistAcceptsOscarHealth = lazy(() => import("@/pages/TherapistAcceptsOscarHealth"));
 const SunshineHealthTherapy = lazy(() => import("@/pages/SunshineHealthTherapy"));
 
+// Location Pages
+const PsychiatristAltamonteSprings = lazy(() => import("@/pages/locations/AltamonteSprings"));
+
+// Additional Landing Pages
+const ADHDTestingOrlando = lazy(() => import("@/pages/ADHDTestingOrlando"));
+const BlueCrossBlueShieldTherapy = lazy(() => import("@/pages/BlueCrossBlueShieldTherapy"));
+
 // Legal & Info Pages
 const About = lazy(() => import("@/pages/About"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
@@ -360,6 +367,21 @@ function Router() {
         <Route path="/sunshine-health-therapy">
           <Suspense fallback={<LoadingFallback />}>
             <SunshineHealthTherapy />
+          </Suspense>
+        </Route>
+        <Route path="/locations/altamonte-springs">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatristAltamonteSprings />
+          </Suspense>
+        </Route>
+        <Route path="/adhd-testing-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <ADHDTestingOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/blue-cross-blue-shield-therapy-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <BlueCrossBlueShieldTherapy />
           </Suspense>
         </Route>
         <Route path="/about">
