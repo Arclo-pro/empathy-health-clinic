@@ -4,6 +4,8 @@ export interface UTMParams {
   utmCampaign?: string;
   utmTerm?: string;
   utmContent?: string;
+  gclid?: string;  // Google Ads Click ID
+  fbclid?: string; // Facebook Click ID
 }
 
 export interface UTMData extends UTMParams {
@@ -16,7 +18,7 @@ const UTM_LANDING_PAGE_KEY = 'utm_landing_page';
 const UTM_EXPIRY_DAYS = 30; // Keep UTM data for 30 days
 
 /**
- * Extract UTM parameters from URL
+ * Extract UTM parameters and click IDs from URL
  */
 export const extractUTMParams = (url?: string): UTMParams => {
   const searchParams = url 
@@ -29,14 +31,16 @@ export const extractUTMParams = (url?: string): UTMParams => {
     utmCampaign: searchParams.get('utm_campaign') || undefined,
     utmTerm: searchParams.get('utm_term') || undefined,
     utmContent: searchParams.get('utm_content') || undefined,
+    gclid: searchParams.get('gclid') || undefined,  // Google Ads Click ID
+    fbclid: searchParams.get('fbclid') || undefined, // Facebook Click ID
   };
 };
 
 /**
- * Check if UTM parameters exist in URL
+ * Check if UTM parameters or click IDs exist in URL
  */
 export const hasUTMParams = (params: UTMParams): boolean => {
-  return !!(params.utmSource || params.utmMedium || params.utmCampaign || params.utmTerm || params.utmContent);
+  return !!(params.utmSource || params.utmMedium || params.utmCampaign || params.utmTerm || params.utmContent || params.gclid || params.fbclid);
 };
 
 /**

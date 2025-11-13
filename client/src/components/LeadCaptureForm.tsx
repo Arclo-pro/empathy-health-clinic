@@ -71,13 +71,15 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
           smsOptIn: "false",
           conditions: '[]',
           symptoms: '[]',
-          // Include UTM tracking data
+          // Include UTM tracking data and click IDs
           landingPage: utmData.landingPage,
           utmSource: utmData.utmSource,
           utmMedium: utmData.utmMedium,
           utmCampaign: utmData.utmCampaign,
           utmTerm: utmData.utmTerm,
           utmContent: utmData.utmContent,
+          gclid: utmData.gclid, // Google Ads Click ID
+          fbclid: utmData.fbclid, // Facebook Click ID
         }),
       });
       if (!response.ok) {

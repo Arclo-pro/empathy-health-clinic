@@ -201,6 +201,8 @@ export const leads = pgTable("leads", {
   utmCampaign: text("utm_campaign"), // Campaign name
   utmTerm: text("utm_term"), // Keyword clicked (most important for Google Ads!)
   utmContent: text("utm_content"), // Ad variation
+  gclid: text("gclid"), // Google Ads Click ID (critical for conversion attribution)
+  fbclid: text("fbclid"), // Facebook Click ID
   // Conversion tracking
   status: text("status").default("new"), // new, contacted, signed_up, rejected, no_show
   rejectionReason: text("rejection_reason"), // Insurance issues, requires specific provider, etc.

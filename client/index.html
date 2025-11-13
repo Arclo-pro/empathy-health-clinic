@@ -47,6 +47,32 @@
       gtag('js', new Date());
     </script>
     
+    <!-- CRITICAL: Preserve GCLID and UTM parameters for Google Ads tracking -->
+    <script>
+      (function() {
+        const qs = window.location.search;
+        if (qs.includes('gclid') || qs.includes('utm_') || qs.includes('fbclid')) {
+          sessionStorage.setItem('tracking_params', qs);
+          sessionStorage.setItem('tracking_timestamp', Date.now());
+        }
+
+        const saved = sessionStorage.getItem('tracking_params');
+        const timestamp = sessionStorage.getItem('tracking_timestamp');
+        
+        // Keep params for 30 minutes (Google Ads session window)
+        if (saved && timestamp && (Date.now() - parseInt(timestamp)) < 1800000) {
+          if (!qs.includes('gclid') && !qs.includes('utm_') && !qs.includes('fbclid')) {
+            const newUrl = window.location.pathname + saved + window.location.hash;
+            history.replaceState(null, '', newUrl);
+          }
+        } else {
+          // Clear expired params
+          sessionStorage.removeItem('tracking_params');
+          sessionStorage.removeItem('tracking_timestamp');
+        }
+      })();
+    </script>
+    
   </head>
   <body>
     <div id="root">

@@ -153,13 +153,15 @@ export default function LongContactForm() {
         insuredDob: data.insuredDob,
         memberId: data.memberId,
         smsOptIn: "false",
-        // Include UTM tracking data
+        // Include UTM tracking data and click IDs
         landingPage: utmData.landingPage,
         utmSource: utmData.utmSource,
         utmMedium: utmData.utmMedium,
         utmCampaign: utmData.utmCampaign,
         utmTerm: utmData.utmTerm,
         utmContent: utmData.utmContent,
+        gclid: utmData.gclid, // Google Ads Click ID
+        fbclid: utmData.fbclid, // Facebook Click ID
       });
     },
     onSuccess: () => {
