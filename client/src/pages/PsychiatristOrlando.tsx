@@ -332,6 +332,117 @@ export default function PsychiatristOrlando() {
                 </div>
               </section>
 
+              {/* ADHD Psychiatry Section */}
+              <section className="bg-primary/5 border rounded-lg p-6">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  ADHD Psychiatrist in Orlando: Expert Diagnosis & Treatment
+                </h2>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-foreground leading-relaxed mb-4">
+                    Struggling with focus, organization, or impulsivity? Our Orlando psychiatrists specialize in adult and adolescent <Link href="/adhd-psychiatrist-orlando" className="text-primary hover:underline font-medium">ADHD diagnosis and treatment</Link>. We provide comprehensive ADHD evaluations, medication management (including stimulants like Adderall, Vyvanse, and Ritalin), and ongoing support to help you thrive.
+                  </p>
+                  <p className="text-foreground leading-relaxed mb-4">
+                    ADHD symptoms often include difficulty concentrating, disorganization, procrastination, forgetfulness, restlessness, and impulsive decision-making. If you've struggled with these issues since childhood or recently suspect ADHD might be affecting your work, relationships, or daily life, a psychiatric evaluation can provide clarity and effective treatment options.
+                  </p>
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    <Button size="lg" asChild data-testid="button-adhd-cta">
+                      <Link href="/request-appointment" onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatrist Orlando - ADHD Section')}>
+                        Schedule ADHD Evaluation
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="lg" asChild data-testid="button-adhd-call">
+                      <a href="tel:3868488751" onClick={handlePhoneClick}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call About ADHD Treatment
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </section>
+
+              {/* Anxiety Treatment Section */}
+              <section className="bg-card border rounded-lg p-6">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  Anxiety Psychiatrist Orlando: Comprehensive Anxiety Disorder Treatment
+                </h2>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-foreground leading-relaxed mb-4">
+                    Living with constant worry, panic attacks, or overwhelming anxiety? Our Orlando psychiatrists provide expert treatment for all types of <Link href="/anxiety-psychiatrist-orlando" className="text-primary hover:underline font-medium">anxiety disorders</Link> including generalized anxiety disorder (GAD), panic disorder, social anxiety, and phobias.
+                  </p>
+                  <p className="text-foreground leading-relaxed mb-4">
+                    We offer evidence-based anxiety treatments including anti-anxiety medications (SSRIs, SNRIs, buspirone, and when appropriate, benzodiazepines), medication management, and coordination with therapists for combined medication and therapy approaches. Many patients experience significant anxiety relief within 4-6 weeks of starting treatment.
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-3 mb-4">
+                    <div className="flex gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm"><strong>Generalized Anxiety Disorder (GAD)</strong> - Persistent worry and tension</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm"><strong>Panic Disorder</strong> - Unexpected panic attacks and fear of future attacks</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm"><strong>Social Anxiety</strong> - Fear of social situations and judgment</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm"><strong>Specific Phobias</strong> - Intense fear of specific objects or situations</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    <Button size="lg" asChild data-testid="button-anxiety-cta">
+                      <Link href="/request-appointment" onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatrist Orlando - Anxiety Section')}>
+                        Get Anxiety Treatment
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="lg" asChild data-testid="button-anxiety-call">
+                      <a href="tel:3868488751" onClick={handlePhoneClick}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Call About Anxiety Medication
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </section>
+
+              {/* ESA Letter Section */}
+              <section className="bg-primary/5 border rounded-lg p-6">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  Emotional Support Animal (ESA) Letters in Orlando
+                </h2>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-foreground leading-relaxed mb-4">
+                    Need an ESA letter for housing or travel? Our board-certified psychiatrists can evaluate your mental health condition and provide legitimate Emotional Support Animal (ESA) letters when medically appropriate. ESA letters allow individuals with diagnosed mental health conditions to keep their emotional support animal in no-pet housing and, in some cases, travel with their animal.
+                  </p>
+                  <p className="text-foreground leading-relaxed mb-4">
+                    To qualify for an ESA letter, you must have a diagnosed mental health condition (such as anxiety, depression, PTSD, or other psychiatric disorders) that substantially limits one or more major life activities, and your psychiatrist must determine that an emotional support animal would provide therapeutic benefit. Our psychiatrists conduct thorough evaluations and only provide ESA letters when clinically justified.
+                  </p>
+                  <div className="bg-card border rounded-lg p-4 mb-4">
+                    <p className="text-sm text-muted-foreground mb-2"><strong className="text-foreground">What's Included in Your ESA Letter:</strong></p>
+                    <ul className="space-y-1 text-sm text-muted-foreground">
+                      <li className="flex gap-2"><span className="text-primary">•</span> Official letterhead from our licensed psychiatrist</li>
+                      <li className="flex gap-2"><span className="text-primary">•</span> Confirmation of your mental health condition requiring an ESA</li>
+                      <li className="flex gap-2"><span className="text-primary">•</span> Psychiatrist's license number and contact information</li>
+                      <li className="flex gap-2"><span className="text-primary">•</span> Valid for housing accommodation requests under Fair Housing Act</li>
+                    </ul>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Button size="lg" asChild data-testid="button-esa-cta">
+                      <Link href="/request-appointment" onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatrist Orlando - ESA Section')}>
+                        Schedule ESA Evaluation
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="lg" asChild data-testid="button-esa-call">
+                      <a href="tel:3868488751" onClick={handlePhoneClick}>
+                        <Phone className="h-4 w-4 mr-2" />
+                        Ask About ESA Letters
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </section>
+
               <section>
                 <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
                   Why Choose Our Orlando Psychiatrists?
