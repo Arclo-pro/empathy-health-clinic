@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import SiteHeader from "@/components/SiteHeader";
-import HeroSection from "@/components/HeroSection";
+import HeroSection, { heroImage } from "@/components/HeroSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
@@ -29,6 +29,7 @@ export default function Home() {
         description="Expert psychiatry & therapy serving Orlando and Winter Park, FL. Same-week appointments, medication management & counseling. Licensed Florida clinicians. Most insurance accepted including Medicare."
         keywords={["psychiatrist Orlando", "psychiatrist Winter Park", "mental health Orlando FL", "therapy Orlando", "psychiatric services Florida", "anxiety treatment Orlando", "depression treatment Winter Park"]}
         canonicalPath="/"
+        preloadImage={heroImage}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],

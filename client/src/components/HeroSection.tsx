@@ -9,6 +9,9 @@ import googleLogo from "@assets/google-wordmark.webp";
 import healthgradesLogo from "@assets/healthgrades-logo-opt.webp";
 import yelpLogo from "@assets/yelp-logo-opt.webp";
 
+// Export hero image for preloading in SEOHead
+export { heroImage };
+
 export default function HeroSection() {
   const { data: content } = useQuery<SiteContent>({
     queryKey: ["/api/site-content"],
@@ -33,6 +36,7 @@ export default function HeroSection() {
           width={1920}
           height={800}
           loading="eager"
+          fetchpriority="high"
           decoding="sync"
           style={{ backgroundColor: '#2d5f4a', objectPosition: '75% center' }}
         />
