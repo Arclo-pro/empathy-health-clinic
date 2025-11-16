@@ -52,6 +52,78 @@ export const initMicrosoftClarity = () => {
   document.head.appendChild(script);
 
   console.log('✅ Microsoft Clarity: Heatmaps and session recording initialized');
+  
+  // Tag sessions with paid traffic attribution after Clarity loads
+  setTimeout(() => {
+    tagClaritySessionWithAttribution();
+  }, 1000);
+};
+
+/**
+ * Tag Clarity sessions with UTM/campaign attribution for filtering
+ * This allows filtering recordings by paid traffic source in Clarity dashboard
+ */
+export const tagClaritySessionWithAttribution = () => {
+  if (typeof window === 'undefined' || typeof window.clarity !== 'function') {
+    return;
+  }
+
+  try {
+    // Get UTM parameters from URL
+    const searchParams = new URLSearchParams(window.location.search);
+    const utmSource = searchParams.get('utm_source');
+    const utmMedium = searchParams.get('utm_medium');
+    const utmCampaign = searchParams.get('utm_campaign');
+    const gclid = searchParams.get('gclid');
+    const fbclid = searchParams.get('fbclid');
+
+    // Identify paid traffic
+    const isPaidTraffic = !!(gclid || fbclid || utmMedium === 'cpc' || utmMedium === 'ppc' || utmMedium === 'paid');
+
+    // Tag session with traffic source
+    if (isPaidTraffic) {
+      window.clarity('set', 'traffic_type', 'paid');
+      console.log('🎯 Clarity: Tagged session as PAID traffic');
+    } else if (utmSource) {
+      window.clarity('set', 'traffic_type', 'tracked');
+    } else {
+      window.clarity('set', 'traffic_type', 'organic');
+    }
+
+    // Tag Google Ads clicks
+    if (gclid) {
+      window.clarity('set', 'ad_platform', 'Google Ads');
+      window.clarity('set', 'gclid', 'true');
+      console.log('🎯 Clarity: Tagged session with Google Ads (gclid)');
+    }
+
+    // Tag Facebook Ads clicks
+    if (fbclid) {
+      window.clarity('set', 'ad_platform', 'Facebook Ads');
+      window.clarity('set', 'fbclid', 'true');
+      console.log('🎯 Clarity: Tagged session with Facebook Ads (fbclid)');
+    }
+
+    // Tag UTM source
+    if (utmSource) {
+      window.clarity('set', 'utm_source', utmSource);
+      console.log('🎯 Clarity: Tagged session with utm_source:', utmSource);
+    }
+
+    // Tag UTM medium
+    if (utmMedium) {
+      window.clarity('set', 'utm_medium', utmMedium);
+    }
+
+    // Tag campaign name
+    if (utmCampaign) {
+      window.clarity('set', 'campaign', utmCampaign);
+      console.log('🎯 Clarity: Tagged session with campaign:', utmCampaign);
+    }
+
+  } catch (error) {
+    console.error('❌ Clarity: Error tagging session:', error);
+  }
 };
 
 export const initFacebookPixel = () => {
