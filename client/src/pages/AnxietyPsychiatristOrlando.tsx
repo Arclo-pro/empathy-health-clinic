@@ -190,7 +190,7 @@ export default function AnxietyPsychiatristOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Living with anxiety can feel overwhelming, affecting every aspect of your daily life. At Empathy Health Clinic, our board-certified psychiatrists in Orlando specialize in comprehensive anxiety disorder treatment, providing evidence-based medication management and psychiatric care for adults experiencing panic attacks, social anxiety, generalized anxiety disorder (GAD), phobias, and other anxiety conditions.
+                    Living with anxiety can feel overwhelming, affecting every aspect of your daily life. At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">Orlando psychiatry clinic</Link>, our board-certified psychiatrists specialize in comprehensive anxiety disorder treatment, providing evidence-based medication management and psychiatric care for adults experiencing panic attacks, social anxiety, generalized anxiety disorder (GAD), phobias, and other anxiety conditions.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Our Orlando anxiety psychiatrists understand that anxiety disorders are among the most common mental health conditions, affecting millions of Americans. Whether you're experiencing panic attacks at work, avoiding social situations due to social anxiety, struggling with constant worry from GAD, or feeling held back by specific phobias, we provide personalized treatment plans tailored to your unique symptoms and goals.

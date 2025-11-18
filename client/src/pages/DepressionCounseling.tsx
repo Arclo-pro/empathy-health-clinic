@@ -144,7 +144,7 @@ export default function DepressionCounseling() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline font-medium">Orlando depression specialists</Link> help patients navigate low mood, loss of interest, difficulty concentrating, and other symptoms through individualized treatment plans that fit their needs.
+                    Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline font-medium">Orlando depression specialists</Link> help patients navigate low mood, loss of interest, difficulty concentrating, and other symptoms through individualized treatment plans that fit their needs. At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">psychiatry clinic in Orlando</Link>, we offer comprehensive mental health services including psychiatric evaluations, medication management, and ongoing support.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Depression is more than just feeling sad - it's a serious medical condition that affects how you think, feel, and function in daily life. But here's the good news: depression is highly treatable. With the right combination of therapy, medication, and support, most people experience significant improvement.

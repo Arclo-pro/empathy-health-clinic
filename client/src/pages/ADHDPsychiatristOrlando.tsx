@@ -190,7 +190,7 @@ export default function ADHDPsychiatristOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    ADHD (Attention-Deficit/Hyperactivity Disorder) affects millions of adults and children, impacting focus, organization, time management, and daily functioning. At Empathy Health Clinic, our board-certified psychiatrists in Orlando specialize in comprehensive ADHD diagnosis, medication management, and treatment for patients of all ages.
+                    ADHD (Attention-Deficit/Hyperactivity Disorder) affects millions of adults and children, impacting focus, organization, time management, and daily functioning. At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">Orlando psychiatry clinic</Link>, our board-certified psychiatrists specialize in comprehensive ADHD diagnosis, medication management, and treatment for patients of all ages.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Our ADHD specialists understand that every person's experience with ADHD is unique. Whether you're an adult seeking an ADHD evaluation for the first time, a parent concerned about your child's focus and behavior, or someone already diagnosed seeking better medication management, our Orlando psychiatrists provide personalized, evidence-based care.

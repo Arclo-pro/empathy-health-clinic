@@ -190,7 +190,7 @@ export default function ChildPsychiatristOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    When your child is struggling with mental health challenges, finding the right psychiatric care is crucial. At Empathy Health Clinic, our board-certified child and adolescent psychiatrists in Orlando provide comprehensive, compassionate mental health treatment for children and teenagers experiencing ADHD, anxiety, depression, behavioral issues, and other psychiatric conditions.
+                    When your child is struggling with mental health challenges, finding the right psychiatric care is crucial. At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">Orlando psychiatry clinic</Link>, our board-certified child and adolescent psychiatrists provide comprehensive, compassionate mental health treatment for children and teenagers experiencing ADHD, anxiety, depression, behavioral issues, and other psychiatric conditions.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Our Orlando child psychiatrists understand the unique developmental needs of children and adolescents. We take a family-centered approach, working closely with parents, schools, and therapists to support your child's mental health and overall wellbeing. Whether your child is struggling with focus and hyperactivity, experiencing anxiety or mood changes, having behavioral outbursts, or facing other mental health concerns, we provide evidence-based psychiatric evaluations and medication management tailored to their age and specific needs.

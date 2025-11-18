@@ -297,7 +297,7 @@ export default function PsychiatryClinicOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    When you're searching for a trusted psychiatry clinic in Orlando, you need more than just a provider - you need a comprehensive mental health partner. Empathy Health Clinic is a leading psychiatry clinic serving Orlando, Winter Park, and Central Florida with a full range of psychiatric services designed to help you achieve lasting mental wellness.
+                    When you're searching for a trusted psychiatry clinic in Orlando, you need more than just a provider - you need a comprehensive mental health partner. Empathy Health Clinic is a leading mental health clinic in Orlando providing expert psychiatric care to patients throughout Central Florida. Our psychiatry clinic serves Orlando, Winter Park, Lake Nona, Baldwin Park, Downtown Orlando, and surrounding communities with a full range of psychiatric services designed to help you achieve lasting mental wellness.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Our Orlando psychiatry clinic is staffed by board-certified psychiatrists with extensive experience treating <Link href="/anxiety-therapy" className="text-primary hover:underline font-medium">anxiety disorders</Link>, <Link href="/depression-treatment" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd-psychiatrist-orlando" className="text-primary hover:underline font-medium">ADHD</Link>, <Link href="/bipolar-psychiatrist-orlando" className="text-primary hover:underline font-medium">bipolar disorder</Link>, <Link href="/ptsd-treatment" className="text-primary hover:underline font-medium">PTSD</Link>, <Link href="/ocd-treatment" className="text-primary hover:underline font-medium">OCD</Link>, and other mental health conditions. We provide personalized, evidence-based psychiatric care that addresses your unique needs and goals.
@@ -383,7 +383,7 @@ export default function PsychiatryClinicOrlando() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">Comprehensive Psychiatric Evaluations</h3>
                       <p className="text-muted-foreground">
-                        Thorough diagnostic assessments conducted by board-certified psychiatrists at our Orlando clinic. We take the time to understand your symptoms, history, and concerns to provide accurate diagnoses and effective treatment recommendations.
+                        Our Orlando clinic provides thorough psychiatric evaluations conducted by board-certified psychiatrists. Each psychiatric evaluation in Orlando includes a comprehensive assessment of your symptoms, medical history, and concerns to provide accurate diagnoses and effective treatment recommendations tailored to your unique needs.
                       </p>
                     </div>
                   </div>
@@ -397,7 +397,7 @@ export default function PsychiatryClinicOrlando() {
                         </Link>
                       </h3>
                       <p className="text-muted-foreground">
-                        Convenient online psychiatry appointments from your Orlando home. Our HIPAA-compliant telehealth platform provides the same quality psychiatric care as in-person clinic visits, with added convenience and flexibility.
+                        Convenient online psychiatry appointments from anywhere in Orlando. Our telehealth psychiatrist services in Orlando use a HIPAA-compliant platform to provide the same quality psychiatric care as in-person clinic visits, with added convenience and flexibility for busy schedules.
                       </p>
                     </div>
                   </div>
@@ -538,30 +538,42 @@ export default function PsychiatryClinicOrlando() {
 
               {/* Service Areas */}
               <div className="bg-primary/5 border rounded-lg p-6">
-                <h3 className="font-semibold text-lg text-foreground mb-3">Areas We Serve</h3>
+                <h3 className="font-semibold text-lg text-foreground mb-3">Orlando Communities We Serve</h3>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Our Orlando psychiatry clinic proudly serves patients throughout Central Florida:
+                  Our Orlando psychiatry clinic proudly serves patients throughout Central Florida and the Greater Orlando area:
                 </p>
                 <ul className="text-sm text-foreground space-y-1">
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />
-                    <span>Orlando, FL</span>
+                    <span>Downtown Orlando</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />
-                    <span>Winter Park, FL</span>
+                    <span>Winter Park</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />
-                    <span>Altamonte Springs, FL</span>
+                    <span>Lake Nona</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />
-                    <span>Lake Mary, FL</span>
+                    <span>Baldwin Park</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />
-                    <span>Maitland, FL</span>
+                    <span>Thornton Park</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span>Altamonte Springs</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span>Lake Mary</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    <span>Maitland</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle className="h-4 w-4 text-primary" />

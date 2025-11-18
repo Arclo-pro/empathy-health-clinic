@@ -202,7 +202,7 @@ export default function AnxietyTherapy() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline font-medium">Orlando anxiety therapists and psychiatric providers</Link> offer personalized care for individuals seeking support with generalized anxiety, social anxiety, panic symptoms, and worry-related concerns.
+                    Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline font-medium">Orlando anxiety therapists and psychiatric providers</Link> offer personalized care for individuals seeking support with generalized anxiety, social anxiety, panic symptoms, and worry-related concerns. As part of our comprehensive <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">psychiatry clinic in Orlando</Link>, we provide integrated mental health services combining therapy, medication management, and crisis support.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Anxiety disorders are the most common mental health condition in the United States, affecting millions of people. While everyone experiences worry or fear sometimes, anxiety disorders involve excessive, persistent anxiety that interferes with daily life.

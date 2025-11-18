@@ -190,7 +190,7 @@ export default function BipolarPsychiatristOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Bipolar disorder is a complex mental health condition characterized by significant mood swings including emotional highs (mania or hypomania) and lows (depression). At Empathy Health Clinic, our board-certified psychiatrists in Orlando specialize in comprehensive bipolar disorder treatment, providing expert medication management and psychiatric care to help you achieve mood stability and improve your quality of life.
+                    Bipolar disorder is a complex mental health condition characterized by significant mood swings including emotional highs (mania or hypomania) and lows (depression). At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">Orlando psychiatry clinic</Link>, our board-certified psychiatrists specialize in comprehensive bipolar disorder treatment, providing expert medication management and psychiatric care to help you achieve mood stability and improve your quality of life.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Our Orlando bipolar psychiatrists understand that living with bipolar disorder can be challenging - the unpredictable mood episodes can impact your relationships, work performance, and daily functioning. Whether you've been recently diagnosed with bipolar I, bipolar II, or cyclothymic disorder, or you're seeking better mood stabilization with your current treatment, we provide personalized, evidence-based psychiatric care tailored to your unique needs.
