@@ -184,7 +184,7 @@ export default function TelepsychiatryOrlando() {
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-foreground leading-relaxed mb-4">
-                    Telepsychiatry brings board-certified psychiatric care directly to your home in Orlando. At Empathy Health Clinic, our online psychiatrists provide the same comprehensive mental health services as traditional in-person visits - psychiatric evaluations, medication management, and treatment for depression, anxiety, ADHD, bipolar disorder, and other mental health conditions - all through secure, HIPAA-compliant video appointments.
+                    Telepsychiatry brings board-certified psychiatric care directly to your home in Orlando. At our <Link href="/psychiatry-clinic-orlando" className="text-primary hover:underline font-medium">Orlando psychiatric clinic</Link>, our online psychiatrists provide the same comprehensive mental health services as traditional in-person visits - psychiatric evaluations, medication management, and treatment for depression, anxiety, ADHD, bipolar disorder, and other mental health conditions - all through secure, HIPAA-compliant video appointments.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
                     Whether you live in Orlando, Winter Park, Lake Mary, Altamonte Springs, or Maitland, telepsychiatry eliminates the need to drive to appointments, sit in waiting rooms, or take extended time off work. Our virtual psychiatry platform is easy to use, private, and allows you to meet with your psychiatrist from wherever you feel most comfortable - your home, office, or even your parked car during a lunch break.
