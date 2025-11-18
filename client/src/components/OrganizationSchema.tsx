@@ -18,7 +18,7 @@ export default function OrganizationSchema() {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "2281 Lee Rd Suite 102",
-        "addressLocality": "Winter Park",
+        "addressLocality": "Orlando",
         "addressRegion": "FL",
         "postalCode": "32810",
         "addressCountry": "US"
@@ -31,7 +31,7 @@ export default function OrganizationSchema() {
       "areaServed": [
         {
           "@type": "City",
-          "name": "Winter Park",
+          "name": "Orlando",
           "containedInPlace": {
             "@type": "State",
             "name": "Florida"
@@ -39,7 +39,7 @@ export default function OrganizationSchema() {
         },
         {
           "@type": "City",
-          "name": "Orlando",
+          "name": "Winter Park",
           "containedInPlace": {
             "@type": "State",
             "name": "Florida"

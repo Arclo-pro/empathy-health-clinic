@@ -1,24 +1,10 @@
 # Empathy Health Clinic - Content Management System
 
 ## Overview
-This project delivers a modern, high-performance CMS and website for Empathy Health Clinic, aiming to streamline content management, enhance site performance, and provide SEO-optimized landing pages. The primary purpose is to improve online visibility and patient acquisition for mental health services, establishing the clinic as a leading provider.
+This project delivers a modern, high-performance CMS and website for Empathy Health Clinic. Its primary purpose is to streamline content management, enhance site performance, improve online visibility, and drive patient acquisition for mental health services, aiming to establish the clinic as a leading provider. The system supports SEO-optimized landing pages, comprehensive analytics, and automated SEO workflows to achieve these goals.
 
 ## User Preferences
 I want the agent to prioritize high-level features and architectural decisions. Please do not delve into granular implementation details unless specifically asked. I prefer a concise communication style. When making changes, focus on the most impactful elements first.
-
-## Recent Changes
-### November 14, 2025
-- **Mobile Contact Form Button Fix (Nov 14):** Fixed critical iOS Safari clickability issue where "Get Scheduled Today" button on contact forms appeared unresponsive (observed via Microsoft Clarity session recordings). Root cause: Global `StickyMobileCTA` component (fixed, z-50) was overlapping contact form submit button (sticky, z-20), causing users to unknowingly click "Request Appointment" instead of submitting forms. Fix: (1) Increased ShortContactForm button container z-index from 20 to 60 (now renders above global CTA), (2) Removed negative margins `-mx-6 -mb-6` that caused touch target issues in iOS Safari, (3) Added `min-h-11` (44px) to button for iOS touch target compliance, (4) Added iOS `safe-area-inset-bottom` padding via inline style. Automated testing confirms: form submits correctly to /api/leads, no unwanted navigation, proper z-index layering. Affects all pages using ShortContactForm component.
-- **Desktop Homepage LCP Optimization (Nov 14):** Implemented critical Core Web Vitals optimizations to reduce desktop LCP from 2.5s to target sub-2.5s (estimated 2.1-2.3s). Changes: (1) Added `fetchpriority="high"` attribute to homepage hero image (HeroSection.tsx), (2) Coordinated head-level `<link rel="preload" as="image" fetchpriority="high">` via SEOHead component reusing existing preload infrastructure, (3) Verified hero image optimized at 47KB WebP (well under 100KB target). Implementation preserves existing `loading="eager"`, `decoding="sync"`, and explicit dimension attributes. Expected: 200-400ms LCP reduction, improved Google Search Console Core Web Vitals validation, better user experience and SEO rankings.
-
-### November 13, 2025
-- **Automated Orlando Blog Publishing System (Nov 13):** Implemented secure automated daily blog publishing for 10 Orlando psychiatry SEO blog posts (800-1200 words each). Features include: (1) Database schema with status/scheduledPublishAt/publishedAt fields, (2) Secure REST API endpoint (/api/admin/publish-scheduled) with API key authentication and atomic UPDATE...RETURNING for race prevention, (3) Florida-themed Unsplash images for all posts, (4) Comprehensive SEO metadata (meta titles, descriptions, keywords), (5) Staggered publishing Nov 14-23 at 9 AM EST (one post/day), (6) Automatic sitemap regeneration after publish, (7) Public blog listing filters to exclude draft/scheduled posts. Security: Enforces BLOG_PUBLISHER_SECRET, fails fast if missing. Automation via external scheduler (cron-job.org/UptimeRobot recommended) or node-cron script. Expected: improved Orlando keyword coverage and SEO rankings.
-- **Orlando Psychiatry SEO Optimization (Nov 13):** Implemented patient-centered content updates and Orlando-specific SEO across key pages. Updated /psychiatrist-orlando intro with empathetic tone ("when you're struggling with your mental health, finding the right psychiatrist matters"). Added Orlando SEO sentences with internal links to Anxiety, Depression, PTSD, and OCD condition pages linking to /psychiatrist-orlando. Added comprehensive @graph JSON-LD schema with WebSite, MedicalOrganization, WebPage, and FAQPage types for enhanced search visibility. Internal linking already exists via Home page "Orlando Psychiatry Specialists" section (8 CTA cards) and Footer "Orlando Psychiatry Services" band (2×4 grid). All changes preserve SEO structure, schema, and keywords while improving patient-centeredness. Expected: improved Orlando keyword rankings and user engagement metrics.
-- **Google Ads Tracking:** Added gclid/fbclid columns to leads table, updated forms to submit click IDs, deployed parameter preservation script to maintain UTM/GCLID across navigation
-- **Blog Post Links:** Added external source links to ACLS blog (BLS, University of California, ACLSNow) plus internal service links
-- **Google Search Console Fixes:** Fixed 128+ total errors including 85+ "Page with redirect" errors, 42 Soft 404 errors, and 1 canonical tag issue (varicose-veins blog post redirect)
-- **Services Page Layout:** Fixed hero section vertical overlap between description and HeroLeadForm by implementing flex column with space-y-8/10 spacing
-- **Blog Performance Optimization:** Implemented responsive image loading (640w/1024w/1200w), reduced quality (70-75 vs 80), intelligent preloading with srcset hints. Expected: LCP 6.1s → 3.5-4.5s, 70% smaller mobile payload, Performance Score 53 → 65-75
 
 ## System Architecture
 ### UI/UX Decisions
@@ -27,36 +13,22 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 ### Technical Implementations
 - **Frontend:** React SPA with TypeScript, Tailwind CSS, Shadcn UI, TanStack Query, and Wouter for routing.
 - **Backend:** Express.js REST API with hybrid storage (in-memory for content, PostgreSQL for analytics/leads) and Zod for validation.
-- **Content Management:** Full CRUD operations via an admin panel for various content types.
-- **SEO Features:** Comprehensive SEO implementation including unique meta tags, canonical tags, structured data, auto-generated XML sitemap, robots.txt, SEO-friendly URLs, and strategic internal linking.
-- **Blog System:** Comprehensive blog with listing and individual post pages, SEO metadata, and AI Blog Generation.
+- **Content Management:** Full CRUD operations via an admin panel for various content types, including a comprehensive blog system with AI Blog Generation.
+- **SEO Features:** Comprehensive SEO implementation with unique meta tags, canonical tags, structured data, auto-generated XML sitemap, robots.txt, SEO-friendly URLs, and strategic internal linking. Includes real-time Google ranking tracking, competitor analysis, and an autonomous SEO task executor.
 - **Analytics System:** PostgreSQL-backed analytics tracking Core Web Vitals, GA4, Facebook Pixel, Microsoft Clarity, page views, conversion events, and Google Ads conversions, with a dedicated admin dashboard and Google Ads API integration.
-- **SERP Ranking Analysis:** Real-time Google ranking tracker using Serper.dev API with 15-minute caching (40x performance improvement), URL normalization to prevent false "wrong URL" flags, competitor position tracking (healingpsychiatryflorida.com, mymindcarecenter.com, orlandohealth.com), and SEO task enrichment combining GSC impressions with live SERP positions.
 - **Admin Dashboards:** Includes a Link & Performance Monitor, SEO Optimization Dashboard, Blog SEO Optimizer, and SEMrush Keyword Optimizer.
-- **Performance Optimizations:** Mobile-first approach with code splitting, analytics deferral, resource hints, script optimization, and hero image preloading. Desktop homepage LCP optimization using fetchpriority="high" + coordinated head-level preload (Nov 2025).
-- **URL Management:** Unified canonicalization middleware combines www removal, trailing slash normalization, and content redirects, with a dynamic blog redirect system for legacy URLs.
+- **Performance Optimizations:** Mobile-first approach with code splitting, analytics deferral, resource hints, script optimization, and hero image preloading.
+- **URL Management:** Unified canonicalization middleware for www removal, trailing slash normalization, and content redirects, with a dynamic blog redirect system.
 
 ### Feature Specifications
 - **Core Pages:** Comprehensive landing pages for services, insurance providers, psychiatric treatments, therapy services, and conditions, including Google Ads and city-specific landing pages.
-- **Orlando Landing Pages (November 2025):** 8 SEO-optimized Orlando-specific psychiatry landing pages (1,000-1,400 words each) with LocalBusiness/MedicalBusiness schema, Orlando location data (2281 Lee Rd Suite 102, Winter Park, FL 32810), and strategic internal linking:
-  - /psychiatrist-orlando (general psychiatry)
-  - /adhd-psychiatrist-orlando (ADHD diagnosis & treatment)
-  - /anxiety-psychiatrist-orlando (anxiety disorder treatment)
-  - /child-psychiatrist-orlando (pediatric psychiatry)
-  - /bipolar-psychiatrist-orlando (bipolar disorder treatment)
-  - /medication-management-orlando (psychiatric medication management)
-  - /telepsychiatry-orlando (online psychiatry)
-  - /same-day-psychiatrist-orlando (urgent psychiatric care)
-  
-  Internal linking: Homepage "Orlando Psychiatry Specialists" section (8 CTA cards) + Footer "Orlando Psychiatry Services" band (2×4 grid). Analytics tracking: orlando_service_click events.
-- **Blog Section:** Over 170 SEO-optimized articles, with an AI Blog Generator in the admin panel.
-- **Admin Panel:** CMS for content and lead management, analytics dashboard, link and performance monitoring, and Google Ads setup.
+- **Orlando Landing Pages:** Nine SEO-optimized Orlando-specific psychiatry landing pages with LocalBusiness/MedicalBusiness schema and strategic internal linking. Primary target: **/psychiatry-clinic-orlando** (exact H1 "Psychiatry Clinic in Orlando") for #1 ranking goal. Additional pages: /psychiatrist-orlando, /adhd-psychiatrist-orlando, /anxiety-psychiatrist-orlando, /child-psychiatrist-orlando, /bipolar-psychiatrist-orlando, /medication-management-orlando, /telepsychiatry-orlando, /same-day-psychiatrist-orlando. Internal linking: Homepage "Orlando Psychiatry Specialists" section and Footer "Orlando Psychiatry Services" band (both feature /psychiatry-clinic-orlando as first link with emphasized styling).
 - **Lead Capture:** High-converting forms with automated email notifications, backend deduplication, and email failure tracking.
 - **Trust Factors:** Integration of HIPAA compliance and other credibility indicators.
 - **Accessibility:** Mobile responsiveness and dark mode.
 
 ### System Design Choices
-The system uses an in-memory storage solution for simplified deployment, with data resetting on server restarts. The project structure is modular, separating client, server, and shared concerns. Content types are rigorously defined to support detailed and SEO-rich pages.
+The system uses an in-memory storage solution for simplified deployment, with data resetting on server restarts. The project structure is modular, separating client, server, and shared concerns. Content types are rigorously defined to support detailed and SEO-rich pages. An automated SEO pipeline and an autonomous implementation system continuously optimize the site.
 
 ## External Dependencies
 - **React:** Frontend library.
@@ -69,71 +41,10 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Zod:** Schema validation.
 - **SendGrid:** Email delivery service.
 - **Google Ads API:** Paid conversion tracking and ROI analytics.
-- **Serper.dev API:** Real-time SERP ranking checks for Orlando keywords.
+- **Serper.dev API:** Real-time SERP ranking checks.
 - **web-vitals:** Core Web Vitals measurement.
 - **Lucide-react:** Icon library.
 - **OpenAI GPT-4o:** For AI blog generation.
 - **PostgreSQL:** Database for analytics and leads.
 - **Unsplash API:** For professional stock images.
 - **Microsoft Clarity API:** Optional integration for enhanced link monitoring and dead link detection.
-
-## SEO Automation Pipeline (November 2025)
-Automated daily SEO workflow orchestrating GSC data, SERP tracking, tech audits, and task prioritization:
-
-### Pipeline Components
-- **main.py:** Fetches Google Search Console data and generates initial tasks.csv
-- **step2_serp_update_tasks.py:** Checks live SERP rankings via Serper.dev API, enriches tasks with position data
-- **step3_parse_sf_exports.py:** Parses Screaming Frog technical audit exports (internal_all.csv)
-- **step4_merge_and_prioritize_simple.py:** Combines all data sources, calculates impact/effort scores, outputs tasks_final.csv
-- **daily_seo_pipeline.py:** Full orchestration script with SendGrid email notifications
-
-### Deployment Options
-1. **Replit Scheduled Deployment:** Daily cron job (`0 7 * * *` = 2 AM EST) runs full pipeline
-2. **Manual Execution:** Run `python3 daily_seo_pipeline.py` on-demand
-3. **Continuous Integration:** Trigger via GitHub Actions or external scheduler
-
-### Task Prioritization Algorithm
-- **Impact Score:** Position-based opportunity (page 2+ = +5, page 1 bottom = +4) + tech issue severity (http-error = +6, performance issues = +2-3)
-- **Effort Score:** create-landing = 3.0, supporting-blog = 2.0, improve-landing = 1.5, tech-fix = 1.5-2.5
-- **Priority Score:** Impact - (0.8 × Effort)
-
-### Autonomous Implementation System (November 2025)
-**Fully autonomous SEO task executor** - The system automatically implements high-priority tasks without human intervention:
-
-**Components:**
-- **auto_implement_tasks.py:** Main orchestration engine with safety guardrails
-- **create-insurance-landing.ts:** AI-powered landing page creation (7 insurance providers)
-- **optimize-landing.ts:** Page optimization based on SERP analysis
-- **fix-tech-issues.ts:** Automated technical SEO fixes
-
-**Safety Features:**
-- Git checkpoint before changes (rollback capability)
-- Auto-commit with descriptive messages
-- Max 3 tasks/day limit (conservative)
-- Priority threshold 2.0 (high-value only)
-- Complete audit trail via git diff in email
-- Dry run mode for testing
-
-**Capabilities:**
-- Creates insurance provider landing pages (Cigna, BCBS, UMR, Aetna, United, Medicare, Medicaid)
-- Optimizes existing pages (titles, meta descriptions, content expansion)
-- Fixes technical issues (missing meta tags, canonical tags, H1s)
-- Verifies page existence before creating
-- Skips tasks that can't be safely automated
-
-**Workflow Integration:**
-1. Daily pipeline generates prioritized tasks
-2. Autonomous engine implements top 3 tasks
-3. Git commit with changes
-4. Email report with implementation summary and git diff
-5. Rollback available via `git reset --hard HEAD~1`
-
-### Email Reports
-Daily summary emails via SendGrid to providers@empathyhealthclinic.com, kevin.mease@gmail.com containing:
-- **Autonomous Implementation Results:** Tasks implemented, failed, skipped with full git diff and rollback instructions
-- Top 10 priority tasks with scores, actions, SERP positions
-- Tech issue flags (http-error, slow-mobile, thin-content, missing SEO elements)
-- File generation status (tasks.csv, serp_ranks.csv, tech_audit.csv, tasks_final.csv)
-
-### Cost
-~$0.30/month (Serper.dev SERP checks $0.001/query × ~12 queries/day + OpenAI API for autonomous content generation ~$0.05/day)

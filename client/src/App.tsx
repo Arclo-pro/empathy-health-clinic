@@ -62,6 +62,7 @@ const AnxietyTherapy = lazy(() => import("@/pages/AnxietyTherapy"));
 
 // Orlando Service Landing Pages
 const PsychiatristOrlando = lazy(() => import("@/pages/PsychiatristOrlando"));
+const PsychiatryClinicOrlando = lazy(() => import("@/pages/PsychiatryClinicOrlando"));
 const ADHDPsychiatristOrlando = lazy(() => import("@/pages/ADHDPsychiatristOrlando"));
 const AnxietyPsychiatristOrlando = lazy(() => import("@/pages/AnxietyPsychiatristOrlando"));
 const BipolarPsychiatristOrlando = lazy(() => import("@/pages/BipolarPsychiatristOrlando"));
@@ -287,6 +288,11 @@ function Router() {
         <Route path="/psychiatrist-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <PsychiatristOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatry-clinic-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatryClinicOrlando />
           </Suspense>
         </Route>
         <Route path="/adhd-psychiatrist-orlando">
