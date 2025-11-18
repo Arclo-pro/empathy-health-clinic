@@ -17,7 +17,11 @@ export default function MedicationManagementOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/medication-management-orlando#organization",
     "name": "Empathy Health Clinic - Medication Management Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Expert psychiatric medication management in Orlando, FL. Board-certified psychiatrists providing medication prescribing, monitoring, and optimization for depression, anxiety, ADHD, bipolar, and more.",
     "url": "https://empathyhealthclinic.com/medication-management-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function MedicationManagementOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },

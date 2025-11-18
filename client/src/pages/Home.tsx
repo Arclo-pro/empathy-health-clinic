@@ -195,17 +195,6 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link href="/child-psychiatrist-orlando" className="group" data-testid="link-orlando-child">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-child">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Child Psychiatrist
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Specialized pediatric mental health care
-                  </p>
-                </div>
-              </Link>
-
               <Link href="/bipolar-psychiatrist-orlando" className="group" data-testid="link-orlando-bipolar">
                 <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-bipolar">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">

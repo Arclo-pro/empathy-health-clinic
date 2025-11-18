@@ -17,7 +17,11 @@ export default function TelepsychiatryOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/telepsychiatry-orlando#organization",
     "name": "Empathy Health Clinic - Telepsychiatry Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Board-certified telepsychiatry services in Orlando, FL. Virtual psychiatrist appointments for medication management, psychiatric evaluations, and mental health treatment from home.",
     "url": "https://empathyhealthclinic.com/telepsychiatry-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function TelepsychiatryOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },

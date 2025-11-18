@@ -25,18 +25,26 @@ export default function PsychiatristOrlando() {
         "inLanguage": "en"
       },
       {
-        "@type": "MedicalOrganization",
-        "@id": "https://empathyhealthclinic.com/#organization",
-        "name": "Empathy Health Clinic",
+        "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
+        "@id": "https://empathyhealthclinic.com/psychiatrist-orlando#organization",
+        "name": "Empathy Health Clinic - Psychiatrist Orlando",
+        "parentOrganization": {
+          "@id": "https://empathyhealthclinic.com/#organization"
+        },
         "url": "https://empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "2281 Lee Road Suite 102",
-          "addressLocality": "Winter Park",
+          "addressLocality": "Orlando",
           "addressRegion": "FL",
           "postalCode": "32810",
           "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.59544,
+          "longitude": -81.36537
         },
         "medicalSpecialty": [
           "Psychiatry",

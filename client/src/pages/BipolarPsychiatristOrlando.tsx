@@ -17,7 +17,11 @@ export default function BipolarPsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/bipolar-psychiatrist-orlando#organization",
     "name": "Empathy Health Clinic - Bipolar Psychiatrist Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Board-certified psychiatrists specializing in bipolar disorder treatment in Orlando, FL. Expert medication management for bipolar I, bipolar II, and mood stabilization.",
     "url": "https://empathyhealthclinic.com/bipolar-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function BipolarPsychiatristOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },

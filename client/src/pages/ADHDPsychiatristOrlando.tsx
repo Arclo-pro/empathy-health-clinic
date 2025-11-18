@@ -17,7 +17,11 @@ export default function ADHDPsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/adhd-psychiatrist-orlando#organization",
     "name": "Empathy Health Clinic - ADHD Psychiatrist Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Board-certified ADHD psychiatrists in Orlando, FL specializing in adult and child ADHD diagnosis, medication management, and comprehensive treatment. Same-week appointments available.",
     "url": "https://empathyhealthclinic.com/adhd-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function ADHDPsychiatristOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },

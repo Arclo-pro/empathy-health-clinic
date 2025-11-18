@@ -17,7 +17,11 @@ export default function AnxietyPsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/anxiety-psychiatrist-orlando#organization",
     "name": "Empathy Health Clinic - Anxiety Psychiatrist Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Board-certified anxiety psychiatrists in Orlando, FL specializing in anxiety disorder treatment, panic disorder, social anxiety, GAD, and phobias. Medication management and comprehensive care.",
     "url": "https://empathyhealthclinic.com/anxiety-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function AnxietyPsychiatristOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },

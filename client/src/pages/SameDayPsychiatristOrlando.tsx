@@ -17,7 +17,11 @@ export default function SameDayPsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "@id": "https://empathyhealthclinic.com/same-day-psychiatrist-orlando#organization",
     "name": "Empathy Health Clinic - Same Day Psychiatrist Orlando FL",
+    "parentOrganization": {
+      "@id": "https://empathyhealthclinic.com/#organization"
+    },
     "description": "Same-day psychiatrist appointments in Orlando, FL. Urgent psychiatric care for depression, anxiety, panic attacks, medication management. Board-certified psychiatrists available today.",
     "url": "https://empathyhealthclinic.com/same-day-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
@@ -26,10 +30,15 @@ export default function SameDayPsychiatristOrlando() {
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",
-      "addressLocality": "Winter Park",
+      "addressLocality": "Orlando",
       "addressRegion": "FL",
       "postalCode": "32810",
       "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando" },
