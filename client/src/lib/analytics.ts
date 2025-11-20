@@ -408,13 +408,35 @@ export const isGAActive = (): boolean => {
          !!import.meta.env.VITE_GA_MEASUREMENT_ID;
 };
 
-export const trackGoogleAdsConversion = async (conversionLabel: string, value?: number) => {
+/**
+ * Generate unique transaction ID for each conversion
+ * Each conversion gets a unique ID for Google Ads tracking
+ * Format: conversionLabel-timestamp-random
+ * 
+ * Note: Google Ads handles duplicate prevention server-side.
+ * If you need custom deduplication, pass a business identifier (lead ID, booking ID)
+ * as the transactionId parameter to trackGoogleAdsConversion().
+ */
+const generateTransactionId = (conversionLabel: string): string => {
+  return `${conversionLabel}-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+};
+
+export const trackGoogleAdsConversion = async (
+  conversionLabel: string, 
+  value?: number,
+  transactionId?: string
+) => {
   if (typeof window === 'undefined') return;
   
   const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
   
   if (!adsConversionId || !conversionLabel) {
-    console.warn('⚠️ Google Ads: Missing conversion ID or label');
+    console.warn('⚠️ Google Ads: Missing conversion ID or label', {
+      hasConversionId: !!adsConversionId,
+      hasLabel: !!conversionLabel,
+      conversionId: adsConversionId,
+      label: conversionLabel
+    });
     return;
   }
 
@@ -437,33 +459,48 @@ export const trackGoogleAdsConversion = async (conversionLabel: string, value?: 
     return;
   }
 
-  window.gtag('event', 'conversion', {
+  // Use provided transaction ID or generate a unique one
+  const txnId = transactionId || generateTransactionId(conversionLabel);
+
+  const conversionData = {
     'send_to': `${adsConversionId}/${conversionLabel}`,
     'value': value || 1.0,
-    'currency': 'USD'
-  });
+    'currency': 'USD',
+    'transaction_id': txnId
+  };
 
-  console.log('📊 Google Ads Conversion:', {
+  window.gtag('event', 'conversion', conversionData);
+
+  console.log('✅ Google Ads Conversion Tracked:', {
     conversionId: adsConversionId,
     label: conversionLabel,
-    value: value || 1.0
+    value: value || 1.0,
+    transactionId: txnId,
+    fullTag: `${adsConversionId}/${conversionLabel}`,
+    timestamp: new Date().toISOString()
   });
 };
 
 export const trackPhoneClick = (phoneNumber: string) => {
   const phoneLabel = import.meta.env.VITE_GOOGLE_ADS_PHONE_LABEL;
   
-  if (phoneLabel) {
-    trackGoogleAdsConversion(phoneLabel);
-    console.log('📞 Google Ads: Phone click conversion tracked', phoneNumber);
+  if (!phoneLabel) {
+    console.warn('⚠️ Google Ads: VITE_GOOGLE_ADS_PHONE_LABEL not configured - phone conversion not tracked');
+    return;
   }
+  
+  console.log('📞 Tracking phone click:', phoneNumber);
+  trackGoogleAdsConversion(phoneLabel);
 };
 
 export const trackFormSubmission = () => {
   const formLabel = import.meta.env.VITE_GOOGLE_ADS_FORM_LABEL;
   
-  if (formLabel) {
-    trackGoogleAdsConversion(formLabel);
-    console.log('📝 Google Ads: Form submission conversion tracked');
+  if (!formLabel) {
+    console.warn('⚠️ Google Ads: VITE_GOOGLE_ADS_FORM_LABEL not configured - form conversion not tracked');
+    return;
   }
+  
+  console.log('📝 Tracking form submission');
+  trackGoogleAdsConversion(formLabel);
 };
