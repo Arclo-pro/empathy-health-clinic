@@ -235,7 +235,7 @@ async function createOrlandoServiceLanding(query: string, url: string) {
 }
 
 async function improveLandingPage(query: string, url: string, position?: string) {
-  const urlPath = new URL(url).pathname;
+  const urlPath = new URL(url).pathname.replace(/\/$/, '');
   
   try {
     const cmd = `npx tsx scripts/optimize-landing.ts --url "${urlPath}" --query "${query}" --position "${position || 'unknown'}"`;
