@@ -83,8 +83,12 @@ Use professional, empathetic tone. Include keywords naturally. Focus on patient 
 }
 
 async function createReactComponent(data: PageData): Promise<string> {
+  // Find project root (go up from scripts/ directory if needed)
+  const cwd = process.cwd();
+  const projectRoot = cwd.endsWith('/scripts') ? path.dirname(cwd) : cwd;
+  
   // Read template from existing Orlando page
-  const templatePath = path.join(process.cwd(), "client/src/pages/PsychiatristOrlando.tsx");
+  const templatePath = path.join(projectRoot, "client/src/pages/PsychiatristOrlando.tsx");
   const template = await fs.readFile(templatePath, "utf-8");
   
   // Simple template replacement (we'll improve this)
@@ -357,7 +361,11 @@ async function main() {
     // Write to file
     const componentName = provider.replace(/\s+/g, '') + 'Orlando';
     const fileName = componentName + '.tsx';
-    const filePath = path.join(process.cwd(), `client/src/pages/${fileName}`);
+    
+    // Find project root (go up from scripts/ directory if needed)
+    const cwd = process.cwd();
+    const projectRoot = cwd.endsWith('/scripts') ? path.dirname(cwd) : cwd;
+    const filePath = path.join(projectRoot, `client/src/pages/${fileName}`);
     
     await fs.writeFile(filePath, component);
 

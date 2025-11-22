@@ -64,17 +64,34 @@ Return as JSON:
 }
 
 async function findPageFile(url: string): Promise<string | null> {
-  // Convert URL to file path pattern
-  const slug = url.replace(/^\//, '').replace(/-/g, '_');
-  const patterns = [
-    `client/src/pages/*${slug}*.tsx`,
-    `client/src/pages/*${slug.split('_')[0]}*.tsx`
-  ];
+  // Convert URL slug to PascalCase component name
+  // /anxiety-psychiatrist-orlando → AnxietyPsychiatristOrlando
+  const slug = url.replace(/^\//, '');
+  const pascalCase = slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
   
-  for (const pattern of patterns) {
-    const files = await glob(pattern, { nocase: true });
-    if (files.length > 0) {
-      return files[0];
+  // Find project root (go up from scripts/ directory if needed)
+  const cwd = process.cwd();
+  const projectRoot = cwd.endsWith('/scripts') ? path.dirname(cwd) : cwd;
+  const exactFile = path.join(projectRoot, `client/src/pages/${pascalCase}.tsx`);
+  
+  try {
+    await fs.access(exactFile);
+    return exactFile;
+  } catch {
+    // File doesn't exist, try case-insensitive glob search from project root
+    const patterns = [
+      path.join(projectRoot, `client/src/pages/${pascalCase}.tsx`),
+      path.join(projectRoot, `client/src/pages/*${slug.replace(/-/g, '')}*.tsx`)
+    ];
+    
+    for (const pattern of patterns) {
+      const files = await glob(pattern, { nocase: true });
+      if (files.length > 0) {
+        return files[0];
+      }
     }
   }
   
