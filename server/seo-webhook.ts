@@ -1,8 +1,14 @@
 /**
  * SEO Task Implementation Webhook Endpoint
  * 
- * This endpoint receives prioritized SEO tasks from an external scheduler and
- * automatically implements them using TypeScript scripts.
+ * INSTALLATION INSTRUCTIONS FOR MAIN WEBSITE:
+ * 1. Copy this file to: server/api/seo/implement.ts (or appropriate location)
+ * 2. Add SEO_WEBHOOK_SECRET to your Replit Secrets
+ * 3. Ensure TypeScript implementation scripts exist in scripts/ directory
+ * 4. Deploy the endpoint
+ * 
+ * This endpoint receives prioritized SEO tasks from the scheduler and
+ * automatically implements them using your existing TypeScript scripts.
  */
 
 import { Request, Response } from 'express';
@@ -229,13 +235,15 @@ async function createOrlandoServiceLanding(query: string, url: string) {
 }
 
 async function improveLandingPage(query: string, url: string, position?: string) {
+  const urlPath = new URL(url).pathname;
+  
   try {
-    const cmd = `npx tsx scripts/optimize-landing.ts --url "${url}" --query "${query}" --position "${position || 'unknown'}"`;
+    const cmd = `npx tsx scripts/optimize-landing.ts --url "${urlPath}" --query "${query}" --position "${position || 'unknown'}"`;
     const { stdout, stderr } = await execAsync(cmd, { timeout: 60000 });
     
     return {
       success: true,
-      output: stdout || `Optimized ${url}`
+      output: stdout || `Optimized ${urlPath}`
     };
   } catch (error) {
     return {
