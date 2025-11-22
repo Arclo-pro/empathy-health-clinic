@@ -101,3 +101,8 @@ waitForPort = 5000
 
 [agent]
 integrations = ["javascript_openai_ai_integrations:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+SEO_WEBHOOK_SECRET = "zmuavCH74rdSlVUqdtZUaI+3JUNUxKgvMEbu9dLLSng="
