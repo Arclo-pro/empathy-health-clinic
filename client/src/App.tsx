@@ -58,6 +58,7 @@ const EMDRTherapy = lazy(() => import("@/pages/EMDRTherapy"));
 const TMSTreatment = lazy(() => import("@/pages/TMSTreatment"));
 const TraumaSpecialist = lazy(() => import("@/pages/TraumaSpecialist"));
 const FemaleTherapistOrlando = lazy(() => import("@/pages/FemaleTherapistOrlando"));
+const BlackPsychiatristOrlando = lazy(() => import("@/pages/BlackPsychiatristOrlando"));
 const VirtualTherapy = lazy(() => import("@/pages/VirtualTherapy"));
 const CrisisTherapy = lazy(() => import("@/pages/CrisisTherapy"));
 const DepressionCounseling = lazy(() => import("@/pages/DepressionCounseling"));
@@ -283,6 +284,11 @@ function Router() {
         <Route path="/female-therapist-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <FemaleTherapistOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/black-psychiatrist-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <BlackPsychiatristOrlando />
           </Suspense>
         </Route>
         <Route path="/virtual-therapy">
