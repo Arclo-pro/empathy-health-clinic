@@ -25,20 +25,19 @@ app.use(canonicalizationMiddleware);
 
 // X-Robots-Tag: Exclude admin routes and legacy WordPress archives from search engine indexing
 // Prevents 573 orphaned admin pages from appearing in GA4/SEMrush
-// Also blocks WordPress author/tag/date archives that redirect to /blog (prevents duplicate content)
+// NOTE: /tag/ and /author/ URLs are NOT blocked here because they 301 redirect to /blog
+// The redirect itself handles duplicate content prevention - no need for noindex
 // 
 // NOTE: In development (*.replit.dev domains), Replit infrastructure automatically
 // adds "X-Robots-Tag: none, noindex, noarchive, nofollow, nositelinkssearchbox, noimageindex"
 // to ALL pages. This is expected behavior to prevent dev environments from being indexed.
 // When published to production (custom domain), this middleware ensures ONLY admin routes
-// and legacy WordPress archives are excluded from indexing while public pages remain indexable.
+// and date archives are excluded from indexing while public pages remain indexable.
 app.use((req, res, next) => {
   if (
     req.path.startsWith('/admin') || 
     req.path.startsWith('/login') || 
     req.path.startsWith('/auth') ||
-    req.path.startsWith('/author/') ||
-    req.path.startsWith('/tag/') ||
     req.path.match(/^\/\d{4}\/\d{2}\/\d{2}\//)  // WordPress date archives like /2025/10/06/
   ) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
