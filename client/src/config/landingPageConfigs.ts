@@ -1492,3 +1492,664 @@ export const psychiatryOrlandoConfig: LandingPageConfig = {
     conversionCategory: "psychiatry_orlando",
   },
 };
+
+// Psychiatrist Orlando - Individual psychiatrist focus
+export const psychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Orlando FL | Board-Certified Psychiatrists | Same-Week Appointments",
+    description: "Find experienced board-certified psychiatrists in Orlando, FL. Expert mental health treatment including medication management, ADHD, anxiety, depression, bipolar disorder. Same-week appointments available. Most insurance accepted. Call 386-848-8751.",
+    keywords: ["psychiatrist orlando", "psychiatrist orlando fl", "orlando psychiatrist", "psychiatrists in orlando", "find psychiatrist orlando", "best psychiatrist orlando", "board certified psychiatrist orlando"],
+    canonicalPath: "/psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists in Orlando, FL providing expert mental health treatment and medication management.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Psychiatrist Orlando | Expert Mental Health Care in Orlando, FL",
+    subtitle: "Connect with board-certified psychiatrists in Orlando for comprehensive mental health treatment. Medication management, psychiatric evaluations, and treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with in-person and telehealth options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Most Insurance Accepted"],
+  },
+  location: {
+    title: "Orlando Psychiatrist Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Psychiatrist Orlando: Board-Certified Mental Health Experts",
+    introduction: [
+      "Finding the right psychiatrist in Orlando is essential for effective mental health treatment. At Empathy Health Clinic, our board-certified psychiatrists provide expert care for a wide range of mental health conditions including anxiety, depression, ADHD, bipolar disorder, and more.",
+      "Our Orlando psychiatrists combine years of medical training with compassionate, patient-centered care to deliver personalized treatment plans that address your unique needs. Whether you need medication management, psychiatric evaluations, or ongoing mental health support, our team is here to help you achieve lasting wellness.",
+    ],
+    conditionsHeading: "Mental Health Conditions Our Psychiatrists Treat",
+    conditions: [
+      { name: "Anxiety Disorders & Panic Attacks" },
+      { name: "Depression & Mood Disorders" },
+      { name: "ADHD (Adults & Adolescents)" },
+      { name: "Bipolar Disorder" },
+      { name: "OCD & Related Disorders" },
+      { name: "PTSD & Trauma-Related Disorders" },
+      { name: "Insomnia & Sleep Disorders" },
+      { name: "Schizophrenia & Psychotic Disorders" },
+    ],
+    servicesHeading: "What Our Orlando Psychiatrists Offer",
+    services: [
+      {
+        icon: FileText,
+        title: "Comprehensive Psychiatric Evaluations",
+        description: "Thorough mental health assessments to accurately diagnose your condition. Our psychiatrists take time to understand your symptoms, medical history, and life circumstances to create an effective treatment plan tailored to your needs."
+      },
+      {
+        icon: Brain,
+        title: "Medication Management",
+        description: "Expert psychiatric medication prescribing and ongoing monitoring. Our board-certified psychiatrists help you find the right medication and dosage to manage your symptoms effectively while minimizing side effects through careful monitoring and adjustments."
+      },
+      {
+        icon: Brain,
+        title: "ADHD Treatment",
+        description: "Specialized ADHD diagnosis and treatment for adults, adolescents, and children. Both stimulant and non-stimulant medication options with ongoing monitoring to optimize symptom control and improve daily functioning."
+      },
+      {
+        icon: Heart,
+        title: "Anxiety & Depression Care",
+        description: "Evidence-based treatment for all types of anxiety and depression. Medication options including SSRIs, SNRIs, and other proven treatments customized to your specific diagnosis and symptom profile."
+      },
+      {
+        icon: Brain,
+        title: "Bipolar Disorder Treatment",
+        description: "Expert care for bipolar I, bipolar II, and cyclothymic disorder. Mood stabilization through carefully managed medication regimens and ongoing monitoring to prevent manic and depressive episodes."
+      },
+      {
+        icon: Video,
+        title: "Telepsychiatry Options",
+        description: "Convenient virtual appointments with Orlando psychiatrists from the comfort of your home. Same quality psychiatric care as in-person visits with added flexibility. Most insurance covers telepsychiatry at the same rate."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "How do I choose the right psychiatrist in Orlando?",
+      answer: "When choosing a psychiatrist in Orlando, look for board certification, experience with your specific condition, convenient location, insurance acceptance, and appointment availability. At Empathy Health Clinic, all our psychiatrists are board-certified and experienced in treating a wide range of mental health conditions. We offer same-week appointments and accept most major insurance plans."
+    },
+    {
+      question: "What's the difference between a psychiatrist and a therapist?",
+      answer: "Psychiatrists are medical doctors (MD or DO) who can prescribe medication and provide medical treatment for mental health conditions. They focus on the biological aspects of mental health including medication management. Therapists (psychologists, counselors, social workers) provide talk therapy and counseling but typically cannot prescribe medication. Many patients benefit from seeing both a psychiatrist for medication and a therapist for counseling."
+    },
+    {
+      question: "How quickly can I see a psychiatrist in Orlando?",
+      answer: "At Empathy Health Clinic, we offer same-week appointments for new patients. Many people can schedule their first appointment within 3-5 business days. We understand that mental health needs are urgent, and we prioritize getting you in to see a psychiatrist quickly. Call 386-848-8751 to schedule your appointment."
+    },
+    {
+      question: "Does insurance cover psychiatrist appointments?",
+      answer: "Yes, most health insurance plans cover psychiatrist appointments including initial evaluations and medication management follow-ups. We accept most major insurance including Blue Cross Blue Shield, UMR, Medicare, Aetna, Cigna, and many others. Contact our office at 386-848-8751 to verify your specific insurance coverage."
+    },
+    {
+      question: "Do I need a referral to see a psychiatrist?",
+      answer: "It depends on your insurance plan. Most PPO plans do not require a referral to see a psychiatrist. HMO and some other insurance plans may require a referral from your primary care doctor. Call us at 386-848-8751 and we'll help you determine if you need a referral based on your insurance."
+    },
+    {
+      question: "What should I expect at my first psychiatrist appointment?",
+      answer: "Your first appointment (typically 60 minutes) includes a comprehensive psychiatric evaluation. Your psychiatrist will discuss your symptoms, mental health history, current medications, medical conditions, and life circumstances. Together you'll develop a personalized treatment plan which may include medication, lifestyle changes, or therapy referrals. Follow-up appointments are typically 15-30 minutes for medication management."
+    },
+    {
+      question: "Do Orlando psychiatrists offer virtual appointments?",
+      answer: "Yes, our Orlando psychiatrists offer telepsychiatry (virtual appointments) for patients who prefer remote care. Telepsychiatry provides the same quality psychiatric care as in-person visits but with added convenience. Most insurance plans cover telepsychiatry at the same rate as office visits."
+    },
+    {
+      question: "Are your psychiatrists board-certified?",
+      answer: "Yes, all psychiatrists at Empathy Health Clinic are board-certified by the American Board of Psychiatry and Neurology. Our providers have completed extensive medical training including medical school, psychiatry residency, and ongoing continuing education to stay current with the latest evidence-based treatments."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Connect with an expert psychiatrist in Orlando for comprehensive mental health care.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
+      { href: "/adhd-psychiatrist-orlando", label: "ADHD Psychiatrist" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Orlando Page",
+    conversionCategory: "psychiatrist_orlando",
+  },
+};
+
+// ADHD Psychiatrist Orlando
+export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "ADHD Psychiatrist Orlando FL | Adult & Child ADHD Treatment | Same-Week Appointments",
+    description: "Expert ADHD psychiatrists in Orlando, FL specializing in ADHD diagnosis and treatment for adults, teens, and children. Medication management, comprehensive evaluations, stimulant and non-stimulant options. Same-week appointments. Most insurance accepted. Call 386-848-8751.",
+    keywords: ["adhd psychiatrist orlando", "adhd doctor orlando", "adhd specialist orlando", "adult adhd orlando", "child adhd psychiatrist orlando", "add doctor orlando", "adhd medication management orlando"],
+    canonicalPath: "/adhd-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "ADHD Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Specialized ADHD diagnosis and treatment in Orlando, FL for adults, teens, and children by board-certified psychiatrists.",
+    "url": "https://empathyhealthclinic.com/adhd-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "ADHD Psychiatrist Orlando | Expert ADHD Treatment in Orlando, FL",
+    subtitle: "Specialized ADHD diagnosis and treatment by board-certified psychiatrists. Comprehensive evaluations, medication management, and personalized treatment plans for adults, teens, and children with ADHD. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule ADHD Evaluation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["ADHD Specialists", "Adult & Child Treatment", "Same-Week Appointments"],
+  },
+  location: {
+    title: "ADHD Psychiatry Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "ADHD Psychiatrist Orlando: Specialized ADHD Treatment",
+    introduction: [
+      "Finding an experienced ADHD psychiatrist in Orlando is crucial for effective ADHD treatment. At Empathy Health Clinic, our board-certified psychiatrists specialize in diagnosing and treating ADHD in adults, adolescents, and children with evidence-based approaches tailored to each patient's unique needs.",
+      "Our ADHD specialists in Orlando provide comprehensive evaluations, medication management with both stimulant and non-stimulant options, and ongoing support to help you or your child thrive with ADHD. We understand the challenges of living with ADHD and are committed to helping you achieve better focus, organization, and overall quality of life.",
+    ],
+    conditionsHeading: "ADHD Types We Treat",
+    conditions: [
+      { name: "ADHD - Inattentive Type" },
+      { name: "ADHD - Hyperactive-Impulsive Type" },
+      { name: "ADHD - Combined Type" },
+      { name: "Adult ADHD" },
+      { name: "Child & Adolescent ADHD" },
+      { name: "ADD (Attention Deficit Disorder)" },
+    ],
+    servicesHeading: "ADHD Psychiatry Services in Orlando",
+    services: [
+      {
+        icon: FileText,
+        title: "Comprehensive ADHD Evaluations",
+        description: "Thorough ADHD assessments using validated diagnostic tools and clinical interviews. Our psychiatrists evaluate symptoms, rule out other conditions, and determine the best treatment approach for your specific ADHD presentation."
+      },
+      {
+        icon: Brain,
+        title: "ADHD Medication Management",
+        description: "Expert prescribing and monitoring of ADHD medications including stimulants (Adderall, Vyvanse, Ritalin, Concerta) and non-stimulants (Strattera, Intuniv, Qelbree). We work with you to find the right medication and dosage for optimal symptom control with minimal side effects."
+      },
+      {
+        icon: Users,
+        title: "Adult ADHD Treatment",
+        description: "Specialized care for adults with ADHD including late diagnosis, workplace accommodations, and managing ADHD alongside other mental health conditions. Our psychiatrists understand the unique challenges adults face with ADHD."
+      },
+      {
+        icon: Heart,
+        title: "Child & Teen ADHD Care",
+        description: "Age-appropriate ADHD treatment for children and adolescents. We work closely with parents, schools, and other providers to create comprehensive treatment plans that support academic success and social development."
+      },
+      {
+        icon: CheckCircle,
+        title: "Stimulant Medication Options",
+        description: "Carefully managed stimulant medications for ADHD including short-acting and long-acting formulations. Ongoing monitoring to ensure effectiveness and adjust dosage as needed for optimal symptom control throughout the day."
+      },
+      {
+        icon: Brain,
+        title: "Non-Stimulant Alternatives",
+        description: "Non-stimulant ADHD medication options for patients who don't respond to stimulants, have contraindications, or prefer non-stimulant treatment. Options include Strattera, Intuniv, and Qelbree with proven effectiveness for ADHD symptoms."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "How is ADHD diagnosed by a psychiatrist?",
+      answer: "ADHD diagnosis involves a comprehensive psychiatric evaluation including detailed symptom history, standardized ADHD rating scales, review of childhood symptoms (for adults), and ruling out other conditions. Our psychiatrists use DSM-5 criteria and validated assessment tools to ensure accurate diagnosis. The evaluation typically takes 60 minutes and includes discussion of symptoms in multiple settings (home, work, school)."
+    },
+    {
+      question: "What ADHD medications do Orlando psychiatrists prescribe?",
+      answer: "Our psychiatrists prescribe both stimulant and non-stimulant ADHD medications. Stimulants include Adderall, Vyvanse, Ritalin, Concerta, and Focalin. Non-stimulants include Strattera, Intuniv, Qelbree, and Wellbutrin. The choice depends on your symptoms, medical history, lifestyle needs, and response to treatment. We start with low doses and adjust as needed."
+    },
+    {
+      question: "Can adults be diagnosed with ADHD?",
+      answer: "Yes, many adults are diagnosed with ADHD for the first time in adulthood. Adult ADHD is common and often goes undiagnosed until symptoms significantly impact work, relationships, or daily functioning. Our psychiatrists specialize in adult ADHD diagnosis and can help determine if your symptoms are ADHD or another condition."
+    },
+    {
+      question: "How quickly can I see an ADHD psychiatrist in Orlando?",
+      answer: "We offer same-week appointments for ADHD evaluations. Many patients can be seen within 3-5 business days. We understand that ADHD symptoms can significantly impact your life, and we prioritize getting you in quickly for evaluation and treatment. Call 386-848-8751 to schedule your ADHD evaluation."
+    },
+    {
+      question: "Does insurance cover ADHD treatment?",
+      answer: "Yes, most health insurance plans cover ADHD diagnosis and treatment including psychiatric evaluations and medication management appointments. We accept most major insurance plans including Blue Cross Blue Shield, UMR, Medicare, Aetna, Cigna, and many others. Contact us at 386-848-8751 to verify your coverage."
+    },
+    {
+      question: "What's the difference between ADD and ADHD?",
+      answer: "ADD (Attention Deficit Disorder) is an outdated term. The current diagnosis is ADHD with three types: predominantly inattentive (what used to be called ADD), predominantly hyperactive-impulsive, and combined type. Our psychiatrists use the current DSM-5 diagnostic criteria to accurately identify your ADHD subtype and create an appropriate treatment plan."
+    },
+    {
+      question: "Do you offer ADHD medication management without prior diagnosis?",
+      answer: "If you don't have a confirmed ADHD diagnosis, you'll need a comprehensive ADHD evaluation first. This typically takes 60 minutes and includes symptom assessment, medical history, and diagnostic testing. Once diagnosed, follow-up medication management appointments are typically 15-30 minutes. If you were previously diagnosed elsewhere, bring documentation and we may be able to proceed directly to medication management."
+    },
+    {
+      question: "Can ADHD be treated without medication?",
+      answer: "While medication is often the most effective treatment for ADHD, some patients benefit from non-medication approaches or combination treatment. Our psychiatrists can discuss all options including behavioral strategies, therapy referrals, and lifestyle modifications. However, for moderate to severe ADHD, medication is typically recommended as the first-line treatment based on extensive research evidence."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule ADHD Evaluation",
+    formSubheading: "Get expert ADHD diagnosis and treatment from specialized psychiatrists in Orlando.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/child-psychiatrist-orlando", label: "Child Psychiatrist" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+    ],
+  },
+  analytics: {
+    pageName: "ADHD Psychiatrist Orlando Page",
+    conversionCategory: "adhd_psychiatrist_orlando",
+  },
+};
+
+// Bipolar Psychiatrist Orlando
+export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Bipolar Psychiatrist Orlando FL | Bipolar Disorder Treatment | Same-Week Appointments",
+    description: "Expert bipolar disorder treatment in Orlando, FL by board-certified psychiatrists. Mood stabilization, medication management for bipolar I, bipolar II, and cyclothymia. Same-week appointments available. Most insurance accepted. Call 386-848-8751.",
+    keywords: ["bipolar psychiatrist orlando", "bipolar disorder treatment orlando", "bipolar doctor orlando", "mood disorder specialist orlando", "bipolar medication management orlando", "manic depression orlando"],
+    canonicalPath: "/bipolar-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Bipolar Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Specialized bipolar disorder treatment in Orlando, FL by board-certified psychiatrists with expertise in mood stabilization.",
+    "url": "https://empathyhealthclinic.com/bipolar-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Bipolar Psychiatrist Orlando | Expert Bipolar Disorder Treatment in Orlando, FL",
+    subtitle: "Specialized treatment for bipolar disorder by board-certified psychiatrists. Expert mood stabilization, medication management, and comprehensive care for bipolar I, bipolar II, and cyclothymia. Same-week appointments with in-person and telehealth options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Mood Disorder Specialists", "Evidence-Based Treatment", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Bipolar Treatment Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Bipolar Psychiatrist Orlando: Specialized Mood Disorder Care",
+    introduction: [
+      "Living with bipolar disorder requires specialized psychiatric care from experienced mood disorder specialists. At Empathy Health Clinic, our board-certified psychiatrists in Orlando provide expert treatment for bipolar I, bipolar II, and cyclothymic disorder with evidence-based medication management and comprehensive care.",
+      "Our bipolar disorder specialists understand the complex nature of mood disorders and work closely with you to achieve mood stabilization, prevent manic and depressive episodes, and improve your overall quality of life through personalized treatment plans and ongoing support.",
+    ],
+    conditionsHeading: "Bipolar Disorders We Treat",
+    conditions: [
+      { name: "Bipolar I Disorder" },
+      { name: "Bipolar II Disorder" },
+      { name: "Cyclothymic Disorder" },
+      { name: "Rapid Cycling Bipolar" },
+      { name: "Manic Episodes" },
+      { name: "Depressive Episodes" },
+      { name: "Mixed Episodes" },
+    ],
+    servicesHeading: "Bipolar Disorder Treatment Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Mood Stabilization",
+        description: "Expert medication management with mood stabilizers including lithium, Depakote, Lamictal, and atypical antipsychotics. Careful monitoring and dosage adjustments to achieve stable mood and prevent both manic and depressive episodes."
+      },
+      {
+        icon: FileText,
+        title: "Comprehensive Evaluations",
+        description: "Thorough psychiatric assessments to accurately diagnose bipolar disorder type and distinguish from other mood disorders. Our psychiatrists conduct detailed evaluations of mood patterns, episode history, and symptom severity to guide treatment."
+      },
+      {
+        icon: Heart,
+        title: "Manic Episode Management",
+        description: "Specialized treatment for manic episodes including medication adjustments, crisis intervention, and hospitalization coordination when needed. Our psychiatrists are experienced in managing acute mania and preventing future manic episodes."
+      },
+      {
+        icon: Brain,
+        title: "Depression Treatment",
+        description: "Evidence-based treatment for bipolar depression using mood stabilizers and carefully selected antidepressants. Our psychiatrists understand the unique challenges of treating depression in bipolar disorder to avoid triggering mania."
+      },
+      {
+        icon: CheckCircle,
+        title: "Medication Monitoring",
+        description: "Ongoing medication management with regular follow-ups to monitor effectiveness, side effects, and blood levels (when applicable). Our psychiatrists make timely adjustments to maintain mood stability and minimize side effects."
+      },
+      {
+        icon: Video,
+        title: "Telepsychiatry for Bipolar",
+        description: "Convenient virtual psychiatry appointments for ongoing bipolar disorder management. Regular telepsychiatry visits ensure continuity of care and early intervention if mood symptoms emerge. Most insurance covers telepsychiatry."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What is the difference between bipolar I and bipolar II?",
+      answer: "Bipolar I disorder involves at least one manic episode (elevated mood lasting 7+ days or requiring hospitalization). Bipolar II involves at least one hypomanic episode (milder elevated mood lasting 4+ days) and at least one major depressive episode, but no full manic episodes. Both require treatment by a psychiatrist, but medication approaches may differ. Our psychiatrists will diagnose your specific bipolar type and create an appropriate treatment plan."
+    },
+    {
+      question: "What medications are used to treat bipolar disorder?",
+      answer: "Bipolar disorder is typically treated with mood stabilizers (lithium, Depakote, Lamictal), atypical antipsychotics (Abilify, Seroquel, Latuda, Zyprexa), and sometimes antidepressants (with caution to avoid triggering mania). The specific medication depends on your bipolar type, symptom pattern, medical history, and treatment response. Our psychiatrists carefully select and monitor medications to achieve mood stability."
+    },
+    {
+      question: "How is bipolar disorder diagnosed?",
+      answer: "Bipolar disorder diagnosis involves a comprehensive psychiatric evaluation including detailed mood history, family history, episode patterns, and symptom assessment. Our psychiatrists use DSM-5 criteria and look for patterns of manic/hypomanic episodes and depressive episodes. Accurate diagnosis is essential as bipolar disorder is often misdiagnosed as depression, requiring different treatment approaches."
+    },
+    {
+      question: "Can bipolar disorder be cured?",
+      answer: "Bipolar disorder is a chronic condition that cannot be cured, but it can be effectively managed with proper treatment. Most people with bipolar disorder achieve good mood stability with the right medication regimen and ongoing psychiatric care. Our psychiatrists work with you long-term to maintain mood stability, prevent episodes, and help you live a full, productive life."
+    },
+    {
+      question: "What are the warning signs of a manic episode?",
+      answer: "Warning signs of mania include decreased need for sleep, racing thoughts, rapid speech, increased energy, impulsive behavior, excessive spending, risky behavior, and inflated self-esteem or grandiosity. If you notice these symptoms emerging, contact your psychiatrist immediately for medication adjustment to prevent a full manic episode. Our psychiatrists provide education on recognizing early warning signs."
+    },
+    {
+      question: "How quickly can I see a bipolar psychiatrist in Orlando?",
+      answer: "We offer same-week appointments for bipolar disorder treatment. Many patients can be seen within 3-5 business days. For urgent situations involving severe mania or suicidal depression, we prioritize same-day or next-day appointments when possible. Call 386-848-8751 to schedule your appointment."
+    },
+    {
+      question: "Does insurance cover bipolar disorder treatment?",
+      answer: "Yes, health insurance typically covers bipolar disorder treatment as it is a recognized medical condition. This includes psychiatric evaluations, medication management appointments, and laboratory monitoring (like lithium levels). We accept most major insurance plans. Contact us at 386-848-8751 to verify your coverage."
+    },
+    {
+      question: "Do I need therapy in addition to medication?",
+      answer: "While medication is the cornerstone of bipolar disorder treatment, many patients also benefit from therapy. Evidence-based therapies for bipolar disorder include cognitive behavioral therapy (CBT), interpersonal and social rhythm therapy (IPSRT), and family-focused therapy. Our psychiatrists can provide therapy referrals to complement your medication management."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule Bipolar Treatment",
+    formSubheading: "Get expert care for bipolar disorder from specialized psychiatrists in Orlando.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+    ],
+  },
+  analytics: {
+    pageName: "Bipolar Psychiatrist Orlando Page",
+    conversionCategory: "bipolar_psychiatrist_orlando",
+  },
+};
+
+// Medication Management Orlando
+export const medicationManagementOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Medication Management Orlando FL | Psychiatric Medication Management | Same-Week Appointments",
+    description: "Expert psychiatric medication management in Orlando, FL by board-certified psychiatrists. Mental health medication prescribing and monitoring for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments. Most insurance accepted. Call 386-848-8751.",
+    keywords: ["medication management orlando", "psychiatric medication management orlando", "mental health medication orlando", "medication management psychiatrist orlando", "psych meds orlando", "medication monitoring orlando"],
+    canonicalPath: "/medication-management-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Medication Management Orlando FL - Empathy Health Clinic",
+    "description": "Expert psychiatric medication management in Orlando, FL by board-certified psychiatrists for mental health conditions.",
+    "url": "https://empathyhealthclinic.com/medication-management-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Medication Management Orlando | Expert Psychiatric Medication Management in Orlando, FL",
+    subtitle: "Professional psychiatric medication management by board-certified psychiatrists. Expert prescribing, monitoring, and adjustment of mental health medications for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with in-person and telehealth options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Expert Medication Monitoring", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Medication Management Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Medication Management Orlando: Expert Psychiatric Medication Care",
+    introduction: [
+      "Effective medication management is essential for treating mental health conditions. At Empathy Health Clinic, our board-certified psychiatrists in Orlando provide expert medication management services including careful prescribing, ongoing monitoring, dosage adjustments, and side effect management to help you achieve optimal mental health outcomes.",
+      "Whether you're starting a new medication, need ongoing medication monitoring, or want a second opinion on your current medication regimen, our Orlando psychiatrists offer personalized medication management with same-week appointments and flexible scheduling options including telepsychiatry.",
+    ],
+    conditionsHeading: "Conditions We Treat with Medication Management",
+    conditions: [
+      { name: "Anxiety Disorders" },
+      { name: "Depression & Mood Disorders" },
+      { name: "ADHD" },
+      { name: "Bipolar Disorder" },
+      { name: "OCD" },
+      { name: "PTSD" },
+      { name: "Insomnia & Sleep Disorders" },
+      { name: "Schizophrenia & Psychotic Disorders" },
+    ],
+    servicesHeading: "Medication Management Services in Orlando",
+    services: [
+      {
+        icon: Brain,
+        title: "Psychiatric Medication Prescribing",
+        description: "Expert prescribing of mental health medications including antidepressants, anti-anxiety medications, mood stabilizers, ADHD medications, and antipsychotics. Our psychiatrists carefully select medications based on your diagnosis, symptoms, medical history, and treatment goals."
+      },
+      {
+        icon: CheckCircle,
+        title: "Ongoing Medication Monitoring",
+        description: "Regular follow-up appointments (typically 15-30 minutes) to monitor medication effectiveness, assess side effects, check symptom improvement, and make dosage adjustments as needed. Continuous monitoring ensures optimal results with minimal side effects."
+      },
+      {
+        icon: FileText,
+        title: "Medication Reviews & Optimization",
+        description: "Comprehensive review of your current medication regimen to ensure optimal effectiveness. Our psychiatrists can simplify complex medication regimens, eliminate unnecessary medications, and optimize dosages to improve symptom control and reduce side effects."
+      },
+      {
+        icon: Brain,
+        title: "Side Effect Management",
+        description: "Proactive management of medication side effects through dosage adjustments, medication changes, or addition of supportive medications. Our psychiatrists work with you to minimize side effects while maintaining therapeutic benefits."
+      },
+      {
+        icon: Heart,
+        title: "Medication Changes & Transitions",
+        description: "Safe management of medication changes including cross-tapering between medications, discontinuation when appropriate, and switching to more effective alternatives. Our psychiatrists ensure smooth transitions to minimize withdrawal symptoms and maintain stability."
+      },
+      {
+        icon: Video,
+        title: "Telepsychiatry Medication Management",
+        description: "Convenient virtual medication management appointments from home. Our psychiatrists can prescribe and monitor most psychiatric medications via telepsychiatry. Same quality care as in-person visits with added convenience. Most insurance covers telepsychiatry."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What is psychiatric medication management?",
+      answer: "Psychiatric medication management involves prescribing, monitoring, and adjusting mental health medications by a psychiatrist. This includes initial medication selection, dosage optimization, side effect monitoring, effectiveness assessment, and making changes as needed. Medication management appointments are typically 15-30 minutes and occur monthly or as needed to ensure your medication is working optimally."
+    },
+    {
+      question: "How often do I need medication management appointments?",
+      answer: "Initially, medication management appointments are typically every 2-4 weeks to monitor your response and make adjustments. Once stable on medication, appointments are usually monthly or every 2-3 months. Frequency depends on your condition, medication stability, and individual needs. Our psychiatrists determine the appropriate schedule for your situation."
+    },
+    {
+      question: "Can I get medication management without an initial evaluation?",
+      answer: "If you're a new patient without a recent psychiatric evaluation, you'll need a comprehensive initial evaluation (typically 60 minutes) before starting medication management. This ensures accurate diagnosis and appropriate medication selection. If you're transferring care from another psychiatrist, bring medical records and we may be able to proceed directly to medication management."
+    },
+    {
+      question: "What types of medications do psychiatrists prescribe?",
+      answer: "Psychiatrists prescribe antidepressants (SSRIs, SNRIs, etc.), anti-anxiety medications (benzodiazepines, buspirone), ADHD medications (stimulants and non-stimulants), mood stabilizers (lithium, anticonvulsants), antipsychotics, and sleep medications. The specific medication depends on your diagnosis, symptoms, medical history, and treatment goals. Our psychiatrists use evidence-based guidelines to select the most appropriate medication."
+    },
+    {
+      question: "How quickly can I schedule medication management in Orlando?",
+      answer: "We offer same-week appointments for medication management. New patients needing initial evaluations can typically be seen within 3-5 business days. Follow-up medication management appointments are scheduled based on your needs, typically 2-4 weeks initially, then monthly. Call 386-848-8751 to schedule."
+    },
+    {
+      question: "Does insurance cover medication management?",
+      answer: "Yes, most health insurance plans cover psychiatric medication management appointments. These are typically billed as follow-up psychiatric visits and are covered under mental health benefits. We accept most major insurance including Blue Cross Blue Shield, UMR, Medicare, Aetna, Cigna, and many others. Contact us at 386-848-8751 to verify your coverage."
+    },
+    {
+      question: "Can medication management be done via telehealth?",
+      answer: "Yes, medication management can be effectively conducted via telepsychiatry for most patients and medications. Our psychiatrists can prescribe and monitor most psychiatric medications through secure video appointments. Telepsychiatry offers the same quality care as in-person visits with added convenience. Most insurance covers telepsychiatry at the same rate as office visits."
+    },
+    {
+      question: "What should I bring to my medication management appointment?",
+      answer: "Bring a list of current medications (including dosages), any medications you've tried in the past (with results), recent lab work if applicable, and questions or concerns about your current treatment. It's helpful to track your symptoms between appointments so you can report on medication effectiveness. If this is your first visit, bring previous psychiatric records if available."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule Medication Management",
+    formSubheading: "Expert psychiatric medication management to help you achieve optimal mental health.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
+      { href: "/adhd-psychiatrist-orlando", label: "ADHD Treatment" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+    ],
+  },
+  analytics: {
+    pageName: "Medication Management Orlando Page",
+    conversionCategory: "medication_management_orlando",
+  },
+};
