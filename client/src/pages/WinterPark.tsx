@@ -9,6 +9,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
+import ShortContactForm from "@/components/ShortContactForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -276,6 +277,21 @@ export default function WinterPark() {
             </div>
           </div>
         </div>
+
+        {/* Contact Form Section */}
+        <section className="py-16 bg-muted" id="contact-form">
+          <div className="container mx-auto px-4 max-w-2xl">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-sans font-bold text-foreground mb-4">
+                Schedule Your Appointment in Winter Park
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Conveniently located in Winter Park. Same-week appointments available for both psychiatry and therapy services. Most insurance accepted.
+              </p>
+            </div>
+            <ShortContactForm />
+          </div>
+        </section>
 
         {/* Key Benefits Bar */}
         <section className="py-8 bg-card border-b">
