@@ -28,6 +28,7 @@ const WinterPark = lazy(() => import("@/pages/WinterPark"));
 const Orlando = lazy(() => import("@/pages/Orlando"));
 const Kissimmee = lazy(() => import("@/pages/Kissimmee"));
 const PsychotherapistOrlando = lazy(() => import("@/pages/PsychotherapistOrlando"));
+const MentalHealthServicesOrlando = lazy(() => import("@/pages/MentalHealthServicesOrlando"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const LocationDetail = lazy(() => import("@/pages/LocationDetail"));
 const PageBySlug = lazy(() => import("@/pages/PageBySlug"));
@@ -235,6 +236,11 @@ function Router() {
         <Route path="/psychotherapist-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <PsychotherapistOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/mental-health-services-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <MentalHealthServicesOrlando />
           </Suspense>
         </Route>
         <Route path="/locations/altamonte-springs">
