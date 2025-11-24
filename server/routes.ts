@@ -87,14 +87,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Legacy URL redirects for SEO (catch-all patterns - MOVED to end of file to avoid overriding specific redirects)
   
-  // WordPress URL redirects
-  app.get("/psychiatric-services", (req, res) => {
-    res.redirect(301, "/services");
-  });
-  
-  app.get("/psychiatric-services/", (req, res) => {
-    res.redirect(301, "/services");
-  });
+  // WordPress URL redirects (removed /psychiatric-services redirect - now has dedicated page)
   
   app.get("/locations/psychiatry-orlando", (req, res) => {
     res.redirect(301, "/services");

@@ -70,6 +70,8 @@ const CognitiveBehavioralTherapy = lazy(() => import("@/pages/CognitiveBehaviora
 
 // Orlando Service Landing Pages
 const Psychiatrist = lazy(() => import("@/pages/Psychiatrist"));
+const PsychiatricServices = lazy(() => import("@/pages/PsychiatricServices"));
+const PsychiatricEvaluation = lazy(() => import("@/pages/PsychiatricEvaluation"));
 const PsychiatristOrlando = lazy(() => import("@/pages/PsychiatristOrlando"));
 const PsychiatryClinicOrlando = lazy(() => import("@/pages/PsychiatryClinicOrlando"));
 const PsychiatristNearMe = lazy(() => import("@/pages/PsychiatristNearMe"));
@@ -96,6 +98,8 @@ const PsychiatryOrlando = lazy(() => import("@/pages/PsychiatryOrlando"));
 
 // Location Pages
 const PsychiatristAltamonteSprings = lazy(() => import("@/pages/locations/AltamonteSprings"));
+const PsychiatristKissimmee = lazy(() => import("@/pages/locations/Kissimmee"));
+const PsychiatristApopka = lazy(() => import("@/pages/locations/Apopka"));
 
 // Additional Landing Pages
 const ADHDTestingOrlando = lazy(() => import("@/pages/ADHDTestingOrlando"));
@@ -262,6 +266,16 @@ function Router() {
             <WinterPark />
           </Suspense>
         </Route>
+        <Route path="/locations/kissimmee">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatristKissimmee />
+          </Suspense>
+        </Route>
+        <Route path="/locations/apopka">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatristApopka />
+          </Suspense>
+        </Route>
         <Route path="/locations/orlando">
           <Suspense fallback={<LoadingFallback />}>
             <Orlando />
@@ -345,6 +359,16 @@ function Router() {
         <Route path="/psychiatrist">
           <Suspense fallback={<LoadingFallback />}>
             <Psychiatrist />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatric-services">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatricServices />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatric-evaluation">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatricEvaluation />
           </Suspense>
         </Route>
         <Route path="/psychiatrist-orlando">
