@@ -18,6 +18,30 @@ app.use(compression({
   threshold: 1024
 }));
 
+// 410 Gone: Legacy WordPress URLs that no longer exist
+// IMPORTANT: This must run BEFORE canonicalization middleware to prevent redirects
+// We want these URLs to return 410 immediately, not redirect first
+app.use((req, res, next) => {
+  // Block old WordPress admin, login, and content URLs with 410 Gone
+  // 410 tells search engines these resources are permanently removed
+  if (
+    req.path.startsWith('/wp-content/') ||
+    req.path.startsWith('/wp-includes/') ||
+    req.path.startsWith('/wp-admin/') ||
+    req.path === '/wp-login.php' ||
+    req.path.match(/^\/wp-.*\.php$/)
+  ) {
+    return res.status(410).send('Gone - This WordPress resource no longer exists after site migration.');
+  }
+  
+  // Block Replit dev/workspace iframes from being tracked
+  if (req.path.includes('__replco') || req.path.includes('workspace_iframe')) {
+    return res.status(404).send('Not Found');
+  }
+  
+  next();
+});
+
 // Unified canonicalization middleware
 // Handles www removal, trailing slash removal, and content redirects in ONE redirect
 // This prevents redirect chains that hurt SEO and crawl budget
@@ -42,28 +66,6 @@ app.use((req, res, next) => {
   ) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
   }
-  next();
-});
-
-// 410 Gone: Legacy WordPress URLs that no longer exist
-app.use((req, res, next) => {
-  // Block old WordPress admin, login, and content URLs with 410 Gone
-  // 410 tells search engines these resources are permanently removed
-  if (
-    req.path.startsWith('/wp-content/') ||
-    req.path.startsWith('/wp-includes/') ||
-    req.path.startsWith('/wp-admin/') ||
-    req.path === '/wp-login.php' ||
-    req.path.match(/^\/wp-.*\.php$/)
-  ) {
-    return res.status(410).send('Gone - This WordPress resource no longer exists after site migration.');
-  }
-  
-  // Block Replit dev/workspace iframes from being tracked
-  if (req.path.includes('__replco') || req.path.includes('workspace_iframe')) {
-    return res.status(404).send('Not Found');
-  }
-  
   next();
 });
 

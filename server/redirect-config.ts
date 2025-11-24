@@ -159,6 +159,7 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Google Search Console - Soft 404 errors (November 2025)
   // Blog posts without /blog prefix
+  '/breaking-the-cycle-a-guide-to-overcoming-toxic-relationship-patterns': '/blog/how-to-leave-toxic-relationship',
   '/understanding-identity-exploration': '/blog/understanding-identity-exploration',
   '/can-you-pass-out-from-a-panic-attack': '/blog/can-you-pass-out-from-a-panic-attack',
   '/prodromal-stage-mental-health': '/blog/prodromal-stage-mental-health',
