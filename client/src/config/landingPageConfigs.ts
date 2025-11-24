@@ -2153,3 +2153,199 @@ export const medicationManagementOrlandoConfig: LandingPageConfig = {
     conversionCategory: "medication_management_orlando",
   },
 };
+
+export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
+  seo: {
+    title: "CBT Therapy Orlando FL | Cognitive Behavioral Therapy | Licensed Therapists",
+    description: "Expert cognitive behavioral therapy (CBT) in Orlando, FL. Evidence-based treatment for anxiety, depression, OCD, PTSD, and more. Licensed therapists, same-week appointments, in-person & telehealth. Most insurance accepted. Call 386-848-8751.",
+    keywords: ["cbt therapy orlando", "cognitive behavioral therapy orlando", "cbt therapy near me", "cognitive behavioral counseling", "cbt therapist orlando", "cognitive therapy orlando", "behavioral therapy orlando fl", "cbt mental health therapy"],
+    canonicalPath: "/cognitive-behavioral-therapy",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
+    "name": "CBT Therapy Orlando FL - Empathy Health Clinic",
+    "description": "Evidence-based cognitive behavioral therapy (CBT) in Orlando for anxiety, depression, OCD, PTSD, and other mental health conditions.",
+    "url": "https://empathyhealthclinic.com/cognitive-behavioral-therapy",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32789",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychology"
+  },
+  hero: {
+    title: "Cognitive Behavioral Therapy (CBT) in Orlando, FL",
+    subtitle: "Evidence-based CBT therapy for anxiety, depression, OCD, PTSD, and more. Licensed therapists providing practical tools to change negative thought patterns and behaviors. Same-week appointments with flexible in-person and telehealth options. Most insurance accepted.",
+    ctaPrimary: "Schedule CBT Session",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Evidence-Based CBT Therapy", "Same-Week Appointments Available"],
+  },
+  location: {
+    title: "Orlando CBT Therapy Location",
+    address: "1155 Louisiana Ave Suite 202",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32789",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Sat: 9:00 AM - 6:00 PM\nTelehealth & in-person CBT available",
+    mapUrl: "https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789",
+  },
+  content: {
+    mainHeading: "What is Cognitive Behavioral Therapy (CBT)?",
+    introduction: [
+      "Cognitive Behavioral Therapy (CBT) is a highly effective, evidence-based form of psychotherapy that helps you identify and change negative thought patterns and behaviors. Unlike traditional talk therapy, CBT is goal-oriented and focuses on practical skills you can use immediately to improve your mental health.",
+      "At Empathy Health Clinic in Orlando, our licensed CBT therapists use proven techniques to help you develop healthier thinking patterns, manage difficult emotions, and change behaviors that aren't serving you. CBT is one of the most extensively researched forms of therapy and has been proven effective for anxiety, depression, OCD, PTSD, panic disorders, and many other mental health conditions.",
+      "Whether you're dealing with racing thoughts, overwhelming worry, persistent sadness, or unhelpful behaviors, CBT therapy provides you with practical tools to take control of your mental health. We offer both in-person CBT therapy in our Orlando office and convenient telehealth sessions."
+    ],
+    conditionsHeading: "Conditions Treated with CBT Therapy",
+    conditions: [
+      { name: "Anxiety Disorders", description: "Generalized anxiety, social anxiety, phobias" },
+      { name: "Depression & Mood Disorders" },
+      { name: "OCD", description: "Obsessive-Compulsive Disorder" },
+      { name: "PTSD & Trauma" },
+      { name: "Panic Disorder" },
+      { name: "Eating Disorders" },
+      { name: "Insomnia & Sleep Issues" },
+      { name: "Anger Management" },
+      { name: "Chronic Pain & Health Anxiety" },
+      { name: "Substance Use & Addiction" },
+    ],
+    servicesHeading: "What to Expect from CBT Therapy",
+    services: [
+      {
+        icon: Brain,
+        title: "Identify Negative Thought Patterns",
+        description: "Learn to recognize automatic negative thoughts, cognitive distortions, and unhelpful thinking patterns that fuel anxiety, depression, and other mental health challenges."
+      },
+      {
+        icon: FileText,
+        title: "Challenge & Restructure Thoughts",
+        description: "Develop skills to examine the evidence for and against negative thoughts, then replace them with more balanced, realistic perspectives that improve your mood and reduce anxiety."
+      },
+      {
+        icon: CheckCircle,
+        title: "Behavioral Activation & Exposure",
+        description: "Gradually face feared situations, break cycles of avoidance, and increase engagement in meaningful activities to overcome anxiety and depression."
+      },
+      {
+        icon: MessageCircle,
+        title: "Practical Skill Building",
+        description: "Learn concrete coping strategies including relaxation techniques, problem-solving skills, assertiveness training, and emotion regulation tools you can use every day."
+      },
+      {
+        icon: Heart,
+        title: "Goal-Oriented Treatment",
+        description: "Work collaboratively with your therapist to set specific, measurable goals and track your progress throughout treatment. Most clients see significant improvements within 12-20 sessions."
+      },
+      {
+        icon: Video,
+        title: "Flexible CBT Sessions",
+        description: "Access CBT therapy through convenient telehealth appointments or in-person sessions at our Winter Park office near Orlando. Most insurance plans cover CBT therapy."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our Orlando CBT Therapists?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Licensed, Specialized CBT Therapists",
+        description: "Our therapists have advanced training in cognitive behavioral therapy and years of experience treating anxiety, depression, OCD, PTSD, and other conditions with evidence-based CBT techniques."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments Available",
+        description: "We understand that when you're struggling with anxiety or depression, waiting weeks for help isn't an option. We typically offer same-week appointments for new CBT therapy clients in Orlando."
+      },
+      {
+        icon: Video,
+        title: "Telehealth CBT Therapy",
+        description: "Access high-quality CBT therapy from the comfort of your home with secure telehealth appointments. Research shows telehealth CBT is just as effective as in-person therapy for most conditions."
+      },
+      {
+        icon: DollarSign,
+        title: "Insurance Accepted",
+        description: "We accept most major insurance plans including Blue Cross Blue Shield, UMR, Aetna, Cigna, United Healthcare, Medicare, and many others. Our team will verify your CBT therapy benefits."
+      },
+      {
+        icon: Users,
+        title: "Compassionate, Judgment-Free Care",
+        description: "Our Orlando CBT therapists create a safe, supportive environment where you can explore your thoughts and feelings without judgment while learning practical skills to improve your mental health."
+      },
+      {
+        icon: Heart,
+        title: "Evidence-Based Treatment",
+        description: "CBT is backed by decades of research showing its effectiveness for anxiety, depression, and many other mental health conditions. We use proven protocols adapted to your unique needs and goals."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "How does CBT therapy work?",
+      answer: "Cognitive Behavioral Therapy (CBT) is based on the principle that our thoughts, feelings, and behaviors are interconnected. CBT helps you identify negative or distorted thought patterns (like catastrophizing or black-and-white thinking), examine the evidence for these thoughts, and develop more balanced, realistic perspectives. You'll also work on changing unhelpful behaviors through techniques like behavioral activation and gradual exposure. Your CBT therapist will teach you practical skills and assign homework between sessions to help you practice these techniques in real-life situations. Most clients notice improvements within the first few weeks of treatment."
+    },
+    {
+      question: "What conditions can CBT treat?",
+      answer: "CBT is one of the most versatile and evidence-based therapies available. It's highly effective for anxiety disorders (generalized anxiety, social anxiety, panic disorder, phobias), depression, OCD, PTSD, eating disorders, insomnia, anger management, chronic pain, health anxiety, and substance use disorders. Research consistently shows CBT produces significant improvements for these conditions, often with lasting results that continue even after therapy ends. Your CBT therapist will tailor the approach to your specific condition and goals."
+    },
+    {
+      question: "How long does CBT therapy take?",
+      answer: "CBT is typically a short-term, goal-oriented therapy. Most clients see significant improvements within 12-20 weekly sessions, though this varies depending on the condition being treated and individual needs. Some people with specific phobias or acute anxiety may need as few as 6-8 sessions, while those with more complex issues like chronic depression or OCD may benefit from 20-30 sessions. Unlike open-ended talk therapy, CBT focuses on teaching you skills to manage your own mental health, so you can eventually 'graduate' from therapy with tools to maintain your progress."
+    },
+    {
+      question: "Is CBT therapy covered by insurance?",
+      answer: "Yes, most health insurance plans cover CBT therapy as part of their mental health benefits. We accept most major insurance including Blue Cross Blue Shield, UMR, Aetna, Cigna, United Healthcare, Medicare, Humana, and many others. CBT is typically billed as outpatient psychotherapy and covered at the same rate as other forms of counseling. Our team will verify your specific CBT therapy benefits and explain your coverage before your first appointment. Contact us at 386-848-8751 to verify your insurance."
+    },
+    {
+      question: "What's the difference between CBT and regular therapy?",
+      answer: "Unlike traditional psychotherapy that may focus on exploring past experiences and insights, CBT is present-focused and action-oriented. CBT therapists actively teach you specific skills and techniques to change your thinking and behavior right now. Sessions are structured with clear goals and homework assignments. CBT is typically shorter-term (12-20 sessions vs. years), focuses on solving current problems, and emphasizes teaching you tools to become your own therapist. That said, CBT therapists are still warm, empathetic, and supportive - the therapeutic relationship is important, but the focus is on practical skill-building."
+    },
+    {
+      question: "Can CBT be done via telehealth?",
+      answer: "Yes, CBT is highly effective when delivered via telehealth. Research shows that online CBT therapy produces similar outcomes to in-person CBT for conditions like anxiety, depression, OCD, and PTSD. Telehealth CBT offers the same evidence-based techniques and therapeutic relationship as office visits, with added convenience of attending from home. You'll use a secure video platform, and your therapist can still assign worksheets, practice exercises, and homework. Most insurance covers telehealth CBT at the same rate as in-person sessions. Many clients prefer telehealth for its flexibility and comfort."
+    },
+    {
+      question: "How is CBT different from medication?",
+      answer: "CBT and medication work differently but can be complementary. Psychiatric medications (like antidepressants or anti-anxiety medications) work by altering brain chemistry to reduce symptoms. CBT works by teaching you skills to change your thought patterns and behaviors, which in turn changes your brain function over time. Research shows CBT has longer-lasting effects than medication alone - when medication is stopped, symptoms often return, but CBT skills remain. Many people benefit from combining CBT with medication, especially for moderate to severe anxiety or depression. Your treatment team can help you decide what's right for you."
+    },
+    {
+      question: "What happens in the first CBT therapy session?",
+      answer: "Your first CBT session will focus on getting to know you and your goals. Your therapist will ask about your current symptoms, what brings you to therapy, your history with the problem, and what you hope to achieve. Together, you'll identify specific, measurable goals for treatment. Your therapist will explain how CBT works and may teach you your first skill or technique. You might complete brief assessments to measure symptom severity (which helps track progress over time). Most importantly, this session is about building a collaborative relationship and creating a personalized treatment plan tailored to your needs."
+    },
+    {
+      question: "Do I have to do homework with CBT?",
+      answer: "Yes, homework is a key component of effective CBT therapy. Between sessions, you'll practice the skills you're learning by completing worksheets, tracking thoughts or behaviors, or gradually facing feared situations. Research shows that clients who complete CBT homework assignments improve faster and maintain their gains better than those who don't. The homework isn't busy work - it's practical application of skills to your real life. Your therapist will work with you to create manageable assignments that fit your schedule. Think of it like physical therapy - practice between sessions is essential for progress."
+    },
+    {
+      question: "Will I need therapy forever?",
+      answer: "No, CBT is designed to teach you skills to manage your own mental health so you don't need ongoing therapy indefinitely. The goal of CBT is to help you become your own therapist by learning to identify and challenge negative thoughts, use coping strategies, and solve problems independently. Most people complete CBT in 12-20 sessions and then maintain their progress on their own. Some clients return for brief 'booster' sessions during stressful life transitions, but CBT aims to give you lasting skills rather than creating dependency on therapy. Your therapist will work with you to plan for ending treatment and maintaining gains."
+    },
+  ],
+  sidebar: {
+    formHeading: "Start CBT Therapy Today",
+    formSubheading: "Evidence-based cognitive behavioral therapy to help you overcome anxiety, depression, and other mental health challenges.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/anxiety-therapy", label: "Anxiety Therapy" },
+      { href: "/depression-counseling", label: "Depression Treatment" },
+      { href: "/therapist-orlando", label: "Therapist Orlando" },
+      { href: "/therapy", label: "All Therapy Services" },
+      { href: "/ptsd-trauma", label: "PTSD & Trauma Therapy" },
+      { href: "/virtual-therapy", label: "Online Therapy" },
+    ],
+  },
+  analytics: {
+    pageName: "CBT Therapy Orlando Page",
+    conversionCategory: "cbt_therapy_orlando",
+  },
+};
