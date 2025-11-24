@@ -21,16 +21,11 @@
     <link rel="preload" as="image" href="/attached_assets/image_1761934471053.webp" fetchpriority="high" />
     <link rel="preload" as="image" href="/attached_assets/empathy-logo-optimized.webp" fetchpriority="high" />
     
-    <!-- CRITICAL: Preconnect to fonts and analytics domains for faster loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- CRITICAL: Preconnect to analytics and image CDN for faster loading -->
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     
-    <!-- Load fonts asynchronously with display=swap to prevent FOIT and reduce TBT -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
+    <!-- LCP OPTIMIZATION: System fonts only - no external font requests for instant render -->
     
     <!-- CRITICAL LCP OPTIMIZATION: DNS prefetch only (scripts load deferred in App.tsx) -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
