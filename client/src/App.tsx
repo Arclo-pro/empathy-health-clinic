@@ -29,6 +29,7 @@ const Orlando = lazy(() => import("@/pages/Orlando"));
 const Kissimmee = lazy(() => import("@/pages/Kissimmee"));
 const PsychotherapistOrlando = lazy(() => import("@/pages/PsychotherapistOrlando"));
 const MentalHealthServicesOrlando = lazy(() => import("@/pages/MentalHealthServicesOrlando"));
+const TherapistMaitland = lazy(() => import("@/pages/TherapistMaitland"));
 const ThankYou = lazy(() => import("@/pages/ThankYou"));
 const LocationDetail = lazy(() => import("@/pages/LocationDetail"));
 const PageBySlug = lazy(() => import("@/pages/PageBySlug"));
@@ -241,6 +242,11 @@ function Router() {
         <Route path="/mental-health-services-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <MentalHealthServicesOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-maitland">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistMaitland />
           </Suspense>
         </Route>
         <Route path="/locations/altamonte-springs">
