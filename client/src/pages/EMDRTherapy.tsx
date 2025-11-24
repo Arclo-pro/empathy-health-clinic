@@ -11,6 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_3749281a.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function EMDRTherapy() {
   const jsonLd = {
@@ -227,33 +228,6 @@ export default function EMDRTherapy() {
                 </div>
               </section>
 
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Frequently Asked Questions About EMDR
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Is EMDR therapy safe?</h3>
-                    <p className="text-muted-foreground">Yes, EMDR is recognized by the American Psychiatric Association, the World Health Organization, and the Department of Veterans Affairs as an effective treatment for trauma. It's been extensively researched and proven safe when conducted by trained professionals.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">How long does EMDR therapy take?</h3>
-                    <p className="text-muted-foreground">EMDR can produce results faster than traditional talk therapy. Some people experience significant relief in 3-6 sessions, while complex trauma may require 8-12 sessions or more. Your therapist will create a personalized treatment plan.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Does EMDR work for childhood trauma?</h3>
-                    <p className="text-muted-foreground">Absolutely. EMDR is highly effective for processing childhood trauma, abuse, neglect, and adverse childhood experiences (ACEs). Many clients report significant healing from long-standing childhood wounds.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Can EMDR be done online/virtually?</h3>
-                    <p className="text-muted-foreground">Yes! Virtual EMDR is just as effective as in-person sessions. We offer secure telehealth appointments throughout Florida for your convenience.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Does insurance cover EMDR therapy?</h3>
-                    <p className="text-muted-foreground">Most insurance plans cover EMDR therapy as it's classified as psychotherapy. We accept Blue Cross Blue Shield, Cigna, Aetna, UnitedHealthcare, and other major insurers. Contact us to verify your benefits.</p>
-                  </div>
-                </div>
-              </section>
             </div>
 
             <div className="md:col-span-1 space-y-6">
@@ -315,6 +289,33 @@ export default function EMDRTherapy() {
             <TrustFactors variant="compact" limit={4} />
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <TherapyFAQ 
+          pageTitle="EMDR Therapy"
+          customFaqs={[
+            {
+              question: "Is EMDR therapy safe?",
+              answer: "Yes, EMDR is recognized by the American Psychiatric Association, the World Health Organization, and the Department of Veterans Affairs as an effective treatment for trauma. It's been extensively researched and proven safe when conducted by trained professionals."
+            },
+            {
+              question: "How long does EMDR therapy take?",
+              answer: "EMDR can produce results faster than traditional talk therapy. Some people experience significant relief in 3-6 sessions, while complex trauma may require 8-12 sessions or more. Your therapist will create a personalized treatment plan."
+            },
+            {
+              question: "Does EMDR work for childhood trauma?",
+              answer: "Absolutely. EMDR is highly effective for processing childhood trauma, abuse, neglect, and adverse childhood experiences (ACEs). Many clients report significant healing from long-standing childhood wounds."
+            },
+            {
+              question: "Can EMDR be done online/virtually?",
+              answer: "Yes! Virtual EMDR is just as effective as in-person sessions. We offer secure telehealth appointments throughout Florida for your convenience."
+            },
+            {
+              question: "Does insurance cover EMDR therapy?",
+              answer: "Most insurance plans cover EMDR therapy as it's classified as psychotherapy. We accept Blue Cross Blue Shield, Cigna, Aetna, UnitedHealthcare, and other major insurers. Contact us to verify your benefits."
+            }
+          ]}
+        />
 
         {/* Trust Badges */}
         <ReviewsAndBadges />

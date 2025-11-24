@@ -14,6 +14,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ShortContactForm from "@/components/ShortContactForm";
 import { trackEvent } from "@/lib/analytics";
 import therapyImage from "@assets/stock_images/professional_therapy_f11c950a.jpg";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function TherapyPage() {
   const { data: therapies, isLoading } = useQuery<Therapy[]>({
@@ -286,71 +287,6 @@ export default function TherapyPage() {
           })}
             </div>
 
-            {/* FAQ Section - Critical for Quality Score */}
-            <div className="mb-16">
-          <h2 className="text-3xl font-sans font-bold text-foreground mb-8 text-center">Frequently Asked Questions About Therapy</h2>
-          
-          <div className="space-y-6">
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">How do I know if I need therapy?</h3>
-              <p className="text-muted-foreground mb-3">
-                If you're experiencing persistent feelings of sadness, anxiety, or stress that interfere with daily life, therapy can help. Signs you might benefit from therapy include difficulty managing emotions, relationship problems, trouble sleeping, changes in appetite, loss of interest in activities you once enjoyed, or feeling overwhelmed by life's challenges.
-              </p>
-              <Button variant="outline" asChild data-testid="button-faq-schedule">
-                <a href="tel:3868488751" onClick={() => trackEvent('phone_click', 'conversion', 'Therapy FAQ')}>
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call to Discuss: (386) 848-8751
-                </a>
-              </Button>
-            </div>
-
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">How much does therapy cost in Winter Park?</h3>
-              <p className="text-muted-foreground">
-                Most therapy sessions are covered by insurance. We accept major insurance plans including Blue Cross Blue Shield, UnitedHealthcare, Cigna, Aetna, and Medicare. Typical copays range from $0-$50 per session. We also offer self-pay options starting at $150 per session. Call us to verify your specific insurance coverage and out-of-pocket costs.
-              </p>
-            </div>
-
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">What's the difference between CBT, DBT, and EMDR therapy?</h3>
-              <p className="text-muted-foreground mb-2">
-                <strong className="text-foreground">CBT (Cognitive Behavioral Therapy)</strong> helps you identify and change negative thought patterns affecting your mood and behavior. It's highly effective for anxiety and depression.
-              </p>
-              <p className="text-muted-foreground mb-2">
-                <strong className="text-foreground">DBT (Dialectical Behavior Therapy)</strong> focuses on emotional regulation, distress tolerance, and interpersonal effectiveness. It's particularly helpful for intense emotions and relationship challenges.
-              </p>
-              <p className="text-muted-foreground">
-                <strong className="text-foreground">EMDR (Eye Movement Desensitization and Reprocessing)</strong> is specifically designed for processing trauma and PTSD through bilateral stimulation to help reprocess traumatic memories.
-              </p>
-            </div>
-
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">How long does therapy take to work?</h3>
-              <p className="text-muted-foreground">
-                Many clients notice improvements within 4-6 sessions, though the timeline varies based on individual circumstances and treatment goals. Some people benefit from short-term therapy (8-12 sessions) for specific issues, while others prefer ongoing support. Your therapist will work with you to develop a treatment plan and regularly assess progress toward your goals.
-              </p>
-            </div>
-
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">Do you offer telehealth therapy?</h3>
-              <p className="text-muted-foreground mb-3">
-                Yes! We offer secure video therapy sessions through HIPAA-compliant platforms. Telehealth therapy is just as effective as in-person sessions for most conditions and offers greater flexibility and convenience. Many insurance plans now cover telehealth at the same rate as in-person visits.
-              </p>
-              <Button asChild data-testid="button-faq-request-appointment">
-                <Link href="/request-appointment" onClick={() => trackEvent('appointment_request', 'conversion', 'Therapy FAQ')}>
-                  Request a Telehealth Appointment
-                </Link>
-              </Button>
-            </div>
-
-            <div className="bg-card border rounded-lg p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">How quickly can I get an appointment?</h3>
-              <p className="text-muted-foreground">
-                We typically have same-week appointments available for new clients. Call us at (386) 848-8751 and we'll get you scheduled as soon as possible, often within 2-5 business days. For urgent situations, please mention this when you call.
-              </p>
-            </div>
-              </div>
-            </div>
           </div>{/* End Main Content Column */}
 
           {/* Sticky Sidebar - Right Column */}
@@ -434,6 +370,9 @@ export default function TherapyPage() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <TherapyFAQ />
 
       {/* Trust Badges */}
       <ReviewsAndBadges />

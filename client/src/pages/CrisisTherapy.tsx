@@ -8,6 +8,7 @@ import TrustFactors from "@/components/TrustFactors";
 import HeroBackground from "@/components/HeroBackground";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_c2e99a65.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function CrisisTherapy() {
   const jsonLd = {
@@ -308,6 +309,9 @@ export default function CrisisTherapy() {
             <TrustFactors variant="compact" limit={4} />
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <TherapyFAQ pageTitle="Crisis Therapy" />
       </main>
       <SiteFooter />
     </div>

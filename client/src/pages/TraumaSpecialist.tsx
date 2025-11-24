@@ -12,6 +12,7 @@ import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_3749281a.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function TraumaSpecialist() {
   const jsonLd = {
@@ -543,54 +544,6 @@ export default function TraumaSpecialist() {
                 </div>
               </section>
 
-              {/* FAQ Section */}
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-6">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  {[
-                    {
-                      question: "What is a trauma specialist?",
-                      answer: "A trauma specialist is a mental health professional with specialized training in treating trauma-related conditions like PTSD, complex trauma, childhood trauma, and acute stress. They use evidence-based therapies such as EMDR, trauma-focused CBT, and other proven approaches to help you heal from traumatic experiences."
-                    },
-                    {
-                      question: "What types of trauma can you treat?",
-                      answer: "We treat all types of trauma including childhood abuse or neglect, sexual assault, domestic violence, accidents or injuries, combat trauma, grief and loss, medical trauma, natural disasters, and witnessing violence. Our trauma specialists are trained in multiple evidence-based approaches."
-                    },
-                    {
-                      question: "How is trauma therapy different from regular therapy?",
-                      answer: "Trauma therapy uses specialized techniques designed specifically to help process traumatic memories and reduce their emotional impact. Unlike general talk therapy, trauma-focused approaches like EMDR and trauma-focused CBT target the way traumatic memories are stored in the brain, helping you heal without having to relive the trauma in detail."
-                    },
-                    {
-                      question: "Do I need to talk about my trauma in detail?",
-                      answer: "No. Many trauma therapies, especially EMDR, don't require you to discuss your trauma in extensive detail. Your trauma specialist will work at your pace and use techniques that allow your brain to process the trauma naturally, without forcing you to relive painful experiences."
-                    },
-                    {
-                      question: "How long does trauma treatment take?",
-                      answer: "Treatment length varies based on the type and severity of trauma, but many people see significant improvement within 8-12 sessions. Some complex trauma cases may require longer treatment. Your trauma specialist will create a personalized treatment plan based on your specific needs."
-                    },
-                    {
-                      question: "What if I'm not sure if I have trauma?",
-                      answer: "Many people don't realize they have trauma. Signs include intrusive memories, nightmares, avoidance of reminders, emotional numbness, hypervigilance, or difficulty trusting others. During your initial evaluation, our trauma specialists can help identify if trauma is contributing to your current symptoms."
-                    },
-                    {
-                      question: "Do you offer telehealth for trauma therapy?",
-                      answer: "Yes. We offer both in-person and telehealth trauma therapy sessions. Many trauma therapies, including EMDR, can be effectively conducted via secure video sessions, giving you the flexibility to receive treatment from the comfort and safety of your home."
-                    },
-                    {
-                      question: "Do you accept insurance for trauma treatment?",
-                      answer: "Yes. We accept most major insurance plans for trauma therapy services. Contact our team to verify your specific coverage and benefits. We also offer self-pay options if needed."
-                    }
-                  ].map(({ question, answer }, index) => (
-                    <div key={index} className="p-4 rounded-lg bg-card border" data-testid={`faq-${index + 1}`}>
-                      <h3 className="font-semibold text-foreground mb-2">{question}</h3>
-                      <p className="text-muted-foreground text-sm">{answer}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
               {/* Contact Form */}
               <section id="contact-form" className="scroll-mt-20">
                 <ShortContactForm
@@ -668,6 +621,33 @@ export default function TraumaSpecialist() {
 
         {/* Trust Factors */}
         <TrustFactors />
+
+        {/* FAQ Section */}
+        <TherapyFAQ 
+          pageTitle="Trauma Therapy"
+          customFaqs={[
+            {
+              question: "What is a trauma specialist?",
+              answer: "A trauma specialist is a mental health professional with specialized training in treating trauma-related conditions like PTSD, complex trauma, childhood trauma, and acute stress. They use evidence-based therapies such as EMDR, trauma-focused CBT, and other proven approaches to help you heal from traumatic experiences."
+            },
+            {
+              question: "What types of trauma can you treat?",
+              answer: "We treat all types of trauma including childhood abuse or neglect, sexual assault, domestic violence, accidents or injuries, combat trauma, grief and loss, medical trauma, natural disasters, and witnessing violence. Our trauma specialists are trained in multiple evidence-based approaches."
+            },
+            {
+              question: "How is trauma therapy different from regular therapy?",
+              answer: "Trauma therapy uses specialized techniques designed specifically to help process traumatic memories and reduce their emotional impact. Unlike general talk therapy, trauma-focused approaches like EMDR and trauma-focused CBT target the way traumatic memories are stored in the brain, helping you heal without having to relive the trauma in detail."
+            },
+            {
+              question: "Do I need to talk about my trauma in detail?",
+              answer: "No. Many trauma therapies, especially EMDR, don't require you to discuss your trauma in extensive detail. Your trauma specialist will work at your pace and use techniques that allow your brain to process the trauma naturally, without forcing you to relive painful experiences."
+            },
+            {
+              question: "What if I'm not sure if I have trauma?",
+              answer: "Many people don't realize they have trauma. Signs include intrusive memories, nightmares, avoidance of reminders, emotional numbness, hypervigilance, or difficulty trusting others. During your initial evaluation, our trauma specialists can help identify if trauma is contributing to your current symptoms."
+            }
+          ]}
+        />
 
         {/* Reviews */}
         <ReviewsAndBadges />

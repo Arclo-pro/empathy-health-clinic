@@ -15,6 +15,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import heroImage from "@assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
 
@@ -375,6 +376,9 @@ export default function VirtualTherapy() {
             <TrustFactors />
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <TherapyFAQ pageTitle="Virtual Therapy" />
 
         {/* Trust Badges */}
         <ReviewsAndBadges />

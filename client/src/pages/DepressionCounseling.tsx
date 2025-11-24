@@ -11,28 +11,9 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
 import { trackEvent } from "@/lib/analytics";
-import FAQSchema from "@/components/FAQSchema";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function DepressionCounseling() {
-  const faqs = [
-    {
-      question: "How long does depression treatment take?",
-      answer: "Most people begin feeling better within 4-6 weeks of starting treatment. However, full recovery often takes 3-6 months or longer. Continuing treatment even after feeling better helps prevent relapse."
-    },
-    {
-      question: "Do I need medication for depression?",
-      answer: "Not always. Mild depression may respond to therapy alone. Moderate to severe depression typically benefits from a combination of medication and therapy. Your psychiatrist will recommend the best approach for your specific situation."
-    },
-    {
-      question: "Will antidepressants change my personality?",
-      answer: "No. Antidepressants don't change who you are - they help restore your brain chemistry to normal levels so you can feel like yourself again. Any concerning changes should be reported to your psychiatrist immediately."
-    },
-    {
-      question: "What if my depression doesn't improve?",
-      answer: "Some people need to try different medications or combinations to find what works. We also offer advanced treatments for treatment-resistant depression. Don't give up - there are many effective options available."
-    }
-  ];
-
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
@@ -75,7 +56,6 @@ export default function DepressionCounseling() {
         canonicalPath="/depression-counseling"
         jsonLd={localBusinessSchema}
       />
-      <FAQSchema faqs={faqs} />
       <SiteHeader />
       <main className="flex-1">
         <HeroBackground imageSrc={heroImage}>
@@ -293,29 +273,6 @@ export default function DepressionCounseling() {
                 </div>
               </section>
 
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">How long does depression treatment take?</h3>
-                    <p className="text-muted-foreground">Most people begin feeling better within 4-6 weeks of starting treatment. However, full recovery often takes 3-6 months or longer. Continuing treatment even after feeling better helps prevent relapse.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Do I need medication for depression?</h3>
-                    <p className="text-muted-foreground">Not always. Mild depression may respond to therapy alone. Moderate to severe depression typically benefits from a combination of medication and therapy. Your psychiatrist will recommend the best approach for your specific situation.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Will antidepressants change my personality?</h3>
-                    <p className="text-muted-foreground">No. Antidepressants don't change who you are - they help restore your brain chemistry to normal levels so you can feel like yourself again. Any concerning changes should be reported to your psychiatrist immediately.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">What if my depression doesn't improve?</h3>
-                    <p className="text-muted-foreground">Some people need to try different medications or combinations to find what works. We also offer advanced treatments for treatment-resistant depression. Don't give up - there are many effective options available.</p>
-                  </div>
-                </div>
-              </section>
             </div>
 
             <div className="md:col-span-1 space-y-6">
@@ -370,6 +327,29 @@ export default function DepressionCounseling() {
             <TrustFactors variant="compact" limit={4} />
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <TherapyFAQ 
+          pageTitle="Depression Counseling"
+          customFaqs={[
+            {
+              question: "How long does depression treatment take?",
+              answer: "Most people begin feeling better within 4-6 weeks of starting treatment. However, full recovery often takes 3-6 months or longer. Continuing treatment even after feeling better helps prevent relapse."
+            },
+            {
+              question: "Do I need medication for depression?",
+              answer: "Not always. Mild depression may respond to therapy alone. Moderate to severe depression typically benefits from a combination of medication and therapy. Your psychiatrist will recommend the best approach for your specific situation."
+            },
+            {
+              question: "Will antidepressants change my personality?",
+              answer: "No. Antidepressants don't change who you are - they help restore your brain chemistry to normal levels so you can feel like yourself again. Any concerning changes should be reported to your psychiatrist immediately."
+            },
+            {
+              question: "What if my depression doesn't improve?",
+              answer: "Some people need to try different medications or combinations to find what works. We also offer advanced treatments for treatment-resistant depression. Don't give up - there are many effective options available."
+            }
+          ]}
+        />
 
         {/* Trust Badges */}
         <ReviewsAndBadges />

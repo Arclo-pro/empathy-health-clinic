@@ -7,6 +7,7 @@ import { Link } from "wouter";
 import { Brain, Heart, Shield, Users, CheckCircle, Phone, Mail, Target, Zap, AlertCircle } from "lucide-react";
 import meditationBg from "@assets/stock_images/meditation_mindfulne_859e45be.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function StressManagement() {
   const handlePhoneClick = () => {
@@ -420,6 +421,9 @@ export default function StressManagement() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <TherapyFAQ pageTitle="Stress Management" />
       </main>
       <SiteFooter />
     </div>

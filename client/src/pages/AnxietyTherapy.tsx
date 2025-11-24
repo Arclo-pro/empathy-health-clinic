@@ -11,6 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import heroImage from "@assets/stock_images/calm_peaceful_therap_b118766b.jpg";
 import { trackEvent } from "@/lib/analytics";
+import TherapyFAQ from "@/components/TherapyFAQ";
 
 export default function AnxietyTherapy() {
   const jsonLd = {
@@ -353,29 +354,6 @@ export default function AnxietyTherapy() {
                 </div>
               </section>
 
-              <section>
-                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
-                  Frequently Asked Questions
-                </h2>
-                <div className="space-y-4">
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">How long does anxiety treatment take?</h3>
-                    <p className="text-muted-foreground">Many people notice improvement within 6-8 weeks of starting treatment. CBT typically involves 12-16 sessions, though some people benefit from longer-term therapy. Medication can begin working within 2-4 weeks.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Are anti-anxiety medications addictive?</h3>
-                    <p className="text-muted-foreground">SSRIs and SNRIs (first-line anxiety medications) are not addictive. Benzodiazepines can be habit-forming with long-term use, so we prescribe them carefully and typically for short periods during acute anxiety.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Will I need medication for anxiety?</h3>
-                    <p className="text-muted-foreground">Not necessarily. Mild to moderate anxiety often responds well to therapy alone. Medication is typically recommended for moderate to severe anxiety or when therapy alone isn't enough. Your psychiatrist will recommend the best approach for you.</p>
-                  </div>
-                  <div className="border-l-4 border-primary pl-4">
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Can anxiety be cured?</h3>
-                    <p className="text-muted-foreground">While anxiety may not be "cured," it can be effectively managed. Most people with anxiety disorders see significant improvement with treatment and learn skills to manage symptoms long-term.</p>
-                  </div>
-                </div>
-              </section>
             </div>
 
             <div className="md:col-span-1 space-y-6">
@@ -430,6 +408,29 @@ export default function AnxietyTherapy() {
             <TrustFactors variant="compact" limit={4} />
           </div>
         </div>
+
+        {/* FAQ Section */}
+        <TherapyFAQ 
+          pageTitle="Anxiety Therapy"
+          customFaqs={[
+            {
+              question: "How long does anxiety treatment take?",
+              answer: "Many people notice improvement within 6-8 weeks of starting treatment. CBT typically involves 12-16 sessions, though some people benefit from longer-term therapy. Medication can begin working within 2-4 weeks."
+            },
+            {
+              question: "Are anti-anxiety medications addictive?",
+              answer: "SSRIs and SNRIs (first-line anxiety medications) are not addictive. Benzodiazepines can be habit-forming with long-term use, so we prescribe them carefully and typically for short periods during acute anxiety."
+            },
+            {
+              question: "Will I need medication for anxiety?",
+              answer: "Not necessarily. Mild to moderate anxiety often responds well to therapy alone. Medication is typically recommended for moderate to severe anxiety or when therapy alone isn't enough. Your psychiatrist will recommend the best approach for you."
+            },
+            {
+              question: "Can anxiety be cured?",
+              answer: "While anxiety may not be 'cured,' it can be effectively managed. Most people with anxiety disorders see significant improvement with treatment and learn skills to manage symptoms long-term."
+            }
+          ]}
+        />
 
         {/* Trust Badges */}
         <ReviewsAndBadges />
