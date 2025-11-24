@@ -66,12 +66,16 @@ export const contentRedirectMap: Record<string, string> = {
   // Old WordPress category/service pages
   '/therapy/in-person-therapy': '/in-person-therapy',
   
-  // Blog redirects
+  // Blog redirects - slug changes (old slug → new slug)
   '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
-  '/understanding-4-types-of-bpd': '/blog/understanding-4-types-of-bpd',
   '/narcissistic-behavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
   '/narcissisticbehavior-in-a-relationship': '/blog/narcissistic-behavior-in-relationships',
   '/dialectical-behavioral-therapy': '/blog/dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing',
+  '/blog-wellness-guide-for-counselors': '/blog/wellness-guide-for-counselors',
+  '/breaking-the-cycle-a-guide-to-overcoming-toxic-relationship-patterns': '/blog/how-to-leave-toxic-relationship',
+  
+  // Note: /{slug} → /blog/{slug} redirects (where slug is identical) are handled automatically 
+  // by dynamic blog slug checker. No need to list them here (prevents Google canonical confusion).
   
   // SEMrush orphaned pages (November 2025) - About/Info pages
   '/about-us': '/',
@@ -81,13 +85,6 @@ export const contentRedirectMap: Record<string, string> = {
   
   // SEMrush orphaned pages - Old assessment/test pages
   '/autism-assessment': '/services',
-  
-  // SEMrush orphaned pages - Duplicate/old blog paths (without /blog prefix)
-  '/8-physical-signs-stress-is-impacting-your-body': '/blog/8-physical-signs-stress-is-impacting-your-body',
-  '/best-jobs-for-people-with-depression': '/blog/best-jobs-for-people-with-depression',
-  '/bipolar-psychosis-symptoms-treatment-recovery': '/blog/bipolar-psychosis-symptoms-treatment-recovery',
-  '/best-dental-implants-kingston-smiles-ny': '/blog/best-dental-implants-kingston-smiles-ny',
-  '/blog-wellness-guide-for-counselors': '/blog/wellness-guide-for-counselors',
   
   // SEMrush orphaned pages - Old treatment pages
   '/anxiety-treatment': '/anxiety-therapy',
@@ -129,15 +126,6 @@ export const contentRedirectMap: Record<string, string> = {
   // Medication management
   '/medication-management': '/services',
   
-  // Old blog post paths (without /blog prefix)
-  '/who-cheats-more-men-or-women': '/blog/who-cheats-more-men-or-women',
-  '/ltr-relationship-meaning-guide': '/blog/ltr-relationship-meaning-guide',
-  '/mood-disorder-questionnaire': '/blog/mood-disorder-questionnaire',
-  '/overcoming-social-anxiety': '/blog/overcoming-social-anxiety',
-  '/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness': '/blog/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness',
-  '/practical-strategies-for-managing-anxiety-in-daily-life': '/blog/practical-strategies-for-managing-anxiety-in-daily-life',
-  '/what-is-mental-breakdown': '/blog/what-is-mental-breakdown',
-  
   // WordPress author and tag pages - redirect to blog
   '/author/rachelleandreaastudillo': '/blog',
   '/author/reganalex30': '/blog',
@@ -157,30 +145,6 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Query parameter pages
   '/treatments/adhd-treatment': '/adhd-treatment',
-  
-  // Google Search Console - Soft 404 errors (November 2025)
-  // Blog posts without /blog prefix
-  '/breaking-the-cycle-a-guide-to-overcoming-toxic-relationship-patterns': '/blog/how-to-leave-toxic-relationship',
-  '/understanding-identity-exploration': '/blog/understanding-identity-exploration',
-  '/can-you-pass-out-from-a-panic-attack': '/blog/can-you-pass-out-from-a-panic-attack',
-  '/prodromal-stage-mental-health': '/blog/prodromal-stage-mental-health',
-  '/jobs-for-people-with-anxiety': '/blog/jobs-for-people-with-anxiety',
-  '/silent-panic-attacks-causes-symptoms-relief': '/blog/silent-panic-attacks-causes-symptoms-relief',
-  '/bpd-vs-npd': '/blog/bpd-vs-npd',
-  '/open-relationship-guide': '/blog/open-relationship-guide',
-  '/how-to-leave-toxic-relationship': '/blog/how-to-leave-toxic-relationship',
-  '/understanding-the-4-types-of-bpd': '/blog/understanding-the-4-types-of-bpd',
-  '/is-more-espresso-less-depresso-true': '/blog/is-more-espresso-less-depresso-true',
-  '/reactive-attachment-disorder-in-adults': '/blog/reactive-attachment-disorder-in-adults',
-  '/what-is-time-blindness': '/blog/what-is-time-blindness',
-  '/school-psychology-career-guide': '/blog/school-psychology-career-guide',
-  '/understanding-adhd-masking': '/blog/understanding-adhd-masking',
-  '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025': '/blog/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025',
-  '/bpd-men-guide': '/blog/bpd-men-guide',
-  '/unburdened-the-key-to-mental-clarity': '/blog/unburdened-the-key-to-mental-clarity',
-  '/overcoming-anxiety-with-cognitive-behavioral-therapy': '/blog/overcoming-anxiety-with-cognitive-behavioral-therapy',
-  '/hidden-anxiety-treatment-dbt-skills-you-can-use-at-home': '/blog/hidden-anxiety-treatment-dbt-skills-you-can-use-at-home',
-  '/cbt-therapy-improving-mental-health-in-winter-park': '/blog/cbt-therapy-improving-mental-health-in-winter-park',
   
   // Treatment/therapy pages
   '/therapy-treatment': '/therapy',
@@ -258,14 +222,6 @@ export const contentRedirectMap: Record<string, string> = {
   '/find-a-psychiatrist-that-takes-first-health-network-first-health-coverage': '/insurance',
   '/find-a-psychiatrist-that-takes-cigna-healthcare-cigna-coverage': '/insurance',
   
-  // Blog posts (redirecting to correct /blog/ prefix)
-  '/when-anxiety-hurts-your-love-life-how-emdr-and-dbt-can-rebuild-confidence': '/blog/when-anxiety-hurts-your-love-life-how-emdr-and-dbt-can-rebuild-confidence',
-  '/mindful-dating-a-guide-to-building-strong-connections': '/blog/mindful-dating-a-guide-to-building-strong-connections',
-  '/from-heartbreak-to-healing-emdr-strategies-for-moving-on-after-a-breakup': '/blog/from-heartbreak-to-healing-emdr-strategies-for-moving-on-after-a-breakup',
-  '/grief-self-care-tips-for-grieving': '/blog/grief-self-care-tips-for-grieving',
-  '/dbt-skills-for-healthy-communication-and-conflict-resolution-in-dating': '/blog/dbt-skills-for-healthy-communication-and-conflict-resolution-in-dating',
-  '/borderline-personality-disorder-key-facts-care': '/blog/borderline-personality-disorder-key-facts-care',
-  '/emdr-therapy-a-guide-to-healing-from-past-relationship-trauma': '/blog/emdr-therapy-a-guide-to-healing-from-past-relationship-trauma',
   
   // Old treatment structure redirects
   '/treatments/[bipolar](/bipolar-disorder': '/bipolar-disorder-treatment',
