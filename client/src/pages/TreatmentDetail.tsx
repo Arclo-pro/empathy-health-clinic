@@ -176,7 +176,7 @@ export default function TreatmentDetail() {
           <div className="flex flex-wrap gap-4">
             <Button 
               size="lg" 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               onClick={() => {
                 trackEvent(`${treatment.slug}_hero_cta`, 'conversion', `${treatment.title} Page`);
                 const form = document.querySelector('#contact-form');

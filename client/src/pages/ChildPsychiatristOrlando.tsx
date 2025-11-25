@@ -67,7 +67,7 @@ export default function ChildPsychiatristOrlando() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('child_psychiatrist_orlando_hero_cta', 'conversion', 'Child Psychiatrist Orlando Page')}
             >

@@ -81,6 +81,15 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        sand: "#F7F1EA",
+        charcoal: "#2E2E2E",
+        neutralLight: "#DCD6CF",
+        brandGreen: "#2E5E4E",
+        peach: {
+          DEFAULT: "#E48F66",
+          hover: "#D97F56",
+          light: "#F4B899",
+        },
       },
       fontFamily: {
         sans: ["Inter", "var(--font-sans)"],

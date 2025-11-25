@@ -76,7 +76,7 @@ export default function SameDayPsychiatristOrlando() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('same_day_psychiatrist_orlando_hero_cta', 'conversion', 'Same Day Psychiatrist Orlando Page')}
             >

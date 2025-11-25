@@ -50,7 +50,6 @@ export default function LandingPageTemplate({ config }: LandingPageTemplateProps
               size="lg" 
               asChild 
               variant="default"
-              className="bg-green-600 text-white"
               data-testid="button-hero-cta"
               onClick={() => handleCtaClick('hero_cta')}
             >

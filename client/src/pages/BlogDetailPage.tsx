@@ -644,7 +644,7 @@ export default function BlogDetailPage() {
                 <p className="text-lg text-foreground mb-4 font-medium">
                   Struggling with anxiety, depression, or stress? Our licensed therapists in Orlando are here to help.
                 </p>
-                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700" data-testid="button-hero-cta">
+                <Button asChild size="lg" className="" data-testid="button-hero-cta">
                   <Link href="/request-appointment">Book a Free Consultation</Link>
                 </Button>
               </div>
@@ -766,7 +766,7 @@ export default function BlogDetailPage() {
                 <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
                   Empathy Health Clinic offers personalized, evidence-based therapy for adults and teens in Orlando and Winter Park. Start your journey to wellness today.
                 </p>
-                <Button asChild size="lg" className="bg-green-600 hover:bg-green-700" data-testid="button-final-cta">
+                <Button asChild size="lg" className="" data-testid="button-final-cta">
                   <Link href="/request-appointment">Book Your Appointment Now</Link>
                 </Button>
               </section>

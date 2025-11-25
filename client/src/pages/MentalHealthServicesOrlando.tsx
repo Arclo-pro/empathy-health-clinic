@@ -235,7 +235,7 @@ export default function MentalHealthServicesOrlando() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={handleHeroCTA}
             >

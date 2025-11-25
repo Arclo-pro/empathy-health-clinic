@@ -174,7 +174,7 @@ export default function PsychiatryClinicOrlando() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('psychiatry_clinic_orlando_hero_cta', 'conversion', 'Psychiatry Clinic Orlando Page')}
             >

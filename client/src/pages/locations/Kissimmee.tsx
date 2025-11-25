@@ -94,7 +94,7 @@ export default function PsychiatristKissimmee() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('kissimmee_hero_cta', 'conversion', 'Psychiatrist Kissimmee Page')}
             >

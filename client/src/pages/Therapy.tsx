@@ -60,7 +60,7 @@ export default function TherapyPage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
             <Button 
               size="lg" 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               asChild 
               data-testid="button-hero-request-appointment"
               onClick={() => trackEvent('appointment_request', 'conversion', 'Therapy Page - Hero CTA')}
@@ -72,7 +72,7 @@ export default function TherapyPage() {
             </Button>
             <Button 
               size="lg" 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               asChild 
               data-testid="button-hero-call"
               onClick={() => trackEvent('phone_click', 'conversion', 'Therapy Page - Hero CTA')}

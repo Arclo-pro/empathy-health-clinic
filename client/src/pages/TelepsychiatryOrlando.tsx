@@ -76,7 +76,7 @@ export default function TelepsychiatryOrlando() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('telepsychiatry_orlando_hero_cta', 'conversion', 'Telepsychiatry Orlando Page')}
             >

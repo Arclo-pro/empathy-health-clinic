@@ -251,7 +251,7 @@ export default function TraumaSpecialist() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white border border-green-700"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('trauma_specialist_hero_cta', 'conversion', 'Trauma Specialist Page')}
             >
@@ -260,7 +260,7 @@ export default function TraumaSpecialist() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white border border-green-700"
+              className=""
               data-testid="button-hero-phone"
               onClick={() => trackEvent('phone_click', 'conversion', 'Trauma Specialist Page - Hero')}
             >

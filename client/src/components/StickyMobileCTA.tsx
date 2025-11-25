@@ -14,7 +14,8 @@ export default function StickyMobileCTA() {
             <a href="/request-appointment">Request Appointment</a>
           </Button>
           <Button 
-            className="bg-green-600 hover:bg-green-700 text-white h-14 px-6 shadow-lg"
+            variant="outline"
+            className="h-14 px-6 shadow-lg"
             data-testid="button-sticky-call"
             asChild
           >

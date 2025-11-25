@@ -55,7 +55,7 @@ export default function TMSTreatment() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('tms_hero_cta', 'conversion', 'TMS Page')}
             >
@@ -64,7 +64,7 @@ export default function TMSTreatment() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-phone"
               onClick={() => trackEvent('phone_click', 'conversion', 'TMS Page - Hero')}
             >

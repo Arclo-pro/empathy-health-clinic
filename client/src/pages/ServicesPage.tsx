@@ -121,7 +121,7 @@ export default function ServicesPage() {
               <div className="flex justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-green-600 hover:bg-green-700 text-white"
+                  className=""
                   asChild 
                   data-testid="button-hero-call"
                   onClick={() => trackEvent('phone_click', 'conversion', 'Services Page - Hero CTA')}

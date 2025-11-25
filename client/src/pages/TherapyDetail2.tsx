@@ -136,7 +136,7 @@ export default function TherapyDetail() {
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
               <Button 
                 size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className=""
                 asChild 
                 data-testid="button-hero-request-appointment"
                 onClick={() => trackEvent('appointment_request', 'conversion', `${therapy.title} Page - Hero CTA`)}
@@ -148,7 +148,7 @@ export default function TherapyDetail() {
               </Button>
               <Button 
                 size="lg" 
-                className="bg-green-600 hover:bg-green-700 text-white"
+                className=""
                 asChild 
                 data-testid="button-hero-call"
               >
@@ -306,12 +306,12 @@ export default function TherapyDetail() {
                   </p>
                 </div>
                 <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white gap-2" asChild data-testid="button-request-appointment">
+                  <Button size="lg" className="gap-2" asChild data-testid="button-request-appointment">
                     <Link href="/request-appointment">
                       Request Appointment
                     </Link>
                   </Button>
-                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white gap-2" asChild data-testid="button-call-now">
+                  <Button size="lg" className="gap-2" asChild data-testid="button-call-now">
                     <a 
                       href="tel:3868488751"
                       onClick={() => trackEvent('phone_click', 'conversion', `${therapy.title} Page - CTA`)}

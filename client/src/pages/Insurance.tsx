@@ -53,7 +53,7 @@ export default function Insurance() {
             <Button 
               size="lg"
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-call"
               onClick={() => trackEvent('phone_click', 'conversion', 'Insurance Hero Phone', '386-848-8751')}
             >

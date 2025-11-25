@@ -56,7 +56,7 @@ export default function EMDRTherapy() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-cta"
               onClick={() => trackEvent('emdr_hero_cta', 'conversion', 'EMDR Page')}
             >
@@ -65,7 +65,7 @@ export default function EMDRTherapy() {
             <Button 
               size="lg" 
               asChild 
-              className="bg-green-600 hover:bg-green-700 text-white"
+              className=""
               data-testid="button-hero-phone"
               onClick={() => trackEvent('phone_click', 'conversion', 'EMDR Page - Hero')}
             >
