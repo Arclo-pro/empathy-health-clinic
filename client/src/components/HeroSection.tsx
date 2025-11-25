@@ -89,7 +89,7 @@ export default function HeroSection() {
     submitLead.mutate();
   };
 
-  const topInsurance = insuranceProviders?.slice(0, 3) || [];
+  const topInsurance = insuranceProviders?.slice(0, 4) || [];
 
   return (
     <section className="relative min-h-[100svh] md:min-h-[90vh] flex items-center overflow-hidden">
