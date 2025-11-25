@@ -1390,11 +1390,11 @@ export const aetnaPsychiatristOrlandoConfig: LandingPageConfig = {
   },
 };
 
-// BCBS Psychiatrist Orlando - Insurance-focused psychiatry page
+// BCBS Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts bcbs" (Rank 11)
 export const bcbsPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Orlando Accepts BCBS | Blue Cross Blue Shield | Same-Week Appointments",
-    description: "Board-certified psychiatrists in Orlando, FL accepting Blue Cross Blue Shield (BCBS) insurance. In-network BCBS providers for medication management, psychiatric evaluations, anxiety, depression, ADHD treatment. Same-week appointments. Call 386-848-8751 to verify BCBS coverage.",
+    title: "BCBS Psychiatrist Orlando | In-Network Provider",
+    description: "BCBS-accepted psychiatrists in Orlando, FL. In-network for anxiety, ADHD, depression. Same-week appointments. Call (386) 848-8751.",
     keywords: ["psychiatrist orlando accepts bcbs", "bcbs psychiatrist orlando", "blue cross blue shield psychiatrist orlando", "psychiatrist takes bcbs orlando fl", "bcbs mental health orlando", "in-network psychiatrist bcbs orlando"],
     canonicalPath: "/psychiatrist-orlando-accepts-bcbs",
   },
@@ -1899,6 +1899,9 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
       { href: "/medication-management-orlando", label: "Medication Management" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
       { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
     ],
   },
   analytics: {
@@ -2063,6 +2066,9 @@ export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
       { href: "/medication-management-orlando", label: "Medication Management" },
       { href: "/child-psychiatrist-orlando", label: "Child Psychiatrist" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
     ],
   },
   analytics: {
@@ -2228,6 +2234,9 @@ export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
       { href: "/medication-management-orlando", label: "Medication Management" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
       { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
     ],
   },
   analytics: {
@@ -2394,6 +2403,9 @@ export const medicationManagementOrlandoConfig: LandingPageConfig = {
       { href: "/adhd-psychiatrist-orlando", label: "ADHD Treatment" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
       { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
     ],
   },
   analytics: {
