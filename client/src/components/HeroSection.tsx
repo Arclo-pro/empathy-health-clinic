@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { InsuranceProvider } from "@shared/schema";
-import heroImage from "@assets/stock_images/golden_sunset_over_c_a1f38159.jpg";
+import heroImage from "@assets/hero-sunset-florida.png";
 import empathyLogo from "@assets/empathy-logo-optimized.webp";
 
 export { heroImage };
@@ -118,21 +118,8 @@ export default function HeroSection() {
               in Orlando, FL
             </p>
 
-            {/* Mobile CTA Button */}
-            <div className="lg:hidden mb-8">
-              <a href="#contact-form">
-                <Button
-                  size="lg"
-                  className="h-14 px-10 bg-[#e07a4d] hover:bg-[#d16a3d] text-white border-0 rounded-xl text-lg font-semibold shadow-lg"
-                  data-testid="button-hero-mobile-cta"
-                >
-                  Book Appointment
-                </Button>
-              </a>
-            </div>
-
             {/* Mobile Trust Indicators */}
-            <div className="lg:hidden space-y-4">
+            <div className="lg:hidden space-y-4 mb-8">
               {/* Rating */}
               <div className="flex items-center justify-center gap-3 text-white">
                 <div className="flex gap-0.5">
@@ -165,6 +152,62 @@ export default function HeroSection() {
                     />
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Mobile Contact Form */}
+            <div className="lg:hidden w-full max-w-sm mx-auto" id="mobile-contact-form">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6">
+                <h2 className="text-xl font-semibold text-gray-800 mb-4 text-center">
+                  Book an Appointment
+                </h2>
+                
+                <form onSubmit={handleSubmit} className="space-y-3" data-testid="form-hero-lead-mobile">
+                  <Input
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    autoComplete="name"
+                    className="h-11 bg-gray-50 border-gray-200 rounded-lg text-base placeholder:text-gray-400"
+                    data-testid="input-hero-name-mobile"
+                    required
+                  />
+                  
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    autoComplete="email"
+                    className="h-11 bg-gray-50 border-gray-200 rounded-lg text-base placeholder:text-gray-400"
+                    data-testid="input-hero-email-mobile"
+                    required
+                  />
+                  
+                  <Input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    autoComplete="tel"
+                    className="h-11 bg-gray-50 border-gray-200 rounded-lg text-base placeholder:text-gray-400"
+                    data-testid="input-hero-phone-mobile"
+                    required
+                  />
+                  
+                  <Button
+                    type="submit"
+                    disabled={submitLead.isPending}
+                    className="w-full h-11 bg-[#e07a4d] hover:bg-[#d16a3d] text-white border-0 rounded-lg text-base font-semibold"
+                    data-testid="button-hero-submit-mobile"
+                  >
+                    {submitLead.isPending ? "Submitting..." : "Submit"}
+                  </Button>
+                </form>
               </div>
             </div>
           </div>
