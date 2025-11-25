@@ -42,7 +42,7 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/95 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-24">
+        <div className="flex items-center justify-between h-36 lg:h-44">
           <div className="flex items-center">
             <a 
               href="/" 
@@ -52,9 +52,9 @@ export default function SiteHeader() {
               <img 
                 src={logoImage} 
                 alt="Empathy Health Clinic" 
-                className="h-16 lg:h-20 w-auto"
-                width={240}
-                height={80}
+                className="h-32 lg:h-40 w-auto"
+                width={480}
+                height={160}
               />
             </a>
           </div>

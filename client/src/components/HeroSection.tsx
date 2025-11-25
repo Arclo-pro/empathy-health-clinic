@@ -4,6 +4,13 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { InsuranceProvider } from "@shared/schema";
@@ -12,10 +19,24 @@ import empathyLogo from "@assets/empathy-logo-optimized.webp";
 
 export { heroImage };
 
+const serviceOptions = [
+  "Psychiatry",
+  "Therapy / Counseling",
+  "Medication Management",
+  "ADHD Treatment",
+  "Anxiety Treatment",
+  "Depression Treatment",
+  "Couples Therapy",
+  "Child & Adolescent",
+  "Virtual Therapy",
+  "Other",
+];
+
 export default function HeroSection() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
@@ -34,7 +55,7 @@ export default function HeroSection() {
         lastName,
         email: email.trim(),
         phone: phone.trim(),
-        service: "General Inquiry",
+        service: service || "General Inquiry",
         formType: "hero",
         source: window.location.pathname,
         smsOptIn: "false",
@@ -198,11 +219,27 @@ export default function HeroSection() {
                     data-testid="input-hero-phone-mobile"
                     required
                   />
+
+                  <Select value={service} onValueChange={setService}>
+                    <SelectTrigger 
+                      className="h-11 bg-gray-50 border-gray-200 rounded-lg text-base"
+                      data-testid="select-hero-service-mobile"
+                    >
+                      <SelectValue placeholder="Service Interested In" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {serviceOptions.map((option) => (
+                        <SelectItem key={option} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   
                   <Button
                     type="submit"
                     disabled={submitLead.isPending}
-                    className="w-full h-11 bg-[#e07a4d] hover:bg-[#d16a3d] text-white border-0 rounded-lg text-base font-semibold"
+                    className="w-full h-11 text-white border-0 rounded-lg text-base font-semibold"
                     data-testid="button-hero-submit-mobile"
                   >
                     {submitLead.isPending ? "Submitting..." : "Submit"}
@@ -255,11 +292,27 @@ export default function HeroSection() {
                   data-testid="input-hero-phone"
                   required
                 />
+
+                <Select value={service} onValueChange={setService}>
+                  <SelectTrigger 
+                    className="h-12 bg-gray-50 border-gray-200 rounded-lg text-base"
+                    data-testid="select-hero-service"
+                  >
+                    <SelectValue placeholder="Service Interested In" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {serviceOptions.map((option) => (
+                      <SelectItem key={option} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 
                 <Button
                   type="submit"
                   disabled={submitLead.isPending}
-                  className="w-full h-12 bg-[#e07a4d] hover:bg-[#d16a3d] text-white border-0 rounded-lg text-base font-semibold"
+                  className="w-full h-12 text-white border-0 rounded-lg text-base font-semibold"
                   data-testid="button-hero-submit"
                 >
                   {submitLead.isPending ? "Submitting..." : "Submit"}
