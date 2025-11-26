@@ -572,6 +572,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.redirect(301, "/therapy-oviedo");
   });
   
+  // Maitland therapist redirects
+  app.get("/maitland-therapist", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/maitland-therapist/", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/therapy-maitland", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/therapy-maitland/", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/counseling-maitland", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/counseling-maitland/", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/counselor-maitland", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  app.get("/counselor-maitland/", (req, res) => {
+    res.redirect(301, "/therapist-maitland");
+  });
+  
   app.get("/treatments/conditions-we-treat", (req, res) => {
     res.redirect(301, "/conditions");
   });
@@ -2401,7 +2427,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
       // Main pages (filter out any that redirect)
-      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando', '/couples-counseling', '/counselor-near-me', '/mental-health-near-me', '/therapy-near-me', '/counseling-orlando', '/therapy-oviedo', '/anxiety-therapy', '/depression-counseling', '/cognitive-behavioral-therapy', '/emdr-therapy'];
+      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando', '/couples-counseling', '/counselor-near-me', '/mental-health-near-me', '/therapy-near-me', '/counseling-orlando', '/therapy-oviedo', '/therapist-maitland', '/anxiety-therapy', '/depression-counseling', '/cognitive-behavioral-therapy', '/emdr-therapy'];
       mainPages.forEach(page => {
         if (!isRedirectingUrl(page)) {
           xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
