@@ -1938,8 +1938,8 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
 // ADHD Psychiatrist Orlando - Optimized for "adhd psychiatrist orlando" (not in top 20)
 export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "ADHD Psychiatrist Orlando FL | #1 ADHD Specialists",
-    description: "Orlando's top-rated ADHD psychiatrists. Fast diagnosis for adults & children. Adderall, Vyvanse, non-stimulants. Same-week appointments. Call (386) 848-8751.",
+    title: "ADHD Psychiatrist Orlando | Fast Diagnosis | Same-Week",
+    description: "Top ADHD psychiatrist in Orlando, FL. Fast diagnosis for adults & children. Adderall, Vyvanse, non-stimulants. Same-week appointments. Call (386) 848-8751.",
     keywords: ["adhd psychiatrist orlando", "adhd psychiatrist orlando fl", "adhd doctor orlando", "adhd specialist orlando", "adult adhd psychiatrist orlando", "child adhd psychiatrist orlando", "add doctor orlando", "adhd medication management orlando", "adhd diagnosis orlando", "best adhd psychiatrist orlando"],
     canonicalPath: "/adhd-psychiatrist-orlando",
   },
@@ -2105,8 +2105,8 @@ export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
 // Bipolar Psychiatrist Orlando - Optimized for "bipolar psychiatrist orlando" (not in top 20)
 export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Bipolar Psychiatrist Orlando FL | Mood Specialists",
-    description: "Orlando's leading bipolar disorder specialists. Expert mood stabilization for Bipolar I, II. Lithium, Lamictal, Seroquel. Same-week appointments. Call (386) 848-8751.",
+    title: "Bipolar Psychiatrist Orlando | Mood Disorder Experts",
+    description: "Top bipolar psychiatrist in Orlando, FL. Expert mood stabilization for Bipolar I, II. Lithium, Lamictal, Seroquel. Same-week appointments. Call (386) 848-8751.",
     keywords: ["bipolar psychiatrist orlando", "bipolar psychiatrist orlando fl", "bipolar disorder treatment orlando", "bipolar doctor orlando", "mood disorder specialist orlando", "bipolar medication management orlando", "manic depression treatment orlando", "bipolar 2 psychiatrist orlando", "best bipolar psychiatrist orlando"],
     canonicalPath: "/bipolar-psychiatrist-orlando",
   },
