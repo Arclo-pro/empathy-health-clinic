@@ -517,6 +517,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/find-counselor/", (req, res) => {
     res.redirect(301, "/counselor-near-me");
   });
+  app.get("/mental-health-services-near-me", (req, res) => {
+    res.redirect(301, "/mental-health-near-me");
+  });
+  app.get("/mental-health-services-near-me/", (req, res) => {
+    res.redirect(301, "/mental-health-near-me");
+  });
+  app.get("/mental-health-clinic-near-me", (req, res) => {
+    res.redirect(301, "/mental-health-near-me");
+  });
+  app.get("/mental-health-clinic-near-me/", (req, res) => {
+    res.redirect(301, "/mental-health-near-me");
+  });
   
   app.get("/treatments/conditions-we-treat", (req, res) => {
     res.redirect(301, "/conditions");
@@ -2347,7 +2359,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
 
       // Main pages (filter out any that redirect)
-      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando', '/couples-counseling', '/counselor-near-me', '/anxiety-therapy', '/depression-counseling', '/cognitive-behavioral-therapy', '/emdr-therapy'];
+      const mainPages = ['/services', '/insurance', '/team', '/blog', '/therapy', '/new-patients', '/virtual-therapy', '/request-appointment', '/psychotherapist-orlando', '/couples-counseling', '/counselor-near-me', '/mental-health-near-me', '/anxiety-therapy', '/depression-counseling', '/cognitive-behavioral-therapy', '/emdr-therapy'];
       mainPages.forEach(page => {
         if (!isRedirectingUrl(page)) {
           xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;

@@ -69,6 +69,7 @@ const AnxietyTherapy = lazy(() => import("@/pages/AnxietyTherapy"));
 const CognitiveBehavioralTherapy = lazy(() => import("@/pages/CognitiveBehavioralTherapy"));
 const CouplesCounseling = lazy(() => import("@/pages/CouplesCounseling"));
 const CounselorNearMe = lazy(() => import("@/pages/CounselorNearMe"));
+const MentalHealthNearMe = lazy(() => import("@/pages/MentalHealthNearMe"));
 
 // Orlando Service Landing Pages
 const Psychiatrist = lazy(() => import("@/pages/Psychiatrist"));
@@ -368,6 +369,11 @@ function Router() {
         <Route path="/counselor-near-me">
           <Suspense fallback={<LoadingFallback />}>
             <CounselorNearMe />
+          </Suspense>
+        </Route>
+        <Route path="/mental-health-near-me">
+          <Suspense fallback={<LoadingFallback />}>
+            <MentalHealthNearMe />
           </Suspense>
         </Route>
         <Route path="/psychiatrist">
