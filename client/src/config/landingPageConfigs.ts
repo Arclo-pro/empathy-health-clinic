@@ -1001,12 +1001,12 @@ function createInsuranceTherapyConfig(
   };
 }
 
-// UMR Psychiatry Orlando - Optimized for "psychiatrist orlando accepts umr" (Rank 7)
+// UMR Psychiatry Orlando - Optimized for "psychiatrist orlando accepts umr" (Rank 5)
 export const umrTherapyOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "UMR Psychiatrist Orlando | In-Network Provider",
-    description: "UMR-accepted psychiatrists in Orlando, FL. In-network for anxiety, depression, ADHD, bipolar. Same-week appointments. Call (386) 848-8751.",
-    keywords: ["psychiatrist orlando accepts umr", "umr psychiatrist orlando", "psychiatrist takes umr orlando fl", "umr mental health orlando", "in-network psychiatrist umr orlando", "umr covered psychiatrist orlando", "psychiatrist near me umr insurance"],
+    title: "Psychiatrist Orlando Accepts UMR | In-Network",
+    description: "Psychiatrist in Orlando that accepts UMR insurance. In-network for anxiety, depression, ADHD, bipolar. Same-week appointments. Call (386) 848-8751.",
+    keywords: ["psychiatrist orlando accepts umr", "umr psychiatrist orlando", "psychiatrist takes umr orlando fl", "umr mental health orlando", "in-network psychiatrist umr orlando", "umr covered psychiatrist orlando", "psychiatrist near me umr insurance", "psychiatrist that accepts umr orlando"],
     canonicalPath: "/therapist-accepts-umr",
   },
   jsonLd: {
@@ -1158,12 +1158,12 @@ export const sunshineHealthTherapyOrlandoConfig: LandingPageConfig = createInsur
   "sunshine-health-therapy"
 );
 
-// Cigna Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts cigna" (Rank 8)
+// Cigna Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts cigna" (Rank 7)
 export const cignaPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Cigna Psychiatrist Orlando | In-Network Provider",
-    description: "Cigna-accepted psychiatrists in Orlando, FL. In-network for anxiety, ADHD, depression. Same-week appointments. Call (386) 848-8751.",
-    keywords: ["psychiatrist orlando accepts cigna", "cigna psychiatrist orlando", "psychiatrist takes cigna orlando fl", "cigna mental health orlando", "in-network psychiatrist cigna orlando", "cigna covered psychiatrist orlando"],
+    title: "Psychiatrist Orlando Accepts Cigna | In-Network",
+    description: "Psychiatrist in Orlando that accepts Cigna insurance. In-network for anxiety, ADHD, depression, bipolar. Same-week appointments. Call (386) 848-8751.",
+    keywords: ["psychiatrist orlando accepts cigna", "cigna psychiatrist orlando", "psychiatrist takes cigna orlando fl", "cigna mental health orlando", "in-network psychiatrist cigna orlando", "cigna covered psychiatrist orlando", "psychiatrist that accepts cigna orlando"],
     canonicalPath: "/psychiatrist-orlando-accepts-cigna",
   },
   jsonLd: {
@@ -1284,12 +1284,12 @@ export const cignaPsychiatristOrlandoConfig: LandingPageConfig = {
   },
 };
 
-// Aetna Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts aetna" (Rank 6)
+// Aetna Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts aetna" (Rank 5)
 export const aetnaPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Aetna Psychiatrist Orlando | In-Network Provider",
-    description: "Aetna-accepted psychiatrists in Orlando, FL. In-network for anxiety, ADHD, depression. Same-week appointments. Call (386) 848-8751.",
-    keywords: ["psychiatrist orlando accepts aetna", "aetna psychiatrist orlando", "psychiatrist takes aetna orlando fl", "aetna mental health orlando", "in-network psychiatrist aetna orlando", "aetna covered psychiatrist orlando"],
+    title: "Psychiatrist Orlando Accepts Aetna | In-Network",
+    description: "Psychiatrist in Orlando that accepts Aetna insurance. In-network for anxiety, ADHD, depression, bipolar. Same-week appointments. Call (386) 848-8751.",
+    keywords: ["psychiatrist orlando accepts aetna", "aetna psychiatrist orlando", "psychiatrist takes aetna orlando fl", "aetna mental health orlando", "in-network psychiatrist aetna orlando", "aetna covered psychiatrist orlando", "psychiatrist that accepts aetna orlando"],
     canonicalPath: "/psychiatrist-orlando-accepts-aetna",
   },
   jsonLd: {
@@ -1766,11 +1766,11 @@ export const psychiatryOrlandoConfig: LandingPageConfig = {
   },
 };
 
-// Psychiatrist Orlando - Optimized for "psychiatrist orlando" (not in top 20)
+// Psychiatrist Orlando - Optimized for "psychiatrist orlando" (Rank 10)
 export const psychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Orlando FL | Top-Rated Psychiatrists",
-    description: "Top-rated psychiatrists in Orlando, FL. Board-certified specialists for anxiety, depression, ADHD, bipolar. 4.8-star rating, same-week appointments. Call (386) 848-8751.",
+    title: "Psychiatrist Orlando | #1 Rated | Same-Week Apts",
+    description: "Top-rated psychiatrist in Orlando, FL. Board-certified for anxiety, depression, ADHD, bipolar. 4.8 stars, same-week appointments available. Call (386) 848-8751.",
     keywords: ["psychiatrist orlando", "psychiatrist orlando fl", "orlando psychiatrist", "psychiatrists in orlando", "find psychiatrist orlando", "best psychiatrist orlando", "board certified psychiatrist orlando", "top psychiatrist orlando", "psychiatrist near me orlando", "orlando fl psychiatrist"],
     canonicalPath: "/psychiatrist-orlando",
   },
