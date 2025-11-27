@@ -78,6 +78,7 @@ export default function SiteFooter() {
 
   const orlandoServicesLinks = [
     { label: "Psychiatry Clinic Orlando", href: "/psychiatry-clinic-orlando" },
+    { label: "Psychiatry Orlando", href: "/psychiatry-orlando" },
     { label: "Psychiatrist Orlando", href: "/psychiatrist-orlando" },
     { label: "ADHD Psychiatrist", href: "/adhd-psychiatrist-orlando" },
     { label: "Anxiety Psychiatrist", href: "/anxiety-psychiatrist-orlando" },
