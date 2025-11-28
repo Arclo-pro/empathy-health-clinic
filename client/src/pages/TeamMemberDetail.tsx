@@ -37,7 +37,7 @@ export default function TeamMemberDetail() {
         <SiteHeader />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Provider Not Found</h1>
+            <h2 className="text-2xl font-bold mb-4">Provider Not Found</h2>
             <Button asChild>
               <Link href="/team">Back to Team</Link>
             </Button>

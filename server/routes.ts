@@ -2528,6 +2528,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const robotsTxt = `User-agent: *
 Disallow: /admin/
 
+# Allow AI crawlers for AI Search visibility
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
 Sitemap: ${baseUrl}/sitemap_index.xml
 `;
 

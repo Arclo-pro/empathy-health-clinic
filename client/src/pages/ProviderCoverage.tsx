@@ -44,7 +44,7 @@ export default function ProviderCoverage() {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center max-w-md px-4">
-          <h1 className="text-2xl font-bold text-foreground mb-4">Provider Not Found</h1>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Provider Not Found</h2>
           <p className="text-muted-foreground mb-6">
             We couldn't find the insurance provider you're looking for.
           </p>
