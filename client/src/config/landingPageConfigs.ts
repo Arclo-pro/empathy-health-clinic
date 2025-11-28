@@ -2637,3 +2637,134 @@ export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
     conversionCategory: "cbt_therapy_orlando",
   },
 };
+
+// United Healthcare Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts united healthcare"
+export const unitedHealthcarePsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Orlando Accepts United Healthcare | UHC",
+    description: "Psychiatrist in Orlando accepting United Healthcare/UHC. In-network for anxiety, ADHD, depression, bipolar. Same-week appointments. Call (386) 848-8751.",
+    keywords: ["psychiatrist orlando accepts united healthcare", "united healthcare psychiatrist orlando", "uhc psychiatrist orlando", "psychiatrist takes united healthcare orlando fl", "united healthcare mental health orlando", "in-network psychiatrist uhc orlando", "psychiatrist that accepts uhc orlando"],
+    canonicalPath: "/psychiatrist-orlando-accepts-united-healthcare",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "United Healthcare Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists in Orlando accepting United Healthcare (UHC) insurance for medication management and psychiatric care.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-united-healthcare",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "medicalSpecialty": "Psychiatry",
+    "insuranceAccepted": "United Healthcare (UHC)"
+  },
+  hero: {
+    title: "Psychiatrists Accepting United Healthcare in Orlando, FL",
+    subtitle: "Board-certified psychiatrists in-network with United Healthcare (UHC) insurance. Expert medication management for anxiety, depression, ADHD, bipolar disorder. Same-week appointments available in Orlando.",
+    ctaPrimary: "Verify UHC Coverage",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["United Healthcare In-Network", "Board-Certified Psychiatrists", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Orlando UHC Psychiatry Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nUnited Healthcare appointments available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Board-Certified Psychiatrists Accepting United Healthcare in Orlando",
+    introduction: [
+      "Looking for a psychiatrist in Orlando who accepts United Healthcare insurance? Empathy Health Clinic's board-certified psychiatrists are in-network UHC providers, making quality psychiatric care affordable and accessible for United Healthcare members.",
+      "We provide comprehensive psychiatric services covered by United Healthcare including medication management, psychiatric evaluations, and treatment for anxiety, depression, ADHD, bipolar disorder, and more. Our team understands UHC benefits and will help you maximize your insurance coverage.",
+    ],
+    conditionsHeading: "Psychiatric Conditions We Treat with UHC Coverage",
+    conditions: [
+      { name: "Anxiety & Panic Disorders" },
+      { name: "Depression & Mood Disorders" },
+      { name: "ADHD (Adults & Adolescents)" },
+      { name: "Bipolar Disorder" },
+      { name: "OCD & Related Disorders" },
+      { name: "PTSD & Trauma" },
+      { name: "Insomnia & Sleep Disorders" },
+      { name: "Medication Management" },
+    ],
+    servicesHeading: "United Healthcare-Covered Psychiatric Services",
+    services: [
+      {
+        title: "Psychiatric Evaluations",
+        description: "Comprehensive mental health assessments covered by United Healthcare with minimal copay. Get an accurate diagnosis and personalized treatment plan."
+      },
+      {
+        title: "Medication Management",
+        description: "Ongoing psychiatric medication management for anxiety, depression, ADHD, and bipolar disorder. UHC typically covers follow-up appointments."
+      },
+      {
+        title: "ADHD Treatment",
+        description: "Complete ADHD evaluations and medication management covered by most United Healthcare plans for adults and adolescents."
+      },
+      {
+        title: "Telepsychiatry Options",
+        description: "Virtual psychiatry appointments covered by United Healthcare at the same rate as in-person visits. See your psychiatrist from home."
+      },
+    ],
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/adhd-psychiatrist-orlando", label: "ADHD Psychiatrist" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/insurance", label: "Insurance Information" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
+    ],
+  },
+  faqs: [
+    {
+      question: "Does Empathy Health Clinic accept United Healthcare insurance?",
+      answer: "Yes, our board-certified psychiatrists are in-network providers for United Healthcare insurance plans. We accept UHC PPO, HMO, and other United Healthcare plans. Call 386-848-8751 to verify your specific plan coverage."
+    },
+    {
+      question: "What does United Healthcare cover for psychiatric services?",
+      answer: "United Healthcare typically covers psychiatric evaluations, medication management, and mental health treatment. Coverage varies by plan, but most UHC plans cover 80-100% of psychiatric services after deductible. Copays typically range from $10-50 per visit."
+    },
+    {
+      question: "Do I need a referral to see a psychiatrist with United Healthcare?",
+      answer: "It depends on your UHC plan type. United Healthcare PPO plans typically do not require a referral. UHC HMO plans may require a referral from your primary care physician. Call us at 386-848-8751 to help determine if you need a referral."
+    },
+    {
+      question: "How quickly can I see a United Healthcare psychiatrist in Orlando?",
+      answer: "We offer same-week appointments for United Healthcare patients. Most patients can be seen within 3-5 business days. Call 386-848-8751 to schedule your UHC-covered appointment."
+    },
+    {
+      question: "Does United Healthcare cover telepsychiatry appointments?",
+      answer: "Yes, United Healthcare covers telepsychiatry (virtual psychiatry) appointments at the same rate as in-person visits. This makes it convenient to see your psychiatrist from home while still using your UHC benefits."
+    },
+  ],
+  analytics: {
+    pageName: "United Healthcare Psychiatrist Orlando Page",
+    conversionCategory: "uhc_psychiatrist",
+  },
+};
