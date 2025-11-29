@@ -307,8 +307,9 @@ export function getCanonicalUrl(
   path: string,
   query: string
 ): string | null {
-  // Step 1: Force HTTPS (handled by Replit automatically, but we need to account for it)
-  const canonicalProtocol = 'https';
+  // Step 1: Force HTTPS (but skip for localhost in development)
+  const isLocalhost = host.includes('localhost') || host.includes('127.0.0.1');
+  const canonicalProtocol = isLocalhost ? protocol : 'https';
   
   // Step 2: Strip www subdomain
   const canonicalHost = host.startsWith('www.') ? host.substring(4) : host;
