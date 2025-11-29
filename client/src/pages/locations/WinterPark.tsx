@@ -451,6 +451,16 @@ export default function PsychiatristWinterPark() {
                 </div>
 
                 <div className="bg-card border rounded-lg p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-4">Nearby Locations</h3>
+                  <div className="space-y-2">
+                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">Psychiatrist Orlando</Link>
+                    <Link href="/locations/altamonte-springs" className="block text-sm text-primary hover:underline">Altamonte Springs</Link>
+                    <Link href="/locations/kissimmee" className="block text-sm text-primary hover:underline">Kissimmee</Link>
+                    <Link href="/locations/apopka" className="block text-sm text-primary hover:underline">Apopka</Link>
+                  </div>
+                </div>
+
+                <div className="bg-card border rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Insurance Accepted</h3>
                   <div className="space-y-2">
                     <Link href="/psychiatrist-orlando-accepts-bcbs" className="block text-sm text-primary hover:underline">Blue Cross Blue Shield</Link>

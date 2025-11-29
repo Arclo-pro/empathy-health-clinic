@@ -13,7 +13,22 @@ interface SEOHeadProps {
   jsonLd?: object;
   pageDesignType?: string;
   preloadImage?: string;
+  breadcrumbTitle?: string;
 }
+
+const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
+  "/psychiatry-orlando": "/psychiatrist-orlando",
+  "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
+  "/anxiety-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/medication-management-orlando": "/psychiatrist-orlando",
+  "/adhd-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/same-day-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/bipolar-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/child-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/telepsychiatry-orlando": "/psychiatrist-orlando",
+  "/psychiatrist-near-me": "/psychiatrist-orlando",
+  "/psychiatric-evaluation-orlando": "/psychiatrist-orlando",
+};
 
 export default function SEOHead({
   title,
@@ -28,6 +43,7 @@ export default function SEOHead({
   jsonLd,
   pageDesignType,
   preloadImage,
+  breadcrumbTitle,
 }: SEOHeadProps) {
   useEffect(() => {
     document.title = title;
@@ -90,7 +106,13 @@ export default function SEOHead({
     };
 
     const preferredDomain = "https://empathyhealthclinic.com";
-    const normalizedPath = normalizePath(canonicalPath || window.location.pathname);
+    let normalizedPath = normalizePath(canonicalPath || window.location.pathname);
+    
+    // Apply canonical consolidation for Orlando pages
+    if (CANONICAL_CONSOLIDATION_PATHS[normalizedPath]) {
+      normalizedPath = CANONICAL_CONSOLIDATION_PATHS[normalizedPath];
+    }
+    
     const canonicalUrl = `${preferredDomain}${normalizedPath}`;
     const currentUrl = canonicalUrl;
     const defaultOgImage = ogImage || `${preferredDomain}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
@@ -196,6 +218,45 @@ export default function SEOHead({
       jsonLdScript = null;
     }
 
+    // Add Breadcrumb JSON-LD schema for SEO
+    let breadcrumbScript = document.querySelector('script[type="application/ld+json"][data-breadcrumb="true"]');
+    const pageTitle = breadcrumbTitle || title.split(' | ')[0].split(' - ')[0];
+    const currentPagePath = normalizePath(window.location.pathname);
+    const actualPageUrl = `${preferredDomain}${currentPagePath}`;
+    
+    // Only add breadcrumbs for non-homepage pages
+    if (currentPagePath !== '/') {
+      const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": preferredDomain
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": pageTitle,
+            "item": actualPageUrl
+          }
+        ]
+      };
+      
+      if (!breadcrumbScript) {
+        breadcrumbScript = document.createElement("script");
+        breadcrumbScript.setAttribute("type", "application/ld+json");
+        breadcrumbScript.setAttribute("data-breadcrumb", "true");
+        document.head.appendChild(breadcrumbScript);
+      }
+      breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+    } else if (breadcrumbScript) {
+      breadcrumbScript.remove();
+      breadcrumbScript = null;
+    }
+
     return () => {
       metaTags.forEach(({ name, property }) => {
         const selector = name ? `meta[name="${name}"]` : `meta[property="${property}"]`;
@@ -213,12 +274,16 @@ export default function SEOHead({
         jsonLdScript.parentNode.removeChild(jsonLdScript);
       }
 
+      if (breadcrumbScript && breadcrumbScript.parentNode) {
+        breadcrumbScript.parentNode.removeChild(breadcrumbScript);
+      }
+
       const preloadLink = document.querySelector('link[rel="preload"][data-seo-head="true"]');
       if (preloadLink && preloadLink.parentNode) {
         preloadLink.parentNode.removeChild(preloadLink);
       }
     };
-  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author, jsonLd, preloadImage]);
+  }, [title, description, keywords, ogImage, canonicalPath, type, publishedDate, modifiedDate, author, jsonLd, preloadImage, breadcrumbTitle]);
 
   return null;
 }

@@ -34,6 +34,7 @@ export default function SiteHeader() {
   const phone = content?.footerPhone || "386-848-8751";
 
   const navItems = [
+    { label: "Psychiatrist Orlando", href: "/psychiatrist-orlando" },
     { label: "Services", href: "/services" },
     { label: "Team", href: "/team" },
     { label: "Insurance", href: "/insurance" }

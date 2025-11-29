@@ -1803,7 +1803,15 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
       { "@type": "City", "name": "Lake Mary" },
       { "@type": "City", "name": "Maitland" }
     ],
-    "medicalSpecialty": "Psychiatry"
+    "medicalSpecialty": "Psychiatry",
+    "sameAs": [
+      "https://www.facebook.com/empathyhealthclinic",
+      "https://www.instagram.com/empathyhealthclinic",
+      "https://www.linkedin.com/company/empathy-health-clinic",
+      "https://www.psychologytoday.com/us/psychiatrists/empathy-health-clinic-winter-park-fl",
+      "https://www.healthgrades.com/group-directory/fl-florida/winter-park/empathy-health-clinic",
+      "https://www.zocdoc.com/practice/empathy-health-clinic"
+    ]
   },
   hero: {
     title: "Psychiatrist Orlando | Expert Mental Health Care in Orlando, FL",
@@ -1918,17 +1926,17 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
     formSubheading: "Connect with an expert psychiatrist in Orlando for comprehensive mental health care.",
     formType: "contact",
     quickLinks: [
-      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/psychiatrist-near-me", label: "Psychiatrist Near Me" },
+      { href: "/psychiatrist-winter-park", label: "Psychiatrist Winter Park" },
+      { href: "/locations/altamonte-springs", label: "Psychiatrist Altamonte Springs" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
       { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
       { href: "/adhd-psychiatrist-orlando", label: "ADHD Psychiatrist" },
-      { href: "/medication-management-orlando", label: "Medication Management" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
       { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
-      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
       { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Insurance" },
       { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Insurance" },
-      { href: "/therapist-accepts-umr", label: "UMR Insurance" },
-      { href: "/psychiatrist-orlando-accepts-united-healthcare", label: "United Healthcare" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Insurance" },
     ],
   },
   analytics: {

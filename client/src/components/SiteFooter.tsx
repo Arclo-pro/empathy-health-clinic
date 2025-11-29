@@ -77,19 +77,19 @@ export default function SiteFooter() {
   ];
 
   const orlandoServicesLinks = [
-    { label: "Psychiatrist Orlando", href: "/psychiatrist-orlando" },
-    { label: "Psychiatry Clinic Orlando", href: "/psychiatry-clinic-orlando" },
-    { label: "Psychiatry Orlando", href: "/psychiatry-orlando" },
-    { label: "ADHD Psychiatrist", href: "/adhd-psychiatrist-orlando" },
-    { label: "Anxiety Psychiatrist", href: "/anxiety-psychiatrist-orlando" },
-    { label: "Child Psychiatrist", href: "/child-psychiatrist-orlando" },
-    { label: "Bipolar Psychiatrist", href: "/bipolar-psychiatrist-orlando" },
-    { label: "Medication Management", href: "/medication-management-orlando" },
-    { label: "Telepsychiatry", href: "/telepsychiatry-orlando" },
+    { label: "Psychiatrist Orlando", href: "/psychiatrist-orlando", primary: true },
+    { label: "Psychiatrist Near Me", href: "/psychiatrist-near-me", primary: true },
+    { label: "Medication Management Orlando", href: "/medication-management-orlando" },
+    { label: "ADHD Psychiatrist Orlando", href: "/adhd-psychiatrist-orlando" },
+    { label: "Anxiety Psychiatrist Orlando", href: "/anxiety-psychiatrist-orlando" },
+    { label: "Child Psychiatrist Orlando", href: "/child-psychiatrist-orlando" },
+    { label: "Telepsychiatry Orlando", href: "/telepsychiatry-orlando" },
+    { label: "Psychiatrist Winter Park", href: "/psychiatrist-winter-park" },
+    { label: "Psychiatrist Altamonte Springs", href: "/locations/altamonte-springs" },
     { label: "Same-Day Psychiatrist", href: "/same-day-psychiatrist-orlando" },
+    { label: "Accepts BCBS", href: "/psychiatrist-orlando-accepts-bcbs" },
     { label: "Accepts Cigna", href: "/psychiatrist-orlando-accepts-cigna" },
-    { label: "Accepts Aetna", href: "/psychiatrist-orlando-accepts-aetna" },
-    { label: "Accepts UMR", href: "/therapist-accepts-umr" }
+    { label: "Accepts Aetna", href: "/psychiatrist-orlando-accepts-aetna" }
   ];
 
   return (
@@ -105,7 +105,11 @@ export default function SiteFooter() {
               <a
                 key={index}
                 href={link.href}
-                className="px-4 py-3 bg-background border border-muted rounded-md text-sm text-foreground hover:bg-primary/5 hover:border-primary transition-colors text-center hover-elevate"
+                className={`px-4 py-3 rounded-md text-sm text-center hover-elevate transition-colors ${
+                  link.primary 
+                    ? 'bg-primary/10 border-2 border-primary text-primary font-semibold hover:bg-primary/20' 
+                    : 'bg-background border border-muted text-foreground hover:bg-primary/5 hover:border-primary'
+                }`}
                 data-testid={`link-footer-orlando-${index}`}
                 aria-label={`${link.label} in Orlando Florida`}
                 onClick={() => trackEvent('orlando_service_click', 'conversion', `Footer Orlando - ${link.label}`)}

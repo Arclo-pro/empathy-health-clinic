@@ -456,6 +456,15 @@ export default function PsychiatristAltamonteSprings() {
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
                   <h3 className="font-semibold text-foreground mb-3">Related Services</h3>
                   <div className="space-y-2">
+                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">
+                      Psychiatrist Orlando
+                    </Link>
+                    <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">
+                      Psychiatrist Near Me
+                    </Link>
+                    <Link href="/medication-management-orlando" className="block text-sm text-primary hover:underline">
+                      Medication Management
+                    </Link>
                     <Link href="/adhd-psychiatrist-orlando" className="block text-sm text-primary hover:underline">
                       ADHD Psychiatrist
                     </Link>
@@ -465,11 +474,23 @@ export default function PsychiatristAltamonteSprings() {
                     <Link href="/telepsychiatry-orlando" className="block text-sm text-primary hover:underline">
                       Telepsychiatry
                     </Link>
-                    <Link href="/medication-management-orlando" className="block text-sm text-primary hover:underline">
-                      Medication Management
+                  </div>
+                </div>
+
+                <div className="bg-card border rounded-lg p-6">
+                  <h3 className="font-semibold text-foreground mb-3">Nearby Locations</h3>
+                  <div className="space-y-2">
+                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">
+                      Psychiatrist Orlando
                     </Link>
-                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline">
-                      Orlando Psychiatrist
+                    <Link href="/psychiatrist-winter-park" className="block text-sm text-primary hover:underline">
+                      Winter Park
+                    </Link>
+                    <Link href="/locations/kissimmee" className="block text-sm text-primary hover:underline">
+                      Kissimmee
+                    </Link>
+                    <Link href="/locations/apopka" className="block text-sm text-primary hover:underline">
+                      Apopka
                     </Link>
                   </div>
                 </div>
