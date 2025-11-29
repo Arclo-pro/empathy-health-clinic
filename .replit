@@ -4,7 +4,7 @@ hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
 [nix]
 channel = "stable-24_05"
-packages = ["glibcLocales", "libwebp", "python311Packages.openpyxl"]
+packages = ["glibcLocales", "libwebp", "python311Packages.openpyxl", "unzip"]
 
 [deployment]
 deploymentTarget = "autoscale"
