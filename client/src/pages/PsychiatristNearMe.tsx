@@ -179,9 +179,9 @@ export default function PsychiatristNearMe() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Near Me in Orlando & Winter Park | Appointments This Week"
-        description="Need a psychiatrist near you? Board-certified psychiatrists in Orlando & Winter Park. Medication management, psychiatric evaluations. Same-week appointments available. Accepting BCBS, Cigna, UMR, Medicare. Call 386-848-8751."
-        keywords={["psychiatrist near me", "psychiatrist near me orlando", "psychiatrist orlando", "psychiatrist winter park", "medication management near me", "psychiatrist accepting new patients", "psychiatrist accepting medicare", "psychiatrist accepting cigna"]}
+        title="Psychiatrist Near Me | Orlando & Winter Park FL | Same-Week"
+        description="Find a psychiatrist near me in Orlando & Winter Park, FL. Board-certified psychiatrists accepting new patients. Medication management for anxiety, depression, ADHD. Same-week appointments. BCBS, Cigna, Aetna, Medicare. Call (386) 848-8751."
+        keywords={["psychiatrist near me", "psychiatrist near me orlando", "find a psychiatrist near me", "psychiatrist accepting new patients near me", "psychiatrist orlando", "psychiatrist winter park", "medication management near me", "psychiatrist accepting medicare", "psychiatrist accepting cigna", "psychiatrist accepting aetna"]}
         canonicalPath="/psychiatrist-near-me"
         jsonLd={jsonLd}
       />
@@ -526,6 +526,41 @@ export default function PsychiatristNearMe() {
         </section>
 
         <TrustFactors />
+
+        {/* Related Services Internal Links */}
+        <section className="py-12 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-2xl md:text-3xl font-sans font-bold mb-6 text-foreground text-center">
+              Explore Our Psychiatric Services
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Link href="/psychiatrist-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Psychiatrist Orlando</h3>
+              </Link>
+              <Link href="/psychiatrist-winter-park" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Psychiatrist Winter Park</h3>
+              </Link>
+              <Link href="/medication-management-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Medication Management</h3>
+              </Link>
+              <Link href="/anxiety-psychiatrist-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Anxiety Psychiatrist</h3>
+              </Link>
+              <Link href="/adhd-psychiatrist-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">ADHD Psychiatrist</h3>
+              </Link>
+              <Link href="/telepsychiatry-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Telepsychiatry</h3>
+              </Link>
+              <Link href="/psychiatric-evaluation-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Psychiatric Evaluation</h3>
+              </Link>
+              <Link href="/same-day-psychiatrist-orlando" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+                <h3 className="font-semibold text-foreground text-sm">Same-Day Psychiatrist</h3>
+              </Link>
+            </div>
+          </div>
+        </section>
 
         <section className="py-12 px-4 bg-muted/50">
           <div className="container mx-auto max-w-4xl">

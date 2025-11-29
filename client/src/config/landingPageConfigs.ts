@@ -2275,9 +2275,9 @@ export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
 // Medication Management Orlando
 export const medicationManagementOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Medication Management Orlando | Psychiatrist | Same-Week",
-    description: "Medication management Orlando - Expert psychiatric medication prescribing & monitoring for anxiety, depression, ADHD, bipolar. Same-week appointments. Call now.",
-    keywords: ["medication management orlando", "psychiatric medication management orlando", "mental health medication orlando", "medication management psychiatrist orlando", "psych meds orlando", "medication monitoring orlando"],
+    title: "Medication Management Orlando FL | Psychiatrist | Same-Week",
+    description: "Medication management Orlando - Board-certified psychiatrists prescribing & monitoring psychiatric medications for anxiety, depression, ADHD, bipolar. Same-week appointments available. Most insurance accepted. Call (386) 848-8751.",
+    keywords: ["medication management orlando", "medication management orlando fl", "psychiatric medication management orlando", "mental health medication orlando", "medication management psychiatrist orlando", "psych meds orlando", "medication monitoring orlando", "psychiatric medication prescribing orlando"],
     canonicalPath: "/psychiatrist-orlando",
   },
   jsonLd: {
@@ -2425,7 +2425,8 @@ export const medicationManagementOrlandoConfig: LandingPageConfig = {
     formType: "contact",
     quickLinks: [
       { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
-      { href: "/psychiatry-orlando", label: "Psychiatry Services" },
+      { href: "/psychiatrist-winter-park", label: "Psychiatrist Winter Park" },
+      { href: "/psychiatrist-near-me", label: "Psychiatrist Near Me" },
       { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },
       { href: "/adhd-psychiatrist-orlando", label: "ADHD Treatment" },
       { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },

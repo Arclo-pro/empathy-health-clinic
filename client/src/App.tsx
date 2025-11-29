@@ -109,6 +109,7 @@ const PsychiatryOrlando = lazy(() => import("@/pages/PsychiatryOrlando"));
 const PsychiatristAltamonteSprings = lazy(() => import("@/pages/locations/AltamonteSprings"));
 const PsychiatristKissimmee = lazy(() => import("@/pages/locations/Kissimmee"));
 const PsychiatristApopka = lazy(() => import("@/pages/locations/Apopka"));
+const PsychiatristWinterPark = lazy(() => import("@/pages/locations/WinterPark"));
 
 // Additional Landing Pages
 const ADHDTestingOrlando = lazy(() => import("@/pages/ADHDTestingOrlando"));
@@ -272,7 +273,12 @@ function Router() {
         </Route>
         <Route path="/locations/winter-park">
           <Suspense fallback={<LoadingFallback />}>
-            <WinterPark />
+            <PsychiatristWinterPark />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatrist-winter-park">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatristWinterPark />
           </Suspense>
         </Route>
         <Route path="/locations/kissimmee">
