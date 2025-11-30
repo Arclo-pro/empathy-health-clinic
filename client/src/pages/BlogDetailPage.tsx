@@ -548,7 +548,11 @@ export default function BlogDetailPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title={blogPost.metaTitle || `${blogPost.title} | Empathy Health Clinic`}
-        description={blogPost.metaDescription || blogPost.excerpt}
+        description={
+          blogPost.metaDescription || 
+          blogPost.excerpt || 
+          stripHtmlTags(blogPost.content).slice(0, 200).trim()
+        }
         keywords={blogPost.keywords ?? undefined}
         ogImage={blogPost.ogImage || blogPost.featuredImage || undefined}
         canonicalPath={`/blog/${blogPost.canonicalSlug || blogPost.slug}`}
