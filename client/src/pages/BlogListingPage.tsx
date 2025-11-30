@@ -126,7 +126,7 @@ export default function BlogListingPage() {
                           width={600}
                           height={224}
                           loading={index === 0 ? "eager" : "lazy"}
-                          fetchPriority={index === 0 ? "high" : "auto"}
+                          fetchpriority={index === 0 ? "high" : "auto"}
                           decoding="async"
                           style={{ aspectRatio: "600/224" }}
                           data-testid={`img-featured-post-${index}`}

@@ -100,6 +100,103 @@ function formatDescription(description: string, title: string): string {
   return trimDescription(finalDescription);
 }
 
+// ============ CANONICAL CONFIGURATION ============
+
+/**
+ * Orlando cluster pages that should canonicalize to the primary ranking page
+ * These pages all target "psychiatrist orlando" keywords and would cannibalize each other
+ */
+const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
+  "/psychiatry-orlando": "/psychiatrist-orlando",
+  "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
+  "/anxiety-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/medication-management-orlando": "/psychiatrist-orlando",
+  "/adhd-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/same-day-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/bipolar-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/child-psychiatrist-orlando": "/psychiatrist-orlando",
+  "/telepsychiatry-orlando": "/psychiatrist-orlando",
+  "/psychiatrist-near-me": "/psychiatrist-orlando",
+  "/psychiatric-evaluation-orlando": "/psychiatrist-orlando",
+};
+
+/**
+ * Pages that MUST be self-canonical (never consolidate)
+ * These are EXACT path matches or start-with patterns to avoid substring false positives
+ * Example: "/ptsd" should not match "/about-ptsd-treatment"
+ */
+const SELF_CANONICAL_EXACT_PATHS = [
+  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford', 
+  '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',
+  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando', 
+  '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
+  '/trauma-specialist', '/stress-management', '/couples-counseling',
+  '/virtual-therapy', '/virtual-visit', '/teletherapy',
+  '/counselor-near-me', '/therapist-near-me', '/mental-health-near-me',
+  '/female-therapist-orlando', '/black-psychiatrist-orlando', '/psychotherapist-orlando',
+];
+
+/**
+ * Path prefixes for self-canonical pages (match start of path)
+ */
+const SELF_CANONICAL_PREFIXES = [
+  '/insurance', '/accepts-', '/psychiatrist-winter-park', '/psychiatrist-lake-mary',
+  '/psychiatrist-altamonte', '/psychiatrist-sanford', '/psychiatrist-kissimmee',
+  '/psychiatrist-apopka', '/psychiatrist-maitland', '/psychiatrist-casselberry',
+  '/therapist-winter-park', '/therapist-lake-mary', '/therapist-altamonte',
+];
+
+/**
+ * Noindex utility pages that should NOT have canonical tags
+ */
+const NOINDEX_PATHS = [
+  '/admin', '/login', '/privacy-policy', '/privacy', '/terms',
+  '/medical-disclaimer', '/thank-you', '/appointment-confirmed',
+  '/404', '/not-found', '/examples', '/test'
+];
+
+/**
+ * Check if a path should be self-canonical (never consolidated)
+ * Uses exact path matching and prefix matching to avoid false positives
+ */
+function isSelfCanonicalPath(path: string): boolean {
+  const normalizedPath = path.toLowerCase().replace(/\/$/, ''); // Remove trailing slash
+  
+  // Check exact path matches
+  if (SELF_CANONICAL_EXACT_PATHS.some(exactPath => normalizedPath === exactPath)) {
+    return true;
+  }
+  
+  // Check prefix matches (path starts with pattern)
+  if (SELF_CANONICAL_PREFIXES.some(prefix => normalizedPath.startsWith(prefix))) {
+    return true;
+  }
+  
+  return false;
+}
+
+/**
+ * Check if a path is a noindex utility page (skip canonical)
+ */
+function isNoindexPage(path: string): boolean {
+  const normalizedPath = path.toLowerCase();
+  return NOINDEX_PATHS.some(pattern => normalizedPath.startsWith(pattern));
+}
+
+/**
+ * Check if path is a paginated URL (blog pagination)
+ */
+function isPaginatedPath(path: string, search: string): boolean {
+  return search.includes('page=') || path.includes('page=');
+}
+
+/**
+ * Get the base path for pagination (strip page parameter)
+ */
+function getBasePaginationPath(path: string): string {
+  return path.split('?')[0].split('#')[0];
+}
+
 // ============ KEYWORD PROCESSING ============
 
 const MAX_KEYWORDS = 7;
@@ -148,10 +245,12 @@ function isUtilityPage(path: string): boolean {
 
 /**
  * Check if page is canonicalized to another URL (should suppress keywords)
+ * Only applies to pages that are in consolidation map AND not self-canonical
  */
 function isCanonicalSuppressed(path: string): boolean {
   const normalizedPath = path.toLowerCase();
-  return Object.keys(CANONICAL_CONSOLIDATION_PATHS).includes(normalizedPath);
+  return Object.keys(CANONICAL_CONSOLIDATION_PATHS).includes(normalizedPath) && 
+         !isSelfCanonicalPath(normalizedPath);
 }
 
 /**
@@ -301,20 +400,6 @@ interface SEOHeadProps {
   breadcrumbTitle?: string;
 }
 
-const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
-  "/psychiatry-orlando": "/psychiatrist-orlando",
-  "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
-  "/anxiety-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/medication-management-orlando": "/psychiatrist-orlando",
-  "/adhd-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/same-day-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/bipolar-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/child-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/telepsychiatry-orlando": "/psychiatrist-orlando",
-  "/psychiatrist-near-me": "/psychiatrist-orlando",
-  "/psychiatric-evaluation-orlando": "/psychiatrist-orlando",
-};
-
 export default function SEOHead({
   title,
   description,
@@ -396,10 +481,26 @@ export default function SEOHead({
     };
 
     const preferredDomain = "https://empathyhealthclinic.com";
-    let normalizedPath = normalizePath(canonicalPath || window.location.pathname);
+    const currentSearch = window.location.search;
+    const rawPath = canonicalPath || window.location.pathname;
     
-    // Apply canonical consolidation for Orlando pages
-    if (CANONICAL_CONSOLIDATION_PATHS[normalizedPath]) {
+    // Check pagination BEFORE normalizing (normalizePath strips query params)
+    const isPaginated = isPaginatedPath(rawPath, currentSearch);
+    
+    // Normalize the path (strips query params, trailing slashes, etc.)
+    let normalizedPath = normalizePath(rawPath);
+    
+    // For paginated URLs, canonical should point to base path (e.g., /blog)
+    // Query params are already stripped by normalizePath, so just use base path
+    
+    // Determine if this page should have a canonical tag at all
+    // Noindex utility pages and paginated pages should NOT be indexed
+    const isNoindex = isNoindexPage(normalizedPath);
+    const shouldHaveCanonical = !isNoindex;
+    
+    // Apply canonical consolidation ONLY if NOT a self-canonical page
+    // Self-canonical pages (location, insurance, condition pages) must stay self-canonical
+    if (!isSelfCanonicalPath(normalizedPath) && CANONICAL_CONSOLIDATION_PATHS[normalizedPath]) {
       normalizedPath = CANONICAL_CONSOLIDATION_PATHS[normalizedPath];
     }
     
@@ -407,9 +508,15 @@ export default function SEOHead({
     const currentUrl = canonicalUrl;
     const defaultOgImage = ogImage || `${preferredDomain}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
 
+    // Set robots based on page type:
+    // - noindex for utility pages (admin, privacy-policy, etc.)
+    // - noindex for paginated pages (they point to base canonical)
+    const shouldNoindex = isNoindex || isPaginated;
+    const robotsContent = shouldNoindex ? "noindex, follow" : "index, follow";
+    
     const metaTags = [
       { name: "description", content: formattedDescription },
-      { name: "robots", content: "index, follow" },
+      { name: "robots", content: robotsContent },
       { property: "og:title", content: formattedTitle },
       { property: "og:description", content: formattedDescription },
       { property: "og:image", content: defaultOgImage },
@@ -463,13 +570,28 @@ export default function SEOHead({
       element.setAttribute("content", content);
     });
 
+    // Handle canonical tag - skip for noindex pages, insert BEFORE OG tags for SEO priority
     let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement("link");
-      canonicalLink.setAttribute("rel", "canonical");
-      document.head.appendChild(canonicalLink);
+    if (shouldHaveCanonical) {
+      if (!canonicalLink) {
+        canonicalLink = document.createElement("link");
+        canonicalLink.setAttribute("rel", "canonical");
+        // Insert canonical early in head, before OG/social meta tags for SEO priority
+        const firstMetaTag = document.querySelector('meta[property^="og:"]') || 
+                            document.querySelector('meta[name="twitter:"]') ||
+                            document.head.firstChild;
+        if (firstMetaTag) {
+          document.head.insertBefore(canonicalLink, firstMetaTag);
+        } else {
+          document.head.appendChild(canonicalLink);
+        }
+      }
+      canonicalLink.setAttribute("href", currentUrl);
+    } else if (canonicalLink) {
+      // Remove canonical from noindex pages
+      canonicalLink.remove();
+      canonicalLink = null;
     }
-    canonicalLink.setAttribute("href", currentUrl);
 
     // Preload critical LCP image for better performance with responsive images
     let preloadLink = document.querySelector('link[rel="preload"][data-seo-head="true"]');

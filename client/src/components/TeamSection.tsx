@@ -39,7 +39,7 @@ export default function TeamSection() {
                   className="w-full h-full object-contain"
                   loading="lazy"
                   decoding="async"
-                  fetchPriority={index < 4 ? 'high' : 'auto'}
+                  fetchpriority={index < 4 ? 'high' : 'auto'}
                   width={400}
                   height={400}
                   style={{ aspectRatio: "1/1" }}

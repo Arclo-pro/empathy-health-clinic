@@ -574,7 +574,7 @@ export default function BlogDetailPage() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: 'brightness(1.3)', aspectRatio: "1200/500" }}
             loading="eager"
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
             width={1200}
             height={500}
