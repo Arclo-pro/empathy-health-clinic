@@ -77,8 +77,8 @@ app.use((req, res, next) => {
 // This prevents redirect chains that hurt SEO and crawl budget
 app.use(canonicalizationMiddleware);
 
-// X-Robots-Tag: Exclude admin routes and legacy WordPress archives from search engine indexing
-// Prevents 573 orphaned admin pages from appearing in GA4/SEMrush
+// X-Robots-Tag: Exclude admin routes, static assets, and legacy WordPress archives from search engine indexing
+// Prevents orphaned pages from appearing in GA4/SEMrush
 // NOTE: /tag/ and /author/ URLs are NOT blocked here because they 301 redirect to /blog
 // The redirect itself handles duplicate content prevention - no need for noindex
 // 
@@ -88,14 +88,43 @@ app.use(canonicalizationMiddleware);
 // When published to production (custom domain), this middleware ensures ONLY admin routes
 // and date archives are excluded from indexing while public pages remain indexable.
 app.use((req, res, next) => {
+  const path = req.path.toLowerCase();
+  
+  // Admin, auth, and utility pages
   if (
-    req.path.startsWith('/admin') || 
-    req.path.startsWith('/login') || 
-    req.path.startsWith('/auth') ||
-    req.path.match(/^\/\d{4}\/\d{2}\/\d{2}\//)  // WordPress date archives like /2025/10/06/
+    path.startsWith('/admin') || 
+    path.startsWith('/login') || 
+    path.startsWith('/auth') ||
+    path.startsWith('/config') ||
+    path.startsWith('/debug') ||
+    path.startsWith('/examples') ||
+    path.startsWith('/test') ||
+    path.startsWith('/api/') ||
+    path.match(/^\/\d{4}\/\d{2}\/\d{2}\//)  // WordPress date archives like /2025/10/06/
   ) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
   }
+  
+  // Static assets (JSON, CSV, JS, CSS) - but NOT sitemaps or HTML
+  // These should never appear in search results
+  if (
+    (path.endsWith('.json') && !path.includes('sitemap')) ||
+    path.endsWith('.csv') ||
+    (path.endsWith('.js') && !path.startsWith('/assets/')) ||
+    (path.endsWith('.css') && !path.startsWith('/assets/'))
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex');
+  }
+  
+  // Attachment/media pages (WordPress legacy)
+  if (
+    path.includes('/attachment/') ||
+    path.includes('/uploads/') ||
+    path.match(/\/media\/\d+/)
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  }
+  
   next();
 });
 

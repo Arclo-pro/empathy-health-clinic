@@ -148,11 +148,21 @@ const SELF_CANONICAL_PREFIXES = [
 
 /**
  * Noindex utility pages that should NOT have canonical tags
+ * These pages should be excluded from search engine indexing
  */
 const NOINDEX_PATHS = [
-  '/admin', '/login', '/privacy-policy', '/privacy', '/terms',
-  '/medical-disclaimer', '/thank-you', '/appointment-confirmed',
-  '/404', '/not-found', '/examples', '/test'
+  // Admin and auth pages
+  '/admin', '/login', '/auth', '/config', '/debug',
+  // Legal/utility pages
+  '/privacy-policy', '/privacy', '/terms', '/medical-disclaimer',
+  // Confirmation/thank-you pages
+  '/thank-you', '/appointment-confirmed', '/success', '/confirmation',
+  // Error pages
+  '/404', '/not-found',
+  // Development/test pages
+  '/examples', '/test', '/demo',
+  // Media/attachment pages (WordPress legacy)
+  '/attachment', '/uploads', '/media',
 ];
 
 /**
@@ -177,10 +187,32 @@ function isSelfCanonicalPath(path: string): boolean {
 
 /**
  * Check if a path is a noindex utility page (skip canonical)
+ * Handles path prefixes, file extensions, and API endpoints
  */
 function isNoindexPage(path: string): boolean {
   const normalizedPath = path.toLowerCase();
-  return NOINDEX_PATHS.some(pattern => normalizedPath.startsWith(pattern));
+  
+  // Check explicit noindex paths
+  if (NOINDEX_PATHS.some(pattern => normalizedPath.startsWith(pattern))) {
+    return true;
+  }
+  
+  // API endpoints should never be indexed
+  if (normalizedPath.startsWith('/api/') || normalizedPath.startsWith('/api')) {
+    return true;
+  }
+  
+  // JSON endpoints should not be indexed
+  if (normalizedPath.endsWith('.json')) {
+    return true;
+  }
+  
+  // Debug routes
+  if (normalizedPath.includes('/debug') || normalizedPath.includes('debug=')) {
+    return true;
+  }
+  
+  return false;
 }
 
 /**
@@ -529,9 +561,14 @@ export default function SEOHead({
     const isNoindex = isNoindexPage(normalizedPath);
     const shouldHaveCanonical = !isNoindex && !isSearchFilter;
     
+    // Check if this page is consolidated to another URL (canonical points elsewhere)
+    // These pages need special handling for robots directives
+    const isConsolidated = !isSelfCanonicalPath(normalizedPath) && 
+                           CANONICAL_CONSOLIDATION_PATHS[normalizedPath] !== undefined;
+    
     // Apply canonical consolidation ONLY if NOT a self-canonical page
     // Self-canonical pages (location, insurance, condition pages) must stay self-canonical
-    if (!isSelfCanonicalPath(normalizedPath) && CANONICAL_CONSOLIDATION_PATHS[normalizedPath]) {
+    if (isConsolidated) {
       normalizedPath = CANONICAL_CONSOLIDATION_PATHS[normalizedPath];
     }
     
@@ -542,8 +579,9 @@ export default function SEOHead({
     // Set robots based on page type:
     // - noindex for utility pages (admin, privacy-policy, etc.)
     // - noindex for paginated pages (they point to base canonical)
+    // - noindex for consolidated pages (canonical points to another URL - prevent duplicate content)
     // - noindex, nofollow for search/filter pages (prevent crawl waste)
-    const shouldNoindex = isNoindex || isPaginated || isSearchFilter;
+    const shouldNoindex = isNoindex || isPaginated || isSearchFilter || isConsolidated;
     const robotsContent = isSearchFilter 
       ? "noindex, nofollow"  // Search/filter pages get nofollow too
       : (shouldNoindex ? "noindex, follow" : "index, follow");

@@ -2565,8 +2565,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // Always use production domain for robots.txt (required for Google Search Console)
     const baseUrl = "https://empathyhealthclinic.com";
 
-    const robotsTxt = `User-agent: *
+    const robotsTxt = `# Empathy Health Clinic - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and utility pages
 Disallow: /admin/
+Disallow: /login
+Disallow: /auth/
+Disallow: /config/
+Disallow: /debug/
+Disallow: /examples/
+Disallow: /test/
+
+# Disallow search and filter pages (crawl waste)
+Disallow: /search
+Disallow: /*?search=
+Disallow: /*?q=
+Disallow: /*?page=
+Disallow: /*?tag=
+Disallow: /*?category=
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Disallow attachment and media pages (WordPress legacy)
+Disallow: /attachment/
+Disallow: /uploads/
+Disallow: /media/
+
+# Disallow UTM and tracking parameters
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?ref=
+Disallow: /*?source=
 
 # Allow AI crawlers for AI Search visibility
 User-agent: Google-Extended
@@ -2587,7 +2621,13 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Anthropic-AI
+Allow: /
+
+# Sitemaps
 Sitemap: ${baseUrl}/sitemap_index.xml
+Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/image-sitemap.xml
 `;
 
     res.header('Content-Type', 'text/plain');
