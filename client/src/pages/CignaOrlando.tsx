@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -9,58 +8,30 @@ import {
   Phone,
   MapPin,
   Calendar,
-  Heart,
-  Award
+  Heart
 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
+import InsuranceSchema from "@/components/InsuranceSchema";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function CignaOrlandoPage() {
   return (
     <>
-      <Helmet>
-        <title>Psychiatrist Orlando Accepts Cigna | In-Network 2025</title>
-        <meta name="description" content="Psychiatrist Orlando accepts Cigna - In-network provider for anxiety, depression, ADHD, bipolar. Same-week appointments, verified benefits. Call (386) 848-8751." />
-        <meta name="keywords" content="Orlando psychiatrist Cigna, Cigna mental health Orlando, psychiatry Cigna coverage, Orlando Cigna psychiatrist" />
-        <link rel="canonical" href="https://empathyhealthclinic.com/psychiatrist-orlando-takes-cigna" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Orlando Psychiatrists Who Accept Cigna Insurance (2025)" />
-        <meta property="og:description" content="Find an Orlando psychiatrist who accepts Cigna in 2025. Empathy Health Clinic offers convenient care, easy insurance verification, and fast appointments near you." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://empathyhealthclinic.com/psychiatrist-orlando-takes-cigna" />
-        
-        {/* Structured Data - LocalBusiness + MedicalBusiness */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": ["MedicalBusiness", "LocalBusiness"],
-              "name": "Empathy Health Clinic - Cigna Psychiatry",
-              "description": "Find an Orlando psychiatrist who accepts Cigna in 2025. Empathy Health Clinic offers convenient care, easy insurance verification, and fast appointments near you.",
-              "url": "https://empathyhealthclinic.com/psychiatrist-orlando-takes-cigna",
-              "telephone": "386-848-8751",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "2281 Lee Rd Suite 102",
-                "addressLocality": "Winter Park",
-                "addressRegion": "FL",
-                "postalCode": "32810",
-                "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 28.5939,
-                "longitude": -81.3432
-              },
-              "paymentAccepted": ["Cigna", "Cash", "Credit Card"],
-              "priceRange": "$$",
-              "openingHours": "Mo-Fr 09:00-17:00"
-            }
-          `}
-        </script>
-      </Helmet>
+      <SEOHead
+        title="Psychiatrist Orlando Accepts Cigna | In-Network 2025"
+        description="Psychiatrist Orlando accepts Cigna - In-network provider for anxiety, depression, ADHD, bipolar. Same-week appointments, verified benefits. Call (386) 848-8751."
+        keywords={["Orlando psychiatrist Cigna", "Cigna mental health Orlando", "psychiatry Cigna coverage", "Orlando Cigna psychiatrist"]}
+        canonicalPath="/psychiatrist-orlando-takes-cigna"
+      />
+      <InsuranceSchema 
+        insuranceName="Cigna" 
+        url="https://empathyhealthclinic.com/psychiatrist-orlando-takes-cigna" 
+      />
 
+      <SiteHeader />
+      
       <div className="min-h-screen bg-background">
-        {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/10 via-background to-background border-b">
           <div className="container mx-auto px-4 py-16 max-w-7xl">
             <div className="max-w-3xl">
@@ -89,7 +60,6 @@ export default function CignaOrlandoPage() {
           </div>
         </section>
 
-        {/* Key Benefits */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="grid md:grid-cols-3 gap-8">
@@ -126,21 +96,19 @@ export default function CignaOrlandoPage() {
           </div>
         </section>
 
-        {/* Main Content - AI Generated sections would go here */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="prose prose-lg max-w-none dark:prose-invert">
               <h2>Why Choose Empathy Health Clinic for Cigna Patients</h2>
               <p>
                 At Empathy Health Clinic, we specialize in providing exceptional psychiatric care 
-                to Cigna insurance holders in Orlando and throughout Central Florida...
+                to Cigna insurance holders in Orlando and throughout Central Florida. Our board-certified 
+                providers offer comprehensive mental health services with minimal wait times.
               </p>
-              {/* Content sections will be dynamically generated */}
             </div>
           </div>
         </section>
 
-        {/* Location & Contact */}
         <section className="py-16">
           <div className="container mx-auto px-4 max-w-7xl">
             <Card>
@@ -195,7 +163,6 @@ export default function CignaOrlandoPage() {
           </div>
         </section>
 
-        {/* Related Services */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4 max-w-7xl">
             <h2 className="text-3xl font-bold mb-8 text-center">Related Services</h2>
@@ -232,6 +199,8 @@ export default function CignaOrlandoPage() {
           </div>
         </section>
       </div>
+      
+      <SiteFooter />
     </>
   );
 }

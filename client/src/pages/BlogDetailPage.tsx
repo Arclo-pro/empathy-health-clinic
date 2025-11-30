@@ -379,14 +379,16 @@ export default function BlogDetailPage() {
   useEffect(() => {
     if (blogPost) {
       const canonicalSlug = blogPost.canonicalSlug || blogPost.slug;
-      const jsonLd: any = {
+      const blogUrl = `https://empathyhealthclinic.com/blog/${canonicalSlug}`;
+      const jsonLd: Record<string, unknown> = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": blogPost.metaTitle || blogPost.title,
+        "headline": (blogPost.metaTitle || blogPost.title).slice(0, 110),
+        "url": blogUrl,
         "author": {
           "@type": "Person",
           "name": blogPost.author,
-          "url": window.location.origin,
+          "url": "https://empathyhealthclinic.com",
           "affiliation": {
             "@type": "MedicalOrganization",
             "name": "Empathy Health Clinic"
@@ -395,19 +397,27 @@ export default function BlogDetailPage() {
         },
         "datePublished": blogPost.publishedDate,
         "dateModified": blogPost.lastUpdated || blogPost.publishedDate,
-        "image": blogPost.ogImage || blogPost.featuredImage || forestBg,
+        "image": {
+          "@type": "ImageObject",
+          "url": blogPost.ogImage || blogPost.featuredImage || forestBg
+        },
         "publisher": {
           "@type": "Organization",
           "name": "Empathy Health Clinic",
           "logo": {
             "@type": "ImageObject",
-            "url": `${window.location.origin}/attached_assets/image_1761618219825.png`
+            "url": "https://empathyhealthclinic.com/attached_assets/image_1761618219825.png"
           }
         },
         "description": blogPost.metaDescription || blogPost.excerpt,
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `${window.location.origin}/blog/${canonicalSlug}`
+          "@id": blogUrl
+        },
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Empathy Health Clinic",
+          "url": "https://empathyhealthclinic.com"
         }
       };
 

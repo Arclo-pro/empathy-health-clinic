@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { buildFAQSchema } from "@/lib/structuredData";
 
 interface FAQSchemaProps {
   faqs: Array<{
@@ -9,22 +10,11 @@ interface FAQSchemaProps {
 
 export default function FAQSchema({ faqs }: FAQSchemaProps) {
   useEffect(() => {
-    if (!faqs || faqs.length === 0) {
+    const faqSchema = buildFAQSchema(faqs);
+    
+    if (!faqSchema) {
       return;
     }
-
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    };
 
     let script = document.querySelector('script[type="application/ld+json"][data-schema="faq"]');
     

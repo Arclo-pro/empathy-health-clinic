@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { TeamMember } from "@shared/schema";
+import { buildPhysicianSchema } from "@/lib/structuredData";
 
 interface PhysicianSchemaProps {
   teamMember: TeamMember;
@@ -11,76 +12,17 @@ export default function PhysicianSchema({ teamMember }: PhysicianSchemaProps) {
       return;
     }
 
-    const baseUrl = window.location.origin;
-    
     const specialties = teamMember.specialties.split(',').map(s => s.trim());
     
-    const physicianSchema = {
-      "@context": "https://schema.org",
-      "@type": ["Person", "Physician"],
-      "name": teamMember.name,
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": teamMember.credentials,
-        "credentialCategory": "MedicalCredential"
-      },
-      "image": teamMember.image,
-      "url": `${baseUrl}/team/${teamMember.slug}`,
-      "description": teamMember.bio,
-      "medicalSpecialty": ["Psychiatry", "Mental Health", ...specialties],
-      "qualifications": teamMember.credentials,
-      "isAcceptingNewPatients": true,
-      "availableService": [
-        {
-          "@type": "MedicalProcedure",
-          "name": "Psychiatric Evaluation"
-        },
-        {
-          "@type": "MedicalTherapy", 
-          "name": "Medication Management"
-        }
-      ],
-      "identifier": {
-        "@type": "PropertyValue",
-        "propertyID": "LicenseNumber",
-        "value": "Florida Licensed APRN/PMHNP"
-      },
-      "affiliation": {
-        "@type": ["MedicalOrganization", "LocalBusiness"],
-        "name": "Empathy Health Clinic",
-        "url": baseUrl,
-        "telephone": "+1-386-848-8751",
-        "priceRange": "$$",
-        "image": `${baseUrl}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 28.5983,
-          "longitude": -81.3492
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "17:00"
-          }
-        ],
-        "sameAs": [
-          "https://www.facebook.com/empathyhealthclinic",
-          "https://www.instagram.com/empathyhealthclinic",
-          "https://www.linkedin.com/company/empathyhealthclinic"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "2281 Lee Rd Suite 102",
-          "addressLocality": "Winter Park",
-          "addressRegion": "FL",
-          "postalCode": "32810",
-          "addressCountry": "US"
-        }
-      },
-      "knowsAbout": teamMember.specialties.split(',').map(s => s.trim())
-    };
+    const physicianSchema = buildPhysicianSchema({
+      name: teamMember.name,
+      credentials: teamMember.credentials,
+      image: teamMember.image,
+      specialties: specialties,
+      bio: teamMember.bio,
+      slug: teamMember.slug,
+      sameAs: []
+    });
 
     let script = document.querySelector('script[type="application/ld+json"][data-schema="physician"]');
     
