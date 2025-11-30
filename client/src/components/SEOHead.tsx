@@ -559,18 +559,20 @@ export default function SEOHead({
     // Determine if this page should have a canonical tag at all
     // Noindex utility pages should NOT have canonical
     const isNoindex = isNoindexPage(normalizedPath);
-    const shouldHaveCanonical = !isNoindex && !isSearchFilter;
     
     // Check if this page is consolidated to another URL (canonical points elsewhere)
     // These pages need special handling for robots directives
     const isConsolidated = !isSelfCanonicalPath(normalizedPath) && 
                            CANONICAL_CONSOLIDATION_PATHS[normalizedPath] !== undefined;
     
-    // Apply canonical consolidation ONLY if NOT a self-canonical page
-    // Self-canonical pages (location, insurance, condition pages) must stay self-canonical
-    if (isConsolidated) {
-      normalizedPath = CANONICAL_CONSOLIDATION_PATHS[normalizedPath];
-    }
+    // CRITICAL: Canonical + Robots alignment
+    // - Noindex pages should NOT have canonical pointing to another URL (SEO contradiction)
+    // - Consolidated pages get noindex, so they should NOT have canonical at all
+    // - Search/filter pages should NOT have canonical
+    const shouldHaveCanonical = !isNoindex && !isSearchFilter && !isConsolidated;
+    
+    // NOTE: We do NOT apply canonical consolidation anymore since consolidated pages get noindex
+    // They will have no canonical tag instead of a cross-URL canonical (which is a contradiction)
     
     const canonicalUrl = `${preferredDomain}${normalizedPath}`;
     const currentUrl = canonicalUrl;
