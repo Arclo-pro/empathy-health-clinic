@@ -123,7 +123,11 @@ export default function LocalizedContent({
   slug: customSlug
 }: LocalizedContentProps) {
   const cityKey = city.toLowerCase().replace(/\s+/g, '-');
-  const baseInfo = CITY_DATA[cityKey];
+  
+  const hasCustomContent = customNeighborhoods || customLandmarks || driveTimeMinutes || 
+    customHighways || customDescription || customSlug;
+  
+  const baseInfo = hasCustomContent ? null : CITY_DATA[cityKey];
   
   const info: CityInfo = {
     name: city,
