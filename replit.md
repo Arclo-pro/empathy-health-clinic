@@ -20,6 +20,7 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **Admin Dashboards:** Includes a Link & Performance Monitor, SEO Optimization Dashboard, Blog SEO Optimizer, and SEMrush Keyword Optimizer.
 - **Performance Optimizations:** Mobile-first approach with code splitting, analytics deferral, resource hints, script optimization, and hero image preloading.
 - **URL Management:** Unified canonicalization middleware for www removal, trailing slash normalization, content redirects, and comprehensive query parameter stripping (40+ tracking params). Dynamic blog redirect system with SEO-safe slug normalization.
+- **Title & Meta Description Optimization (November 2025):** SEOHead.tsx now enforces: titles max 60 chars with Title Case normalization and automatic brand suffix; meta descriptions max 160 chars with 80-char minimum and YMYL-compliant fallback generation. Applied to document.title, og:title/description, twitter:title/description.
 - **Security Hardening (November 2025):** YMYL-compliant security headers (X-Frame-Options DENY, X-Content-Type-Options nosniff, CSP, Referrer-Policy, Permissions-Policy). Rate limiting: 10 requests/15min for form submissions, 100 requests/min for API endpoints. Enhanced structured data with medical qualifications, founder info, and isAcceptingNewPatients flags.
 
 ### Feature Specifications

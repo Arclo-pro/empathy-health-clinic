@@ -2,6 +2,8 @@ import { useEffect } from "react";
 
 const BRAND_SUFFIX = "Empathy Health Clinic";
 const MAX_TITLE_LENGTH = 60;
+const MAX_DESCRIPTION_LENGTH = 160;
+const MIN_DESCRIPTION_LENGTH = 80;
 
 /**
  * Normalize title to Title Case for consistency
@@ -56,6 +58,48 @@ function formatTitle(title: string): string {
   return fullTitle;
 }
 
+/**
+ * Trim meta description to optimal length for Google SERP
+ * - Max 160 characters with ellipsis if truncated
+ * - Tries to end at word boundary for readability
+ */
+function trimDescription(description: string): string {
+  if (!description || description.length <= MAX_DESCRIPTION_LENGTH) {
+    return description || '';
+  }
+  
+  // Find the last space before the limit to avoid cutting words
+  const trimPoint = description.lastIndexOf(' ', MAX_DESCRIPTION_LENGTH - 1);
+  const cutoff = trimPoint > 100 ? trimPoint : MAX_DESCRIPTION_LENGTH - 1;
+  
+  return description.slice(0, cutoff).trim() + '…';
+}
+
+/**
+ * Generate fallback meta description when none provided
+ * Uses title to create a contextual, YMYL-compliant description
+ */
+function generateFallbackDescription(title: string): string {
+  const cleanTitle = title.replace(/\s*[\|\-]\s*Empathy.*$/i, '').trim();
+  return `${cleanTitle}. Expert psychiatric care in Orlando, FL. Same-week appointments. Insurance accepted. Safe, compassionate treatment.`;
+}
+
+/**
+ * Format meta description for SEO compliance
+ * - Ensures non-empty description with fallback
+ * - Trims to max 160 characters
+ * - Validates minimum length for quality
+ */
+function formatDescription(description: string, title: string): string {
+  // Use fallback if description is empty or too short
+  let finalDescription = description && description.trim().length >= MIN_DESCRIPTION_LENGTH
+    ? description.trim()
+    : generateFallbackDescription(title);
+  
+  // Trim to max length
+  return trimDescription(finalDescription);
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -105,6 +149,9 @@ export default function SEOHead({
     // Format title: add brand suffix, enforce max length
     const formattedTitle = formatTitle(title);
     document.title = formattedTitle;
+    
+    // Format description: fallback for empty, trim to max length
+    const formattedDescription = formatDescription(description, title);
 
     /**
      * Normalize path for canonical URL:
@@ -176,16 +223,16 @@ export default function SEOHead({
     const defaultOgImage = ogImage || `${preferredDomain}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
 
     const metaTags = [
-      { name: "description", content: description },
+      { name: "description", content: formattedDescription },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: formattedTitle },
-      { property: "og:description", content: description },
+      { property: "og:description", content: formattedDescription },
       { property: "og:image", content: defaultOgImage },
       { property: "og:url", content: currentUrl },
       { property: "og:type", content: type },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: formattedTitle },
-      { name: "twitter:description", content: description },
+      { name: "twitter:description", content: formattedDescription },
       { name: "twitter:image", content: defaultOgImage },
     ];
 
