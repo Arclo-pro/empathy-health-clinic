@@ -100,6 +100,191 @@ function formatDescription(description: string, title: string): string {
   return trimDescription(finalDescription);
 }
 
+// ============ KEYWORD PROCESSING ============
+
+const MAX_KEYWORDS = 7;
+const MIN_KEYWORDS = 3;
+
+const UTILITY_PAGE_PATHS = [
+  '/admin', '/login', '/privacy', '/privacy-policy', '/terms', 
+  '/medical-disclaimer', '/thank-you', '/appointment-confirmed',
+  '/404', '/not-found'
+];
+
+const LOCAL_PAGE_PATTERNS = [
+  'orlando', 'winter-park', 'altamonte', 'lake-mary', 'sanford',
+  'kissimmee', 'apopka', 'maitland', 'casselberry'
+];
+
+const GEO_KEYWORD_MAP: Record<string, string[]> = {
+  'orlando': ['orlando fl', 'orlando florida', 'central florida'],
+  'winter-park': ['winter park fl', 'winter park florida', 'orlando area'],
+  'altamonte': ['altamonte springs fl', 'altamonte springs florida', 'orlando area'],
+  'lake-mary': ['lake mary fl', 'lake mary florida', 'seminole county'],
+  'sanford': ['sanford fl', 'sanford florida', 'seminole county'],
+  'kissimmee': ['kissimmee fl', 'kissimmee florida', 'osceola county'],
+  'apopka': ['apopka fl', 'apopka florida', 'orange county'],
+  'maitland': ['maitland fl', 'maitland florida', 'orlando area'],
+  'casselberry': ['casselberry fl', 'casselberry florida', 'seminole county'],
+};
+
+const STOP_WORDS = new Set([
+  'a', 'an', 'the', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+  'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during',
+  'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had',
+  'do', 'does', 'did', 'will', 'would', 'could', 'should', 'may', 'might',
+  'must', 'shall', 'can', 'need', 'our', 'your', 'we', 'you', 'they', 'it'
+]);
+
+/**
+ * Check if path is a utility page that should NOT have keywords
+ */
+function isUtilityPage(path: string): boolean {
+  const normalizedPath = path.toLowerCase();
+  return UTILITY_PAGE_PATHS.some(utilPath => 
+    normalizedPath.startsWith(utilPath) || normalizedPath === utilPath
+  );
+}
+
+/**
+ * Check if page is canonicalized to another URL (should suppress keywords)
+ */
+function isCanonicalSuppressed(path: string): boolean {
+  const normalizedPath = path.toLowerCase();
+  return Object.keys(CANONICAL_CONSOLIDATION_PATHS).includes(normalizedPath);
+}
+
+/**
+ * Check if path is a local/geo page that needs location keywords
+ */
+function isLocalPage(path: string): boolean {
+  const normalizedPath = path.toLowerCase();
+  return LOCAL_PAGE_PATTERNS.some(pattern => normalizedPath.includes(pattern));
+}
+
+/**
+ * Get path-specific geo keywords based on the location in the URL
+ */
+function getGeoKeywords(path: string): string[] {
+  const normalizedPath = path.toLowerCase();
+  
+  for (const pattern of LOCAL_PAGE_PATTERNS) {
+    if (normalizedPath.includes(pattern)) {
+      return GEO_KEYWORD_MAP[pattern] || ['orlando fl', 'central florida'];
+    }
+  }
+  
+  return ['orlando fl', 'central florida'];
+}
+
+/**
+ * Generate fallback keywords from page title
+ */
+function generateFallbackKeywords(title: string, path: string): string[] {
+  const cleanTitle = title.replace(/\s*[\|\-]\s*Empathy.*$/i, '').trim().toLowerCase();
+  
+  // Extract meaningful words from title
+  const words = cleanTitle.split(/\s+/).filter(word => 
+    word.length > 2 && !STOP_WORDS.has(word)
+  );
+  
+  const keywords: string[] = [];
+  
+  // Add the main topic phrase
+  if (words.length >= 2) {
+    keywords.push(words.slice(0, 3).join(' '));
+  }
+  
+  // Add individual important words
+  words.slice(0, 3).forEach(word => {
+    if (!keywords.includes(word)) {
+      keywords.push(word);
+    }
+  });
+  
+  // Add path-specific geo keywords for local pages
+  if (isLocalPage(path)) {
+    const geoTerms = getGeoKeywords(path);
+    geoTerms.slice(0, 2).forEach(geo => {
+      if (!keywords.includes(geo)) {
+        keywords.push(geo);
+      }
+    });
+  }
+  
+  // Always add core service keywords
+  keywords.push('psychiatrist orlando');
+  keywords.push('mental health');
+  
+  return keywords;
+}
+
+/**
+ * Format and normalize keywords for SEO compliance
+ * - Skips utility and canonicalized pages
+ * - Generates fallback if empty
+ * - Normalizes to lowercase, comma-separated
+ * - Enforces 3-7 keyword limit
+ * - Removes duplicates
+ * - Backfills to meet minimum count
+ */
+function formatKeywords(
+  keywords: string[] | undefined, 
+  title: string, 
+  path: string
+): string | undefined {
+  // Skip keywords for utility pages
+  if (isUtilityPage(path)) {
+    return undefined;
+  }
+  
+  // Skip keywords for canonicalized pages to prevent cannibalization
+  if (isCanonicalSuppressed(path)) {
+    return undefined;
+  }
+  
+  // Get keywords array (use fallback if empty or insufficient)
+  let keywordList = keywords && keywords.length >= MIN_KEYWORDS 
+    ? keywords 
+    : generateFallbackKeywords(title, path);
+  
+  // Normalize: lowercase, trim, remove empty
+  keywordList = keywordList
+    .map(k => k.toLowerCase().replace(/;/g, ',').trim())
+    .filter(k => k.length > 0);
+  
+  // Remove duplicates
+  keywordList = [...new Set(keywordList)];
+  
+  // Backfill if below minimum count
+  if (keywordList.length < MIN_KEYWORDS) {
+    // Add path-specific geo keywords first
+    const geoTerms = getGeoKeywords(path);
+    for (const geo of geoTerms) {
+      if (keywordList.length >= MIN_KEYWORDS) break;
+      if (!keywordList.includes(geo)) {
+        keywordList.push(geo);
+      }
+    }
+    
+    // Add core service keywords if still needed
+    const coreKeywords = ['psychiatrist orlando', 'mental health', 'therapy orlando', 'counseling orlando'];
+    for (const core of coreKeywords) {
+      if (keywordList.length >= MIN_KEYWORDS) break;
+      if (!keywordList.includes(core)) {
+        keywordList.push(core);
+      }
+    }
+  }
+  
+  // Enforce max keyword limit (3-7)
+  if (keywordList.length > MAX_KEYWORDS) {
+    keywordList = keywordList.slice(0, MAX_KEYWORDS);
+  }
+  
+  return keywordList.length > 0 ? keywordList.join(', ') : undefined;
+}
+
 interface SEOHeadProps {
   title: string;
   description: string;
@@ -241,8 +426,11 @@ export default function SEOHead({
       metaTags.push({ name: "google-site-verification", content: searchConsoleVerification });
     }
 
-    if (keywords && keywords.length > 0) {
-      metaTags.push({ name: "keywords", content: keywords.join(", ") });
+    // Format keywords: normalize, dedupe, enforce limits, skip utility pages
+    const currentPath = normalizePath(window.location.pathname);
+    const formattedKeywords = formatKeywords(keywords, title, currentPath);
+    if (formattedKeywords) {
+      metaTags.push({ name: "keywords", content: formattedKeywords });
     }
 
     if (author) {
