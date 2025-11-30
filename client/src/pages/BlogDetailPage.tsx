@@ -713,6 +713,24 @@ export default function BlogDetailPage() {
                 <h3 className="text-2xl md:text-3xl font-sans font-bold text-foreground mb-8 text-center">
                   Professional Mental Health Support
                 </h3>
+                
+                {/* Primary CTA - Psychiatrist Orlando (SEO Priority Link) */}
+                <div className="mb-8">
+                  <Link 
+                    href="/psychiatrist-orlando" 
+                    className="block p-6 bg-primary/5 border-2 border-primary/20 rounded-lg hover:bg-primary/10 transition-colors group"
+                    data-testid="link-resource-psychiatrist-orlando"
+                  >
+                    <h4 className="font-bold text-xl mb-2 text-primary group-hover:text-primary/80 transition-colors">
+                      Psychiatrist in Orlando
+                    </h4>
+                    <p className="text-muted-foreground">
+                      Board-certified psychiatrists providing comprehensive mental health care in Orlando, FL. 
+                      Same-week appointments available. Most insurance accepted.
+                    </p>
+                  </Link>
+                </div>
+                
                 <div className="grid md:grid-cols-3 gap-6">
                   <Link href="/services" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-services">
                     <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
@@ -738,20 +756,20 @@ export default function BlogDetailPage() {
                       Licensed, experienced mental health professionals dedicated to your care
                     </p>
                   </Link>
-                  <Link href="/blog" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-blog">
+                  <Link href="/anxiety-therapy" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-anxiety">
                     <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                      Mental Health Blog
+                      Anxiety Treatment
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      Expert insights and resources on mental health topics
+                      Evidence-based treatment for anxiety, panic, and worry disorders
                     </p>
                   </Link>
-                  <Link href="/virtual-therapy" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-virtual">
+                  <Link href="/depression-counseling" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-depression">
                     <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                      Virtual Therapy
+                      Depression Counseling
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      Convenient telehealth sessions from the comfort of home
+                      Compassionate care for depression, low mood, and emotional difficulties
                     </p>
                   </Link>
                   <Link href="/request-appointment" className="p-6 border rounded-lg hover-elevate cursor-pointer group" data-testid="link-resource-appointment">

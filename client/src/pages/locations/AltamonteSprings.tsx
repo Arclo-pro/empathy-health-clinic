@@ -492,17 +492,17 @@ export default function PsychiatristAltamonteSprings() {
                     <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">
                       Psychiatrist Near Me
                     </Link>
-                    <Link href="/medication-management-orlando" className="block text-sm text-primary hover:underline">
+                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">
                       Medication Management
                     </Link>
-                    <Link href="/adhd-psychiatrist-orlando" className="block text-sm text-primary hover:underline">
-                      ADHD Psychiatrist
+                    <Link href="/adhd-testing-orlando" className="block text-sm text-primary hover:underline">
+                      ADHD Testing
                     </Link>
-                    <Link href="/anxiety-psychiatrist-orlando" className="block text-sm text-primary hover:underline">
+                    <Link href="/anxiety-therapy" className="block text-sm text-primary hover:underline">
                       Anxiety Treatment
                     </Link>
-                    <Link href="/telepsychiatry-orlando" className="block text-sm text-primary hover:underline">
-                      Telepsychiatry
+                    <Link href="/virtual-therapy" className="block text-sm text-primary hover:underline">
+                      Virtual Therapy
                     </Link>
                   </div>
                 </div>

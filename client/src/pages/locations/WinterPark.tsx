@@ -470,13 +470,13 @@ export default function PsychiatristWinterPark() {
                 <div className="bg-card border rounded-lg p-6">
                   <h3 className="text-lg font-semibold text-foreground mb-4">Related Services</h3>
                   <div className="space-y-2">
-                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline">Psychiatrist Orlando</Link>
-                    <Link href="/medication-management-orlando" className="block text-sm text-primary hover:underline">Medication Management</Link>
-                    <Link href="/anxiety-psychiatrist-orlando" className="block text-sm text-primary hover:underline">Anxiety Psychiatrist</Link>
-                    <Link href="/adhd-psychiatrist-orlando" className="block text-sm text-primary hover:underline">ADHD Psychiatrist</Link>
-                    <Link href="/telepsychiatry-orlando" className="block text-sm text-primary hover:underline">Telepsychiatry</Link>
-                    <Link href="/psychiatric-evaluation-orlando" className="block text-sm text-primary hover:underline">Psychiatric Evaluation</Link>
+                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">Psychiatrist Orlando</Link>
                     <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">Psychiatrist Near Me</Link>
+                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">Medication Management</Link>
+                    <Link href="/anxiety-therapy" className="block text-sm text-primary hover:underline">Anxiety Therapy</Link>
+                    <Link href="/adhd-testing-orlando" className="block text-sm text-primary hover:underline">ADHD Testing</Link>
+                    <Link href="/virtual-therapy" className="block text-sm text-primary hover:underline">Virtual Therapy</Link>
+                    <Link href="/psychiatric-evaluation" className="block text-sm text-primary hover:underline">Psychiatric Evaluation</Link>
                   </div>
                 </div>
 

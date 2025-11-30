@@ -11,19 +11,17 @@ const LINK_CATEGORIES = {
   services: [
     { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando", description: "Board-certified psychiatric care" },
     { href: "/therapy", label: "Therapy Services", description: "Licensed therapists and counselors" },
-    { href: "/medication-management-orlando", label: "Medication Management", description: "Expert psychiatric medication care" },
-    { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluations", description: "Comprehensive mental health assessments" },
-    { href: "/telepsychiatry-orlando", label: "Telepsychiatry", description: "Virtual psychiatric appointments" },
+    { href: "/medication-management", label: "Medication Management", description: "Expert psychiatric medication care" },
+    { href: "/psychiatric-evaluation", label: "Psychiatric Evaluations", description: "Comprehensive mental health assessments" },
     { href: "/virtual-therapy", label: "Virtual Therapy", description: "Online therapy from home" },
-    { href: "/same-day-psychiatrist-orlando", label: "Same-Day Psychiatry", description: "Urgent psychiatric appointments" },
+    { href: "/psychiatrist-near-me", label: "Psychiatrist Near Me", description: "Find psychiatric care nearby" },
   ],
   conditions: [
-    { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment", description: "GAD, panic disorder, social anxiety" },
-    { href: "/adhd-psychiatrist-orlando", label: "ADHD Treatment", description: "Adult and child ADHD specialists" },
-    { href: "/bipolar-psychiatrist-orlando", label: "Bipolar Treatment", description: "Mood stabilization and management" },
+    { href: "/anxiety-therapy", label: "Anxiety Treatment", description: "GAD, panic disorder, social anxiety" },
+    { href: "/adhd-testing-orlando", label: "ADHD Treatment", description: "Adult and child ADHD specialists" },
     { href: "/depression-counseling", label: "Depression Treatment", description: "Evidence-based depression care" },
     { href: "/ptsd-treatment", label: "PTSD Treatment", description: "Trauma-focused therapy and medication" },
-    { href: "/ocd-treatment", label: "OCD Treatment", description: "Obsessive-compulsive disorder care" },
+    { href: "/stress-management", label: "Stress Management", description: "Stress reduction and coping strategies" },
   ],
   treatments: [
     { href: "/cognitive-behavioral-therapy", label: "CBT Therapy", description: "Cognitive behavioral therapy" },
@@ -32,10 +30,11 @@ const LINK_CATEGORIES = {
     { href: "/couples-counseling", label: "Couples Counseling", description: "Relationship therapy" },
   ],
   locations: [
-    { href: "/psychiatrist-orlando", label: "Orlando", description: "Central Florida psychiatry" },
+    { href: "/psychiatrist-orlando", label: "Orlando Psychiatry", description: "Central Florida psychiatric care" },
     { href: "/psychiatrist-winter-park", label: "Winter Park", description: "Main clinic location" },
     { href: "/locations/altamonte-springs", label: "Altamonte Springs", description: "Serving Seminole County" },
     { href: "/locations/kissimmee", label: "Kissimmee", description: "Osceola County mental health" },
+    { href: "/locations/apopka", label: "Apopka", description: "Northwest Orlando area" },
   ],
   insurance: [
     { href: "/psychiatrist-orlando-accepts-bcbs", label: "Blue Cross Blue Shield", description: "BCBS accepted" },
