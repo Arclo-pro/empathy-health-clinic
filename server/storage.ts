@@ -511,6 +511,19 @@ export class MemStorage implements IStorage {
         approach: "Monique provides comprehensive psychiatric evaluations and expert medication management with a focus on building strong therapeutic relationships. She takes time to understand each patient's unique situation, carefully monitors treatment progress, and adjusts medications to optimize effectiveness while minimizing side effects. Her compassionate, patient-centered approach helps individuals achieve mental wellness and live fuller lives.",
         order: 9,
       },
+      {
+        name: "Batese Mitchell",
+        credentials: "LMHC",
+        image: "/attached_assets/Headshot (1)_1764630281211.jpg",
+        doxyUrl: "https://doxy.me/empathy1",
+        slug: "batese-mitchell",
+        pageTitle: "Batese Mitchell, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
+        bio: "Batese Mitchell is a Licensed Mental Health Counselor who is dedicated to providing compassionate, evidence-based care that supports healing and personal growth. Batese is committed to creating a warm, nonjudgmental space where clients feel empowered and safe to explore their experiences.",
+        specialties: "Individual Therapy, Anxiety, Depression and Mood Disorders, Emotional Regulation, Psychosocial Stressors",
+        education: "Master's Degree in Mental Health Counseling, Licensed Mental Health Counselor (LMHC)",
+        approach: "Batese uses a person-centered, strength-based approach grounded in evidence-based practices such as Cognitive Behavioral Therapy and Mindfulness techniques. Batese focuses on helping clients build insight, develop healthy coping skills, and create meaningful change at a pace that feels comfortable and empowering for them. Batese creates a collaborative, warm and supportive space aimed at helping clients feel heard, understood and equipped to navigate life's challenges.",
+        order: 10,
+      },
     ];
 
     defaultTeamMembers.forEach((member) => {
