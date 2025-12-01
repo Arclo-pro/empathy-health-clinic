@@ -32,17 +32,16 @@ export default function TeamSection() {
               data-testid={`link-team-member-${index}`}
               onClick={() => trackEvent('team_member_click', 'engagement', 'Team Section', member.name)}
             >
-              <div className="aspect-square rounded-xl border border-border overflow-hidden hover-elevate transition-transform duration-200 hover:scale-[1.02] cursor-pointer">
+              <div className="aspect-[3/4] rounded-xl border border-border overflow-hidden hover-elevate transition-transform duration-200 hover:scale-[1.02] cursor-pointer">
                 <img 
                   src={member.image} 
                   alt={`${member.name} ${member.credentials} - Mental Health Provider Orlando FL - Empathy Health Clinic`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                   decoding="async"
                   fetchpriority={index < 4 ? 'high' : 'auto'}
-                  width={400}
+                  width={300}
                   height={400}
-                  style={{ aspectRatio: "1/1" }}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const fallback = e.currentTarget.parentElement?.querySelector('p');
