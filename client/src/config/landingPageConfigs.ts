@@ -1,6 +1,6 @@
 import type { LandingPageConfig } from "@/types/landingPage";
 import heroImage from "@assets/stock_images/professional_healthc_955227e9.jpg";
-import { FileText, Brain, Shield, Award, Calendar, Video, MessageCircle, Users, CheckCircle, Heart, DollarSign, CreditCard } from "lucide-react";
+import { FileText, Brain, Shield, Award, Calendar, Video, MessageCircle, Users, CheckCircle, Heart, DollarSign, CreditCard, Clock } from "lucide-react";
 
 export const psychiatricEvaluationConfig: LandingPageConfig = {
   seo: {
@@ -2801,5 +2801,459 @@ export const unitedHealthcarePsychiatristOrlandoConfig: LandingPageConfig = {
   analytics: {
     pageName: "United Healthcare Psychiatrist Orlando Page",
     conversionCategory: "uhc_psychiatrist",
+  },
+};
+
+export const ptsdPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "PTSD Psychiatrist Orlando FL | Trauma Specialist",
+    description: "PTSD psychiatrist Orlando - Board-certified trauma specialists. Expert treatment for PTSD, acute stress, complex trauma. Same-week appointments. Call 386-848-8751.",
+    keywords: ["ptsd psychiatrist orlando", "ptsd psychiatrist orlando fl", "trauma psychiatrist orlando", "ptsd doctor orlando", "ptsd treatment orlando", "trauma specialist orlando", "complex ptsd treatment orlando", "ptsd medication management orlando", "best ptsd psychiatrist orlando"],
+    canonicalPath: "/psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "PTSD Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Specialized PTSD and trauma treatment in Orlando, FL by board-certified psychiatrists with expertise in trauma-informed care.",
+    "url": "https://empathyhealthclinic.com/ptsd-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry - Trauma Specialist"
+  },
+  hero: {
+    title: "PTSD Psychiatrist Orlando",
+    subtitle: "Board-certified psychiatrists specializing in PTSD and trauma treatment. Expert medication management combined with evidence-based therapies for PTSD, acute stress disorder, and complex trauma. Same-week appointments with in-person and telehealth options.",
+    ctaPrimary: "Schedule PTSD Evaluation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Trauma Specialists", "Evidence-Based Treatment", "Same-Week Appointments"],
+  },
+  location: {
+    title: "PTSD Treatment Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "PTSD Psychiatrist Orlando: Trauma-Informed Care",
+    introduction: [
+      "Post-Traumatic Stress Disorder requires specialized psychiatric care from experienced trauma specialists. At Empathy Health Clinic, our board-certified psychiatrists in Orlando provide comprehensive PTSD treatment combining expert medication management with evidence-based therapeutic approaches.",
+      "Our PTSD specialists understand the complex nature of trauma and work closely with you to reduce symptoms, process traumatic experiences, and reclaim your life through personalized treatment plans and ongoing support.",
+    ],
+    conditionsHeading: "Trauma Conditions We Treat",
+    conditions: [
+      { name: "PTSD (Post-Traumatic Stress Disorder)" },
+      { name: "Complex PTSD" },
+      { name: "Acute Stress Disorder" },
+      { name: "Combat-Related Trauma" },
+      { name: "Sexual Trauma" },
+      { name: "Childhood Trauma" },
+      { name: "First Responder Trauma" },
+      { name: "Accident-Related Trauma" },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Post-Traumatic Stress Disorder" },
+      { source: "APA" as const, topic: "Trauma and Stressor-Related Disorders" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    servicesHeading: "Our PTSD Treatment Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Psychiatric Evaluation for PTSD",
+        description: "Comprehensive trauma-informed assessment to accurately diagnose PTSD and identify co-occurring conditions like depression and anxiety."
+      },
+      {
+        icon: Shield,
+        title: "Medication Management",
+        description: "Expert prescribing of FDA-approved PTSD medications including SSRIs, prazosin for nightmares, and other targeted treatments."
+      },
+      {
+        icon: Heart,
+        title: "Integrated Treatment Approach",
+        description: "Coordination with EMDR therapists and trauma-focused CBT specialists for comprehensive healing."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our PTSD Psychiatrists",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Trauma-Trained Psychiatrists",
+        description: "Our psychiatrists have specialized training in trauma-informed care and PTSD treatment protocols."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "We understand trauma waits for no one. Get seen within days, not months."
+      },
+      {
+        icon: Video,
+        title: "Telehealth & In-Person Options",
+        description: "Choose the setting where you feel most comfortable and safe for your PTSD treatment."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What medications are used to treat PTSD?",
+      answer: "FDA-approved medications for PTSD include sertraline (Zoloft) and paroxetine (Paxil). Our psychiatrists also prescribe prazosin for PTSD-related nightmares, and may recommend other medications based on your specific symptoms and needs."
+    },
+    {
+      question: "How long does PTSD treatment take?",
+      answer: "PTSD treatment duration varies by individual. Many patients see significant improvement within 3-6 months of starting medication, though ongoing treatment may be beneficial. We work with you to create a personalized treatment timeline."
+    },
+    {
+      question: "Do you treat military veterans with PTSD?",
+      answer: "Yes, we treat military veterans and first responders with PTSD. Our psychiatrists understand the unique aspects of combat-related and occupational trauma and provide specialized care."
+    },
+    {
+      question: "Can I do telehealth for PTSD treatment?",
+      answer: "Yes, we offer secure telehealth appointments for PTSD medication management. Many patients find telehealth more comfortable for trauma treatment as they can attend from a safe environment."
+    },
+  ],
+  sidebar: {
+    formHeading: "Start Your PTSD Treatment",
+    formSubheading: "Same-week appointments. Trauma-informed care.",
+    formType: "ptsd_psychiatrist",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/emdr-therapy", label: "EMDR Therapy" },
+      { href: "/trauma-specialist-near-me", label: "Trauma Specialist" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/depression-treatment", label: "Depression Treatment" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+    ],
+  },
+  analytics: {
+    pageName: "PTSD Psychiatrist Orlando Page",
+    conversionCategory: "ptsd_psychiatrist",
+  },
+};
+
+export const urgentPsychiatricCareOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Urgent Psychiatric Care Orlando FL | Same-Day Psychiatrist",
+    description: "Urgent psychiatric care Orlando - Same-day and next-day psychiatric appointments. Crisis stabilization, medication adjustments. Call 386-848-8751 now.",
+    keywords: ["urgent psychiatric care orlando", "same day psychiatrist orlando", "emergency psychiatrist orlando", "urgent psychiatrist orlando", "psychiatric urgent care orlando", "crisis psychiatrist orlando", "walk in psychiatrist orlando", "immediate psychiatric care orlando", "urgent mental health care orlando"],
+    canonicalPath: "/psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Urgent Psychiatric Care Orlando FL - Empathy Health Clinic",
+    "description": "Same-day and urgent psychiatric care in Orlando, FL for crisis stabilization and immediate mental health needs.",
+    "url": "https://empathyhealthclinic.com/urgent-psychiatric-care-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.59544,
+      "longitude": -81.36537
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Maitland" }
+    ],
+    "medicalSpecialty": "Psychiatry - Urgent Care"
+  },
+  hero: {
+    title: "Urgent Psychiatric Care Orlando",
+    subtitle: "Same-day and next-day psychiatric appointments for urgent mental health needs. Crisis stabilization, medication adjustments, and rapid evaluations. When you need help now, we're here. Call immediately for urgent appointments.",
+    ctaPrimary: "Call Now: 386-848-8751",
+    ctaSecondary: "Request Urgent Appointment",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Same-Day Appointments", "Crisis Stabilization", "Board-Certified Psychiatrists"],
+  },
+  location: {
+    title: "Orlando Urgent Psychiatric Care",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nCall for urgent availability",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Urgent Psychiatric Care in Orlando: Same-Day Appointments",
+    introduction: [
+      "Mental health emergencies don't wait for scheduled appointments. At Empathy Health Clinic, we provide urgent psychiatric care in Orlando with same-day and next-day appointments for patients experiencing acute symptoms, medication crises, or sudden worsening of mental health conditions.",
+      "Our board-certified psychiatrists are available for rapid evaluations, crisis stabilization, and urgent medication adjustments when you need immediate psychiatric care in the Orlando area.",
+    ],
+    conditionsHeading: "Urgent Psychiatric Situations We Handle",
+    conditions: [
+      { name: "Severe Anxiety or Panic Attacks" },
+      { name: "Worsening Depression" },
+      { name: "Medication Side Effects" },
+      { name: "Manic Episodes" },
+      { name: "Acute Psychosis" },
+      { name: "Medication Refill Emergencies" },
+      { name: "Crisis Stabilization" },
+      { name: "Suicidal Ideation (Non-Emergency)" },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Mental Health Crisis Resources" },
+      { source: "APA" as const, topic: "Psychiatric Emergency Care" },
+    ],
+    internalLinksCategory: "services" as const,
+    servicesHeading: "Our Urgent Care Services",
+    services: [
+      {
+        icon: Calendar,
+        title: "Same-Day Appointments",
+        description: "Priority scheduling for urgent psychiatric needs. Call in the morning for same-day availability when possible."
+      },
+      {
+        icon: Shield,
+        title: "Crisis Stabilization",
+        description: "Rapid psychiatric evaluation and immediate intervention for acute mental health symptoms."
+      },
+      {
+        icon: Brain,
+        title: "Emergency Medication Adjustments",
+        description: "Quick medication changes when current treatments aren't working or causing problematic side effects."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our Urgent Psychiatric Care",
+    whyChoosePoints: [
+      {
+        icon: Clock,
+        title: "Rapid Access",
+        description: "Same-day and next-day appointments available. Don't wait weeks when you need help now."
+      },
+      {
+        icon: Award,
+        title: "Board-Certified Psychiatrists",
+        description: "Urgent care provided by experienced, board-certified psychiatrists, not just nurse practitioners."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Available",
+        description: "Can't leave home? Urgent telehealth appointments available for immediate psychiatric care."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What qualifies as urgent psychiatric care?",
+      answer: "Urgent psychiatric care is for severe symptoms that need attention within 24-48 hours but are not immediately life-threatening. This includes severe panic attacks, worsening depression, concerning medication side effects, or running out of critical psychiatric medications."
+    },
+    {
+      question: "How quickly can I be seen for urgent psychiatric care?",
+      answer: "We offer same-day and next-day appointments for urgent psychiatric needs. Call 386-848-8751 as early as possible to check same-day availability. Morning calls have the best chance of same-day appointments."
+    },
+    {
+      question: "Is this emergency room care?",
+      answer: "No. For life-threatening emergencies, suicidal intent with a plan, or psychotic breaks, call 911 or go to the nearest ER. Our urgent care is for serious but non-emergency psychiatric needs that require rapid outpatient attention."
+    },
+    {
+      question: "Do you accept insurance for urgent appointments?",
+      answer: "Yes, we accept the same insurance plans for urgent appointments as regular visits, including Aetna, BCBS, Cigna, UnitedHealthcare, and Humana. Call to verify your coverage."
+    },
+  ],
+  sidebar: {
+    formHeading: "Request Urgent Appointment",
+    formSubheading: "Call 386-848-8751 for fastest response",
+    formType: "urgent_psychiatric",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/same-day-psychiatrist-orlando", label: "Same-Day Psychiatrist" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/crisis-therapy", label: "Crisis Therapy" },
+    ],
+  },
+  analytics: {
+    pageName: "Urgent Psychiatric Care Orlando Page",
+    conversionCategory: "urgent_psychiatric",
+  },
+};
+
+export const psychiatristOrlandoAcceptsUmrConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Orlando Accepts UMR | In-Network Provider",
+    description: "UMR psychiatrist Orlando - In-network psychiatric care for UMR insurance. Same-week appointments, medication management. Call 386-848-8751 to verify coverage.",
+    keywords: ["psychiatrist orlando accepts umr", "umr psychiatrist orlando", "umr mental health orlando", "psychiatrist that accepts umr orlando", "umr psychiatrist near me", "umr covered psychiatrist orlando", "umr in network psychiatrist orlando"],
+    canonicalPath: "/psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "UMR Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "In-network UMR psychiatrist in Orlando, FL providing covered psychiatric services including medication management and evaluations.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-umr",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Psychiatrist Orlando Accepts UMR",
+    subtitle: "In-network UMR psychiatrist in Orlando for covered psychiatric care. Board-certified psychiatrists, same-week appointments, and comprehensive mental health services. We verify your UMR benefits before your first visit.",
+    ctaPrimary: "Verify UMR Coverage",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["UMR In-Network", "Same-Week Appointments", "Free Benefits Verification"],
+  },
+  location: {
+    title: "UMR Psychiatrist Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "UMR Psychiatrist Orlando: In-Network Mental Health Care",
+    introduction: [
+      "Finding a psychiatrist who accepts UMR insurance in Orlando shouldn't be difficult. At Empathy Health Clinic, our board-certified psychiatrists are in-network UMR providers, offering covered psychiatric evaluations, medication management, and ongoing mental health care.",
+      "We verify your UMR benefits before your first appointment, so you know exactly what's covered. Most UMR plans cover psychiatric services with affordable copays, allowing you to get the mental health care you need.",
+    ],
+    conditionsHeading: "Conditions We Treat with UMR Coverage",
+    conditions: [
+      { name: "Anxiety Disorders" },
+      { name: "Depression" },
+      { name: "ADHD" },
+      { name: "Bipolar Disorder" },
+      { name: "PTSD" },
+      { name: "OCD" },
+      { name: "Panic Disorder" },
+      { name: "Insomnia" },
+    ],
+    servicesHeading: "UMR-Covered Psychiatric Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Psychiatric Evaluations",
+        description: "Comprehensive initial evaluations covered by UMR to diagnose mental health conditions and create treatment plans."
+      },
+      {
+        icon: Shield,
+        title: "Medication Management",
+        description: "Ongoing medication monitoring and adjustments covered under your UMR mental health benefits."
+      },
+      {
+        icon: Video,
+        title: "Telepsychiatry",
+        description: "UMR covers telehealth psychiatric appointments at the same rate as in-person visits."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our UMR-Accepting Psychiatrists",
+    whyChoosePoints: [
+      {
+        icon: DollarSign,
+        title: "Free Benefits Verification",
+        description: "We verify your UMR coverage before your appointment so there are no billing surprises."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "Unlike many UMR providers with months-long waits, we offer same-week appointments."
+      },
+      {
+        icon: Award,
+        title: "Board-Certified Psychiatrists",
+        description: "All care provided by board-certified psychiatrists with extensive experience."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "Does Empathy Health Clinic accept UMR insurance?",
+      answer: "Yes, our board-certified psychiatrists are in-network providers for UMR insurance plans. We accept various UMR plans for psychiatric services. Call 386-848-8751 to verify your specific plan coverage."
+    },
+    {
+      question: "What does UMR cover for psychiatric services?",
+      answer: "UMR typically covers psychiatric evaluations, medication management, and follow-up appointments. Coverage varies by plan, but most UMR plans have mental health benefits. We verify your specific benefits before your first visit."
+    },
+    {
+      question: "Do I need a referral to see a psychiatrist with UMR?",
+      answer: "It depends on your specific UMR plan. Some UMR plans require referrals while others don't. Call us at 386-848-8751 and we'll help determine if you need a referral based on your plan type."
+    },
+    {
+      question: "How do I verify my UMR mental health benefits?",
+      answer: "Simply call our office at 386-848-8751 and we'll verify your UMR benefits for you at no charge. We'll let you know your copay, deductible status, and any authorization requirements before your first appointment."
+    },
+  ],
+  sidebar: {
+    formHeading: "Verify UMR Coverage",
+    formSubheading: "Free benefits verification. Same-week appointments.",
+    formType: "umr_psychiatrist",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-orlando-accepts-bcbs", label: "BCBS Psychiatrist" },
+      { href: "/psychiatrist-orlando-accepts-cigna", label: "Cigna Psychiatrist" },
+      { href: "/psychiatrist-orlando-accepts-aetna", label: "Aetna Psychiatrist" },
+      { href: "/psychiatrist-orlando-accepts-united-healthcare", label: "UHC Psychiatrist" },
+      { href: "/insurance", label: "All Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "UMR Psychiatrist Orlando Page",
+    conversionCategory: "umr_psychiatrist",
   },
 };

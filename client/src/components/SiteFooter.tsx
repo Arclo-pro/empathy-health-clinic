@@ -81,15 +81,17 @@ export default function SiteFooter() {
     { label: "Psychiatrist Near Me", href: "/psychiatrist-near-me", primary: true },
     { label: "Medication Management", href: "/medication-management" },
     { label: "ADHD Testing Orlando", href: "/adhd-testing-orlando" },
-    { label: "Anxiety Therapy", href: "/anxiety-therapy" },
-    { label: "Depression Counseling", href: "/depression-counseling" },
+    { label: "Anxiety Treatment", href: "/anxiety-treatment" },
+    { label: "Depression Treatment", href: "/depression-treatment" },
+    { label: "PTSD Treatment", href: "/ptsd-psychiatrist-orlando" },
+    { label: "Urgent Psychiatric Care", href: "/urgent-psychiatric-care-orlando" },
     { label: "Virtual Therapy", href: "/virtual-therapy" },
     { label: "Psychiatrist Winter Park", href: "/psychiatrist-winter-park" },
-    { label: "Altamonte Springs", href: "/locations/altamonte-springs" },
-    { label: "Kissimmee", href: "/locations/kissimmee" },
     { label: "Accepts BCBS", href: "/psychiatrist-orlando-accepts-bcbs" },
     { label: "Accepts Cigna", href: "/psychiatrist-orlando-accepts-cigna" },
-    { label: "Accepts Aetna", href: "/psychiatrist-orlando-accepts-aetna" }
+    { label: "Accepts Aetna", href: "/psychiatrist-orlando-accepts-aetna" },
+    { label: "Accepts UMR", href: "/psychiatrist-orlando-accepts-umr" },
+    { label: "Accepts UHC", href: "/psychiatrist-orlando-accepts-united-healthcare" }
   ];
 
   return (
