@@ -32,11 +32,11 @@ export default function TeamSection() {
               data-testid={`link-team-member-${index}`}
               onClick={() => trackEvent('team_member_click', 'engagement', 'Team Section', member.name)}
             >
-              <div className="aspect-square rounded-xl border border-border bg-card flex flex-col items-center justify-center hover-elevate transition-transform duration-200 hover:scale-[1.02] p-6 cursor-pointer">
+              <div className="aspect-square rounded-xl border border-border overflow-hidden hover-elevate transition-transform duration-200 hover:scale-[1.02] cursor-pointer">
                 <img 
                   src={member.image} 
                   alt={`${member.name} ${member.credentials} - Mental Health Provider Orlando FL - Empathy Health Clinic`}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                   decoding="async"
                   fetchpriority={index < 4 ? 'high' : 'auto'}
@@ -52,7 +52,7 @@ export default function TeamSection() {
                     }
                   }}
                 />
-                <p className="text-sm md:text-base font-medium text-center text-muted-foreground hidden items-center justify-center h-full">
+                <p className="text-sm md:text-base font-medium text-center text-muted-foreground hidden items-center justify-center h-full bg-card">
                   Photo Placeholder
                 </p>
               </div>
