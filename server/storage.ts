@@ -456,7 +456,7 @@ export class MemStorage implements IStorage {
         bio: "Alex Regan is a skilled Psychiatric Physician Assistant and Medical Director with a commitment to providing exceptional mental health care. With expertise in medication management and psychiatric evaluations, Alex helps patients achieve symptom relief and improve their quality of life through personalized treatment plans.",
         specialties: "Depression, Anxiety, ADHD, Medication Management, Psychiatric Evaluation",
         education: "Physician Assistant Studies, Board Certified Physician Assistant (PA-C), Specialized training in Psychiatry",
-        approach: "Alex provides thorough psychiatric evaluations and evidence-based medication management with a focus on patient education and shared decision-making. He takes time to explain treatment options, monitor progress carefully, and adjust medications as needed to ensure optimal outcomes with minimal side effects. His approachable demeanor helps patients feel comfortable discussing their mental health concerns.",
+        approach: "Alex provides thorough psychiatric evaluations and evidence-based medication management with a focus on patient education and shared decision-making. She takes time to explain treatment options, monitor progress carefully, and adjust medications as needed to ensure optimal outcomes with minimal side effects. Her approachable demeanor helps patients feel comfortable discussing their mental health concerns.",
         order: 4,
       },
       {
