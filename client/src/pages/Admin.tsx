@@ -88,6 +88,13 @@ export default function Admin() {
           >
             Google Ads Performance
           </Button>
+          <Button
+            variant="outline"
+            onClick={() => setLocation("/admin/serp")}
+            data-testid="button-serp"
+          >
+            SERP Rankings (100 Keywords)
+          </Button>
         </div>
         
         <Tabs defaultValue="site-content" className="space-y-6">
