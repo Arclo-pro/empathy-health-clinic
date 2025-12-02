@@ -144,31 +144,51 @@ export default function AdminSERP() {
     localStorage.setItem("serp_rankings", JSON.stringify(obj));
   };
 
-  const checkSingleKeyword = async (keyword: string): Promise<RankingResult> => {
-    try {
-      const response = await fetch(`/api/serp/ranking?q=${encodeURIComponent(keyword)}`);
-      const data = await response.json();
-      
-      if (!data.success) {
-        throw new Error(data.error || "Failed to fetch ranking");
+  const checkSingleKeyword = async (keyword: string, retries = 2): Promise<RankingResult> => {
+    for (let attempt = 0; attempt <= retries; attempt++) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
+        
+        const response = await fetch(`/api/serp/ranking?q=${encodeURIComponent(keyword)}`, {
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        
+        const data = await response.json();
+        
+        if (!data.success) {
+          throw new Error(data.error || "Failed to fetch ranking");
+        }
+        
+        return {
+          keyword,
+          position: data.position,
+          url: data.url,
+          competitor_positions: data.competitor_positions,
+          lastChecked: new Date().toISOString(),
+        };
+      } catch (error: any) {
+        if (attempt < retries) {
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          continue;
+        }
+        return {
+          keyword,
+          position: null,
+          url: null,
+          error: error.message,
+          lastChecked: new Date().toISOString(),
+        };
       }
-      
-      return {
-        keyword,
-        position: data.position,
-        url: data.url,
-        competitor_positions: data.competitor_positions,
-        lastChecked: new Date().toISOString(),
-      };
-    } catch (error: any) {
-      return {
-        keyword,
-        position: null,
-        url: null,
-        error: error.message,
-        lastChecked: new Date().toISOString(),
-      };
     }
+    return {
+      keyword,
+      position: null,
+      url: null,
+      error: "Max retries exceeded",
+      lastChecked: new Date().toISOString(),
+    };
   };
 
   const checkAllKeywords = async () => {
@@ -188,7 +208,7 @@ export default function AdminSERP() {
       saveRankings(newRankings);
       
       if (i < KEYWORDS.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await new Promise(resolve => setTimeout(resolve, 2500));
       }
     }
     
@@ -197,6 +217,27 @@ export default function AdminSERP() {
     toast({
       title: "Rankings Updated",
       description: `Checked ${KEYWORDS.length} keywords successfully.`,
+    });
+  };
+
+  const checkUncheckedOnly = async () => {
+    const unchecked = KEYWORDS.filter(k => !rankings.has(k) || rankings.get(k)?.error);
+    if (unchecked.length === 0) {
+      toast({
+        title: "All Checked",
+        description: "All keywords have been checked already.",
+      });
+      return;
+    }
+    await checkSelectedKeywords(unchecked);
+  };
+
+  const clearCache = () => {
+    localStorage.removeItem("serp_rankings");
+    setRankings(new Map());
+    toast({
+      title: "Cache Cleared",
+      description: "All saved rankings have been cleared.",
     });
   };
 
@@ -320,12 +361,29 @@ export default function AdminSERP() {
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
+              onClick={clearCache}
+              disabled={isChecking || stats.checked === 0}
+              data-testid="button-clear"
+            >
+              Clear Cache
+            </Button>
+            <Button
+              variant="outline"
               onClick={exportCSV}
               disabled={stats.checked === 0}
               data-testid="button-export"
             >
               <Download className="w-4 h-4 mr-2" />
               Export CSV
+            </Button>
+            <Button
+              variant="outline"
+              onClick={checkUncheckedOnly}
+              disabled={isChecking}
+              data-testid="button-check-unchecked"
+            >
+              <RefreshCw className={`w-4 h-4 mr-2 ${isChecking ? "animate-spin" : ""}`} />
+              Check Unchecked Only
             </Button>
             <Button
               onClick={checkAllKeywords}
@@ -352,7 +410,7 @@ export default function AdminSERP() {
                 {Math.round(progress)}% complete ({Math.round(progress / 100 * KEYWORDS.length)}/{KEYWORDS.length} keywords)
               </p>
               <p className="text-xs text-muted-foreground mt-1">
-                Rate limited to avoid API throttling. Estimated time: {Math.round((KEYWORDS.length - Math.round(progress / 100 * KEYWORDS.length)) * 1.5 / 60)} minutes remaining.
+                Rate limited to avoid API throttling. Estimated time: {Math.round((KEYWORDS.length - Math.round(progress / 100 * KEYWORDS.length)) * 2.5 / 60)} minutes remaining.
               </p>
             </CardContent>
           </Card>
