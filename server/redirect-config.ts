@@ -27,7 +27,7 @@ export const contentRedirectMap: Record<string, string> = {
   // WordPress legacy redirects
   // NOTE: /psychiatric-services is now a real landing page - DO NOT redirect (Google Ads requires it)
   '/locations/psychiatry-orlando': '/psychiatrist-orlando',
-  '/find-a-psychiatrist-that-takes-medicare-medicare-coverage': '/insurance',
+  // Medicare redirect moved to Google Ads section (line 150) - points to /medicare-psychiatrist-orlando
   
   // Location redirects - redirect dynamic location slugs to STATIC pages (for Google Ads)
   // Dynamic LocationDetail uses API calls that AdsBot can't render
@@ -100,31 +100,106 @@ export const contentRedirectMap: Record<string, string> = {
   // SEMrush orphaned pages - Insurance pages
   '/adventhealth-adventhealth-coverage': '/insurance',
   
-  // Google Ads insurance redirects - redirect dynamic slugs to STATIC pages (no API calls)
+  // Google Ads insurance redirects - redirect ALL dynamic slugs to STATIC pages (no API calls)
   // AdsBot requires pages that don't depend on API calls to render
+  // These dynamic slugs use PageBySlug.tsx which makes 4 API calls that fail for AdsBot
+  
+  // BCBS (Blue Cross Blue Shield)
   '/blue-cross-blue-shield-blue-cross-blue-shield-coverage': '/blue-cross-blue-shield-therapy-orlando',
   '/blue-cross-blue-shield-coverage': '/blue-cross-blue-shield-therapy-orlando',
   '/blue-cross-blue-shield': '/blue-cross-blue-shield-therapy-orlando',
   '/bcbs-insurance': '/psychiatrist-orlando-accepts-bcbs',
   '/bcbs-coverage': '/psychiatrist-orlando-accepts-bcbs',
+  '/bcbs-bcbs-coverage': '/psychiatrist-orlando-accepts-bcbs',
+  '/find-a-psychiatrist-that-takes-bcbs-bcbs-coverage': '/psychiatrist-orlando-accepts-bcbs',
+  '/find-a-psychiatrist-that-takes-blue-cross-blue-shield-bcbs-coverage': '/psychiatrist-orlando-accepts-bcbs',
+  
+  // Cigna
+  '/cigna-cigna-coverage': '/psychiatrist-orlando-accepts-cigna',
   '/cigna-insurance': '/psychiatrist-orlando-accepts-cigna',
   '/cigna-coverage': '/psychiatrist-orlando-accepts-cigna',
   '/cigna': '/psychiatrist-orlando-accepts-cigna',
+  '/find-a-psychiatrist-that-takes-cigna-cigna-coverage': '/psychiatrist-orlando-accepts-cigna',
+  '/find-a-psychiatrist-that-takes-cigna-healthcare-cigna-coverage': '/psychiatrist-orlando-accepts-cigna',
+  
+  // Aetna
+  '/aetna-aetna-coverage': '/psychiatrist-orlando-accepts-aetna',
   '/aetna-insurance': '/psychiatrist-orlando-accepts-aetna',
   '/aetna-coverage': '/psychiatrist-orlando-accepts-aetna',
   '/aetna': '/psychiatrist-orlando-accepts-aetna',
+  '/find-a-psychiatrist-that-takes-aetna-aetna-coverage': '/psychiatrist-orlando-accepts-aetna',
+  
+  // UnitedHealthcare / UHC
+  '/unitedhealthcare-unitedhealthcare-coverage': '/psychiatrist-orlando-accepts-united-healthcare',
   '/united-healthcare-insurance': '/psychiatrist-orlando-accepts-united-healthcare',
   '/united-healthcare-coverage': '/psychiatrist-orlando-accepts-united-healthcare',
   '/united-healthcare': '/psychiatrist-orlando-accepts-united-healthcare',
   '/unitedhealth-insurance': '/psychiatrist-orlando-accepts-united-healthcare',
+  '/uhc-coverage': '/psychiatrist-orlando-accepts-united-healthcare',
+  '/uhc-insurance': '/psychiatrist-orlando-accepts-united-healthcare',
+  '/find-a-psychiatrist-that-takes-unitedhealthcare-unitedhealthcare-coverage': '/psychiatrist-orlando-accepts-united-healthcare',
+  
+  // UMR
+  '/umr-umr-coverage': '/psychiatrist-orlando-accepts-umr',
   '/umr-insurance': '/psychiatrist-orlando-accepts-umr',
   '/umr-coverage': '/psychiatrist-orlando-accepts-umr',
+  '/find-a-psychiatrist-that-takes-umr-umr-coverage': '/psychiatrist-orlando-accepts-umr',
+  
+  // Medicare
+  '/medicare-medicare-coverage': '/medicare-psychiatrist-orlando',
   '/medicare-insurance': '/medicare-psychiatrist-orlando',
   '/medicare-coverage': '/medicare-psychiatrist-orlando',
+  '/medicare': '/medicare-psychiatrist-orlando',
+  '/find-a-psychiatrist-that-takes-medicare-coverage': '/medicare-psychiatrist-orlando',
+  '/find-a-psychiatrist-that-takes-medicare-medicare-coverage': '/medicare-psychiatrist-orlando',
+  
+  // Curative Health
+  '/curative-health-curative-health-coverage': '/insurance',
+  '/curative-health-coverage': '/insurance',
+  '/curative-coverage': '/insurance',
+  '/curative-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-curative-curative-coverage': '/insurance',
+  
+  // AdventHealth  
+  '/adventhealth-coverage': '/insurance',
+  '/adventhealth-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-adventhealth-coverage': '/insurance',
+  
+  // Oscar Health
+  '/oscar-health-oscar-health-coverage': '/therapist-accepts-oscar-health',
   '/oscar-health-insurance': '/therapist-accepts-oscar-health',
   '/oscar-health-coverage': '/therapist-accepts-oscar-health',
+  '/find-a-psychiatrist-that-takes-oscar-health-coverage': '/therapist-accepts-oscar-health',
+  
+  // Sunshine Health
+  '/sunshine-health-sunshine-health-coverage': '/sunshine-health-therapy',
   '/sunshine-health-insurance': '/sunshine-health-therapy',
   '/sunshine-health-coverage': '/sunshine-health-therapy',
+  '/find-a-psychiatrist-that-takes-sunshine-health-coverage': '/sunshine-health-therapy',
+  
+  // Tricare
+  '/tricare-tricare-coverage': '/insurance',
+  '/tricare-coverage': '/insurance',
+  '/tricare-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-tricare-coverage': '/insurance',
+  
+  // Humana
+  '/humana-humana-coverage': '/insurance',
+  '/humana-coverage': '/insurance',
+  '/humana-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-humana-coverage': '/insurance',
+  
+  // Molina
+  '/molina-molina-coverage': '/insurance',
+  '/molina-coverage': '/insurance',
+  '/molina-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-molina-coverage': '/insurance',
+  
+  // Ambetter
+  '/ambetter-ambetter-coverage': '/insurance',
+  '/ambetter-coverage': '/insurance',
+  '/ambetter-insurance': '/insurance',
+  '/find-a-psychiatrist-that-takes-ambetter-coverage': '/insurance',
   
   // Google Search Console - Legacy URLs (November 2025)
   '/therapy-services-orlando-mental-health-support': '/therapy-services-orlando',
@@ -243,14 +318,10 @@ export const contentRedirectMap: Record<string, string> = {
   '/intimacy-therapy-sexual-wellness': '/couples-therapy',
   '/orlando-marriage-counseling-services': '/couples-therapy',
   
-  // Insurance provider pages - redirect to main insurance page
-  '/find-a-psychiatrist-that-takes-blue-cross-blue-shield-bcbs-coverage': '/insurance',
-  '/find-a-psychiatrist-that-takes-curative-health-insurance-curative-coverage': '/insurance',
-  '/find-a-psychiatrist-that-takes-adventhealth-adventhealth-coverage': '/insurance',
+  // Insurance provider pages - REMOVED - duplicates handled in Google Ads section above (lines 106-199)
+  // Optum and First Health still redirect to /insurance as they don't have dedicated pages
   '/find-a-psychiatrist-that-takes-optum-optum-coverage': '/insurance',
-  '/find-a-psychiatrist-that-takes-aetna-aetna-coverage': '/insurance',
   '/find-a-psychiatrist-that-takes-first-health-network-first-health-coverage': '/insurance',
-  '/find-a-psychiatrist-that-takes-cigna-healthcare-cigna-coverage': '/insurance',
   
   
   // Old treatment structure redirects
