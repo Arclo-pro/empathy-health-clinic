@@ -247,15 +247,13 @@ export default function AdminSERP() {
   };
 
   const checkUncheckedOnly = async () => {
-    // Find keywords that either:
-    // 1. Don't exist in rankings map
-    // 2. Have an error
-    // 3. Have null/undefined position (not found in search results)
+    // Find keywords that have NEVER been checked (no lastChecked timestamp)
+    // Keywords that were checked but didn't rank will have lastChecked set
     const unchecked = KEYWORDS.filter(k => {
       const ranking = rankings.get(k);
-      if (!ranking) return true; // Not in map
-      if (ranking.error) return true; // Has error
-      if (ranking.position === null || ranking.position === undefined) return true; // No position data
+      if (!ranking) return true; // Not in map at all
+      if (!ranking.lastChecked) return true; // No timestamp = never checked
+      if (ranking.error) return true; // Has error = should retry
       return false;
     });
     
@@ -404,9 +402,18 @@ export default function AdminSERP() {
     return a.localeCompare(b);
   });
 
-  const getPositionBadge = (position: number | null | undefined) => {
-    if (position === null || position === undefined) {
+  const getPositionBadge = (position: number | null | undefined, lastChecked?: string, error?: string) => {
+    // Has an error from API
+    if (error) {
+      return <Badge variant="destructive" className="bg-red-600 text-white">Error</Badge>;
+    }
+    // Never checked - no lastChecked timestamp
+    if (!lastChecked) {
       return <Badge variant="outline" className="bg-muted">Not checked</Badge>;
+    }
+    // Checked but not ranking in top 20
+    if (position === null || position === undefined) {
+      return <Badge variant="outline" className="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-300">Not in top 20</Badge>;
     }
     if (position <= 3) {
       return <Badge className="bg-green-600 text-white">{position}</Badge>;
@@ -435,9 +442,18 @@ export default function AdminSERP() {
     }).length,
     notRanking: KEYWORDS.filter(k => {
       const data = rankings.get(k);
-      return data && data.position === null && !data.error;
+      // Checked (has lastChecked) but position is null = not ranking in top 20
+      return data && data.lastChecked && data.position === null && !data.error;
     }).length,
-    checked: KEYWORDS.filter(k => rankings.has(k)).length,
+    neverChecked: KEYWORDS.filter(k => {
+      const data = rankings.get(k);
+      // No entry or no lastChecked timestamp = never checked
+      return !data || !data.lastChecked;
+    }).length,
+    checked: KEYWORDS.filter(k => {
+      const data = rankings.get(k);
+      return data && data.lastChecked;
+    }).length,
   };
 
   return (
@@ -661,7 +677,7 @@ export default function AdminSERP() {
                           </Badge>
                         </td>
                         <td className="text-center py-3 px-2">
-                          {getPositionBadge(data?.position)}
+                          {getPositionBadge(data?.position, data?.lastChecked, data?.error)}
                         </td>
                         <td className="py-3 px-2 hidden lg:table-cell">
                           {data?.url ? (
@@ -727,12 +743,16 @@ export default function AdminSERP() {
                 <span className="text-sm">Page 2 (Needs Work)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Badge variant="destructive">20+</Badge>
-                <span className="text-sm">Not in Top 20</span>
+                <Badge variant="outline" className="bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-orange-300">Not in top 20</Badge>
+                <span className="text-sm">Checked - Not ranking in top 20</span>
               </div>
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="bg-muted">-</Badge>
-                <span className="text-sm">Not Checked</span>
+                <Badge variant="outline" className="bg-muted">Not checked</Badge>
+                <span className="text-sm">Never checked</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Badge variant="destructive" className="bg-red-600 text-white">Error</Badge>
+                <span className="text-sm">API error - retry needed</span>
               </div>
             </div>
           </CardContent>
