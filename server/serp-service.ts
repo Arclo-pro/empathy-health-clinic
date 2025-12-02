@@ -64,7 +64,7 @@ export async function getGoogleRanking(query: string, useCache = true): Promise<
       throw new Error('SERP_API_KEY not found in environment');
     }
     
-    console.log(`🔍 SERP API call for "${query}"`);
+    console.log(`🔍 SERP API call for "${query}" (key prefix: ${apiKey.substring(0, 8)}...)`);
     const response = await axios.post(
       'https://google.serper.dev/search',
       {
@@ -128,8 +128,16 @@ export async function getGoogleRanking(query: string, useCache = true): Promise<
     
     return result;
   } catch (error: any) {
-    console.error('SERP API Error:', error.response?.data || error.message);
-    throw new Error(`Failed to fetch ranking: ${error.message}`);
+    const status = error.response?.status;
+    const responseData = error.response?.data;
+    console.error(`❌ SERP API Error (status ${status}):`, responseData || error.message);
+    
+    if (status === 403) {
+      throw new Error(`SERP API 403 Forbidden - Check API key is valid and has credits. Response: ${JSON.stringify(responseData)}`);
+    } else if (status === 429) {
+      throw new Error(`SERP API rate limited (429). Wait and try again.`);
+    }
+    throw new Error(`Failed to fetch ranking: status code ${status || 'unknown'} - ${error.message}`);
   }
 }
 
