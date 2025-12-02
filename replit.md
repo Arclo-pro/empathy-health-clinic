@@ -59,7 +59,14 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 ### Feature Specifications
 - **Core Pages:** Comprehensive landing pages for services, insurance providers, psychiatric treatments, therapy services, and conditions, including Google Ads and city-specific landing pages.
 - **Orlando Landing Pages:** Nine SEO-optimized Orlando-specific psychiatry landing pages with LocalBusiness/MedicalBusiness schema and strategic internal linking. Primary target: **/psychiatry-clinic-orlando** (exact H1 "Psychiatry Clinic in Orlando") for #1 ranking goal. Additional pages: /psychiatrist-orlando, /adhd-psychiatrist-orlando, /anxiety-psychiatrist-orlando, /child-psychiatrist-orlando, /bipolar-psychiatrist-orlando, /medication-management-orlando, /telepsychiatry-orlando, /same-day-psychiatrist-orlando. Internal linking: Homepage "Orlando Psychiatry Specialists" section and Footer "Orlando Psychiatry Services" band (both feature /psychiatry-clinic-orlando as first link with emphasized styling).
-- **High-Intent Landing Pages:** **/psychiatrist-near-me** - Optimized for the #1 high-intent search term with above-the-fold contact form (not just CTA link), medication management emphasis, insurance badges, and same-week appointment messaging. Expected to increase conversion rate by 25-60% vs. generic therapy page routing.
+- **High-Intent Landing Pages (December 2025 Optimization):** 
+  - **/psychiatrist-near-me** (49,500 vol) - H1: "Find a Psychiatrist Near Me in Orlando" - primary high-intent target with above-the-fold form, medication management emphasis, insurance badges, and same-week appointment messaging
+  - **/psychiatrist-for-anxiety-near-me** (1,300 vol) - H1: "Psychiatrist for Anxiety Near Me" - condition-specific anxiety treatment page with detailed GAD/panic/social anxiety content
+  - **/psychiatrist-for-depression-near-me** (880 vol) - H1: "Psychiatrist for Depression Near Me" - condition-specific depression treatment page with medication options and evidence-based approaches
+  - **/psychiatrist-orlando** (2,900 vol) - H1: "Psychiatrist Orlando, FL" - exact-match Orlando psychiatry page with LocalBusiness schema
+  - **/depression-psychiatrist-orlando** (390 vol) - H1: "Depression Psychiatrist Orlando" - Orlando-specific depression psychiatry page
+  - **/mental-health-services-orlando** (590 vol) - H1: "Mental Health Clinic in Orlando, FL" - optimized for "mental health clinic orlando" keyword
+  - **/medication-management-orlando** (480 vol) - H1: "Medication Management Orlando" - dedicated psychiatric medication management page
 - **Treatment Landing Pages:** **/emdr-therapy** - EMDR trauma treatment with detailed FAQs and evidence-based information. **/tms-treatment** - Transcranial Magnetic Stimulation for treatment-resistant depression, highlighting FDA approval, non-invasive nature, minimal side effects, and insurance coverage (November 2025).
 - **Lead Capture:** High-converting forms with automated email notifications, backend deduplication, and email failure tracking.
 - **Trust Factors:** Integration of HIPAA compliance and other credibility indicators.
