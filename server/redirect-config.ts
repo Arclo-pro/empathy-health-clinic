@@ -25,8 +25,8 @@ export const contentRedirectMap: Record<string, string> = {
   '/virtual-visit': '/virtual-therapy',
   
   // WordPress legacy redirects
-  '/psychiatric-services': '/services',
-  '/locations/psychiatry-orlando': '/services',
+  // NOTE: /psychiatric-services is now a real landing page - DO NOT redirect (Google Ads requires it)
+  '/locations/psychiatry-orlando': '/psychiatrist-orlando',
   '/find-a-psychiatrist-that-takes-medicare-medicare-coverage': '/insurance',
   
   // Location redirects
