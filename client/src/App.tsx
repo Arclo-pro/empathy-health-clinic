@@ -83,6 +83,7 @@ const PsychiatricEvaluation = lazy(() => import("@/pages/PsychiatricEvaluation")
 const PsychiatristOrlando = lazy(() => import("@/pages/PsychiatristOrlando"));
 const PsychiatryClinicOrlando = lazy(() => import("@/pages/PsychiatryClinicOrlando"));
 const PsychiatristNearMe = lazy(() => import("@/pages/PsychiatristNearMe"));
+const PsychiatryNearMe = lazy(() => import("@/pages/PsychiatryNearMe"));
 const ADHDPsychiatristOrlando = lazy(() => import("@/pages/ADHDPsychiatristOrlando"));
 const AnxietyPsychiatristOrlando = lazy(() => import("@/pages/AnxietyPsychiatristOrlando"));
 const BipolarPsychiatristOrlando = lazy(() => import("@/pages/BipolarPsychiatristOrlando"));
@@ -444,6 +445,11 @@ function Router() {
         <Route path="/psychiatrist-near-me">
           <Suspense fallback={<LoadingFallback />}>
             <PsychiatristNearMe />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatry-near-me">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatryNearMe />
           </Suspense>
         </Route>
         <Route path="/adhd-psychiatrist-orlando">

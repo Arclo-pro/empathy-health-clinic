@@ -79,6 +79,7 @@ export default function SiteFooter() {
   const orlandoServicesLinks = [
     { label: "Psychiatrist Orlando", href: "/psychiatrist-orlando", primary: true },
     { label: "Psychiatrist Near Me", href: "/psychiatrist-near-me", primary: true },
+    { label: "Psychiatry Near Me", href: "/psychiatry-near-me", primary: true },
     { label: "Medication Management", href: "/medication-management" },
     { label: "ADHD Testing Orlando", href: "/adhd-testing-orlando" },
     { label: "Anxiety Treatment", href: "/anxiety-treatment" },

@@ -228,13 +228,13 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link href="/psychiatrist-winter-park" className="group" data-testid="link-orlando-winter-park">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-winter-park">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Winter Park
+              <Link href="/psychiatry-near-me" className="group" data-testid="link-orlando-psychiatry-near-me">
+                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-psychiatry-near-me">
+                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
+                    Psychiatry Near Me
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Our main clinic location
+                    Comprehensive psychiatry services
                   </p>
                 </div>
               </Link>

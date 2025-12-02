@@ -166,8 +166,48 @@ export default function PsychiatristNearMe() {
               "@type": "Answer",
               "text": "Yes, our board-certified psychiatrists specialize in medication management for anxiety, depression, ADHD, bipolar disorder, and other mental health conditions. We provide comprehensive medication evaluations, adjustments, and ongoing monitoring."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between a psychiatrist and a therapist?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Psychiatrists are medical doctors who can prescribe medication and provide medical treatment for mental health conditions. They specialize in medication management and psychiatric evaluations. Therapists provide talk therapy and counseling. Many patients benefit from seeing both a psychiatrist for medication management and a therapist for counseling."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer telepsychiatry (virtual visits)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we offer secure telepsychiatry appointments for your convenience. See your psychiatrist from the comfort of your home via HIPAA-compliant video visits."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are your offices located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our main office is located at 2281 Lee Road Suite 102, Orlando, FL 32810, conveniently serving Orlando, Winter Park, Maitland, Altamonte Springs, and surrounding areas."
+            }
           }
         ]
+      },
+      {
+        "@type": "Physician",
+        "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#physician",
+        "name": "Dr. Marna Morrow",
+        "jobTitle": "Board-Certified Psychiatrist",
+        "medicalSpecialty": "Psychiatry",
+        "description": "Dr. Marna Morrow is a board-certified adult psychiatrist with extensive experience in medication management for anxiety, depression, ADHD, and bipolar disorder.",
+        "memberOf": {
+          "@type": "Organization",
+          "name": "Empathy Health Clinic"
+        },
+        "worksFor": {
+          "@type": "MedicalClinic",
+          "name": "Empathy Health Clinic"
+        }
       }
     ]
   };
@@ -487,6 +527,173 @@ export default function PsychiatristNearMe() {
         </section>
 
         <ReviewsAndBadges />
+
+        <section className="py-16 px-4 bg-background">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-4 text-foreground text-center">
+              Meet Our Board-Certified Psychiatrists
+            </h2>
+            <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+              Our team of experienced psychiatrists is dedicated to providing compassionate, evidence-based mental health care.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-card border border-card-border rounded-xl p-8">
+                <div className="flex items-start gap-6">
+                  <div className="bg-primary/10 w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Award className="h-12 w-12 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-1">Dr. Marna Morrow, MD</h3>
+                    <p className="text-primary font-semibold mb-2">Board-Certified Adult Psychiatrist</p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Dr. Morrow brings extensive experience in treating anxiety, depression, ADHD, bipolar disorder, and other mental health conditions. She specializes in medication management and takes a personalized approach to each patient's care.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs px-2 py-1 rounded">Board Certified</span>
+                      <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs px-2 py-1 rounded">American Board of Psychiatry</span>
+                      <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">Psychology Today Verified</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card border border-card-border rounded-xl p-8">
+                <div className="flex items-start gap-6">
+                  <div className="bg-primary/10 w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Award className="h-12 w-12 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-1">Dr. Rachelle Astudillo, PMHNP-BC</h3>
+                    <p className="text-primary font-semibold mb-2">Board-Certified Psychiatric Nurse Practitioner</p>
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Dr. Astudillo is a board-certified psychiatric mental health nurse practitioner specializing in comprehensive psychiatric evaluations and medication management for adults and adolescents.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 text-xs px-2 py-1 rounded">PMHNP-BC Certified</span>
+                      <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs px-2 py-1 rounded">ANCC Board Certified</span>
+                      <span className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">Telehealth Provider</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6 text-center">
+              <p className="text-muted-foreground mb-2">
+                <strong className="text-foreground">Verified on Professional Directories:</strong>
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="https://www.psychologytoday.com/us/psychiatrists/empathy-health-clinic-winter-park-fl" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Psychology Today</a>
+                <span className="text-muted-foreground">|</span>
+                <a href="https://www.healthgrades.com/group-directory/fl-florida/winter-park/empathy-health-clinic" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Healthgrades</a>
+                <span className="text-muted-foreground">|</span>
+                <a href="https://www.zocdoc.com/practice/empathy-health-clinic" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Zocdoc</a>
+                <span className="text-muted-foreground">|</span>
+                <a href="https://www.goodtherapy.org" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">GoodTherapy</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4 bg-muted/50">
+          <div className="container mx-auto max-w-6xl">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-4 text-foreground text-center">
+              Areas We Serve
+            </h2>
+            <p className="text-lg text-muted-foreground text-center mb-12 max-w-3xl mx-auto">
+              Serving Orlando, Winter Park, and surrounding Central Florida communities with expert psychiatric care.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+              <div>
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <Link href="/psychiatrist-orlando" className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Orlando</span>
+                    </Link>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <Link href="/locations/winter-park" className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Winter Park</span>
+                    </Link>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <Link href="/locations/altamonte-springs" className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Altamonte Springs</span>
+                    </Link>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <Link href="/locations/kissimmee" className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Kissimmee</span>
+                    </Link>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <Link href="/locations/apopka" className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Apopka</span>
+                    </Link>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Maitland</span>
+                    </div>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Lake Mary</span>
+                    </div>
+                  </div>
+                  <div className="bg-card border border-card-border rounded-lg p-4 hover-elevate">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
+                      <span className="font-semibold text-foreground">Sanford</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-card border border-card-border rounded-lg p-6">
+                  <h3 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                    <Building2 className="h-5 w-5 text-primary" />
+                    Our Office Location
+                  </h3>
+                  <p className="text-muted-foreground mb-2">
+                    <strong>Empathy Health Clinic</strong><br />
+                    2281 Lee Road Suite 102<br />
+                    Orlando, FL 32810
+                  </p>
+                  <p className="text-muted-foreground mb-4">
+                    <Phone className="h-4 w-4 inline mr-1" />
+                    <a href="tel:+13868488751" className="text-primary hover:underline">(386) 848-8751</a>
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    <Clock className="h-4 w-4 inline mr-1" />
+                    Monday - Sunday: 9:00 AM - 7:00 PM
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-card border border-card-border rounded-xl overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.5!2d-81.36537!3d28.59544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77000e9d9a8b3%3A0x123456789!2s2281+Lee+Rd+Suite+102%2C+Orlando%2C+FL+32810!5e0!3m2!1sen!2sus!4v1234567890"
+                  width="100%"
+                  height="400"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Empathy Health Clinic Location - Psychiatrist Near Me in Orlando"
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section className="py-16 px-4 bg-background">
           <div className="container mx-auto max-w-4xl">
