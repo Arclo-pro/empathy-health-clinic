@@ -292,6 +292,9 @@ export default function AdminSERP() {
     
     const newRankings = new Map(rankings);
     const BATCH_SIZE = 3;
+    let successCount = 0;
+    let errorCount = 0;
+    let lastError = "";
     
     for (let i = 0; i < keywords.length; i += BATCH_SIZE) {
       const batch = keywords.slice(i, i + BATCH_SIZE);
@@ -301,6 +304,12 @@ export default function AdminSERP() {
       
       results.forEach((result) => {
         newRankings.set(result.keyword, result);
+        if (result.error) {
+          errorCount++;
+          lastError = result.error;
+        } else if (result.position !== null) {
+          successCount++;
+        }
       });
       
       setRankings(new Map(newRankings));
@@ -314,10 +323,24 @@ export default function AdminSERP() {
     
     setIsChecking(false);
     setCurrentKeyword("");
-    toast({
-      title: "Rankings Updated",
-      description: `Checked ${keywords.length} keywords successfully.`,
-    });
+    
+    if (errorCount > 0) {
+      toast({
+        title: "API Errors Occurred",
+        description: `${errorCount} keywords failed. Error: ${lastError}. You may be out of API credits or rate limited.`,
+        variant: "destructive",
+      });
+    } else if (successCount > 0) {
+      toast({
+        title: "Rankings Updated",
+        description: `Found rankings for ${successCount} of ${keywords.length} keywords.`,
+      });
+    } else {
+      toast({
+        title: "No Rankings Found",
+        description: `None of the ${keywords.length} keywords rank in top 20 results.`,
+      });
+    }
   };
 
   const exportCSV = () => {
