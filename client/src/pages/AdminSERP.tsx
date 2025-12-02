@@ -49,8 +49,6 @@ const KEYWORDS = [
   "virtual psychiatry orlando",
   "best psychiatrist orlando",
   "top rated psychiatrist orlando",
-  "child psychiatrist orlando",
-  "teen psychiatrist orlando",
   "adult psychiatrist orlando",
   "family psychiatrist orlando",
   "medication management orlando",
