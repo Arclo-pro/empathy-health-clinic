@@ -29,15 +29,19 @@ export const contentRedirectMap: Record<string, string> = {
   '/locations/psychiatry-orlando': '/psychiatrist-orlando',
   '/find-a-psychiatrist-that-takes-medicare-medicare-coverage': '/insurance',
   
-  // Location redirects
-  '/locations/therapy-services-pine-hills': '/therapy-services-orlando',
-  '/locations/therapy-services-lockhart': '/therapy-services-orlando',
-  '/locations/psychiatry-wekiwa-springs': '/locations/psychiatrist-orlando',
-  '/locations/therapy-services-maitland': '/locations/psychiatrist-maitland',
-  '/locations/therapy-services-casselberry': '/locations/psychiatrist-casselberry',
-  '/locations/psychiatry-lockhart': '/locations/psychiatrist-orlando',
-  '/locations/psychiatry-apopka': '/locations/psychiatrist-orlando',
-  '/locations/psychiatry-maitland': '/locations/psychiatrist-maitland',
+  // Location redirects - redirect dynamic location slugs to STATIC pages (for Google Ads)
+  // Dynamic LocationDetail uses API calls that AdsBot can't render
+  '/locations/psychiatrist-orlando': '/psychiatrist-orlando',
+  '/locations/psychiatry-wekiwa-springs': '/psychiatrist-orlando',
+  '/locations/psychiatry-lockhart': '/psychiatrist-orlando',
+  '/locations/psychiatry-apopka': '/locations/apopka',
+  '/locations/psychiatry-maitland': '/psychiatrist-orlando',
+  '/locations/psychiatrist-maitland': '/psychiatrist-orlando',
+  '/locations/psychiatrist-casselberry': '/psychiatrist-orlando',
+  '/locations/therapy-services-pine-hills': '/therapist-orlando',
+  '/locations/therapy-services-lockhart': '/therapist-orlando',
+  '/locations/therapy-services-maitland': '/therapist-orlando',
+  '/locations/therapy-services-casselberry': '/therapist-orlando',
   
   // Therapy approach redirects
   '/therapy/relationship-and-family': '/couples-therapy',
@@ -140,10 +144,10 @@ export const contentRedirectMap: Record<string, string> = {
   '/therapy/lgbt-therapy-services': '/therapy',
   
   // Location service redirects
-  '/locations/therapy-services-apopka': '/therapy-services-orlando',
-  '/locations/therapy-services-oviedo': '/therapy-services-orlando',
-  '/locations/therapy-services-richmond-heights': '/therapy-services-orlando',
-  '/locations/psychiatry-winter-park': '/locations/psychiatrist-winter-park',
+  '/locations/therapy-services-apopka': '/therapist-orlando',
+  '/locations/therapy-services-oviedo': '/therapist-orlando',
+  '/locations/therapy-services-richmond-heights': '/therapist-orlando',
+  '/locations/psychiatry-winter-park': '/locations/winter-park',
   
   // Pricing and contact pages
   '/pricing': '/insurance',
@@ -178,8 +182,8 @@ export const contentRedirectMap: Record<string, string> = {
   '/treatments/intimacy-therapy-sexual-wellness': '/intimacy-therapy',
   
   // Location pages
-  '/locations/therapy-services-lockhart': '/therapy-services-orlando',
-  '/locations/psychiatry-oviedo': '/locations/psychiatrist-orlando',
+  // Duplicate removed - already defined earlier as redirect to /therapist-orlando
+  '/locations/psychiatry-oviedo': '/psychiatrist-orlando',
   
   // Tag pages
   '/tag/housing-accommodation-rights': '/blog',
@@ -204,11 +208,11 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Location pages - redirect to main therapy services
   '/locations': '/services',
-  '/locations/therapy-services-orlando-2': '/therapy-services-orlando',
-  '/locations/therapy-services-wekiwa-springs': '/therapy-services-orlando',
-  '/locations/therapy-services-aloma': '/therapy-services-orlando',
-  '/locations/therapy-services-shores': '/therapy-services-orlando',
-  '/locations/psychiatrist-winter-park': '/locations/psychiatrist-winter-park',
+  '/locations/therapy-services-orlando-2': '/therapist-orlando',
+  '/locations/therapy-services-wekiwa-springs': '/therapist-orlando',
+  '/locations/therapy-services-aloma': '/therapist-orlando',
+  '/locations/therapy-services-shores': '/therapist-orlando',
+  '/locations/psychiatrist-winter-park': '/locations/winter-park',
   '/therapy-services-orlando': '/therapy-services-orlando',
   
   // Therapy modality pages
