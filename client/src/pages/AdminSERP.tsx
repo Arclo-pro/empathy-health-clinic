@@ -196,19 +196,24 @@ export default function AdminSERP() {
     setProgress(0);
     
     const newRankings = new Map(rankings);
+    const BATCH_SIZE = 5;
     
-    for (let i = 0; i < KEYWORDS.length; i++) {
-      const keyword = KEYWORDS[i];
-      setCurrentKeyword(keyword);
-      setProgress(((i + 1) / KEYWORDS.length) * 100);
+    for (let i = 0; i < KEYWORDS.length; i += BATCH_SIZE) {
+      const batch = KEYWORDS.slice(i, i + BATCH_SIZE);
+      setCurrentKeyword(`Batch ${Math.floor(i / BATCH_SIZE) + 1}: ${batch.join(", ").substring(0, 50)}...`);
       
-      const result = await checkSingleKeyword(keyword);
-      newRankings.set(keyword, result);
+      const results = await Promise.all(batch.map(keyword => checkSingleKeyword(keyword)));
+      
+      results.forEach((result) => {
+        newRankings.set(result.keyword, result);
+      });
+      
       setRankings(new Map(newRankings));
       saveRankings(newRankings);
+      setProgress(((i + batch.length) / KEYWORDS.length) * 100);
       
-      if (i < KEYWORDS.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 2500));
+      if (i + BATCH_SIZE < KEYWORDS.length) {
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
     }
     
@@ -246,19 +251,24 @@ export default function AdminSERP() {
     setProgress(0);
     
     const newRankings = new Map(rankings);
+    const BATCH_SIZE = 5;
     
-    for (let i = 0; i < keywords.length; i++) {
-      const keyword = keywords[i];
-      setCurrentKeyword(keyword);
-      setProgress(((i + 1) / keywords.length) * 100);
+    for (let i = 0; i < keywords.length; i += BATCH_SIZE) {
+      const batch = keywords.slice(i, i + BATCH_SIZE);
+      setCurrentKeyword(`Batch ${Math.floor(i / BATCH_SIZE) + 1}: ${batch.join(", ").substring(0, 50)}...`);
       
-      const result = await checkSingleKeyword(keyword);
-      newRankings.set(keyword, result);
+      const results = await Promise.all(batch.map(keyword => checkSingleKeyword(keyword)));
+      
+      results.forEach((result) => {
+        newRankings.set(result.keyword, result);
+      });
+      
       setRankings(new Map(newRankings));
       saveRankings(newRankings);
+      setProgress(((i + batch.length) / keywords.length) * 100);
       
-      if (i < keywords.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+      if (i + BATCH_SIZE < keywords.length) {
+        await new Promise(resolve => setTimeout(resolve, 3000));
       }
     }
     
@@ -410,7 +420,7 @@ export default function AdminSERP() {
                 {Math.round(progress)}% complete ({Math.round(progress / 100 * KEYWORDS.length)}/{KEYWORDS.length} keywords)
               </p>
               <p className="text-xs text-muted-foreground mt-1">
-                Rate limited to avoid API throttling. Estimated time: {Math.round((KEYWORDS.length - Math.round(progress / 100 * KEYWORDS.length)) * 2.5 / 60)} minutes remaining.
+                Processing 5 keywords per batch. Estimated time: {Math.round(((KEYWORDS.length - Math.round(progress / 100 * KEYWORDS.length)) / 5) * 3 / 60)} minutes remaining.
               </p>
             </CardContent>
           </Card>
