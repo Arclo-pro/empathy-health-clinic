@@ -31,32 +31,38 @@ export const initMicrosoftClarity = () => {
     return;
   }
 
-  // Prevent duplicate script injection on hot reloads
-  if (typeof window.clarity !== 'undefined') {
-    console.log('⚠️ Microsoft Clarity: Already initialized, skipping duplicate injection');
+  // Check for existing Clarity script tag (more reliable than checking window.clarity)
+  const existingScript = document.querySelector('script[src*="clarity.ms"]');
+  if (existingScript) {
+    console.log('⚠️ Microsoft Clarity: Script already loaded, skipping duplicate injection');
     return;
   }
 
   console.log('✅ Microsoft Clarity: Initializing with Project ID:', clarityId.substring(0, 8) + '...');
 
-  // Load Microsoft Clarity script
-  const script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.textContent = `
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "${clarityId}");
-  `;
-  document.head.appendChild(script);
+  // Load Microsoft Clarity using their official snippet
+  // This creates the clarity function stub and loads the external script
+  (function(c: Window, l: Document, a: string, r: string, i: string) {
+    (c as any)[a] = (c as any)[a] || function(...args: any[]) {
+      ((c as any)[a].q = (c as any)[a].q || []).push(args);
+    };
+    const t = l.createElement(r) as HTMLScriptElement;
+    t.async = true;
+    t.src = "https://www.clarity.ms/tag/" + i;
+    const y = l.getElementsByTagName(r)[0];
+    if (y && y.parentNode) {
+      y.parentNode.insertBefore(t, y);
+    } else {
+      l.head.appendChild(t);
+    }
+  })(window, document, "clarity", "script", clarityId);
 
   console.log('✅ Microsoft Clarity: Heatmaps and session recording initialized');
   
   // Tag sessions with paid traffic attribution after Clarity loads
   setTimeout(() => {
     tagClaritySessionWithAttribution();
-  }, 1000);
+  }, 2000);
 };
 
 /**
