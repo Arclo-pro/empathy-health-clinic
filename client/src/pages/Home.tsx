@@ -150,18 +150,7 @@ export default function Home() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              <Link href="/psychiatrist-orlando" className="group" data-testid="link-orlando-psychiatrist">
-                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-psychiatrist">
-                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
-                    Psychiatrist Orlando
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Expert medication management & psychiatric evaluations
-                  </p>
-                </div>
-              </Link>
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <Link href="/psychiatrist-near-me" className="group" data-testid="link-orlando-near-me">
                 <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-near-me">
                   <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
@@ -173,13 +162,24 @@ export default function Home() {
                 </div>
               </Link>
 
+              <Link href="/psychiatrist-orlando" className="group" data-testid="link-orlando-psychiatrist">
+                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-psychiatrist">
+                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
+                    Psychiatrist Orlando
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Expert medication management & evaluations
+                  </p>
+                </div>
+              </Link>
+
               <Link href="/adhd-testing-orlando" className="group" data-testid="link-orlando-adhd">
                 <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-adhd">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
                     ADHD Testing
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Adult & child ADHD diagnosis and treatment
+                    Adult & child ADHD diagnosis
                   </p>
                 </div>
               </Link>
@@ -190,7 +190,7 @@ export default function Home() {
                     Anxiety Treatment
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Comprehensive anxiety & panic disorder treatment
+                    Anxiety & panic disorder care
                   </p>
                 </div>
               </Link>
@@ -198,10 +198,10 @@ export default function Home() {
               <Link href="/depression-counseling" className="group" data-testid="link-orlando-depression">
                 <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-depression">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Depression Counseling
+                    Depression Treatment
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Evidence-based depression treatment
+                    Evidence-based depression care
                   </p>
                 </div>
               </Link>
@@ -212,7 +212,7 @@ export default function Home() {
                     Medication Management
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Ongoing psychiatric medication optimization
+                    Ongoing psychiatric medication care
                   </p>
                 </div>
               </Link>
@@ -220,68 +220,21 @@ export default function Home() {
               <Link href="/virtual-therapy" className="group" data-testid="link-orlando-virtual">
                 <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-virtual">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Virtual Therapy
+                    Virtual Visit
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Convenient online therapy appointments
+                    Online appointments available
                   </p>
                 </div>
               </Link>
 
-              <Link href="/psychiatry-near-me" className="group" data-testid="link-orlando-psychiatry-near-me">
-                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-psychiatry-near-me">
-                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
-                    Psychiatry Near Me
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Comprehensive psychiatry services
-                  </p>
-                </div>
-              </Link>
-            </div>
-
-            {/* Condition-Specific Psychiatrist Links */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-              <Link href="/psychiatrist-for-anxiety-near-me" className="group" data-testid="link-anxiety-psychiatrist-near-me">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-anxiety-psychiatrist-near-me">
+              <Link href="/mental-health-services-orlando" className="group" data-testid="link-orlando-mental-health">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-mental-health">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Anxiety Psychiatrist Near Me
+                    Mental Health Clinic
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Expert anxiety medication management
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/psychiatrist-for-depression-near-me" className="group" data-testid="link-depression-psychiatrist-near-me">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-depression-psychiatrist-near-me">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Depression Psychiatrist Near Me
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Specialized depression treatment
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/depression-psychiatrist-orlando" className="group" data-testid="link-depression-psychiatrist-orlando">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-depression-psychiatrist-orlando">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Depression Psychiatrist Orlando
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Orlando depression specialists
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/medication-management-orlando" className="group" data-testid="link-medication-management-orlando">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-medication-management-orlando">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Medication Management Orlando
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    Psychiatric medication expertise
+                    Full-service Orlando clinic
                   </p>
                 </div>
               </Link>
