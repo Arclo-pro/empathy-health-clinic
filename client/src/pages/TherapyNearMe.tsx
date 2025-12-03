@@ -6,14 +6,20 @@ import SEOHead from "@/components/SEOHead";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import { buildBreadcrumbSchema } from "@/lib/structuredData";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trackEvent } from "@/lib/analytics";
 
 export default function TherapyNearMe() {
+  const handlePhoneClick = () => {
+    trackEvent('phone_click', 'conversion', 'Therapy Near Me Page', '386-848-8751');
+  };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["MedicalBusiness", "LocalBusiness", "HealthAndBeautyBusiness"],
@@ -129,6 +135,12 @@ export default function TherapyNearMe() {
     ]
   };
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: "https://empathyhealthclinic.com" },
+    { name: "Services", url: "https://empathyhealthclinic.com/services" },
+    { name: "Therapy Near Me", url: "https://empathyhealthclinic.com/therapy-near-me" }
+  ]);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
@@ -136,7 +148,7 @@ export default function TherapyNearMe() {
         description="Looking for therapy near me? Our licensed Orlando and Winter Park therapists offer same-week appointments, in-person and telehealth therapy. Most insurance accepted. Call 386-848-8751."
         keywords={["therapy near me", "therapy near me orlando", "therapy services near me", "find therapy near me", "therapy orlando", "therapy winter park", "cbt therapy near me", "emdr therapy near me", "trauma therapy near me", "couples therapy near me", "individual therapy near me", "affordable therapy near me"]}
         canonicalPath="/therapy-near-me"
-        jsonLd={[jsonLd, faqSchema]}
+        jsonLd={[jsonLd, faqSchema, breadcrumbSchema]}
       />
       <SiteHeader />
       
@@ -188,7 +200,7 @@ export default function TherapyNearMe() {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <a href="tel:386-848-8751">
+                  <a href="tel:386-848-8751" onClick={handlePhoneClick}>
                     <Button size="lg" className="bg-[#E48F66] hover:bg-[#d07d54] text-white font-semibold px-8" data-testid="button-call-hero">
                       <Phone className="mr-2 h-5 w-5" />
                       Call 386-848-8751
@@ -233,7 +245,7 @@ export default function TherapyNearMe() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Schedule Therapy</h3>
-                  <a href="tel:386-848-8751" className="text-[#E48F66] hover:underline text-xl font-bold" data-testid="link-phone-location">
+                  <a href="tel:386-848-8751" onClick={handlePhoneClick} className="text-[#E48F66] hover:underline text-xl font-bold" data-testid="link-phone-location">
                     386-848-8751
                   </a>
                 </div>
@@ -424,44 +436,26 @@ export default function TherapyNearMe() {
           </div>
         </section>
 
-        {/* Related Services - Internal Links Block */}
+        {/* People Also Search For - Internal Links Block */}
         <section className="py-12 bg-white border-y">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center mb-8">Related Services</h2>
-            <p className="text-center text-gray-600 mb-6">People also search for:</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <Link href="/cognitive-behavioral-therapy" data-testid="link-related-cbt">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">CBT Therapy Orlando</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/anxiety-therapy" data-testid="link-related-anxiety">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Anxiety Therapy Near Me</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/depression-counseling" data-testid="link-related-depression">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Depression Counseling Orlando</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/couples-counseling" data-testid="link-related-couples">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Couples Counseling Near Me</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
+            <h2 className="text-2xl font-bold text-center mb-8">People Also Search For</h2>
+            <div className="space-y-10 max-w-6xl mx-auto">
+              <InternalLinkBlock 
+                category="services" 
+                variant="cards" 
+                title="Related Services"
+              />
+              <InternalLinkBlock 
+                category="conditions" 
+                variant="cards" 
+                title="Conditions We Treat"
+              />
+              <InternalLinkBlock 
+                category="insurance" 
+                variant="cards" 
+                title="Insurance Accepted"
+              />
             </div>
           </div>
         </section>
@@ -533,7 +527,7 @@ export default function TherapyNearMe() {
                   <p className="text-gray-200 mb-2">Same-week appointments. Most insurance accepted.</p>
                   <p className="text-gray-200 mb-6">Take the first step toward better mental health today.</p>
                   <div className="flex flex-wrap justify-center gap-4">
-                    <a href="tel:386-848-8751">
+                    <a href="tel:386-848-8751" onClick={handlePhoneClick}>
                       <Button size="lg" className="bg-[#E48F66] hover:bg-[#d07d54] text-white" data-testid="button-call-cta">
                         <Phone className="mr-2 h-5 w-5" />
                         Call 386-848-8751
@@ -556,7 +550,7 @@ export default function TherapyNearMe() {
                     <Phone className="h-8 w-8 mx-auto mb-4" />
                     <h3 className="font-bold text-lg mb-2">Start Therapy Near You</h3>
                     <p className="text-gray-200 text-sm mb-4">Same-week appointments available</p>
-                    <a href="tel:386-848-8751">
+                    <a href="tel:386-848-8751" onClick={handlePhoneClick}>
                       <Button className="w-full bg-[#E48F66] hover:bg-[#d07d54] text-white" data-testid="button-call-sidebar">
                         Call 386-848-8751
                       </Button>

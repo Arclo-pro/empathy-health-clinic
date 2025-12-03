@@ -13,8 +13,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
+import { buildBreadcrumbSchema } from "@/lib/structuredData";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function CouplesCounseling() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: "https://empathyhealthclinic.com" },
+    { name: "Therapy", url: "https://empathyhealthclinic.com/therapy" },
+    { name: "Couples Counseling", url: "https://empathyhealthclinic.com/couples-counseling" }
+  ]);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -89,7 +97,8 @@ export default function CouplesCounseling() {
             }
           }
         ]
-      }
+      },
+      breadcrumbSchema
     ]
   };
 
@@ -350,44 +359,27 @@ export default function CouplesCounseling() {
           </div>
         </section>
 
-        {/* Related Services - Internal Links Block */}
+        {/* People Also Search For - Internal Links Block */}
         <section className="py-12 bg-white border-y">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-center mb-8">Related Services</h2>
-            <p className="text-center text-gray-600 mb-6">People also search for:</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <Link href="/therapist-orlando" data-testid="link-related-therapist">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Therapist Orlando</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/therapy-near-me" data-testid="link-related-therapy">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Therapy Near Me</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/anxiety-therapy" data-testid="link-related-anxiety">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Anxiety Therapy</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/depression-counseling" data-testid="link-related-depression">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Depression Counseling</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
+            <h2 className="text-2xl font-bold text-center mb-8">People Also Search For</h2>
+            <div className="space-y-8 max-w-5xl mx-auto">
+              <InternalLinkBlock 
+                category="treatments" 
+                variant="cards" 
+                excludePaths={["/couples-counseling"]}
+                title="Related Treatments"
+              />
+              <InternalLinkBlock 
+                category="conditions" 
+                variant="cards"
+                title="Conditions We Treat"
+              />
+              <InternalLinkBlock 
+                category="insurance" 
+                variant="cards"
+                title="Insurance Accepted"
+              />
             </div>
           </div>
         </section>

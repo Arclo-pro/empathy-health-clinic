@@ -13,11 +13,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
+import { buildBreadcrumbSchema } from "@/lib/structuredData";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function MentalHealthNearMe() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: "https://empathyhealthclinic.com" },
+    { name: "Services", url: "https://empathyhealthclinic.com/services" },
+    { name: "Mental Health Near Me", url: "https://empathyhealthclinic.com/mental-health-near-me" }
+  ]);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      breadcrumbSchema,
       {
         "@type": ["MedicalBusiness", "LocalBusiness", "MedicalClinic"],
         "name": "Mental Health Services Near Me - Empathy Health Clinic",
@@ -580,6 +589,30 @@ export default function MentalHealthNearMe() {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* People Also Search For Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-10">People Also Search For</h2>
+            <div className="space-y-10">
+              <InternalLinkBlock 
+                category="services" 
+                variant="cards" 
+                title="Mental Health Services"
+              />
+              <InternalLinkBlock 
+                category="conditions" 
+                variant="cards" 
+                title="Conditions We Treat"
+              />
+              <InternalLinkBlock 
+                category="insurance" 
+                variant="cards" 
+                title="Insurance Accepted"
+              />
             </div>
           </div>
         </section>

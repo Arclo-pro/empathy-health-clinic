@@ -13,11 +13,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
+import { buildBreadcrumbSchema } from "@/lib/structuredData";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function PsychiatristOrlando() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", url: "https://empathyhealthclinic.com" },
+    { name: "Services", url: "https://empathyhealthclinic.com/services" },
+    { name: "Psychiatrist Orlando", url: "https://empathyhealthclinic.com/psychiatrist-orlando" }
+  ]);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      breadcrumbSchema,
       {
         "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
         "@id": "https://empathyhealthclinic.com/psychiatrist-orlando/#organization",
@@ -423,40 +432,24 @@ export default function PsychiatristOrlando() {
         <section className="py-12 bg-white border-y">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl font-bold text-center mb-8">Related Services</h2>
-            <p className="text-center text-gray-600 mb-6">People also search for:</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-              <Link href="/psychiatrist-near-me" data-testid="link-related-near-me">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Psychiatrist Near Me</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/adhd-psychiatrist-orlando" data-testid="link-related-adhd">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">ADHD Psychiatrist Orlando</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/anxiety-psychiatrist-orlando" data-testid="link-related-anxiety">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Anxiety Psychiatrist Orlando</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
-              <Link href="/medication-management-orlando" data-testid="link-related-medication">
-                <Card className="hover-elevate cursor-pointer h-full">
-                  <CardContent className="p-4 flex items-center justify-between">
-                    <span className="font-medium text-[#2E5E4E]">Medication Management</span>
-                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
-                  </CardContent>
-                </Card>
-              </Link>
+            <p className="text-center text-gray-600 mb-8">People also search for:</p>
+            <div className="space-y-10 max-w-5xl mx-auto">
+              <InternalLinkBlock 
+                category="services" 
+                variant="cards" 
+                title="Our Services"
+                excludePaths={["/psychiatrist-orlando"]}
+              />
+              <InternalLinkBlock 
+                category="conditions" 
+                variant="cards" 
+                title="Conditions We Treat"
+              />
+              <InternalLinkBlock 
+                category="insurance" 
+                variant="cards" 
+                title="Accepted Insurance"
+              />
             </div>
           </div>
         </section>
