@@ -1,48 +1,114 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Phone, Mail, Clock, MapPin, Shield, Users, Star, Award, Calendar } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, Phone, Clock, MapPin, Shield, Star, Award, Calendar, Brain, Heart, Pill, Video, ArrowRight } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
-import ShortContactForm from "@/components/ShortContactForm";
-import TrustFactors from "@/components/TrustFactors";
-import InsuranceSection from "@/components/InsuranceSection";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { trackEvent } from "@/lib/analytics";
 
 export default function PsychiatricServices() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["MedicalBusiness", "Psychiatrist", "LocalBusiness"],
-    "name": "Empathy Health Clinic - Psychiatric Services",
-    "description": "Board-certified psychiatrists in Winter Park & Orlando, FL. Comprehensive psychiatric care including medication management, psychiatric evaluations, and mental health treatment. Same-week appointments available.",
-    "url": "https://empathyhealthclinic.com/psychiatric-services",
-    "telephone": "+1-386-848-8751",
-    "email": "providers@empathyhealthclinic.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
-      "addressLocality": "Winter Park",
-      "addressRegion": "FL",
-      "postalCode": "32789",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "28.5946",
-      "longitude": "-81.3370"
-    },
-    "medicalSpecialty": ["Psychiatry", "Mental Health"],
-    "priceRange": "$$",
-    "areaServed": ["Winter Park", "Orlando", "Maitland", "Altamonte Springs", "Oviedo"]
+    "@graph": [
+      {
+        "@type": ["MedicalBusiness", "Psychiatrist", "LocalBusiness"],
+        "name": "Empathy Health Clinic - Psychiatric Services",
+        "description": "Board-certified psychiatrists in Orlando & Winter Park, FL. Comprehensive psychiatric care including medication management, psychiatric evaluations, and mental health treatment. Same-week appointments available.",
+        "url": "https://empathyhealthclinic.com/psychiatric-services",
+        "telephone": "+1-386-848-8751",
+        "email": "providers@empathyhealthclinic.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1155 Louisiana Ave Suite 202",
+          "addressLocality": "Winter Park",
+          "addressRegion": "FL",
+          "postalCode": "32789",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.5997,
+          "longitude": -81.3392
+        },
+        "medicalSpecialty": ["Psychiatry", "Mental Health", "Medication Management"],
+        "priceRange": "$$",
+        "areaServed": [
+          { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },
+          { "@type": "City", "name": "Winter Park" },
+          { "@type": "City", "name": "Maitland" },
+          { "@type": "City", "name": "Altamonte Springs" },
+          { "@type": "City", "name": "Lake Mary" },
+          { "@type": "City", "name": "Casselberry" }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "120",
+          "bestRating": "5"
+        },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "Board Certified Psychiatrist" },
+          { "@type": "EducationalOccupationalCredential", "credentialCategory": "PMHNP-BC" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What psychiatric services do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer comprehensive psychiatric services including medication management, psychiatric evaluations, ADHD testing, anxiety and depression treatment, bipolar disorder care, and telepsychiatry. Our board-certified psychiatrists provide personalized care for a wide range of mental health conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can I get an appointment for psychiatric services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer same-week appointments for new patients. Most patients can schedule within 3-5 business days. Call 386-848-8751 to check current availability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What insurance do you accept for psychiatric services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, UMR, and Medicare. Most patients pay only their copay of $20-50 per session."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  const handlePhoneClick = () => {
+    trackEvent('phone_click', 'conversion', 'Psychiatric Services Page', '386-848-8751');
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Near Me | Board-Certified Psychiatrists in Winter Park & Orlando FL"
-        description="Find the best psychiatrist near you. Board-certified psychiatrists in Winter Park & Orlando specializing in medication management, psychiatric evaluations, anxiety, depression, ADHD, bipolar disorder. Same-week appointments. Most insurance accepted. Call 386-848-8751."
-        keywords={["psychiatrist near me", "best psychiatrist near me", "psychiatrist winter park", "psychiatrist orlando", "psychiatric services near me", "mental health psychiatrist", "medication management psychiatrist", "psychiatric nurse practitioner orlando", "find a psychiatrist near me"]}
+        title="Psychiatric Services Orlando | Same-Week Appointments | Board-Certified"
+        description="Looking for psychiatric services in Orlando? Board-certified psychiatrists offering same-week appointments for medication management, psychiatric evaluations, anxiety, depression, ADHD. Call 386-848-8751."
+        keywords={["psychiatric services", "psychiatric services orlando", "psychiatric services near me", "psychiatrist near me", "medication management", "psychiatric evaluation", "mental health services orlando"]}
         canonicalPath="/psychiatric-services"
         jsonLd={jsonLd}
       />
@@ -50,387 +116,527 @@ export default function PsychiatricServices() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-primary/10 via-background to-primary/5 border-b">
-          <div className="container mx-auto px-4 py-12 md:py-16">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-sans font-bold text-foreground mb-6" data-testid="text-page-title">
-                Board-Certified Psychiatrists Near You
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-                Expert psychiatric care in Winter Park & Orlando, FL. Our board-certified psychiatrists specialize in comprehensive mental health treatment, medication management, and psychiatric evaluations. Same-week appointments available for new patients.
-              </p>
-              
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap justify-center gap-6 mb-8">
-                <div className="flex items-center gap-2 text-sm font-medium">
-                  <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                  <span className="text-foreground">4.8 Google Rating</span>
+        <section className="relative bg-[#1a3a2f] text-white py-16 md:py-24">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1a3a2f] via-[#2d5a47] to-[#1a3a2f] opacity-90" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div className="space-y-6">
+                <div className="flex items-center gap-2 text-[#E48F66]">
+                  <Star className="h-5 w-5 fill-current" />
+                  <span className="font-medium">4.8 Rating from 120+ Patients</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-medium">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">Board-Certified Psychiatrists</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-page-title">
+                  Psychiatric Services in Orlando & Winter Park
+                </h1>
+                
+                {/* SEO Intro Paragraph - Keyword in first sentence */}
+                <p className="text-xl text-gray-200 max-w-xl">
+                  <strong>If you're looking for psychiatric services near you,</strong> our board-certified psychiatrists provide <strong>same-week appointments</strong> with in-person and telehealth options covered by most major insurance. We offer comprehensive medication management, psychiatric evaluations, and mental health treatment—right here in Central Florida.
+                </p>
+
+                {/* Why Choose Us - Quick Trust Signals */}
+                <div className="bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+                  <h2 className="text-lg font-semibold mb-4 text-[#E48F66]">Why Choose Our Psychiatric Services</h2>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#E48F66] flex-shrink-0" />
+                      <span>Same-week appointments available</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#E48F66] flex-shrink-0" />
+                      <span>Board-certified psychiatrists</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#E48F66] flex-shrink-0" />
+                      <span>In-person & telepsychiatry options</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#E48F66] flex-shrink-0" />
+                      <span>Most insurance accepted (BCBS, Aetna, Cigna, UHC, Medicare)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <CheckCircle className="h-5 w-5 text-[#E48F66] flex-shrink-0" />
+                      <span>Convenient Winter Park / Orlando location</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="flex items-center gap-2 text-sm font-medium">
-                  <Calendar className="h-5 w-5 text-primary" />
-                  <span className="text-foreground">Same-Week Appointments</span>
+
+                <div className="flex flex-wrap gap-4">
+                  <a href="tel:386-848-8751" onClick={handlePhoneClick}>
+                    <Button size="lg" className="bg-[#E48F66] hover:bg-[#d07d54] text-white font-semibold px-8" data-testid="button-call-hero">
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call 386-848-8751
+                    </Button>
+                  </a>
+                  <Link href="/request-appointment">
+                    <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8" data-testid="button-book-hero">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Book Appointment
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button size="lg" asChild data-testid="button-hero-call">
-                  <a 
-                    href="tel:3868488751" 
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => trackEvent('phone_click', 'conversion', 'Psychiatric Services Hero')}
-                  >
-                    <Phone className="h-5 w-5" />
-                    Call (386) 848-8751
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild data-testid="button-hero-request">
-                  <Link 
-                    href="/request-appointment" 
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatric Services Hero')}
-                  >
-                    <Mail className="h-5 w-5" />
-                    Request Appointment
-                  </Link>
-                </Button>
+              {/* Lead Capture Form */}
+              <div className="bg-white rounded-2xl p-8 shadow-2xl">
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Schedule Psychiatric Services</h2>
+                <p className="text-gray-600 mb-6">Request an appointment with our psychiatric team. Same-week availability.</p>
+                <LeadCaptureForm therapyName="Psychiatric Services" />
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Main Content with Sidebar */}
-        <div className="container mx-auto px-4 py-12 max-w-7xl">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Content - Left Column */}
-          <div className="lg:col-span-2">
-            <div className="mb-16">
-              <div className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-sans font-bold text-foreground mb-6">Expert Psychiatric Services in Winter Park & Orlando</h2>
-            
-            <p className="text-foreground leading-relaxed mb-6">
-              Finding the right psychiatrist near you is essential for effective mental health care. At Empathy Health Clinic, our board-certified psychiatrists in Winter Park and Orlando provide comprehensive psychiatric services for adults and adolescents struggling with <Link href="/anxiety-disorders" className="text-primary hover:underline font-medium">anxiety</Link>, <Link href="/depression" className="text-primary hover:underline font-medium">depression</Link>, <Link href="/adhd-treatment" className="text-primary hover:underline font-medium">ADHD</Link>, <Link href="/bipolar-disorder" className="text-primary hover:underline font-medium">bipolar disorder</Link>, and other mental health conditions. Whether you're seeking a psychiatrist for the first time or looking for a second opinion, we offer same-week appointments and personalized treatment plans tailored to your unique needs.
+        {/* Location Block - MANDATORY for local search */}
+        <section className="bg-[#2E5E4E] text-white py-8">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-white/10 rounded-lg">
+                  <MapPin className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Our Psychiatry Location</h3>
+                  <p className="text-white/90">1155 Louisiana Ave Suite 202</p>
+                  <p className="text-white/90">Winter Park, FL 32789</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-white/10 rounded-lg">
+                  <Phone className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Schedule Psychiatric Care</h3>
+                  <a href="tel:386-848-8751" onClick={handlePhoneClick} className="text-[#E48F66] hover:underline text-xl font-bold" data-testid="link-phone-location">
+                    386-848-8751
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-white/10 rounded-lg">
+                  <Clock className="h-8 w-8" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">Hours</h3>
+                  <p className="text-white/90">Mon - Fri: 9AM - 5PM</p>
+                  <p className="text-white/70 text-sm">Evening telehealth available</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-white/20">
+              <p className="text-center text-white/80">
+                <strong>Serving:</strong> Orlando, Winter Park, Maitland, Altamonte Springs, Casselberry, Lake Mary, Longwood, Sanford, and surrounding areas
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Insurance Section - Above the Fold Importance */}
+        <section className="py-10 bg-white border-b">
+          <div className="container mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-2xl font-bold mb-4">Insurance Accepted</h2>
+              <div className="flex flex-wrap justify-center gap-3 mb-4">
+                {["Blue Cross Blue Shield", "Aetna", "Cigna", "UnitedHealthcare", "UMR", "Medicare", "Humana"].map((insurance) => (
+                  <span key={insurance} className="px-4 py-2 bg-[#2E5E4E]/10 text-[#2E5E4E] rounded-full text-sm font-medium">
+                    {insurance}
+                  </span>
+                ))}
+              </div>
+              <p className="text-gray-700">
+                Your copay is typically <strong>$20–$50 per session</strong> depending on your plan.<br />
+                We verify benefits before your appointment so you know exactly what to expect.
+              </p>
+              <Link href="/insurance" className="inline-flex items-center gap-1 text-[#E48F66] hover:underline mt-2" data-testid="link-all-insurance">
+                View all accepted insurance plans <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Trust Bar */}
+        <section className="bg-gray-50 py-6">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <Award className="h-5 w-5 text-[#2E5E4E]" />
+                <span>Board-Certified Psychiatrists</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="h-5 w-5 text-[#2E5E4E]" />
+                <span>HIPAA Compliant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Star className="h-5 w-5 text-[#2E5E4E]" />
+                <span>120+ 5-Star Reviews</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="h-5 w-5 text-[#2E5E4E]" />
+                <span>Same-Week Availability</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Psychiatric Services We Offer */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-4">Psychiatric Services We Offer</h2>
+            <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+              Our board-certified psychiatrists provide comprehensive mental health care for a wide range of conditions:
             </p>
-
-            <p className="text-foreground leading-relaxed mb-6">
-              Our team includes board-certified psychiatrists, psychiatric nurse practitioners, and licensed therapists working together to provide integrated mental health care. We accept most major insurance plans including Blue Cross Blue Shield, UnitedHealthcare, Cigna, Aetna, and Medicare. Both in-person and <Link href="/virtual-therapy" className="text-primary hover:underline font-medium">telehealth appointments</Link> are available for your convenience. Call us today at (386) 848-8751 to schedule with the best <Link href="/psychiatrist-orlando" className="text-primary hover:underline font-medium">psychiatrist in Orlando</Link>.
-            </p>
-
-            <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Why Choose Our Psychiatrists?</h3>
-            
-            <ul className="space-y-4 mb-8">
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Board-Certified Expertise:</strong> All our psychiatrists are board-certified with extensive experience treating anxiety disorders, depression, ADHD, bipolar disorder, OCD, PTSD, and complex mental health conditions
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Same-Week Appointments:</strong> We understand mental health needs can't wait. Most new patients get appointments within 2-5 business days. Call for urgent availability
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Comprehensive Care Approach:</strong> Our psychiatrists work alongside licensed therapists to provide both medication management and psychotherapy, ensuring holistic treatment
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Flexible Options:</strong> Choose between in-person visits at our Winter Park office or secure telehealth appointments from the comfort of your home
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Insurance-Friendly:</strong> We accept most major insurance plans with transparent pricing. Our staff will verify your coverage and explain your out-of-pocket costs upfront
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">
-                  <strong>Evidence-Based Treatment:</strong> We use the latest research and FDA-approved medications, regularly monitoring your progress and adjusting treatment for optimal results
-                </span>
-              </li>
-            </ul>
-              </div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {[
+                "Medication management",
+                "Psychiatric evaluations",
+                "ADHD testing & treatment",
+                "Anxiety disorder treatment",
+                "Depression treatment",
+                "Bipolar disorder care",
+                "OCD treatment",
+                "PTSD treatment",
+                "Telepsychiatry"
+              ].map((service) => (
+                <div key={service} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-[#2E5E4E] flex-shrink-0" />
+                  <span className="text-gray-700">{service}</span>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
 
-            {/* Services Grid */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-sans font-bold text-foreground mb-8">Our Psychiatric Services</h2>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="hover-elevate active-elevate-2">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-primary" />
-                      Medication Management
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Expert psychiatric medication management with personalized treatment plans. Our psychiatrists carefully select, monitor, and adjust medications to effectively manage your symptoms while minimizing side effects.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Antidepressant management (SSRIs, SNRIs)</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Anti-anxiety medication (benzodiazepines, buspirone)</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />ADHD stimulant & non-stimulant medications</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Mood stabilizers for bipolar disorder</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Antipsychotic medications when appropriate</li>
-                    </ul>
-                    <Button variant="outline" className="mt-4 w-full" asChild data-testid="button-med-management">
-                      <Link href="/medication-management">
-                        Learn More About Medication Management
-                      </Link>
-                    </Button>
+        {/* Treatment Options Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-10">Our Psychiatric Care Options</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Link href="/medication-management">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Pill className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Medication Management</h3>
+                        <p className="text-gray-600 text-sm">Expert psychiatric medication management with personalized treatment plans and ongoing monitoring.</p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
+              </Link>
 
-                <Card className="hover-elevate active-elevate-2">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Award className="h-5 w-5 text-primary" />
-                      Psychiatric Evaluations
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Comprehensive diagnostic psychiatric evaluations to accurately assess your mental health. Our psychiatrists conduct thorough assessments including symptom review, medical history, and diagnostic testing.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Initial diagnostic evaluations (60-90 minutes)</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />ADHD testing and diagnosis</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Anxiety and depression assessments</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Second opinion consultations</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Treatment-resistant case reviews</li>
-                    </ul>
-                    <Button variant="outline" className="mt-4 w-full" asChild data-testid="button-evaluation">
-                      <Link href="/psychiatric-evaluation">
-                        Schedule a Psychiatric Evaluation
-                      </Link>
-                    </Button>
+              <Link href="/psychiatric-evaluation">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Award className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Psychiatric Evaluations</h3>
+                        <p className="text-gray-600 text-sm">Comprehensive diagnostic assessments to accurately diagnose and develop treatment plans.</p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
+              </Link>
 
-                <Card className="hover-elevate active-elevate-2">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Users className="h-5 w-5 text-primary" />
-                      Integrated Mental Health Care
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Collaborative treatment combining psychiatry and psychotherapy. Our psychiatrists work alongside licensed therapists to provide comprehensive care addressing both biological and psychological aspects of mental health.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Combined medication + therapy approach</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Care coordination between providers</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Regular progress monitoring and adjustments</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Therapy referrals (CBT, DBT, EMDR)</li>
-                    </ul>
-                    <Button variant="outline" className="mt-4 w-full" asChild data-testid="button-therapy">
-                      <Link href="/therapy">
-                        Explore Therapy Services
-                      </Link>
-                    </Button>
+              <Link href="/adhd-testing-orlando">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Brain className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">ADHD Testing & Treatment</h3>
+                        <p className="text-gray-600 text-sm">Comprehensive ADHD evaluation and medication management for adults and children.</p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
+              </Link>
 
-                <Card className="hover-elevate active-elevate-2">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Clock className="h-5 w-5 text-primary" />
-                      Ongoing Psychiatric Care
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">
-                      Long-term psychiatric care with consistent medication monitoring and mental health support. Regular follow-up appointments to track progress, manage side effects, and optimize your treatment plan.
-                    </p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Monthly or quarterly medication reviews</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Symptom tracking and adjustments</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Lab work monitoring when needed</li>
-                      <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />Crisis support and medication changes</li>
-                    </ul>
-                    <Button variant="outline" className="mt-4 w-full" asChild data-testid="button-request">
-                      <Link href="/request-appointment">
-                        Become a Patient
-                      </Link>
-                    </Button>
+              <Link href="/anxiety-treatment">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Heart className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Anxiety Treatment</h3>
+                        <p className="text-gray-600 text-sm">Evidence-based treatment for generalized anxiety, panic disorder, and social anxiety.</p>
+                      </div>
+                    </div>
                   </CardContent>
                 </Card>
-              </div>
+              </Link>
+
+              <Link href="/depression-treatment">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Shield className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Depression Treatment</h3>
+                        <p className="text-gray-600 text-sm">Personalized medication management for major depression and mood disorders.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              <Link href="/virtual-therapy">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-[#E48F66]/10 rounded-lg">
+                        <Video className="h-6 w-6 text-[#E48F66]" />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-lg mb-2">Telepsychiatry</h3>
+                        <p className="text-gray-600 text-sm">Convenient virtual psychiatric appointments from anywhere in Florida.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
+          </div>
+        </section>
 
-            {/* FAQ Section */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-sans font-bold text-foreground mb-8 text-center">Frequently Asked Questions About Psychiatrists</h2>
-              
-              <div className="space-y-6">
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">What's the difference between a psychiatrist and a therapist?</h3>
-                  <p className="text-muted-foreground mb-3">
-                    Psychiatrists are medical doctors (MDs or DOs) who specialize in mental health. They can prescribe medications, order lab tests, and provide medical treatment for mental health conditions. Therapists (psychologists, counselors, social workers) provide talk therapy but cannot prescribe medications. At Empathy Health Clinic, our psychiatrists and therapists work together to provide comprehensive care—medication management from our psychiatrists combined with psychotherapy from our licensed therapists.
-                  </p>
-                  <Button variant="outline" asChild data-testid="button-faq-schedule">
-                    <a href="tel:3868488751" onClick={() => trackEvent('phone_click', 'conversion', 'Psychiatric Services FAQ')}>
-                      <Phone className="h-4 w-4 mr-2" />
-                      Call to Learn More: (386) 848-8751
-                    </a>
-                  </Button>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">How do I know if I need to see a psychiatrist?</h3>
-                  <p className="text-muted-foreground">
-                    You should consider seeing a psychiatrist if you're experiencing persistent mental health symptoms that interfere with daily life, such as: ongoing sadness or depression lasting more than two weeks, severe anxiety or panic attacks, difficulty concentrating or completing tasks (ADHD symptoms), extreme mood swings, thoughts of self-harm, or if previous therapy alone hasn't been effective. Psychiatrists are especially helpful when medication may be beneficial for managing symptoms like depression, anxiety, ADHD, bipolar disorder, or OCD. Many people see a psychiatrist for medication management while also working with a therapist for talk therapy.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">How much does it cost to see a psychiatrist in Orlando?</h3>
-                  <p className="text-muted-foreground">
-                    Most psychiatry appointments are covered by insurance. At Empathy Health Clinic, we accept major insurance plans including Blue Cross Blue Shield, UnitedHealthcare, Cigna, Aetna, Humana, and Medicare. With insurance, typical copays range from $0-$75 per visit depending on your plan. Initial psychiatric evaluations (60-90 minutes) may have a higher copay than follow-up medication management visits (15-30 minutes). For self-pay patients without insurance, initial evaluations start at $300-400, with follow-up visits starting at $150-250. Call us to verify your specific insurance coverage and out-of-pocket costs: (386) 848-8751.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">Are your psychiatrists board-certified?</h3>
-                  <p className="text-muted-foreground">
-                    Yes! All psychiatrists at Empathy Health Clinic are board-certified by the American Board of Psychiatry and Neurology. Board certification means they've completed medical school, a 4-year psychiatry residency, and passed rigorous national exams demonstrating expertise in diagnosing and treating mental health conditions. Our team also includes psychiatric nurse practitioners who work under physician supervision. Board certification ensures you're receiving care from highly trained mental health professionals who stay current with the latest evidence-based treatments.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">Do you offer telehealth psychiatry appointments?</h3>
-                  <p className="text-muted-foreground">
-                    Yes! We offer secure telehealth psychiatry appointments through HIPAA-compliant video platforms. Telepsychiatry is just as effective as in-person visits for medication management, psychiatric evaluations, and follow-up care. You can meet with your psychiatrist from the comfort of your home via smartphone, tablet, or computer. Most insurance plans now cover telehealth at the same rate as in-person visits. Telepsychiatry is especially convenient for busy schedules, those with transportation challenges, or patients who prefer the privacy of virtual appointments.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">How quickly can I get an appointment with a psychiatrist?</h3>
-                  <p className="text-muted-foreground">
-                    We typically have same-week appointments available for new patients seeking psychiatric care. Most new patients get scheduled within 2-5 business days. If you're experiencing a mental health crisis or urgent symptoms, please mention this when you call (386) 848-8751) and we'll do our best to accommodate you sooner. For non-urgent appointments, you can also request an appointment online and our staff will contact you within 24 hours to schedule. We understand that mental health needs can't wait—that's why we prioritize fast access to our psychiatrists.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">What conditions do your psychiatrists treat?</h3>
-                  <p className="text-muted-foreground">
-                    Our board-certified psychiatrists treat a wide range of mental health conditions including: depression (major depressive disorder, persistent depressive disorder), anxiety disorders (generalized anxiety, social anxiety, panic disorder), ADHD (attention-deficit/hyperactivity disorder) in adults and adolescents, bipolar disorder (type I and II), OCD (obsessive-compulsive disorder), PTSD (post-traumatic stress disorder), eating disorders, sleep disorders related to mental health, and substance use disorders. We also provide psychiatric care for treatment-resistant conditions that haven't responded to standard treatments.
-                  </p>
-                </div>
-
-                <div className="bg-card border rounded-lg p-6">
-                  <h3 className="text-xl font-semibold text-foreground mb-3">What should I expect during my first psychiatrist appointment?</h3>
-                  <p className="text-muted-foreground mb-3">
-                    Your initial psychiatric evaluation typically lasts 60-90 minutes. The psychiatrist will review your symptoms, medical history, family mental health history, current medications, and discuss what's bringing you in for care. They'll ask detailed questions about your mood, sleep, appetite, energy levels, concentration, and how symptoms affect your daily life. Based on this comprehensive assessment, your psychiatrist will provide a diagnosis and discuss treatment options, which may include medication, therapy referrals, or a combination approach. You'll leave with a clear treatment plan and next steps. Bring a list of current medications and any relevant medical records to your first appointment.
-                  </p>
-                  <Button asChild data-testid="button-faq-request">
-                    <Link href="/request-appointment" onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatric Services FAQ')}>
-                      Request Your First Appointment
-                    </Link>
-                  </Button>
-                </div>
-              </div>
+        {/* Related Services - Internal Links Block */}
+        <section className="py-12 bg-white border-y">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold text-center mb-8">Related Services</h2>
+            <p className="text-center text-gray-600 mb-6">People also search for:</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <Link href="/psychiatrist-orlando" data-testid="link-related-psychiatrist">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="font-medium text-[#2E5E4E]">Psychiatrist Orlando</span>
+                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/psychiatrist-near-me" data-testid="link-related-near-me">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="font-medium text-[#2E5E4E]">Psychiatrist Near Me</span>
+                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/medication-management-orlando" data-testid="link-related-medication">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="font-medium text-[#2E5E4E]">Medication Management</span>
+                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
+                  </CardContent>
+                </Card>
+              </Link>
+              <Link href="/mental-health-services-orlando" data-testid="link-related-mental-health">
+                <Card className="hover-elevate cursor-pointer h-full">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <span className="font-medium text-[#2E5E4E]">Mental Health Services</span>
+                    <ArrowRight className="h-4 w-4 text-[#E48F66]" />
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
-          </div>{/* End Main Content Column */}
+          </div>
+        </section>
 
-          {/* Sticky Sidebar - Right Column */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-4">
-              <Card className="border-2 border-primary/20">
-                <CardHeader className="bg-primary/5">
-                  <CardTitle className="text-2xl">Schedule Psychiatric Care</CardTitle>
-                  <CardDescription>Same-week appointments. Most insurance accepted.</CardDescription>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <ShortContactForm service="Psychiatric Services" />
-                </CardContent>
-              </Card>
-              
-              {/* Quick Contact Info */}
-              <Card className="mt-6">
-                <CardContent className="pt-6">
-                  <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Call or Text</h4>
-                    <a 
-                      href="tel:3868488751" 
-                      className="text-2xl font-bold text-primary hover:underline block"
-                      data-testid="sidebar-phone"
-                      onClick={() => trackEvent('phone_click', 'conversion', 'Psychiatric Services Sidebar')}
-                    >
-                      386-848-8751
-                    </a>
+        {/* Main Content Section */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-3 gap-12">
+              {/* Main Content */}
+              <div className="lg:col-span-2 space-y-12">
+                
+                {/* Introduction */}
+                <div className="prose prose-lg max-w-none">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Expert Psychiatric Services in Orlando & Winter Park</h2>
+                  <p className="text-gray-700 leading-relaxed">
+                    Finding the right psychiatric services is essential for effective mental health care. At Empathy Health Clinic, our board-certified psychiatrists in Orlando and Winter Park provide comprehensive psychiatric services for adults and adolescents struggling with anxiety, depression, ADHD, bipolar disorder, and other mental health conditions.
+                  </p>
+                  <p className="text-gray-700 leading-relaxed">
+                    Whether you're seeking psychiatric care for the first time or looking for a second opinion, we offer same-week appointments and personalized treatment plans tailored to your unique needs. Our team includes board-certified psychiatrists and psychiatric nurse practitioners working together to provide integrated mental health care.
+                  </p>
+                </div>
+
+                {/* Areas Served */}
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Areas We Serve</h2>
+                  <div className="flex flex-wrap gap-2">
+                    {["Orlando", "Winter Park", "Maitland", "Altamonte Springs", "Casselberry", "Longwood", "Lake Mary", "Sanford", "Oviedo", "College Park", "Downtown Orlando", "Baldwin Park"].map((area) => (
+                      <span key={area} className="px-3 py-1 bg-[#2E5E4E]/10 text-[#2E5E4E] rounded-full text-sm">
+                        {area}
+                      </span>
+                    ))}
                   </div>
-                  <div className="border-t pt-4">
-                    <h4 className="font-semibold text-foreground mb-2">Location</h4>
-                    <p className="text-sm text-muted-foreground">
-                      1155 Louisiana Ave Suite 202<br />
-                      Winter Park, FL 32789
-                    </p>
+                </div>
+
+                {/* FAQs */}
+                <div>
+                  <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions About Psychiatric Services</h2>
+                  <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                      <AccordionTrigger className="text-left">What psychiatric services do you offer?</AccordionTrigger>
+                      <AccordionContent className="text-gray-600">
+                        We offer comprehensive psychiatric services including medication management, psychiatric evaluations, ADHD testing and treatment, anxiety and depression treatment, bipolar disorder care, OCD treatment, PTSD treatment, and telepsychiatry. Our board-certified psychiatrists provide personalized care for a wide range of mental health conditions.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                      <AccordionTrigger className="text-left">How quickly can I get an appointment for psychiatric services?</AccordionTrigger>
+                      <AccordionContent className="text-gray-600">
+                        We offer same-week appointments for new patients seeking psychiatric services. Most patients can schedule within 3-5 business days. Call (386) 848-8751 to check current availability.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                      <AccordionTrigger className="text-left">What insurance do you accept for psychiatric services?</AccordionTrigger>
+                      <AccordionContent className="text-gray-600">
+                        We accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, UMR, Medicare, and many others. Most patients pay only their copay of $20-50 per session.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                      <AccordionTrigger className="text-left">Do you offer telepsychiatry services?</AccordionTrigger>
+                      <AccordionContent className="text-gray-600">
+                        Yes! We offer secure HIPAA-compliant video appointments for patients throughout Florida. Telepsychiatry is just as effective as in-person visits for medication management and psychiatric evaluations.
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-5">
+                      <AccordionTrigger className="text-left">What should I expect at my first psychiatric appointment?</AccordionTrigger>
+                      <AccordionContent className="text-gray-600">
+                        Your initial psychiatric evaluation typically lasts 60-90 minutes. The psychiatrist will review your symptoms, medical history, family mental health history, and current medications. Based on this comprehensive assessment, your psychiatrist will provide a diagnosis and discuss treatment options.
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                </div>
+
+                {/* CTA Section */}
+                <div className="bg-[#1a3a2f] rounded-2xl p-8 text-center text-white">
+                  <h2 className="text-2xl font-bold mb-4">Start Psychiatric Services Today</h2>
+                  <p className="text-gray-200 mb-2">Same-week appointments. Most insurance accepted.</p>
+                  <p className="text-gray-200 mb-6">Board-certified psychiatrists ready to help you thrive.</p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <a href="tel:386-848-8751" onClick={handlePhoneClick}>
+                      <Button size="lg" className="bg-[#E48F66] hover:bg-[#d07d54] text-white" data-testid="button-call-cta">
+                        <Phone className="mr-2 h-5 w-5" />
+                        Call 386-848-8751
+                      </Button>
+                    </a>
+                    <Link href="/request-appointment">
+                      <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10" data-testid="button-book-cta">
+                        Book Appointment Online
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sidebar */}
+              <div className="space-y-6">
+                {/* Quick Contact */}
+                <Card className="bg-[#2E5E4E] text-white">
+                  <CardContent className="p-6 text-center">
+                    <Phone className="h-8 w-8 mx-auto mb-4" />
+                    <h3 className="font-bold text-lg mb-2">Schedule Psychiatric Care</h3>
+                    <p className="text-gray-200 text-sm mb-4">Same-week appointments available</p>
+                    <a href="tel:386-848-8751" onClick={handlePhoneClick}>
+                      <Button className="w-full bg-[#E48F66] hover:bg-[#d07d54] text-white" data-testid="button-call-sidebar">
+                        Call 386-848-8751
+                      </Button>
+                    </a>
+                    <Link href="/request-appointment">
+                      <Button variant="outline" className="w-full mt-3 border-white text-white hover:bg-white/10" data-testid="button-book-sidebar">
+                        Book Online
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
+
+                {/* Psychiatry Services Links */}
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-lg mb-4">Psychiatric Services</h3>
+                    <div className="space-y-2">
+                      <Link href="/medication-management" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Medication Management
+                      </Link>
+                      <Link href="/psychiatric-evaluation" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Psychiatric Evaluation
+                      </Link>
+                      <Link href="/adhd-testing-orlando" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        ADHD Testing
+                      </Link>
+                      <Link href="/anxiety-treatment" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Anxiety Treatment
+                      </Link>
+                      <Link href="/depression-treatment" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Depression Treatment
+                      </Link>
+                      <Link href="/virtual-therapy" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Telepsychiatry
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Insurance Quick Links */}
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-lg mb-4">Insurance Information</h3>
+                    <div className="space-y-2">
+                      <Link href="/aetna-mental-health-coverage" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Aetna Coverage
+                      </Link>
+                      <Link href="/bcbs-mental-health-coverage" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        BCBS Coverage
+                      </Link>
+                      <Link href="/cigna-mental-health-coverage" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        Cigna Coverage
+                      </Link>
+                      <Link href="/insurance" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                        All Insurance Plans
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Location Card */}
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-lg mb-4">Our Location</h3>
+                    <div className="flex items-start gap-3">
+                      <MapPin className="h-5 w-5 text-[#2E5E4E] flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="font-medium">1155 Louisiana Ave Suite 202</p>
+                        <p className="text-gray-600">Winter Park, FL 32789</p>
+                        <p className="text-sm text-gray-500 mt-2">Near Orlando, easy parking available</p>
+                      </div>
+                    </div>
                     <a 
                       href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-sm text-primary hover:underline mt-2 inline-block"
+                      className="block mt-4"
                     >
-                      Get Directions →
+                      <Button variant="outline" className="w-full" data-testid="button-directions">
+                        Get Directions
+                      </Button>
                     </a>
-                  </div>
-                  <div className="border-t pt-4">
-                    <h4 className="font-semibold text-foreground mb-2">Hours</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Mon-Sat: 9:00 AM - 6:00 PM<br />
-                      Telehealth & in-person available
-                    </p>
-                  </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
-        </div>{/* End Grid */}
-
-        {/* Mid-Page CTA */}
-        <div className="bg-primary/5 border-y py-12 my-16">
-          <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 className="text-3xl font-sans font-bold text-foreground mb-4">Ready to Find the Best Psychiatrist Near You?</h2>
-            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Same-week appointments available. Board-certified psychiatrists. Most insurance accepted. Telehealth and in-person options.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button size="lg" asChild data-testid="button-mid-cta-call">
-                <a href="tel:3868488751" className="flex items-center justify-center gap-2" onClick={() => trackEvent('phone_click', 'conversion', 'Psychiatric Services Mid-CTA')}>
-                  <Phone className="h-5 w-5" />
-                  Call (386) 848-8751
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild data-testid="button-mid-cta-request">
-                <Link href="/request-appointment" className="flex items-center justify-center gap-2" onClick={() => trackEvent('appointment_request', 'conversion', 'Psychiatric Services Mid-CTA')}>
-                  <Mail className="h-5 w-5" />
-                  Request Appointment
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-        </div>
-
-        {/* Trust Factors & Insurance */}
-        <TrustFactors />
-        <InsuranceSection />
+        </section>
       </main>
 
       <SiteFooter />
