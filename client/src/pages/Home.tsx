@@ -173,13 +173,13 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link href="/adhd-testing-orlando" className="group" data-testid="link-orlando-adhd">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-adhd">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    ADHD Testing
+              <Link href="/adhd-psychiatrist-orlando" className="group" data-testid="link-orlando-adhd">
+                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-adhd">
+                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
+                    ADHD Psychiatrist
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Adult & child ADHD diagnosis
+                    Expert ADHD diagnosis & medication
                   </p>
                 </div>
               </Link>
