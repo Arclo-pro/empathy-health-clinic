@@ -59,6 +59,17 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Microsoft Clarity API:** Optional integration for enhanced link monitoring.
 
 ## Recent Changes
+### December 4, 2025 - New SEO Landing Pages for Missing Keywords
+- **Added 5 new landing pages** targeting missing high-volume keywords:
+  - `/psychiatrist-accepting-new-patients-orlando` (480 monthly searches)
+  - `/online-psychiatrist-orlando` (390 monthly searches)
+  - `/best-psychiatrist-orlando` (320 monthly searches)
+  - `/online-psychiatrist-florida` (260 monthly searches)
+  - `/mental-health-doctor-orlando` (210 monthly searches)
+- **Fixed ADHD redirect conflict**: Removed redirect from `/adhd-testing-orlando` (it's a real page), changed `/adhd-evaluation-orlando` to redirect to `/adhd-testing-orlando`
+- **Files Modified**: `client/src/config/landingPageConfigs.ts`, `client/src/App.tsx`, `server/redirect-config.ts`, and 5 new page components
+- **Pattern**: All pages use `LandingPageTemplate` with full SEO metadata, JSON-LD schemas, FAQs, and conversion tracking
+
 ### December 4, 2025 - GCLID Preservation for Clarity Tracking
 - **Problem**: Microsoft Clarity wasn't recording Google Ads sessions because GCLID was lost during SPA navigation
 - **Solution**: Implemented multi-layer GCLID persistence:
