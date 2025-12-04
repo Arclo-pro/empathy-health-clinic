@@ -69,9 +69,10 @@ export const initMicrosoftClarity = () => {
  * Tag Clarity sessions with UTM/campaign attribution for filtering
  * This allows filtering recordings by paid traffic source in Clarity dashboard
  * 
- * IMPORTANT: This reads from BOTH URL params AND localStorage because:
- * 1. URL params may be stripped by canonicalization before this runs
- * 2. localStorage preserves first-touch attribution from utm-tracker.ts
+ * IMPORTANT: Reads from multiple sources in priority order:
+ * 1. URL params (for immediate landing)
+ * 2. sessionStorage (for GCLID/FBCLID preserved during SPA navigation)
+ * 3. localStorage (for first-touch UTM attribution)
  */
 export const tagClaritySessionWithAttribution = () => {
   if (typeof window === 'undefined' || typeof window.clarity !== 'function') {
@@ -80,7 +81,7 @@ export const tagClaritySessionWithAttribution = () => {
   }
 
   try {
-    // Try URL first (for immediate landing), then fall back to localStorage
+    // Try URL first (for immediate landing)
     const searchParams = new URLSearchParams(window.location.search);
     
     // Get from URL first
@@ -90,22 +91,52 @@ export const tagClaritySessionWithAttribution = () => {
     let gclid = searchParams.get('gclid');
     let fbclid = searchParams.get('fbclid');
 
-    // If not in URL, try localStorage (utm-tracker saves these on first visit)
-    if (!utmSource && !gclid && !fbclid) {
+    // Try sessionStorage for click IDs (GCLID/FBCLID) - these persist during SPA session
+    if (!gclid || !fbclid) {
       try {
-        const stored = localStorage.getItem('utm_params');
-        if (stored) {
-          const savedParams = JSON.parse(stored);
-          utmSource = utmSource || savedParams.utmSource;
-          utmMedium = utmMedium || savedParams.utmMedium;
-          utmCampaign = utmCampaign || savedParams.utmCampaign;
-          gclid = gclid || savedParams.gclid;
-          fbclid = fbclid || savedParams.fbclid;
-          console.log('🎯 Clarity: Retrieved UTM data from localStorage');
+        const sessionGclid = sessionStorage.getItem('gclid_session');
+        const sessionFbclid = sessionStorage.getItem('fbclid_session');
+        if (sessionGclid && !gclid) {
+          gclid = sessionGclid;
+          console.log('🎯 Clarity: Retrieved GCLID from sessionStorage');
+        }
+        if (sessionFbclid && !fbclid) {
+          fbclid = sessionFbclid;
+          console.log('🎯 Clarity: Retrieved FBCLID from sessionStorage');
         }
       } catch (e) {
-        // Ignore localStorage errors
+        // Ignore sessionStorage errors
       }
+    }
+
+    // ALWAYS try localStorage to fill in missing UTM fields
+    // This ensures utm_source/medium/campaign are merged even when gclid is present
+    try {
+      const stored = localStorage.getItem('utm_params');
+      if (stored) {
+        const savedParams = JSON.parse(stored);
+        // Merge missing fields from localStorage (first-touch attribution)
+        if (!utmSource && savedParams.utmSource) {
+          utmSource = savedParams.utmSource;
+        }
+        if (!utmMedium && savedParams.utmMedium) {
+          utmMedium = savedParams.utmMedium;
+        }
+        if (!utmCampaign && savedParams.utmCampaign) {
+          utmCampaign = savedParams.utmCampaign;
+        }
+        if (!gclid && savedParams.gclid) {
+          gclid = savedParams.gclid;
+        }
+        if (!fbclid && savedParams.fbclid) {
+          fbclid = savedParams.fbclid;
+        }
+        if (savedParams.utmSource || savedParams.utmCampaign || savedParams.gclid || savedParams.fbclid) {
+          console.log('🎯 Clarity: Merged UTM data from localStorage');
+        }
+      }
+    } catch (e) {
+      // Ignore localStorage errors
     }
 
     // Identify paid traffic

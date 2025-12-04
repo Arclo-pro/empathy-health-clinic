@@ -662,11 +662,15 @@ function App() {
         import("@/lib/web-vitals-tracker"),
         import("@/lib/utm-tracker")
       ]).then(([analytics, webVitals, utm]) => {
+        // CRITICAL: Run UTM tracking FIRST to save GCLID before Clarity tags session
+        // This ensures GCLID is in sessionStorage when Clarity reads attribution data
+        utm.initUTMTracking();
+        
+        // Then initialize analytics (Clarity will read from sessionStorage after delay)
         analytics.initGA();
         analytics.initFacebookPixel();
         analytics.initMicrosoftClarity();
         webVitals.initWebVitals();
-        utm.initUTMTracking();
       }).catch((error) => {
         console.error('Failed to load analytics:', error);
       });
