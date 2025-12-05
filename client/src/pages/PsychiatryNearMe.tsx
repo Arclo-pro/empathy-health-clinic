@@ -173,9 +173,9 @@ export default function PsychiatryNearMe() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatry Near Me | Orlando & Central Florida"
-        description="Find psychiatry services near you in Orlando, FL. Comprehensive psychiatric care including ADHD, anxiety, depression treatment. Same-week appointments. Most insurance accepted. Call (386) 848-8751."
-        keywords={["psychiatry near me", "psychiatry services near me", "find psychiatry near me", "psychiatry orlando", "psychiatric services orlando", "mental health psychiatry near me", "psychiatry clinic near me", "best psychiatry near me"]}
+        title="Psychiatry Near Me | Same-Week Appointments | Orlando FL 2025"
+        description="Looking for psychiatry near me? Find comprehensive psychiatric services in Orlando, FL. Board-certified psychiatrists for ADHD, anxiety, depression. Same-week appointments available. Most insurance accepted. Call (386) 848-8751."
+        keywords={["psychiatry near me", "psychiatry services near me", "find psychiatry near me", "psychiatry clinic near me", "psychiatry orlando", "psychiatric services orlando", "mental health psychiatry near me", "best psychiatry near me", "psychiatry accepting new patients", "psychiatry same day appointment"]}
         canonicalPath="/psychiatry-near-me"
         jsonLd={jsonLd}
       />

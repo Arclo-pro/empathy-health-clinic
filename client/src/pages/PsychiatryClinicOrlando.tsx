@@ -155,10 +155,10 @@ export default function PsychiatryClinicOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatry Orlando | Top-Rated Mental Health Clinic"
-        description="Leading psychiatry clinic in Orlando, FL. Board-certified psychiatrists for anxiety, depression, ADHD, bipolar. Same-week appointments. Call 386-848-8751."
-        keywords={["psychiatry orlando", "psychiatry clinic orlando", "orlando psychiatry clinic", "mental health clinic orlando", "psychiatry clinic orlando fl", "orlando mental health clinic", "psychiatric clinic orlando", "psychiatry practice orlando", "psychiatry services orlando"]}
-        canonicalPath="/psychiatrist-orlando"
+        title="Psychiatric Clinic Orlando FL | 2025"
+        description="Looking for a psychiatric clinic in Orlando? Top-rated psychiatry clinic with board-certified psychiatrists. Anxiety, depression, ADHD, bipolar treatment. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751."
+        keywords={["psychiatric clinic orlando", "psychiatry clinic orlando", "orlando psychiatry clinic", "mental health clinic orlando", "psychiatry clinic orlando fl", "orlando mental health clinic", "best psychiatric clinic orlando", "psychiatry practice orlando", "psychiatry services orlando"]}
+        canonicalPath="/psychiatry-clinic-orlando"
         jsonLd={jsonLd}
       />
       <SiteHeader />

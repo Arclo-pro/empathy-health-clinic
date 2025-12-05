@@ -217,19 +217,66 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link href="/virtual-therapy" className="group" data-testid="link-orlando-virtual">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-virtual">
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
-                    Virtual Visit
+              <Link href="/telepsychiatry-orlando" className="group" data-testid="link-orlando-telepsychiatry">
+                <div className="p-6 bg-primary/5 border-2 border-primary rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-telepsychiatry">
+                  <h3 className="text-lg font-semibold text-primary mb-2 group-hover:text-primary/80">
+                    Telepsychiatry Orlando
                   </h3>
                   <p className="text-sm text-muted-foreground">
-                    Online appointments available
+                    Online video psychiatric care
                   </p>
                 </div>
               </Link>
 
-              <Link href="/mental-health-services-orlando" className="group" data-testid="link-orlando-mental-health">
-                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-mental-health">
+              <Link href="/psychiatry-near-me" className="group" data-testid="link-orlando-psychiatry-near-me">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-psychiatry-near-me">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
+                    Psychiatry Near Me
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Find psychiatry services nearby
+                  </p>
+                </div>
+              </Link>
+            </div>
+
+            {/* Additional Priority SEO Links */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+              <Link href="/psychiatrist-for-anxiety-near-me" className="group" data-testid="link-anxiety-psychiatrist">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-anxiety-psychiatrist">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
+                    Anxiety Psychiatrist
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Specialized anxiety treatment
+                  </p>
+                </div>
+              </Link>
+
+              <Link href="/psychiatrist-for-depression-near-me" className="group" data-testid="link-depression-psychiatrist">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-depression-psychiatrist">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
+                    Depression Psychiatrist
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Expert depression care
+                  </p>
+                </div>
+              </Link>
+
+              <Link href="/online-psychiatrist-orlando" className="group" data-testid="link-online-psychiatrist">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-online-psychiatrist">
+                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
+                    Online Psychiatrist
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Telehealth appointments
+                  </p>
+                </div>
+              </Link>
+
+              <Link href="/mental-health-clinic-orlando" className="group" data-testid="link-mental-health-clinic">
+                <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-mental-health-clinic">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
                     Mental Health Clinic
                   </h3>
