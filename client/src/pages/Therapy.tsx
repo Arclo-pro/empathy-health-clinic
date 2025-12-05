@@ -143,7 +143,7 @@ export default function TherapyPage() {
             <div className="flex items-start gap-3" data-testid="contact-info">
               <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold text-foreground mb-1">Call or Text</h3>
+                <h3 className="font-semibold text-foreground mb-1">Call Us</h3>
                 <a 
                   href="tel:386-848-8751" 
                   className="text-lg font-bold text-primary hover:underline"
@@ -313,7 +313,7 @@ export default function TherapyPage() {
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Call or Text</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Call Us</h4>
                     <a 
                       href="tel:3868488751" 
                       className="text-2xl font-bold text-primary hover:underline block"

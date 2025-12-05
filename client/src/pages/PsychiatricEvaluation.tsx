@@ -357,7 +357,7 @@ export default function PsychiatricEvaluation() {
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-foreground mb-2">Call or Text</h4>
+                    <h4 className="font-semibold text-foreground mb-2">Call Us</h4>
                     <a 
                       href="tel:3868488751" 
                       className="text-2xl font-bold text-primary hover:underline block"
