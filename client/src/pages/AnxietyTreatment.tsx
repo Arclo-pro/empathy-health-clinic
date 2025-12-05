@@ -139,7 +139,7 @@ export default function AnxietyTreatment() {
             "name": "What medications are used to treat anxiety?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Common anxiety medications include SSRIs (like Lexapro, Zoloft), SNRIs (like Effexor, Cymbalta), buspirone, and in some cases benzodiazepines for short-term relief. Our psychiatrists carefully select medications based on your specific anxiety disorder, symptoms, medical history, and lifestyle. We monitor your progress and adjust as needed."
+              "text": "Common anxiety medications include SSRIs, SNRIs, and non-benzodiazepine anti-anxiety medications. Our psychiatrists carefully select medications based on your specific anxiety disorder, symptoms, medical history, and lifestyle. We monitor your progress and adjust as needed."
             }
           },
           {
@@ -206,8 +206,8 @@ export default function AnxietyTreatment() {
     {
       icon: Pill,
       title: "Medication Management",
-      description: "Our psychiatrists prescribe and monitor anti-anxiety medications including SSRIs, SNRIs, buspirone, and other targeted treatments. We carefully adjust dosages to maximize effectiveness while minimizing side effects.",
-      medications: ["SSRIs (Lexapro, Zoloft, Prozac)", "SNRIs (Effexor, Cymbalta)", "Buspirone", "Beta-blockers for performance anxiety"]
+      description: "Our psychiatrists prescribe and monitor anti-anxiety medications including SSRIs, SNRIs, and other targeted treatments. We carefully adjust dosages to maximize effectiveness while minimizing side effects.",
+      medications: ["SSRIs (Lexapro, Zoloft, Prozac)", "SNRIs (Effexor, Cymbalta)", "Non-benzodiazepine anti-anxiety medications", "Beta-blockers for performance anxiety"]
     },
     {
       icon: Brain,
@@ -598,7 +598,7 @@ export default function AnxietyTreatment() {
               <div className="bg-card border border-card-border rounded-xl p-6">
                 <h3 className="font-bold text-foreground mb-3">What medications are used to treat anxiety?</h3>
                 <p className="text-sm text-muted-foreground">
-                  Common medications include SSRIs (Lexapro, Zoloft), SNRIs (Effexor, Cymbalta), buspirone, and sometimes benzodiazepines for short-term relief. We personalize treatment to your needs.
+                  Common medications include SSRIs (Lexapro, Zoloft), SNRIs (Effexor, Cymbalta), and non-benzodiazepine anti-anxiety medications. We personalize treatment to your needs.
                 </p>
               </div>
               <div className="bg-card border border-card-border rounded-xl p-6">

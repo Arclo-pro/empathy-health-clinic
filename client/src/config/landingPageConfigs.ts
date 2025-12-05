@@ -2432,7 +2432,7 @@ export const medicationManagementOrlandoConfig: LandingPageConfig = {
     },
     {
       question: "What types of medications do psychiatrists prescribe?",
-      answer: "Psychiatrists prescribe antidepressants (SSRIs, SNRIs, etc.), anti-anxiety medications (benzodiazepines, buspirone), ADHD medications (stimulants and non-stimulants), mood stabilizers (lithium, anticonvulsants), antipsychotics, and sleep medications. The specific medication depends on your diagnosis, symptoms, medical history, and treatment goals. Our psychiatrists use evidence-based guidelines to select the most appropriate medication."
+      answer: "Psychiatrists prescribe antidepressants (SSRIs, SNRIs, etc.), anti-anxiety medications, ADHD medications (stimulants and non-stimulants), mood stabilizers, antipsychotics, and sleep medications. The specific medication depends on your diagnosis, symptoms, medical history, and treatment goals. Our psychiatrists use evidence-based guidelines to select the most appropriate medication."
     },
     {
       question: "How quickly can I schedule medication management in Orlando?",
@@ -3354,7 +3354,7 @@ export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
       {
         icon: Shield,
         title: "Anxiety Medication Management",
-        description: "Expert prescribing and monitoring of anti-anxiety medications including SSRIs (Lexapro, Zoloft, Prozac), SNRIs (Effexor, Cymbalta), buspirone, hydroxyzine, and when appropriate, benzodiazepines. We carefully adjust medications to maximize effectiveness while minimizing side effects."
+        description: "Expert prescribing and monitoring of anti-anxiety medications including SSRIs, SNRIs, non-benzodiazepine options, and when appropriate, short-term relief medications. We carefully adjust medications to maximize effectiveness while minimizing side effects."
       },
       {
         icon: Heart,
@@ -3408,7 +3408,7 @@ export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
     },
     {
       question: "What medications do psychiatrists prescribe for anxiety?",
-      answer: "Psychiatrists commonly prescribe SSRIs (like Lexapro, Zoloft, Prozac), SNRIs (like Effexor, Cymbalta), buspirone, hydroxyzine, and in some cases benzodiazepines (like Xanax, Klonopin, Ativan). The choice of medication depends on your specific anxiety type, symptom severity, other medications you take, and medical history. Our psychiatrists take time to find the right medication with the fewest side effects for your situation."
+      answer: "Psychiatrists commonly prescribe SSRIs, SNRIs, non-benzodiazepine anti-anxiety medications, and in some cases short-term relief medications. The choice of medication depends on your specific anxiety type, symptom severity, other medications you take, and medical history. Our psychiatrists take time to find the right medication with the fewest side effects for your situation."
     },
     {
       question: "How quickly can I see an anxiety psychiatrist near me?",
@@ -3424,7 +3424,7 @@ export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
     },
     {
       question: "How long does anxiety medication take to work?",
-      answer: "It depends on the medication type. Some medications like buspirone and SSRIs/SNRIs take 2-4 weeks to reach full effectiveness because they work by gradually changing brain chemistry. Other medications like hydroxyzine or benzodiazepines can provide relief within 30-60 minutes. Our psychiatrists will explain what to expect with your specific medication and schedule follow-ups to monitor your progress."
+      answer: "It depends on the medication type. Some medications like SSRIs and SNRIs take 2-4 weeks to reach full effectiveness because they work by gradually changing brain chemistry. Other medications can provide relief within 30-60 minutes for acute symptoms. Our psychiatrists will explain what to expect with your specific medication and schedule follow-ups to monitor your progress."
     },
   ],
   sidebar: {

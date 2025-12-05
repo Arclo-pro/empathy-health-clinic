@@ -279,7 +279,7 @@ export default function AnxietyPsychiatristOrlando() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">Anxiety Medication Management</h3>
                       <p className="text-muted-foreground">
-                        Expert prescribing and monitoring of anxiety medications including SSRIs, SNRIs, buspirone, beta-blockers, and when appropriate, benzodiazepines. We carefully select medications based on your specific anxiety symptoms, medical history, and treatment goals while minimizing side effects.
+                        Expert prescribing and monitoring of anxiety medications including SSRIs, SNRIs, non-benzodiazepine options, beta-blockers, and when appropriate, short-term relief medications. We carefully select medications based on your specific anxiety symptoms, medical history, and treatment goals while minimizing side effects.
                       </p>
                     </div>
                   </div>
@@ -357,7 +357,7 @@ export default function AnxietyPsychiatristOrlando() {
                       <ul className="space-y-1 text-muted-foreground text-sm">
                         <li>• SSRIs (Lexapro, Zoloft, Prozac, Paxil)</li>
                         <li>• SNRIs (Effexor, Cymbalta, Pristiq)</li>
-                        <li>• Buspirone (BuSpar)</li>
+                        <li>• Non-benzodiazepine anti-anxiety medications</li>
                         <li>• Hydroxyzine (Vistaril)</li>
                         <li>• Beta-blockers for performance anxiety</li>
                       </ul>
@@ -433,7 +433,7 @@ export default function AnxietyPsychiatristOrlando() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">How quickly do anxiety medications work?</h3>
                     <p className="text-muted-foreground">
-                      It depends on the medication type. SSRIs and SNRIs typically take 4-6 weeks to reach full effectiveness, though some improvement may be noticed within 2-3 weeks. Benzodiazepines work within 30-60 minutes but are typically used short-term. Buspirone takes 2-4 weeks to work. We'll discuss timeline expectations when prescribing.
+                      It depends on the medication type. SSRIs and SNRIs typically take 4-6 weeks to reach full effectiveness, though some improvement may be noticed within 2-3 weeks. Some medications work within 30-60 minutes for acute relief but are typically used short-term. Non-benzodiazepine options take 2-4 weeks to work. We'll discuss timeline expectations when prescribing.
                     </p>
                   </div>
                   <div>

@@ -171,7 +171,7 @@ export const CONDITION_CONTENT: Record<string, ConditionSection> = {
     ],
     treatments: [
       "SSRI/SNRI antidepressant medications",
-      "Anti-anxiety medications (buspirone, hydroxyzine)",
+      "Non-benzodiazepine anti-anxiety medications",
       "Cognitive Behavioral Therapy (CBT)",
       "Exposure therapy for phobias",
       "Relaxation techniques and mindfulness",
