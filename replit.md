@@ -59,6 +59,14 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Microsoft Clarity API:** Optional integration for enhanced link monitoring.
 
 ## Recent Changes
+### December 5, 2025 - Comprehensive SEO Optimization for 25 Priority Keywords
+- **SEO Title/Meta Optimization**: Updated 15+ landing pages with optimized titles under 60 characters including "2025", "#1 Rated" messaging
+- **Internal Linking Strategy**: Added strategic internal links from Home.tsx and ServicesPage.tsx to all priority SEO pages
+- **Telepsychiatry Support Blog**: Created "Why Choose Telepsychiatry in Orlando: 5 Key Advantages in 2025" with multiple anchor text links to combat rank #2 decline
+- **Canonical URL Fixes**: Corrected self-referencing canonical URLs on standalone pages (e.g., AnxietyPsychiatristOrlando.tsx)
+- **Pages Updated**: PsychiatristOrlando.tsx, AnxietyPsychiatristOrlando.tsx, PsychiatryClinicOrlando.tsx, TelepsychiatryOrlando.tsx, and landingPageConfigs.ts
+- **Blog Slug Cache**: Now at 213 slugs (new telepsychiatry blog added)
+
 ### December 5, 2025 - "Text Us" Feature Implementation
 - **Added SMS text messaging option** for patient scheduling (lower-barrier contact method for anxious patients)
 - **TextUsButton component** (`client/src/components/TextUsButton.tsx`):
