@@ -298,9 +298,11 @@ export async function testConnection(): Promise<{ success: boolean; message: str
       accountName: account?.customer?.descriptive_name || 'Unknown',
     };
   } catch (error: any) {
+    console.error('Google Ads connection error:', error);
+    const errorMessage = error?.message || error?.errors?.[0]?.message || JSON.stringify(error) || 'Unknown error';
     return {
       success: false,
-      message: `Connection failed: ${error.message}`,
+      message: `Connection failed: ${errorMessage}`,
     };
   }
 }
