@@ -405,3 +405,22 @@ export const insertEmailFailureSchema = createInsertSchema(emailFailures).omit({
 
 export type InsertEmailFailure = z.infer<typeof insertEmailFailureSchema>;
 export type EmailFailure = typeof emailFailures.$inferSelect;
+
+// Keyword Ranking History (for SERP tracking time series)
+export const keywordRankingHistory = pgTable("keyword_ranking_history", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  keyword: text("keyword").notNull(),
+  position: integer("position"), // null if not in top 100
+  url: text("url"), // ranking URL
+  competitorPositions: text("competitor_positions"), // JSON string of competitor positions
+  checkedAt: text("checked_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  error: text("error"), // error message if check failed
+});
+
+export const insertKeywordRankingHistorySchema = createInsertSchema(keywordRankingHistory).omit({
+  id: true,
+  checkedAt: true,
+});
+
+export type InsertKeywordRankingHistory = z.infer<typeof insertKeywordRankingHistorySchema>;
+export type KeywordRankingHistory = typeof keywordRankingHistory.$inferSelect;
