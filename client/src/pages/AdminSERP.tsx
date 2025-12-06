@@ -294,6 +294,56 @@ export default function AdminSERP() {
     );
   };
 
+  // Single trend cell for individual column display
+  const SingleTrendCell = ({ keyword, period }: { keyword: string; period: '7d' | '30d' | '90d' }) => {
+    const trend = trends[keyword];
+    
+    if (!trend) {
+      return <span className="text-muted-foreground text-xs">-</span>;
+    }
+
+    const periodMap = {
+      '7d': { value: trend.change7d, label: '7 days' },
+      '30d': { value: trend.change30d, label: '30 days' },
+      '90d': { value: trend.change90d, label: '90 days' },
+    };
+
+    const { value: change, label } = periodMap[period];
+
+    if (change === null || change === undefined) {
+      return <span className="text-muted-foreground text-xs">-</span>;
+    }
+
+    const isPositive = change > 0;
+    const isNeutral = change === 0;
+
+    if (isNeutral) {
+      return (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <span className="text-muted-foreground text-sm">—</span>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>No change in {label}</p>
+          </TooltipContent>
+        </Tooltip>
+      );
+    }
+
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span className={`font-bold text-sm ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+            {isPositive ? '↑' : '↓'}{Math.abs(change)}
+          </span>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>{isPositive ? 'Improved' : 'Declined'} {Math.abs(change)} positions in {label}</p>
+        </TooltipContent>
+      </Tooltip>
+    );
+  };
+
   const checkSingleKeyword = async (keyword: string, retries = 2): Promise<RankingResult> => {
     for (let attempt = 0; attempt <= retries; attempt++) {
       try {
@@ -779,17 +829,13 @@ export default function AdminSERP() {
                   <tr className="border-b">
                     <th className="text-left py-3 px-2 font-medium">Keyword</th>
                     <th className="text-center py-3 px-2 font-medium">Vol.</th>
-                    <th className="text-center py-3 px-2 font-medium">Priority</th>
+                    <th className="text-center py-3 px-2 font-medium hidden sm:table-cell">Priority</th>
                     <th className="text-center py-3 px-2 font-medium hidden sm:table-cell">Category</th>
                     <th className="text-center py-3 px-2 font-medium">Position</th>
-                    <th className="text-center py-3 px-2 font-medium hidden md:table-cell">
-                      <div className="flex items-center justify-center gap-1">
-                        <History className="w-3 h-3" />
-                        <span>Trends</span>
-                      </div>
-                    </th>
-                    <th className="text-left py-3 px-2 font-medium hidden lg:table-cell">Ranking URL</th>
-                    <th className="text-center py-3 px-2 font-medium hidden xl:table-cell">Competitors</th>
+                    <th className="text-center py-3 px-2 font-medium hidden md:table-cell">7d</th>
+                    <th className="text-center py-3 px-2 font-medium hidden md:table-cell">30d</th>
+                    <th className="text-center py-3 px-2 font-medium hidden lg:table-cell">90d</th>
+                    <th className="text-left py-3 px-2 font-medium hidden xl:table-cell">Ranking URL</th>
                     <th className="text-center py-3 px-2 font-medium">Check</th>
                   </tr>
                 </thead>
@@ -822,7 +868,7 @@ export default function AdminSERP() {
                         <td className="text-center py-3 px-2">
                           <span className="font-mono text-xs">{kd?.volume?.toLocaleString() ?? "-"}</span>
                         </td>
-                        <td className="text-center py-3 px-2">
+                        <td className="text-center py-3 px-2 hidden sm:table-cell">
                           <Badge className={`text-xs ${priorityColors[kd?.priority ?? "low"]}`}>
                             {kd?.priority ?? "-"}
                           </Badge>
@@ -836,9 +882,15 @@ export default function AdminSERP() {
                           {getPositionBadge(data?.position, data?.lastChecked, data?.error)}
                         </td>
                         <td className="text-center py-3 px-2 hidden md:table-cell">
-                          <TrendIndicator keyword={keyword} />
+                          <SingleTrendCell keyword={keyword} period="7d" />
                         </td>
-                        <td className="py-3 px-2 hidden lg:table-cell">
+                        <td className="text-center py-3 px-2 hidden md:table-cell">
+                          <SingleTrendCell keyword={keyword} period="30d" />
+                        </td>
+                        <td className="text-center py-3 px-2 hidden lg:table-cell">
+                          <SingleTrendCell keyword={keyword} period="90d" />
+                        </td>
+                        <td className="py-3 px-2 hidden xl:table-cell">
                           {data?.url ? (
                             <a 
                               href={data.url} 
@@ -850,17 +902,6 @@ export default function AdminSERP() {
                             </a>
                           ) : (
                             <span className="text-muted-foreground">-</span>
-                          )}
-                        </td>
-                        <td className="py-3 px-2 hidden xl:table-cell">
-                          {data?.competitor_positions && (
-                            <div className="flex gap-2 justify-center text-xs">
-                              {Object.entries(data.competitor_positions).map(([domain, pos]) => (
-                                <span key={domain} className="text-muted-foreground">
-                                  {domain.split(".")[0]}: {pos ?? "-"}
-                                </span>
-                              ))}
-                            </div>
                           )}
                         </td>
                         <td className="text-center py-3 px-2">
