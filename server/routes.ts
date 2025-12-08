@@ -1263,6 +1263,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Lead routes - with rate limiting to prevent bot spam
   app.post("/api/leads", formSubmissionLimiter, async (req, res) => {
     try {
+      // Honeypot spam protection - silently reject if bot fills hidden field
+      const honeypot = req.body.hp_website || req.body.website || '';
+      if (honeypot.trim() !== '') {
+        console.log(`🍯 Honeypot triggered - probable bot submission blocked (IP: ${req.ip})`);
+        // Return 200 to not tip off the bot, but don't process
+        return res.json({ success: true, id: 'filtered' });
+      }
+
       const validated = insertLeadSchema.parse(req.body);
       console.log(`📝 Lead submission received: ${validated.email} (${validated.phone}) - ${validated.formType} from ${validated.source}`);
       

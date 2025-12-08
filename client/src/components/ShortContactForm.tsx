@@ -26,6 +26,7 @@ const shortFormSchema = z.object({
   phone: z.string().min(10, "Valid phone number is required"),
   smsOptIn: z.boolean().default(false),
   service: z.string().optional(),
+  hp_website: z.string().optional(), // Honeypot field - should always be empty
 });
 
 type ShortFormValues = z.infer<typeof shortFormSchema>;
@@ -49,6 +50,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
       phone: "",
       smsOptIn: false,
       service: service || "",
+      hp_website: "", // Honeypot - must stay empty
     },
   });
 
@@ -65,6 +67,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
         ...data,
         smsOptIn: data.smsOptIn ? "true" : "false",
         formType: "short",
+        hp_website: data.hp_website || '', // Honeypot field
       });
     },
     onSuccess: () => {
@@ -153,6 +156,18 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
           </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              {/* Honeypot field - hidden from users, catches bots */}
+              <div className="hp-field" aria-hidden="true">
+                <label htmlFor="hp_website_short">Website</label>
+                <input
+                  type="text"
+                  id="hp_website_short"
+                  {...form.register("hp_website")}
+                  autoComplete="off"
+                  tabIndex={-1}
+                />
+              </div>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}

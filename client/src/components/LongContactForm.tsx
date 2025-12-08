@@ -45,6 +45,7 @@ const longFormSchema = z.object({
   insuranceProvider: z.string().optional().default(""),
   insuredDob: z.string().optional().default(""),
   memberId: z.string().optional(),
+  hp_website: z.string().optional(), // Honeypot field - should always be empty
 }).superRefine((data, ctx) => {
   // Only require insurance fields when payment method is insurance
   if (data.paymentMethod === "insurance") {
@@ -116,6 +117,7 @@ export default function LongContactForm() {
       insuranceProvider: "",
       insuredDob: "",
       memberId: "",
+      hp_website: "", // Honeypot - must stay empty
     },
   });
 
@@ -162,6 +164,7 @@ export default function LongContactForm() {
         utmContent: utmData.utmContent,
         gclid: utmData.gclid, // Google Ads Click ID
         fbclid: utmData.fbclid, // Facebook Click ID
+        hp_website: data.hp_website || '', // Honeypot field
       });
     },
     onSuccess: () => {
@@ -382,6 +385,18 @@ export default function LongContactForm() {
       
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          {/* Honeypot field - hidden from users, catches bots */}
+          <div className="hp-field" aria-hidden="true">
+            <label htmlFor="hp_website_long">Website</label>
+            <input
+              type="text"
+              id="hp_website_long"
+              {...form.register("hp_website")}
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
+
           {step === 1 && (
             <div className="space-y-4">
               <div className="flex items-center gap-3 mb-4 pb-3 border-b">

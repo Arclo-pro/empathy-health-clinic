@@ -25,6 +25,7 @@ const leadFormSchema = z.object({
   phone: z.string().min(10, "Please enter a valid phone number"),
   therapyInterest: z.string().optional(),
   message: z.string().optional(),
+  hp_website: z.string().optional(), // Honeypot field - should always be empty
 });
 
 type LeadFormData = z.infer<typeof leadFormSchema>;
@@ -53,6 +54,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       phone: "",
       therapyInterest: therapyName || "",
       message: "",
+      hp_website: "", // Honeypot - must stay empty
     },
   });
 
@@ -88,6 +90,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
           utmContent: utmData.utmContent,
           gclid: utmData.gclid, // Google Ads Click ID
           fbclid: utmData.fbclid, // Facebook Click ID
+          hp_website: (data as any).hp_website || '', // Honeypot field
         }),
       });
       if (!response.ok) {
@@ -189,6 +192,18 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
+          {/* Honeypot field - hidden from users, catches bots */}
+          <div className="hp-field" aria-hidden="true">
+            <label htmlFor="hp_website">Website</label>
+            <input
+              type="text"
+              id="hp_website"
+              {...form.register("hp_website")}
+              autoComplete="off"
+              tabIndex={-1}
+            />
+          </div>
+
           <FormField
             control={form.control}
             name="name"

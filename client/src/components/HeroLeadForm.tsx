@@ -14,6 +14,7 @@ export default function HeroLeadForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
+  const [hpWebsite, setHpWebsite] = useState(""); // Honeypot field
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
@@ -36,6 +37,7 @@ export default function HeroLeadForm() {
         formType: "hero",
         source: window.location.pathname,
         smsOptIn: "false",
+        hp_website: hpWebsite, // Honeypot field
       });
     },
     onSuccess: () => {
@@ -73,6 +75,20 @@ export default function HeroLeadForm() {
       className="bg-white/95 backdrop-blur-md rounded-2xl md:rounded-full shadow-2xl p-3 md:p-2 w-full"
       data-testid="form-hero-lead"
     >
+      {/* Honeypot field - hidden from users, catches bots */}
+      <div className="hp-field" aria-hidden="true">
+        <label htmlFor="hp_website_hero">Website</label>
+        <input
+          type="text"
+          id="hp_website_hero"
+          name="hp_website"
+          value={hpWebsite}
+          onChange={(e) => setHpWebsite(e.target.value)}
+          autoComplete="off"
+          tabIndex={-1}
+        />
+      </div>
+
       <div className="flex flex-col md:flex-row gap-3 md:gap-2">
         {/* Name Input */}
         <div className="flex-1 min-w-0">
