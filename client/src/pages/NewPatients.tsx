@@ -10,9 +10,9 @@ export default function NewPatients() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Accepting New Patients | Empathy Health Clinic | Winter Park, FL"
-        description="We're accepting new patients! Empathy Health Clinic offers same-week appointments for psychiatry, therapy, and counseling services. Most insurance accepted. Call (386) 848-8751 to schedule."
-        keywords={["accepting new patients", "new patient appointments", "psychiatrist accepting patients", "therapist accepting patients", "Winter Park", "Florida"]}
+        title="Psychiatrist Accepting New Patients Orlando | 2025"
+        description="Find a psychiatrist accepting new patients in Orlando, FL. Same-week appointments available for psychiatry, therapy & counseling. Board-certified providers, most insurance accepted. Call (386) 848-8751."
+        keywords={["psychiatrist accepting new patients orlando", "psychiatrist accepting new patients", "new patient psychiatrist orlando", "psychiatrist taking new patients orlando", "mental health accepting new patients", "therapist accepting patients orlando"]}
         canonicalPath="/new-patients"
       />
       <SiteHeader />
@@ -29,10 +29,10 @@ export default function NewPatients() {
               <UserPlus className="h-8 w-8 text-primary" />
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold mb-6 text-white" data-testid="text-page-title">
-              We're Accepting New Patients
+              Psychiatrist Accepting New Patients in Orlando
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-              Take the first step toward better mental health. Empathy Health Clinic is currently accepting new patients for psychiatry, therapy, and counseling services in Winter Park and throughout Central Florida.
+              Looking for a <strong>psychiatrist accepting new patients in Orlando</strong>? Empathy Health Clinic offers same-week appointments for psychiatry, therapy, and counseling services throughout Central Florida. Board-certified providers with in-person and telehealth options.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="gap-2" asChild data-testid="button-call-now">

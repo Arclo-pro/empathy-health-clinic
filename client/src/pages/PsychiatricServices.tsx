@@ -115,9 +115,9 @@ export default function PsychiatricServices() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatric Services Orlando | Same-Week Appointments | Board-Certified"
-        description="Looking for psychiatric services in Orlando? Board-certified psychiatrists offering same-week appointments for medication management, psychiatric evaluations, anxiety, depression, ADHD. Call 386-848-8751."
-        keywords={["psychiatric services", "psychiatric services orlando", "psychiatric services near me", "psychiatrist near me", "medication management", "psychiatric evaluation", "mental health services orlando"]}
+        title="Medication Management Orlando | Psychiatrist | 2025"
+        description="Expert medication management in Orlando by board-certified psychiatrists. Same-week appointments for psychiatric medication, anxiety, depression, ADHD treatment. BCBS, Aetna, Cigna accepted. Call 386-848-8751."
+        keywords={["medication management orlando", "psychiatric medication management", "medication management near me", "psychiatric services orlando", "psychiatrist medication management", "mental health medication orlando"]}
         canonicalPath="/psychiatric-services"
         jsonLd={jsonLd}
       />
