@@ -4580,3 +4580,745 @@ export const mentalHealthDoctorOrlandoConfig: LandingPageConfig = {
     conversionCategory: "mental_health_doctor_orlando",
   },
 };
+
+export const traumaPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Trauma Psychiatrist Orlando FL | PTSD Treatment",
+    description: "Trauma psychiatrist in Orlando providing PTSD and complex trauma treatment. Board-certified care. Same-week appointments. Call 386-848-8751.",
+    keywords: ["trauma psychiatrist orlando", "trauma therapy orlando", "ptsd psychiatrist orlando", "trauma treatment orlando"],
+    canonicalPath: "/trauma-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Trauma Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Board-certified trauma psychiatrist in Orlando providing specialized treatment for PTSD, complex trauma, and childhood trauma.",
+    "url": "https://empathyhealthclinic.com/trauma-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Trauma Psychiatrist in Orlando, FL",
+    subtitle: "Compassionate, trauma-informed psychiatric care for PTSD, complex trauma, and childhood trauma. Our board-certified psychiatrists combine medication management with evidence-based approaches. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule Consultation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Trauma-Informed Care", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Orlando Trauma Psychiatry",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Specialized Trauma Psychiatry in Orlando",
+    introduction: [
+      "Trauma affects the brain and body in profound ways, and healing requires specialized care. At Empathy Health Clinic, our board-certified trauma psychiatrists in Orlando understand the unique challenges faced by those living with PTSD, complex trauma, and the lasting effects of childhood trauma.",
+      "We provide trauma-informed psychiatric care that goes beyond simply managing symptoms. Our approach combines careful medication management with an understanding of how trauma affects the nervous system, helping you find relief while supporting your overall healing journey.",
+      "Whether you've experienced a single traumatic event, ongoing trauma, or are struggling with childhood experiences that still affect you today, our Orlando trauma psychiatrists offer compassionate, expert care. Same-week appointments are available because we know trauma survivors often need help urgently."
+    ],
+    conditionsHeading: "Trauma Conditions We Treat",
+    conditions: [
+      { name: "PTSD", description: "Post-Traumatic Stress Disorder" },
+      { name: "Complex PTSD", description: "C-PTSD from prolonged trauma" },
+      { name: "Childhood Trauma", description: "Developmental trauma effects" },
+      { name: "Acute Stress Disorder" },
+      { name: "Trauma-Related Anxiety" },
+      { name: "Trauma-Related Depression" },
+      { name: "Dissociative Disorders" },
+      { name: "Survivor Guilt" },
+      { name: "Military & Combat Trauma" },
+      { name: "Sexual Assault Trauma" },
+    ],
+    servicesHeading: "Our Trauma Psychiatry Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Trauma-Informed Evaluation",
+        description: "Comprehensive psychiatric assessment designed specifically for trauma survivors, conducted in a safe and supportive environment."
+      },
+      {
+        icon: Shield,
+        title: "PTSD Medication Management",
+        description: "Expert medication management using FDA-approved treatments for PTSD and trauma-related symptoms, including SSRIs, prazosin for nightmares, and other evidence-based options."
+      },
+      {
+        icon: Heart,
+        title: "Integrated Care Coordination",
+        description: "Collaboration with trauma therapists and EMDR specialists to provide comprehensive treatment addressing both biological and psychological aspects of trauma."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our Trauma Psychiatrists?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Trauma-Specialized Expertise",
+        description: "Our psychiatrists have specialized training in trauma-informed care, understanding how trauma affects the brain and body differently than other conditions."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "We understand that trauma survivors often can't wait months for care. We typically offer same-week appointments for new patients."
+      },
+      {
+        icon: Video,
+        title: "Safe Treatment Options",
+        description: "Choose in-person or telehealth appointments based on what feels safest for you. Many trauma survivors appreciate the option to begin treatment from home."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What is a trauma psychiatrist?",
+      answer: "A trauma psychiatrist is a medical doctor specializing in the biological and psychological treatment of trauma-related conditions like PTSD. Unlike therapists, trauma psychiatrists can prescribe medications to help manage symptoms such as flashbacks, nightmares, hypervigilance, and anxiety. They often work alongside trauma therapists to provide comprehensive care."
+    },
+    {
+      question: "What medications help with PTSD and trauma?",
+      answer: "Several medications are FDA-approved or commonly used for PTSD treatment. These include SSRIs like sertraline (Zoloft) and paroxetine (Paxil), prazosin for nightmares, and other medications to address specific symptoms. Your trauma psychiatrist will work with you to find the right medication approach based on your specific symptoms and needs."
+    },
+    {
+      question: "Do I need both a trauma psychiatrist and a therapist?",
+      answer: "Many trauma survivors benefit from both psychiatric medication management and trauma-focused therapy (like EMDR or CPT). The psychiatrist addresses the biological aspects of trauma, while the therapist helps process traumatic memories. At Empathy Health Clinic, we offer both services and can coordinate your care."
+    },
+    {
+      question: "How do I know if I have PTSD or trauma symptoms?",
+      answer: "Common signs include intrusive memories or flashbacks, nightmares, avoiding reminders of the trauma, feeling on edge or easily startled, emotional numbness, and difficulty sleeping or concentrating. If you've experienced a traumatic event and have ongoing symptoms affecting your daily life, a trauma psychiatrist can provide a proper evaluation."
+    },
+    {
+      question: "Do you accept insurance for trauma psychiatry?",
+      answer: "Yes, we accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and Humana. Our team will verify your mental health benefits before your appointment."
+    },
+  ],
+  sidebar: {
+    formHeading: "Get Trauma-Informed Care",
+    formSubheading: "Same-week appointments. Compassionate, specialized care.",
+    formType: "trauma_psychiatry",
+    quickLinks: [
+      { href: "/ptsd-psychiatrist-orlando", label: "PTSD Treatment" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/depression-psychiatrist-orlando", label: "Depression Psychiatrist" },
+      { href: "/new-patients", label: "New Patients" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry Orlando" },
+      { href: "/emdr-therapy", label: "EMDR Therapy" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+    ],
+  },
+  analytics: {
+    pageName: "Trauma Psychiatrist Orlando Page",
+    conversionCategory: "trauma_psychiatrist_orlando",
+  },
+};
+
+export const psychiatristNearUcfConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Near UCF | Orlando FL | Same-Week Apts",
+    description: "Psychiatrist near UCF campus serving students & faculty. ADHD, anxiety, depression treatment. Same-week appointments, telehealth available. Call 386-848-8751.",
+    keywords: ["psychiatrist near ucf", "ucf psychiatrist", "psychiatrist near university of central florida", "college psychiatrist orlando", "ucf mental health", "psychiatrist for college students orlando"],
+    canonicalPath: "/psychiatrist-near-ucf",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Psychiatrist Near UCF - Empathy Health Clinic",
+    "description": "Board-certified psychiatrist serving UCF students, faculty, and the Orlando community. Expert treatment for ADHD, anxiety, depression, and more.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-near-ucf",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Psychiatrist Near UCF Campus",
+    subtitle: "Convenient psychiatric care for UCF students, faculty, and the Orlando community. Expert treatment for ADHD, anxiety, depression, and other conditions common in college life. Same-week appointments with in-person and telehealth options. Most insurance accepted.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Near UCF Campus", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Conveniently Near UCF",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Psychiatric Care for UCF Students & Faculty",
+    introduction: [
+      "College life brings unique mental health challenges. At Empathy Health Clinic, we understand the pressures UCF students and faculty face—academic stress, exam anxiety, difficulty concentrating, sleep problems, and the transition to independent living. Our board-certified psychiatrists provide expert care tailored to the needs of the university community.",
+      "Located conveniently near UCF in Winter Park, we offer same-week appointments so you don't have to wait weeks or months to get help. Whether you're struggling with ADHD that's affecting your grades, anxiety about exams, depression, or other mental health concerns, we're here to help you thrive academically and personally.",
+      "We offer both in-person appointments at our Winter Park office and secure telehealth visits—perfect for busy students who need flexible scheduling between classes."
+    ],
+    conditionsHeading: "Common Conditions We Treat",
+    conditions: [
+      { name: "ADHD", description: "Focus issues affecting academics" },
+      { name: "Anxiety Disorders", description: "Test anxiety, social anxiety, GAD" },
+      { name: "Depression" },
+      { name: "Academic Burnout" },
+      { name: "Sleep Disorders", description: "Insomnia, irregular sleep" },
+      { name: "Stress Management" },
+      { name: "Adjustment Disorders" },
+      { name: "Panic Attacks" },
+      { name: "OCD" },
+      { name: "Bipolar Disorder" },
+    ],
+    servicesHeading: "Our Services for UCF Students & Faculty",
+    services: [
+      {
+        icon: Brain,
+        title: "ADHD Evaluation & Treatment",
+        description: "Comprehensive ADHD assessment and medication management to help you focus, improve academic performance, and manage daily responsibilities."
+      },
+      {
+        icon: Shield,
+        title: "Anxiety & Depression Treatment",
+        description: "Evidence-based treatment for anxiety and depression that's common among college students dealing with academic pressure and life transitions."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Psychiatry",
+        description: "Convenient video appointments from your dorm, apartment, or between classes. Same quality care as in-person visits with added flexibility."
+      },
+    ],
+    whyChooseHeading: "Why UCF Students Choose Us",
+    whyChoosePoints: [
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "We understand that mental health can't wait. Unlike UCF counseling services with long waitlists, we typically offer same-week appointments for new patients."
+      },
+      {
+        icon: Award,
+        title: "Board-Certified Psychiatrists",
+        description: "Our psychiatrists are board-certified with experience treating college students and young adults facing academic and life challenges."
+      },
+      {
+        icon: Clock,
+        title: "Flexible Scheduling",
+        description: "Evening appointments and telehealth options work around your class schedule. No need to miss lectures for your mental health care."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "Do you accept UCF student insurance?",
+      answer: "We accept most major insurance plans that UCF students commonly have, including Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and many others. Contact our office at 386-848-8751 to verify your specific plan. We can also provide documentation for FSA/HSA accounts."
+    },
+    {
+      question: "How far is your office from UCF campus?",
+      answer: "Our Winter Park office is approximately 15-20 minutes from UCF's main campus. We're located at 2281 Lee Rd Suite 102, easily accessible via University Blvd or SR-417. We also offer telehealth appointments for students who prefer video visits."
+    },
+    {
+      question: "Can you prescribe ADHD medication for college students?",
+      answer: "Yes. After a thorough evaluation to confirm an ADHD diagnosis, our psychiatrists can prescribe FDA-approved ADHD medications including stimulants and non-stimulant options. We follow best practices for ADHD treatment and monitor your progress regularly."
+    },
+    {
+      question: "What's the difference between seeing you vs. UCF Counseling Services?",
+      answer: "UCF Counseling Services offers valuable support but often has limited availability and may not prescribe medications. As a private psychiatric practice, we can provide same-week appointments, prescribe medications when appropriate, and offer ongoing psychiatric care throughout your time at UCF and beyond."
+    },
+    {
+      question: "Do you offer telehealth appointments?",
+      answer: "Yes! We offer secure, HIPAA-compliant video appointments that are perfect for busy students. You can meet with your psychiatrist from your dorm, apartment, or anywhere in Florida. Telehealth appointments are available for both initial evaluations and follow-up visits."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule Your Appointment",
+    formSubheading: "Same-week appointments available. Most insurance accepted.",
+    formType: "ucf_psychiatrist",
+    quickLinks: [
+      { href: "/adhd-psychiatrist-orlando", label: "ADHD Psychiatrist" },
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/new-patients", label: "New Patients" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry Orlando" },
+      { href: "/depression-psychiatrist-orlando", label: "Depression Psychiatrist" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Near UCF Page",
+    conversionCategory: "psychiatrist_near_ucf",
+  },
+};
+
+// OCD Psychiatrist Orlando
+export const ocdPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "OCD Psychiatrist Orlando FL | Expert Treatment 2025",
+    description: "Expert OCD psychiatrist in Orlando, FL. Specialized treatment for obsessive-compulsive disorder including medication management and ERP therapy support. Same-week appointments. Call 386-848-8751.",
+    keywords: ["ocd psychiatrist orlando", "ocd treatment orlando", "ocd therapy orlando", "obsessive compulsive disorder orlando", "ocd specialist orlando", "ocd medication orlando", "ocd doctor orlando", "ocd psychiatrist near me"],
+    canonicalPath: "/ocd-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "OCD Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists specializing in OCD treatment in Orlando, FL. Expert medication management for obsessive-compulsive disorder.",
+    "url": "https://empathyhealthclinic.com/ocd-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry - OCD Specialist"
+  },
+  hero: {
+    title: "OCD Psychiatrist in Orlando, FL",
+    subtitle: "Board-certified psychiatrists specializing in obsessive-compulsive disorder treatment. Expert medication management, ERP therapy support, and comprehensive care for all types of OCD. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule OCD Consultation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["OCD Specialists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: {
+    title: "Orlando Metro Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Expert OCD Treatment in Orlando",
+    introduction: [
+      "Obsessive-compulsive disorder (OCD) can be overwhelming, with intrusive thoughts and compulsive behaviors that disrupt daily life. At Empathy Health Clinic, our board-certified psychiatrists in Orlando specialize in OCD treatment, providing expert medication management and comprehensive psychiatric care for adults struggling with obsessions and compulsions.",
+      "We understand that OCD is more than just being 'neat' or 'organized'—it's a serious mental health condition that causes significant distress. Our Orlando OCD psychiatrists work collaboratively with you to develop personalized treatment plans that combine psychiatric medication with evidence-based therapy approaches like Exposure and Response Prevention (ERP).",
+      "Same-week appointments are typically available because we know that when OCD is controlling your life, you need help now—not weeks from now. We offer both in-person and telehealth appointments throughout Florida."
+    ],
+    conditionsHeading: "Types of OCD We Treat",
+    conditions: [
+      { name: "Contamination OCD", description: "Fear of germs, dirt, or illness" },
+      { name: "Checking OCD", description: "Repeated checking of locks, stoves, etc." },
+      { name: "Symmetry & Ordering OCD", description: "Need for things to be 'just right'" },
+      { name: "Harm OCD", description: "Intrusive thoughts about harming self or others" },
+      { name: "Pure O (Pure Obsessional)", description: "Primarily mental rituals" },
+      { name: "Relationship OCD", description: "Doubts about romantic relationships" },
+      { name: "Scrupulosity", description: "Religious or moral obsessions" },
+      { name: "Hoarding Disorder" },
+      { name: "Body-Focused OCD", description: "Somatic obsessions" },
+      { name: "Just Right OCD", description: "Things must feel 'complete'" },
+    ],
+    servicesHeading: "Our OCD Treatment Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Comprehensive OCD Evaluation",
+        description: "Thorough psychiatric assessment to accurately diagnose OCD, identify obsession and compulsion patterns, and rule out other conditions. We use validated assessment tools to understand your specific OCD presentation."
+      },
+      {
+        icon: Shield,
+        title: "OCD Medication Management",
+        description: "Expert prescribing and monitoring of FDA-approved OCD medications including SSRIs, clomipramine, and augmentation strategies. We optimize medication dosing for OCD, which often requires higher doses than depression treatment."
+      },
+      {
+        icon: Heart,
+        title: "ERP Therapy Coordination",
+        description: "Collaborative care with ERP therapists to combine medication with the gold-standard therapy for OCD. Research shows the combination of medication and ERP often provides the best outcomes."
+      },
+      {
+        icon: Video,
+        title: "Telehealth OCD Treatment",
+        description: "Convenient video appointments from anywhere in Florida. Our secure telehealth platform provides the same quality OCD psychiatric care as in-person visits."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our Orlando OCD Psychiatrists?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "OCD Expertise",
+        description: "Our board-certified psychiatrists have specialized training in OCD treatment, understanding the nuances of different OCD subtypes and the most effective medication strategies."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "Unlike many Orlando psychiatry practices with months-long wait times, we typically offer same-week appointments for new OCD patients."
+      },
+      {
+        icon: Users,
+        title: "Collaborative Care Approach",
+        description: "We work closely with OCD therapists and ERP specialists to provide integrated treatment, ensuring your medication and therapy work together effectively."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What medications are used to treat OCD?",
+      answer: "The first-line medications for OCD are SSRIs (selective serotonin reuptake inhibitors) such as fluoxetine (Prozac), sertraline (Zoloft), fluvoxamine (Luvox), paroxetine (Paxil), and escitalopram (Lexapro). Clomipramine (Anafranil), a tricyclic antidepressant, is also FDA-approved for OCD. OCD often requires higher doses than depression treatment, and it may take 8-12 weeks to see full benefits."
+    },
+    {
+      question: "Do I need both medication and therapy for OCD?",
+      answer: "Research shows that combining medication with Exposure and Response Prevention (ERP) therapy often provides the best outcomes for OCD. Medication can reduce the intensity of obsessions, making it easier to engage in ERP therapy. Our psychiatrists work collaboratively with OCD therapists to provide integrated treatment."
+    },
+    {
+      question: "How long does OCD treatment take?",
+      answer: "OCD treatment is typically long-term. Medication may take 8-12 weeks to reach full effectiveness, and many people continue medication for a year or longer to prevent relapse. ERP therapy usually involves 12-20 sessions. We'll work with you to develop a treatment timeline based on your specific situation."
+    },
+    {
+      question: "Can OCD be cured?",
+      answer: "While there's no 'cure' for OCD, it can be effectively managed with proper treatment. Many people experience significant reduction in symptoms—often 50-70% improvement—with medication and ERP therapy. The goal is to reduce OCD's impact on your daily life so you can live fully and freely."
+    },
+    {
+      question: "What if my current OCD medication isn't working?",
+      answer: "If your current medication isn't providing adequate relief, there are several options. We may increase the dose (OCD often requires higher doses), try a different SSRI, add an augmentation medication, or explore other treatment approaches. Our psychiatrists specialize in treatment-resistant OCD and can develop a new strategy."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule OCD Consultation",
+    formSubheading: "Same-week appointments available. Most insurance accepted.",
+    formType: "ocd_psychiatrist",
+    quickLinks: [
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/new-patients", label: "New Patients" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry Orlando" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/depression-psychiatrist-orlando", label: "Depression Psychiatrist" },
+    ],
+  },
+  analytics: {
+    pageName: "OCD Psychiatrist Orlando Page",
+    conversionCategory: "ocd_psychiatrist_orlando",
+  },
+};
+
+export const schizophreniaPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Schizophrenia Psychiatrist Orlando | Treatment 2025",
+    description: "Compassionate schizophrenia treatment in Orlando by board-certified psychiatrists. Antipsychotic medication management, family support. Call 386-848-8751.",
+    keywords: ["schizophrenia psychiatrist orlando", "schizophrenia treatment orlando", "psychosis treatment orlando", "schizoaffective disorder orlando"],
+    canonicalPath: "/schizophrenia-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Schizophrenia Psychiatrist Orlando - Empathy Health Clinic",
+    "description": "Expert schizophrenia and psychosis treatment in Orlando, FL by board-certified psychiatrists.",
+    "url": "https://empathyhealthclinic.com/schizophrenia-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Schizophrenia Psychiatrist in Orlando, FL",
+    subtitle: "Compassionate, evidence-based treatment for schizophrenia and psychotic disorders. Our board-certified psychiatrists specialize in antipsychotic medication management, early intervention, and family support. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule Consultation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Same-Week Appointments", "Telehealth Available"],
+  },
+  location: {
+    title: "Orlando Metro Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Expert Schizophrenia Treatment in Orlando",
+    introduction: [
+      "Living with schizophrenia or a psychotic disorder can be overwhelming for both patients and their families. At Empathy Health Clinic, our board-certified psychiatrists in Orlando provide compassionate, specialized care for individuals experiencing schizophrenia, schizoaffective disorder, and other psychotic conditions.",
+      "We understand that seeking treatment takes courage. Our approach combines evidence-based antipsychotic medication management with comprehensive support to help you or your loved one achieve stability, manage symptoms, and improve quality of life.",
+      "Early intervention is key in treating psychotic disorders. Whether you're experiencing your first episode or seeking better management of an ongoing condition, our Orlando psychiatrists are here to help with same-week appointments available."
+    ],
+    conditionsHeading: "Conditions We Treat",
+    conditions: [
+      { name: "Schizophrenia", description: "All types including paranoid, disorganized, catatonic" },
+      { name: "Schizoaffective Disorder", description: "Bipolar and depressive types" },
+      { name: "Psychosis NOS", description: "Psychotic symptoms not otherwise specified" },
+      { name: "Brief Psychotic Disorder" },
+      { name: "Delusional Disorder" },
+      { name: "First Episode Psychosis" },
+      { name: "Treatment-Resistant Schizophrenia" },
+      { name: "Medication Side Effect Management" },
+    ],
+    servicesHeading: "Our Treatment Approach",
+    services: [
+      {
+        icon: Brain,
+        title: "Antipsychotic Medication Management",
+        description: "Expert prescribing and monitoring of antipsychotic medications including second-generation options with careful attention to minimizing side effects."
+      },
+      {
+        icon: Users,
+        title: "Family Education & Support",
+        description: "We involve family members in treatment planning and provide education about schizophrenia to build a supportive home environment."
+      },
+      {
+        icon: Shield,
+        title: "Early Intervention Programs",
+        description: "Specialized care for first-episode psychosis to improve long-term outcomes through early, aggressive treatment."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Appointments",
+        description: "Convenient virtual visits for medication management and follow-up care, reducing barriers to consistent treatment."
+      },
+    ],
+    whyChooseHeading: "Why Choose Empathy Health Clinic?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Specialized Expertise",
+        description: "Our psychiatrists have extensive experience treating schizophrenia and psychotic disorders, including complex and treatment-resistant cases."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "We understand the urgency of psychiatric care. New patients can typically be seen within the same week of calling."
+      },
+      {
+        icon: Heart,
+        title: "Compassionate, Stigma-Free Care",
+        description: "We treat every patient with dignity and respect, creating a safe environment where you can discuss your experiences openly."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What medications are used to treat schizophrenia?",
+      answer: "Schizophrenia is primarily treated with antipsychotic medications. Second-generation (atypical) antipsychotics like risperidone, olanzapine, quetiapine, aripiprazole, and ziprasidone are commonly used as first-line treatments due to their effectiveness and generally more favorable side effect profiles. For treatment-resistant cases, clozapine may be considered. Our psychiatrists work with you to find the medication that provides the best symptom control with minimal side effects."
+    },
+    {
+      question: "Can schizophrenia be cured?",
+      answer: "While there is currently no cure for schizophrenia, it can be effectively managed with proper treatment. Many people with schizophrenia lead fulfilling lives with the right combination of medication, therapy, and support. Early intervention and consistent treatment significantly improve long-term outcomes. Our goal is to help you achieve stability and the best possible quality of life."
+    },
+    {
+      question: "How long does schizophrenia treatment take?",
+      answer: "Schizophrenia is typically a lifelong condition requiring ongoing treatment. Antipsychotic medication is usually needed long-term to prevent relapse. After an initial stabilization period (often 6-12 months), we focus on maintenance treatment and monitoring. Regular follow-up appointments help ensure medications remain effective and allow us to address any concerns promptly."
+    },
+    {
+      question: "What should I expect at my first appointment?",
+      answer: "Your first appointment will be a comprehensive psychiatric evaluation lasting 45-60 minutes. We'll discuss your symptoms, medical history, family history, and treatment goals. If appropriate, we may start medication at this visit. We encourage family members to attend if you're comfortable, as their input can be valuable in developing your treatment plan."
+    },
+    {
+      question: "Do you offer telehealth for schizophrenia treatment?",
+      answer: "Yes, we offer HIPAA-compliant telehealth appointments for medication management and follow-up care. While initial evaluations are often best done in person, telehealth can be an excellent option for ongoing treatment, especially for patients who have achieved stability. This helps ensure consistent care even when in-person visits are difficult."
+    },
+  ],
+  sidebar: {
+    formHeading: "Schedule Your Consultation",
+    formSubheading: "Same-week appointments available. Most insurance accepted.",
+    formType: "schizophrenia_psychiatrist",
+    quickLinks: [
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/psychiatric-evaluation-orlando", label: "Psychiatric Evaluation" },
+      { href: "/new-patients", label: "New Patients" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Schizophrenia Psychiatrist Orlando Page",
+    conversionCategory: "schizophrenia_psychiatrist_orlando",
+  },
+};
+
+export const insomniaPsychiatristOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Insomnia Psychiatrist Orlando FL | Sleep Treatment",
+    description: "Expert insomnia psychiatrist in Orlando treating chronic sleep disorders. Medication management, CBT-I referrals. Same-week appointments. Call 386-848-8751.",
+    keywords: ["insomnia psychiatrist orlando", "sleep psychiatrist orlando", "sleep disorder treatment orlando", "sleep medication orlando", "chronic insomnia treatment orlando", "sleep anxiety psychiatrist orlando"],
+    canonicalPath: "/insomnia-psychiatrist-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+    "name": "Insomnia Psychiatrist Orlando FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrist specializing in insomnia and sleep disorder treatment in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/insomnia-psychiatrist-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Insomnia Psychiatrist in Orlando, FL",
+    subtitle: "Board-certified psychiatrists specializing in chronic insomnia and sleep disorder treatment. We address underlying anxiety, depression, and mental health conditions affecting your sleep. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule Consultation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage: heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Sleep Disorder Specialists", "Same-Week Appointments"],
+  },
+  location: {
+    title: "Orlando Metro Location",
+    address: "2281 Lee Rd Suite 102",
+    city: "Winter Park",
+    state: "FL",
+    zip: "32810",
+    phone: "3868488751",
+    phoneDisplay: "386-848-8751",
+    hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+  },
+  content: {
+    mainHeading: "Expert Insomnia Treatment in Orlando",
+    introduction: [
+      "Chronic insomnia affects millions of Americans, impacting their daily functioning, mood, and overall health. At Empathy Health Clinic, our board-certified psychiatrists in Orlando specialize in treating sleep disorders by addressing both the symptoms and the underlying mental health conditions that often contribute to poor sleep.",
+      "Unlike sleep clinics that focus solely on sleep mechanics, our psychiatric approach examines the connection between your sleep problems and conditions like anxiety, depression, PTSD, and bipolar disorder. Many patients find that treating these underlying conditions significantly improves their sleep quality.",
+      "We offer comprehensive insomnia treatment including medication management and referrals for Cognitive Behavioral Therapy for Insomnia (CBT-I), the gold-standard non-medication treatment. Same-week appointments are typically available."
+    ],
+    conditionsHeading: "Sleep Conditions We Treat",
+    conditions: [
+      { name: "Chronic Insomnia", description: "Difficulty falling or staying asleep" },
+      { name: "Sleep-Onset Insomnia" },
+      { name: "Sleep Maintenance Insomnia" },
+      { name: "Sleep Anxiety", description: "Fear or worry about sleeping" },
+      { name: "Circadian Rhythm Disorders" },
+      { name: "Insomnia with Depression" },
+      { name: "Insomnia with Anxiety" },
+      { name: "PTSD-Related Sleep Disturbance" },
+    ],
+    servicesHeading: "Our Insomnia Treatment Services",
+    services: [
+      {
+        icon: Brain,
+        title: "Comprehensive Sleep Evaluation",
+        description: "Thorough psychiatric assessment of your sleep patterns, mental health history, and lifestyle factors contributing to insomnia."
+      },
+      {
+        icon: Shield,
+        title: "Medication Management",
+        description: "Expert prescribing of sleep medications and treatment of underlying conditions like anxiety and depression that affect sleep."
+      },
+      {
+        icon: Heart,
+        title: "CBT-I Referrals",
+        description: "Coordination with therapists specializing in Cognitive Behavioral Therapy for Insomnia, the most effective non-medication treatment."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Appointments",
+        description: "Convenient virtual appointments for ongoing medication management and follow-up care throughout Florida."
+      },
+    ],
+    whyChooseHeading: "Why Choose Our Orlando Insomnia Psychiatrists?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Psychiatric Sleep Expertise",
+        description: "Our psychiatrists understand the complex relationship between mental health and sleep, providing holistic treatment for lasting results."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "Don't spend another sleepless week. We typically offer same-week appointments for new patients struggling with insomnia."
+      },
+      {
+        icon: Shield,
+        title: "Beyond Sleep Aids",
+        description: "We treat the root causes of insomnia, not just the symptoms. Addressing underlying anxiety or depression often resolves chronic sleep issues."
+      },
+    ],
+  },
+  faqs: [
+    {
+      question: "What causes chronic insomnia?",
+      answer: "Chronic insomnia often has multiple contributing factors including anxiety, depression, stress, poor sleep habits, medical conditions, and certain medications. Our psychiatrists evaluate all potential causes to create an effective treatment plan that addresses the root of your sleep problems."
+    },
+    {
+      question: "What medications are used to treat insomnia?",
+      answer: "We may prescribe sleep medications like trazodone, hydroxyzine, or other non-habit-forming options. When underlying anxiety or depression is present, treating these conditions with SSRIs or other medications often significantly improves sleep. We prioritize non-addictive options and combine medications with behavioral strategies."
+    },
+    {
+      question: "What is CBT-I and how does it help insomnia?",
+      answer: "Cognitive Behavioral Therapy for Insomnia (CBT-I) is the gold-standard treatment for chronic insomnia. It helps you identify and change thoughts and behaviors that interfere with sleep. We can refer you to therapists specializing in CBT-I while managing any medication needs."
+    },
+    {
+      question: "How long does insomnia treatment take?",
+      answer: "Many patients see improvement within 2-4 weeks of starting treatment, though this varies based on the underlying causes. CBT-I typically takes 6-8 sessions. We monitor your progress closely and adjust treatment as needed to help you achieve restful sleep."
+    },
+    {
+      question: "Do you accept insurance for insomnia treatment?",
+      answer: "Yes, we accept most major insurance plans including Aetna, Blue Cross Blue Shield, Cigna, UnitedHealthcare, and Humana. Contact our office to verify your specific plan coverage before your appointment."
+    },
+  ],
+  sidebar: {
+    formHeading: "Get Help for Insomnia",
+    formSubheading: "Same-week appointments available. Most insurance accepted.",
+    formType: "insomnia_psychiatrist",
+    quickLinks: [
+      { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Psychiatrist" },
+      { href: "/medication-management-orlando", label: "Medication Management" },
+      { href: "/depression-psychiatrist-orlando", label: "Depression Psychiatrist" },
+      { href: "/new-patients", label: "New Patients" },
+      { href: "/telepsychiatry-orlando", label: "Telepsychiatry Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Insomnia Psychiatrist Orlando Page",
+    conversionCategory: "insomnia_psychiatrist_orlando",
+  },
+};
