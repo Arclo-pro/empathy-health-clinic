@@ -104,35 +104,48 @@ function formatDescription(description: string, title: string): string {
 
 /**
  * Orlando cluster pages that should canonicalize to the primary ranking page
- * These pages all target "psychiatrist orlando" keywords and would cannibalize each other
+ * ONLY thin synonym pages that would cannibalize each other - NOT high-volume unique intent pages
+ * 
+ * REMOVED from consolidation (now self-canonical for independent ranking):
+ * - /psychiatrist-near-me (49,500 vol) - geo-agnostic intent
+ * - /adhd-psychiatrist-orlando (590 vol) - condition-specific intent
+ * - /anxiety-psychiatrist-orlando (480 vol) - condition-specific intent
+ * - /telepsychiatry-orlando (320 vol) - virtual care intent
+ * - /bipolar-psychiatrist-orlando - condition-specific intent
+ * - /child-psychiatrist-orlando - demographic-specific intent
+ * - /psychiatric-evaluation-orlando - service-specific intent
  */
 const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
   "/psychiatry-orlando": "/psychiatrist-orlando",
   "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
-  "/anxiety-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/medication-management-orlando": "/psychiatrist-orlando",
-  "/adhd-psychiatrist-orlando": "/psychiatrist-orlando",
   "/same-day-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/bipolar-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/child-psychiatrist-orlando": "/psychiatrist-orlando",
-  "/telepsychiatry-orlando": "/psychiatrist-orlando",
-  "/psychiatrist-near-me": "/psychiatrist-orlando",
-  "/psychiatric-evaluation-orlando": "/psychiatrist-orlando",
 };
 
 /**
  * Pages that MUST be self-canonical (never consolidate)
  * These are EXACT path matches or start-with patterns to avoid substring false positives
  * Example: "/ptsd" should not match "/about-ptsd-treatment"
+ * 
+ * HIGH-VOLUME SEO PAGES (must rank independently):
  */
 const SELF_CANONICAL_EXACT_PATHS = [
+  // High-volume SEO target pages (unique search intent)
+  '/psychiatrist-near-me', '/psychiatrist-orlando', '/psychiatry-near-me',
+  '/adhd-psychiatrist-orlando', '/anxiety-psychiatrist-orlando', '/depression-psychiatrist-orlando',
+  '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando', '/child-psychiatrist-orlando',
+  '/psychiatric-evaluation-orlando', '/mental-health-clinic-orlando', '/medication-management-orlando',
+  '/psychiatrist-for-anxiety-near-me', '/psychiatrist-for-depression-near-me',
+  // Location pages
   '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford', 
   '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',
+  // Treatment/therapy pages
   '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando', 
   '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
   '/trauma-specialist', '/stress-management', '/couples-counseling',
   '/virtual-therapy', '/virtual-visit', '/teletherapy',
+  // Near-me pages
   '/counselor-near-me', '/therapist-near-me', '/mental-health-near-me',
+  // Specialty pages
   '/female-therapist-orlando', '/black-psychiatrist-orlando', '/psychotherapist-orlando',
 ];
 
