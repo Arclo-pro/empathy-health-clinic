@@ -15,7 +15,7 @@ import {
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { InsuranceProvider } from "@shared/schema";
-import heroImage from "@assets/hero-sunset-florida.png";
+import heroImage from "@assets/hero-sunset-florida.webp";
 
 export { heroImage };
 
