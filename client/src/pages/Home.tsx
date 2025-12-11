@@ -12,6 +12,7 @@ import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import FeaturedResourcesSection from "@/components/FeaturedResourcesSection";
+import WeatherWidget from "@/components/WeatherWidget";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import OrganizationSchema from "@/components/OrganizationSchema";
@@ -137,6 +138,13 @@ export default function Home() {
       <SiteHeader />
       <main className="flex-1">
         <HeroSection />
+
+        {/* Weather Widget */}
+        <section className="py-8 bg-background border-b">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <WeatherWidget />
+          </div>
+        </section>
 
         {/* Orlando Psychiatry Specialists Section */}
         <section className="py-16 bg-muted">
