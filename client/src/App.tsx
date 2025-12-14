@@ -52,6 +52,7 @@ const SEMrushOptimizer = lazy(() => import("@/pages/SEMrushOptimizer"));
 const AdminUTMTracker = lazy(() => import("@/pages/AdminUTMTracker"));
 const AdminEmailFailures = lazy(() => import("@/pages/AdminEmailFailures"));
 const AdminSERP = lazy(() => import("@/pages/AdminSERP"));
+const AdminSEOAudit = lazy(() => import("@/pages/AdminSEOAudit"));
 
 // Blog pages
 const BlogListingPage = lazy(() => import("@/pages/BlogListingPage"));
@@ -224,6 +225,11 @@ function Router() {
         <ProtectedRoute path="/admin/serp" component={() => (
           <Suspense fallback={<LoadingFallback />}>
             <AdminSERP />
+          </Suspense>
+        )} />
+        <ProtectedRoute path="/admin/seo-audit" component={() => (
+          <Suspense fallback={<LoadingFallback />}>
+            <AdminSEOAudit />
           </Suspense>
         )} />
         <Route path="/insurance">

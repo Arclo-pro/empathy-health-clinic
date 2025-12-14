@@ -95,6 +95,13 @@ export default function Admin() {
           >
             SERP Rankings (100 Keywords)
           </Button>
+          <Button
+            variant="outline"
+            onClick={() => setLocation("/admin/seo-audit")}
+            data-testid="button-seo-audit"
+          >
+            SEO Audit (PSI + GSC)
+          </Button>
         </div>
         
         <Tabs defaultValue="site-content" className="space-y-6">
