@@ -59,22 +59,22 @@ The system uses an in-memory storage solution for simplified deployment, with da
 - **Microsoft Clarity API:** Optional integration for enhanced link monitoring.
 
 ## Recent Changes
-### December 14, 2025 - SSR/Prerendering Infrastructure (Disabled)
+### December 14, 2025 - Puppeteer-Based Prerendering (Active)
 - **Goal**: Make marketing pages crawlable by serving pre-rendered HTML to search engines
-- **Infrastructure Created**:
-  - `client/src/entry-server.tsx` - SSR entry point with all 76 marketing page imports
-  - `scripts/prerender.ts` - Build-time static HTML generator
-  - `vite.config.ssr.ts` - Separate Vite SSR build configuration
-  - `server/prerender-middleware.ts` - Express middleware to serve pre-rendered HTML
-- **Build Commands**: `npx vite build --config vite.config.ssr.ts && npx tsx scripts/prerender.ts`
-- **Status**: Disabled due to SSR compatibility issues
-- **Root Cause**: Most pages (72/76) fail SSR due to client-side hooks:
-  - "Missing getServerSnapshot" errors from hooks using `useSyncExternalStore` (media queries, theme toggles)
-  - "useLayoutEffect does nothing on server" from animation libraries and form components
-- **Future Options**:
-  1. Audit and refactor shared hooks for SSR compatibility (high effort)
-  2. Use Puppeteer-based prerendering instead of React SSR (medium effort)
-  3. Rely on existing SEO optimizations (sitemap, meta tags, structured data)
+- **Solution**: Puppeteer-based prerendering (browser automation) instead of React SSR
+- **Infrastructure**:
+  - `scripts/prerender-puppeteer.ts` - Puppeteer script that visits pages and captures rendered HTML
+  - `server/prerender-middleware.ts` - Express middleware to serve pre-rendered HTML to crawlers
+  - `dist/prerendered/` - 89 pre-rendered HTML files
+- **How It Works**:
+  1. Puppeteer script visits each page, waits for render, captures full HTML
+  2. Middleware detects search engine bots via User-Agent (Googlebot, Bingbot, etc.)
+  3. Bots receive pre-rendered HTML; regular users get normal SPA
+- **Bot Detection**: Comprehensive UA pattern matching for search engines, SEO tools, and social crawlers
+- **Build Command**: `npx tsx scripts/prerender-puppeteer.ts`
+- **Key Fix**: Middleware registered synchronously outside async IIFE in `server/index.ts` to ensure it runs before Vite dev middleware
+- **Verification**: `curl -s -A "Googlebot/2.1" http://localhost:5000/ | grep "X-Prerendered"` shows header
+- **Previous SSR Attempt**: React SSR failed due to client-side hooks (useSyncExternalStore, useLayoutEffect)
 
 ### December 6, 2025 - Historical SERP Ranking Tracking
 - **Database Table**: Added `keyword_ranking_history` table for persistent storage of ranking snapshots
