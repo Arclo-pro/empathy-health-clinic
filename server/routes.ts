@@ -3074,6 +3074,50 @@ Sitemap: ${baseUrl}/image-sitemap.xml
     }
   });
 
+  // SEO Audit API Routes
+  app.post("/api/seo-audit/run", async (req, res) => {
+    try {
+      const { runSEOAudit } = await import('./seo-audit-runner');
+      const { scheduleType = 'manual', urlList, includePageSpeed = true, includeGSC = true } = req.body;
+      
+      const runId = await runSEOAudit({ scheduleType, urlList, includePageSpeed, includeGSC });
+      res.json({ success: true, runId, message: 'Audit started' });
+    } catch (error: any) {
+      console.error('SEO audit error:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/seo-audit/runs", async (req, res) => {
+    try {
+      const { getLatestAuditRuns } = await import('./seo-audit-runner');
+      const runs = await getLatestAuditRuns(20);
+      res.json({ success: true, runs });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/seo-audit/runs/:id", async (req, res) => {
+    try {
+      const { getAuditRunResults } = await import('./seo-audit-runner');
+      const results = await getAuditRunResults(parseInt(req.params.id));
+      res.json({ success: true, ...results });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  app.get("/api/seo-audit/runs/:id/status", async (req, res) => {
+    try {
+      const { getAuditRunStatus } = await import('./seo-audit-runner');
+      const status = await getAuditRunStatus(parseInt(req.params.id));
+      res.json({ success: true, status });
+    } catch (error: any) {
+      res.status(500).json({ error: error.message });
+    }
+  });
+
   // Daily SEO Pipeline Trigger (for UptimeRobot/cron-job.org pings)
   app.get("/api/seo/trigger-daily-pipeline", async (req, res) => {
     try {

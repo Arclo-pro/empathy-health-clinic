@@ -287,3 +287,128 @@ async function enrichTasksWithSERPPositions(tasks: SEOTask[]): Promise<SEOTask[]
   
   return enrichedTasks;
 }
+
+// URL Inspection API Types
+export interface UrlInspectionResult {
+  url: string;
+  inspectionResult: {
+    indexStatusResult?: {
+      verdict: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
+      coverageState: string;
+      robotsTxtState: string;
+      indexingState: string;
+      lastCrawlTime?: string;
+      pageFetchState: string;
+      googleCanonical?: string;
+      userCanonical?: string;
+      referringUrls?: string[];
+      crawledAs?: string;
+    };
+    mobileUsabilityResult?: {
+      verdict: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
+      issues?: Array<{
+        issueType: string;
+        severity: string;
+        message: string;
+      }>;
+    };
+    richResultsResult?: {
+      verdict: 'VERDICT_UNSPECIFIED' | 'PASS' | 'PARTIAL' | 'FAIL' | 'NEUTRAL';
+      detectedItems?: Array<{
+        richResultType: string;
+        items: Array<{ name: string }>;
+      }>;
+    };
+  };
+  error?: string;
+}
+
+export async function inspectUrl(pageUrl: string): Promise<UrlInspectionResult> {
+  const siteUrl = 'https://empathyhealthclinic.com';
+  
+  try {
+    const serviceAccountJson = process.env.GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON;
+    
+    if (!serviceAccountJson) {
+      throw new Error('GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON not found');
+    }
+    
+    const credentials = JSON.parse(serviceAccountJson);
+    
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ['https://www.googleapis.com/auth/webmasters.readonly'],
+    });
+    
+    const authClient = await auth.getClient();
+    const searchconsole = google.searchconsole({
+      version: 'v1',
+      auth: authClient as any,
+    });
+    
+    const response = await searchconsole.urlInspection.index.inspect({
+      requestBody: {
+        inspectionUrl: pageUrl,
+        siteUrl: siteUrl,
+      },
+    });
+    
+    return {
+      url: pageUrl,
+      inspectionResult: response.data.inspectionResult || {},
+    };
+  } catch (error: any) {
+    console.error(`URL Inspection failed for ${pageUrl}:`, error.message);
+    return {
+      url: pageUrl,
+      inspectionResult: {},
+      error: error.message,
+    };
+  }
+}
+
+export async function batchInspectUrls(urls: string[], delayMs = 1000): Promise<UrlInspectionResult[]> {
+  const results: UrlInspectionResult[] = [];
+  
+  for (let i = 0; i < urls.length; i++) {
+    const result = await inspectUrl(urls[i]);
+    results.push(result);
+    
+    // Rate limiting between requests
+    if (i < urls.length - 1) {
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
+  
+  return results;
+}
+
+export function classifyIndexStatus(result: UrlInspectionResult): {
+  status: 'indexed' | 'not-indexed' | 'error' | 'unknown';
+  reason: string;
+} {
+  if (result.error) {
+    return { status: 'error', reason: result.error };
+  }
+  
+  const indexResult = result.inspectionResult?.indexStatusResult;
+  if (!indexResult) {
+    return { status: 'unknown', reason: 'No index status data' };
+  }
+  
+  if (indexResult.verdict === 'PASS') {
+    return { status: 'indexed', reason: indexResult.coverageState || 'Indexed' };
+  }
+  
+  if (indexResult.verdict === 'FAIL') {
+    return { 
+      status: 'not-indexed', 
+      reason: indexResult.coverageState || indexResult.indexingState || 'Not indexed' 
+    };
+  }
+  
+  return { 
+    status: 'unknown', 
+    reason: `Verdict: ${indexResult.verdict}, State: ${indexResult.coverageState}` 
+  };
+}
