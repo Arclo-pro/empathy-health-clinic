@@ -3,6 +3,8 @@ import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { canonicalizationMiddleware } from "./canonicalization-middleware";
+// NOTE: Prerender middleware disabled - see production block comment below
+// import { prerenderMiddleware } from "./prerender-middleware";
 import path from "path";
 
 const app = express();
@@ -191,6 +193,11 @@ app.use((req, res, next) => {
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
+    // NOTE: Prerender middleware is disabled because React SSR requires significant
+    // refactoring to support client-side hooks (useMediaQuery, useLayoutEffect, etc.)
+    // The infrastructure is in place but needs SSR-compatible components to work.
+    // TODO: Consider Puppeteer-based prerendering or audit hooks for SSR compatibility.
+    // app.use(prerenderMiddleware);
     serveStatic(app);
   }
 
