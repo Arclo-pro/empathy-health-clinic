@@ -3,8 +3,7 @@ import compression from "compression";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { canonicalizationMiddleware } from "./canonicalization-middleware";
-// NOTE: Prerender middleware disabled - see production block comment below
-// import { prerenderMiddleware } from "./prerender-middleware";
+import { createPrerenderMiddleware, prerenderStatusHandler } from "./prerender-middleware";
 import path from "path";
 
 const app = express();
@@ -173,6 +172,14 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Prerender middleware serves static HTML to search engine crawlers
+  // MUST be registered BEFORE registerRoutes to intercept requests before API/catch-all routes
+  const prerenderedDir = path.resolve(import.meta.dirname, "..", "dist/prerendered");
+  app.use(createPrerenderMiddleware(prerenderedDir));
+  
+  // Debug endpoint to check prerender status
+  app.get('/api/prerender-status', prerenderStatusHandler(prerenderedDir));
+
   const server = await registerRoutes(app);
 
   // Serve static files from attached_assets directory
@@ -190,14 +197,10 @@ app.use((req, res, next) => {
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
+  
   if (app.get("env") === "development") {
     await setupVite(app, server);
   } else {
-    // NOTE: Prerender middleware is disabled because React SSR requires significant
-    // refactoring to support client-side hooks (useMediaQuery, useLayoutEffect, etc.)
-    // The infrastructure is in place but needs SSR-compatible components to work.
-    // TODO: Consider Puppeteer-based prerendering or audit hooks for SSR compatibility.
-    // app.use(prerenderMiddleware);
     serveStatic(app);
   }
 

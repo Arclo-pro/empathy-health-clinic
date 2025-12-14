@@ -1,163 +1,216 @@
 /**
- * Prerender Middleware
+ * Prerender Middleware for Search Engine Crawlers
  * 
- * Serves pre-rendered static HTML files for marketing pages.
- * This allows search engines to crawl fully rendered content without JavaScript.
+ * This middleware detects search engine bots (Googlebot, Bingbot, etc.) and serves
+ * them pre-rendered static HTML instead of the SPA shell. This ensures crawlers
+ * can see all content and discover internal links.
  * 
- * In production: Serves from dist/prerendered/{route}.html
- * Falls back to SPA if pre-rendered file doesn't exist
+ * How it works:
+ * 1. Checks User-Agent for known crawler patterns
+ * 2. If crawler detected, looks for prerendered HTML file
+ * 3. If found, serves static HTML; otherwise falls through to SPA
+ * 
+ * Generate prerendered files with: npx tsx scripts/prerender-puppeteer.ts
  */
 
+import { Request, Response, NextFunction } from 'express';
 import fs from 'fs';
 import path from 'path';
-import type { Request, Response, NextFunction } from 'express';
 
-// Routes that have pre-rendered versions
-const prerenderRoutes = new Set([
-  "/",
-  "/insurance",
-  "/therapy",
-  "/team",
-  "/services",
-  "/request-appointment",
-  "/new-patients",
-  "/pricing",
-  "/affordable-care",
-  "/stress-management",
-  "/psychotherapist-orlando",
-  "/mental-health-services-orlando",
-  "/therapist-maitland",
-  "/emdr-therapy",
-  "/tms-treatment",
-  "/trauma-specialist-near-me",
-  "/female-therapist-orlando",
-  "/black-psychiatrist-orlando",
-  "/virtual-therapy",
-  "/crisis-therapy",
-  "/depression-counseling",
-  "/depression-treatment",
-  "/anxiety-therapy",
-  "/anxiety-treatment",
-  "/cognitive-behavioral-therapy",
-  "/couples-counseling",
-  "/counselor-near-me",
-  "/mental-health-near-me",
-  "/therapy-near-me",
-  "/counseling-orlando",
-  "/therapy-oviedo",
-  "/psychiatrist",
-  "/psychiatric-services",
-  "/psychiatric-evaluation",
-  "/psychiatrist-orlando",
-  "/psychiatry-clinic-orlando",
-  "/psychiatrist-near-me",
-  "/psychiatry-near-me",
-  "/adhd-psychiatrist-orlando",
-  "/anxiety-psychiatrist-orlando",
-  "/bipolar-psychiatrist-orlando",
-  "/depression-psychiatrist-orlando",
-  "/ptsd-psychiatrist-orlando",
-  "/urgent-psychiatric-care-orlando",
-  "/psychiatrist-orlando-accepts-umr",
-  "/child-psychiatrist-orlando",
-  "/medication-management-orlando",
-  "/telepsychiatry-orlando",
-  "/same-day-psychiatrist-orlando",
-  "/psychiatrist-for-anxiety-near-me",
-  "/psychiatrist-for-depression-near-me",
-  "/psychiatric-evaluation-orlando",
-  "/therapist-orlando",
-  "/mental-health-clinic-orlando",
-  "/medicare-therapy-orlando",
-  "/medicare-psychiatrist-orlando",
-  "/psychologist-orlando",
-  "/therapist-accepts-umr",
-  "/therapist-accepts-oscar-health",
-  "/psychiatrist-orlando-accepts-bcbs",
-  "/psychiatrist-orlando-accepts-cigna",
-  "/psychiatrist-orlando-accepts-aetna",
-  "/psychiatrist-orlando-accepts-united-healthcare",
-  "/psychiatry-orlando",
-  "/ocd-psychiatrist-orlando",
-  "/schizophrenia-psychiatrist-orlando",
-  "/insomnia-psychiatrist-orlando",
-  "/sunshine-health-therapy",
-  "/adhd-testing-orlando",
-  "/trauma-psychiatrist-orlando",
-  "/psychiatrist-near-ucf",
-  "/best-psychiatrist-orlando",
-  "/online-psychiatrist-orlando",
-  "/online-psychiatrist-florida",
-  "/mental-health-doctor-orlando",
-  "/psychiatrist-accepting-new-patients-orlando",
-]);
+// Known search engine and SEO tool user agents
+const BOT_USER_AGENTS = [
+  // Search engines
+  'googlebot',
+  'bingbot',
+  'yandexbot',
+  'duckduckbot',
+  'slurp',           // Yahoo
+  'baiduspider',
+  'sogou',
+  'exabot',
+  'facebot',         // Facebook
+  'ia_archiver',     // Alexa
+  
+  // SEO tools
+  'screaming frog',
+  'semrushbot',
+  'ahrefsbot',
+  'mj12bot',         // Majestic
+  'dotbot',
+  'rogerbot',        // Moz
+  'sitebulb',
+  
+  // Social media crawlers
+  'twitterbot',
+  'linkedinbot',
+  'pinterest',
+  'slackbot',
+  'whatsapp',
+  'telegrambot',
+  
+  // Validators
+  'w3c_validator',
+  'w3c-checklink',
+  
+  // Generic patterns
+  'bot',
+  'spider',
+  'crawl',
+];
 
-// Prerendered files directory
-const prerenderDir = path.resolve(import.meta.dirname, '..', 'dist', 'prerendered');
+// Paths that should NOT be prerendered (dynamic content)
+const EXCLUDED_PATHS = [
+  '/api/',
+  '/admin',
+  '/login',
+  '/auth',
+  '/.well-known',
+  '/sitemap.xml',
+  '/robots.txt',
+  '/assets/',
+  '/attached_assets/',
+];
 
-// Check if prerendered files exist
-const prerenderEnabled = fs.existsSync(prerenderDir);
+// File extensions that are not HTML pages
+const EXCLUDED_EXTENSIONS = [
+  '.js', '.css', '.json', '.xml', '.txt', '.ico', '.png', '.jpg', '.jpeg', 
+  '.gif', '.svg', '.webp', '.woff', '.woff2', '.ttf', '.eot', '.map'
+];
 
 /**
- * Middleware to serve pre-rendered HTML for marketing routes
+ * Check if the request is from a search engine crawler or SEO tool
  */
-export function prerenderMiddleware(req: Request, res: Response, next: NextFunction): void {
-  // Only serve prerendered content in production and for GET requests
-  if (process.env.NODE_ENV !== 'production' || req.method !== 'GET') {
-    return next();
-  }
-  
-  // Skip if prerendering is not enabled
-  if (!prerenderEnabled) {
-    return next();
-  }
-  
-  // Normalize path (remove trailing slash)
-  const normalizedPath = req.path === '/' ? '/' : req.path.replace(/\/$/, '');
-  
-  // Check if this route has a prerendered version
-  if (!prerenderRoutes.has(normalizedPath)) {
-    return next();
-  }
-  
-  // Skip for bots/crawlers that should see client-hydrated version
-  const userAgent = req.headers['user-agent']?.toLowerCase() || '';
-  
-  // Construct path to prerendered HTML file
-  const fileName = normalizedPath === '/' ? 'index.html' : `${normalizedPath.slice(1)}.html`;
-  const filePath = path.join(prerenderDir, fileName);
-  
-  // Check if file exists
-  if (!fs.existsSync(filePath)) {
-    console.log(`[Prerender] No prerendered file for ${normalizedPath}, falling back to SPA`);
-    return next();
-  }
-  
-  // Serve the prerendered HTML
-  console.log(`[Prerender] Serving pre-rendered: ${normalizedPath}`);
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.setHeader('X-Prerendered', 'true');
-  
-  // Cache for 1 hour (revalidate after)
-  res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
-  
-  return res.sendFile(filePath);
+function isCrawler(userAgent: string): boolean {
+  if (!userAgent) return false;
+  const ua = userAgent.toLowerCase();
+  return BOT_USER_AGENTS.some(bot => ua.includes(bot));
 }
 
 /**
- * Check if prerendering is available
+ * Check if the path should be excluded from prerendering
  */
-export function isPrerenderingEnabled(): boolean {
-  return prerenderEnabled;
+function isExcludedPath(pathname: string): boolean {
+  // Check excluded path prefixes
+  if (EXCLUDED_PATHS.some(prefix => pathname.startsWith(prefix))) {
+    return true;
+  }
+  
+  // Check file extensions
+  if (EXCLUDED_EXTENSIONS.some(ext => pathname.endsWith(ext))) {
+    return true;
+  }
+  
+  return false;
 }
 
 /**
- * Get count of prerendered routes
+ * Convert a URL path to the corresponding prerendered file name
+ * e.g., "/psychiatrist-orlando" -> "psychiatrist-orlando.html"
+ *       "/" -> "index.html"
+ *       "/locations/psychiatrist-orlando" -> "locations-psychiatrist-orlando.html"
  */
-export function getPrerenderStats(): { enabled: boolean; routeCount: number; directory: string } {
-  return {
-    enabled: prerenderEnabled,
-    routeCount: prerenderRoutes.size,
-    directory: prerenderDir
+function pathToFileName(pathname: string): string {
+  if (pathname === '/' || pathname === '') {
+    return 'index.html';
+  }
+  
+  // Remove leading slash and replace remaining slashes with hyphens
+  const cleanPath = pathname.replace(/^\//, '').replace(/\//g, '-');
+  return `${cleanPath}.html`;
+}
+
+/**
+ * Create the prerender middleware
+ * @param prerenderedDir - Path to the directory containing prerendered HTML files
+ */
+export function createPrerenderMiddleware(prerenderedDir: string) {
+  // Check if prerendered directory exists
+  const dirExists = fs.existsSync(prerenderedDir);
+  
+  if (!dirExists) {
+    console.log('⚠️  Prerender middleware: No prerendered files found.');
+    console.log('   Run: npx tsx scripts/prerender-puppeteer.ts');
+  } else {
+    const files = fs.readdirSync(prerenderedDir).filter(f => f.endsWith('.html'));
+    console.log(`✅ Prerender middleware: ${files.length} prerendered pages available`);
+  }
+  
+  return function prerenderMiddleware(req: Request, res: Response, next: NextFunction) {
+    // Only handle GET requests
+    if (req.method !== 'GET') {
+      return next();
+    }
+    
+    const pathname = req.path;
+    const userAgent = req.get('user-agent') || '';
+    
+    // Debug: Log all requests to see if middleware is being reached
+    const isCrawlerRequest = isCrawler(userAgent);
+    console.log(`[Prerender] Path: ${pathname}, IsCrawler: ${isCrawlerRequest}, UA: ${userAgent.slice(0, 50)}`);
+    
+    // Skip excluded paths
+    if (isExcludedPath(pathname)) {
+      console.log(`[Prerender] Skipping excluded path: ${pathname}`);
+      return next();
+    }
+    
+    // Check if request is from a crawler
+    if (!isCrawlerRequest) {
+      return next();
+    }
+    
+    // Check if prerendered directory exists
+    if (!dirExists) {
+      return next();
+    }
+    
+    // Look for prerendered file
+    const fileName = pathToFileName(pathname);
+    const filePath = path.join(prerenderedDir, fileName);
+    
+    if (!fs.existsSync(filePath)) {
+      // No prerendered file for this path, fall through to SPA
+      console.log(`🔍 Crawler request (no prerender): ${pathname} [${userAgent.slice(0, 50)}...]`);
+      return next();
+    }
+    
+    // Serve prerendered HTML
+    console.log(`🤖 Serving prerendered: ${pathname} → ${fileName}`);
+    
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('X-Prerendered', 'true');
+    res.setHeader('Cache-Control', 'public, max-age=3600'); // Cache for 1 hour
+    
+    const html = fs.readFileSync(filePath, 'utf-8');
+    res.send(html);
+  };
+}
+
+/**
+ * Debug endpoint to check prerender status
+ */
+export function prerenderStatusHandler(prerenderedDir: string) {
+  return function(req: Request, res: Response) {
+    const userAgent = req.get('user-agent') || '';
+    const isCrawlerRequest = isCrawler(userAgent);
+    
+    let fileCount = 0;
+    let files: string[] = [];
+    
+    if (fs.existsSync(prerenderedDir)) {
+      files = fs.readdirSync(prerenderedDir).filter(f => f.endsWith('.html'));
+      fileCount = files.length;
+    }
+    
+    res.json({
+      status: 'ok',
+      prerenderEnabled: fileCount > 0,
+      prerenderedPages: fileCount,
+      prerenderedDir,
+      requestUserAgent: userAgent,
+      isCrawlerDetected: isCrawlerRequest,
+      detectedBots: BOT_USER_AGENTS.filter(bot => userAgent.toLowerCase().includes(bot)),
+      sampleFiles: files.slice(0, 10),
+    });
   };
 }
