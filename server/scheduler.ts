@@ -20,9 +20,9 @@ const NIGHTLY_PRIORITY_URLS = [
 
 export function initializeScheduler() {
   console.log('Scheduler initialized');
-  console.log('   SEO Pipeline: Daily at 2 AM EST');
-  console.log('   Nightly Audit: Daily at 3 AM EST (10 priority URLs)');
-  console.log('   Weekly Audit: Sundays at 4 AM EST (full site audit)');
+  console.log('   SEO Pipeline: Daily at 2 AM ET');
+  console.log('   Nightly Audit: Daily at 3 AM ET (10 priority URLs)');
+  console.log('   Weekly Audit: Sundays at 4 AM ET (full site audit)');
   
   cron.schedule('0 7 * * *', async () => {
     const timestamp = new Date().toISOString();
@@ -50,7 +50,7 @@ export function initializeScheduler() {
     timezone: "America/New_York"
   });
 
-  cron.schedule('0 8 * * *', async () => {
+  cron.schedule('0 3 * * *', async () => {
     const timestamp = new Date().toISOString();
     console.log(`\n[${timestamp}] Starting nightly SEO audit (10 priority URLs)...`);
     
@@ -70,7 +70,7 @@ export function initializeScheduler() {
     timezone: "America/New_York"
   });
 
-  cron.schedule('0 9 * * 0', async () => {
+  cron.schedule('0 4 * * 0', async () => {
     const timestamp = new Date().toISOString();
     console.log(`\n[${timestamp}] Starting weekly full site SEO audit...`);
     
