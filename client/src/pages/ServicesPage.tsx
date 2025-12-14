@@ -59,7 +59,7 @@ export default function ServicesPage() {
         "Side effect management",
         "Coordination with other providers"
       ],
-      link: "/medication-management"
+      link: "/services"
     },
     {
       icon: FileText,

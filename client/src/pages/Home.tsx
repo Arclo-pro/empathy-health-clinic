@@ -206,7 +206,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link href="/medication-management" className="group" data-testid="link-orlando-medication">
+              <Link href="/services" className="group" data-testid="link-orlando-medication">
                 <div className="p-6 bg-card border rounded-lg text-center hover-elevate transition-all h-full" data-testid="card-orlando-medication">
                   <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary">
                     Medication Management

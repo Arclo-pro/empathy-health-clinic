@@ -368,7 +368,7 @@ export default function PsychiatryClinicOrlando() {
                     <Brain className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">
-                        <Link href="/medication-management" className="text-foreground hover:text-primary transition-colors">
+                        <Link href="/services" className="text-foreground hover:text-primary transition-colors">
                           Psychiatric Medication Management
                         </Link>
                       </h3>
@@ -522,7 +522,7 @@ export default function PsychiatryClinicOrlando() {
                     <p className="text-xs text-muted-foreground mt-1">Evidence-based depression treatment</p>
                   </li>
                   <li>
-                    <Link href="/medication-management" className="text-primary hover:underline font-medium text-sm">
+                    <Link href="/services" className="text-primary hover:underline font-medium text-sm">
                       Medication Management →
                     </Link>
                     <p className="text-xs text-muted-foreground mt-1">Psychiatric medication services</p>

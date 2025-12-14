@@ -379,7 +379,7 @@ export default function TherapistOrlando() {
                 </Card>
               </Link>
 
-              <Link href="/trauma-therapy">
+              <Link href="/therapy">
                 <Card className="hover-elevate cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
@@ -591,7 +591,7 @@ export default function TherapistOrlando() {
                       <Link href="/couples-counseling" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
                         Couples Counseling
                       </Link>
-                      <Link href="/trauma-therapy" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                      <Link href="/therapy" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
                         Trauma & PTSD
                       </Link>
                       <Link href="/virtual-therapy" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">

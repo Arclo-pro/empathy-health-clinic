@@ -510,7 +510,7 @@ export default function AnxietyPsychiatristOrlando() {
                     <Link href="/adhd-testing-orlando" className="block text-sm text-primary hover:underline">
                       ADHD Testing
                     </Link>
-                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">
+                    <Link href="/services" className="block text-sm text-primary hover:underline">
                       Medication Management
                     </Link>
                     <Link href="/virtual-therapy" className="block text-sm text-primary hover:underline">

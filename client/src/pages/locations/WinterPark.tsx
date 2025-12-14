@@ -233,7 +233,7 @@ export default function PsychiatristWinterPark() {
                     Looking for a trusted <Link href="/psychiatrist-orlando" className="text-primary hover:underline">psychiatrist</Link> in Winter Park? Empathy Health Clinic is located right here in Winter Park on Lee Road, providing convenient access to expert psychiatric care for Winter Park residents and the surrounding Central Florida communities.
                   </p>
                   <p className="text-foreground leading-relaxed mb-4">
-                    Our board-certified psychiatrists specialize in <Link href="/medication-management" className="text-primary hover:underline">medication management</Link>, psychiatric evaluations, and evidence-based treatment for <Link href="/anxiety-therapy" className="text-primary hover:underline">anxiety</Link>, depression, <Link href="/adhd-testing-orlando" className="text-primary hover:underline">ADHD</Link>, bipolar disorder, and other mental health conditions. As your local Winter Park psychiatrists, we understand the importance of accessible, high-quality mental health care.
+                    Our board-certified psychiatrists specialize in <Link href="/services" className="text-primary hover:underline">medication management</Link>, psychiatric evaluations, and evidence-based treatment for <Link href="/anxiety-therapy" className="text-primary hover:underline">anxiety</Link>, depression, <Link href="/adhd-testing-orlando" className="text-primary hover:underline">ADHD</Link>, bipolar disorder, and other mental health conditions. As your local Winter Park psychiatrists, we understand the importance of accessible, high-quality mental health care.
                   </p>
                   <p className="text-foreground leading-relaxed">
                     We accept most major insurance plans and offer both in-person visits at our Winter Park office and secure <Link href="/virtual-therapy" className="text-primary hover:underline">telehealth</Link> appointments. Same-week appointments are typically available for new patients.
@@ -472,7 +472,7 @@ export default function PsychiatristWinterPark() {
                   <div className="space-y-2">
                     <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">Psychiatrist Orlando</Link>
                     <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">Psychiatrist Near Me</Link>
-                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">Medication Management</Link>
+                    <Link href="/services" className="block text-sm text-primary hover:underline">Medication Management</Link>
                     <Link href="/anxiety-therapy" className="block text-sm text-primary hover:underline">Anxiety Therapy</Link>
                     <Link href="/adhd-testing-orlando" className="block text-sm text-primary hover:underline">ADHD Testing</Link>
                     <Link href="/virtual-therapy" className="block text-sm text-primary hover:underline">Virtual Therapy</Link>

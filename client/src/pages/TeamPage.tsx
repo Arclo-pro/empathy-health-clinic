@@ -59,7 +59,7 @@ export default function TeamPage() {
               </p>
 
               <p className="text-foreground leading-relaxed mb-6">
-                What sets us apart is our collaborative approach. Our providers consult with one another to ensure you receive coordinated care. When appropriate, your treatment may combine <Link href="/medication-management" className="text-primary hover:underline font-medium">medication management</Link> with <Link href="/therapy" className="text-primary hover:underline font-medium">therapy sessions</Link> for better outcomes. We'll help match you with the right provider for your needs during your initial consultation.
+                What sets us apart is our collaborative approach. Our providers consult with one another to ensure you receive coordinated care. When appropriate, your treatment may combine <Link href="/services" className="text-primary hover:underline font-medium">medication management</Link> with <Link href="/therapy" className="text-primary hover:underline font-medium">therapy sessions</Link> for better outcomes. We'll help match you with the right provider for your needs during your initial consultation.
               </p>
             </div>
           </div>

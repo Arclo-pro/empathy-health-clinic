@@ -784,7 +784,7 @@ export default function Psychiatrist() {
                         </div>
                       </a>
                     </Link>
-                    <Link href="/medication-management">
+                    <Link href="/services">
                       <a className="block p-3 rounded-lg border hover:border-primary transition-colors" data-testid="link-medication-management">
                         <div className="flex items-center gap-3">
                           <Pill className="h-5 w-5 text-primary" />

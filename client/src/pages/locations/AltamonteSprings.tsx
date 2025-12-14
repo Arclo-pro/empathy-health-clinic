@@ -492,7 +492,7 @@ export default function PsychiatristAltamonteSprings() {
                     <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">
                       Psychiatrist Near Me
                     </Link>
-                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">
+                    <Link href="/services" className="block text-sm text-primary hover:underline">
                       Medication Management
                     </Link>
                     <Link href="/adhd-testing-orlando" className="block text-sm text-primary hover:underline">

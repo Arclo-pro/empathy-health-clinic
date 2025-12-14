@@ -525,7 +525,7 @@ export default function DepressionTreatment() {
               Related Mental Health Services
             </h2>
             <div className="grid md:grid-cols-4 gap-6">
-              <Link href="/anxiety-treatment" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
+              <Link href="/anxiety-therapy" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
                 <Heart className="h-8 w-8 text-primary mb-3" />
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Anxiety Treatment</h3>
                 <p className="text-sm text-muted-foreground">Treatment for GAD, panic disorder, and social anxiety</p>
@@ -535,7 +535,7 @@ export default function DepressionTreatment() {
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Bipolar Disorder</h3>
                 <p className="text-sm text-muted-foreground">Expert care for bipolar I, II, and mood stabilization</p>
               </Link>
-              <Link href="/medication-management" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
+              <Link href="/services" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
                 <Pill className="h-8 w-8 text-primary mb-3" />
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Medication Management</h3>
                 <p className="text-sm text-muted-foreground">Ongoing monitoring and optimization of psychiatric medications</p>

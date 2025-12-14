@@ -320,7 +320,7 @@ export default function PsychiatricServices() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-10">Our Psychiatric Care Options</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Link href="/medication-management">
+              <Link href="/services">
                 <Card className="hover-elevate cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
@@ -368,7 +368,7 @@ export default function PsychiatricServices() {
                 </Card>
               </Link>
 
-              <Link href="/anxiety-treatment">
+              <Link href="/anxiety-therapy">
                 <Card className="hover-elevate cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
@@ -557,7 +557,7 @@ export default function PsychiatricServices() {
                   <CardContent className="p-6">
                     <h3 className="font-bold text-lg mb-4">Psychiatric Services</h3>
                     <div className="space-y-2">
-                      <Link href="/medication-management" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                      <Link href="/services" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
                         Medication Management
                       </Link>
                       <Link href="/psychiatric-evaluation" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
@@ -566,7 +566,7 @@ export default function PsychiatricServices() {
                       <Link href="/adhd-testing-orlando" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
                         ADHD Testing
                       </Link>
-                      <Link href="/anxiety-treatment" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
+                      <Link href="/anxiety-therapy" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">
                         Anxiety Treatment
                       </Link>
                       <Link href="/depression-treatment" className="block p-2 hover:bg-gray-50 rounded text-[#2E5E4E] hover:underline">

@@ -168,7 +168,7 @@ export default function Insurance() {
               <li className="flex gap-3">
                 <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-foreground">
-                  <Link href="/medication-management" className="text-primary hover:underline font-medium">Medication management</Link> visits with psychiatrists to prescribe and monitor psychiatric medications
+                  <Link href="/services" className="text-primary hover:underline font-medium">Medication management</Link> visits with psychiatrists to prescribe and monitor psychiatric medications
                 </span>
               </li>
               <li className="flex gap-3">

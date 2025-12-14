@@ -116,9 +116,10 @@ function formatDescription(description: string, title: string): string {
  * - /psychiatric-evaluation-orlando - service-specific intent
  */
 const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
+  // ONLY thin synonym pages that would cannibalize each other
+  // /same-day-psychiatrist-orlando REMOVED - has unique urgent-care search intent, should rank independently
   "/psychiatry-orlando": "/psychiatrist-orlando",
   "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
-  "/same-day-psychiatrist-orlando": "/psychiatrist-orlando",
 };
 
 /**
@@ -135,6 +136,7 @@ const SELF_CANONICAL_EXACT_PATHS = [
   '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando', '/child-psychiatrist-orlando',
   '/psychiatric-evaluation-orlando', '/mental-health-clinic-orlando', '/medication-management-orlando',
   '/psychiatrist-for-anxiety-near-me', '/psychiatrist-for-depression-near-me',
+  '/same-day-psychiatrist-orlando', // Urgent care intent - must rank independently
   // Location pages
   '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford', 
   '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',

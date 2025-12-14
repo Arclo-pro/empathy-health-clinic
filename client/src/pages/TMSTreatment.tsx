@@ -326,7 +326,7 @@ export default function TMSTreatment() {
                     → Anxiety Therapy
                   </Link>
                   <Link 
-                    href="/medication-management" 
+                    href="/services" 
                     className="block text-primary hover:underline underline-offset-2"
                     data-testid="link-medication-management"
                   >

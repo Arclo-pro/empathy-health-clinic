@@ -53,14 +53,14 @@ export default function SiteFooter() {
   ];
 
   const legalLinks = [
-    { label: "About Us", href: "/about" },
+    { label: "About Us", href: "/team" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Medical Disclaimer", href: "/medical-disclaimer" }
   ];
 
   const servicesLinks = [
     { label: "Psychiatric Evaluation", href: "/psychiatric-evaluation" },
-    { label: "Medication Management", href: "/medication-management" },
+    { label: "Medication Management", href: "/services" },
     { label: "PTSD Treatment", href: "/ptsd-treatment" },
     { label: "Anger Management", href: "/anger-management" },
     { label: "CBT Therapy", href: "/cognitive-behavioral-therapy" },
@@ -71,7 +71,7 @@ export default function SiteFooter() {
     { label: "Winter Park", href: "/locations/therapy-services-winter-park" },
     { label: "Altamonte Springs", href: "/locations/psychiatrist-altamonte-springs" },
     { label: "Sanford", href: "/locations/therapy-services-sanford" },
-    { label: "Orlando", href: "/locations/psychiatrist-orlando" },
+    { label: "Orlando", href: "/psychiatrist-orlando" },
     { label: "Lake Mary", href: "/locations/psychiatrist-lake-mary" },
     { label: "View All Locations", href: "/services" }
   ];
@@ -81,7 +81,7 @@ export default function SiteFooter() {
     { label: "Psychiatry Orlando", href: "/psychiatry-orlando", primary: true },
     { label: "ADHD Psychiatrist Orlando", href: "/adhd-psychiatrist-orlando", primary: true },
     { label: "Psychiatrist Near Me", href: "/psychiatrist-near-me", primary: true },
-    { label: "Medication Management", href: "/medication-management" },
+    { label: "Medication Management", href: "/services" },
     { label: "Anxiety Psychiatrist", href: "/anxiety-psychiatrist-orlando" },
     { label: "Depression Treatment", href: "/depression-treatment" },
     { label: "PTSD Treatment", href: "/ptsd-psychiatrist-orlando" },

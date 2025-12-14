@@ -180,6 +180,34 @@ async function waitForPageReady(page: Page): Promise<void> {
   // Wait for network to be mostly idle
   await page.waitForNetworkIdle({ idleTime: 1000, timeout: TIMEOUT });
   
+  // Wait for SEOHead useEffect to set canonical and meta tags
+  // This ensures canonical points to the current page, not homepage
+  await page.waitForFunction(() => {
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const path = window.location.pathname;
+    
+    // For noindex pages (admin, privacy, etc), canonical may be removed - that's OK
+    // For regular pages, canonical should exist and NOT point to homepage (unless we're on homepage)
+    if (path === '/') {
+      return true; // Homepage canonical is correct
+    }
+    
+    // Either no canonical (noindex page) or canonical matches current path
+    if (!canonical) {
+      // Check if this is a noindex page (has noindex in robots meta)
+      const robotsMeta = document.querySelector('meta[name="robots"]');
+      const isNoindex = robotsMeta && robotsMeta.getAttribute('content')?.includes('noindex');
+      return isNoindex; // OK if noindex page has no canonical
+    }
+    
+    const canonicalHref = canonical.getAttribute('href') || '';
+    // Canonical should contain current path (not just homepage)
+    return canonicalHref.includes(path);
+  }, { timeout: 5000 }).catch(() => {
+    // If timeout, just continue - may be a special page
+    console.log('    ⚠️ Canonical check timed out, continuing...');
+  });
+  
   // Additional wait for any animations/transitions and lazy loading
   await new Promise(resolve => setTimeout(resolve, 1500));
 }

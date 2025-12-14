@@ -188,7 +188,7 @@ export default function CignaOrlandoPage() {
                   </CardContent>
                 </Card>
               </Link>
-              <Link href="/medication-management">
+              <Link href="/services">
                 <Card className="hover-elevate cursor-pointer">
                   <CardContent className="pt-6">
                     <h3 className="font-semibold">Medication Management</h3>

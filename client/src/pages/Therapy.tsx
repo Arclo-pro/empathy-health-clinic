@@ -252,7 +252,7 @@ export default function TherapyPage() {
             </p>
 
             <p className="text-foreground leading-relaxed mb-6">
-              Don't worry if you're unsure which type of therapy is right for you—during your initial consultation, we'll help you understand the different approaches and recommend the best fit based on your specific situation and goals. Many therapists integrate multiple therapeutic techniques to create a personalized treatment approach that addresses your unique needs. Our priority is ensuring you receive the most effective care possible, whether that's through individual therapy, couples counseling, or a combination of therapeutic interventions paired with <Link href="/medication-management" className="text-primary hover:underline font-medium">medication management</Link> when appropriate.
+              Don't worry if you're unsure which type of therapy is right for you—during your initial consultation, we'll help you understand the different approaches and recommend the best fit based on your specific situation and goals. Many therapists integrate multiple therapeutic techniques to create a personalized treatment approach that addresses your unique needs. Our priority is ensuring you receive the most effective care possible, whether that's through individual therapy, couples counseling, or a combination of therapeutic interventions paired with <Link href="/services" className="text-primary hover:underline font-medium">medication management</Link> when appropriate.
             </p>
               </div>
             </div>

@@ -768,7 +768,7 @@ export default function PsychiatristNearMe() {
               <Link href="/psychiatrist-winter-park" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
                 <h3 className="font-semibold text-foreground text-sm">Psychiatrist Winter Park</h3>
               </Link>
-              <Link href="/medication-management" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
+              <Link href="/services" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">
                 <h3 className="font-semibold text-foreground text-sm">Medication Management</h3>
               </Link>
               <Link href="/anxiety-therapy" className="bg-card border border-card-border rounded-lg p-4 text-center hover-elevate">

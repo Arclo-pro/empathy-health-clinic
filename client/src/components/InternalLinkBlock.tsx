@@ -13,7 +13,7 @@ const LINK_CATEGORIES = {
     { href: "/psychiatrist-near-me", label: "Psychiatrist Near Me", description: "Find psychiatric care nearby" },
     { href: "/mental-health-services-orlando", label: "Mental Health Clinic Orlando", description: "Comprehensive mental health care" },
     { href: "/medication-management-orlando", label: "Medication Management Orlando", description: "Psychiatric medication expertise" },
-    { href: "/medication-management", label: "Medication Management", description: "Expert psychiatric medication care" },
+    { href: "/services", label: "Medication Management", description: "Expert psychiatric medication care" },
     { href: "/therapy", label: "Therapy Services", description: "Licensed therapists and counselors" },
     { href: "/psychiatric-evaluation", label: "Psychiatric Evaluations", description: "Comprehensive mental health assessments" },
     { href: "/virtual-therapy", label: "Virtual Therapy", description: "Online therapy from home" },

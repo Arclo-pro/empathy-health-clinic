@@ -645,7 +645,7 @@ export default function AnxietyTreatment() {
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">PTSD Treatment</h3>
                 <p className="text-sm text-muted-foreground">Trauma-informed psychiatric care</p>
               </Link>
-              <Link href="/medication-management" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
+              <Link href="/services" className="bg-card border border-card-border rounded-xl p-6 hover-elevate group">
                 <Pill className="h-8 w-8 text-primary mb-3" />
                 <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">Medication Management</h3>
                 <p className="text-sm text-muted-foreground">Ongoing monitoring and optimization</p>

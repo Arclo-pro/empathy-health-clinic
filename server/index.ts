@@ -70,6 +70,22 @@ app.use((req, res, next) => {
     return res.status(404).send('Not Found');
   }
   
+  // Block Vite/Replit dev paths in production only - these should never be indexed
+  // Screaming Frog reported these as accessible in production crawls
+  // In development, Vite needs these paths to serve client-side HMR assets
+  if (process.env.NODE_ENV === 'production') {
+    if (
+      req.path.startsWith('/@vite/') ||
+      req.path.startsWith('/@replit/') ||
+      req.path.startsWith('/@fs/') ||
+      req.path.startsWith('/@id/') ||
+      req.path.startsWith('/__vite') ||
+      req.path === '/@vite/client'
+    ) {
+      return res.status(404).send('Not Found');
+    }
+  }
+  
   next();
 });
 

@@ -372,7 +372,7 @@ export default function PsychiatristOrlando() {
                 </Card>
               </Link>
 
-              <Link href="/anxiety-treatment">
+              <Link href="/anxiety-therapy">
                 <Card className="hover-elevate cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
@@ -420,7 +420,7 @@ export default function PsychiatristOrlando() {
                 </Card>
               </Link>
 
-              <Link href="/medication-management">
+              <Link href="/services">
                 <Card className="hover-elevate cursor-pointer h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">

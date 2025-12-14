@@ -496,7 +496,7 @@ export default function ChildPsychiatristOrlando() {
                     <Link href="/anxiety-therapy" className="block text-sm text-primary hover:underline">
                       Anxiety Treatment
                     </Link>
-                    <Link href="/medication-management" className="block text-sm text-primary hover:underline">
+                    <Link href="/services" className="block text-sm text-primary hover:underline">
                       Medication Management
                     </Link>
                   </div>
