@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar, integer, boolean, real } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, integer, boolean, real, serial, timestamp, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -424,3 +424,67 @@ export const insertKeywordRankingHistorySchema = createInsertSchema(keywordRanki
 
 export type InsertKeywordRankingHistory = z.infer<typeof insertKeywordRankingHistorySchema>;
 export type KeywordRankingHistory = typeof keywordRankingHistory.$inferSelect;
+
+// SEO Audit Monitoring Tables
+export const auditRuns = pgTable("audit_runs", {
+  id: serial("id").primaryKey(),
+  scheduleType: varchar("schedule_type", { length: 50 }),
+  startedAt: timestamp("started_at").defaultNow(),
+  completedAt: timestamp("completed_at"),
+  status: varchar("status", { length: 20 }).default("pending"),
+  totalUrls: integer("total_urls").default(0),
+  processedUrls: integer("processed_urls").default(0),
+  summaryPath: varchar("summary_path", { length: 255 }),
+  ticketsPath: varchar("tickets_path", { length: 255 }),
+});
+
+export const insertAuditRunSchema = createInsertSchema(auditRuns).omit({
+  id: true,
+  startedAt: true,
+});
+
+export type InsertAuditRun = z.infer<typeof insertAuditRunSchema>;
+export type AuditRun = typeof auditRuns.$inferSelect;
+
+export const auditRunUrls = pgTable("audit_run_urls", {
+  id: serial("id").primaryKey(),
+  runId: integer("run_id").references(() => auditRuns.id),
+  url: varchar("url", { length: 500 }).notNull(),
+  pageType: varchar("page_type", { length: 50 }),
+  mobileScore: integer("mobile_score"),
+  desktopScore: integer("desktop_score"),
+  mobileSeoScore: integer("mobile_seo_score"),
+  desktopSeoScore: integer("desktop_seo_score"),
+  labMetrics: jsonb("lab_metrics"),
+  gscStatus: jsonb("gsc_status"),
+  opportunities: jsonb("opportunities"),
+  checkedAt: timestamp("checked_at").defaultNow(),
+});
+
+export const insertAuditRunUrlSchema = createInsertSchema(auditRunUrls).omit({
+  id: true,
+  checkedAt: true,
+});
+
+export type InsertAuditRunUrl = z.infer<typeof insertAuditRunUrlSchema>;
+export type AuditRunUrl = typeof auditRunUrls.$inferSelect;
+
+export const auditIssues = pgTable("audit_issues", {
+  id: serial("id").primaryKey(),
+  runId: integer("run_id").references(() => auditRuns.id),
+  url: varchar("url", { length: 500 }),
+  category: varchar("category", { length: 50 }),
+  severity: varchar("severity", { length: 10 }),
+  title: varchar("title", { length: 255 }),
+  description: text("description"),
+  evidence: jsonb("evidence"),
+  recommendation: text("recommendation"),
+  status: varchar("status", { length: 20 }).default("open"),
+});
+
+export const insertAuditIssueSchema = createInsertSchema(auditIssues).omit({
+  id: true,
+});
+
+export type InsertAuditIssue = z.infer<typeof insertAuditIssueSchema>;
+export type AuditIssue = typeof auditIssues.$inferSelect;
