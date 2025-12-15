@@ -251,14 +251,25 @@ async function prerenderPage(browser: Browser, route: string): Promise<Prerender
     let html = await page.content();
     
     // Clean up the HTML for SEO:
-    // 1. Remove scripts that won't work statically
+    // 1. Remove Vite dev scripts that won't work in production
     // 2. Keep structured data (JSON-LD)
     // 3. Remove Cloudflare challenge scripts
     html = html
+      // Remove Vite HMR client script
+      .replace(/<script type="module" src="\/@vite\/client"><\/script>/g, '')
+      // Remove React refresh script
+      .replace(/<script type="module">import \{ injectIntoGlobalHook \}[\s\S]*?<\/script>/g, '')
+      // Remove Vite runtime error plugin script
+      .replace(/<script type="module">\s*import \{ createHotContext \}[\s\S]*?<\/script>/g, '')
+      // Remove any remaining /@vite/ or /@react-refresh references
+      .replace(/<script[^>]*src="\/(@vite|@react-refresh)[^"]*"[^>]*><\/script>/g, '')
       // Remove Cloudflare challenge iframe
       .replace(/<script>\(function\(\)\{function c\(\)[\s\S]*?<\/script>/g, '')
       // Remove inline script for tracking params (not needed in static HTML)
       .replace(/<script>\s*\(function\(\)\s*\{\s*const qs[\s\S]*?<\/script>/g, '')
+      // Remove replit dev metadata attributes (not needed in production)
+      .replace(/ data-replit-metadata="[^"]*"/g, '')
+      .replace(/ data-component-name="[^"]*"/g, '')
       // Add marker comment for debugging
       .replace('</head>', '<!-- Prerendered by Puppeteer -->\n</head>');
     
