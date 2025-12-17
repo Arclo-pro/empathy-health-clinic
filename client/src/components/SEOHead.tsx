@@ -6,6 +6,21 @@ const MAX_DESCRIPTION_LENGTH = 160;
 const MIN_DESCRIPTION_LENGTH = 80;
 
 /**
+ * Calculate the HTML-encoded length of a string
+ * Accounts for HTML entity expansion: & -> &amp; (4 extra chars), etc.
+ */
+function getHtmlEncodedLength(str: string): number {
+  let extraChars = 0;
+  for (const char of str) {
+    if (char === '&') extraChars += 4; // &amp; is 5 chars instead of 1
+    else if (char === '<') extraChars += 3; // &lt; is 4 chars instead of 1
+    else if (char === '>') extraChars += 3; // &gt; is 4 chars instead of 1
+    else if (char === '"') extraChars += 5; // &quot; is 6 chars instead of 1
+  }
+  return str.length + extraChars;
+}
+
+/**
  * Normalize title to Title Case for consistency
  * Handles common lowercase words that should stay lowercase
  */
@@ -25,7 +40,7 @@ function toTitleCase(str: string): string {
  * Ensure title has brand suffix, proper casing, and is within length limits
  * - Normalizes to Title Case
  * - Adds "| Empathy Health Clinic" if missing
- * - Trims to 60 characters max with ellipsis
+ * - Trims to 60 characters max with ellipsis (accounting for HTML encoding)
  */
 function formatTitle(title: string): string {
   // Extract main title (before any brand suffix)
@@ -35,24 +50,20 @@ function formatTitle(title: string): string {
   const normalizedMain = toTitleCase(mainTitle);
   
   // Always add the brand suffix (normalized main title + brand)
-  let fullTitle = `${normalizedMain} | ${BRAND_SUFFIX}`;
+  const brandPart = ` | ${BRAND_SUFFIX}`;
+  let fullTitle = `${normalizedMain}${brandPart}`;
   
-  // Trim if over max length
-  if (fullTitle.length > MAX_TITLE_LENGTH) {
-    // Try to preserve the brand by trimming the main title
-    const brandPart = ` | ${BRAND_SUFFIX}`;
-    const mainTitleMaxLength = MAX_TITLE_LENGTH - brandPart.length - 1; // -1 for ellipsis
-    
-    if (mainTitleMaxLength > 20) {
-      // Enough room for meaningful title + brand
-      const trimmedMain = normalizedMain.length > mainTitleMaxLength 
-        ? normalizedMain.slice(0, mainTitleMaxLength).trim() + '…'
-        : normalizedMain;
-      fullTitle = `${trimmedMain}${brandPart}`;
-    } else {
-      // Just trim the whole thing
-      fullTitle = fullTitle.slice(0, MAX_TITLE_LENGTH - 1).trim() + '…';
+  // Calculate HTML-encoded length (accounts for & -> &amp;, etc.)
+  let encodedLength = getHtmlEncodedLength(fullTitle);
+  
+  // Trim if over max length (using HTML-encoded length)
+  if (encodedLength > MAX_TITLE_LENGTH) {
+    // Trim the main title character by character until we fit
+    let trimmedMain = normalizedMain;
+    while (trimmedMain.length > 10 && getHtmlEncodedLength(`${trimmedMain}…${brandPart}`) > MAX_TITLE_LENGTH) {
+      trimmedMain = trimmedMain.slice(0, -1).trim();
     }
+    fullTitle = `${trimmedMain}…${brandPart}`;
   }
   
   return fullTitle;
