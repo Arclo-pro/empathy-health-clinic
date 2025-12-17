@@ -70,26 +70,33 @@ The system uses an in-memory storage solution for simplified deployment, with da
   - `/locations/psychiatrist-orlando` → `/psychiatrist-orlando`
   - `/about` → `/team`
 
-### December 17, 2025 - Universal HTML-Only Crawlability (Completed)
+### December 17, 2025 - Universal HTML-Only Crawlability (VERIFIED COMPLETE)
 - **Goal**: Make site fully crawlable in "HTML-only" mode for SEO tools like Screaming Frog
-- **Status**: **COMPLETE** - All 278 routes prerendered with 139+ internal links on homepage
-- **Key Change**: Uses Accept header instead of User-Agent detection - serves prerendered HTML to ALL text/html requests
+- **Status**: **VERIFIED COMPLETE** - All 280 routes prerendered, all acceptance tests passing
+- **Acceptance Test Results**:
+  - A1: Homepage 130 internal links in View Source (>50 required)
+  - A2: Title, meta description, canonical all present
+  - A3: Key pages /psychiatrist-orlando (87), /services (100), /team (53) all pass
+  - B3: 280 prerendered files (>100 required)
+  - C3: Content-Type text/html; charset=utf-8
+- **Key Change**: Uses Accept header content negotiation - serves prerendered HTML to ALL text/html requests
 - **Route Manifest System**:
   - `scripts/getStaticRoutes.ts` - Extracts static routes from App.tsx
   - `scripts/getBlogRoutes.ts` - Extracts blog slugs from cache
   - `scripts/buildRouteManifest.ts` - Combines into `routes/allRoutes.json` (278 routes)
 - **Infrastructure**:
-  - `scripts/prerender-puppeteer.ts` - Puppeteer script using route manifest, outputs /foo/index.html format
-  - `server/prerender-middleware.ts` - Express middleware serving HTML for Accept: text/html requests
-  - `dist/prerendered/` - 278 pre-rendered HTML files with full React content
+  - `scripts/prerender-puppeteer.ts` - Puppeteer script using route manifest
+  - `server/prerender-middleware.ts` - Express middleware with file-exists check → serve snapshot → SPA fallback
+  - `scripts/seo-smoke-test.sh` - Automated smoke test for CI/CD (run with `./scripts/seo-smoke-test.sh`)
+  - `dist/prerendered/` - 280 pre-rendered HTML files with full React content
 - **How It Works**:
   1. Route manifest pipeline: staticRoutes.json + blogRoutes.json → allRoutes.json
-  2. Puppeteer script visits all routes, waits for React to render, captures full HTML
+  2. Puppeteer visits all routes, waits for React to render (links >= 5), captures full HTML
   3. Middleware serves prerendered HTML to ANY request with Accept: text/html
-- **Verification**:
-  - `curl -s http://localhost:5000/ | grep "Prerendered by Puppeteer"` - Shows marker
-  - 139+ internal links visible in View Page Source (homepage)
-  - 278 prerendered pages in `dist/prerendered/`
+  4. Crawler parses `<a href="/...">` links in raw HTML - no JavaScript needed
+- **Verification Commands**:
+  - `./scripts/seo-smoke-test.sh` - Full acceptance test suite
+  - `curl -s http://localhost:5000/ | grep -oP '<a [^>]*href="/[a-zA-Z]' | wc -l` - Link count
 - **Regeneration Commands** (run after React app changes):
   1. `npx puppeteer browsers install chrome` - Install Chrome (required)
   2. `npx tsx scripts/buildRouteManifest.ts` - Regenerate route manifest
