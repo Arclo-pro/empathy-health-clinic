@@ -77,15 +77,8 @@
   </head>
   <body>
     <div id="root">
-      <!-- SEO fallback content for crawlers (hidden once React loads) -->
-      <noscript>
-        <h1>Psychiatry, Therapy & Counseling in Winter Park, FL</h1>
-        <p>Empathy Health Clinic provides expert mental health care including psychiatry, therapy, and counseling services in Winter Park, Florida. Same-week appointments available.</p>
-      </noscript>
-      <!-- Hidden H1 for SEO crawlers that don't execute JavaScript (removed by React on load) -->
-      <h1 style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
-        Psychiatry, Therapy & Counseling in Winter Park, FL
-      </h1>
+      <!-- Note: SEO content is now provided by prerendered HTML files -->
+      <!-- See dist/prerendered/ for full page snapshots with proper H1s -->
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
