@@ -69,15 +69,18 @@ for PAGE in "/psychiatrist-orlando" "/services" "/team"; do
 done
 echo ""
 
-# Test B3: Snapshot file exists
-echo "=== B3: Prerendered files exist ==="
+# Test B3: Snapshot completeness (manifest-verified)
+echo "=== B3: Prerendered files exist (manifest-verified) ==="
 PRERENDER_COUNT=$(find dist/prerendered -name "index.html" 2>/dev/null | wc -l)
+MANIFEST_COUNT=$(cat routes/allRoutes.json 2>/dev/null | grep -oP '"totalRoutes":\s*\K\d+' || echo "0")
 echo "Prerendered files: $PRERENDER_COUNT"
-if [ "$PRERENDER_COUNT" -lt 100 ]; then
-    echo "FAIL: Fewer than 100 prerendered files"
+echo "Routes in manifest: $MANIFEST_COUNT"
+if [ "$PRERENDER_COUNT" -lt "$MANIFEST_COUNT" ]; then
+    echo "FAIL: Not all routes have snapshots ($PRERENDER_COUNT < $MANIFEST_COUNT)"
+    echo "Run: npx tsx scripts/verify-prerender.ts for details"
     FAILED=1
 else
-    echo "PASS"
+    echo "PASS: All manifest routes have snapshots"
 fi
 echo ""
 
