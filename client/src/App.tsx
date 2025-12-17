@@ -161,6 +161,9 @@ const WhatWeTreatBipolar = lazy(() => import("@/pages/conditions/WhatWeTreatBipo
 const WhatWeTreatPTSD = lazy(() => import("@/pages/conditions/WhatWeTreatPTSD"));
 const WhatWeTreatOCD = lazy(() => import("@/pages/conditions/WhatWeTreatOCD"));
 
+// Programmatic SEO Condition Pages
+const ConditionPage = lazy(() => import("@/pages/ConditionPage"));
+
 // Components
 const StickyMobileCTA = lazy(() => import("@/components/StickyMobileCTA"));
 
@@ -796,6 +799,151 @@ function Router() {
           <Suspense fallback={<LoadingFallback />}>
             <WhatWeTreatOCD />
           </Suspense>
+        </Route>
+        {/* Programmatic SEO Condition Pages - 50 pages */}
+        <Route path="/conditions/adhd/psychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/telepsychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/online-treatment">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/adult-adhd-treatment">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/winter-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/lake-nona">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/psychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/telepsychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/online-treatment">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/panic-attacks-treatment">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/winter-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/maitland">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/psychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/telepsychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/online-treatment">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/burnout-vs-depression">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/winter-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/college-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/psychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/altamonte-springs">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/psychiatry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/winter-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* Insurance × Condition Pages */}
+        <Route path="/insurance/aetna/adhd">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/insurance/aetna/anxiety">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/insurance/blue-cross/adhd">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/insurance/blue-cross/depression">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/insurance/cigna/anxiety">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/insurance/uhc/depression">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* Comparison Pages */}
+        <Route path="/compare/psychiatry-vs-therapy">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/compare/telepsychiatry-vs-in-person">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/compare/psychiatrist-vs-psychologist">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/compare/online-psychiatry-vs-in-person">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/compare/therapy-vs-coaching">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* Symptom Pages */}
+        <Route path="/symptoms/cant-focus-at-work">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/symptoms/racing-thoughts-at-night">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/symptoms/panic-attacks">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/symptoms/feeling-burned-out">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
         </Route>
         <Route path="/locations/:slug">
           <Suspense fallback={<LoadingFallback />}>
