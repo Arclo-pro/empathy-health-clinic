@@ -2938,6 +2938,11 @@ Disallow: /test/
 Disallow: /search
 Disallow: /*?search=
 Disallow: /*?q=
+
+# Allow blog pagination (for rel=prev/next SEO)
+Allow: /blog?page=
+
+# Disallow other pagination (crawl waste on non-blog pages)
 Disallow: /*?page=
 Disallow: /*?tag=
 Disallow: /*?category=
