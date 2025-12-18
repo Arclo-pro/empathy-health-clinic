@@ -134,6 +134,12 @@ export function createPrerenderMiddleware(prerenderedDir: string) {
       return next();
     }
     
+    // Skip prerender for puppeteer prerender script (to get fresh React rendering)
+    // This header is set by scripts/prerender-puppeteer.ts
+    if (req.get('X-Prerender-Bypass') === 'true') {
+      return next();
+    }
+    
     const pathname = req.path;
     const acceptHeader = req.get('accept') || '';
     

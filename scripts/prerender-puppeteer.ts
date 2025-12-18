@@ -14,6 +14,7 @@ import puppeteer, { Browser, Page } from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getCanonicalUrl, getRobotsContent, isNoindexPath } from '../shared/seoConfig';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -22,7 +23,7 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = process.env.PRERENDER_URL || 'http://localhost:5000';
 const OUTPUT_DIR = path.resolve(rootDir, 'dist/prerendered');
 const MANIFEST_PATH = path.resolve(rootDir, 'routes/allRoutes.json');
-const CONCURRENCY = 6; // Number of parallel browser pages
+const CONCURRENCY = 3; // Reduced concurrency to avoid memory issues
 const TIMEOUT = 30000; // 30 seconds per page (increased for complex pages)
 
 interface RouteManifest {
@@ -121,8 +122,44 @@ async function waitForPageReady(page: Page): Promise<void> {
   await new Promise(resolve => setTimeout(resolve, 500));
 }
 
-function cleanHtml(html: string): string {
-  return html
+/**
+ * Fix SEO meta tags in the HTML using the shared SEO configuration
+ * This ensures correct canonical URLs and robots directives even when React doesn't hydrate
+ * 
+ * Logic:
+ * - Uses shared/seoConfig.ts for canonical consolidation and noindex rules
+ * - Replaces placeholder canonical with correct URL (self, consolidated target, or removes for noindex)
+ * - Sets correct robots meta content based on page type
+ */
+function fixSeoTags(html: string, route: string): string {
+  const canonicalUrl = getCanonicalUrl(route);
+  const robotsContent = getRobotsContent(route);
+  
+  let result = html;
+  
+  // Fix robots meta tag
+  result = result.replace(
+    /<meta name="robots" content="[^"]*">/g,
+    `<meta name="robots" content="${robotsContent}">`
+  );
+  
+  // Fix canonical tag based on page type
+  if (canonicalUrl === null) {
+    // Noindex pages should NOT have canonical - remove it
+    result = result.replace(/<link rel="canonical" href="[^"]*">\s*/g, '');
+  } else {
+    // Replace placeholder canonical with correct URL
+    result = result.replace(
+      /<link rel="canonical" href="[^"]*">/g,
+      `<link rel="canonical" href="${canonicalUrl}">`
+    );
+  }
+  
+  return result;
+}
+
+function cleanHtml(html: string, route: string): string {
+  let cleaned = html
     // Remove Vite HMR client script
     .replace(/<script type="module" src="\/@vite\/client"><\/script>/g, '')
     // Remove React refresh script
@@ -140,6 +177,11 @@ function cleanHtml(html: string): string {
     .replace(/ data-component-name="[^"]*"/g, '')
     // Add marker comment for debugging
     .replace('</head>', '<!-- Prerendered by Puppeteer -->\n</head>');
+  
+  // Fix SEO meta tags (canonical, robots) using shared configuration
+  cleaned = fixSeoTags(cleaned, route);
+  
+  return cleaned;
 }
 
 async function prerenderPage(browser: Browser, route: string): Promise<PrerenderResult> {
@@ -168,6 +210,11 @@ async function prerenderPage(browser: Browser, route: string): Promise<Prerender
     const url = `${BASE_URL}${route}`;
     console.log(`  📄 Rendering: ${route}`);
     
+    // Set bypass header to get fresh React rendering instead of prerendered HTML
+    await page.setExtraHTTPHeaders({
+      'X-Prerender-Bypass': 'true'
+    });
+    
     await page.goto(url, { 
       waitUntil: 'domcontentloaded',
       timeout: TIMEOUT 
@@ -177,7 +224,7 @@ async function prerenderPage(browser: Browser, route: string): Promise<Prerender
     
     // Get and clean the HTML
     let html = await page.content();
-    html = cleanHtml(html);
+    html = cleanHtml(html, route);
     
     // Determine output file path using new format
     const filePath = routeToFilePath(route);
