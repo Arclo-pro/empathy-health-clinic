@@ -500,7 +500,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/blog/nervous-breakdown': '/blog/what-is-mental-breakdown',
   
   // Google Search Console - Not Found 404 Errors - December 2025
-  '/@vite/client': '/',  // Development artifact
+  // NOTE: Do NOT redirect /@vite/client - it breaks development prerendering
   '/trauma-therapy': '/anxiety-therapy',
   '/faq': '/services',
   '/locations/therapy-services-lake-mary': '/therapist-orlando',

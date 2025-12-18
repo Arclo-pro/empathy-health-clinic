@@ -73,25 +73,38 @@ function routeToFilePath(route: string): string {
 async function waitForPageReady(page: Page): Promise<void> {
   // Wait for React to mount - look for actual page content, not just fallback
   try {
+    // Use longer timeout (30s) for React apps that may take time to hydrate
     await page.waitForFunction(() => {
       const root = document.getElementById('root');
       if (!root) return false;
       
-      // Check for actual React content
+      // Check for actual React content - be more lenient
       const hasNav = root.querySelector('nav') || root.querySelector('header');
       const hasMain = root.querySelector('main') || root.querySelector('[role="main"]');
-      const hasLinks = root.querySelectorAll('a[href]').length > 5;
+      const hasFooter = root.querySelector('footer');
+      const hasLinks = root.querySelectorAll('a[href]').length > 3;
       
       // Content should be substantial (more than just fallback)
       const textContent = root.textContent || '';
-      const hasSubstantialContent = textContent.length > 500;
+      const hasSubstantialContent = textContent.length > 200;
       
-      return (hasNav || hasMain || hasLinks) && hasSubstantialContent;
-    }, { timeout: TIMEOUT });
+      return (hasNav || hasMain || hasFooter || hasLinks) && hasSubstantialContent;
+    }, { timeout: 30000 }); // 30 second timeout
   } catch (e) {
     // Fall back to simpler check if React content check times out
-    console.log('    ⚠️ Full content check timed out, trying minimal wait...');
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    console.log('    ⚠️ Full content check timed out, trying extended wait...');
+    // Wait longer before giving up - give React time to render
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    
+    // One more check - see if there's ANY content in root
+    try {
+      await page.waitForFunction(() => {
+        const root = document.getElementById('root');
+        return root && (root.textContent || '').length > 100;
+      }, { timeout: 5000 });
+    } catch {
+      console.log('    ⚠️ Minimal content check also failed');
+    }
   }
   
   // Wait for network to be mostly idle (with shorter timeout)

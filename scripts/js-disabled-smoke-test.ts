@@ -49,7 +49,7 @@ const TEST_PAGES = [
   '/team',                      // Team page
   '/insurance',                 // Insurance page
   '/blog',                      // Blog index
-  '/contact',                   // Contact page
+  '/request-appointment',       // Contact/appointment page
   '/therapy-services',          // Therapy services
   '/conditions',                // Conditions page
   '/psychiatrist-near-me',      // High-intent landing

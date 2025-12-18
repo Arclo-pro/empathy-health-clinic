@@ -25,6 +25,11 @@ export function canonicalizationMiddleware(
     return next();
   }
   
+  // Skip Vite dev server routes (development only)
+  if (req.path.startsWith('/@') || req.path.startsWith('/src/') || req.path.startsWith('/node_modules/')) {
+    return next();
+  }
+  
   // Skip if already processing a redirect (prevent loops)
   if (req.headers['x-redirect-processed']) {
     return next();
