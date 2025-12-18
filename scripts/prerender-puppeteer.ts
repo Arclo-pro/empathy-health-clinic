@@ -22,8 +22,8 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = process.env.PRERENDER_URL || 'http://localhost:5000';
 const OUTPUT_DIR = path.resolve(rootDir, 'dist/prerendered');
 const MANIFEST_PATH = path.resolve(rootDir, 'routes/allRoutes.json');
-const CONCURRENCY = 3; // Number of parallel browser pages
-const TIMEOUT = 30000; // 30 seconds per page
+const CONCURRENCY = 6; // Number of parallel browser pages
+const TIMEOUT = 20000; // 20 seconds per page
 
 interface RouteManifest {
   totalRoutes: number;
@@ -110,7 +110,7 @@ async function waitForPageReady(page: Page): Promise<void> {
   });
   
   // Additional wait for animations/transitions
-  await new Promise(resolve => setTimeout(resolve, 1500));
+  await new Promise(resolve => setTimeout(resolve, 500));
 }
 
 function cleanHtml(html: string): string {
