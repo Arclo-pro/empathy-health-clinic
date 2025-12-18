@@ -218,13 +218,13 @@ function cleanHtml(html: string, route: string): string {
     // Add marker comment for debugging
     .replace('</head>', '<!-- Prerendered by Puppeteer -->\n</head>');
   
-  // Inject production scripts before </body> if we have them
-  if (prodScripts) {
+  // Inject production scripts before </body> if we have them and they're not already present
+  if (prodScripts && !cleaned.includes(prodScripts)) {
     cleaned = cleaned.replace('</body>', `    ${prodScripts}\n  </body>`);
   }
   
   // Inject production styles in <head> if we have them and they're not already present
-  if (prodStyles && !cleaned.includes('/assets/') && !cleaned.includes(prodStyles)) {
+  if (prodStyles && !cleaned.includes(prodStyles)) {
     cleaned = cleaned.replace('</head>', `    ${prodStyles}\n  </head>`);
   }
   
@@ -420,9 +420,75 @@ async function main() {
       process.exit(1);
     }
     
+    // Run validation to ensure all files have production assets
+    console.log('🔍 Running post-prerender validation...\n');
+    const validationResult = validatePrerenderedFiles();
+    if (!validationResult.success) {
+      console.error(`\n❌ Validation failed: ${validationResult.missingCSS.length} files missing CSS, ${validationResult.missingJS.length} files missing JS`);
+      console.error('   Run: python3 scripts/fix-prerender-assets.py');
+      process.exit(1);
+    }
+    console.log('✅ All prerendered files validated successfully!\n');
+    
   } finally {
     await browser.close();
   }
+}
+
+/**
+ * Validate that all prerendered files have production CSS and JS assets
+ */
+function validatePrerenderedFiles(): { success: boolean; missingCSS: string[]; missingJS: string[] } {
+  const prodIndexPath = path.resolve(rootDir, 'dist/public/index.html');
+  
+  if (!fs.existsSync(prodIndexPath)) {
+    console.warn('⚠️ Production build not found, skipping validation');
+    return { success: true, missingCSS: [], missingJS: [] };
+  }
+  
+  const prodHtml = fs.readFileSync(prodIndexPath, 'utf-8');
+  
+  const cssMatch = prodHtml.match(/href="(\/assets\/index[^"]*\.css)"/);
+  const jsMatch = prodHtml.match(/src="(\/assets\/index[^"]*\.js)"/);
+  
+  if (!cssMatch || !jsMatch) {
+    console.warn('⚠️ Could not extract production assets, skipping validation');
+    return { success: true, missingCSS: [], missingJS: [] };
+  }
+  
+  const cssHref = cssMatch[1];
+  const jsHref = jsMatch[1];
+  
+  const missingCSS: string[] = [];
+  const missingJS: string[] = [];
+  
+  function walkDir(dir: string) {
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      
+      if (stat.isDirectory()) {
+        walkDir(filePath);
+      } else if (file.endsWith('.html')) {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        if (!content.includes(cssHref)) {
+          missingCSS.push(filePath);
+        }
+        if (!content.includes(jsHref)) {
+          missingJS.push(filePath);
+        }
+      }
+    }
+  }
+  
+  walkDir(OUTPUT_DIR);
+  
+  return {
+    success: missingCSS.length === 0 && missingJS.length === 0,
+    missingCSS,
+    missingJS
+  };
 }
 
 main().catch(error => {
