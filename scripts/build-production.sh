@@ -154,7 +154,38 @@ done
 
 echo ""
 
-# Step 10: Final summary
+# Step 10: JS-Disabled Smoke Test (ensures crawlers see content)
+echo "Step 10: Running JS-disabled smoke test..."
+# Start temporary server again for smoke test
+NODE_ENV=production node dist/index.js &
+SMOKE_SERVER_PID=$!
+sleep 5
+
+# Wait for server
+for i in {1..30}; do
+  if curl -s http://localhost:$PORT/ > /dev/null 2>&1; then
+    break
+  fi
+  sleep 1
+done
+
+# Run smoke test
+npx tsx scripts/js-disabled-smoke-test.ts
+SMOKE_EXIT_CODE=$?
+
+# Stop server
+kill $SMOKE_SERVER_PID 2>/dev/null || true
+wait $SMOKE_SERVER_PID 2>/dev/null || true
+
+if [ $SMOKE_EXIT_CODE -ne 0 ]; then
+    echo "ERROR: JS-disabled smoke test failed"
+    echo "  Some pages don't render content without JavaScript"
+    echo "  This will cause crawlers to see blank pages"
+    exit 1
+fi
+echo ""
+
+# Step 11: Final summary
 echo "=========================================="
 echo "Production Build Complete!"
 echo "=========================================="
