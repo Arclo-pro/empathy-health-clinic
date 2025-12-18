@@ -86,8 +86,18 @@ echo "Step 7: Verifying prerender completeness (manifest check)..."
 npx tsx scripts/verify-prerender.ts
 echo ""
 
-# Step 8: Additional quality checks
-echo "Step 8: Running quality checks..."
+# Step 8: Verify asset integrity (prevents blank pages after deploy)
+echo "Step 8: Verifying asset integrity..."
+npx tsx scripts/verify-asset-integrity.ts
+if [ $? -ne 0 ]; then
+    echo "ERROR: Asset integrity check failed"
+    echo "  HTML references assets that don't exist or are inconsistent"
+    exit 1
+fi
+echo ""
+
+# Step 9: Additional quality checks
+echo "Step 9: Running quality checks..."
 
 # Count prerendered files
 PRERENDER_COUNT=$(find dist/prerendered -name "index.html" 2>/dev/null | wc -l | tr -d ' ')
@@ -144,7 +154,7 @@ done
 
 echo ""
 
-# Step 9: Final summary
+# Step 10: Final summary
 echo "=========================================="
 echo "Production Build Complete!"
 echo "=========================================="
