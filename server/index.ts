@@ -1,5 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
 import compression from "compression";
+import fs from "fs";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { canonicalizationMiddleware } from "./canonicalization-middleware";
@@ -215,6 +216,12 @@ app.get('/api/prerender-status', prerenderStatusHandler(prerenderedDir));
   // doesn't interfere with the other routes
   
   if (app.get("env") === "development") {
+    // In development, also serve production assets from dist/public/assets
+    // This is needed because prerendered HTML references production script bundles
+    const distPublicPath = path.resolve(import.meta.dirname, "..", "dist/public");
+    if (fs.existsSync(distPublicPath)) {
+      app.use("/assets", express.static(path.join(distPublicPath, "assets")));
+    }
     await setupVite(app, server);
   } else {
     serveStatic(app);

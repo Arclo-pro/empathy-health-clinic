@@ -27,11 +27,18 @@ const EXCLUDED_PATHS = [
   '/images/',
   '/fonts/',
   '/favicon',
+  '/src/',
+  '/@vite/',
+  '/@react-refresh',
+  '/@replit/',
+  '/@fs/',
+  '/node_modules/',
 ];
 
 // File extensions that are not HTML pages
 const EXCLUDED_EXTENSIONS = [
-  '.js', '.css', '.json', '.xml', '.txt', '.ico', '.png', '.jpg', '.jpeg', 
+  '.js', '.jsx', '.ts', '.tsx', '.mjs', '.mts',
+  '.css', '.json', '.xml', '.txt', '.ico', '.png', '.jpg', '.jpeg', 
   '.gif', '.svg', '.webp', '.woff', '.woff2', '.ttf', '.eot', '.map'
 ];
 

@@ -158,7 +158,41 @@ function fixSeoTags(html: string, route: string): string {
   return result;
 }
 
+/**
+ * Get production script/CSS tags from the built index.html
+ * Returns { scripts: string, styles: string } to inject into prerendered HTML
+ */
+function getProductionAssets(): { scripts: string; styles: string } {
+  const prodIndexPath = path.resolve(rootDir, 'dist/public/index.html');
+  
+  if (!fs.existsSync(prodIndexPath)) {
+    console.warn('⚠️ Production build not found, using development script references');
+    return { scripts: '', styles: '' };
+  }
+  
+  const prodHtml = fs.readFileSync(prodIndexPath, 'utf-8');
+  
+  // Extract production script tag(s) - looking for /assets/*.js
+  const scriptMatches = prodHtml.match(/<script[^>]*src="\/assets\/[^"]*\.js"[^>]*><\/script>/g);
+  const scripts = scriptMatches ? scriptMatches.join('\n    ') : '';
+  
+  // Extract production CSS link(s) - looking for /assets/*.css
+  const styleMatches = prodHtml.match(/<link[^>]*href="\/assets\/[^"]*\.css"[^>]*>/g);
+  const styles = styleMatches ? styleMatches.join('\n    ') : '';
+  
+  return { scripts, styles };
+}
+
+// Cache production assets to avoid reading file multiple times
+let cachedProductionAssets: { scripts: string; styles: string } | null = null;
+
 function cleanHtml(html: string, route: string): string {
+  // Get production assets (cached after first call)
+  if (!cachedProductionAssets) {
+    cachedProductionAssets = getProductionAssets();
+  }
+  const { scripts: prodScripts, styles: prodStyles } = cachedProductionAssets;
+  
   let cleaned = html
     // Remove Vite HMR client script
     .replace(/<script type="module" src="\/@vite\/client"><\/script>/g, '')
@@ -168,6 +202,12 @@ function cleanHtml(html: string, route: string): string {
     .replace(/<script type="module">\s*import \{ createHotContext \}[\s\S]*?<\/script>/g, '')
     // Remove any remaining /@vite/ or /@react-refresh references
     .replace(/<script[^>]*src="\/(@vite|@react-refresh)[^"]*"[^>]*><\/script>/g, '')
+    // Remove development main.tsx script reference
+    .replace(/<script[^>]*src="\/src\/main\.tsx[^"]*"[^>]*><\/script>/g, '')
+    // Remove development modulepreload for main.tsx
+    .replace(/<link[^>]*rel="modulepreload"[^>]*href="\/src\/[^"]*"[^>]*>/g, '')
+    // Remove Replit dev banner script
+    .replace(/<script[^>]*src="\/@replit\/[^"]*"[^>]*><\/script>/g, '')
     // Remove Cloudflare challenge iframe
     .replace(/<script>\(function\(\)\{function c\(\)[\s\S]*?<\/script>/g, '')
     // Remove inline script for tracking params
@@ -177,6 +217,16 @@ function cleanHtml(html: string, route: string): string {
     .replace(/ data-component-name="[^"]*"/g, '')
     // Add marker comment for debugging
     .replace('</head>', '<!-- Prerendered by Puppeteer -->\n</head>');
+  
+  // Inject production scripts before </body> if we have them
+  if (prodScripts) {
+    cleaned = cleaned.replace('</body>', `    ${prodScripts}\n  </body>`);
+  }
+  
+  // Inject production styles in <head> if we have them and they're not already present
+  if (prodStyles && !cleaned.includes('/assets/') && !cleaned.includes(prodStyles)) {
+    cleaned = cleaned.replace('</head>', `    ${prodStyles}\n  </head>`);
+  }
   
   // Fix SEO meta tags (canonical, robots) using shared configuration
   cleaned = fixSeoTags(cleaned, route);
