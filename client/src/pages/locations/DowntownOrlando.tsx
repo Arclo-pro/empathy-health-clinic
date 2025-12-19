@@ -209,7 +209,7 @@ export default function PsychiatristDowntownOrlando() {
               </section>
 
               <LocalizedContent city="Downtown Orlando" neighborhoods={["SODO", "Thornton Park", "College Park", "Parramore", "Lake Eola Heights"]} nearbyLandmarks={["Lake Eola Park", "Amway Center", "Dr. Phillips Center", "Church Street District"]} highways={["I-4", "SR 408", "Orange Avenue", "Mills Avenue"]} description="Vibrant urban core of Orlando with easy access to our psychiatric care team" driveTimeMinutes={10} slug="/psychiatrist-downtown-orlando" />
-              <InternalLinkBlock category="location" excludePaths={["/psychiatrist-downtown-orlando"]} title="Explore Our Psychiatric Services Near Downtown Orlando" />
+              <InternalLinkBlock category="locations" excludePaths={["/psychiatrist-downtown-orlando"]} title="Explore Our Psychiatric Services Near Downtown Orlando" />
               <AuthoritativeSourcesBlock sources={[{ source: "NIMH", topic: "Mental Health Information" }, { source: "APA", topic: "Finding a Psychiatrist" }, { source: "NIH", topic: "Mental Health Resources" }]} />
             </div>
 

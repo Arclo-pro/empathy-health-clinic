@@ -7,6 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import type { TeamMember, InsuranceProvider, Testimonial } from "@shared/schema";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function PsychotherapistOrlando() {
   const { data: teamMembers } = useQuery<TeamMember[]>({
@@ -535,6 +536,16 @@ export default function PsychotherapistOrlando() {
               <div>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-4">
+          <div className="container mx-auto max-w-4xl">
+            <InternalLinkBlock 
+              category="services"
+              title="Related Services"
+              variant="list"
+            />
           </div>
         </section>
       </main>

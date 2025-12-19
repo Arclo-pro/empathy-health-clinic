@@ -5,6 +5,7 @@ import SiteFooter from "@/components/SiteFooter";
 import ShortContactForm from "@/components/ShortContactForm";
 import SEOHead from "@/components/SEOHead";
 import forestBg from "@assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function NewPatients() {
   return (
@@ -230,6 +231,14 @@ export default function NewPatients() {
             </div>
           </div>
         </div>
+
+        <section className="container mx-auto px-4 py-16 max-w-6xl">
+          <InternalLinkBlock 
+            category="services"
+            title="Related Services"
+            variant="list"
+          />
+        </section>
       </main>
       <SiteFooter />
     </div>

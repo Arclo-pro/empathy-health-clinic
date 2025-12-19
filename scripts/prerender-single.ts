@@ -10,8 +10,16 @@ const pages = process.argv.slice(2);
 async function prerenderPage(browser: any, route: string) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 1024 });
+  // Set bypass header so prerender middleware returns fresh React content
+  await page.setExtraHTTPHeaders({ 'X-Prerender-Bypass': 'true' });
   try {
-    await page.goto(`${BASE_URL}${route}`, { waitUntil: 'networkidle0', timeout: 20000 });
+    await page.goto(`${BASE_URL}${route}`, { waitUntil: 'networkidle0', timeout: 30000 });
+    // Wait for React to hydrate and lazy components to load
+    await page.waitForFunction(() => {
+      const main = document.querySelector('main');
+      const h1 = document.querySelector('h1');
+      return main && main.innerHTML.length > 1000 && h1;
+    }, { timeout: 15000 }).catch(() => {});
     await new Promise(r => setTimeout(r, 2000));
     const html = await page.content();
     const filePath = path.join(OUTPUT_DIR, route.replace(/^\//, ''), 'index.html');

@@ -5,6 +5,7 @@ import SEOFooterText from "@/components/SEOFooterText";
 import LongContactForm from "@/components/LongContactForm";
 import OfficeMap from "@/components/OfficeMap";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function RequestAppointment() {
   return (
@@ -97,6 +98,14 @@ export default function RequestAppointment() {
             </div>
           </div>
         </div>
+
+        <section className="max-w-4xl mx-auto mt-16">
+          <InternalLinkBlock 
+            category="services"
+            title="Related Services"
+            variant="list"
+          />
+        </section>
       </main>
       <SEOFooterText>
         <p>

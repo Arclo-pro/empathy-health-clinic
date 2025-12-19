@@ -208,7 +208,7 @@ export default function PsychiatristLongwood() {
               </section>
 
               <LocalizedContent city="Longwood" neighborhoods={["Lake Mary", "Sanford", "Wekiva Springs", "Markham Woods", "The Springs"]} nearbyLandmarks={["Wekiwa Springs State Park", "Lake Mary Town Center", "Seminole Towne Center", "Big Tree Park"]} highways={["I-4", "SR 434", "SR 427", "US 17-92"]} description="Growing North Seminole County community with easy access to our psychiatric care team" driveTimeMinutes={15} slug="/psychiatrist-longwood" />
-              <InternalLinkBlock category="location" excludePaths={["/psychiatrist-longwood"]} title="Explore Our Psychiatric Services Near Longwood" />
+              <InternalLinkBlock category="locations" excludePaths={["/psychiatrist-longwood"]} title="Explore Our Psychiatric Services Near Longwood" />
               <AuthoritativeSourcesBlock sources={[{ source: "NIMH", topic: "Mental Health Information" }, { source: "APA", topic: "Finding a Psychiatrist" }, { source: "NIH", topic: "Mental Health Resources" }]} />
             </div>
 

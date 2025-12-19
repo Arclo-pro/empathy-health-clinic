@@ -1,50 +1,19 @@
 {
-  "timestamp": "2025-12-19T16:55:56.574Z",
+  "timestamp": "2025-12-19T17:20:00.758Z",
   "summary": {
-    "total": 175,
-    "passed": 160,
-    "failed": 15
+    "total": 169,
+    "passed": 169,
+    "failed": 0
   },
   "issues": {
-    "canonical": [
-      "/blog/finding-comfort-self-care-tips-for-those-who-are-grieving: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/finding-comfort-self-care-tips-for-those-who-are-grieving)",
-      "/blog/how-does-phsychotherapy-work: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-does-phsychotherapy-work)",
-      "/blog/how-psychiatry-clinics-improve-revenue: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-psychiatry-clinics-improve-revenue)",
-      "/blog/how-to-improve-concentration-and-focus-expert-tips: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-to-improve-concentration-and-focus-expert-tips)",
-      "/contact-us: Canonical mismatch: https://empathyhealthclinic.com/ (expected https://empathyhealthclinic.com/contact-us)",
-      "/pricing: Canonical mismatch: https://empathyhealthclinic.com/insurance (expected https://empathyhealthclinic.com/pricing)",
-      "/psychiatrist-casselberry: Missing canonical tag"
-    ],
-    "h1": [
-      "/psychiatrist-casselberry: Missing H1 tag",
-      "/psychiatrist-downtown-orlando: Missing H1 tag",
-      "/psychiatrist-lake-nona: Missing H1 tag",
-      "/psychiatrist-longwood: Missing H1 tag",
-      "/psychiatrist-winter-garden: Missing H1 tag"
-    ],
+    "canonical": [],
+    "h1": [],
     "title": [
-      "Duplicate title \"mental health blog | empathy health clinic...\" on: /blog/finding-comfort-self-care-tips-for-those-who-are-grieving, /blog/how-does-phsychotherapy-work, /blog/how-psychiatry-clinics-improve-revenue (+2 more)",
-      "Duplicate title \"psychiatry orlando | empathy health clinic...\" on: /contact-us, /psychiatrist-casselberry, /psychiatrist-downtown-orlando (+3 more)",
-      "Duplicate title \"insurance accepted winter park fl | empathy health...\" on: /insurance, /pricing",
       "Duplicate title \"psychiatrist winter park fl | board… | empathy hea...\" on: /locations/winter-park, /psychiatrist-winter-park",
       "Duplicate title \"psychiatrist accepting new patients… | empathy hea...\" on: /new-patients, /psychiatrist-accepting-new-patients-orlando"
     ],
-    "outlinks": [
-      "/contact-us: Low body outlinks (1, need 3+)",
-      "/new-patients: Low body outlinks (2, need 3+)",
-      "/psychiatrist-casselberry: Low body outlinks (0, need 3+)",
-      "/psychiatrist-downtown-orlando: Low body outlinks (0, need 3+)",
-      "/psychiatrist-lake-nona: Low body outlinks (0, need 3+)",
-      "/psychiatrist-longwood: Low body outlinks (0, need 3+)",
-      "/psychiatrist-winter-garden: Low body outlinks (0, need 3+)",
-      "/psychotherapist-orlando: Low body outlinks (0, need 3+)",
-      "/request-appointment: Low body outlinks (0, need 3+)",
-      "/stress-management: Low body outlinks (1, need 3+)"
-    ],
+    "outlinks": [],
     "noindex": [],
-    "hreflang": [
-      "/locations/winter-park: hreflang alternate /psychiatrist-winter-park missing return link",
-      "/locations/winter-park: hreflang alternate /psychiatrist-winter-park missing return link"
-    ]
+    "hreflang": []
   }
 }

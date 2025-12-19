@@ -422,7 +422,7 @@ export default function PsychiatristWinterGarden() {
               />
 
               <InternalLinkBlock 
-                category="location"
+                category="locations"
                 excludePaths={["/psychiatrist-winter-garden"]}
                 title="Explore Our Psychiatric Services Near Winter Garden"
               />

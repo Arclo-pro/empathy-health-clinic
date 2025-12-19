@@ -422,7 +422,7 @@ export default function PsychiatristCasselberry() {
               />
 
               <InternalLinkBlock 
-                category="location"
+                category="locations"
                 excludePaths={["/psychiatrist-casselberry"]}
                 title="Explore Our Psychiatric Services Near Casselberry"
               />

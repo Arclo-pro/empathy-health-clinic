@@ -422,7 +422,7 @@ export default function PsychiatristLakeNona() {
               />
 
               <InternalLinkBlock 
-                category="location"
+                category="locations"
                 excludePaths={["/psychiatrist-lake-nona"]}
                 title="Explore Our Psychiatric Services Near Lake Nona"
               />

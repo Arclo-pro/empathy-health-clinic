@@ -8,6 +8,7 @@ import { Brain, Heart, Shield, Users, CheckCircle, Phone, Mail, Target, Zap, Ale
 import meditationBg from "@assets/stock_images/meditation_mindfulne_859e45be.jpg";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function StressManagement() {
   const handlePhoneClick = () => {
@@ -424,6 +425,16 @@ export default function StressManagement() {
 
         {/* FAQ Section */}
         <TherapyFAQ pageTitle="Stress Management" />
+
+        <section className="py-16 md:py-20 bg-background">
+          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+            <InternalLinkBlock 
+              category="conditions"
+              title="Related Conditions We Treat"
+              variant="list"
+            />
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </div>

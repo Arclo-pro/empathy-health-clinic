@@ -26,6 +26,7 @@ const NOINDEX_ALLOWLIST = [
   '/404', '/not-found', '/examples', '/test', '/demo',
   // Intentionally consolidated pages (redirect via CANONICAL_CONSOLIDATION_PATHS)
   '/psychiatry-orlando', '/psychiatry-clinic-orlando',
+  '/locations/winter-park', // Consolidated to /psychiatrist-winter-park
 ];
 
 // Minimum internal links in body content
@@ -147,9 +148,10 @@ function validatePage(urlPath: string): PageValidation {
   
   // Validation checks
   const isNoindexAllowed = NOINDEX_ALLOWLIST.some(p => urlPath.startsWith(p));
+  const isConsolidatedPage = NOINDEX_ALLOWLIST.includes(urlPath);
   
-  // 1. Canonical check - must be self-referencing
-  if (canonical) {
+  // 1. Canonical check - must be self-referencing (skip for consolidated pages)
+  if (canonical && !isConsolidatedPage) {
     const expectedCanonical = `${DOMAIN}${urlPath === '/' ? '' : urlPath}`;
     const normalizedCanonical = canonical.replace(/\/$/, '');
     const normalizedExpected = expectedCanonical.replace(/\/$/, '');
@@ -157,7 +159,7 @@ function validatePage(urlPath: string): PageValidation {
     if (normalizedCanonical !== normalizedExpected && !hasNoindex) {
       issues.push(`Canonical mismatch: ${canonical} (expected ${expectedCanonical})`);
     }
-  } else if (!hasNoindex) {
+  } else if (!hasNoindex && !isConsolidatedPage) {
     issues.push('Missing canonical tag');
   }
   
