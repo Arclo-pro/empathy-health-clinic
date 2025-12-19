@@ -68,6 +68,75 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Register image sitemap endpoint (/image-sitemap.xml)
   registerImageSitemap(app);
   
+  // Crawlability health endpoint for quick diagnosis
+  app.get("/__health/crawlability", async (req, res) => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const crypto = await import('crypto');
+    
+    const prerenderedDir = path.default.join(process.cwd(), 'dist', 'prerendered');
+    const robotsPath = path.default.join(process.cwd(), 'dist', 'robots.txt');
+    
+    // Check prerendered directory
+    const prerenderExists = fs.default.existsSync(prerenderedDir);
+    let prerenderFileCount = 0;
+    let homepageLinkCount = 0;
+    let homepageContentLength = 0;
+    
+    if (prerenderExists) {
+      // Count HTML files
+      const countHtml = (dir: string): number => {
+        let count = 0;
+        try {
+          const items = fs.default.readdirSync(dir, { withFileTypes: true });
+          for (const item of items) {
+            const fullPath = path.default.join(dir, item.name);
+            if (item.isDirectory()) {
+              count += countHtml(fullPath);
+            } else if (item.name.endsWith('.html')) {
+              count++;
+            }
+          }
+        } catch { /* ignore */ }
+        return count;
+      };
+      prerenderFileCount = countHtml(prerenderedDir);
+      
+      // Check homepage content
+      const homepagePath = path.default.join(prerenderedDir, 'index.html');
+      if (fs.default.existsSync(homepagePath)) {
+        const content = fs.default.readFileSync(homepagePath, 'utf-8');
+        homepageContentLength = content.length;
+        homepageLinkCount = (content.match(/<a [^>]*href=/gi) || []).length;
+      }
+    }
+    
+    // Check robots.txt
+    let robotsHash = '';
+    if (fs.default.existsSync(robotsPath)) {
+      const robotsContent = fs.default.readFileSync(robotsPath, 'utf-8');
+      robotsHash = crypto.default.createHash('md5').update(robotsContent).digest('hex').slice(0, 8);
+    }
+    
+    // Get git SHA if available
+    let gitSha = process.env.REPLIT_DEPLOYMENT_SHA || 'unknown';
+    
+    const healthy = prerenderExists && prerenderFileCount >= 100 && homepageLinkCount >= 50;
+    
+    res.json({
+      healthy,
+      buildId: gitSha,
+      prerender: {
+        exists: prerenderExists,
+        fileCount: prerenderFileCount,
+        homepageLinkCount,
+        homepageContentLength,
+      },
+      robotsHash,
+      timestamp: new Date().toISOString(),
+    });
+  });
+  
   // Specific treatment redirects (must come BEFORE catch-all)
   app.get("/treatments/psychiatric-services", (req, res) => {
     res.redirect(301, "/services");
