@@ -1,18 +1,21 @@
 {
-  "timestamp": "2025-12-19T16:33:21.782Z",
+  "timestamp": "2025-12-19T16:55:56.574Z",
   "summary": {
-    "total": 173,
-    "passed": 159,
-    "failed": 14
+    "total": 175,
+    "passed": 160,
+    "failed": 15
   },
   "issues": {
     "canonical": [
+      "/blog/finding-comfort-self-care-tips-for-those-who-are-grieving: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/finding-comfort-self-care-tips-for-those-who-are-grieving)",
+      "/blog/how-does-phsychotherapy-work: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-does-phsychotherapy-work)",
+      "/blog/how-psychiatry-clinics-improve-revenue: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-psychiatry-clinics-improve-revenue)",
+      "/blog/how-to-improve-concentration-and-focus-expert-tips: Canonical mismatch: https://empathyhealthclinic.com/blog (expected https://empathyhealthclinic.com/blog/how-to-improve-concentration-and-focus-expert-tips)",
+      "/contact-us: Canonical mismatch: https://empathyhealthclinic.com/ (expected https://empathyhealthclinic.com/contact-us)",
+      "/pricing: Canonical mismatch: https://empathyhealthclinic.com/insurance (expected https://empathyhealthclinic.com/pricing)",
       "/psychiatrist-casselberry: Missing canonical tag"
     ],
     "h1": [
-      "/blog/couples-counseling-strengthens-relationships: Missing H1 tag",
-      "/blog/couples-therapy-improve-relationships-in-winter-park: Missing H1 tag",
-      "/blog/how-to-leave-toxic-relationship: Missing H1 tag",
       "/psychiatrist-casselberry: Missing H1 tag",
       "/psychiatrist-downtown-orlando: Missing H1 tag",
       "/psychiatrist-lake-nona: Missing H1 tag",
@@ -20,17 +23,14 @@
       "/psychiatrist-winter-garden: Missing H1 tag"
     ],
     "title": [
-      "Duplicate title \"psychiatry orlando | empathy health clinic...\" on: /blog/couples-counseling-strengthens-relationships, /blog/couples-therapy-improve-relationships-in-winter-park, /blog/how-to-leave-toxic-relationship (+5 more)",
       "Duplicate title \"mental health blog | empathy health clinic...\" on: /blog/finding-comfort-self-care-tips-for-those-who-are-grieving, /blog/how-does-phsychotherapy-work, /blog/how-psychiatry-clinics-improve-revenue (+2 more)",
+      "Duplicate title \"psychiatry orlando | empathy health clinic...\" on: /contact-us, /psychiatrist-casselberry, /psychiatrist-downtown-orlando (+3 more)",
+      "Duplicate title \"insurance accepted winter park fl | empathy health...\" on: /insurance, /pricing",
       "Duplicate title \"psychiatrist winter park fl | board… | empathy hea...\" on: /locations/winter-park, /psychiatrist-winter-park",
       "Duplicate title \"psychiatrist accepting new patients… | empathy hea...\" on: /new-patients, /psychiatrist-accepting-new-patients-orlando"
     ],
     "outlinks": [
-      "/about: Low body outlinks (2, need 3+)",
-      "/blog/couples-counseling-strengthens-relationships: Low body outlinks (2, need 3+)",
-      "/blog/couples-therapy-improve-relationships-in-winter-park: Low body outlinks (2, need 3+)",
-      "/blog/how-to-improve-concentration-and-focus-expert-tips: Low body outlinks (1, need 3+)",
-      "/blog/how-to-leave-toxic-relationship: Low body outlinks (2, need 3+)",
+      "/contact-us: Low body outlinks (1, need 3+)",
       "/new-patients: Low body outlinks (2, need 3+)",
       "/psychiatrist-casselberry: Low body outlinks (0, need 3+)",
       "/psychiatrist-downtown-orlando: Low body outlinks (0, need 3+)",
@@ -43,14 +43,6 @@
     ],
     "noindex": [],
     "hreflang": [
-      "/blog/finding-comfort-self-care-tips-for-those-who-are-grieving: hreflang alternate /blog missing return link",
-      "/blog/finding-comfort-self-care-tips-for-those-who-are-grieving: hreflang alternate /blog missing return link",
-      "/blog/how-does-phsychotherapy-work: hreflang alternate /blog missing return link",
-      "/blog/how-does-phsychotherapy-work: hreflang alternate /blog missing return link",
-      "/blog/how-psychiatry-clinics-improve-revenue: hreflang alternate /blog missing return link",
-      "/blog/how-psychiatry-clinics-improve-revenue: hreflang alternate /blog missing return link",
-      "/blog/how-to-improve-concentration-and-focus-expert-tips: hreflang alternate /blog missing return link",
-      "/blog/how-to-improve-concentration-and-focus-expert-tips: hreflang alternate /blog missing return link",
       "/locations/winter-park: hreflang alternate /psychiatrist-winter-park missing return link",
       "/locations/winter-park: hreflang alternate /psychiatrist-winter-park missing return link"
     ]

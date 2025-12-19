@@ -1,6 +1,7 @@
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
+import InternalLinkBlock from "@/components/InternalLinkBlock";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -148,6 +149,36 @@ export default function About() {
               </ul>
             </CardContent>
           </Card>
+
+          <div className="mt-12 mb-8">
+            <h3 className="text-xl font-semibold text-foreground mb-4">Explore Our Services</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Link href="/psychiatrist-orlando" className="text-primary hover:underline">
+                Psychiatrist Orlando
+              </Link>
+              <Link href="/services" className="text-primary hover:underline">
+                All Services
+              </Link>
+              <Link href="/anxiety-therapy" className="text-primary hover:underline">
+                Anxiety Treatment
+              </Link>
+              <Link href="/adhd-treatment" className="text-primary hover:underline">
+                ADHD Treatment
+              </Link>
+              <Link href="/depression-counseling" className="text-primary hover:underline">
+                Depression Treatment
+              </Link>
+              <Link href="/therapy" className="text-primary hover:underline">
+                Therapy Services
+              </Link>
+              <Link href="/ptsd-treatment" className="text-primary hover:underline">
+                PTSD Treatment
+              </Link>
+              <Link href="/insurance" className="text-primary hover:underline">
+                Insurance Accepted
+              </Link>
+            </div>
+          </div>
 
           <div className="text-center mt-12 pt-8 border-t">
             <h3 className="text-2xl font-sans font-bold text-foreground mb-4">
