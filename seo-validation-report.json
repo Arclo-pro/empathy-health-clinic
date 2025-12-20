@@ -1,27 +1,16 @@
 {
-  "timestamp": "2025-12-19T18:36:39.358Z",
+  "timestamp": "2025-12-20T00:17:29.231Z",
   "summary": {
-    "total": 127,
-    "passed": 127,
+    "total": 15,
+    "passed": 15,
     "failed": 0
   },
   "issues": {
     "canonical": [],
     "h1": [],
-    "title": [
-      "Duplicate title \"insurance accepted winter park fl | empathy health...\" on: /affordable-care, /insurance, /pricing",
-      "Duplicate title \"anxiety treatment near you | orland… | empathy hea...\" on: /anxiety-therapy, /anxiety-treatment",
-      "Duplicate title \"psychiatrist winter park fl | board… | empathy hea...\" on: /locations/winter-park, /psychiatrist-winter-park",
-      "Duplicate title \"psychiatrist accepting new patients… | empathy hea...\" on: /new-patients, /psychiatrist-accepting-new-patients-orlando",
-      "Duplicate title \"psychiatrist orlando accepts umr |… | empathy heal...\" on: /psychiatrist-orlando-accepts-umr, /therapist-accepts-umr"
-    ],
+    "title": [],
     "outlinks": [],
     "noindex": [],
-    "hreflang": [
-      "/affordable-care: hreflang alternate /insurance missing return link",
-      "/affordable-care: hreflang alternate /insurance missing return link",
-      "/anxiety-treatment: hreflang alternate /anxiety-therapy missing return link",
-      "/anxiety-treatment: hreflang alternate /anxiety-therapy missing return link"
-    ]
+    "hreflang": []
   }
 }
