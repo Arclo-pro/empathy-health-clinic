@@ -294,7 +294,7 @@ export default function AdminSERP() {
     );
   };
 
-  // Single trend cell for individual column display
+  // Single trend cell for individual column display - shows historical position
   const SingleTrendCell = ({ keyword, period }: { keyword: string; period: '7d' | '30d' | '90d' }) => {
     const trend = trends[keyword];
     
@@ -303,42 +303,49 @@ export default function AdminSERP() {
     }
 
     const periodMap = {
-      '7d': { value: trend.change7d, label: '7 days' },
-      '30d': { value: trend.change30d, label: '30 days' },
-      '90d': { value: trend.change90d, label: '90 days' },
+      '7d': { position: trend.position7dAgo, change: trend.change7d, label: '7 days ago' },
+      '30d': { position: trend.position30dAgo, change: trend.change30d, label: '30 days ago' },
+      '90d': { position: trend.position90dAgo, change: trend.change90d, label: '90 days ago' },
     };
 
-    const { value: change, label } = periodMap[period];
+    const { position: historicalPosition, change, label } = periodMap[period];
 
-    if (change === null || change === undefined) {
+    if (historicalPosition === null || historicalPosition === undefined) {
       return <span className="text-muted-foreground text-xs">-</span>;
     }
 
-    const isPositive = change > 0;
-    const isNeutral = change === 0;
+    const isPositive = change !== null && change > 0;
+    const isNegative = change !== null && change < 0;
+    const currentPos = trend.current;
 
-    if (isNeutral) {
-      return (
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <span className="text-muted-foreground text-sm">—</span>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>No change in {label}</p>
-          </TooltipContent>
-        </Tooltip>
-      );
-    }
+    const getColorClass = () => {
+      if (isPositive) return 'text-green-600 dark:text-green-400';
+      if (isNegative) return 'text-red-600 dark:text-red-400';
+      return 'text-muted-foreground';
+    };
+
+    const getChangeText = () => {
+      if (change === null || change === 0) return 'No change';
+      if (isPositive) return `Improved ${change} positions`;
+      return `Declined ${Math.abs(change)} positions`;
+    };
 
     return (
       <Tooltip>
         <TooltipTrigger asChild>
-          <span className={`font-bold text-sm ${isPositive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
-            {isPositive ? '↑' : '↓'}{Math.abs(change)}
+          <span className={`text-sm font-medium ${getColorClass()}`}>
+            {historicalPosition}
+            {change !== null && change !== 0 && (
+              <span className="ml-0.5 text-xs">
+                {isPositive ? '↑' : '↓'}
+              </span>
+            )}
           </span>
         </TooltipTrigger>
         <TooltipContent>
-          <p>{isPositive ? 'Improved' : 'Declined'} {Math.abs(change)} positions in {label}</p>
+          <p className="font-medium">Position {label}: #{historicalPosition}</p>
+          <p className="text-xs">Current: #{currentPos ?? 'N/A'}</p>
+          <p className="text-xs">{getChangeText()}</p>
         </TooltipContent>
       </Tooltip>
     );
