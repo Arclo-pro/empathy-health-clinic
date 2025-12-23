@@ -1970,9 +1970,9 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
 // ADHD Psychiatrist Orlando - Optimized for "adhd psychiatrist orlando" (590 volume)
 export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "ADHD Psychiatrist Orlando FL | Same-Week 2025",
-    description: "Looking for an ADHD psychiatrist in Orlando? Board-certified ADHD specialists for adults & children. Adderall, Vyvanse, non-stimulants. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751.",
-    keywords: ["adhd psychiatrist orlando", "adhd psychiatrist orlando fl", "adhd doctor orlando", "adhd specialist orlando", "adult adhd psychiatrist orlando", "child adhd psychiatrist orlando", "add doctor orlando", "adhd medication management orlando", "adhd diagnosis orlando", "best adhd psychiatrist orlando", "adhd psychiatrist near me"],
+    title: "ADHD Psychiatrist Orlando | Adult & Child ADHD Specialists",
+    description: "ADHD psychiatrist Orlando specialists for adults & children. Board-certified ADHD doctors prescribing Adderall, Vyvanse, Concerta, non-stimulants. Same-week ADHD evaluations. 4.8★ rated. BCBS, Cigna, Medicare. (386) 848-8751.",
+    keywords: ["adhd psychiatrist orlando", "adhd psychiatrist orlando fl", "adhd doctor orlando", "adhd specialist orlando", "adult adhd psychiatrist orlando", "child adhd psychiatrist orlando", "add doctor orlando", "adhd medication management orlando", "adhd diagnosis orlando", "best adhd psychiatrist orlando", "adhd psychiatrist near me", "adhd medication orlando"],
     canonicalPath: "/adhd-psychiatrist-orlando",
   },
   jsonLd: {

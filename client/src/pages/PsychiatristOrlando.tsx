@@ -127,9 +127,9 @@ export default function PsychiatristOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Orlando FL | New Patients 2025"
-        description="Psychiatrist Orlando and psychiatry Orlando services. Board-certified psychiatrists with same-week appointments for anxiety, depression, ADHD, bipolar. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751."
-        keywords={["psychiatrist orlando", "psychiatry orlando", "psychiatrist orlando fl", "orlando psychiatrist", "psychiatry orlando fl", "best psychiatrist orlando", "top rated psychiatrist orlando", "psychiatrist near me orlando", "anxiety psychiatrist orlando", "adhd psychiatrist orlando", "depression psychiatrist orlando", "medication management orlando", "mental health orlando", "psychiatrist accepting new patients orlando"]}
+        title="Psychiatrist Orlando | Psychiatry Orlando FL 2025"
+        description="Top-rated psychiatrist Orlando and psychiatry Orlando services. Board-certified Orlando psychiatrists accepting new patients. Same-week appointments for ADHD, anxiety, depression. 4.8★ rated. BCBS, Cigna, Medicare. (386) 848-8751."
+        keywords={["psychiatrist orlando", "psychiatry orlando", "orlando psychiatrist", "psychiatrist orlando fl", "psychiatry orlando fl", "best psychiatrist orlando", "top rated psychiatrist orlando", "psychiatrist near me orlando", "anxiety psychiatrist orlando", "adhd psychiatrist orlando", "depression psychiatrist orlando", "medication management orlando", "mental health orlando", "psychiatrist accepting new patients orlando", "bipolar psychiatrist orlando"]}
         canonicalPath="/psychiatrist-orlando"
         jsonLd={jsonLd}
       />
