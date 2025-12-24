@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-12-24T18:56:10.853Z",
+  "summary": {
+    "total": 150,
+    "passed": 150,
+    "failed": 0,
+    "warnings": 0
+  },
+  "missingDestinations": [
+    "/medication-management",
+    "/conditions",
+    "/therapy-services-orlando"
+  ],
+  "failures": []
+}

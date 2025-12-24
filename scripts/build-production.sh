@@ -185,7 +185,44 @@ if [ $SMOKE_EXIT_CODE -ne 0 ]; then
 fi
 echo ""
 
-# Step 11: Final summary
+# Step 11: QA Redirect Validation (prevent soft 404s)
+echo "Step 11: Running QA redirect validation..."
+
+# Start server for QA validation
+NODE_ENV=production node dist/index.js &
+QA_SERVER_PID=$!
+sleep 5
+
+# Wait for server
+for i in {1..30}; do
+  if curl -s http://localhost:$PORT/ > /dev/null 2>&1; then
+    break
+  fi
+  sleep 1
+done
+
+# Run QA validation with any available CSV
+QA_CSV=""
+if [ -f "attached_assets/Table_1766600276696.csv" ]; then
+    QA_CSV="--csv attached_assets/Table_1766600276696.csv"
+fi
+
+npx tsx scripts/qa/validate-redirects.ts $QA_CSV
+QA_EXIT_CODE=$?
+
+# Stop server
+kill $QA_SERVER_PID 2>/dev/null || true
+wait $QA_SERVER_PID 2>/dev/null || true
+
+if [ $QA_EXIT_CODE -ne 0 ]; then
+    echo "ERROR: QA redirect validation failed"
+    echo "  Some redirects don't resolve to valid pages"
+    echo "  Check qa-validation-report.json for details"
+    exit 1
+fi
+echo ""
+
+# Step 12: Final summary
 echo "=========================================="
 echo "Production Build Complete!"
 echo "=========================================="
