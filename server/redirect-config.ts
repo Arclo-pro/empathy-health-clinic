@@ -514,8 +514,8 @@ export const contentRedirectMap: Record<string, string> = {
   '/locations/psychiatry-pine-hills': '/psychiatrist-orlando',
   '/locations/psychiatry-lake-mary': '/psychiatrist-orlando',
   '/treatments/bipolar-disorder-treatment': '/bipolar-disorder-treatment',
-  '/blog/ltr-relationship-meaning-guide': '/blog',
-  '/blog/finding-comfort-self-care-tips-for-those-who-are-grieving': '/blog',
+  '/our-approach-1': '/services',
+  '/blog/ltr-relationship-meaning-guide': '/blog/what-is-a-short-term-relationship',
   
   // Google Search Console - Soft 404 Fixes (December 24, 2025)
   // Condition pages that need redirects
