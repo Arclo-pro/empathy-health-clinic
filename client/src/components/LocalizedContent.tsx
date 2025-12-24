@@ -91,7 +91,7 @@ const CITY_DATA: Record<string, CityInfo> = {
     highways: ["US 17-92", "SR 436", "Red Bug Lake Road"],
     driveTime: "15-20 minutes",
     description: "Suburban community in Seminole County with easy access to healthcare",
-    slug: "/locations/casselberry"
+    slug: "/psychiatrist-orlando"
   }
 };
 

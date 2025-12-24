@@ -43,7 +43,7 @@ export default function CignaOrlandoPage() {
                 Same-day appointments available.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/contact">
+                <Link href="/request-appointment">
                   <Button size="lg" data-testid="button-schedule-psychiatrist-orlando-takes-cigna">
                     <Calendar className="mr-2 h-5 w-5" />
                     Schedule Appointment
@@ -129,7 +129,7 @@ export default function CignaOrlandoPage() {
                     <p className="text-muted-foreground mb-6">
                       Conveniently located in Winter Park, serving Orlando and surrounding areas.
                     </p>
-                    <Link href="/contact">
+                    <Link href="/request-appointment">
                       <Button data-testid="button-get-directions-psychiatrist-orlando-takes-cigna">
                         Get Directions
                       </Button>

@@ -248,7 +248,7 @@ export default function TherapyPage() {
             <h3 className="text-2xl font-sans font-semibold text-foreground mb-4 mt-8">Choosing the Right Therapeutic Approach</h3>
             
             <p className="text-foreground leading-relaxed mb-6">
-              We offer a variety of evidence-based therapeutic modalities, each with unique strengths for addressing different concerns. <Link href="/cognitive-behavioral-therapy" className="text-primary hover:underline font-medium">Cognitive Behavioral Therapy (CBT)</Link> is highly effective for anxiety and depression, helping you identify and change unhelpful thought patterns. <Link href="/emdr-therapy" className="text-primary hover:underline font-medium">EMDR therapy</Link> is specifically designed for trauma processing, while <Link href="/couples-therapy" className="text-primary hover:underline font-medium">couples therapy</Link> focuses on improving communication and intimacy in relationships.
+              We offer a variety of evidence-based therapeutic modalities, each with unique strengths for addressing different concerns. <Link href="/cognitive-behavioral-therapy" className="text-primary hover:underline font-medium">Cognitive Behavioral Therapy (CBT)</Link> is highly effective for anxiety and depression, helping you identify and change unhelpful thought patterns. <Link href="/emdr-therapy" className="text-primary hover:underline font-medium">EMDR therapy</Link> is specifically designed for trauma processing, while <Link href="/couples-counseling" className="text-primary hover:underline font-medium">couples therapy</Link> focuses on improving communication and intimacy in relationships.
             </p>
 
             <p className="text-foreground leading-relaxed mb-6">
