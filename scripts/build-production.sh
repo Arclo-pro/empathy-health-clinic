@@ -19,14 +19,14 @@ MIN_FILE_SIZE=5000    # Minimum bytes for valid snapshot (not just React shell)
 MIN_HOMEPAGE_LINKS=50 # Minimum links on homepage
 PORT=5000
 
-# Step 1: Install dependencies (ensure clean state)
-echo "Step 1: Installing dependencies..."
-npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+# Step 1: Skip npm install - Replit handles this during provisioning
+echo "Step 1: Dependencies already installed by Replit provisioning"
 echo ""
 
-# Step 2: Standard Vite + esbuild build
+# Step 2: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
 echo "Step 2: Building frontend and backend..."
-npm run build
+npx vite build
+npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
 echo ""
 
 # Step 3: Install Chrome for Puppeteer
