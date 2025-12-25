@@ -282,8 +282,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/resources': '/blog',
   
   // Google Search Console - Canonical tag issues (November 2025)
-  // Blog post doesn't exist in system, redirect to blog listing
-  '/blog/varicose-veins-and-mental-health': '/blog',
+  // NOTE: Removed '/blog/varicose-veins-and-mental-health': '/blog' - post EXISTS in database
   
   // Google Search Console - Soft 404 Fixes (November 23, 2025)
   // LGBT/Therapy Services
@@ -341,7 +340,7 @@ export const contentRedirectMap: Record<string, string> = {
   // WordPress/legacy pages
   '/health-wellness-blog': '/blog',
   '/hipaa': '/privacy-policy',
-  '/blog/narcissistic-personality-disorder-treatment': '/blog',
+  // NOTE: Removed incorrect blog redirects - posts exist in database
   
   // ESA letter page
   '/florida-esa-letter-get-your-emotional-support-animal-letter-empathy-health-clinic-2': '/services',
@@ -352,7 +351,7 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Blog feed URLs that should not exist
   '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025/feed': '/blog',
-  '/blog/acls-discount-codes-foreign-trained-healthcare-workers': '/blog',
+  // NOTE: Removed '/blog/acls-discount-codes-foreign-trained-healthcare-workers' - post EXISTS
 
   // Google Search Console 404 Fixes - December 18, 2025 (202 URLs)
   '/8-foods-make-you-happy': '/blog/8-foods-make-you-happy',
@@ -366,18 +365,13 @@ export const contentRedirectMap: Record<string, string> = {
   '/bipolar-disorder-therapy': '/bipolar-disorder-treatment',
   '/bipolar-psychosis-symptoms-treatment-recovery': '/blog/bipolar-psychosis-symptoms-treatment-recovery',
   '/blog-wellness-guide-for-counselors': '/blog/wellness-guide-for-counselors',
-  '/blog/best-psychiatrist-orlando-anxiety-2025-guide': '/blog',
-  '/blog/best-psychiatrist-orlando-florida-depression-anxiety': '/blog',
-  '/blog/can-men-and-women-be-friends-psychology': '/blog',
-  '/blog/common-psychiatry-questions-orlando': '/blog',
-  '/blog/first-telepsychiatry-appointment-orlando-guide': '/blog',
-  '/blog/grief-self-care-tips-for-grieving': '/blog',
-  '/blog/online-psychiatry-orlando-virtual-care': '/blog',
-  '/blog/orlando-sunshine-mental-health': '/blog',
-  '/blog/redefining-recovery-hospital-discharge-mental-resilience': '/blog',
-  '/blog/same-day-psychiatric-care-orlando': '/blog',
-  '/blog/what-students-should-know-before-choosing-healthcare-career-track': '/blog',
-  '/blog/why-choose-telepsychiatry-orlando-2025': '/blog',
+  // NOTE: Removed 12 incorrect blog→/blog redirects - these posts EXIST in database:
+  // best-psychiatrist-orlando-anxiety-2025-guide, best-psychiatrist-orlando-florida-depression-anxiety,
+  // can-men-and-women-be-friends-psychology, common-psychiatry-questions-orlando,
+  // first-telepsychiatry-appointment-orlando-guide, grief-self-care-tips-for-grieving (doesn't exist),
+  // online-psychiatry-orlando-virtual-care, orlando-sunshine-mental-health,
+  // redefining-recovery-hospital-discharge-mental-resilience, same-day-psychiatric-care-orlando,
+  // what-students-should-know-before-choosing-healthcare-career-track, why-choose-telepsychiatry-orlando-2025
   '/borderline-personality-disorder-key-facts-care': '/services',
   '/bpd-men-guide': '/blog/bpd-men-guide',
   '/bpd-vs-npd': '/blog/bpd-vs-npd',
@@ -477,13 +471,9 @@ export const contentRedirectMap: Record<string, string> = {
   '/why-are-so-many-young-adults-struggling-with-mental-health': '/blog/why-are-so-many-young-adults-struggling-with-mental-health',
   '/why-healthcare-practices-need-a-good-credentialing-partner': '/blog/why-healthcare-practices-need-a-good-credentialing-partner',
   '/types-of-anxiety-disorders-explained': '/blog/types-of-anxiety-disorders-explained',
-  '/it-service-providers-driving-healthcare-innovation-2025': '/blog',
-  '/how-psychiatry-clinics-improve-revenue': '/blog',
-  '/blog/how-psychiatry-clinics-improve-revenue': '/blog',
-  '/blog/it-service-providers-driving-healthcare-innovation-2025': '/blog',
-  '/blog/open-relationship-guide': '/blog',
-  '/blog/prodromal-stage-mental-health': '/blog',
-  '/blog/how-to-improve-concentration-and-focus-expert-tips': '/blog',
+  '/it-service-providers-driving-healthcare-innovation-2025': '/blog/it-service-providers-driving-healthcare-innovation-2025',
+  '/how-psychiatry-clinics-improve-revenue': '/blog/how-psychiatry-clinics-improve-revenue',
+  // NOTE: Removed incorrect /blog/slug → /blog redirects - posts EXIST in database
   
   // WordPress attachment ID URLs - December 2025
   '/?attachment_id=9425': '/',
@@ -493,7 +483,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/dental-anxiety-treatment-for-stress-free-visits-in-maitland-fl': '/blog/dental-anxiety-treatment-for-stress-free-visits-in-maitland-fl',
   '/cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios': '/blog/cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios',
   '/couples-therapy': '/couples-counseling',
-  '/blog/how-does-phsychotherapy-work': '/blog',
+  '/blog/how-does-phsychotherapy-work': '/blog/how-does-phsychotherapy-work',
   '/blog/nervous-breakdown': '/blog/what-is-mental-breakdown',
   
   // Google Search Console - Not Found 404 Errors - December 2025
@@ -527,35 +517,19 @@ export const contentRedirectMap: Record<string, string> = {
   '/ptsd-trauma': '/anxiety-therapy',
   '/optum-coverage': '/insurance',
   
-  // Blog URLs that don't exist - redirect to /blog
-  '/blog/silent-panic-attacks-causes-symptoms-relief': '/blog',
-  '/blog/bpd-men-guide': '/blog',
-  '/blog/how-to-leave-toxic-relationship': '/blog',
-  '/blog/reactive-attachment-disorder-in-adults': '/blog',
-  '/blog/understanding-adhd-masking': '/blog',
-  '/blog/what-is-time-blindness': '/blog',
-  '/blog/jobs-for-people-with-anxiety': '/blog',
-  '/blog/understanding-social-exhaustion-adhd-brain': '/blog',
-  '/blog/how-bipolar-disorder-impacts-interpersonal-dynamics': '/blog',
-  '/blog/who-cheats-more-men-or-women': '/blog',
-  '/blog/lgbtqia2s-identity-explained': '/blog',
-  '/blog/signs-of-attention-seeking-behavior': '/blog',
-  '/blog/how-to-stop-people-pleasing': '/blog',
-  '/blog/overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help': '/blog',
-  '/blog/one-sided-relationship-signs': '/blog',
-  '/blog/mindfulness-and-relaxation-exercises': '/blog',
-  '/blog/how-understanding-patient-perspectives-improves-care-quality': '/blog',
-  '/blog/8-physical-signs-stress-is-impacting-your-body': '/blog',
-  '/blog/what-are-the-goals-of-psychotherapy': '/blog',
-  '/blog/how-to-get-over-someone-and-move-on-with-your-life': '/blog',
-  '/blog/how-debilitating-anxiety-impacts-overall-health': '/blog',
-  '/blog/online-cpr-certification-with-aed-and-choking-response': '/blog',
-  '/blog/how-to-be-productive': '/blog',
-  '/blog/head-trauma-memory-loss-recovery': '/blog',
-  '/blog/chronic-anxiety-treatment-orlando': '/blog',
-  '/blog/cbt-therapy-improving-mental-health-in-winter-park': '/blog',
-  '/blog/future-of-healthcare': '/blog',
-  '/blog/from-tension-to-relief-everyday-tips-for-a-healthier-body': '/blog',
+  // NOTE: REMOVED 20+ incorrect blog→/blog redirects that were causing traffic loss
+  // These blog posts EXIST in database and should NOT redirect to /blog index
+  // Removed: silent-panic-attacks, bpd-men-guide, how-to-leave-toxic-relationship,
+  // reactive-attachment-disorder-in-adults, understanding-adhd-masking, what-is-time-blindness,
+  // jobs-for-people-with-anxiety, understanding-social-exhaustion-adhd-brain,
+  // how-bipolar-disorder-impacts-interpersonal-dynamics, who-cheats-more-men-or-women,
+  // lgbtqia2s-identity-explained, signs-of-attention-seeking-behavior, how-to-stop-people-pleasing,
+  // overcoming-flight-anxiety, one-sided-relationship-signs, mindfulness-and-relaxation-exercises,
+  // how-understanding-patient-perspectives, 8-physical-signs-stress, what-are-the-goals-of-psychotherapy,
+  // how-to-get-over-someone-and-move-on-with-your-life, how-debilitating-anxiety-impacts-overall-health,
+  // online-cpr-certification, how-to-be-productive, head-trauma-memory-loss-recovery,
+  // chronic-anxiety-treatment-orlando, cbt-therapy-improving-mental-health-in-winter-park,
+  // future-of-healthcare, from-tension-to-relief-everyday-tips-for-a-healthier-body
   
   // Insurance page variants
   '/cigna-orlando': '/psychiatrist-orlando-accepts-cigna',
@@ -572,7 +546,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/from-heartbreak-to-healing-emdr-strategies-for-moving-on-after-a-breakup': '/emdr-therapy',
   '/how-emdr-helps-with-anxiety-depression': '/emdr-therapy',
   '/how-long-after-car-accident-can-you-claim-injury': '/services',
-  '/how-long-does-it-take-to-fall-in-love-timelines-what-to-expect': '/blog',
+  '/how-long-does-it-take-to-fall-in-love-timelines-what-to-expect': '/blog/how-long-does-it-take-to-fall-in-love-timelines-what-to-expect',
   '/how-to-prepare-for-your-first-virtual-counseling-session': '/virtual-therapy',
   '/how-to-stop-panic-attacks-at-night': '/anxiety-therapy',
   
