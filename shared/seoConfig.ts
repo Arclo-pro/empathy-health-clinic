@@ -9,7 +9,7 @@
  * even when React doesn't hydrate.
  */
 
-export const SEO_DOMAIN = 'https://empathyhealthclinic.com';
+export const SEO_DOMAIN = 'https://www.empathyhealthclinic.com';
 
 /**
  * Canonical consolidation paths - pages that should point to a different canonical URL

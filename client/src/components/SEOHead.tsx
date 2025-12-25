@@ -578,7 +578,7 @@ export default function SEOHead({
       }
     };
 
-    const preferredDomain = "https://empathyhealthclinic.com";
+    const preferredDomain = "https://www.empathyhealthclinic.com";
     const currentSearch = window.location.search;
     const rawPath = canonicalPath || window.location.pathname;
     

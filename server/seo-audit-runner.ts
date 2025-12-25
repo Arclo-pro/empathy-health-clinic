@@ -4,7 +4,7 @@ import { runFullPageSpeedAudit, classifyPerformanceScore, classifyMetric, PageSp
 import { inspectUrl, classifyIndexStatus, UrlInspectionResult } from './gsc-service';
 import { eq } from 'drizzle-orm';
 
-const BASE_URL = 'https://empathyhealthclinic.com';
+const BASE_URL = 'https://www.empathyhealthclinic.com';
 
 interface AuditConfig {
   scheduleType: 'manual' | 'nightly' | 'weekly';

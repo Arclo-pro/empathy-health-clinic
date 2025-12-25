@@ -324,7 +324,7 @@ export interface UrlInspectionResult {
 }
 
 export async function inspectUrl(pageUrl: string): Promise<UrlInspectionResult> {
-  const siteUrl = 'https://empathyhealthclinic.com';
+  const siteUrl = 'https://www.empathyhealthclinic.com';
   
   try {
     const serviceAccountJson = process.env.GOOGLE_SEARCH_CONSOLE_SERVICE_ACCOUNT_JSON;

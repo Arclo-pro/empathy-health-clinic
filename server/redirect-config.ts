@@ -661,8 +661,14 @@ export function getCanonicalUrl(
   const isLocalhost = host.includes('localhost') || host.includes('127.0.0.1');
   const canonicalProtocol = isLocalhost ? protocol : 'https';
   
-  // Step 2: Strip www subdomain
-  const canonicalHost = host.startsWith('www.') ? host.substring(4) : host;
+  // Step 2: Ensure www subdomain (www is canonical host)
+  // Skip for localhost, replit.app, and replit.dev domains
+  const isReplitDomain = host.includes('.replit.app') || host.includes('.replit.dev');
+  let canonicalHost = host;
+  if (!isLocalhost && !isReplitDomain) {
+    // For production domain, ensure www prefix
+    canonicalHost = host.startsWith('www.') ? host : `www.${host}`;
+  }
   
   // Step 3: Normalize path (remove trailing slash, collapse duplicates)
   const normalizedPath = normalizePath(path);

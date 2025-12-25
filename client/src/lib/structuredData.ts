@@ -1,4 +1,4 @@
-const PREFERRED_DOMAIN = "https://empathyhealthclinic.com";
+const PREFERRED_DOMAIN = "https://www.empathyhealthclinic.com";
 
 const CLINIC_INFO = {
   name: "Empathy Health Clinic",

@@ -10,7 +10,7 @@ interface ImageEntry {
   }[];
 }
 
-const BASE_URL = 'https://empathyhealthclinic.com';
+const BASE_URL = 'https://www.empathyhealthclinic.com';
 const GEO_LOCATION = 'Orlando, Florida, USA';
 
 const HOMEPAGE_IMAGES: ImageEntry[] = [

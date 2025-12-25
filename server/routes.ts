@@ -2758,7 +2758,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         storage.getAllTeamMembers()
       ]);
 
-      const baseUrl = "https://empathyhealthclinic.com";
+      const baseUrl = "https://www.empathyhealthclinic.com";
       const today = new Date().toISOString().split('T')[0];
       const addedUrls = new Set<string>();
 
@@ -2989,7 +2989,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Sitemap Index (master index pointing to all sitemaps)
   app.get("/sitemap_index.xml", (_req, res) => {
-    const baseUrl = "https://empathyhealthclinic.com";
+    const baseUrl = "https://www.empathyhealthclinic.com";
     const today = new Date().toISOString().split('T')[0];
     
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -3012,7 +3012,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Robots.txt
   app.get("/robots.txt", (_req, res) => {
     // Always use production domain for robots.txt (required for Google Search Console)
-    const baseUrl = "https://empathyhealthclinic.com";
+    const baseUrl = "https://www.empathyhealthclinic.com";
 
     const robotsTxt = `# Empathy Health Clinic - robots.txt
 
