@@ -1,21 +1,16 @@
 {
-  "timestamp": "2025-12-25T17:32:55.498Z",
+  "timestamp": "2025-12-25T17:55:11.695Z",
   "summary": {
     "total": 310,
-    "criticalCount": 2,
-    "warningCount": 309,
-    "opportunityCount": 275,
+    "criticalCount": 0,
+    "warningCount": 307,
+    "opportunityCount": 277,
     "issueBreakdown": {
       "Canonicals: Canonicalised": 307,
-      "Meta Description: Over 155 Characters": 206,
-      "H2: Multiple": 69,
-      "Pages Without Internal Outlinks": 2,
-      "H1: Missing": 2
+      "Meta Description: Over 155 Characters": 208,
+      "H2: Multiple": 69
     },
-    "criticalPages": [
-      "/blog/how-debilitating-anxiety-impacts-overall-health",
-      "/blog/how-does-phsychotherapy-work"
-    ]
+    "criticalPages": []
   },
   "results": [
     {
@@ -1764,28 +1759,23 @@
       "path": "/blog/how-debilitating-anxiety-impacts-overall-health",
       "issues": [
         {
-          "type": "critical",
-          "issue": "Pages Without Internal Outlinks",
-          "details": "Only 0 internal links (minimum: 10)"
-        },
-        {
           "type": "warning",
           "issue": "Canonicals: Canonicalised",
           "details": "Points to https://www.empathyhealthclinic.com/blog/how-debilitating-anxiety-impacts-overall-health instead of https://empathyhealthclinic.com/blog/how-debilitating-anxiety-impacts-overall-health"
         },
         {
-          "type": "warning",
-          "issue": "H1: Missing",
-          "details": "No H1 tag found"
+          "type": "opportunity",
+          "issue": "Meta Description: Over 155 Characters",
+          "details": "160 characters"
         }
       ],
       "stats": {
-        "internalLinks": 0,
-        "externalLinks": 0,
-        "h1Count": 0,
-        "h2Count": 0,
+        "internalLinks": 73,
+        "externalLinks": 19,
+        "h1Count": 1,
+        "h2Count": 10,
         "canonical": "https://www.empathyhealthclinic.com/blog/how-debilitating-anxiety-impacts-overall-health",
-        "metaDescLength": 0,
+        "metaDescLength": 160,
         "hasNoindex": false
       }
     },
@@ -1793,28 +1783,23 @@
       "path": "/blog/how-does-phsychotherapy-work",
       "issues": [
         {
-          "type": "critical",
-          "issue": "Pages Without Internal Outlinks",
-          "details": "Only 0 internal links (minimum: 10)"
-        },
-        {
           "type": "warning",
           "issue": "Canonicals: Canonicalised",
           "details": "Points to https://www.empathyhealthclinic.com/blog/how-does-phsychotherapy-work instead of https://empathyhealthclinic.com/blog/how-does-phsychotherapy-work"
         },
         {
-          "type": "warning",
-          "issue": "H1: Missing",
-          "details": "No H1 tag found"
+          "type": "opportunity",
+          "issue": "Meta Description: Over 155 Characters",
+          "details": "160 characters"
         }
       ],
       "stats": {
-        "internalLinks": 0,
-        "externalLinks": 0,
-        "h1Count": 0,
-        "h2Count": 0,
+        "internalLinks": 72,
+        "externalLinks": 20,
+        "h1Count": 1,
+        "h2Count": 7,
         "canonical": "https://www.empathyhealthclinic.com/blog/how-does-phsychotherapy-work",
-        "metaDescLength": 0,
+        "metaDescLength": 160,
         "hasNoindex": false
       }
     },

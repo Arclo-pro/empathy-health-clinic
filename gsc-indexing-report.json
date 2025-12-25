@@ -1,175 +1,441 @@
 {
-  "timestamp": "2025-12-24T19:31:52.159Z",
+  "timestamp": "2025-12-25T17:55:19.333Z",
   "summary": {
-    "total": 27,
-    "critical": 27,
-    "warnings": 0,
+    "total": 71,
+    "critical": 0,
+    "warnings": 71,
     "byType": {
-      "redirect_link": 27
+      "low_quality": 4,
+      "duplicate": 26,
+      "redirect_link": 41
     }
   },
   "issues": [
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blue-cross-blue-shield-blue-cross-blue-shield-coverage",
-      "details": "Internal link redirects to: http://localhost:5000/blue-cross-blue-shield-therapy-orlando"
+      "type": "low_quality",
+      "severity": "warning",
+      "page": "/providers",
+      "details": "Low word count (158) - may be crawled but not indexed"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/aetna-aetna-coverage",
-      "details": "Internal link redirects to: http://localhost:5000/psychiatrist-orlando-accepts-aetna"
+      "type": "low_quality",
+      "severity": "warning",
+      "page": "/providers/orlando",
+      "details": "Low word count (295) - may be crawled but not indexed"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/optum-coverage",
-      "details": "Internal link redirects to: http://localhost:5000/insurance"
+      "type": "low_quality",
+      "severity": "warning",
+      "page": "/request-appointment",
+      "details": "Low word count (222) - may be crawled but not indexed"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/cigna-coverage",
-      "details": "Internal link redirects to: http://localhost:5000/psychiatrist-orlando-accepts-cigna"
+      "type": "low_quality",
+      "severity": "warning",
+      "page": "/team",
+      "details": "Low word count (275) - may be crawled but not indexed"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/adventhealth-coverage",
-      "details": "Internal link redirects to: http://localhost:5000/insurance"
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/psychiatry-clinic-orlando",
+      "details": "3 pages share canonical: https://www.empathyhealthclinic.com/psychiatrist-orlando"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/medication-management",
-      "details": "Internal link redirects to: http://localhost:5000/services"
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/psychiatry-orlando",
+      "details": "3 pages share canonical: https://www.empathyhealthclinic.com/psychiatrist-orlando"
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/affordable-care",
+      "details": "Duplicate title with 2 other page(s): \"Insurance Accepted Winter Park Fl | Empathy Health...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/insurance",
+      "details": "Duplicate title with 2 other page(s): \"Insurance Accepted Winter Park Fl | Empathy Health...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/pricing",
+      "details": "Duplicate title with 2 other page(s): \"Insurance Accepted Winter Park Fl | Empathy Health...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/anxiety-therapy",
+      "details": "Duplicate title with 1 other page(s): \"Anxiety Treatment Near You | Orland… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
       "page": "/anxiety-treatment",
-      "details": "Internal link redirects to: http://localhost:5000/anxiety-therapy"
+      "details": "Duplicate title with 1 other page(s): \"Anxiety Treatment Near You | Orland… | Empathy Hea...\""
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/anger-management",
-      "details": "Internal link redirects to: http://localhost:5000/therapy"
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/finding-comfort-self-care-tips-for-those-who-are-grieving",
+      "details": "Duplicate title with 1 other page(s): \"The Power of Grief Counseling in He… | Empathy Hea...\""
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/esa-letter",
-      "details": "Internal link redirects to: http://localhost:5000/services"
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/the-power-of-grief-counseling-in-healing-the-heart-2",
+      "details": "Duplicate title with 1 other page(s): \"The Power of Grief Counseling in He… | Empathy Hea...\""
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/anxiety-disorders",
-      "details": "Internal link redirects to: http://localhost:5000/anxiety-therapy"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/depression",
-      "details": "Internal link redirects to: http://localhost:5000/depression-treatment"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/bipolar-disorder",
-      "details": "Internal link redirects to: http://localhost:5000/bipolar-disorder-treatment"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/ptsd-trauma",
-      "details": "Internal link redirects to: http://localhost:5000/anxiety-therapy"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/personality-disorders",
-      "details": "Internal link redirects to: http://localhost:5000/services"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/adhd-attention-deficit-hyperactivity-disorder",
-      "details": "Internal link redirects to: http://localhost:5000/adhd-treatment"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/eating-disorders",
-      "details": "Internal link redirects to: http://localhost:5000/services"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/schizophrenia-psychotic-disorders",
-      "details": "Internal link redirects to: http://localhost:5000/services"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/open-relationship-guide",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/understanding-social-exhaustion-adhd-brain",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/prodromal-stage-mental-health",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
-    },
-    {
-      "type": "redirect_link",
-      "severity": "critical",
+      "type": "duplicate",
+      "severity": "warning",
       "page": "/blog/ltr-relationship-meaning-guide",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "details": "Duplicate title with 1 other page(s): \"Short Term Relationships: Key Chara… | Empathy Hea...\""
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/reactive-attachment-disorder-in-adults",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/what-is-a-short-term-relationship",
+      "details": "Duplicate title with 1 other page(s): \"Short Term Relationships: Key Chara… | Empathy Hea...\""
     },
     {
-      "type": "redirect_link",
-      "severity": "critical",
+      "type": "duplicate",
+      "severity": "warning",
       "page": "/blog/nervous-breakdown",
-      "details": "Internal link redirects to: http://localhost:5000/blog/what-is-mental-breakdown"
+      "details": "Duplicate title with 1 other page(s): \"What Is a Mental Breakdown? Definit… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/what-is-mental-breakdown",
+      "details": "Duplicate title with 1 other page(s): \"What Is a Mental Breakdown? Definit… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/same-day-psychiatrist-orlando-guide",
+      "details": "Duplicate title with 2 other page(s): \"Same Day Psychiatrist Orlando Fl |… | Empathy Heal...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/same-day-psychiatrist-orlando-urgent-mental-health-care",
+      "details": "Duplicate title with 2 other page(s): \"Same Day Psychiatrist Orlando Fl |… | Empathy Heal...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/same-day-psychiatrist-orlando",
+      "details": "Duplicate title with 2 other page(s): \"Same Day Psychiatrist Orlando Fl |… | Empathy Heal...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/what-to-expect-at-your-first-psychiatrist-appointment",
+      "details": "Duplicate title with 1 other page(s): \"What to Expect at Your First Psychi… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/blog/what-to-expect-first-psychiatry-appointment-orlando",
+      "details": "Duplicate title with 1 other page(s): \"What to Expect at Your First Psychi… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatry Clinic in Orlando Fl | Empathy Health C...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/thank-you",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatry Clinic in Orlando Fl | Empathy Health C...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/locations/winter-park",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Winter Park Fl | Board… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/psychiatrist-winter-park",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Winter Park Fl | Board… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/new-patients",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Accepting New Patients… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/psychiatrist-accepting-new-patients-orlando",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Accepting New Patients… | Empathy Hea...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/psychiatrist-orlando-accepts-umr",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Orlando Accepts Umr |… | Empathy Heal...\""
+    },
+    {
+      "type": "duplicate",
+      "severity": "warning",
+      "page": "/therapist-accepts-umr",
+      "details": "Duplicate title with 1 other page(s): \"Psychiatrist Orlando Accepts Umr |… | Empathy Heal...\""
     },
     {
       "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/how-to-get-over-someone-and-move-on-with-your-life",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "severity": "warning",
+      "page": "/blue-cross-blue-shield-blue-cross-blue-shield-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blue-cross-blue-shield-therapy-orlando"
     },
     {
       "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/lgbtqia2s-identity-explained",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "severity": "warning",
+      "page": "/aetna-aetna-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-aetna"
     },
     {
       "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/signs-of-attention-seeking-behavior",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "severity": "warning",
+      "page": "/optum-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/insurance"
     },
     {
       "type": "redirect_link",
-      "severity": "critical",
-      "page": "/blog/what-is-time-blindness",
-      "details": "Internal link redirects to: http://localhost:5000/blog"
+      "severity": "warning",
+      "page": "/cigna-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-cigna"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/adventhealth-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/insurance"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/umr-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-umr"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/oscar-health-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/therapist-accepts-oscar-health"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/medicare-medicare-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/medicare-psychiatrist-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/curative-health-curative-health-coverage",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/insurance"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/blog?category=Mental%20Health",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blog?category=Mental+Health"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/blog?category=Healthcare%20Training",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blog?category=Healthcare+Training"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/blog?category=ADHD%20%26%20Attention%20Disorders",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blog?category=ADHD+%26+Attention+Disorders"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/anxiety-disorders",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/anxiety-treatment",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/cbt-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/locations/psychiatrist-orlando",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/psychiatrist-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/telehealth-psychiatry",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/virtual-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/locations/psychiatrist-winter-park",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/locations/winter-park"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/bipolar-disorder",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/bipolar-disorder-treatment"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/medication-management",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/services"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/couples-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/couples-counseling"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/eating-disorders",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/services"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/ptsd-trauma",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/anxiety-treatment-orlando",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blog/anxiety-treatment-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/insurance/aetna-psychiatrist-orlando",
+      "details": "Internal link redirects to: /aetna-psychiatrist-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/insurance/cigna-psychiatrist-orlando",
+      "details": "Internal link redirects to: /cigna-psychiatrist-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/insurance/united-healthcare-psychiatrist-orlando",
+      "details": "Internal link redirects to: /united-healthcare-psychiatrist-orlando"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/depression",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/depression-treatment"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/trauma-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/treatments/therapy-services",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/conditions/post-traumatic-stress-disorder-ptsd",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/contact",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/contact-us"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/ptsd",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/ocd",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/anxiety-therapy"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/treatments/medication-management",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/medication-management"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/adhd-attention-deficit-hyperactivity-disorder",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/adhd-treatment"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/blog?category=Career%20%26%20Education",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/blog?category=Career+%26+Education"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/affordable-care",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/insurance"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/depression-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/depression-treatment"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/bipolar-disorder-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/bipolar-disorder-treatment"
+    },
+    {
+      "type": "redirect_link",
+      "severity": "warning",
+      "page": "/lgbtq-therapy",
+      "details": "Internal link redirects to: https://www.empathyhealthclinic.com/therapy"
     }
   ]
 }

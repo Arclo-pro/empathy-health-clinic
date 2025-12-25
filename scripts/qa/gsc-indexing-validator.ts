@@ -18,7 +18,7 @@ import fs from 'fs';
 import path from 'path';
 
 const PRERENDERED_DIR = path.join(process.cwd(), 'dist', 'prerendered');
-const DOMAIN = 'https://empathyhealthclinic.com';
+const DOMAIN = 'https://www.empathyhealthclinic.com';
 const BASE_URL = process.env.QA_BASE_URL || 'http://localhost:5000';
 
 // Normalize redirect target URLs (replace localhost with production domain for reporting)
