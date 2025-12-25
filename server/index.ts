@@ -9,6 +9,12 @@ import path from "path";
 
 const app = express();
 
+// Health check endpoint - MUST be first for fast deployment health checks
+// Replit deployments timeout if health checks take too long
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: Date.now() });
+});
+
 app.use(compression({
   filter: (req, res) => {
     if (req.headers['x-no-compression']) {
