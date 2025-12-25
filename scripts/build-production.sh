@@ -23,19 +23,25 @@ PORT=5000
 echo "Step 1: Dependencies already installed by Replit provisioning"
 echo ""
 
-# Step 2: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
-echo "Step 2: Building frontend and backend..."
+# Step 2: Clean old prerendered files (critical - prevents asset hash mismatches)
+echo "Step 2: Cleaning old prerendered files..."
+rm -rf dist/prerendered
+echo "  Removed dist/prerendered"
+echo ""
+
+# Step 3: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
+echo "Step 3: Building frontend and backend..."
 npx vite build
 npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
 echo ""
 
-# Step 3: Install Chrome for Puppeteer
-echo "Step 3: Installing Chrome for Puppeteer..."
+# Step 4: Install Chrome for Puppeteer
+echo "Step 4: Installing Chrome for Puppeteer..."
 npx puppeteer browsers install chrome
 echo ""
 
-# Step 4: Generate route manifest (source of truth for prerendering)
-echo "Step 4: Generating route manifest..."
+# Step 5: Generate route manifest (source of truth for prerendering)
+echo "Step 5: Generating route manifest..."
 npx tsx scripts/buildRouteManifest.ts
 if [ ! -f "routes/allRoutes.json" ]; then
     echo "ERROR: Route manifest not generated"
@@ -45,8 +51,8 @@ MANIFEST_COUNT=$(cat routes/allRoutes.json | grep -o '"totalRoutes":' | head -1 
 echo "Manifest contains routes for prerendering"
 echo ""
 
-# Step 5: Start server temporarily for prerendering
-echo "Step 5: Starting temporary server for prerendering..."
+# Step 6: Start server temporarily for prerendering
+echo "Step 6: Starting temporary server for prerendering..."
 NODE_ENV=production node dist/index.js &
 SERVER_PID=$!
 sleep 5
@@ -69,9 +75,9 @@ if [ "$SERVER_READY" = false ]; then
     exit 1
 fi
 
-# Step 6: Run prerender script
+# Step 7: Run prerender script
 echo ""
-echo "Step 6: Prerendering all routes..."
+echo "Step 7: Prerendering all routes..."
 PRERENDER_URL=http://localhost:$PORT npx tsx scripts/prerender-puppeteer.ts
 
 # Stop the temporary server
@@ -81,13 +87,13 @@ kill $SERVER_PID 2>/dev/null || true
 wait $SERVER_PID 2>/dev/null || true
 echo ""
 
-# Step 7: Verify prerender completeness (uses manifest)
-echo "Step 7: Verifying prerender completeness (manifest check)..."
+# Step 8: Verify prerender completeness (uses manifest)
+echo "Step 8: Verifying prerender completeness (manifest check)..."
 npx tsx scripts/verify-prerender.ts
 echo ""
 
-# Step 8: Verify asset integrity (prevents blank pages after deploy)
-echo "Step 8: Verifying asset integrity..."
+# Step 9: Verify asset integrity (prevents blank pages after deploy)
+echo "Step 9: Verifying asset integrity..."
 npx tsx scripts/verify-asset-integrity.ts
 if [ $? -ne 0 ]; then
     echo "ERROR: Asset integrity check failed"
@@ -96,8 +102,8 @@ if [ $? -ne 0 ]; then
 fi
 echo ""
 
-# Step 9: Additional quality checks
-echo "Step 9: Running quality checks..."
+# Step 10: Additional quality checks
+echo "Step 10: Running quality checks..."
 
 # Count prerendered files
 PRERENDER_COUNT=$(find dist/prerendered -name "index.html" 2>/dev/null | wc -l | tr -d ' ')
@@ -154,8 +160,8 @@ done
 
 echo ""
 
-# Step 10: JS-Disabled Smoke Test (ensures crawlers see content)
-echo "Step 10: Running JS-disabled smoke test..."
+# Step 11: JS-Disabled Smoke Test (ensures crawlers see content)
+echo "Step 11: Running JS-disabled smoke test..."
 # Start temporary server again for smoke test
 NODE_ENV=production node dist/index.js &
 SMOKE_SERVER_PID=$!
@@ -185,8 +191,8 @@ if [ $SMOKE_EXIT_CODE -ne 0 ]; then
 fi
 echo ""
 
-# Step 11: QA Redirect Validation (prevent soft 404s)
-echo "Step 11: Running QA redirect validation..."
+# Step 12: QA Redirect Validation (prevent soft 404s)
+echo "Step 12: Running QA redirect validation..."
 
 # Start server for QA validation
 NODE_ENV=production node dist/index.js &
@@ -222,8 +228,8 @@ if [ $QA_EXIT_CODE -ne 0 ]; then
 fi
 echo ""
 
-# Step 12: Screaming Frog Issue Validation
-echo "Step 12: Running Screaming Frog issue validation..."
+# Step 13: Screaming Frog Issue Validation
+echo "Step 13: Running Screaming Frog issue validation..."
 npx tsx scripts/qa/screaming-frog-validator.ts
 SF_EXIT_CODE=$?
 
@@ -235,8 +241,8 @@ if [ $SF_EXIT_CODE -ne 0 ]; then
 fi
 echo ""
 
-# Step 13: GSC Indexing Issue Validation
-echo "Step 13: Running GSC indexing issue validation..."
+# Step 14: GSC Indexing Issue Validation
+echo "Step 14: Running GSC indexing issue validation..."
 
 # Start server for GSC validation
 NODE_ENV=production node dist/index.js &
@@ -266,7 +272,7 @@ if [ $GSC_EXIT_CODE -ne 0 ]; then
 fi
 echo ""
 
-# Step 14: Final summary
+# Step 15: Final summary
 echo "=========================================="
 echo "Production Build Complete!"
 echo "=========================================="
