@@ -26,6 +26,11 @@ const apiLimiter = rateLimit({
   message: { error: "Too many requests. Please try again later." },
   standardHeaders: true,
   legacyHeaders: false,
+  // Skip rate limiting for localhost during prerendering/build
+  skip: (req) => {
+    const ip = req.ip || req.socket?.remoteAddress || '';
+    return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+  },
 });
 import {
   insertSiteContentSchema,
