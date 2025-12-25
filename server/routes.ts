@@ -19,6 +19,28 @@ const formSubmissionLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+// SEO crawler user-agents that should bypass rate limiting
+const SEO_CRAWLER_PATTERNS = [
+  'Googlebot',
+  'AdsBot-Google',
+  'Mediapartners-Google',
+  'bingbot',
+  'Screaming Frog SEO Spider',
+  'Screaming Frog',
+  'ahrefs',
+  'SEMrush',
+  'MJ12bot',
+  'DotBot',
+];
+
+// Check if user-agent is a known SEO crawler
+function isSeoCrawler(userAgent: string | undefined): boolean {
+  if (!userAgent) return false;
+  return SEO_CRAWLER_PATTERNS.some(pattern => 
+    userAgent.toLowerCase().includes(pattern.toLowerCase())
+  );
+}
+
 // Rate limiting for API endpoints (general protection)
 const apiLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
@@ -26,10 +48,12 @@ const apiLimiter = rateLimit({
   message: { error: "Too many requests. Please try again later." },
   standardHeaders: true,
   legacyHeaders: false,
-  // Skip rate limiting for localhost during prerendering/build
+  // Skip rate limiting for localhost (prerendering) and SEO crawlers
   skip: (req) => {
     const ip = req.ip || req.socket?.remoteAddress || '';
-    return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+    const isLocalhost = ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+    const isCrawler = isSeoCrawler(req.headers['user-agent']);
+    return isLocalhost || isCrawler;
   },
 });
 import {
