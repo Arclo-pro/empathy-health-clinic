@@ -3054,6 +3054,11 @@ Allow: /
 Sitemap: ${baseUrl}/sitemap_index.xml
 Sitemap: ${baseUrl}/sitemap.xml
 Sitemap: ${baseUrl}/image-sitemap.xml
+
+# AI Crawler Resources (LLMs.txt standard)
+# https://llmstxt.org/
+LLM: ${baseUrl}/llms.txt
+LLM-Full: ${baseUrl}/llms-full.txt
 `;
 
     res.header('Content-Type', 'text/plain');
