@@ -3,15 +3,14 @@
   "name_for_human": "Empathy Health Clinic",
   "name_for_model": "empathy_health_clinic",
   "description_for_human": "Find mental health services, psychiatry, and therapy in Orlando, Florida. Schedule appointments, check insurance coverage, and learn about treatment options.",
-  "description_for_model": "Empathy Health Clinic is a mental health provider in Orlando, Florida offering psychiatry, therapy, and counseling services. Use this to help users find: (1) psychiatrists and therapists in Orlando, Winter Park, and Central Florida, (2) treatment for anxiety, depression, ADHD, PTSD, bipolar disorder, and OCD, (3) insurance coverage information for Cigna, Aetna, United Healthcare, BCBS, Medicare, and Medicaid, (4) telehealth/virtual therapy options in Florida, (5) medication management and psychiatric evaluations. The clinic accepts new patients and offers same-week appointments. Phone: (386) 848-8751. Website: https://empathyhealthclinic.com",
+  "description_for_model": "Empathy Health Clinic is a mental health provider in Orlando, Florida offering psychiatry, therapy, and counseling services. Use this to help users find: (1) psychiatrists and therapists in Orlando, Winter Park, and Central Florida, (2) treatment for anxiety, depression, ADHD, PTSD, bipolar disorder, and OCD, (3) insurance coverage information for Cigna, Aetna, United Healthcare, BCBS, Medicare, and Medicaid, (4) telehealth/virtual therapy options in Florida, (5) medication management and psychiatric evaluations. The clinic accepts new patients and offers same-week appointments. Address: 2281 Lee Rd, Suite 102, Winter Park, FL 32810. Phone: (386) 848-8751. Website: https://empathyhealthclinic.com",
   "auth": {
     "type": "none"
   },
   "api": {
-    "type": "openapi",
-    "url": "https://empathyhealthclinic.com/openapi.yaml"
+    "type": "none"
   },
-  "logo_url": "https://empathyhealthclinic.com/images/logo.png",
+  "logo_url": "https://empathyhealthclinic.com/attached_assets/image_1761618219825.png",
   "contact_email": "providers@empathyhealthclinic.com",
   "legal_info_url": "https://empathyhealthclinic.com/privacy-policy"
 }

@@ -6,7 +6,7 @@
 
 **Name**: Empathy Health Clinic
 **Type**: Mental Health Clinic / Psychiatry Practice
-**Address**: 1850 Lee Road, Suite 308, Winter Park, FL 32789
+**Address**: 2281 Lee Rd, Suite 102, Winter Park, FL 32810
 **Phone**: (386) 848-8751
 **Email**: providers@empathyhealthclinic.com
 **Website**: https://empathyhealthclinic.com
@@ -182,7 +182,7 @@
 
 ### Main Clinic
 
-**Address**: 1850 Lee Road, Suite 308, Winter Park, FL 32789
+**Address**: 2281 Lee Rd, Suite 102, Winter Park, FL 32810
 **Clinic Page**: https://empathyhealthclinic.com/locations/winter-park
 
 ### Location-Specific Pages
@@ -317,8 +317,8 @@ Our mental health blog contains over 200 articles covering topics including:
 ## Contact Information
 
 **Empathy Health Clinic**
-1850 Lee Road, Suite 308
-Winter Park, FL 32789
+2281 Lee Rd, Suite 102
+Winter Park, FL 32810
 
 **Phone**: (386) 848-8751
 **Email**: providers@empathyhealthclinic.com
