@@ -54,11 +54,10 @@ import { setupSEOWebhook } from "./seo-webhook";
 import { registerImageSitemap } from "./imageSitemap";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Initialize blog slug cache at startup
-  await initBlogSlugCache();
-  
   // Connect blog slug checker to canonicalization middleware
   // This enables dynamic /{slug} → /blog/{slug} redirects
+  // Note: Blog slug cache is initialized AFTER server starts listening
+  // to avoid blocking health checks during deployment
   setBlogSlugChecker(isBlogPostSlug);
   
   // Apply general API rate limiting to all /api routes (prevents DDoS/abuse)

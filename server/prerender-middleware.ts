@@ -4,8 +4,9 @@
  * This middleware serves pre-rendered static HTML for all requests that accept text/html.
  * This ensures crawlers (and all browsers) see fully rendered content without JavaScript.
  * 
- * Key change: Uses Accept header (content negotiation) instead of user-agent detection.
- * This makes crawling work "out of the box" with default Screaming Frog settings.
+ * PERFORMANCE: All HTML files are loaded into memory on startup to avoid blocking
+ * the event loop with synchronous filesystem reads during request handling.
+ * This is critical for deployment health checks to pass quickly.
  * 
  * Generate prerendered files with: npx tsx scripts/prerender-puppeteer.ts
  */
@@ -79,33 +80,51 @@ function isExcludedPath(pathname: string): boolean {
 }
 
 /**
- * Convert a URL path to the corresponding prerendered file path
- * Uses /foo/index.html format for clean URLs
- * e.g., "/" -> "index.html"
- *       "/foo" -> "foo/index.html"
- *       "/foo/bar" -> "foo/bar/index.html"
+ * Normalize a URL path to a cache key
+ * e.g., "/" -> "/", "/foo" -> "/foo", "/foo/" -> "/foo"
  */
-function pathToFilePath(prerenderedDir: string, pathname: string): string {
+function normalizePath(pathname: string): string {
   if (pathname === '/' || pathname === '') {
-    return path.join(prerenderedDir, 'index.html');
+    return '/';
   }
-  
-  // Remove leading slash, create directory structure
-  const cleanPath = pathname.replace(/^\//, '').replace(/\/$/, '');
-  return path.join(prerenderedDir, cleanPath, 'index.html');
+  // Remove trailing slash for consistency
+  return pathname.replace(/\/$/, '');
 }
 
 /**
- * Legacy path format for backward compatibility
- * e.g., "/foo" -> "foo.html"
+ * Load all prerendered HTML files into memory
+ * This runs once on startup to avoid blocking fs reads during requests
  */
-function pathToLegacyFilePath(prerenderedDir: string, pathname: string): string {
-  if (pathname === '/' || pathname === '') {
-    return path.join(prerenderedDir, 'index.html');
+function loadPrerenderedCache(prerenderedDir: string): Map<string, Buffer> {
+  const cache = new Map<string, Buffer>();
+  
+  if (!fs.existsSync(prerenderedDir)) {
+    return cache;
   }
   
-  const cleanPath = pathname.replace(/^\//, '').replace(/\//g, '-');
-  return path.join(prerenderedDir, `${cleanPath}.html`);
+  const loadDir = (dir: string, urlPrefix: string = '') => {
+    const items = fs.readdirSync(dir, { withFileTypes: true });
+    for (const item of items) {
+      const itemPath = path.join(dir, item.name);
+      if (item.isDirectory()) {
+        loadDir(itemPath, urlPrefix + '/' + item.name);
+      } else if (item.name === 'index.html') {
+        // /foo/index.html -> /foo
+        const urlPath = urlPrefix || '/';
+        const html = fs.readFileSync(itemPath);
+        cache.set(normalizePath(urlPath), html);
+      } else if (item.name.endsWith('.html')) {
+        // Legacy: foo.html -> /foo (for backward compatibility)
+        const baseName = item.name.replace('.html', '');
+        const urlPath = urlPrefix + '/' + baseName;
+        const html = fs.readFileSync(itemPath);
+        cache.set(normalizePath(urlPath), html);
+      }
+    }
+  };
+  
+  loadDir(prerenderedDir);
+  return cache;
 }
 
 /**
@@ -113,26 +132,15 @@ function pathToLegacyFilePath(prerenderedDir: string, pathname: string): string 
  * @param prerenderedDir - Path to the directory containing prerendered HTML files
  */
 export function createPrerenderMiddleware(prerenderedDir: string) {
-  const dirExists = fs.existsSync(prerenderedDir);
+  // Load all HTML into memory on startup - critical for fast health checks
+  const htmlCache = loadPrerenderedCache(prerenderedDir);
+  const dirExists = htmlCache.size > 0;
   
   if (!dirExists) {
     console.log('⚠️  Prerender middleware: No prerendered files found.');
     console.log('   Run: npx tsx scripts/prerender-puppeteer.ts');
   } else {
-    // Count HTML files in directory tree
-    let fileCount = 0;
-    const countHtml = (dir: string) => {
-      const items = fs.readdirSync(dir, { withFileTypes: true });
-      for (const item of items) {
-        if (item.isDirectory()) {
-          countHtml(path.join(dir, item.name));
-        } else if (item.name.endsWith('.html')) {
-          fileCount++;
-        }
-      }
-    };
-    countHtml(prerenderedDir);
-    console.log(`✅ Prerender middleware: ${fileCount} prerendered pages available`);
+    console.log(`✅ Prerender middleware: ${htmlCache.size} prerendered pages cached in memory`);
   }
   
   return function prerenderMiddleware(req: Request, res: Response, next: NextFunction) {
@@ -160,25 +168,21 @@ export function createPrerenderMiddleware(prerenderedDir: string) {
       return next();
     }
     
-    // Check if prerendered directory exists
+    // Check if we have prerendered content
     if (!dirExists) {
       return next();
     }
     
-    // Try new format first (/foo/index.html), then legacy (foo.html)
-    let filePath = pathToFilePath(prerenderedDir, pathname);
+    // Look up in memory cache (no filesystem access!)
+    const cacheKey = normalizePath(pathname);
+    const cachedHtml = htmlCache.get(cacheKey);
     
-    if (!fs.existsSync(filePath)) {
-      // Try legacy format for backward compatibility
-      filePath = pathToLegacyFilePath(prerenderedDir, pathname);
-    }
-    
-    if (!fs.existsSync(filePath)) {
+    if (!cachedHtml) {
       // No prerendered file, fall through to SPA
       return next();
     }
     
-    // Serve prerendered HTML
+    // Serve prerendered HTML from memory
     console.log(`📄 Serving prerendered: ${pathname}`);
     
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
@@ -193,8 +197,7 @@ export function createPrerenderMiddleware(prerenderedDir: string) {
     
     res.setHeader('Vary', 'Accept-Encoding, Accept');
     
-    const html = fs.readFileSync(filePath, 'utf-8');
-    res.send(html);
+    res.send(cachedHtml);
   };
 }
 
@@ -202,35 +205,36 @@ export function createPrerenderMiddleware(prerenderedDir: string) {
  * Debug endpoint to check prerender status
  */
 export function prerenderStatusHandler(prerenderedDir: string) {
+  // Cache the file list on startup
+  const files: string[] = [];
+  
+  if (fs.existsSync(prerenderedDir)) {
+    const collectFiles = (dir: string, prefix: string = '') => {
+      const items = fs.readdirSync(dir, { withFileTypes: true });
+      for (const item of items) {
+        const itemPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          collectFiles(itemPath, prefix + '/' + item.name);
+        } else if (item.name === 'index.html') {
+          files.push(prefix || '/');
+        } else if (item.name.endsWith('.html')) {
+          files.push(prefix + '/' + item.name.replace('.html', ''));
+        }
+      }
+    };
+    collectFiles(prerenderedDir);
+  }
+  
   return function(req: Request, res: Response) {
     const acceptHeader = req.get('accept') || '';
     
-    let fileCount = 0;
-    const files: string[] = [];
-    
-    if (fs.existsSync(prerenderedDir)) {
-      const collectFiles = (dir: string, prefix: string = '') => {
-        const items = fs.readdirSync(dir, { withFileTypes: true });
-        for (const item of items) {
-          if (item.isDirectory()) {
-            collectFiles(path.join(dir, item.name), `${prefix}${item.name}/`);
-          } else if (item.name.endsWith('.html')) {
-            files.push(`${prefix}${item.name}`);
-            fileCount++;
-          }
-        }
-      };
-      collectFiles(prerenderedDir);
-    }
-    
     res.json({
-      status: 'ok',
-      prerenderEnabled: fileCount > 0,
-      prerenderedPages: fileCount,
-      prerenderedDir,
+      available: files.length > 0,
+      count: files.length,
+      files: files.slice(0, 50), // Limit response size
+      totalFiles: files.length,
+      requestAcceptsHtml: acceptsHtml(acceptHeader),
       acceptHeader,
-      acceptsHtml: acceptsHtml(acceptHeader),
-      sampleFiles: files.slice(0, 20),
     });
   };
 }
