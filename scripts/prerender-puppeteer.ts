@@ -23,8 +23,8 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = process.env.PRERENDER_URL || 'http://localhost:5000';
 const OUTPUT_DIR = path.resolve(rootDir, 'dist/prerendered');
 const MANIFEST_PATH = path.resolve(rootDir, 'routes/allRoutes.json');
-const CONCURRENCY = 15; // Higher concurrency for faster builds
-const TIMEOUT = 15000; // 15 seconds per page (reduced for speed)
+const CONCURRENCY = 2; // Very low concurrency for stability in Replit
+const TIMEOUT = 30000; // 30 seconds per page for reliability
 
 interface RouteManifest {
   totalRoutes: number;
@@ -298,9 +298,16 @@ async function prerenderPage(browser: Browser, route: string): Promise<Prerender
       error: error.message
     };
   } finally {
-    await page.close();
+    try {
+      await page.close();
+    } catch (closeError: any) {
+      // Ignore page close errors - browser may have already disconnected
+      console.log(`  ⚠️ Page close warning for ${route}: ${closeError.message}`);
+    }
   }
 }
+
+const BROWSER_RESTART_INTERVAL = 15; // Restart browser every 15 pages for stability in Replit
 
 async function prerenderBatch(browser: Browser, routes: string[]): Promise<PrerenderResult[]> {
   const results: PrerenderResult[] = [];
@@ -314,6 +321,60 @@ async function prerenderBatch(browser: Browser, routes: string[]): Promise<Prere
     
     const progress = Math.min(i + CONCURRENCY, routes.length);
     console.log(`  Progress: ${progress}/${routes.length} pages`);
+  }
+  
+  return results;
+}
+
+async function launchBrowser(): Promise<Browser> {
+  return puppeteer.launch({
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--disable-extensions',
+      '--disable-background-networking',
+      '--disable-sync',
+      '--no-first-run',
+      '--single-process',
+      '--disable-accelerated-2d-canvas',
+    ]
+  });
+}
+
+async function prerenderWithBrowserRestart(routes: string[]): Promise<PrerenderResult[]> {
+  const results: PrerenderResult[] = [];
+  const chunks = [];
+  
+  // Split routes into chunks for browser restart
+  for (let i = 0; i < routes.length; i += BROWSER_RESTART_INTERVAL) {
+    chunks.push(routes.slice(i, i + BROWSER_RESTART_INTERVAL));
+  }
+  
+  console.log(`📦 Processing ${routes.length} routes in ${chunks.length} chunks\n`);
+  
+  for (let chunkIndex = 0; chunkIndex < chunks.length; chunkIndex++) {
+    const chunk = chunks[chunkIndex];
+    console.log(`\n🌐 Chunk ${chunkIndex + 1}/${chunks.length} (${chunk.length} pages)...`);
+    
+    const browser = await launchBrowser();
+    try {
+      const chunkResults = await prerenderBatch(browser, chunk);
+      results.push(...chunkResults);
+    } finally {
+      try {
+        await browser.close();
+      } catch (e) {
+        console.log('  ⚠️ Browser close warning');
+      }
+    }
+    
+    // Small delay between chunks
+    if (chunkIndex < chunks.length - 1) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
   }
   
   return results;
@@ -360,75 +421,77 @@ async function main() {
   }
   
   console.log('✅ Server is running\n');
-  console.log('🌐 Launching browser...\n');
   
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-    ]
-  });
+  const startTime = Date.now();
+  let results = await prerenderWithBrowserRestart(routes);
   
-  try {
-    const startTime = Date.now();
-    const results = await prerenderBatch(browser, routes);
-    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  // Retry failed routes once with fresh browser
+  let failed = results.filter(r => !r.success);
+  if (failed.length > 0 && failed.length <= 30) {
+    console.log(`\n🔄 Retrying ${failed.length} failed routes...\n`);
+    const retryRoutes = failed.map(f => f.route);
+    const retryResults = await prerenderWithBrowserRestart(retryRoutes);
     
-    const successful = results.filter(r => r.success);
-    const failed = results.filter(r => !r.success);
-    
-    console.log('\n📊 Prerender Complete!\n');
-    console.log(`   ⏱️  Time: ${elapsed}s`);
-    console.log(`   ✅ Success: ${successful.length} pages`);
-    console.log(`   ❌ Failed: ${failed.length} pages`);
-    
-    if (failed.length > 0) {
-      console.log('\n   Failed pages:');
-      failed.forEach(f => console.log(`      - ${f.route}: ${f.error}`));
-    }
-    
-    // Write manifest
-    const manifest = {
-      generatedAt: new Date().toISOString(),
-      baseUrl: BASE_URL,
-      totalRoutes: routes.length,
-      successCount: successful.length,
-      failedCount: failed.length,
-      routes: results.map(r => ({
-        path: r.route,
-        success: r.success,
-        size: r.htmlSize,
-        filePath: r.filePath,
-        error: r.error
-      }))
-    };
-    
-    const manifestPath = path.resolve(OUTPUT_DIR, 'manifest.json');
-    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
-    console.log(`\n   📋 Manifest: ${manifestPath}\n`);
-    
-    // Fail build if any route failed
-    if (failed.length > 0) {
-      console.error(`\n❌ Build failed: ${failed.length} routes could not be prerendered`);
-      process.exit(1);
-    }
-    
-    // Run validation to ensure all files have production assets
-    console.log('🔍 Running post-prerender validation...\n');
-    const validationResult = validatePrerenderedFiles();
-    if (!validationResult.success) {
-      console.error(`\n❌ Validation failed: ${validationResult.missingCSS.length} files missing CSS, ${validationResult.missingJS.length} files missing JS`);
-      console.error('   Run: python3 scripts/fix-prerender-assets.py');
-      process.exit(1);
-    }
-    console.log('✅ All prerendered files validated successfully!\n');
-    
-  } finally {
-    await browser.close();
+    // Replace failed results with retry results
+    results = results.map(r => {
+      if (!r.success) {
+        const retry = retryResults.find(rr => rr.route === r.route);
+        return retry || r;
+      }
+      return r;
+    });
   }
+  
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+  
+  const successful = results.filter(r => r.success);
+  failed = results.filter(r => !r.success);
+  
+  console.log('\n📊 Prerender Complete!\n');
+  console.log(`   ⏱️  Time: ${elapsed}s`);
+  console.log(`   ✅ Success: ${successful.length} pages`);
+  console.log(`   ❌ Failed: ${failed.length} pages`);
+  
+  if (failed.length > 0) {
+    console.log('\n   Failed pages:');
+    failed.forEach(f => console.log(`      - ${f.route}: ${f.error}`));
+  }
+  
+  // Write manifest
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    baseUrl: BASE_URL,
+    totalRoutes: routes.length,
+    successCount: successful.length,
+    failedCount: failed.length,
+    routes: results.map(r => ({
+      path: r.route,
+      success: r.success,
+      size: r.htmlSize,
+      filePath: r.filePath,
+      error: r.error
+    }))
+  };
+  
+  const manifestPath = path.resolve(OUTPUT_DIR, 'manifest.json');
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  console.log(`\n   📋 Manifest: ${manifestPath}\n`);
+  
+  // Fail build if any route failed
+  if (failed.length > 0) {
+    console.error(`\n❌ Build failed: ${failed.length} routes could not be prerendered`);
+    process.exit(1);
+  }
+  
+  // Run validation to ensure all files have production assets
+  console.log('🔍 Running post-prerender validation...\n');
+  const validationResult = validatePrerenderedFiles();
+  if (!validationResult.success) {
+    console.error(`\n❌ Validation failed: ${validationResult.missingCSS.length} files missing CSS, ${validationResult.missingJS.length} files missing JS`);
+    console.error('   Run: python3 scripts/fix-prerender-assets.py');
+    process.exit(1);
+  }
+  console.log('✅ All prerendered files validated successfully!\n');
 }
 
 /**

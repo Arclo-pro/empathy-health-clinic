@@ -60,6 +60,9 @@ async function testPage(browser: any, url: string): Promise<TestResult> {
   const errors: string[] = [];
   
   try {
+    // Use Googlebot user agent to trigger prerender middleware
+    await page.setUserAgent('Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)');
+    
     // Disable JavaScript
     await page.setJavaScriptEnabled(false);
     

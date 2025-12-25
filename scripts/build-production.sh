@@ -17,31 +17,25 @@ echo ""
 MIN_ROUTES=250        # Minimum expected routes (safety check)
 MIN_FILE_SIZE=5000    # Minimum bytes for valid snapshot (not just React shell)
 MIN_HOMEPAGE_LINKS=50 # Minimum links on homepage
-PORT=5000
+PORT=5001  # Use 5001 for prerendering to avoid conflicts with dev server
 
 # Step 1: Skip npm install - Replit handles this during provisioning
 echo "Step 1: Dependencies already installed by Replit provisioning"
 echo ""
 
-# Step 2: Clean old prerendered files (critical - prevents asset hash mismatches)
-echo "Step 2: Cleaning old prerendered files..."
-rm -rf dist/prerendered
-echo "  Removed dist/prerendered"
-echo ""
-
-# Step 3: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
-echo "Step 3: Building frontend and backend..."
+# Step 2: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
+echo "Step 2: Building frontend and backend..."
 npx vite build
 npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
 echo ""
 
-# Step 4: Install Chrome for Puppeteer
-echo "Step 4: Installing Chrome for Puppeteer..."
+# Step 3: Install Chrome for Puppeteer
+echo "Step 3: Installing Chrome for Puppeteer..."
 npx puppeteer browsers install chrome
 echo ""
 
-# Step 5: Generate route manifest (source of truth for prerendering)
-echo "Step 5: Generating route manifest..."
+# Step 4: Generate route manifest (source of truth for prerendering)
+echo "Step 4: Generating route manifest..."
 npx tsx scripts/buildRouteManifest.ts
 if [ ! -f "routes/allRoutes.json" ]; then
     echo "ERROR: Route manifest not generated"
@@ -51,40 +45,60 @@ MANIFEST_COUNT=$(cat routes/allRoutes.json | grep -o '"totalRoutes":' | head -1 
 echo "Manifest contains routes for prerendering"
 echo ""
 
-# Step 6: Start server temporarily for prerendering
-echo "Step 6: Starting temporary server for prerendering..."
-NODE_ENV=production node dist/index.js &
-SERVER_PID=$!
-sleep 5
-
-# Wait for server to be ready (max 60 seconds)
-SERVER_READY=false
-for i in {1..60}; do
-  if curl -s http://localhost:$PORT/ > /dev/null 2>&1; then
-    echo "Server is ready"
-    SERVER_READY=true
-    break
-  fi
-  echo "Waiting for server... ($i/60)"
-  sleep 1
-done
-
-if [ "$SERVER_READY" = false ]; then
-    echo "ERROR: Server failed to start within 60 seconds"
-    kill $SERVER_PID 2>/dev/null || true
-    exit 1
+# Step 5: Check existing prerendered files (after build, so dist/prerendered is intact)
+echo "Step 5: Checking prerendered files..."
+EXISTING_PAGES=$(find dist/prerendered -name "index.html" 2>/dev/null | wc -l || echo "0")
+if [ "$EXISTING_PAGES" -ge "$MIN_ROUTES" ]; then
+    echo "  Found $EXISTING_PAGES prerendered pages (min: $MIN_ROUTES)"
+    echo "  Using existing prerendered files (delete dist/prerendered to force re-render)"
+    SKIP_PRERENDER=true
+else
+    echo "  Found $EXISTING_PAGES prerendered pages (need $MIN_ROUTES)"
+    echo "  Will run incremental prerendering to complete missing pages"
+    SKIP_PRERENDER=false
 fi
-
-# Step 7: Run prerender script
 echo ""
-echo "Step 7: Prerendering all routes..."
-PRERENDER_URL=http://localhost:$PORT npx tsx scripts/prerender-puppeteer.ts
 
-# Stop the temporary server
-echo ""
-echo "Stopping temporary server..."
-kill $SERVER_PID 2>/dev/null || true
-wait $SERVER_PID 2>/dev/null || true
+# Step 6 & 7: Start server and prerender (skip if we already have enough pages)
+if [ "$SKIP_PRERENDER" = true ]; then
+    echo "Step 6: Skipping server start (using existing prerendered files)"
+    echo "Step 7: Skipping prerendering (using existing prerendered files)"
+    echo ""
+else
+    echo "Step 6: Starting temporary server for prerendering..."
+    NODE_ENV=production PORT=$PORT node dist/index.js &
+    SERVER_PID=$!
+    sleep 5
+
+    # Wait for server to be ready (max 60 seconds)
+    SERVER_READY=false
+    for i in {1..60}; do
+      if curl -s http://localhost:$PORT/ > /dev/null 2>&1; then
+        echo "Server is ready"
+        SERVER_READY=true
+        break
+      fi
+      echo "Waiting for server... ($i/60)"
+      sleep 1
+    done
+
+    if [ "$SERVER_READY" = false ]; then
+        echo "ERROR: Server failed to start within 60 seconds"
+        kill $SERVER_PID 2>/dev/null || true
+        exit 1
+    fi
+
+    # Step 7: Run prerender script (incremental - skips existing pages)
+    echo ""
+    echo "Step 7: Prerendering routes (incremental)..."
+    PRERENDER_URL=http://localhost:$PORT npx tsx scripts/prerender-puppeteer.ts
+
+    # Stop the temporary server
+    echo ""
+    echo "Stopping temporary server..."
+    kill $SERVER_PID 2>/dev/null || true
+    wait $SERVER_PID 2>/dev/null || true
+fi
 echo ""
 
 # Step 8: Verify prerender completeness (uses manifest)
