@@ -3075,6 +3075,51 @@ Sitemap: ${baseUrl}/image-sitemap.xml
     }
   });
 
+  // LLMs-full.txt - Comprehensive AI crawler guidance file with all URLs
+  app.get("/llms-full.txt", async (_req, res) => {
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public', 'llms-full.txt');
+      const llmsFullTxt = await fs.readFile(filePath, 'utf-8');
+      
+      res.header('Content-Type', 'text/plain; charset=utf-8');
+      res.send(llmsFullTxt);
+    } catch (error: any) {
+      res.status(500).send('# Error\n\n> Could not load llms-full.txt file');
+    }
+  });
+
+  // OpenAI Plugin Manifest - AI discovery file
+  app.get("/ai-plugin.json", async (_req, res) => {
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public', 'ai-plugin.json');
+      const aiPlugin = await fs.readFile(filePath, 'utf-8');
+      
+      res.header('Content-Type', 'application/json');
+      res.send(aiPlugin);
+    } catch (error: any) {
+      res.status(500).json({ error: 'Could not load ai-plugin.json file' });
+    }
+  });
+
+  // .well-known/ai-plugin.json - Standard location for AI plugin discovery
+  app.get("/.well-known/ai-plugin.json", async (_req, res) => {
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filePath = path.join(process.cwd(), 'public', '.well-known', 'ai-plugin.json');
+      const aiPlugin = await fs.readFile(filePath, 'utf-8');
+      
+      res.header('Content-Type', 'application/json');
+      res.send(aiPlugin);
+    } catch (error: any) {
+      res.status(500).json({ error: 'Could not load ai-plugin.json file' });
+    }
+  });
+
   // NOTE: Blog post redirects (/{slug} → /blog/{slug}) are now handled by the 
   // canonicalization middleware via the blog slug cache. This provides early-stage 
   // redirect handling before route processing for optimal performance and SEO.
