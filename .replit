@@ -49,3 +49,9 @@ waitForPort = 5000
 
 [agent]
 integrations = ["javascript_openai_ai_integrations:1.0.0"]
+
+[userenv]
+
+[userenv.shared]
+GITHUB_REPO = "kmease-ttc/empathy-health-clinic"
+GITHUB_BRANCH = "main"
