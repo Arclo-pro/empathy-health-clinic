@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Component, ErrorInfo, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
@@ -6,6 +6,57 @@ import type { SiteContent } from "@shared/schema";
 import { trackEvent } from "@/lib/analytics";
 
 const logoImage = "/attached_assets/image_1761920964846-optimized.webp";
+
+interface HeaderErrorBoundaryState {
+  hasError: boolean;
+}
+
+class HeaderErrorBoundary extends Component<{ children: ReactNode }, HeaderErrorBoundaryState> {
+  constructor(props: { children: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(): HeaderErrorBoundaryState {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Header error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="flex items-center justify-between h-20">
+              <a href="/" className="flex items-center">
+                <img src={logoImage} alt="Empathy Health Clinic" className="h-16 w-auto" />
+              </a>
+              <nav className="flex items-center gap-4">
+                <a href="/psychiatrist-orlando" className="text-gray-800 hover:text-orange-500">Psychiatrist Orlando</a>
+                <a href="/services" className="text-gray-800 hover:text-orange-500">Services</a>
+                <a href="/team" className="text-gray-800 hover:text-orange-500">Team</a>
+                <a href="/insurance" className="text-gray-800 hover:text-orange-500">Insurance</a>
+              </nav>
+              <div className="flex items-center gap-3">
+                <a href="tel:3868488751" className="flex items-center gap-1 text-amber-800 bg-amber-100 px-3 py-1.5 rounded">
+                  <Phone className="h-4 w-4" />
+                  386-848-8751
+                </a>
+                <a href="/request-appointment" className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500">
+                  Request Appointment
+                </a>
+              </div>
+            </div>
+          </div>
+        </header>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false);
@@ -23,7 +74,7 @@ function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-export default function SiteHeader() {
+function SiteHeaderContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 1024px)");
   const isTablet = useMediaQuery("(min-width: 768px)");
@@ -215,5 +266,13 @@ export default function SiteHeader() {
         </div>
       )}
     </header>
+  );
+}
+
+export default function SiteHeader() {
+  return (
+    <HeaderErrorBoundary>
+      <SiteHeaderContent />
+    </HeaderErrorBoundary>
   );
 }
