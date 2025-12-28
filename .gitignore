@@ -4,3 +4,7 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+# Replit exports / uploads (too large for GitHub)
+attached_assets/
+*.zip
+*.sql
