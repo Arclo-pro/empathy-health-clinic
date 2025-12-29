@@ -6,6 +6,7 @@ import { setupVite, serveStatic, log } from "./vite";
 import { canonicalizationMiddleware } from "./canonicalization-middleware";
 import { createPrerenderMiddleware, prerenderStatusHandler } from "./prerender-middleware";
 import { initBlogSlugCache } from "./storage";
+import { initializeDatabase } from "./db";
 import path from "path";
 
 const app = express();
@@ -254,14 +255,17 @@ app.get('/api/prerender-status', prerenderStatusHandler(prerenderedDir));
   }, () => {
     log(`serving on port ${port}`);
     
-    // Initialize blog slug cache AFTER server is listening
+    // Initialize database tables and caches AFTER server is listening
     // This prevents blocking health checks during deployment startup
     setImmediate(async () => {
       try {
+        // Create missing database tables first
+        await initializeDatabase();
+        // Then initialize blog slug cache
         await initBlogSlugCache();
-        log('Blog slug cache initialized');
+        log('Database and blog slug cache initialized');
       } catch (err) {
-        console.error('Failed to initialize blog slug cache:', err);
+        console.error('Failed to initialize:', err);
       }
     });
   });
