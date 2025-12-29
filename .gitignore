@@ -8,3 +8,8 @@ vite.config.ts.*
 attached_assets/
 *.zip
 *.sql
+
+# Ignore large uploaded assets
+attached_assets/
+*.zip
+*.sql
