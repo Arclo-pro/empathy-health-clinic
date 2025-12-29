@@ -29,6 +29,17 @@ PORT=5002  # Use 5002 for prerendering to avoid conflicts (5000=app, 5001=reserv
 echo "Step 1: Dependencies already installed by Replit provisioning"
 echo ""
 
+# Step 1.5: Validate database tables exist (prevents lead form regression)
+echo "Step 1.5: Validating critical database tables..."
+npx tsx scripts/validate-database-tables.ts
+if [ $? -ne 0 ]; then
+    echo "ERROR: Database table validation failed"
+    echo "  Critical tables are missing from the database."
+    echo "  Run 'npm run db:push' or create tables manually."
+    exit 1
+fi
+echo ""
+
 # Step 2: Standard Vite + esbuild build (inline, not via npm run build to avoid recursion)
 echo "Step 2: Building frontend and backend..."
 npx vite build

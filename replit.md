@@ -26,13 +26,14 @@ The frontend is a responsive React SPA built with TypeScript, Tailwind CSS, and 
 - **YMYL Content Audit Implementation:** Comprehensive YMYL compliance via reusable components for authoritative sources, localized content, and contextual internal linking.
 - **Universal HTML-Only Crawlability:** Ensures the site is fully crawlable by search engines in "HTML-only" mode through a prerendering system that serves static HTML snapshots.
 - **Pre-deployment Quality Checks:** Multi-layer validation system blocks publishing on regressions:
+  - **Database Table Validation** (`scripts/validate-database-tables.ts`): Verifies critical database tables (leads, blog_posts) exist before build; prevents lead form breakage
   - **Asset Integrity Verification** (`scripts/verify-asset-integrity.ts`): Ensures HTML references match actual production assets; prevents blank pages after deploy
   - **JS-Disabled Smoke Test** (`scripts/js-disabled-smoke-test.ts`): Verifies pages render content without JavaScript; catches empty prerendered content
   - **Prerender Validation** (`scripts/validate-prerender.ts`): Validates minimum route count, file sizes, and link counts
   - **QA Redirect Validation** (`scripts/qa/validate-redirects.ts`): Tests all 388+ redirects resolve to 200 status pages; validates problem URLs from Screaming Frog/GSC CSV exports; blocks deployment on 4xx/redirect loops
   - **Screaming Frog Issue Validation** (`scripts/qa/screaming-frog-validator.ts`): Checks for critical SEO issues including pages without internal outlinks, canonical mismatches, H1/H2 issues, and meta description length problems
   - **GSC Indexing Issue Validation** (`scripts/qa/gsc-indexing-validator.ts`): Validates against Google Search Console indexing issues including soft 404s, redirect links, noindex tags, canonical mismatches, and duplicate content
-  - **Build Pipeline Gates** (`scripts/build-production.sh`): 14-step build process with `exit 1` on any failure; blocks publishing on regressions
+  - **Build Pipeline Gates** (`scripts/build-production.sh`): 15-step build process with `exit 1` on any failure; blocks publishing on regressions
   - All gates are enforced automatically during `npm run build:production`
 
 ### Feature Specifications
