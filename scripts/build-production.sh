@@ -138,12 +138,18 @@ echo ""
 
 # Step 8.5: Fix asset references in prerendered HTML
 echo "Step 8.5: Fixing asset references in prerendered HTML..."
-if node scripts/fix-prerender-assets.mjs; then
+echo "  Running fix-prerender-assets.ts (delegates to .mjs)..."
+if npx tsx scripts/fix-prerender-assets.ts; then
     echo "  Asset references fixed successfully"
 else
-    echo "ERROR: fix-prerender-assets.mjs failed"
-    echo "  Prerendered HTML files may be missing production CSS/JS"
-    exit 1
+    echo "  Fallback: trying direct .mjs execution..."
+    if node scripts/fix-prerender-assets.mjs; then
+        echo "  Asset references fixed successfully (via .mjs fallback)"
+    else
+        echo "ERROR: fix-prerender-assets failed"
+        echo "  Prerendered HTML files may be missing production CSS/JS"
+        exit 1
+    fi
 fi
 echo ""
 
