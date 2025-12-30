@@ -8,26 +8,36 @@ import fs from 'fs';
  * Enables serving images from an external CDN while maintaining the same public URLs.
  * This allows removing large image assets from git while preserving SEO.
  * 
- * When EXTERNAL_ASSET_URL is set:
- *   - Requests to /attached_assets/* are redirected to CDN
- *   - Uses 302 redirect (temporary) to allow easy rollback
- *   - After verification, can switch to 301 (permanent)
+ * Environment Variables:
+ *   EXTERNAL_ASSET_URL     - CDN base URL (e.g., https://cdn.example.com)
+ *   ASSET_PROXY_MODE       - "cdn-first" (default when CDN set) or "local-first"
+ *   ASSET_REDIRECT_PERMANENT - "true" to use 301 instead of 302
  * 
- * When EXTERNAL_ASSET_URL is not set:
- *   - Falls through to express.static (current behavior)
+ * Modes:
+ *   - No EXTERNAL_ASSET_URL: Serve from local attached_assets/ (default)
+ *   - cdn-first: Redirect to CDN, fall through to local only if CDN not configured
+ *   - local-first: Serve local if file exists, redirect to CDN only if missing
  * 
- * Usage:
- *   EXTERNAL_ASSET_URL=https://cdn.example.com npm run dev
+ * URL Mapping (preserves querystrings):
+ *   /attached_assets/stock_images/photo.jpg?v=123
+ *   → https://cdn.example.com/attached_assets/stock_images/photo.jpg?v=123
  * 
- * URL Mapping:
- *   /attached_assets/stock_images/photo.jpg
- *   → https://cdn.example.com/attached_assets/stock_images/photo.jpg
+ * Cache Headers:
+ *   - 302 redirects: 10 minute cache (safe for testing)
+ *   - 301 redirects: 1 year cache (after verification)
  */
 
-const EXTERNAL_ASSET_URL = process.env.EXTERNAL_ASSET_URL;
+// Configuration
+const EXTERNAL_ASSET_URL = process.env.EXTERNAL_ASSET_URL?.replace(/\/$/, '') || '';
+const ASSET_PROXY_MODE = process.env.ASSET_PROXY_MODE || (EXTERNAL_ASSET_URL ? 'cdn-first' : 'local');
 const USE_PERMANENT_REDIRECT = process.env.ASSET_REDIRECT_PERMANENT === 'true';
+const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
-// Supported image extensions (case-insensitive matching)
+// Cache durations
+const CACHE_TEMPORARY = 'public, max-age=600';       // 10 min for 302
+const CACHE_PERMANENT = 'public, max-age=31536000';  // 1 year for 301
+
+// Supported image extensions (case-insensitive)
 const IMAGE_EXTENSIONS = new Set([
   '.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg', '.ico', '.bmp', '.tiff', '.tif'
 ]);
@@ -37,9 +47,44 @@ function isImageFile(filePath: string): boolean {
   return IMAGE_EXTENSIONS.has(ext);
 }
 
+function devLog(message: string): void {
+  if (IS_DEVELOPMENT) {
+    console.log(`[Assets] ${message}`);
+  }
+}
+
+/**
+ * Check if a local file exists
+ */
+function localFileExists(localAssetPath: string, reqPath: string): boolean {
+  const relativePath = reqPath.replace('/attached_assets/', '');
+  const localPath = path.join(localAssetPath, relativePath);
+  return fs.existsSync(localPath);
+}
+
+/**
+ * Build CDN URL preserving querystring
+ */
+function buildCdnUrl(reqPath: string, queryString: string): string {
+  const baseUrl = `${EXTERNAL_ASSET_URL}${reqPath}`;
+  return queryString ? `${baseUrl}?${queryString}` : baseUrl;
+}
+
+/**
+ * Send redirect response with appropriate headers
+ */
+function sendRedirect(res: Response, cdnUrl: string): void {
+  const statusCode = USE_PERMANENT_REDIRECT ? 301 : 302;
+  const cacheControl = USE_PERMANENT_REDIRECT ? CACHE_PERMANENT : CACHE_TEMPORARY;
+  
+  res.set('Cache-Control', cacheControl);
+  res.set('X-Asset-Source', 'cdn-redirect');
+  res.redirect(statusCode, cdnUrl);
+}
+
 /**
  * Creates the asset proxy middleware
- * @param localAssetPath - Local path to attached_assets directory (for fallback checks)
+ * @param localAssetPath - Local path to attached_assets directory
  */
 export function createAssetProxyMiddleware(localAssetPath: string) {
   return function assetProxyMiddleware(req: Request, res: Response, next: NextFunction) {
@@ -48,68 +93,61 @@ export function createAssetProxyMiddleware(localAssetPath: string) {
       return next();
     }
 
-    // If no external URL configured, fall through to static file serving
-    if (!EXTERNAL_ASSET_URL) {
-      return next();
-    }
-
-    // Only redirect image files - let other assets (docs, etc) be served locally
+    // Only process image files - other assets (docs, etc) always serve locally
     if (!isImageFile(req.path)) {
       return next();
     }
 
-    // Construct CDN URL
-    const cdnUrl = `${EXTERNAL_ASSET_URL.replace(/\/$/, '')}${req.path}`;
-    
-    // Use 302 (temporary) by default for safe rollback
-    // Switch to 301 after verification by setting ASSET_REDIRECT_PERMANENT=true
-    const statusCode = USE_PERMANENT_REDIRECT ? 301 : 302;
-    
-    // Set cache headers for the redirect itself
-    res.set('Cache-Control', USE_PERMANENT_REDIRECT 
-      ? 'public, max-age=31536000' // 1 year for permanent
-      : 'public, max-age=86400'    // 1 day for temporary
-    );
-    
-    return res.redirect(statusCode, cdnUrl);
+    // Mode: local (no CDN configured)
+    if (!EXTERNAL_ASSET_URL || ASSET_PROXY_MODE === 'local') {
+      return next();
+    }
+
+    // Mode: local-first (serve local if exists, CDN as fallback)
+    if (ASSET_PROXY_MODE === 'local-first') {
+      if (localFileExists(localAssetPath, req.path)) {
+        devLog(`local-first: serving local file ${req.path}`);
+        return next();
+      }
+      // File missing locally, redirect to CDN
+      const cdnUrl = buildCdnUrl(req.path, req.query ? new URLSearchParams(req.query as any).toString() : '');
+      devLog(`local-first: redirecting to CDN ${cdnUrl}`);
+      return sendRedirect(res, cdnUrl);
+    }
+
+    // Mode: cdn-first (default when EXTERNAL_ASSET_URL set)
+    // Always redirect to CDN, no local fallback check
+    const queryString = Object.keys(req.query).length > 0 
+      ? new URLSearchParams(req.query as Record<string, string>).toString() 
+      : '';
+    const cdnUrl = buildCdnUrl(req.path, queryString);
+    devLog(`cdn-first: redirecting ${req.path} → ${cdnUrl}`);
+    return sendRedirect(res, cdnUrl);
   };
 }
 
 /**
- * Middleware to serve local assets as fallback
- * This is called after the proxy middleware when no CDN is configured
+ * Log asset serving configuration on startup
  */
-export function createLocalAssetFallback(localAssetPath: string) {
-  return function localAssetFallback(req: Request, res: Response, next: NextFunction) {
-    // Only handle /attached_assets/* requests
-    if (!req.path.startsWith('/attached_assets/')) {
-      return next();
-    }
-
-    // Check if file exists locally
-    const relativePath = req.path.replace('/attached_assets/', '');
-    const localPath = path.join(localAssetPath, relativePath);
-    
-    if (fs.existsSync(localPath)) {
-      // Let express.static handle it
-      return next();
-    }
-
-    // If external URL is configured but redirect failed to resolve,
-    // we might want to check CDN here as a fallback
-    // For now, just 404
-    return next();
-  };
-}
-
-/**
- * Log helper for asset serving diagnostics
- */
-export function logAssetConfig() {
-  if (EXTERNAL_ASSET_URL) {
-    console.log(`[Assets] CDN mode enabled: ${EXTERNAL_ASSET_URL}`);
-    console.log(`[Assets] Redirect type: ${USE_PERMANENT_REDIRECT ? '301 (permanent)' : '302 (temporary)'}`);
-  } else {
+export function logAssetConfig(): void {
+  if (!EXTERNAL_ASSET_URL) {
     console.log('[Assets] Local mode: serving from attached_assets/');
+    return;
   }
+
+  console.log(`[Assets] CDN enabled: ${EXTERNAL_ASSET_URL}`);
+  console.log(`[Assets] Mode: ${ASSET_PROXY_MODE}`);
+  console.log(`[Assets] Redirect: ${USE_PERMANENT_REDIRECT ? '301 (permanent)' : '302 (temporary)'}`);
+}
+
+/**
+ * Get current asset configuration for diagnostics
+ */
+export function getAssetConfig() {
+  return {
+    externalUrl: EXTERNAL_ASSET_URL || null,
+    mode: ASSET_PROXY_MODE,
+    permanentRedirect: USE_PERMANENT_REDIRECT,
+    cacheControl: USE_PERMANENT_REDIRECT ? CACHE_PERMANENT : CACHE_TEMPORARY,
+  };
 }

@@ -68,6 +68,9 @@ attached_assets/generated_videos/
 **/*-report.html
 **/*-export.csv
 
+# Generated manifests (regenerated via scripts)
+scripts/asset-manifest.json
+
 # Temporary/draft folders
 empathy-clean/
 temp/

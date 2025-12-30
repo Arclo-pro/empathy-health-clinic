@@ -21,124 +21,155 @@
 | Landing Pages | `img src="/attached_assets/..."` | ~100 pages |
 | Structured Data | Schema.org image references | All pages |
 
-### How Images Are Served
-```typescript
-// server/index.ts line 220
-app.use("/attached_assets", express.static(attachedAssetsPath));
-```
+---
 
-Images are served as static files via Express at the `/attached_assets` path prefix.
+## Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `EXTERNAL_ASSET_URL` | *(unset)* | CDN base URL (e.g., `https://cdn.example.com`) |
+| `ASSET_PROXY_MODE` | `cdn-first` when CDN set | `cdn-first` or `local-first` |
+| `ASSET_REDIRECT_PERMANENT` | `false` | Set to `true` for 301 redirects |
+
+### Proxy Modes
+
+| Mode | Behavior |
+|------|----------|
+| **local** | No CDN configured. Serve from `attached_assets/` (default) |
+| **cdn-first** | Redirect all images to CDN. Default when `EXTERNAL_ASSET_URL` is set |
+| **local-first** | Serve local if file exists, CDN only if missing |
+
+### Cache Headers
+
+| Redirect Type | Cache-Control |
+|---------------|---------------|
+| 302 (temporary) | `public, max-age=600` (10 minutes) |
+| 301 (permanent) | `public, max-age=31536000` (1 year) |
+
+### Querystring Preservation
+
+All querystrings are preserved during redirects:
+```
+/attached_assets/image.jpg?v=123
+→ https://cdn.example.com/attached_assets/image.jpg?v=123
+```
 
 ---
 
-## Strategy Comparison
+## SEO Safety Confirmation
 
-### Strategy A: CDN Proxy (RECOMMENDED - Safest)
-**Keep same public URLs, serve from external storage**
-
-```
-User Request: GET /attached_assets/stock_images/photo.jpg
-                    ↓
-           Express Middleware
-                    ↓
-    Check EXTERNAL_ASSET_URL env var
-           ↓               ↓
-        Not Set          Set to CDN
-           ↓               ↓
-    Serve from         302 Redirect OR
-    local disk         Proxy to CDN
-```
-
-| Aspect | Impact |
+| Aspect | Status |
 |--------|--------|
-| **Public URLs** | NO CHANGE - `/attached_assets/*` stays same |
-| **SEO Risk** | ZERO - Google sees same URLs |
-| **Image Sitemap** | NO CHANGE needed |
-| **Structured Data** | NO CHANGE needed |
-| **Blog Post Data** | NO CHANGE needed |
-| **Rollback** | Instant - just unset env var |
-
-**Implementation:**
-1. Add middleware to check `EXTERNAL_ASSET_URL`
-2. If set: redirect/proxy to `${EXTERNAL_ASSET_URL}${path}`
-3. If not set: serve from local `attached_assets/`
+| Public URLs | **UNCHANGED** - `/attached_assets/*` paths preserved |
+| Blog Post Data | **NO CHANGES** - featuredImage fields unchanged |
+| Image Sitemap | **NO CHANGES** - same URLs |
+| Structured Data | **NO CHANGES** - same image references |
+| Robots.txt | **NO CHANGES** |
+| Canonical Tags | **NO CHANGES** |
+| Meta Tags | **NO CHANGES** |
 
 ---
 
-### Strategy B: 301 Redirects (Higher Risk)
-**Change URLs, add permanent redirects**
+## Commands
 
-```
-Old URL: /attached_assets/stock_images/photo.jpg
-         ↓ 301 Redirect
-New URL: https://cdn.empathyhealthclinic.com/images/stock_images/photo.jpg
-```
-
-| Aspect | Impact |
-|--------|--------|
-| **Public URLs** | CHANGED to CDN URLs |
-| **SEO Risk** | LOW but requires redirect processing |
-| **Image Sitemap** | MUST UPDATE all URLs |
-| **Structured Data** | MUST UPDATE all image refs |
-| **Blog Post Data** | MUST UPDATE 173 featuredImage fields |
-| **Rollback** | Complex - must restore old URLs everywhere |
-
-**Why Not Recommended:**
-- Requires updating data in multiple places
-- 301s take time for Google to process
-- Higher risk of broken images during transition
-- More complex rollback procedure
-
----
-
-## Recommended Implementation: Strategy A
-
-### Phase 1: Code Changes (In This Repo)
-
-#### 1. Add Asset Proxy Middleware
-Create middleware that checks `EXTERNAL_ASSET_URL` environment variable.
-
-#### 2. Migration Script
-Generate manifest of all images with checksums for verification.
-
-#### 3. Validation Script
-Check that all referenced images resolve (local or CDN).
-
-### Phase 2: External Setup (User Action Required)
-
-#### Option A: Cloudflare R2 (Recommended)
-- Cost: ~$0.015/GB storage, $0.36/million requests
-- No egress fees
-- Native Cloudflare CDN integration
-
-#### Option B: AWS S3 + CloudFront
-- Cost: ~$0.023/GB storage + CloudFront fees
-- More complex setup
-
-#### Option C: Cloudinary
-- Cost: Free tier (25GB bandwidth/month)
-- Built-in image optimization
-- Simpler setup
-
-### Phase 3: Upload & Verify
-
-1. Upload all images to chosen CDN
-2. Verify all images accessible at CDN URLs
-3. Set `EXTERNAL_ASSET_URL` environment variable
-4. Run validation script to confirm no 404s
-5. Monitor for 24-48 hours
-
-### Phase 4: Git Cleanup (Local Machine)
-
-After CDN is verified working:
+### Manifest Generation
 ```bash
-# On local machine (NOT on Replit)
+# Generate inventory of all images (output: scripts/asset-manifest.json)
+npx tsx scripts/generate-asset-manifest.ts
+
+# With MD5 checksums (slower)
+CALCULATE_MD5=true npx tsx scripts/generate-asset-manifest.ts
+```
+
+**Note**: `scripts/asset-manifest.json` is gitignored. Regenerate as needed.
+
+### Validation
+```bash
+# Validate against local files
+bash scripts/validate-assets-local.sh
+
+# Validate against CDN
+EXTERNAL_ASSET_URL=https://your-cdn.com bash scripts/validate-assets-cdn.sh
+```
+
+### Repo Size Check
+```bash
+node scripts/check-repo-size.mjs
+```
+
+---
+
+## Migration Phases
+
+### Phase 1: Code Ready (DONE)
+- [x] Asset proxy middleware implemented
+- [x] Manifest generation script
+- [x] Validation scripts
+- [x] Repo size guardrails
+
+### Phase 2: External Setup (User Action)
+
+#### Recommended: Cloudflare R2
+```bash
+# Install rclone
+brew install rclone  # or apt install rclone
+
+# Configure R2 (follow rclone prompts)
+rclone config
+
+# Upload images (exclude macOS junk folders)
+rclone sync attached_assets/ r2:your-bucket/attached_assets/ \
+  --exclude "__MACOSX/**" \
+  --exclude "*.docx" \
+  --exclude "*.csv" \
+  --exclude "*.xml"
+```
+
+### Phase 3: Enable CDN
+
+```bash
+# Set in Replit Secrets (or .env)
+EXTERNAL_ASSET_URL=https://your-cdn-domain.com
+ASSET_PROXY_MODE=cdn-first
+```
+
+### Phase 4: Validate
+
+```bash
+# Validate CDN accessibility
+EXTERNAL_ASSET_URL=https://your-cdn.com bash scripts/validate-assets-cdn.sh
+```
+
+### Phase 5: Monitor
+
+Wait 24-48 hours and check:
+- [ ] No new 404 errors in Google Search Console
+- [ ] No crawl errors in image sitemap
+- [ ] Blog images loading correctly
+- [ ] Landing page images loading correctly
+
+### Phase 6: Enable Permanent Redirects
+
+```bash
+ASSET_REDIRECT_PERMANENT=true
+```
+
+### Phase 7: Git Cleanup (LOCAL MACHINE ONLY)
+
+**WARNING**: Only proceed after Phase 5 monitoring is complete.
+
+```bash
+# On your LOCAL machine (not Replit)
+git clone your-repo
+cd your-repo
+
+# Install filter-repo
 pip install git-filter-repo
 
 # Remove attached_assets from git history
 git filter-repo --path attached_assets --invert-paths
 
-# Force push to remote
+# Force push (coordinate with team)
 git push origin main --force
 ```
 
@@ -146,44 +177,45 @@ git push origin main --force
 
 ## Rollback Plan
 
-| Step | Action |
-|------|--------|
-| 1 | Unset `EXTERNAL_ASSET_URL` environment variable |
-| 2 | Restart server |
-| 3 | Images immediately served from local `attached_assets/` |
-| 4 | No data changes required |
-| 5 | No URL changes required |
+| Step | Action | Time |
+|------|--------|------|
+| 1 | Remove `EXTERNAL_ASSET_URL` from environment | 30 sec |
+| 2 | Restart server | 30 sec |
+| 3 | Images immediately served from local files | Instant |
+
+**Total rollback time: ~1 minute**
+
+No code changes, no data changes, no URL changes required.
 
 ---
 
-## File Changes Summary
+## Pre-Filter-Repo Checklist
 
-| File | Change |
-|------|--------|
-| `server/asset-proxy-middleware.ts` | NEW - CDN proxy middleware |
-| `server/index.ts` | Add asset proxy middleware registration |
-| `scripts/generate-asset-manifest.ts` | NEW - Generate image inventory |
-| `scripts/validate-assets.ts` | NEW - Verify all images resolve |
+Only run `git filter-repo` when ALL of these are true:
 
----
-
-## Environment Variables
-
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `EXTERNAL_ASSET_URL` | CDN base URL (optional) | `https://cdn.empathyhealthclinic.com` |
-
-When not set, images serve from local `attached_assets/` directory (current behavior).
-
----
-
-## Validation Checklist
-
-Before removing images from git:
 - [ ] All 13,241 images uploaded to CDN
-- [ ] `EXTERNAL_ASSET_URL` configured
-- [ ] `npm run validate:assets` passes
-- [ ] Spot-check 10 random blog posts for images
-- [ ] Spot-check image sitemap URLs
-- [ ] Monitor for 24-48 hours
-- [ ] Check Google Search Console for crawl errors
+- [ ] `EXTERNAL_ASSET_URL` configured and active
+- [ ] `bash scripts/validate-assets-cdn.sh` passes
+- [ ] Spot-checked 10+ blog posts for working images
+- [ ] Spot-checked 5+ landing pages for working images
+- [ ] Image sitemap URLs resolve (check in browser)
+- [ ] Monitored for 24-48 hours minimum
+- [ ] Google Search Console shows no new crawl errors
+- [ ] `ASSET_REDIRECT_PERMANENT=true` enabled
+- [ ] Team notified of upcoming force push
+- [ ] Local backup of attached_assets/ created
+
+---
+
+## Files Summary
+
+| File | Purpose |
+|------|---------|
+| `server/asset-proxy-middleware.ts` | CDN redirect logic |
+| `server/index.ts` | Middleware registration |
+| `scripts/generate-asset-manifest.ts` | Image inventory |
+| `scripts/validate-assets.ts` | Validation logic |
+| `scripts/validate-assets-local.sh` | Local validation wrapper |
+| `scripts/validate-assets-cdn.sh` | CDN validation wrapper |
+| `scripts/check-repo-size.mjs` | Repo size guardrail |
+| `docs/IMAGE_MIGRATION_STRATEGY.md` | This document |
