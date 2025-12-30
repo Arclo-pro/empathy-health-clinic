@@ -71,7 +71,7 @@ export default function ComparisonSection() {
                           <div className="w-5 h-5 rounded-full border-2 border-muted-foreground/30" />
                         </div>
                         <div>
-                          <p className="font-semibold text-muted-foreground text-sm mb-1">Healing Psychiatry of Florida</p>
+                          <p className="font-semibold text-muted-foreground text-sm mb-1">Other Providers</p>
                           <p className="text-sm text-muted-foreground/70">{item.competitor}</p>
                         </div>
                       </div>

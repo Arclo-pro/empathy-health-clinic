@@ -538,7 +538,7 @@ export default function AdminSERP() {
   };
 
   const exportCSV = () => {
-    const headers = ["Keyword", "Volume", "Priority", "Category", "Position", "URL", "Healing Psychiatry", "MyMindCare", "Orlando Health", "Last Checked"];
+    const headers = ["Keyword", "Volume", "Priority", "Category", "Position", "URL", "MyMindCare", "Orlando Health", "Last Checked"];
     const rows = KEYWORD_DATA.map(kd => {
       const data = rankings.get(kd.keyword);
       return [
@@ -548,7 +548,6 @@ export default function AdminSERP() {
         kd.category,
         data?.position ?? "Not checked",
         data?.url ?? "",
-        data?.competitor_positions?.["healingpsychiatryflorida.com"] ?? "",
         data?.competitor_positions?.["mymindcarecenter.com"] ?? "",
         data?.competitor_positions?.["orlandohealth.com"] ?? "",
         data?.lastChecked ? new Date(data.lastChecked).toLocaleString() : "",

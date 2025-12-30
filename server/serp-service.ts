@@ -22,7 +22,6 @@ interface CachedRanking {
 const DOMAIN = 'empathyhealthclinic.com';
 const CITY = 'Orlando, Florida, United States';
 const COMPETITORS = [
-  'healingpsychiatryflorida.com',
   'mymindcarecenter.com',
   'orlandohealth.com',
 ];
