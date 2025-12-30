@@ -23,8 +23,10 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = process.env.PRERENDER_URL || 'http://localhost:5000';
 const OUTPUT_DIR = path.resolve(rootDir, 'dist/prerendered');
 const MANIFEST_PATH = path.resolve(rootDir, 'routes/allRoutes.json');
-const CONCURRENCY = 2; // Very low concurrency for stability in Replit
+const CONCURRENCY = parseInt(process.env.PRERENDER_CONCURRENCY || '2', 10); // Configurable via env
 const TIMEOUT = 30000; // 30 seconds per page for reliability
+
+console.log(`🔧 Prerender config: CONCURRENCY=${CONCURRENCY}, TIMEOUT=${TIMEOUT}ms`);
 
 interface RouteManifest {
   totalRoutes: number;
