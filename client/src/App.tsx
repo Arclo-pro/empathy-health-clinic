@@ -123,6 +123,8 @@ const Telehealth = lazy(() => import("@/pages/Telehealth"));
 const AdultADHDTreatmentOrlando = lazy(() => import("@/pages/AdultADHDTreatmentOrlando"));
 const SuboxoneTreatmentOrlando = lazy(() => import("@/pages/SuboxoneTreatmentOrlando"));
 const MedicaidPsychiatristOrlando = lazy(() => import("@/pages/MedicaidPsychiatristOrlando"));
+const PsychiatristsOrlando = lazy(() => import("@/pages/PsychiatristsOrlando"));
+const PsychologyOrlando = lazy(() => import("@/pages/PsychologyOrlando"));
 
 // Location Pages
 const PsychiatristAltamonteSprings = lazy(() => import("@/pages/locations/AltamonteSprings"));
@@ -742,6 +744,16 @@ function Router() {
         <Route path="/medicaid-psychiatrist-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <MedicaidPsychiatristOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/psychiatrists-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychiatristsOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/psychology-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychologyOrlando />
           </Suspense>
         </Route>
         <Route path="/about">

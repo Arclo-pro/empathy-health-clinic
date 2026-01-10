@@ -270,7 +270,7 @@ export default function Psychiatrist() {
       <main className="flex-1">
         <HeroBackground imageSrc={heroImage}>
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">
-            Board-Certified Psychiatrists
+            Psychiatrist in Orlando
           </h1>
           <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-3xl" data-testid="text-hero-description">
             Expert psychiatric care for adults and adolescents. Comprehensive medication management, psychiatric evaluations, and personalized mental health treatment. Same-week appointments available with telehealth options.
