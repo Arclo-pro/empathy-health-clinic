@@ -23,8 +23,8 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = process.env.PRERENDER_URL || 'http://localhost:5000';
 const OUTPUT_DIR = path.resolve(rootDir, 'dist/prerendered');
 const MANIFEST_PATH = path.resolve(rootDir, 'routes/allRoutes.json');
-const CONCURRENCY = parseInt(process.env.PRERENDER_CONCURRENCY || '2', 10); // Configurable via env
-const TIMEOUT = 30000; // 30 seconds per page for reliability
+const CONCURRENCY = parseInt(process.env.PRERENDER_CONCURRENCY || '5', 10); // Increased from 2 to 5 for faster builds
+const TIMEOUT = 20000; // 20 seconds per page (reduced from 30s)
 
 console.log(`🔧 Prerender config: CONCURRENCY=${CONCURRENCY}, TIMEOUT=${TIMEOUT}ms`);
 
