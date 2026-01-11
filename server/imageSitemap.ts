@@ -17,13 +17,13 @@ const LOGO_IMAGES: ImageEntry[] = [
   {
     loc: '/',
     images: [
-      { loc: '/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Psychiatry and Mental Health', geoLocation: GEO_LOCATION },
+      { loc: '/attached_assets/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Psychiatry and Mental Health', geoLocation: GEO_LOCATION },
     ]
   },
   {
     loc: '/about',
     images: [
-      { loc: '/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Mental Health Provider', geoLocation: GEO_LOCATION },
+      { loc: '/attached_assets/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Mental Health Provider', geoLocation: GEO_LOCATION },
     ]
   }
 ];
