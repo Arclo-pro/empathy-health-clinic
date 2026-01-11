@@ -2205,6 +2205,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create blog post with all the generated content
       // Mark new blogs as featured by default
       
+      // Get max order to place new blog at the top
+      const maxOrderResult = await db.execute(sql`SELECT COALESCE(MAX("order"), 0) + 1 as next_order FROM blog_posts`);
+      const nextOrder = (maxOrderResult.rows[0] as any)?.next_order || 1;
+      
       // SEO Fix: Ensure metaTitle is always different from H1 (title) to avoid 15-point penalty
       // If metaTitle is missing or identical to title, append unique suffix
       let finalMetaTitle = blogData.metaTitle;
@@ -2246,7 +2250,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         metaTitle: finalMetaTitle,
         metaDescription: blogData.metaDescription,
         keywords: blogData.keywords || [],
-        order: 0,
+        order: nextOrder,
       });
 
       // Update used images to associate them with this blog post
