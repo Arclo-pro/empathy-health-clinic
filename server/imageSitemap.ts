@@ -13,6 +13,21 @@ interface ImageEntry {
 const BASE_URL = 'https://www.empathyhealthclinic.com';
 const GEO_LOCATION = 'Orlando, Florida, USA';
 
+const LOGO_IMAGES: ImageEntry[] = [
+  {
+    loc: '/',
+    images: [
+      { loc: '/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Psychiatry and Mental Health', geoLocation: GEO_LOCATION },
+    ]
+  },
+  {
+    loc: '/about',
+    images: [
+      { loc: '/empathy-health-clinic-logo.png', title: 'Empathy Health Clinic Logo - Orlando Mental Health Provider', geoLocation: GEO_LOCATION },
+    ]
+  }
+];
+
 const HOMEPAGE_IMAGES: ImageEntry[] = [
   {
     loc: '/',
@@ -291,6 +306,7 @@ function escapeXml(text: string): string {
 
 function generateImageSitemapXML(): string {
   const allEntries: ImageEntry[] = [
+    ...LOGO_IMAGES,
     ...HOMEPAGE_IMAGES,
     ...PROVIDER_IMAGES,
     ...SERVICE_PAGE_IMAGES,
