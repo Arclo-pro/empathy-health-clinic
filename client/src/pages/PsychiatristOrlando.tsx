@@ -187,9 +187,9 @@ export default function PsychiatristOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Orlando | Psychiatry Orlando FL 2025"
-        description="Top-rated psychiatrist Orlando and psychiatry Orlando services. Board-certified Orlando psychiatrists accepting new patients. Same-week appointments for ADHD, anxiety, depression. 4.8★ rated. BCBS, Cigna, Medicare. (386) 848-8751."
-        keywords={["psychiatrist orlando", "psychiatry orlando", "orlando psychiatrist", "psychiatrist orlando fl", "psychiatry orlando fl", "best psychiatrist orlando", "top rated psychiatrist orlando", "psychiatrist near me orlando", "anxiety psychiatrist orlando", "adhd psychiatrist orlando", "depression psychiatrist orlando", "medication management orlando", "mental health orlando", "psychiatrist accepting new patients orlando", "bipolar psychiatrist orlando"]}
+        title="Psychiatrist Orlando FL | #1 Psychiatry Orlando | Same-Week"
+        description="Best psychiatrist Orlando FL accepting new patients. Board-certified psychiatry Orlando specialists for anxiety, depression, ADHD, bipolar. Same-week appointments. 4.8★ rating. BCBS, Aetna, Cigna, Medicare. Call (386) 848-8751."
+        keywords={["psychiatrist orlando", "psychiatry orlando", "psychiatrist orlando fl", "psychiatry orlando fl", "orlando psychiatrist", "best psychiatrist orlando", "psychiatrist accepting new patients orlando", "top rated psychiatrist orlando", "anxiety psychiatrist orlando", "adhd psychiatrist orlando", "depression psychiatrist orlando", "bipolar psychiatrist orlando", "medication management orlando", "mental health orlando", "psychiatrist near me orlando"]}
         canonicalPath="/psychiatrist-orlando"
         jsonLd={jsonLd}
       />
@@ -207,12 +207,12 @@ export default function PsychiatristOrlando() {
                   <span className="font-medium">4.8 Rating from 120+ Patients</span>
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" data-testid="text-hero-title">
-                  Psychiatrist Orlando, FL
+                  Psychiatrist Orlando FL
                 </h1>
                 
-                {/* SEO Intro Paragraph - Keyword in first sentence */}
+                {/* SEO Intro Paragraph - Keywords in first sentences */}
                 <p className="text-xl text-gray-200 max-w-xl" data-testid="text-hero-description">
-                  <strong>If you're searching for a psychiatrist in Orlando,</strong> our board-certified psychiatrists provide <strong>same-week appointments</strong> with in-person and telehealth options covered by most major insurance. We offer expert medication management for anxiety, depression, ADHD, and bipolar disorder—right here in Central Florida.
+                  <strong>Looking for a psychiatrist in Orlando?</strong> Empathy Health Clinic provides top-rated <strong>psychiatry Orlando</strong> services with <strong>same-week appointments</strong>. Our board-certified <strong>Orlando psychiatrists</strong> specialize in anxiety, depression, ADHD, and bipolar disorder treatment—offering both in-person and telehealth visits covered by most major insurance plans.
                 </p>
 
                 {/* Why Choose Us - Quick Trust Signals */}

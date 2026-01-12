@@ -116,7 +116,7 @@ const PsychiatristOrlandoAcceptsCigna = lazy(() => import("@/pages/PsychiatristO
 const PsychiatristOrlandoAcceptsAetna = lazy(() => import("@/pages/PsychiatristOrlandoAcceptsAetna"));
 const PsychiatristOrlandoAcceptsUnitedHealthcare = lazy(() => import("@/pages/PsychiatristOrlandoAcceptsUnitedHealthcare"));
 const PsychiatryOrlando = lazy(() => import("@/pages/PsychiatryOrlando"));
-const OcdPsychiatristOrlando = lazy(() => import("@/pages/OcdPsychiatristOrlando"));
+const OcdPsychiatristOrlando = lazy(() => import("@/pages/OCDPsychiatristOrlando"));
 const SchizophreniaPsychiatristOrlando = lazy(() => import("@/pages/SchizophreniaPsychiatristOrlando"));
 const InsomniaPsychiatristOrlando = lazy(() => import("@/pages/InsomniaPsychiatristOrlando"));
 const Telehealth = lazy(() => import("@/pages/Telehealth"));
