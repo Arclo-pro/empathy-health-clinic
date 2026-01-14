@@ -365,6 +365,13 @@ export default function AnxietyTherapy() {
                 </h3>
                 <div className="space-y-3">
                   <Link 
+                    href="/anxiety-psychiatrist-orlando" 
+                    className="block text-primary hover:underline underline-offset-2 font-medium"
+                    data-testid="link-anxiety-psychiatrist"
+                  >
+                    → Anxiety Psychiatrist Orlando
+                  </Link>
+                  <Link 
                     href="/depression-counseling" 
                     className="block text-primary hover:underline underline-offset-2"
                     data-testid="link-depression"

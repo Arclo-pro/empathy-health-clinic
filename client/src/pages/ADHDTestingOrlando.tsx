@@ -544,6 +544,30 @@ export default function ADHDTestingOrlando() {
                 </div>
               </section>
 
+              <section className="bg-primary/5 border border-primary/20 rounded-lg p-6">
+                <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
+                  After Your ADHD Diagnosis – Treatment Options
+                </h2>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-foreground leading-relaxed mb-4">
+                    Once you receive your ADHD diagnosis, the next step is starting an effective treatment plan. Our board-certified psychiatrists specialize in ADHD medication management, including stimulant and non-stimulant options tailored to your specific needs.
+                  </p>
+                  <p className="text-foreground leading-relaxed mb-4">
+                    Treatment typically begins with a follow-up appointment where we discuss medication options, set treatment goals, and create a personalized care plan. Many patients see significant improvement in focus, organization, and daily functioning within weeks of starting treatment.
+                  </p>
+                  <div className="mt-6">
+                    <Link 
+                      href="/adhd-psychiatrist-orlando" 
+                      className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors"
+                      data-testid="link-adhd-treatment"
+                    >
+                      <Brain className="h-5 w-5" />
+                      Start Treatment with Our ADHD Specialists
+                    </Link>
+                  </div>
+                </div>
+              </section>
+
               <section>
                 <h2 className="text-2xl font-sans font-bold text-foreground mb-4">
                   Frequently Asked Questions

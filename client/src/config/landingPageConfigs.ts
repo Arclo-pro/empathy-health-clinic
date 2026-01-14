@@ -2033,7 +2033,7 @@ export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
     mainHeading: "ADHD Psychiatrist Orlando: Specialized ADHD Treatment",
     introduction: [
       "Finding an experienced ADHD psychiatrist in Orlando is crucial for effective ADHD treatment. At Empathy Health Clinic, our board-certified psychiatrists specialize in diagnosing and treating ADHD in adults, adolescents, and children with evidence-based approaches tailored to each patient's unique needs.",
-      "Our ADHD specialists in Orlando provide comprehensive evaluations, medication management with both stimulant and non-stimulant options, and ongoing support to help you or your child thrive with ADHD. We understand the challenges of living with ADHD and are committed to helping you achieve better focus, organization, and overall quality of life.",
+      "Our ADHD specialists in Orlando provide comprehensive evaluations, medication management with both stimulant and non-stimulant options, and ongoing support to help you or your child thrive with ADHD. We understand the challenges of living with ADHD and are committed to helping you achieve better focus, organization, and overall quality of life. Need to get tested first? Schedule your <a href='/adhd-testing-orlando' class='text-primary hover:underline font-medium'>ADHD testing in Orlando</a> to receive a comprehensive evaluation before starting treatment.",
     ],
     conditionsHeading: "ADHD Types We Treat",
     conditions: [
@@ -2123,6 +2123,7 @@ export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
     formSubheading: "Get expert ADHD diagnosis and treatment from specialized psychiatrists in Orlando.",
     formType: "contact",
     quickLinks: [
+      { href: "/adhd-testing-orlando", label: "ADHD Testing in Orlando" },
       { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
       { href: "/psychiatry-orlando", label: "Psychiatry Services" },
       { href: "/anxiety-psychiatrist-orlando", label: "Anxiety Treatment" },

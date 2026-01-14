@@ -558,7 +558,10 @@ export default function AnxietyPsychiatristOrlando() {
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
                   <h3 className="font-semibold text-foreground mb-3">Related Services</h3>
                   <div className="space-y-2">
-                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline font-medium">
+                    <Link href="/anxiety-therapy" className="block text-sm text-primary hover:underline font-medium">
+                      Anxiety Therapy & Counseling
+                    </Link>
+                    <Link href="/psychiatrist-orlando" className="block text-sm text-primary hover:underline">
                       Psychiatrist Orlando
                     </Link>
                     <Link href="/psychiatrist-near-me" className="block text-sm text-primary hover:underline">
