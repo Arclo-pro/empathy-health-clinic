@@ -24,6 +24,10 @@ export const contentRedirectMap: Record<string, string> = {
   // Duplicate content redirects
   '/virtual-visit': '/virtual-therapy',
   
+  // SEO Consolidation: psychiatry-orlando → psychiatrist-orlando (avoid keyword cannibalization)
+  // Audit recommendation: Both pages target similar keywords, consolidate to single authoritative page
+  '/psychiatry-orlando': '/psychiatrist-orlando',
+  
   // WordPress legacy redirects
   // NOTE: /psychiatric-services is now a real landing page - DO NOT redirect (Google Ads requires it)
   '/locations/psychiatry-orlando': '/psychiatrist-orlando',
