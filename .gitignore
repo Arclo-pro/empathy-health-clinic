@@ -56,11 +56,12 @@ yarn-error.log*
 *.gz
 *.bz2
 
+# Ephemeral asset folders (DO NOT use for production)
+attached_assets/
+
 # Specific bloat-prone directories
-attached_assets/**/*.zip
-attached_assets/**/*.sql
-attached_assets/screaming_frog_reports/
-attached_assets/generated_videos/
+screaming_frog_reports/
+generated_videos/
 
 # Reports and exports (regenerated on demand)
 **/exports/

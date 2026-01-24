@@ -230,6 +230,12 @@ app.get('/api/prerender-status', prerenderStatusHandler(prerenderedDir));
   app.use(createAssetProxyMiddleware(attachedAssetsPath));
   app.use("/attached_assets", express.static(attachedAssetsPath));
   
+  // Serve stable site assets from public/site-assets (committed to git)
+  const siteAssetsPath = path.resolve(process.cwd(), "public/site-assets");
+  const blogAssetsPath = path.resolve(process.cwd(), "public/blog-assets");
+  app.use("/site-assets", express.static(siteAssetsPath));
+  app.use("/blog-assets", express.static(blogAssetsPath));
+  
   // Serve logo file directly for SEO (no redirect, indexable)
   const clientPublicPath = path.resolve(process.cwd(), "client/public");
   app.use("/empathy-health-clinic-logo.png", express.static(path.join(clientPublicPath, "empathy-health-clinic-logo.png")));
