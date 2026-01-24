@@ -221,7 +221,7 @@ export class MemStorage implements IStorage {
       id: randomUUID(),
       heroTitle: "Healing Begins with Empathy",
       heroSubtitle: "Psychiatry, Psychotherapy & Counseling Clinic Serving Orlando and Winter Park, Florida",
-      heroImage: "/attached_assets/stock_images/professional_therapi_f037aa5d.jpg",
+      heroImage: "/site-assets/stock_images/professional_therapi_f037aa5d.jpg",
       reviewCount: 65,
       reviewRating: "EXCELLENT",
       footerPhone: "386-848-8751",
@@ -410,7 +410,7 @@ export class MemStorage implements IStorage {
       {
         name: "Melissa DiPaolis",
         credentials: "MSN, APRN, FNP-BC",
-        image: "/attached_assets/image_1761612547677.webp",
+        image: "/site-assets/providers/image_1761612547677.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "melissa-dipaolis",
         pageTitle: "Melissa DiPaolis, MSN, APRN, FNP-BC | Family Nurse Practitioner | Winter Park, FL",
@@ -423,7 +423,7 @@ export class MemStorage implements IStorage {
       {
         name: "Marjorie Felix",
         credentials: "MSN, APRN, PMHNP-BC",
-        image: "/attached_assets/image_1761613541242.webp",
+        image: "/site-assets/providers/image_1761613541242.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "marjorie-felix",
         pageTitle: "Marjorie Felix, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL",
@@ -436,7 +436,7 @@ export class MemStorage implements IStorage {
       {
         name: "Marsha D. Hassell",
         credentials: "MS, PLMHC",
-        image: "/attached_assets/image_1761613347362.webp",
+        image: "/site-assets/providers/image_1761613347362.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "marsha-hassell",
         pageTitle: "Marsha D. Hassell, MS, PLMHC | Licensed Mental Health Counselor | Winter Park, FL",
@@ -449,7 +449,7 @@ export class MemStorage implements IStorage {
       {
         name: "Alex Regan",
         credentials: "Psychiatric PA-C, Medical Director",
-        image: "/attached_assets/image_1761612254512.webp",
+        image: "/site-assets/providers/image_1761612254512.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "alex-regan",
         pageTitle: "Alex Regan, PA-C, Medical Director | Psychiatric Physician Assistant | Winter Park, FL",
@@ -462,7 +462,7 @@ export class MemStorage implements IStorage {
       {
         name: "Dr. Robert Glenn",
         credentials: "MD, Supervising Physician",
-        image: "/attached_assets/dr_glenn_headshot_square_1761613083513.webp",
+        image: "/site-assets/providers/dr_glenn_headshot_square_1761613083513.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "dr-robert-glenn",
         pageTitle: "Dr. Robert Glenn, MD | Supervising Physician | Winter Park, FL",
@@ -475,7 +475,7 @@ export class MemStorage implements IStorage {
       {
         name: "Karla McLeod",
         credentials: "Licensed Mental Health Counselor",
-        image: "/attached_assets/carla_headshot_square_v2_1761619702991.webp",
+        image: "/site-assets/providers/carla_headshot_square_v2_1761619702991.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "karla-mcleod",
         pageTitle: "Karla McLeod, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
@@ -488,7 +488,7 @@ export class MemStorage implements IStorage {
       {
         name: "Christine Orr",
         credentials: "LCSW",
-        image: "/attached_assets/image_1761614480890.webp",
+        image: "/site-assets/providers/image_1761614480890.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "christine-orr",
         pageTitle: "Christine Orr, LCSW | Licensed Clinical Social Worker | Winter Park, FL",
@@ -501,7 +501,7 @@ export class MemStorage implements IStorage {
       {
         name: "Monique Walen",
         credentials: "MSN, APRN, PMHNP-BC",
-        image: "/attached_assets/image_1761603840896.webp",
+        image: "/site-assets/providers/image_1761603840896.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "monique-walen",
         pageTitle: "Monique Walen, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL",
@@ -514,7 +514,7 @@ export class MemStorage implements IStorage {
       {
         name: "Batese Mitchell",
         credentials: "LMHC",
-        image: "/attached_assets/Headshot (1)_1764630281211.jpg",
+        image: "/site-assets/providers/Headshot (1)_1764630281211.jpg",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "batese-mitchell",
         pageTitle: "Batese Mitchell, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
@@ -568,7 +568,7 @@ export class MemStorage implements IStorage {
     const defaultInsurance: InsertInsuranceProvider[] = [
       { 
         name: "Blue Cross Blue Shield", 
-        logo: "/attached_assets/BlueCross-optimized.webp",
+        logo: "/site-assets/logos/bluecross.webp",
         slug: "blue-cross-blue-shield-blue-cross-blue-shield-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Blue Cross Blue Shield",
         heroTitle: "Find a Psychiatrist That Accepts Blue Cross Blue Shield",
@@ -584,7 +584,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Aetna", 
-        logo: "/attached_assets/Aetna-Logo-optimized.webp",
+        logo: "/site-assets/logos/aetna.webp",
         slug: "aetna-aetna-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Aetna",
         heroTitle: "Find a Psychiatrist That Accepts Aetna",
@@ -600,7 +600,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Optum", 
-        logo: "/attached_assets/optum_1761610670721.webp",
+        logo: "/site-assets/logos/optum.webp",
         slug: "optum-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Optum",
         heroTitle: "Find a Psychiatrist That Accepts Optum",
@@ -616,7 +616,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Cigna", 
-        logo: "/attached_assets/Cigna-Logo-optimized.webp",
+        logo: "/site-assets/logos/cigna.webp",
         slug: "cigna-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Cigna",
         heroTitle: "Find a Psychiatrist That Accepts Cigna",
@@ -632,7 +632,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "AdventHealth", 
-        logo: "/attached_assets/AdventHealth-Logo-optimized.webp",
+        logo: "/site-assets/logos/adventhealth.webp",
         slug: "adventhealth-coverage",
         pageTitle: "Find a Psychiatrist That Accepts AdventHealth",
         heroTitle: "Find a Psychiatrist That Accepts AdventHealth",
@@ -648,7 +648,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "UMR", 
-        logo: "/attached_assets/rehab-that-takes-UMR.png._1761746528980.webp",
+        logo: "/site-assets/logos/umr.webp",
         slug: "umr-coverage",
         pageTitle: "Find a Psychiatrist That Accepts UMR",
         heroTitle: "Find a Psychiatrist That Accepts UMR",
@@ -664,7 +664,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "UnitedHealthcare", 
-        logo: "/attached_assets/united-healthcare_1761610722363.webp",
+        logo: "/site-assets/logos/unitedhealthcare.webp",
         slug: "unitedhealthcare-coverage",
         pageTitle: "Find a Psychiatrist That Accepts UnitedHealthcare",
         heroTitle: "Find a Psychiatrist That Accepts UnitedHealthcare",
@@ -680,7 +680,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Oscar Health", 
-        logo: "/attached_assets/Oscar-optimized.webp",
+        logo: "/site-assets/logos/oscar.webp",
         slug: "oscar-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Oscar Health",
         heroTitle: "Find a Psychiatrist That Accepts Oscar Health",
@@ -696,7 +696,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "First Health", 
-        logo: "/attached_assets/First-Health-Logo_1761603088941.jpg",
+        logo: "/site-assets/logos/firsthealth.jpg",
         slug: "first-health-first-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts First Health",
         heroTitle: "Find a Psychiatrist That Accepts First Health",
@@ -712,7 +712,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Medicare", 
-        logo: "/attached_assets/Medicare-optimized.webp",
+        logo: "/site-assets/logos/medicare.webp",
         slug: "medicare-medicare-coverage",
         pageTitle: "We Accept Medicare - Mental Health Services in Winter Park FL",
         heroTitle: "We Accept Medicare",
