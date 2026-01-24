@@ -613,7 +613,7 @@ export default function SEOHead({
     
     const canonicalUrl = `${preferredDomain}${normalizedPath}`;
     const currentUrl = canonicalUrl;
-    const defaultOgImage = ogImage || `${preferredDomain}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
+    const defaultOgImage = ogImage || `${preferredDomain}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
 
     // Set robots based on page type:
     // - noindex for utility pages (admin, privacy-policy, etc.)

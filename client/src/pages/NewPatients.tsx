@@ -4,7 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ShortContactForm from "@/components/ShortContactForm";
 import SEOHead from "@/components/SEOHead";
-const forestBg = "/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
+const forestBg = "/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function NewPatients() {

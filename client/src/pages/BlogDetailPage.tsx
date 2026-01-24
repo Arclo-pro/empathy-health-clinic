@@ -11,7 +11,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
-const forestBg = "/attached_assets/stock_images/misty_forest_morning_c7552d0a.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_c7552d0a.jpg";
 
 function optimizeUnsplashUrl(url: string, width: number, height: number, quality: number = 60): string {
   if (!url || !url.includes('unsplash.com')) {
@@ -406,7 +406,7 @@ export default function BlogDetailPage() {
           "name": "Empathy Health Clinic",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://empathyhealthclinic.com/attached_assets/image_1761618219825.png"
+            "url": "https://empathyhealthclinic.com/site-assets/logos/empathy-logo.png"
           }
         },
         "description": blogPost.metaDescription || blogPost.excerpt,

@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/attached_assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
 import { trackEvent } from "@/lib/analytics";
 
 export default function DepressionTreatment() {

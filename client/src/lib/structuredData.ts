@@ -196,7 +196,7 @@ export function buildArticleSchema(options: ArticleSchemaOptions) {
       "name": CLINIC_INFO.name,
       "logo": {
         "@type": "ImageObject",
-        "url": `${PREFERRED_DOMAIN}/attached_assets/image_1761618219825.png`
+        "url": `${PREFERRED_DOMAIN}/site-assets/logos/empathy-logo.png`
       }
     },
     "mainEntityOfPage": {
@@ -248,7 +248,7 @@ export function buildPhysicianSchema(physician: PhysicianInfo) {
     "@context": "https://schema.org",
     "@type": "Physician",
     "name": physician.name,
-    "image": physician.image || `${PREFERRED_DOMAIN}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "image": physician.image || `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
     "url": `${PREFERRED_DOMAIN}/team/${physician.slug}`,
     "description": physician.bio || `${physician.name} is a mental health provider at Empathy Health Clinic.`,
     "worksFor": {
@@ -312,8 +312,8 @@ export function buildLocalBusinessSchema(options: LocalBusinessOptions) {
     "name": `Empathy Health Clinic - ${options.city}`,
     "description": options.description,
     "url": `${PREFERRED_DOMAIN}/locations/${options.slug}`,
-    "logo": `${PREFERRED_DOMAIN}/attached_assets/image_1761618219825.png`,
-    "image": `${PREFERRED_DOMAIN}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "logo": `${PREFERRED_DOMAIN}/site-assets/logos/empathy-logo.png`,
+    "image": `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
     "telephone": CLINIC_INFO.telephone,
     "email": CLINIC_INFO.email,
     "address": {

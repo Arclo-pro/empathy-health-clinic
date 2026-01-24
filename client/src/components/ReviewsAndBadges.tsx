@@ -1,9 +1,9 @@
-const zocdocLogo = "/attached_assets/logo_lockup_positive_rgb_1761921702261.webp";
-const googleLogo = "/attached_assets/google-wordmark.webp";
-const healthgradesLogo = "/attached_assets/healthgrades-logo.webp";
-const yelpLogo = "/attached_assets/image_1761925935867.webp";
-const goodTherapyLogo = "/attached_assets/image_1761927553793.webp";
-const scoreMyReviewsLogo = "/attached_assets/image_1761927693804.webp";
+const zocdocLogo = "/site-assets/logos/zocdoc.webp";
+const googleLogo = "/site-assets/logos/google.webp";
+const healthgradesLogo = "/site-assets/logos/healthgrades.webp";
+const yelpLogo = "/site-assets/logos/yelp.webp";
+const goodTherapyLogo = "/site-assets/logos/goodtherapy.webp";
+const scoreMyReviewsLogo = "/site-assets/logos/scoremyreviews.webp";
 
 const PLATFORM_BADGES = [
   {

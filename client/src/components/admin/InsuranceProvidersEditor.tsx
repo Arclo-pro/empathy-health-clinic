@@ -148,7 +148,7 @@ export default function InsuranceProvidersEditor() {
                     <FormItem>
                       <FormLabel>Logo Path</FormLabel>
                       <FormControl>
-                        <Input {...field} placeholder="/attached_assets/insurance/logo.png" data-testid="input-provider-logo" />
+                        <Input {...field} placeholder="/site-assets/logos/insurance-logo.webp" data-testid="input-provider-logo" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

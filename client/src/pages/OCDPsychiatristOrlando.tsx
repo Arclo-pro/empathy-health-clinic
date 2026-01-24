@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
-const heroImage = "/attached_assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
 
 export default function OCDPsychiatristOrlando() {

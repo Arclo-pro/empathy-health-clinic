@@ -1,7 +1,7 @@
 import { Shield, Award, Calendar, Heart, Users, CheckCircle, Lock, Sparkles } from "lucide-react";
 
-const psychologyTodayLogo = "/attached_assets/image_1761922062341.webp";
-const goodTherapyLogo = "/attached_assets/image_1761922436191.webp";
+const psychologyTodayLogo = "/site-assets/logos/psychologytoday.webp";
+const goodTherapyLogo = "/site-assets/logos/goodtherapy-alt.webp";
 
 interface TrustFactor {
   icon?: React.ElementType;

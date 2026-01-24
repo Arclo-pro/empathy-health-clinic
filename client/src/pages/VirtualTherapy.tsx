@@ -13,7 +13,7 @@ import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
-const heroImage = "/attached_assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 
@@ -53,7 +53,7 @@ export default function VirtualTherapy() {
     "telephone": "+1-386-848-8751",
     "url": window.location.origin,
     "priceRange": "$$",
-    "image": `${window.location.origin}/attached_assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "image": `${window.location.origin}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": "28.5983",

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import type { Condition, Treatment, Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
-const forestBg = "/attached_assets/stock_images/peaceful_green_fores_e64064d2.jpg";
+const forestBg = "/site-assets/stock_images/peaceful_green_fores_e64064d2.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";

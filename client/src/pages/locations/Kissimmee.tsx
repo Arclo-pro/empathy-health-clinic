@@ -13,7 +13,7 @@ import ShortContactForm from "@/components/ShortContactForm";
 import LocalizedContent from "@/components/LocalizedContent";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/attached_assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
 import { trackEvent } from "@/lib/analytics";
 
 export default function PsychiatristKissimmee() {

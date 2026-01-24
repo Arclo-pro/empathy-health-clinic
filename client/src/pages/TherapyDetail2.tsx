@@ -9,7 +9,7 @@ import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
-const forestBg = "/attached_assets/stock_images/misty_forest_morning_3efbbc1d.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_3efbbc1d.jpg";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";

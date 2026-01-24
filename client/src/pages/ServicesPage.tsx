@@ -13,7 +13,7 @@ import InsuranceSection from "@/components/InsuranceSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroLeadForm from "@/components/HeroLeadForm";
-const forestBg = "/attached_assets/stock_images/calm_forest_trees_me_0c56a0e8.jpg";
+const forestBg = "/site-assets/stock_images/calm_forest_trees_me_0c56a0e8.jpg";
 import { trackEvent } from "@/lib/analytics";
 import TextUsButton from "@/components/TextUsButton";
 

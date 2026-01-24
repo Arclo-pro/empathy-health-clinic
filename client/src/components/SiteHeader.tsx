@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import type { SiteContent } from "@shared/schema";
 import { trackEvent } from "@/lib/analytics";
 
-const logoImage = "/attached_assets/image_1761920964846-optimized.webp";
+const logoImage = "/site-assets/logos/empathy-logo.webp";
 
 interface HeaderErrorBoundaryState {
   hasError: boolean;

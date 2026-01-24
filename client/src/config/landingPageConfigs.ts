@@ -1,5 +1,5 @@
 import type { LandingPageConfig } from "@/types/landingPage";
-const heroImage = "/attached_assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
 import { FileText, Brain, Shield, Award, Calendar, Video, MessageCircle, Users, CheckCircle, Heart, DollarSign, CreditCard, Clock } from "lucide-react";
 
 export const psychiatricEvaluationConfig: LandingPageConfig = {

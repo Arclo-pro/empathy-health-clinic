@@ -6,7 +6,7 @@ import type { Location } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import ShortContactForm from "@/components/ShortContactForm";
-const forestBg = "/attached_assets/stock_images/peaceful_green_fores_8b0bc1d4.jpg";
+const forestBg = "/site-assets/stock_images/peaceful_green_fores_8b0bc1d4.jpg";
 import SEOHead from "@/components/SEOHead";
 import LocalBusinessSchema from "@/components/LocalBusinessSchema";
 import OfficeMap from "@/components/OfficeMap";
