@@ -56,11 +56,11 @@ yarn-error.log*
 *.gz
 *.bz2
 
-# Specific bloat-prone directories (ignore entire folder)
-attached_assets/
-
-# Replit UPM
-.upm/
+# Specific bloat-prone directories
+attached_assets/**/*.zip
+attached_assets/**/*.sql
+attached_assets/screaming_frog_reports/
+attached_assets/generated_videos/
 
 # Reports and exports (regenerated on demand)
 **/exports/
