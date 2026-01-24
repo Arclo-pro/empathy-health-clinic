@@ -98,3 +98,26 @@ Thumbs.db
 
 repl_state.bin
 .agent_state_*.bin
+# Replit / build / deps
+node_modules/
+dist/
+.tmp/
+tmp/
+.cache/
+.cache-loader/
+.parcel-cache/
+.vite/
+.next/
+out/
+coverage/
+
+# Huge / ephemeral
+attached_assets/
+assets/
+*.log
+*.zip
+*.tar
+*.gz
+*.mp4
+*.mov
+.DS_Store
