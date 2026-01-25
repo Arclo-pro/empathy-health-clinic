@@ -24,6 +24,8 @@ const EXCLUDED_PATHS = [
   '/.well-known',
   '/assets/',
   '/attached_assets/',
+  '/site-assets/',
+  '/blog-assets/',
   '/static/',
   '/images/',
   '/fonts/',

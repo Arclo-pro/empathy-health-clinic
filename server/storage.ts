@@ -730,7 +730,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Curative Health", 
-        logo: "/attached_assets/Curative_Logo_(002)_1761610862397.jpg",
+        logo: "/site-assets/logos/curative.jpg",
         slug: "curative-health-curative-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Curative Health",
         heroTitle: "Find a Psychiatrist That Accepts Curative Health",
