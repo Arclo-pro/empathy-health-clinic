@@ -158,7 +158,7 @@ export default function Home() {
             {/* Row 1 - 3 column grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <Link href="/psychiatrist-near-me" className="group" data-testid="link-orlando-near-me">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-orlando-near-me">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-near-me">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
@@ -170,7 +170,7 @@ export default function Home() {
               </Link>
 
               <Link href="/psychiatrist-orlando" className="group" data-testid="link-orlando-psychiatrist">
-                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 hover:shadow-md transition-all h-full" data-testid="card-orlando-psychiatrist">
+                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-psychiatrist">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                     <Stethoscope className="w-5 h-5 text-primary" />
                   </div>
@@ -182,7 +182,7 @@ export default function Home() {
               </Link>
 
               <Link href="/anxiety-therapy" className="group" data-testid="link-orlando-anxiety">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-orlando-anxiety">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-anxiety">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <Heart className="w-5 h-5 text-primary" />
                   </div>
@@ -197,7 +197,7 @@ export default function Home() {
             {/* Row 2 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <Link href="/depression-counseling" className="group" data-testid="link-orlando-depression">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-orlando-depression">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-depression">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <Frown className="w-5 h-5 text-primary" />
                   </div>
@@ -209,7 +209,7 @@ export default function Home() {
               </Link>
 
               <Link href="/services" className="group" data-testid="link-orlando-medication">
-                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 hover:shadow-md transition-all h-full" data-testid="card-orlando-medication">
+                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-medication">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                     <Pill className="w-5 h-5 text-primary" />
                   </div>
@@ -221,7 +221,7 @@ export default function Home() {
               </Link>
 
               <Link href="/psychiatry-near-me" className="group" data-testid="link-orlando-psychiatry-near-me">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-orlando-psychiatry-near-me">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-orlando-psychiatry-near-me">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <Search className="w-5 h-5 text-primary" />
                   </div>
@@ -236,7 +236,7 @@ export default function Home() {
             {/* Row 3 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
               <Link href="/psychiatrist-for-anxiety-near-me" className="group" data-testid="link-anxiety-psychiatrist">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-anxiety-psychiatrist">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-anxiety-psychiatrist">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <AlertCircle className="w-5 h-5 text-primary" />
                   </div>
@@ -248,7 +248,7 @@ export default function Home() {
               </Link>
 
               <Link href="/psychiatrist-for-depression-near-me" className="group" data-testid="link-depression-psychiatrist">
-                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 hover:shadow-md transition-all h-full" data-testid="card-depression-psychiatrist">
+                <div className="flex items-center gap-4 p-5 bg-primary/10 dark:bg-primary/20 rounded-xl border border-primary/20 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-depression-psychiatrist">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                     <Frown className="w-5 h-5 text-primary" />
                   </div>
@@ -260,7 +260,7 @@ export default function Home() {
               </Link>
 
               <Link href="/mental-health-clinic-orlando" className="group" data-testid="link-mental-health-clinic">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-mental-health-clinic">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-mental-health-clinic">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <Building2 className="w-5 h-5 text-primary" />
                   </div>
@@ -275,7 +275,7 @@ export default function Home() {
             {/* Row 4 */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
               <Link href="/best-psychiatrist-orlando" className="group" data-testid="link-best-psychiatrist">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-best-psychiatrist">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-best-psychiatrist">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <Award className="w-5 h-5 text-primary" />
                   </div>
@@ -287,7 +287,7 @@ export default function Home() {
               </Link>
 
               <Link href="/psychiatrist-winter-park" className="group" data-testid="link-psychiatrist-winter-park">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-psychiatrist-winter-park">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-psychiatrist-winter-park">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <MapPinned className="w-5 h-5 text-primary" />
                   </div>
@@ -299,7 +299,7 @@ export default function Home() {
               </Link>
 
               <Link href="/mental-health-doctor-orlando" className="group" data-testid="link-mental-health-doctor">
-                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all h-full" data-testid="card-mental-health-doctor">
+                <div className="flex items-center gap-4 p-5 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all h-full" data-testid="card-mental-health-doctor">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center">
                     <User className="w-5 h-5 text-primary" />
                   </div>
@@ -314,25 +314,25 @@ export default function Home() {
             {/* Insurance Quick Links with icons */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
               <Link href="/psychiatrist-orlando-accepts-bcbs" className="group" data-testid="link-bcbs">
-                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all">
+                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all">
                   <img src="/site-assets/logos/bcbs.png" alt="BCBS" className="w-6 h-6 object-contain" />
                   <span className="text-sm font-medium text-foreground group-hover:text-primary">BCBS Psychiatrist</span>
                 </div>
               </Link>
               <Link href="/psychiatrist-orlando-accepts-cigna" className="group" data-testid="link-cigna">
-                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all">
+                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all">
                   <img src="/site-assets/logos/cigna.png" alt="Cigna" className="w-6 h-6 object-contain" />
                   <span className="text-sm font-medium text-foreground group-hover:text-primary">Cigna Psychiatrist</span>
                 </div>
               </Link>
               <Link href="/psychiatrist-orlando-accepts-aetna" className="group" data-testid="link-aetna">
-                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all">
+                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all">
                   <img src="/site-assets/logos/aetna.png" alt="Aetna" className="w-6 h-6 object-contain" />
                   <span className="text-sm font-medium text-foreground group-hover:text-primary">Aetna Psychiatrist</span>
                 </div>
               </Link>
               <Link href="/psychiatrist-orlando-accepts-united" className="group" data-testid="link-united">
-                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 hover:shadow-md transition-all">
+                <div className="flex items-center justify-center gap-2 p-4 bg-white dark:bg-card rounded-xl border border-orange-100 dark:border-orange-900/30 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all">
                   <img src="/site-assets/logos/united.png" alt="United" className="w-6 h-6 object-contain" />
                   <span className="text-sm font-medium text-foreground group-hover:text-primary">United Psychiatrist</span>
                 </div>
