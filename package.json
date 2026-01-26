@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build": "npm run build:ci",
@@ -15,7 +18,7 @@
     "build:ci": "PRERENDER_MODE=off bash scripts/build-production.sh",
     "check:repo": "node scripts/check-repo-size.mjs",
     "check:db": "bash scripts/check-db.sh",
-    "check:seo": "bash scripts/check-seo.sh",
+    "check:seo": "bash scripts/check-seo.sh"
     "check:assets": "bash scripts/check-assets.sh",
     "check:all": "bash scripts/check-all.sh",
     "postbuild": "node scripts/fix-prerender-assets.mjs && node scripts/verify-asset-integrity.mjs",
