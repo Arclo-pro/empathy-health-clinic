@@ -285,7 +285,34 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (path === '/api/insurance-providers') {
       const result = await sql`SELECT * FROM insurance_providers ORDER BY "order"`;
-      return res.status(200).json(result);
+
+      // Normalize logo paths to ensure they point to correct location
+      const logoMap: Record<string, string> = {
+        'blue cross blue shield': '/site-assets/logos/bluecross.webp',
+        'aetna': '/site-assets/logos/aetna.webp',
+        'optum': '/site-assets/logos/optum.webp',
+        'cigna': '/site-assets/logos/cigna.webp',
+        'adventhealth': '/site-assets/logos/adventhealth.webp',
+        'umr': '/site-assets/logos/umr.webp',
+        'unitedhealthcare': '/site-assets/logos/unitedhealthcare.webp',
+        'oscar health': '/site-assets/logos/oscar.webp',
+        'oscar': '/site-assets/logos/oscar.webp',
+        'first health': '/site-assets/logos/firsthealth.jpg',
+        'medicare': '/site-assets/logos/medicare.webp',
+      };
+
+      const normalizedProviders = result.map((provider: any) => {
+        const nameLower = provider.name?.toLowerCase() || '';
+        const mappedLogo = logoMap[nameLower];
+
+        // Use mapped logo if available, otherwise keep original
+        return {
+          ...provider,
+          logo: mappedLogo || provider.logo
+        };
+      });
+
+      return res.status(200).json(normalizedProviders);
     }
 
     if (path === '/api/locations') {
