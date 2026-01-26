@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense } from "react";
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -261,6 +261,21 @@ function Router() {
             <Insurance />
           </Suspense>
         </Route>
+        
+        {/* Google Ads URL Redirects - Insurance Coverage Pages */}
+        <Route path="/cigna-cigna-coverage">
+          <Redirect to="/psychiatrist-orlando-accepts-cigna" />
+        </Route>
+        <Route path="/aetna-aetna-coverage">
+          <Redirect to="/psychiatrist-orlando-accepts-aetna" />
+        </Route>
+        <Route path="/medicare-medicare-coverage">
+          <Redirect to="/medicare-psychiatrist-orlando" />
+        </Route>
+        <Route path="/blue-cross-blue-shield-blue-cross-blue-shield-coverage">
+          <Redirect to="/blue-cross-blue-shield-therapy-orlando" />
+        </Route>
+        
         <Route path="/therapy">
           <Suspense fallback={<LoadingFallback />}>
             <Therapy />
