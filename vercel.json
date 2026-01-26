@@ -5,25 +5,19 @@
   "outputDirectory": "dist/public",
   "functions": {
     "api/**/*.ts": {
-      "runtime": "nodejs24.x"
+      "runtime": "@vercel/node@4"
     }
   },
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ],
   "rewrites": [
     { "source": "/api/:path*", "destination": "/api" },
-    {
-      "source": "/((?!assets|site-assets|favicon|robots|sitemap|api).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/((?!assets|site-assets|favicon|robots|sitemap|api).*)", "destination": "/index.html" }
   ]
 }
