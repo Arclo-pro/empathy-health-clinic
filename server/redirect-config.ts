@@ -421,7 +421,6 @@ export const contentRedirectMap: Record<string, string> = {
   '/optum-coverage': '/insurance',
   '/outsource-billing-practice': '/blog/outsource-billing-practice',
   '/petulant-bpd-symptoms-and-treatment': '/blog/petulant-bpd-symptoms-and-treatment',
-  '/post-traumatic-stress-disorder-ptsd': '/anxiety-therapy',
   '/prodromal-stage-mental-health': '/blog/prodromal-stage-mental-health',
   '/psychotherapy-vs-counseling-therapy-what-is-the-difference': '/blog/psychotherapy-vs-counseling-therapy-what-is-the-difference',
   '/ptsd-trauma': '/anxiety-therapy',
@@ -438,15 +437,10 @@ export const contentRedirectMap: Record<string, string> = {
   '/the-power-of-grief-counseling-in-healing-the-heart': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
   '/the-rise-of-online-therapy-a-game-changer-for-mental-health': '/blog/the-rise-of-online-therapy-a-game-changer-for-mental-health',
   '/the-role-of-therapy-in-managing-bipolar-disorder': '/blog/the-role-of-therapy-in-managing-bipolar-disorder',
-  '/therapy-services-orlando-mental-health-support': '/blog/therapy-services-orlando-mental-health-support',
-  '/therapy/dialectical-behavioral-therapy': '/therapy',
-  '/therapy/in-person-therapy': '/in-person-therapy',
-  '/therapy/in-person-therapy-2': '/in-person-therapy',
   '/top-10-best-low-stress-jobs': '/blog/top-10-best-low-stress-jobs',
   '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025': '/blog/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025',
   '/treatments/anger-management': '/stress-management',
   '/treatments/depression-therapy': '/depression-treatment',
-  '/treatments/therapy-treatment': '/therapy',
   '/trust-after-trauma-a-guide-to-creating-secure-attachments': '/therapy',
   '/unburdened-the-key-to-mental-clarity': '/blog/unburdened-the-key-to-mental-clarity',
   '/understanding-adhd-masking': '/blog/understanding-adhd-masking',
@@ -484,12 +478,7 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Google Search Console - Not Found 404 Errors - December 2025
   // NOTE: Do NOT redirect /@vite/client - it breaks development prerendering
-  '/trauma-therapy': '/anxiety-therapy',
-  '/faq': '/services',
   '/locations/therapy-services-lake-mary': '/therapist-orlando',
-  '/anxiety-assessment': '/anxiety-therapy',
-  '/adhd-assessment-page': '/adhd-treatment',
-  '/supplements': '/services',
   '/treatments/psychiatry-maitland': '/psychiatrist-orlando',
   '/understanding-4-types-of-bpd': '/blog/understanding-the-4-types-of-bpd',
   '/locations/psychiatry-fairview-shores': '/psychiatrist-orlando',
@@ -510,8 +499,6 @@ export const contentRedirectMap: Record<string, string> = {
   '/personality-disorders': '/services',
   '/eating-disorders': '/services',
   '/lgbtq-therapy': '/therapy',
-  '/ptsd-trauma': '/anxiety-therapy',
-  '/optum-coverage': '/insurance',
   
   // NOTE: REMOVED 20+ incorrect blog→/blog redirects that were causing traffic loss
   // These blog posts EXIST in database and should NOT redirect to /blog index
@@ -547,11 +534,9 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Feed URLs - redirect to blog
   '/head-trauma-memory-loss-recovery/feed': '/blog',
-  '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025/feed': '/blog',
   
   // Google Search Console - 404 Fixes (January 2026)
   // Condition pages that need redirects (no dedicated pages exist)
-  '/schizophrenia-psychotic-disorders': '/services',
   '/substance-use-disorders-addiction': '/services',
   '/postpartum-depression-perinatal-mood-disorders': '/services',
   '/ocd-obsessive-compulsive-disorder': '/ocd-treatment',
@@ -565,12 +550,6 @@ export const contentRedirectMap: Record<string, string> = {
   // NOTE: Do NOT add redirects for location pages - they should be self-canonical
   // and handled by LocationDetail.tsx or dedicated static pages
   
-  // Old blog URLs found in GSC 404 list
-  '/understanding-bipolar-disorder-types-symptoms-and-diagnosis': '/bipolar-psychiatrist-orlando',
-  '/the-growing-importance-of-public-health-in-modern-healthcare': '/blog/the-growing-importance-of-public-health-in-modern-healthcare',
-  '/the-role-of-therapy-in-managing-bipolar-disorder': '/bipolar-psychiatrist-orlando',
-  '/trust-after-trauma-a-guide-to-creating-secure-attachments': '/anxiety-therapy',
-  '/unburdened-the-key-to-mental-clarity': '/therapy',
   
   // Oscar Health and UHC variants with trailing slashes (normalized)
   '/find-a-psychiatrist-that-takes-oscar-health-oscar-coverage': '/therapist-accepts-oscar-health',
