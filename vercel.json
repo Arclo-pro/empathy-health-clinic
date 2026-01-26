@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "installCommand": "npm install",
-  "buildCommand": "npx vite build --outDir dist",
-  "outputDirectory": "dist",
+  "framework": "vite",
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist/public",
   "trailingSlash": false,
   "cleanUrls": true,
   "headers": [
