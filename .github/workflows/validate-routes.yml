@@ -38,3 +38,10 @@ jobs:
       
       - name: Validate routes
         run: node scripts/validate-routes.js
+        
+      - name: Report results
+        if: failure()
+        run: |
+          echo "❌ Route validation failed!"
+          echo "Some routes returned 404 or errors."
+          echo "Please check the route configuration before merging."
