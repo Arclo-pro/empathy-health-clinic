@@ -60,7 +60,7 @@ export default function SiteFooter() {
 
   const servicesLinks = [
     { label: "Psychiatric Evaluation", href: "/psychiatric-evaluation" },
-    { label: "Medication Management", href: "/services" },
+    { label: "Medication Management", href: "/medication-management-orlando" },
     { label: "PTSD Treatment", href: "/ptsd-psychiatrist-orlando" },
     { label: "Stress Management", href: "/stress-management" },
     { label: "CBT Therapy", href: "/cognitive-behavioral-therapy" },
@@ -81,7 +81,7 @@ export default function SiteFooter() {
     { label: "Psychiatry Orlando", href: "/psychiatry-orlando", primary: true },
     { label: "ADHD Psychiatrist Orlando", href: "/adhd-psychiatrist-orlando", primary: true },
     { label: "Psychiatrist Near Me", href: "/psychiatrist-near-me", primary: true },
-    { label: "Medication Management", href: "/services" },
+    { label: "Medication Management", href: "/medication-management-orlando" },
     { label: "Anxiety Psychiatrist", href: "/anxiety-psychiatrist-orlando" },
     { label: "Depression Treatment", href: "/depression-treatment" },
     { label: "PTSD Treatment", href: "/ptsd-psychiatrist-orlando" },

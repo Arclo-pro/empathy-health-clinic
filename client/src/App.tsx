@@ -401,11 +401,6 @@ function Router() {
             <Orlando />
           </Suspense>
         </Route>
-        <Route path="/locations/kissimmee">
-          <Suspense fallback={<LoadingFallback />}>
-            <Kissimmee />
-          </Suspense>
-        </Route>
         <Route path="/thank-you">
           <Suspense fallback={<LoadingFallback />}>
             <ThankYou />
@@ -689,11 +684,6 @@ function Router() {
         <Route path="/sunshine-health-therapy">
           <Suspense fallback={<LoadingFallback />}>
             <SunshineHealthTherapy />
-          </Suspense>
-        </Route>
-        <Route path="/locations/altamonte-springs">
-          <Suspense fallback={<LoadingFallback />}>
-            <PsychiatristAltamonteSprings />
           </Suspense>
         </Route>
         <Route path="/adhd-testing-orlando">
