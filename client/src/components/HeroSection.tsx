@@ -26,7 +26,6 @@ const serviceOptions = [
   "Anxiety Treatment",
   "Depression Treatment",
   "Couples Therapy",
-  "Child & Adolescent",
   "Virtual Therapy",
   "Other",
 ];
