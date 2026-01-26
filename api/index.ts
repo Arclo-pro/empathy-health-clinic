@@ -42,9 +42,13 @@ async function sendLeadEmail(lead: any) {
 
   try {
     await sgMail.send(msg);
-    console.log('Lead notification email sent');
-  } catch (error) {
-    console.error('Failed to send email:', error);
+    console.log('Lead notification email sent successfully to:', msg.to);
+  } catch (error: any) {
+    console.error('Failed to send email:', error?.message || error);
+    if (error?.response?.body) {
+      console.error('SendGrid error details:', JSON.stringify(error.response.body));
+    }
+    throw error;
   }
 }
 
@@ -182,7 +186,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `;
       const lead = result[0];
       
-      await sendLeadEmail(lead);
+      try {
+        await sendLeadEmail(lead);
+      } catch (emailError: any) {
+        console.error('Email failed but lead saved:', emailError?.message);
+        return res.status(201).json({ ...lead, emailError: 'Email notification failed' });
+      }
       
       return res.status(201).json(lead);
     }
