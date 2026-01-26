@@ -46,10 +46,23 @@ async function sendLeadEmail(lead: any): Promise<EmailDeliveryResult[]> {
   const results: EmailDeliveryResult[] = [];
   const timestamp = new Date().toISOString();
 
-  if (!process.env.SENDGRID_API_KEY) {
+  const sendGridKey = process.env.SENDGRID_API_KEY;
+  if (!sendGridKey) {
     console.error(`[${timestamp}] ❌ SENDGRID_API_KEY not configured - email notifications disabled`);
+    console.error(`[${timestamp}] ❌ Available env vars: ${Object.keys(process.env).filter(k => k.includes('SEND') || k.includes('GRID') || k.includes('EMAIL')).join(', ') || 'none matching'}`);
     throw new Error('SendGrid not configured - please add SENDGRID_API_KEY environment variable in Vercel');
   }
+
+  // Validate API key format (should start with SG.)
+  if (!sendGridKey.startsWith('SG.')) {
+    console.error(`[${timestamp}] ❌ SENDGRID_API_KEY appears malformed - should start with "SG."`);
+    throw new Error('SendGrid API key appears invalid - should start with "SG."');
+  }
+
+  console.log(`[${timestamp}] ✅ SendGrid API key found (length: ${sendGridKey.length}, prefix: SG.***)`);
+
+  // Re-initialize SendGrid with the key to ensure it's set
+  sgMail.setApiKey(sendGridKey);
 
   const fullName = `${lead.first_name} ${lead.last_name}`.trim();
   console.log(`[${timestamp}] 📧 Starting email delivery for lead: ${fullName} (${lead.email})`);
@@ -189,11 +202,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     if (path === '/api/health') {
-      return res.status(200).json({ 
-        ok: true, 
+      return res.status(200).json({
+        ok: true,
         ts: Date.now(),
         hasDb: !!process.env.DATABASE_URL,
-        hasSendGrid: !!process.env.SENDGRID_API_KEY
+        hasSendGrid: !!process.env.SENDGRID_API_KEY,
+        sendGridKeyLength: process.env.SENDGRID_API_KEY ? process.env.SENDGRID_API_KEY.length : 0
       });
     }
 
@@ -407,22 +421,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `;
       const lead = result[0];
 
-      try {
-        const emailResults = await sendLeadEmail(lead);
-        return res.status(201).json({
-          ...lead,
-          emailDelivery: {
-            success: true,
-            results: emailResults
-          }
-        });
-      } catch (emailError: any) {
-        console.error('Email failed but lead saved:', emailError?.message);
+      // Check if SendGrid is configured before attempting to send
+      const hasSendGrid = !!process.env.SENDGRID_API_KEY;
+      console.log(`[${new Date().toISOString()}] 📋 Lead saved: ${lead.id}, SendGrid configured: ${hasSendGrid}`);
+
+      if (!hasSendGrid) {
+        console.error(`[${new Date().toISOString()}] ⚠️ SENDGRID_API_KEY not set - skipping email notification`);
         return res.status(201).json({
           ...lead,
           emailDelivery: {
             success: false,
-            error: emailError?.message || 'Email notification failed'
+            error: 'Email notifications disabled - SENDGRID_API_KEY environment variable not configured in Vercel',
+            configured: false
+          }
+        });
+      }
+
+      try {
+        const emailResults = await sendLeadEmail(lead);
+        console.log(`[${new Date().toISOString()}] ✅ Email sent successfully for lead ${lead.id}`);
+        return res.status(201).json({
+          ...lead,
+          emailDelivery: {
+            success: true,
+            results: emailResults,
+            configured: true
+          }
+        });
+      } catch (emailError: any) {
+        console.error(`[${new Date().toISOString()}] ❌ Email failed for lead ${lead.id}:`, emailError?.message);
+        if (emailError?.response?.body) {
+          console.error(`[${new Date().toISOString()}] SendGrid response:`, JSON.stringify(emailError.response.body));
+        }
+        return res.status(201).json({
+          ...lead,
+          emailDelivery: {
+            success: false,
+            error: emailError?.message || 'Email notification failed',
+            configured: true,
+            details: emailError?.response?.body?.errors || null
           }
         });
       }
