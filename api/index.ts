@@ -103,8 +103,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     if (path === '/api/blog-posts') {
-      const result = await sql`SELECT * FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC`;
-      return res.status(200).json(result);
+      const urlObj = new URL(url || '', `http://${req.headers.host}`);
+      const page = parseInt(urlObj.searchParams.get('page') || '1');
+      const pageSize = parseInt(urlObj.searchParams.get('pageSize') || '12');
+      const category = urlObj.searchParams.get('category');
+      const offset = (page - 1) * pageSize;
+      
+      let posts;
+      let totalCount;
+      
+      if (category) {
+        posts = await sql`SELECT * FROM blog_posts WHERE status = 'published' AND category = ${category} ORDER BY published_at DESC LIMIT ${pageSize} OFFSET ${offset}`;
+        const countResult = await sql`SELECT COUNT(*) FROM blog_posts WHERE status = 'published' AND category = ${category}`;
+        totalCount = parseInt(countResult[0].count);
+      } else {
+        posts = await sql`SELECT * FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC LIMIT ${pageSize} OFFSET ${offset}`;
+        const countResult = await sql`SELECT COUNT(*) FROM blog_posts WHERE status = 'published'`;
+        totalCount = parseInt(countResult[0].count);
+      }
+      
+      const totalPages = Math.ceil(totalCount / pageSize);
+      return res.status(200).json({ posts, totalPages, total: totalCount, page, pageSize });
     }
 
     if (path.startsWith('/api/blog-posts/')) {
