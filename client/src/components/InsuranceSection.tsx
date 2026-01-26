@@ -42,17 +42,9 @@ export default function InsuranceSection() {
                   loading="lazy"
                   decoding="async"
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.parentElement?.querySelector('p');
-                    if (fallback) {
-                      fallback.classList.remove('hidden');
-                      fallback.classList.add('flex');
-                    }
+                    console.warn(`Failed to load logo for ${provider.name}: ${provider.logo}`);
                   }}
                 />
-                <p className="text-sm font-medium text-center text-card-foreground hidden items-center justify-center h-full">
-                  {provider.name}
-                </p>
               </Link>
             );
           })}
