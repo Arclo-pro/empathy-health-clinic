@@ -8,7 +8,6 @@ import TrustFactors from "@/components/TrustFactors";
 import InsuranceSection from "@/components/InsuranceSection";
 import AboutSection from "@/components/AboutSection";
 import FAQSection from "@/components/FAQSection";
-import TreatmentsSection from "@/components/TreatmentsSection";
 import ApproachSection from "@/components/ApproachSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import FeaturedResourcesSection from "@/components/FeaturedResourcesSection";
@@ -336,7 +335,6 @@ export default function Home() {
           </div>
         </section>
         <AboutSection />
-        <TreatmentsSection />
         
         <section className="py-12 md:py-16 bg-background border-y">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
