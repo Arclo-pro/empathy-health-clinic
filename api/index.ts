@@ -19,18 +19,24 @@ async function sendLeadEmail(lead: any) {
     return;
   }
 
+  const fullName = `${lead.first_name} ${lead.last_name}`.trim();
   const msg = {
     to: ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'],
     from: 'noreply@empathyhealthclinic.com',
-    subject: `New Lead: ${lead.name}`,
+    subject: `New Lead: ${fullName}`,
     html: `
       <h2>New Appointment Request</h2>
-      <p><strong>Name:</strong> ${lead.name}</p>
+      <p><strong>Name:</strong> ${fullName}</p>
       <p><strong>Email:</strong> ${lead.email}</p>
       <p><strong>Phone:</strong> ${lead.phone || 'Not provided'}</p>
-      <p><strong>Message:</strong> ${lead.message || 'None'}</p>
+      <p><strong>Service:</strong> ${lead.service || 'General Inquiry'}</p>
+      <p><strong>Form Type:</strong> ${lead.form_type || 'short'}</p>
+      <p><strong>Landing Page:</strong> ${lead.landing_page || 'Unknown'}</p>
       <p><strong>Source:</strong> ${lead.source || 'Website'}</p>
-      <p><strong>Page:</strong> ${lead.page_url || 'Unknown'}</p>
+      ${lead.utm_source ? `<p><strong>UTM Source:</strong> ${lead.utm_source}</p>` : ''}
+      ${lead.utm_campaign ? `<p><strong>Campaign:</strong> ${lead.utm_campaign}</p>` : ''}
+      ${lead.utm_term ? `<p><strong>Keyword:</strong> ${lead.utm_term}</p>` : ''}
+      ${lead.gclid ? `<p><strong>Google Ads Click ID:</strong> ${lead.gclid}</p>` : ''}
     `
   };
 
@@ -56,7 +62,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     if (path === '/api/health') {
-      return res.status(200).json({ status: 'ok', timestamp: Date.now() });
+      return res.status(200).json({ 
+        ok: true, 
+        ts: Date.now(),
+        env: {
+          hasDb: !!process.env.DATABASE_URL,
+          hasSendGrid: !!process.env.SENDGRID_API_KEY
+        }
+      });
     }
 
     const sql = getDb();
@@ -126,14 +139,49 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (path === '/api/leads' && method === 'POST') {
       const body = req.body;
+      
+      if (!body.email) {
+        return res.status(400).json({ error: "Email is required" });
+      }
+      if (!body.firstName) {
+        return res.status(400).json({ error: "First name is required" });
+      }
+      if (!body.lastName) {
+        return res.status(400).json({ error: "Last name is required" });
+      }
+      if (!body.phone) {
+        return res.status(400).json({ error: "Phone is required" });
+      }
+      
       const result = await sql`
-        INSERT INTO leads (name, email, phone, message, source, page_url, utm_source, utm_medium, utm_campaign, utm_term, utm_content)
-        VALUES (${body.name}, ${body.email}, ${body.phone || null}, ${body.message || null}, ${body.source || null}, ${body.pageUrl || null}, ${body.utmSource || null}, ${body.utmMedium || null}, ${body.utmCampaign || null}, ${body.utmTerm || null}, ${body.utmContent || null})
+        INSERT INTO leads (
+          first_name, last_name, email, phone, sms_opt_in, service, form_type,
+          landing_page, source, utm_source, utm_medium, utm_campaign, utm_term, utm_content,
+          gclid, fbclid, status
+        )
+        VALUES (
+          ${body.firstName},
+          ${body.lastName},
+          ${body.email},
+          ${body.phone},
+          ${body.smsOptIn || 'false'},
+          ${body.service || null},
+          ${body.formType || 'short'},
+          ${body.landingPage || null},
+          ${body.source || body.landingPage || null},
+          ${body.utmSource || null},
+          ${body.utmMedium || null},
+          ${body.utmCampaign || null},
+          ${body.utmTerm || null},
+          ${body.utmContent || null},
+          ${body.gclid || null},
+          ${body.fbclid || null},
+          'new'
+        )
         RETURNING *
       `;
       const lead = result[0];
       
-      // Send email notification
       await sendLeadEmail(lead);
       
       return res.status(201).json(lead);
