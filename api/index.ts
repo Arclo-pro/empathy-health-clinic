@@ -2,7 +2,12 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { neon } from "@neondatabase/serverless";
 import sgMail from '@sendgrid/mail';
 
-const sql = neon(process.env.DATABASE_URL!);
+function getDb() {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is not configured');
+  }
+  return neon(process.env.DATABASE_URL);
+}
 
 if (process.env.SENDGRID_API_KEY) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -53,6 +58,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (path === '/api/health') {
       return res.status(200).json({ status: 'ok', timestamp: Date.now() });
     }
+
+    const sql = getDb();
 
     if (path === '/api/treatments') {
       const result = await sql`SELECT * FROM treatments ORDER BY name`;
