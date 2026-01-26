@@ -15,6 +15,25 @@ if (process.env.SENDGRID_API_KEY) {
 
 const EMAIL_RECIPIENTS = ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'];
 
+// Fallback data when database is empty
+const FALLBACK_TEAM_MEMBERS = [
+  { id: "1", name: "Melissa DiPaolis", credentials: "MSN, APRN, FNP-BC", image: "/site-assets/providers/image_1761612547677.webp", doxyUrl: "https://doxy.me/empathy1", slug: "melissa-dipaolis", pageTitle: "Melissa DiPaolis, MSN, APRN, FNP-BC | Family Nurse Practitioner | Winter Park, FL", bio: "Melissa DiPaolis is a dedicated Family Nurse Practitioner with extensive experience in providing comprehensive mental health care.", specialties: "Depression, Anxiety, ADHD, Medication Management, Wellness Care", education: "Master of Science in Nursing (MSN), Board Certified Family Nurse Practitioner (FNP-BC)", approach: "Melissa believes in treating the whole person, not just symptoms.", order: 1 },
+  { id: "2", name: "Marjorie Felix", credentials: "MSN, APRN, PMHNP-BC", image: "/site-assets/providers/image_1761613541242.webp", doxyUrl: "https://doxy.me/empathy1", slug: "marjorie-felix", pageTitle: "Marjorie Felix, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL", bio: "Marjorie Felix is a board-certified Psychiatric Mental Health Nurse Practitioner with a passion for helping individuals achieve mental wellness.", specialties: "Depression, Anxiety, Bipolar Disorder, PTSD, Medication Management", education: "Master of Science in Nursing (MSN), Board Certified PMHNP-BC", approach: "Marjorie takes a holistic, patient-centered approach to mental health care.", order: 2 },
+  { id: "3", name: "Marsha D. Hassell", credentials: "MS, PLMHC", image: "/site-assets/providers/image_1761613347362.webp", doxyUrl: "https://doxy.me/empathy1", slug: "marsha-hassell", pageTitle: "Marsha D. Hassell, MS, PLMHC | Licensed Mental Health Counselor | Winter Park, FL", bio: "Marsha D. Hassell is a Pre-Licensed Mental Health Counselor dedicated to providing compassionate, effective therapy.", specialties: "Individual Therapy, Anxiety, Depression, Life Transitions, CBT", education: "Master of Science in Mental Health Counseling (MS)", approach: "Marsha believes in creating a safe, non-judgmental therapeutic space.", order: 3 },
+  { id: "4", name: "Alex Regan", credentials: "Psychiatric PA-C, Medical Director", image: "/site-assets/providers/image_1761612254512.webp", doxyUrl: "https://doxy.me/empathy1", slug: "alex-regan", pageTitle: "Alex Regan, PA-C, Medical Director | Psychiatric Physician Assistant | Winter Park, FL", bio: "Alex Regan is a skilled Psychiatric Physician Assistant and Medical Director.", specialties: "Depression, Anxiety, ADHD, Medication Management, Psychiatric Evaluation", education: "Physician Assistant Studies, Board Certified PA-C", approach: "Alex provides thorough psychiatric evaluations and evidence-based medication management.", order: 4 },
+  { id: "5", name: "Dr. Robert Glenn", credentials: "MD, Supervising Physician", image: "/site-assets/providers/dr_glenn_headshot_square_1761613083513.webp", doxyUrl: "https://doxy.me/empathy1", slug: "dr-robert-glenn", pageTitle: "Dr. Robert Glenn, MD | Supervising Physician | Winter Park, FL", bio: "Dr. Robert Glenn is a compassionate physician with extensive experience helping individuals overcome mental health challenges.", specialties: "Medical Oversight, Individual Therapy, Depression, Anxiety, Trauma", education: "Doctor of Medicine (MD)", approach: "Dr. Glenn employs an integrative therapeutic approach.", order: 5 },
+  { id: "6", name: "Karla McLeod", credentials: "Licensed Mental Health Counselor", image: "/site-assets/providers/carla_headshot_square_v2_1761619702991.webp", doxyUrl: "https://doxy.me/empathy1", slug: "karla-mcleod", pageTitle: "Karla McLeod, LMHC | Licensed Mental Health Counselor | Winter Park, FL", bio: "Karla McLeod is an experienced Licensed Mental Health Counselor.", specialties: "Individual Therapy, Anxiety, Depression, Self-Esteem, Life Transitions", education: "Master's degree in Mental Health Counseling, LMHC", approach: "Karla believes therapy should be a collaborative journey of self-discovery.", order: 7 },
+  { id: "7", name: "Christine Orr", credentials: "LCSW", image: "/site-assets/providers/image_1761614480890.webp", doxyUrl: "https://doxy.me/empathy1", slug: "christine-orr", pageTitle: "Christine Orr, LCSW | Licensed Clinical Social Worker | Winter Park, FL", bio: "Christine Orr is a compassionate Licensed Clinical Social Worker.", specialties: "Individual Therapy, Depression, Anxiety, Grief and Loss, CBT", education: "Master of Social Work (MSW), LCSW", approach: "Christine provides a warm, supportive therapeutic environment.", order: 8 },
+  { id: "8", name: "Monique Walen", credentials: "MSN, APRN, PMHNP-BC", image: "/site-assets/providers/image_1761603840896.webp", doxyUrl: "https://doxy.me/empathy1", slug: "monique-walen", pageTitle: "Monique Walen, MSN, APRN, PMHNP-BC | Psychiatric Nurse Practitioner | Winter Park, FL", bio: "Monique Walen is a board-certified Psychiatric Mental Health Nurse Practitioner.", specialties: "Medication Management, Depression, Anxiety, Bipolar Disorder, ADHD", education: "Master of Science in Nursing (MSN), PMHNP-BC", approach: "Monique provides comprehensive psychiatric evaluations and expert medication management.", order: 9 },
+  { id: "9", name: "Batese Mitchell", credentials: "LMHC", image: "/site-assets/providers/Headshot (1)_1764630281211.jpg", doxyUrl: "https://doxy.me/empathy1", slug: "batese-mitchell", pageTitle: "Batese Mitchell, LMHC | Licensed Mental Health Counselor | Winter Park, FL", bio: "Batese Mitchell is a Licensed Mental Health Counselor dedicated to providing compassionate, evidence-based care.", specialties: "Individual Therapy, Anxiety, Depression and Mood Disorders, Emotional Regulation", education: "Master's Degree in Mental Health Counseling, LMHC", approach: "Batese uses a person-centered, strength-based approach.", order: 10 },
+];
+
+const FALLBACK_TESTIMONIALS = [
+  { id: "1", name: "Chris B.", date: "October 10, 2025", text: "Marjorie spends more time and a more holistic approach to psychiatric care than any other practitioner I have worked with. She works with you to find the best personal treatment.", rating: 5, profileImage: null, order: 1 },
+  { id: "2", name: "Cindy K.", date: "October 1, 2025", text: "Empathy Health Clinic is great! From Chantal in the office to the Medication Managers Tony & Monique, to the quality therapists, especially Christine Orr, I would highly recommend Empathy to anyone.", rating: 5, profileImage: null, order: 2 },
+  { id: "3", name: "Louise", date: "September 3, 2025", text: "Excellent psych medical management. Depression and anxiety are so much more manageable, fewer episodes, finally sleeping through the night. Alex provides exceptional care.", rating: 5, profileImage: null, order: 3 },
+];
+
 interface EmailDeliveryResult {
   recipient: string;
   success: boolean;
@@ -191,7 +210,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     if (path === '/api/team-members') {
-      const result = await sql`SELECT * FROM team_members ORDER BY name`;
+      const result = await sql`SELECT * FROM team_members ORDER BY "order", name`;
+      // Use fallback data if database is empty
+      if (result.length === 0) {
+        return res.status(200).json(FALLBACK_TEAM_MEMBERS);
+      }
       return res.status(200).json(result);
     }
 
@@ -199,6 +222,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const id = path.replace('/api/team-members/', '');
       const result = await sql`SELECT * FROM team_members WHERE id = ${id} OR slug = ${id} LIMIT 1`;
       if (result.length === 0) {
+        // Try fallback data
+        const fallbackMember = FALLBACK_TEAM_MEMBERS.find(m => m.id === id || m.slug === id);
+        if (fallbackMember) {
+          return res.status(200).json(fallbackMember);
+        }
         return res.status(404).json({ error: "Team member not found" });
       }
       return res.status(200).json(result[0]);
@@ -321,7 +349,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     if (path === '/api/testimonials') {
-      const result = await sql`SELECT * FROM testimonials`;
+      const result = await sql`SELECT * FROM testimonials ORDER BY "order"`;
+      // Use fallback data if database is empty
+      if (result.length === 0) {
+        return res.status(200).json(FALLBACK_TESTIMONIALS);
+      }
       return res.status(200).json(result);
     }
 
