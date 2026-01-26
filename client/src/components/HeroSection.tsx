@@ -360,7 +360,7 @@ export default function HeroSection() {
                     <img
                       src={provider.logo}
                       alt={`${provider.name} psychiatry coverage accepted`}
-                      className="max-h-full max-w-full object-contain grayscale opacity-70"
+                      className="max-h-full max-w-full object-contain"
                       width={64}
                       height={24}
                       loading="eager"
