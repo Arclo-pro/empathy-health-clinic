@@ -13,14 +13,29 @@ if (process.env.SENDGRID_API_KEY) {
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 }
 
-async function sendLeadEmail(lead: any) {
+const EMAIL_RECIPIENTS = ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'];
+
+interface EmailDeliveryResult {
+  recipient: string;
+  success: boolean;
+  messageId?: string;
+  error?: string;
+  timestamp: string;
+}
+
+async function sendLeadEmail(lead: any): Promise<EmailDeliveryResult[]> {
+  const results: EmailDeliveryResult[] = [];
+  const timestamp = new Date().toISOString();
+
   if (!process.env.SENDGRID_API_KEY) {
-    console.error('SENDGRID_API_KEY not configured - email notifications disabled');
+    console.error(`[${timestamp}] ❌ SENDGRID_API_KEY not configured - email notifications disabled`);
     throw new Error('SendGrid not configured - please add SENDGRID_API_KEY environment variable in Vercel');
   }
 
   const fullName = `${lead.first_name} ${lead.last_name}`.trim();
-  
+  console.log(`[${timestamp}] 📧 Starting email delivery for lead: ${fullName} (${lead.email})`);
+  console.log(`[${timestamp}] 📧 Recipients: ${EMAIL_RECIPIENTS.join(', ')}`);
+
   // Plain text version for better deliverability
   const textContent = `
 New Appointment Request - Empathy Health Clinic
@@ -44,56 +59,101 @@ Empathy Health Clinic
 www.empathyhealthclinic.com
   `.trim();
 
-  const msg = {
-    to: ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'],
-    from: {
-      email: 'noreply@empathyhealthclinic.com',
-      name: 'Empathy Health Clinic'
-    },
-    replyTo: lead.email,
-    subject: `New Appointment Request from ${fullName}`,
-    text: textContent,
-    html: `
-      <!DOCTYPE html>
-      <html>
-      <head><meta charset="utf-8"></head>
-      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-        <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New Appointment Request</h2>
-          <table style="width: 100%; border-collapse: collapse;">
-            <tr><td style="padding: 8px 0; font-weight: bold;">Name:</td><td style="padding: 8px 0;">${fullName}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;"><a href="tel:${lead.phone}">${lead.phone || 'Not provided'}</a></td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${lead.service || 'General Inquiry'}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Form Type:</td><td style="padding: 8px 0;">${lead.form_type || 'short'}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Landing Page:</td><td style="padding: 8px 0;">${lead.landing_page || 'Direct'}</td></tr>
-            <tr><td style="padding: 8px 0; font-weight: bold;">Source:</td><td style="padding: 8px 0;">${lead.source || 'Website'}</td></tr>
-            ${lead.utm_source ? `<tr><td style="padding: 8px 0; font-weight: bold;">UTM Source:</td><td style="padding: 8px 0;">${lead.utm_source}</td></tr>` : ''}
-            ${lead.utm_campaign ? `<tr><td style="padding: 8px 0; font-weight: bold;">Campaign:</td><td style="padding: 8px 0;">${lead.utm_campaign}</td></tr>` : ''}
-            ${lead.utm_term ? `<tr><td style="padding: 8px 0; font-weight: bold;">Keyword:</td><td style="padding: 8px 0;">${lead.utm_term}</td></tr>` : ''}
-          </table>
-          <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-            Please follow up with this lead promptly.
-          </p>
-          <p style="color: #999; font-size: 12px;">
-            Empathy Health Clinic | <a href="https://www.empathyhealthclinic.com">www.empathyhealthclinic.com</a>
-          </p>
-        </div>
-      </body>
-      </html>
-    `
-  };
+  const htmlContent = `
+    <!DOCTYPE html>
+    <html>
+    <head><meta charset="utf-8"></head>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New Appointment Request</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr><td style="padding: 8px 0; font-weight: bold;">Name:</td><td style="padding: 8px 0;">${fullName}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;"><a href="tel:${lead.phone}">${lead.phone || 'Not provided'}</a></td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${lead.service || 'General Inquiry'}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Form Type:</td><td style="padding: 8px 0;">${lead.form_type || 'short'}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Landing Page:</td><td style="padding: 8px 0;">${lead.landing_page || 'Direct'}</td></tr>
+          <tr><td style="padding: 8px 0; font-weight: bold;">Source:</td><td style="padding: 8px 0;">${lead.source || 'Website'}</td></tr>
+          ${lead.utm_source ? `<tr><td style="padding: 8px 0; font-weight: bold;">UTM Source:</td><td style="padding: 8px 0;">${lead.utm_source}</td></tr>` : ''}
+          ${lead.utm_campaign ? `<tr><td style="padding: 8px 0; font-weight: bold;">Campaign:</td><td style="padding: 8px 0;">${lead.utm_campaign}</td></tr>` : ''}
+          ${lead.utm_term ? `<tr><td style="padding: 8px 0; font-weight: bold;">Keyword:</td><td style="padding: 8px 0;">${lead.utm_term}</td></tr>` : ''}
+        </table>
+        <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
+          Please follow up with this lead promptly.
+        </p>
+        <p style="color: #999; font-size: 12px;">
+          Empathy Health Clinic | <a href="https://www.empathyhealthclinic.com">www.empathyhealthclinic.com</a>
+        </p>
+      </div>
+    </body>
+    </html>
+  `;
 
-  try {
-    await sgMail.send(msg);
-    console.log('Lead notification email sent successfully to:', msg.to);
-  } catch (error: any) {
-    console.error('Failed to send email:', error?.message || error);
-    if (error?.response?.body) {
-      console.error('SendGrid error details:', JSON.stringify(error.response.body));
+  // Send to each recipient separately for individual tracking
+  for (const recipient of EMAIL_RECIPIENTS) {
+    const sendTimestamp = new Date().toISOString();
+    console.log(`[${sendTimestamp}] 📤 Attempting to send email to: ${recipient}`);
+
+    const msg = {
+      to: recipient,
+      from: {
+        email: 'noreply@empathyhealthclinic.com',
+        name: 'Empathy Health Clinic'
+      },
+      replyTo: lead.email,
+      subject: `New Appointment Request from ${fullName}`,
+      text: textContent,
+      html: htmlContent
+    };
+
+    try {
+      const response = await sgMail.send(msg);
+      const messageId = response[0]?.headers?.['x-message-id'] || 'unknown';
+      const statusCode = response[0]?.statusCode || 'unknown';
+
+      console.log(`[${sendTimestamp}] ✅ SUCCESS: Email sent to ${recipient}`);
+      console.log(`[${sendTimestamp}]    - Status Code: ${statusCode}`);
+      console.log(`[${sendTimestamp}]    - Message ID: ${messageId}`);
+
+      results.push({
+        recipient,
+        success: true,
+        messageId,
+        timestamp: sendTimestamp
+      });
+    } catch (error: any) {
+      const errorMessage = error?.message || 'Unknown error';
+      const errorCode = error?.code || 'unknown';
+      const errorResponse = error?.response?.body ? JSON.stringify(error.response.body) : 'No response body';
+
+      console.error(`[${sendTimestamp}] ❌ FAILED: Email to ${recipient}`);
+      console.error(`[${sendTimestamp}]    - Error: ${errorMessage}`);
+      console.error(`[${sendTimestamp}]    - Code: ${errorCode}`);
+      console.error(`[${sendTimestamp}]    - Response: ${errorResponse}`);
+
+      results.push({
+        recipient,
+        success: false,
+        error: `${errorCode}: ${errorMessage}`,
+        timestamp: sendTimestamp
+      });
     }
-    throw error;
   }
+
+  // Log summary
+  const successCount = results.filter(r => r.success).length;
+  const failCount = results.filter(r => !r.success).length;
+  console.log(`[${timestamp}] 📊 Email delivery summary: ${successCount} succeeded, ${failCount} failed`);
+  results.forEach(r => {
+    console.log(`[${timestamp}]    - ${r.recipient}: ${r.success ? '✅ Sent' : '❌ Failed'} ${r.messageId || r.error || ''}`);
+  });
+
+  // Only throw if ALL emails failed
+  if (successCount === 0) {
+    throw new Error(`All email deliveries failed: ${results.map(r => `${r.recipient}: ${r.error}`).join('; ')}`);
+  }
+
+  return results;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -287,15 +347,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         RETURNING *
       `;
       const lead = result[0];
-      
+
       try {
-        await sendLeadEmail(lead);
+        const emailResults = await sendLeadEmail(lead);
+        return res.status(201).json({
+          ...lead,
+          emailDelivery: {
+            success: true,
+            results: emailResults
+          }
+        });
       } catch (emailError: any) {
         console.error('Email failed but lead saved:', emailError?.message);
-        return res.status(201).json({ ...lead, emailError: 'Email notification failed' });
+        return res.status(201).json({
+          ...lead,
+          emailDelivery: {
+            success: false,
+            error: emailError?.message || 'Email notification failed'
+          }
+        });
       }
-      
-      return res.status(201).json(lead);
     }
 
     if (path === '/api/analytics/page-view' && method === 'POST') {
