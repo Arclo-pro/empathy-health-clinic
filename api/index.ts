@@ -20,23 +20,67 @@ async function sendLeadEmail(lead: any) {
   }
 
   const fullName = `${lead.first_name} ${lead.last_name}`.trim();
+  
+  // Plain text version for better deliverability
+  const textContent = `
+New Appointment Request - Empathy Health Clinic
+
+Patient Information:
+- Name: ${fullName}
+- Email: ${lead.email}
+- Phone: ${lead.phone || 'Not provided'}
+- Service Requested: ${lead.service || 'General Inquiry'}
+- Form Type: ${lead.form_type || 'short'}
+- Landing Page: ${lead.landing_page || 'Direct'}
+- Source: ${lead.source || 'Website'}
+${lead.utm_source ? `- UTM Source: ${lead.utm_source}` : ''}
+${lead.utm_campaign ? `- Campaign: ${lead.utm_campaign}` : ''}
+${lead.utm_term ? `- Keyword: ${lead.utm_term}` : ''}
+
+Please follow up with this lead promptly.
+
+--
+Empathy Health Clinic
+www.empathyhealthclinic.com
+  `.trim();
+
   const msg = {
     to: ['providers@empathyhealthclinic.com', 'kevin.mease@gmail.com'],
-    from: 'noreply@empathyhealthclinic.com',
-    subject: `New Lead: ${fullName}`,
+    from: {
+      email: 'noreply@empathyhealthclinic.com',
+      name: 'Empathy Health Clinic'
+    },
+    replyTo: lead.email,
+    subject: `New Appointment Request from ${fullName}`,
+    text: textContent,
     html: `
-      <h2>New Appointment Request</h2>
-      <p><strong>Name:</strong> ${fullName}</p>
-      <p><strong>Email:</strong> ${lead.email}</p>
-      <p><strong>Phone:</strong> ${lead.phone || 'Not provided'}</p>
-      <p><strong>Service:</strong> ${lead.service || 'General Inquiry'}</p>
-      <p><strong>Form Type:</strong> ${lead.form_type || 'short'}</p>
-      <p><strong>Landing Page:</strong> ${lead.landing_page || 'Unknown'}</p>
-      <p><strong>Source:</strong> ${lead.source || 'Website'}</p>
-      ${lead.utm_source ? `<p><strong>UTM Source:</strong> ${lead.utm_source}</p>` : ''}
-      ${lead.utm_campaign ? `<p><strong>Campaign:</strong> ${lead.utm_campaign}</p>` : ''}
-      ${lead.utm_term ? `<p><strong>Keyword:</strong> ${lead.utm_term}</p>` : ''}
-      ${lead.gclid ? `<p><strong>Google Ads Click ID:</strong> ${lead.gclid}</p>` : ''}
+      <!DOCTYPE html>
+      <html>
+      <head><meta charset="utf-8"></head>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+          <h2 style="color: #2563eb; border-bottom: 2px solid #2563eb; padding-bottom: 10px;">New Appointment Request</h2>
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr><td style="padding: 8px 0; font-weight: bold;">Name:</td><td style="padding: 8px 0;">${fullName}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Email:</td><td style="padding: 8px 0;"><a href="mailto:${lead.email}">${lead.email}</a></td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Phone:</td><td style="padding: 8px 0;"><a href="tel:${lead.phone}">${lead.phone || 'Not provided'}</a></td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Service:</td><td style="padding: 8px 0;">${lead.service || 'General Inquiry'}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Form Type:</td><td style="padding: 8px 0;">${lead.form_type || 'short'}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Landing Page:</td><td style="padding: 8px 0;">${lead.landing_page || 'Direct'}</td></tr>
+            <tr><td style="padding: 8px 0; font-weight: bold;">Source:</td><td style="padding: 8px 0;">${lead.source || 'Website'}</td></tr>
+            ${lead.utm_source ? `<tr><td style="padding: 8px 0; font-weight: bold;">UTM Source:</td><td style="padding: 8px 0;">${lead.utm_source}</td></tr>` : ''}
+            ${lead.utm_campaign ? `<tr><td style="padding: 8px 0; font-weight: bold;">Campaign:</td><td style="padding: 8px 0;">${lead.utm_campaign}</td></tr>` : ''}
+            ${lead.utm_term ? `<tr><td style="padding: 8px 0; font-weight: bold;">Keyword:</td><td style="padding: 8px 0;">${lead.utm_term}</td></tr>` : ''}
+          </table>
+          <p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
+            Please follow up with this lead promptly.
+          </p>
+          <p style="color: #999; font-size: 12px;">
+            Empathy Health Clinic | <a href="https://www.empathyhealthclinic.com">www.empathyhealthclinic.com</a>
+          </p>
+        </div>
+      </body>
+      </html>
     `
   };
 
