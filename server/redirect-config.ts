@@ -423,7 +423,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/petulant-bpd-symptoms-and-treatment': '/blog/petulant-bpd-symptoms-and-treatment',
   '/prodromal-stage-mental-health': '/blog/prodromal-stage-mental-health',
   '/psychotherapy-vs-counseling-therapy-what-is-the-difference': '/blog/psychotherapy-vs-counseling-therapy-what-is-the-difference',
-  '/ptsd-trauma': '/anxiety-therapy',
+  '/ptsd-trauma': '/ptsd-psychiatrist-orlando',
   '/reactive-attachment-disorder-in-adults': '/blog/reactive-attachment-disorder-in-adults',
   '/schizophrenia-psychotic-disorders': '/services',
   '/school-psychology-career-guide': '/blog/school-psychology-career-guide',
