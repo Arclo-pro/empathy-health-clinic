@@ -188,15 +188,17 @@ function fixSeoTags(html: string, route: string): string {
   }
   
   // Fix canonical tag based on page type
+  // NOTE: Regex must handle both `>` and ` />` self-closing tag formats
   if (canonicalUrl === null) {
     // Noindex pages should NOT have canonical - remove it
-    result = result.replace(/<link rel="canonical" href="[^"]*">\s*/g, '');
+    result = result.replace(/<link rel="canonical" href="[^"]*"\s*\/?>\s*/g, '');
   } else {
     // Check if canonical tag exists
     if (result.includes('<link rel="canonical"')) {
       // Replace existing canonical with correct URL
+      // Handle both <link ... > and <link ... /> formats
       result = result.replace(
-        /<link rel="canonical" href="[^"]*">/g,
+        /<link rel="canonical" href="[^"]*"\s*\/?>/g,
         `<link rel="canonical" href="${canonicalUrl}">`
       );
     } else if (result.includes('</head>')) {

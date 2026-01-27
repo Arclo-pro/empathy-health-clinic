@@ -47,7 +47,7 @@ export const NOINDEX_PATHS = [
 export const SELF_CANONICAL_EXACT_PATHS = [
   // Core site pages (must be self-canonical)
   '/', '/about', '/services', '/new-patients', '/request-appointment',
-  '/therapy', '/what-we-treat', '/blog', '/contact-us', '/insurance',
+  '/therapy', '/what-we-treat', '/blog', '/contact-us', '/insurance', '/team',
   // High-volume SEO target pages (unique search intent)
   '/psychiatrist-near-me', '/psychiatrist-orlando', '/psychiatry-near-me',
   '/adhd-psychiatrist-orlando', '/anxiety-psychiatrist-orlando', '/depression-psychiatrist-orlando',
@@ -63,7 +63,7 @@ export const SELF_CANONICAL_EXACT_PATHS = [
   '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando',
   '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
   '/trauma-specialist', '/stress-management', '/couples-counseling',
-  '/virtual-therapy', '/teletherapy', '/adhd-treatment', '/bipolar-disorder-treatment',
+  '/virtual-therapy', '/virtual-visit', '/teletherapy', '/adhd-treatment', '/bipolar-disorder-treatment',
   '/depression-treatment', '/cognitive-behavioral-therapy', '/in-person-therapy',
   '/intimacy-therapy', '/lgbtq-therapy', '/therapy-services-orlando',
   // Near-me pages

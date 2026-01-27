@@ -150,27 +150,30 @@ const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
 const SELF_CANONICAL_EXACT_PATHS = [
   // Core site pages (must be self-canonical)
   '/', '/about', '/services', '/new-patients', '/request-appointment',
-  '/therapy', '/what-we-treat', '/blog',
+  '/therapy', '/what-we-treat', '/blog', '/contact-us', '/insurance', '/team',
   // High-volume SEO target pages (unique search intent)
   '/psychiatrist-near-me', '/psychiatrist-orlando', '/psychiatry-near-me',
   '/adhd-psychiatrist-orlando', '/anxiety-psychiatrist-orlando', '/depression-psychiatrist-orlando',
   '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando',
   '/psychiatric-evaluation-orlando', '/mental-health-clinic-orlando', '/medication-management-orlando',
   '/psychiatrist-for-anxiety-near-me', '/psychiatrist-for-depression-near-me',
-  '/same-day-psychiatrist-orlando', // Urgent care intent - must rank independently
-  '/ptsd-psychiatrist-orlando', '/urgent-psychiatric-care-orlando', // Unique intent pages
+  '/same-day-psychiatrist-orlando', '/psychiatrists-orlando', '/psychology-orlando',
+  '/ptsd-psychiatrist-orlando', '/ocd-psychiatrist-orlando', '/urgent-psychiatric-care-orlando',
   // Location pages
-  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford', 
+  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford',
   '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',
   // Treatment/therapy pages
-  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando', 
-  '/ocd-psychiatrist-orlando', '/ptsd-psychiatrist-orlando', '/emdr-therapy', '/tms-treatment',
+  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando',
+  '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
   '/trauma-specialist', '/stress-management', '/couples-counseling',
-  '/virtual-therapy', '/virtual-visit', '/teletherapy',
+  '/virtual-therapy', '/virtual-visit', '/teletherapy', '/adhd-treatment', '/bipolar-disorder-treatment',
+  '/depression-treatment', '/cognitive-behavioral-therapy', '/in-person-therapy',
+  '/intimacy-therapy', '/lgbtq-therapy', '/therapy-services-orlando',
   // Near-me pages
   '/counselor-near-me', '/therapist-near-me', '/mental-health-near-me',
   // Specialty pages
   '/female-therapist-orlando', '/black-psychiatrist-orlando', '/psychotherapist-orlando',
+  '/therapist-orlando', '/psychologist-orlando',
 ];
 
 /**
@@ -180,7 +183,12 @@ const SELF_CANONICAL_PREFIXES = [
   '/insurance', '/accepts-', '/psychiatrist-winter-park', '/psychiatrist-lake-mary',
   '/psychiatrist-altamonte', '/psychiatrist-sanford', '/psychiatrist-kissimmee',
   '/psychiatrist-apopka', '/psychiatrist-maitland', '/psychiatrist-casselberry',
+  '/psychiatrist-lake-nona', '/psychiatrist-winter-garden', '/psychiatrist-downtown',
+  '/psychiatrist-longwood', '/psychiatrist-oviedo',
   '/therapist-winter-park', '/therapist-lake-mary', '/therapist-altamonte',
+  '/therapist-accepts-', '/therapist-orlando',
+  '/blog/', // All blog posts should be self-canonical
+  '/locations/', // All location pages should be self-canonical
 ];
 
 /**
