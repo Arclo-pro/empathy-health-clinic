@@ -83,7 +83,7 @@ interface LocalBusinessOptions {
 export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["MedicalClinic", "LocalBusiness", "MedicalOrganization"],
+    "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness", "MedicalOrganization"],
     "@id": `${PREFERRED_DOMAIN}/#organization`,
     "name": CLINIC_INFO.name,
     "description": "Board-certified psychiatric care in Orlando, FL. Expert treatment for anxiety, depression, ADHD, bipolar disorder, and other mental health conditions. Same-week appointments available.",
@@ -595,6 +595,141 @@ export function buildAggregateRatingSchema(options: {
     "reviewCount": options.reviewCount,
     "bestRating": options.bestRating || 5,
     "worstRating": options.worstRating || 1
+  };
+}
+
+export function buildServiceSchema(options: {
+  name: string;
+  description: string;
+  url: string;
+  serviceType: string;
+  areaServed?: string[];
+  offers?: {
+    priceCurrency?: string;
+    price?: string;
+    priceRange?: string;
+  };
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": options.name,
+    "description": options.description,
+    "url": options.url,
+    "serviceType": options.serviceType,
+    "provider": {
+      "@type": "MedicalBusiness",
+      "@id": `${PREFERRED_DOMAIN}/#organization`,
+      "name": CLINIC_INFO.name,
+      "url": PREFERRED_DOMAIN,
+      "telephone": CLINIC_INFO.telephone,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": CLINIC_INFO.streetAddress,
+        "addressLocality": CLINIC_INFO.addressLocality,
+        "addressRegion": CLINIC_INFO.addressRegion,
+        "postalCode": CLINIC_INFO.postalCode,
+        "addressCountry": CLINIC_INFO.addressCountry
+      }
+    },
+    "areaServed": (options.areaServed || ["Orlando", "Winter Park", "Central Florida"]).map(city => ({
+      "@type": "City",
+      "name": city,
+      "containedInPlace": { "@type": "State", "name": "Florida" }
+    })),
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": options.name,
+      "itemListElement": [{
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": options.name
+        },
+        "priceCurrency": options.offers?.priceCurrency || "USD",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "priceCurrency": "USD",
+          "price": options.offers?.price || "Contact for pricing"
+        }
+      }]
+    },
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": `${PREFERRED_DOMAIN}/request-appointment`,
+      "servicePhone": CLINIC_INFO.telephone,
+      "availableLanguage": {
+        "@type": "Language",
+        "name": "English"
+      }
+    },
+    "termsOfService": `${PREFERRED_DOMAIN}/privacy-policy`,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "350",
+      "bestRating": "5"
+    }
+  };
+}
+
+export function buildHealthcareServiceSchema(options: {
+  name: string;
+  description: string;
+  url: string;
+  medicalSpecialty: string;
+  healthConditions?: string[];
+  isAvailableGenerically?: boolean;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalService",
+    "name": options.name,
+    "description": options.description,
+    "url": options.url,
+    "serviceType": "Mental Health Service",
+    "relevantSpecialty": {
+      "@type": "MedicalSpecialty",
+      "name": options.medicalSpecialty
+    },
+    "availableService": options.healthConditions?.map(condition => ({
+      "@type": "MedicalTherapy",
+      "name": `${condition} Treatment`,
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      }
+    })),
+    "provider": {
+      "@type": "MedicalBusiness",
+      "@id": `${PREFERRED_DOMAIN}/#organization`,
+      "name": CLINIC_INFO.name,
+      "url": PREFERRED_DOMAIN,
+      "telephone": CLINIC_INFO.telephone,
+      "medicalSpecialty": ["Psychiatric", "MentalHealth"],
+      "isAcceptingNewPatients": true
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" }},
+      { "@type": "City", "name": "Winter Park", "containedInPlace": { "@type": "State", "name": "Florida" }},
+      { "@type": "City", "name": "Central Florida" }
+    ],
+    "availableChannel": {
+      "@type": "ServiceChannel",
+      "serviceUrl": `${PREFERRED_DOMAIN}/request-appointment`,
+      "servicePhone": CLINIC_INFO.telephone,
+      "serviceSmsNumber": CLINIC_INFO.telephone
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "priceCurrency": "USD"
+      },
+      "acceptedPaymentMethod": ["Insurance", "Credit Card", "Cash"]
+    }
   };
 }
 
