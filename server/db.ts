@@ -33,18 +33,37 @@ export async function initializeDatabase(): Promise<void> {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS leads (
         id VARCHAR PRIMARY KEY DEFAULT gen_random_uuid()::text,
-        name TEXT NOT NULL,
+        first_name TEXT NOT NULL,
+        last_name TEXT NOT NULL,
         email TEXT NOT NULL,
-        phone TEXT,
-        message TEXT,
+        phone TEXT NOT NULL,
+        sms_opt_in TEXT DEFAULT 'false',
+        service TEXT,
+        form_type TEXT NOT NULL DEFAULT 'short',
+        conditions TEXT DEFAULT '[]',
+        symptoms TEXT DEFAULT '[]',
+        medications TEXT,
+        preferred_day TEXT,
+        payment_method TEXT,
+        insurance_provider TEXT,
+        insured_name TEXT,
+        insured_dob TEXT,
+        member_id TEXT,
+        landing_page TEXT,
         source TEXT,
-        page_url TEXT,
-        created_at TEXT DEFAULT CURRENT_TIMESTAMP::text,
         utm_source TEXT,
         utm_medium TEXT,
         utm_campaign TEXT,
         utm_term TEXT,
-        utm_content TEXT
+        utm_content TEXT,
+        gclid TEXT,
+        fbclid TEXT,
+        status TEXT DEFAULT 'new',
+        rejection_reason TEXT,
+        notes TEXT,
+        contacted_at TEXT,
+        converted_at TEXT,
+        created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP::text
       )
     `);
     
