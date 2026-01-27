@@ -553,6 +553,58 @@ export const contentRedirectMap: Record<string, string> = {
   
   // Oscar Health and UHC variants with trailing slashes (normalized)
   '/find-a-psychiatrist-that-takes-oscar-health-oscar-coverage': '/therapist-accepts-oscar-health',
+
+  // GSC 404 Fixes - January 2026 batch
+  // Location variations that don't have dedicated pages
+  '/locations/sanford': '/services',
+  '/locations/lake-nona': '/psychiatrist-lake-nona',
+  '/locations/oviedo': '/therapy-oviedo',
+  '/locations/downtown-orlando': '/psychiatrist-downtown-orlando',
+  '/locations/longwood': '/psychiatrist-longwood',
+
+  // Therapy services location variations
+  '/therapy-services-winter-park': '/therapist-orlando',
+  '/therapy-services-lake-mary': '/therapist-orlando',
+  '/therapy-services-altamonte-springs': '/therapist-orlando',
+
+  // Psychiatry service variations
+  '/psychiatry-services-orlando': '/psychiatrist-orlando',
+  '/psychiatry-services': '/psychiatric-services',
+
+  // Common misspellings and variations
+  '/physiatrist-orlando': '/psychiatrist-orlando',
+  '/phychiatrist-orlando': '/psychiatrist-orlando',
+  '/pyschiatrist-orlando': '/psychiatrist-orlando',
+  '/phsychiatrist-orlando': '/psychiatrist-orlando',
+
+  // Old category/archive pages
+  '/category/mental-health': '/blog',
+  '/category/wellness': '/blog',
+  '/category/therapy': '/blog',
+  '/category/psychiatry': '/blog',
+  '/categories': '/blog',
+
+  // Services variations
+  '/mental-health-services': '/services',
+  '/psychiatric-treatment': '/psychiatric-services',
+  // NOTE: /therapy-services already defined above (line 332)
+
+  // Additional condition page redirects
+  '/anxiety-disorder': '/anxiety-therapy',
+  '/depression-disorder': '/depression-treatment',
+  '/adhd-disorder': '/adhd-treatment',
+  '/bipolar': '/bipolar-disorder-treatment',
+  '/ptsd-disorder': '/ptsd-treatment',
+  '/ocd-disorder': '/ocd-treatment',
+
+  // Team/provider variations
+  '/our-team': '/team',
+  '/our-providers': '/team',
+  '/meet-our-team': '/team',
+  '/staff': '/team',
+  '/doctors': '/team',
+  '/therapists': '/team',
+  '/psychiatrists': '/team',
 };
 
 /**

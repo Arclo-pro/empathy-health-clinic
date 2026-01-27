@@ -42,6 +42,7 @@ export const NOINDEX_PATHS = [
 /**
  * Self-canonical exact paths - pages that must ALWAYS be self-canonical (never consolidated)
  * These are high-volume SEO pages with unique search intent
+ * NOTE: If a page redirects (in redirect-config.ts), do NOT include it here
  */
 export const SELF_CANONICAL_EXACT_PATHS = [
   // Core site pages (must be self-canonical)
@@ -50,22 +51,26 @@ export const SELF_CANONICAL_EXACT_PATHS = [
   // High-volume SEO target pages (unique search intent)
   '/psychiatrist-near-me', '/psychiatrist-orlando', '/psychiatry-near-me',
   '/adhd-psychiatrist-orlando', '/anxiety-psychiatrist-orlando', '/depression-psychiatrist-orlando',
-  '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando', '/child-psychiatrist-orlando',
+  '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando',
   '/psychiatric-evaluation-orlando', '/mental-health-clinic-orlando', '/medication-management-orlando',
   '/psychiatrist-for-anxiety-near-me', '/psychiatrist-for-depression-near-me',
   '/same-day-psychiatrist-orlando', '/psychiatrists-orlando', '/psychology-orlando',
+  '/ptsd-psychiatrist-orlando', '/ocd-psychiatrist-orlando', '/urgent-psychiatric-care-orlando',
   // Location pages
-  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford', 
+  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford',
   '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',
   // Treatment/therapy pages
-  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando', 
+  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando',
   '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
   '/trauma-specialist', '/stress-management', '/couples-counseling',
-  '/virtual-therapy', '/virtual-visit', '/teletherapy',
+  '/virtual-therapy', '/teletherapy', '/adhd-treatment', '/bipolar-disorder-treatment',
+  '/depression-treatment', '/cognitive-behavioral-therapy', '/in-person-therapy',
+  '/intimacy-therapy', '/lgbtq-therapy', '/therapy-services-orlando',
   // Near-me pages
   '/counselor-near-me', '/therapist-near-me', '/mental-health-near-me',
   // Specialty pages
   '/female-therapist-orlando', '/black-psychiatrist-orlando', '/psychotherapist-orlando',
+  '/therapist-orlando', '/psychologist-orlando',
 ];
 
 /**
