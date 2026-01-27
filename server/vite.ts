@@ -45,6 +45,12 @@ export async function setupVite(app: Express, server: Server) {
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
 
+    // Skip SEO files - they have their own routes in routes.ts
+    // If they reach here, return 404 instead of serving HTML
+    if (req.path.match(/\.(xml|txt)$/) && !req.path.startsWith('/assets/')) {
+      return res.status(404).send('Not Found');
+    }
+
     try {
       const clientTemplate = path.resolve(
         import.meta.dirname,
@@ -326,9 +332,16 @@ export function serveStatic(app: Express) {
       return next();
     }
 
-    // Skip validation for static assets
-    if (urlPath.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map|json|xml|txt)$/)) {
+    // Skip validation for static assets (but not XML/TXT - they have explicit routes)
+    if (urlPath.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot|map|json)$/)) {
       return next();
+    }
+
+    // SEO files (sitemap.xml, robots.txt) should have been handled by their routes
+    // If they reach here, return 404 - don't serve index.html for these
+    if (urlPath.match(/\.(xml|txt)$/) && !urlPath.startsWith('/assets/')) {
+      log(`404 Not Found: ${urlPath} (SEO file not handled by route)`);
+      return res.status(404).send('Not Found');
     }
 
     // Return 410 Gone for WordPress legacy URLs

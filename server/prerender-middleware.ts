@@ -45,9 +45,11 @@ const EXCLUDED_EXTENSIONS = [
   '.gif', '.svg', '.webp', '.woff', '.woff2', '.ttf', '.eot', '.map'
 ];
 
-// Specific files to exclude
+// Specific files to exclude (SEO-critical files that have their own routes)
 const EXCLUDED_FILES = [
   '/sitemap.xml',
+  '/sitemap_index.xml',
+  '/image-sitemap.xml',
   '/robots.txt',
 ];
 
