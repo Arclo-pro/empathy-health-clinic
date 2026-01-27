@@ -1458,6 +1458,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.json(lead);
     } catch (error: any) {
+      console.error(`❌ Lead submission failed:`, error.message, `| Body:`, JSON.stringify(req.body));
       res.status(400).json({ error: error.message });
     }
   });

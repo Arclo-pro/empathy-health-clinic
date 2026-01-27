@@ -44,11 +44,11 @@ export default function HeroSection() {
 
   const submitLead = useMutation({
     mutationFn: async () => {
-      const nameParts = name.trim().split(" ");
+      const nameParts = name.trim().split(/\s+/);
       const firstName = nameParts[0] || "";
-      const lastName = nameParts.slice(1).join(" ") || "";
+      const lastName = nameParts.length > 1 ? nameParts.slice(1).join(" ") : firstName;
 
-      return apiRequest("POST", "/api/leads", {
+      const res = await apiRequest("POST", "/api/leads", {
         firstName,
         lastName,
         email: email.trim(),
@@ -58,11 +58,13 @@ export default function HeroSection() {
         source: window.location.pathname,
         smsOptIn: "false",
       });
+      return res;
     },
     onSuccess: () => {
       setLocation('/thank-you');
     },
-    onError: () => {
+    onError: (error: Error) => {
+      console.error("Hero form submission error:", error.message);
       toast({
         title: "Submission Failed",
         description: "Please try again or call us at (386) 848-8751.",
