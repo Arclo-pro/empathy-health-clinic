@@ -9,11 +9,53 @@ interface OptimizedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   aspectRatio?: string;
   fallbackKeyword?: string;
+  /** Enable responsive srcset for Unsplash images */
+  responsive?: boolean;
+  /** Custom sizes attribute for responsive images */
+  sizes?: string;
 }
 
 const DEFAULT_ASPECT_RATIO = "16/9";
 const DEFAULT_WIDTH = 800;
 const DEFAULT_HEIGHT = 450;
+
+/** Standard responsive breakpoints for srcset */
+const RESPONSIVE_WIDTHS = [320, 480, 640, 768, 1024, 1280, 1600];
+
+/**
+ * Generate responsive srcset for Unsplash images
+ * Unsplash supports dynamic resizing via URL parameters
+ */
+function generateUnsplashSrcset(src: string, widths: number[]): string {
+  if (!src.includes('unsplash.com')) return '';
+
+  return widths.map(w => {
+    // Calculate height maintaining aspect ratio (16:9)
+    const h = Math.round(w * 9 / 16);
+    // Adjust quality based on width for optimal file size
+    const q = w <= 640 ? 60 : w <= 1024 ? 70 : 80;
+
+    // Replace or add width/height/quality params
+    let optimizedUrl = src;
+    if (src.includes('?')) {
+      optimizedUrl = src.replace(/w=\d+/, `w=${w}`).replace(/h=\d+/, `h=${h}`).replace(/q=\d+/, `q=${q}`);
+      // Add params if not present
+      if (!optimizedUrl.includes('w=')) optimizedUrl += `&w=${w}`;
+      if (!optimizedUrl.includes('h=')) optimizedUrl += `&h=${h}`;
+      if (!optimizedUrl.includes('q=')) optimizedUrl += `&q=${q}`;
+    } else {
+      optimizedUrl += `?w=${w}&h=${h}&q=${q}&fit=crop&auto=format`;
+    }
+
+    return `${optimizedUrl} ${w}w`;
+  }).join(', ');
+}
+
+/**
+ * Default sizes attribute for responsive images
+ * Mobile first approach with breakpoints
+ */
+const DEFAULT_SIZES = "(max-width: 480px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 1200px";
 
 function generateAltText(src: string, fallbackKeyword?: string): string {
   if (fallbackKeyword) {
@@ -43,6 +85,8 @@ export default function OptimizedImage({
   className = '',
   aspectRatio,
   fallbackKeyword,
+  responsive = true,
+  sizes,
   ...props
 }: OptimizedImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -53,6 +97,12 @@ export default function OptimizedImage({
   const finalWidth = width || DEFAULT_WIDTH;
   const finalHeight = height || DEFAULT_HEIGHT;
   const finalAspectRatio = aspectRatio || DEFAULT_ASPECT_RATIO;
+
+  // Generate responsive srcset for Unsplash images
+  const srcset = responsive && src.includes('unsplash.com')
+    ? generateUnsplashSrcset(src, RESPONSIVE_WIDTHS)
+    : undefined;
+  const finalSizes = srcset ? (sizes || DEFAULT_SIZES) : undefined;
 
   useEffect(() => {
     if (priority) return;
@@ -84,6 +134,8 @@ export default function OptimizedImage({
     <img
       ref={imgRef}
       src={isInView ? src : undefined}
+      srcSet={isInView ? srcset : undefined}
+      sizes={finalSizes}
       alt={finalAlt}
       width={finalWidth}
       height={finalHeight}
