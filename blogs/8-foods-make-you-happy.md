@@ -1,10 +1,17 @@
 ---
-title: "8 Foods That Can Make You Feel Happy: Simple Ways to Boost Your Mood"
-slug: "8-foods-make-you-happy"
-date: "2025-08-08 21:14:35"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/mind-boosting-food.webp"
+title: '8 Foods That Can Make You Feel Happy: Simple Ways to Boost Your Mood'
+slug: 8-foods-make-you-happy
+date: '2025-08-08 21:14:35'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/08/mind-boosting-food.webp
+metaDescription: "Did you know that some foods can make you feel happy right after eating?\r\n\r\nFood affects how you feel more than you might think. These eight foods can help..."
 ---
+# 8 Foods That Can Make You Feel Happy: Simple Ways to Boost Your Mood
+
+![8 Foods That Can Make You Feel Happy: Simple Ways to Boost Your Mood](https://empathyhealthclinic.com/wp-content/uploads/2025/08/mind-boosting-food.webp)
+
+
 
 Did you know that some foods can make you feel happy right after eating?
 

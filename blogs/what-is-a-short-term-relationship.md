@@ -1,10 +1,22 @@
 ---
-title: "What is a Short Term Relationship? Defining Its Key Characteristics and Duration"
-slug: "what-is-a-short-term-relationship"
-date: "2025-05-28 11:31:24"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-a-Short-Term-Relationship.jpeg"
+title: >-
+  What is a Short Term Relationship? Defining Its Key Characteristics and
+  Duration
+slug: what-is-a-short-term-relationship
+date: '2025-05-28 11:31:24'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-a-Short-Term-Relationship.jpeg
+metaDescription: >-
+  How do we define short term in a relationship? According to relationship
+  experts and psychologists, a short term relationship is a romantic connection
+  that...
 ---
+# What is a Short Term Relationship? Defining Its Key Characteristics and Duration
+
+![What is a Short Term Relationship? Defining Its Key Characteristics and Duration](https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-a-Short-Term-Relationship.jpeg)
+
+
 
 How do we define short term in a relationship? According to relationship experts and psychologists, a short term relationship is a romantic connection that typically lasts from a few weeks to several months.
 

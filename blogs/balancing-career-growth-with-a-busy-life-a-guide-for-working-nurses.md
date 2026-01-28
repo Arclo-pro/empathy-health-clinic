@@ -1,10 +1,18 @@
 ---
-title: "Balancing Career Growth with a Busy Life: A Guide for  Working Nurses"
-slug: "balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses"
-date: "2025-08-04 14:54:34"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/busy-life.webp"
+title: 'Balancing Career Growth with a Busy Life: A Guide for  Working Nurses'
+slug: balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses
+date: '2025-08-04 14:54:34'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/08/busy-life.webp'
+metaDescription: >-
+  Some days, just getting through your shift feels like an achievement. Between
+  long hours, back-to-back patients, and life outside of work, the idea of...
 ---
+# Balancing Career Growth with a Busy Life: A Guide for  Working Nurses
+
+![Balancing Career Growth with a Busy Life: A Guide for  Working Nurses](https://empathyhealthclinic.com/wp-content/uploads/2025/08/busy-life.webp)
+
+
 
 Some days, just getting through your shift feels like an achievement. Between long hours, back-to-back patients, and life outside of work, the idea of growing your career might seem far away. But if you’ve ever thought about doing more, whether that means moving into leadership, education, or public health, you’re not alone.
 

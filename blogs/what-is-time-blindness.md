@@ -1,10 +1,17 @@
 ---
-title: "What is Time Blindness? Tips for Overcoming It"
-slug: "what-is-time-blindness"
-date: "2025-01-02 15:08:49"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-pavel-danilyuk-6549204.jpg"
+title: What is Time Blindness? Tips for Overcoming It
+slug: what-is-time-blindness
+date: '2025-01-02 15:08:49'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-pavel-danilyuk-6549204.jpg
+metaDescription: The Impact of Time Blindness on Daily Life
 ---
+# What is Time Blindness? Tips for Overcoming It
+
+![What is Time Blindness? Tips for Overcoming It](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-pavel-danilyuk-6549204.jpg)
+
+
 
 The Impact of Time Blindness on Daily Life
 

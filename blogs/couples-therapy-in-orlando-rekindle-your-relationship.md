@@ -1,12 +1,21 @@
 ---
-title: "Couples Therapy in Orlando: Rekindle Your Relationship"
-slug: "couples-therapy-in-orlando-rekindle-your-relationship"
-date: "2025-10-13 11:56:31"
-excerpt: "Discover how couples therapy in Orlando can help rekindle your relationship. Explore effective communication strategies and supportive environments today."
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/10/blog-image-blog-2025-10-13-couples-therapy-in-orlando-re-1.jpg"
+title: 'Couples Therapy in Orlando: Rekindle Your Relationship'
+slug: couples-therapy-in-orlando-rekindle-your-relationship
+date: '2025-10-13 11:56:31'
+excerpt: >-
+  Discover how couples therapy in Orlando can help rekindle your relationship.
+  Explore effective communication strategies and supportive environments today.
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/10/blog-image-blog-2025-10-13-couples-therapy-in-orlando-re-1.jpg
+metaDescription: >-
+  Discover how couples therapy in Orlando can help rekindle your relationship.
+  Explore effective communication strategies and supportive environments today.
 ---
 
 # Couples Therapy in Orlando: Rekindle Your Relationship
+
+![Couples Therapy in Orlando: Rekindle Your Relationship](https://empathyhealthclinic.com/wp-content/uploads/2025/10/blog-image-blog-2025-10-13-couples-therapy-in-orlando-re-1.jpg)
+
 
 Mental health therapy session counseling professional
 
@@ -175,3 +184,10 @@ I'm sorry for any confusion, but it seems there are conflicting instructions reg
 Common questions include session duration Take the first
 
 [Book an appointment](https://empathyhealthclinic.com/schedule-appointment) For comprehensive mental health treatment and support in Orlando, our experienced healthcare professionals provide personalized care tailored to your specific needs, circumstances, and recovery goals. Contact our team today to learn about available treatment options and schedule
+
+
+## Related Articles
+
+- [Therapy Services Orlando: Mental Health Support](/blog/therapy-services-orlando-mental-health-support)
+- [Borderline Personality Disorder Treatment Winter Park Orlando - BPD Therapy](/blog/borderline-personality-disorder-treatment-winter-park-orlando)
+- [CBT Therapy: Improving Mental Health in Winter Park](/blog/cbt-therapy-improving-mental-health-in-winter-park)

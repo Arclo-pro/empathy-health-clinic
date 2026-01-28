@@ -1,12 +1,17 @@
 ---
-title: "Is "more espresso less depresso" true?"
-slug: "is-more-espresso-less-depresso-true"
-date: "2025-01-02 15:30:05"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-chaitaastic-1797108.jpg"
+title: Is "more espresso less depresso" true?
+slug: is-more-espresso-less-depresso-true
+date: '2025-01-02 15:30:05'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-chaitaastic-1797108.jpg
+metaDescription: 'Ah, coffee—the elixir of life for many of us.'
 ---
 
 # More Espresso, Less Depresso: Is It True?
+
+![Is "more espresso less depresso" true?](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-chaitaastic-1797108.jpg)
+
 Ah, coffee—the elixir of life for many of us. 
 
 Whether you’re burning the midnight oil, chasing deadlines, or just being too groggy to function, a hit of espresso has a way of making everything feel just a little more bearable. 

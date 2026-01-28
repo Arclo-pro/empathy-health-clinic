@@ -1,10 +1,19 @@
 ---
-title: "10 Signs Someone Might Be Hiding Their True Self: Understanding Sexuality & Conflict"
-slug: "signs-guy-pretending-straight"
-date: "2025-03-17 07:00:53"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-minan1398-765217.jpg"
+title: >-
+  10 Signs Someone Might Be Hiding Their True Self: Understanding Sexuality &
+  Conflict
+slug: signs-guy-pretending-straight
+date: '2025-03-17 07:00:53'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-minan1398-765217.jpg
+metaDescription: "While many want to know about the signs a guy is pretending to be straight,\_it is important to understand our focus should be on creating a safe environment..."
 ---
+# 10 Signs Someone Might Be Hiding Their True Self: Understanding Sexuality & Conflict
+
+![10 Signs Someone Might Be Hiding Their True Self: Understanding Sexuality & Conflict](https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-minan1398-765217.jpg)
+
+
 
 ## Understanding The Topic: Signs a Guy Is Pretending to Be Straight
 

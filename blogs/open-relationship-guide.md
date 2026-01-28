@@ -1,10 +1,20 @@
 ---
-title: "What Is an Open Relationship: Is It For You?"
-slug: "open-relationship-guide"
-date: "2025-02-28 11:47:42"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-arthurbrognoli-2386832.jpg"
+title: 'What Is an Open Relationship: Is It For You?'
+slug: open-relationship-guide
+date: '2025-02-28 11:47:42'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-arthurbrognoli-2386832.jpg
+metaDescription: >-
+  Wondering what an open relationship is all about? Once considered a taboo
+  subject, open relationships are gradually gaining visibility and acceptance
+  in...
 ---
+# What Is an Open Relationship: Is It For You?
+
+![What Is an Open Relationship: Is It For You?](https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-arthurbrognoli-2386832.jpg)
+
+
 
 Wondering what an open relationship is all about? Once considered a taboo subject, open relationships are gradually gaining visibility and acceptance in today’s culture. From celebrities sharing their unconventional love stories to increased representation in the media, consensual non-monogamy is becoming a topic of curiosity and exploration for many.
 

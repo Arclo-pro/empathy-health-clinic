@@ -1,10 +1,17 @@
 ---
-title: "What is a Mental Breakdown? Symptoms, Causes, and Recovery"
-slug: "what-is-mental-breakdown"
-date: "2025-02-19 07:00:07"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/02/what-is-a-mental-breakdown.jpg"
+title: 'What is a Mental Breakdown? Symptoms, Causes, and Recovery'
+slug: what-is-mental-breakdown
+date: '2025-02-19 07:00:07'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/02/what-is-a-mental-breakdown.jpg
+metaDescription: "What is a mental breakdown? Find the answers you need to guide your path to recovery. \r\nHave you ever felt like the weight of the world was pressing down on..."
 ---
+# What is a Mental Breakdown? Symptoms, Causes, and Recovery
+
+![What is a Mental Breakdown? Symptoms, Causes, and Recovery](https://empathyhealthclinic.com/wp-content/uploads/2025/02/what-is-a-mental-breakdown.jpg)
+
+
 
 **What is a mental breakdown? Find the answers you need to guide your path to recovery. **
 Have you ever felt like the weight of the world was pressing down on you until it all became too much to handle? As if you’d hit an invisible wall, unable to move forward or even think clearly?

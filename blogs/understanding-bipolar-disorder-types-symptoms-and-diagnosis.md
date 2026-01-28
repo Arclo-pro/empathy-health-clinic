@@ -1,10 +1,20 @@
 ---
-title: "Understanding Bipolar Disorder: Types, Symptoms, and Diagnosis"
-slug: "understanding-bipolar-disorder-types-symptoms-and-diagnosis"
-date: "2024-04-23 14:56:36"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/treatments/bipolar-disorder-therapy/photo-by-transly-translation-agency/"
+title: 'Understanding Bipolar Disorder: Types, Symptoms, and Diagnosis'
+slug: understanding-bipolar-disorder-types-symptoms-and-diagnosis
+date: '2024-04-23 14:56:36'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/treatments/bipolar-disorder-therapy/photo-by-transly-translation-agency/
+metaDescription: >-
+  Bipolar disorder significantly affects mood, involving emotional highs (mania
+  or hypomania) and lows (depression). Previously known as manic depression,
+  it...
 ---
+# Understanding Bipolar Disorder: Types, Symptoms, and Diagnosis
+
+![Understanding Bipolar Disorder: Types, Symptoms, and Diagnosis](https://empathyhealthclinic.com/treatments/bipolar-disorder-therapy/photo-by-transly-translation-agency/)
+
+
 
 Bipolar disorder significantly affects mood, involving emotional highs (mania or hypomania) and lows (depression). Previously known as manic depression, it impacts about 1% of the global population. Gaining insight into bipolar disorder empowers affected individuals and their loved ones. This article discusses the disorder's types, symptoms, and diagnostic approaches.
 
@@ -53,7 +63,15 @@ This revised version maintains clarity while adhering to the requirement to limi
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [Bipolar Psychosis: Symptoms, Treatment, and Recovery](/blog/bipolar-psychosis-symptoms-treatment-recovery)
+- [Borderline Personality Disorder Treatment Winter Park Orlando - BPD Therapy](/blog/borderline-personality-disorder-treatment-winter-park-orlando)
+- [Depression Treatment: Options in Orlando, FL](/blog/depression-treatment-options-in-orlando-fl)
+
+Facebook									
 															
 										Twitter									
 															

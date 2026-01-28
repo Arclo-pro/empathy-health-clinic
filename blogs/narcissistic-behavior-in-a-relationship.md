@@ -1,10 +1,19 @@
 ---
-title: "How To Spot Narcissistic Behavior in a Relationship"
-slug: "narcissistic-behavior-in-a-relationship"
-date: "2025-01-27 08:46:28"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-ivan-samkov-6437320.jpg"
+title: How To Spot Narcissistic Behavior in a Relationship
+slug: narcissistic-behavior-in-a-relationship
+date: '2025-01-27 08:46:28'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-ivan-samkov-6437320.jpg
+metaDescription: >-
+  Narcissistic behavior in relationships can be surprisingly hard to spot. Why?
+  Because it often appears as charisma, charm, or confidence. These are...
 ---
+# How To Spot Narcissistic Behavior in a Relationship
+
+![How To Spot Narcissistic Behavior in a Relationship](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-ivan-samkov-6437320.jpg)
+
+
 
 Narcissistic behavior in relationships can be surprisingly hard to spot. Why? Because it often appears as charisma, charm, or confidence. These are qualities that are undeniably appealing at first glance.
 

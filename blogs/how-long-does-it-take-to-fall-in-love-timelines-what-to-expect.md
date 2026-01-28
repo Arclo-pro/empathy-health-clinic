@@ -1,10 +1,20 @@
 ---
-title: "How Long Does It Take to Fall in Love? Timelines & What to Expect"
-slug: "how-long-does-it-take-to-fall-in-love-timelines-what-to-expect"
-date: "2025-04-13 09:36:56"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-Long-Does-It-Take-to-Fall-in-Love.jpg"
+title: How Long Does It Take to Fall in Love? Timelines & What to Expect
+slug: how-long-does-it-take-to-fall-in-love-timelines-what-to-expect
+date: '2025-04-13 09:36:56'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-Long-Does-It-Take-to-Fall-in-Love.jpg
+metaDescription: >-
+  Have you ever wondered how long does it takes to fall in love? Maybe you’ve
+  felt it quickly, like a spark. Other says it grew slowly, like a seed
+  turning...
 ---
+# How Long Does It Take to Fall in Love? Timelines & What to Expect
+
+![How Long Does It Take to Fall in Love? Timelines & What to Expect](https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-Long-Does-It-Take-to-Fall-in-Love.jpg)
+
+
 
 Have you ever wondered how long does it takes to fall in love? Maybe you’ve felt it quickly, like a spark. Other says it grew slowly, like a seed turning into a flower.
 

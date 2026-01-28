@@ -1,10 +1,20 @@
 ---
-title: "How Reactive Attachment Disorder Affects Relationships in Adulthood"
-slug: "reactive-attachment-disorder-in-adults"
-date: "2025-01-27 14:52:01"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-2149006174-30382384.jpg"
+title: How Reactive Attachment Disorder Affects Relationships in Adulthood
+slug: reactive-attachment-disorder-in-adults
+date: '2025-01-27 14:52:01'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-2149006174-30382384.jpg
+metaDescription: >-
+  Reactive Attachment Disorder (RAD) can make it hard for adults to trust
+  others, build close relationships, or share their feelings. Even though RAD
+  usually...
 ---
+# How Reactive Attachment Disorder Affects Relationships in Adulthood
+
+![How Reactive Attachment Disorder Affects Relationships in Adulthood](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-2149006174-30382384.jpg)
+
+
 
 Reactive Attachment Disorder (RAD) can make it hard for adults to trust others, build close relationships, or share their feelings. Even though RAD usually starts in childhood, its effects can continue into adulthood, affecting how people get along with their partners, family, and friends.
 

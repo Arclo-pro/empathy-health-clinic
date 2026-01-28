@@ -1,10 +1,18 @@
 ---
-title: "BPD or NPD: Which One Am I Dealing With?"
-slug: "bpd-vs-npd"
-date: "2025-02-18 08:38:31"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/02/bpd-or-npd.jpg"
+title: 'BPD or NPD: Which One Am I Dealing With?'
+slug: bpd-vs-npd
+date: '2025-02-18 08:38:31'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/02/bpd-or-npd.jpg'
+metaDescription: >-
+  BPD vs NPD: While Borderline Personality Disorder and Narcissistic Personality
+  Disorder share some overlapping traits, like difficulties in relationships...
 ---
+# BPD or NPD: Which One Am I Dealing With?
+
+![BPD or NPD: Which One Am I Dealing With?](https://empathyhealthclinic.com/wp-content/uploads/2025/02/bpd-or-npd.jpg)
+
+
 
 **BPD vs NPD: While Borderline Personality Disorder and Narcissistic Personality Disorder share some overlapping traits, like difficulties in relationships and emotional regulation, they are different conditions.**
 Many struggle to distinguish between the two, leading to potential misunderstandings. If you’re supporting someone with one of these conditions, knowing the difference helps you provide the right kind of help.

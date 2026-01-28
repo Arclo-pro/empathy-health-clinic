@@ -1,10 +1,23 @@
 ---
-title: "Holiday Anxiety: Effective Treatment in Orlando"
-slug: "holiday-anxiety-effective-treatment-in-orlando"
-date: "2025-09-23 16:27:13"
-excerpt: "Get effective treatment for holiday anxiety in Orlando and Winter Park. Professional mental health support to help you manage stress and find joy during the holiday season."
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/09/mental-health-typewriter.jpg"
+title: 'Holiday Anxiety: Effective Treatment in Orlando'
+slug: holiday-anxiety-effective-treatment-in-orlando
+date: '2025-09-23 16:27:13'
+excerpt: >-
+  Get effective treatment for holiday anxiety in Orlando and Winter Park.
+  Professional mental health support to help you manage stress and find joy
+  during the holiday season.
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/09/mental-health-typewriter.jpg
+metaDescription: >-
+  Get effective treatment for holiday anxiety in Orlando and Winter Park.
+  Professional mental health support to help you manage stress and find joy
+  during the hol
 ---
+# Holiday Anxiety: Effective Treatment in Orlando
+
+![Holiday Anxiety: Effective Treatment in Orlando](https://empathyhealthclinic.com/wp-content/uploads/2025/09/mental-health-typewriter.jpg)
+
+
 
 ## Understanding Holiday Anxiety
 
@@ -89,3 +102,10 @@ Remember, seeking help for holiday anxiety shows strength, not weakness. Our com
 ### About the Author
 
 Alex Regan Psychiatric PA-C - Licensed Psychiatric Physician Assistant serving Orlando, Winter Park, and Central Florida. Committed to providing compassionate, evidence-based mental health care for adults 18 and up.
+
+
+## Related Articles
+
+- [Borderline Personality Disorder Treatment Winter Park Orlando - BPD Therapy](/blog/borderline-personality-disorder-treatment-winter-park-orlando)
+- [Managing Holiday Anxiety: Effective Treatment in Orlando](/blog/managing-holiday-anxiety-effective-treatment-in-orlando)
+- [Overcoming Flight Anxiety in Orlando FL: How Treatment Can Help](/blog/overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help)

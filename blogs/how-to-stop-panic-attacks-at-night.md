@@ -1,10 +1,17 @@
 ---
-title: "Effective Ways On How To Stop Panic Attacks at Night"
-slug: "how-to-stop-panic-attacks-at-night"
-date: "2024-12-01 08:17:37"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-cottonbro-6951883.jpg"
+title: Effective Ways On How To Stop Panic Attacks at Night
+slug: how-to-stop-panic-attacks-at-night
+date: '2024-12-01 08:17:37'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-cottonbro-6951883.jpg
+metaDescription: 'Introduction: Breaking the Silence on Nocturnal Panic Attacks'
 ---
+# Effective Ways On How To Stop Panic Attacks at Night
+
+![Effective Ways On How To Stop Panic Attacks at Night](https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-cottonbro-6951883.jpg)
+
+
 
 Introduction: Breaking the Silence on Nocturnal Panic Attacks
 

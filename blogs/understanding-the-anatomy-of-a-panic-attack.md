@@ -1,10 +1,19 @@
 ---
-title: "Understanding the Anatomy of a Panic Attack"
-slug: "understanding-the-anatomy-of-a-panic-attack"
-date: "2024-04-05 18:51:52"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-11.jpeg"
+title: Understanding the Anatomy of a Panic Attack
+slug: understanding-the-anatomy-of-a-panic-attack
+date: '2024-04-05 18:51:52'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-11.jpeg'
+metaDescription: >-
+  Gain insights into the anatomy of panic disorder, including its causes,
+  symptoms, and effective coping strategies. Learn how to navigate panic
+  disorder with...
 ---
+# Understanding the Anatomy of a Panic Attack
+
+![Understanding the Anatomy of a Panic Attack](https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-11.jpeg)
+
+
 
 Gain insights into the anatomy of panic disorder, including its causes, symptoms, and effective coping strategies. Learn how to navigate panic disorder with confidence and seek support for managing symptoms.
 

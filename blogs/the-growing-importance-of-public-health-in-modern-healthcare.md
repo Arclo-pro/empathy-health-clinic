@@ -1,10 +1,17 @@
 ---
-title: "The Growing Importance of Public Health in Modern Healthcare"
-slug: "the-growing-importance-of-public-health-in-modern-healthcare"
-date: "2025-10-14 13:14:13"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/10/vitamin-b-871135_960_720.jpg"
+title: The Growing Importance of Public Health in Modern Healthcare
+slug: the-growing-importance-of-public-health-in-modern-healthcare
+date: '2025-10-14 13:14:13'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/10/vitamin-b-871135_960_720.jpg
+metaDescription: The Growing Importance of Public Health in Modern Healthcare
 ---
+# The Growing Importance of Public Health in Modern Healthcare
+
+![The Growing Importance of Public Health in Modern Healthcare](https://empathyhealthclinic.com/wp-content/uploads/2025/10/vitamin-b-871135_960_720.jpg)
+
+
 
 The Growing Importance of Public Health in Modern Healthcare
 

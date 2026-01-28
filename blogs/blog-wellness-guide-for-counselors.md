@@ -1,10 +1,18 @@
 ---
-title: "Healing the Healer: A Wellness Guide for Counselors"
-slug: "blog-wellness-guide-for-counselors"
-date: "2025-08-04 14:43:33"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/counselor.webp"
+title: 'Healing the Healer: A Wellness Guide for Counselors'
+slug: blog-wellness-guide-for-counselors
+date: '2025-08-04 14:43:33'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/08/counselor.webp'
+metaDescription: >-
+  Counselors are the caretakers of emotional well-being. They hold space for
+  grief, guide people through trauma, and help others find clarity during...
 ---
+# Healing the Healer: A Wellness Guide for Counselors
+
+![Healing the Healer: A Wellness Guide for Counselors](https://empathyhealthclinic.com/wp-content/uploads/2025/08/counselor.webp)
+
+
 
 Counselors are the caretakers of emotional well-being. They hold space for grief, guide people through trauma, and help others find clarity during confusion.
 
@@ -71,3 +79,10 @@ Start small. Take five minutes to close your eyes. Schedule a weekend with no pl
 Wellness for counselors isn’t a luxury. It’s the bedrock of ethical, sustainable practice. Healing means honoring your limits, prioritizing connection, creating balance, and giving yourself grace. When you take care of your well-being, you show up clearer, stronger, and more present for the people who rely on you.
 
 After all, you deserve the same care you offer to others.
+
+
+## Related Articles
+
+- [Why Coping with Grief During the Holidays After a Child Loss Matters](/blog/coping-with-grief-during-holidays)
+- [What to Expect in Grief Counseling: A Beginner’s Guide](/blog/grief-counseling-guide)
+- [The Power of Grief Counseling in Healing the Heart](/blog/the-power-of-grief-counseling-in-healing-the-heart-2)

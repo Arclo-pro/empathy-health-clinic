@@ -1,10 +1,17 @@
 ---
-title: "How to Be Productive: Simple Steps That Actually Work"
-slug: "how-to-be-productive"
-date: "2025-06-21 06:02:46"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/06/How-to-Be-Productive.jpeg"
+title: 'How to Be Productive: Simple Steps That Actually Work'
+slug: how-to-be-productive
+date: '2025-06-21 06:02:46'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/06/How-to-Be-Productive.jpeg
+metaDescription: "How to be productive starts with simple changes, like creating a clean workspace, managing your time well, and cutting out distractions.\r\n\r\nThese small..."
 ---
+# How to Be Productive: Simple Steps That Actually Work
+
+![How to Be Productive: Simple Steps That Actually Work](https://empathyhealthclinic.com/wp-content/uploads/2025/06/How-to-Be-Productive.jpeg)
+
+
 
 How to be productive starts with simple changes, like creating a clean workspace, managing your time well, and cutting out distractions.
 

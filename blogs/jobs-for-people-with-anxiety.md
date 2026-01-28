@@ -1,10 +1,16 @@
 ---
-title: "Jobs for People with Anxiety: Finding Your Calm and Productive Career Path"
-slug: "jobs-for-people-with-anxiety"
-date: "2025-03-28 17:43:12"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-4.jpg"
+title: 'Jobs for People with Anxiety: Finding Your Calm and Productive Career Path'
+slug: jobs-for-people-with-anxiety
+date: '2025-03-28 17:43:12'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-4.jpg'
+metaDescription: "Do you have anxiety and wondering what are the best jobs for you?\_\r\n\r\nAt Empathy Health Clinic, we know how important it is to find a career that supports..."
 ---
+# Jobs for People with Anxiety: Finding Your Calm and Productive Career Path
+
+![Jobs for People with Anxiety: Finding Your Calm and Productive Career Path](https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-4.jpg)
+
+
 
 Do you have anxiety and wondering what are the best jobs for you? 
 
@@ -289,3 +295,10 @@ Struggling with anxiety? Our mental health clinic is here to help. If you're uns
 [
 Book Your Appointment Today!
 ](https://empathyhealthclinic.com/request-appointment/)
+
+
+## Related Articles
+
+- [6 Effective Tips for Fighting Anxiety and Regaining Control](/blog/6-effective-tips-for-fighting-anxiety-and-regaining-control)
+- [How Does Art Therapy Help Manage Anxiety](/blog/anxiety-art-therapy-transformative-power)
+- [CBT Therapy: Improving Mental Health in Winter Park](/blog/cbt-therapy-improving-mental-health-in-winter-park)

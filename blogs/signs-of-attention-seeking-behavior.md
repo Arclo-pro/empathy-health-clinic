@@ -1,10 +1,19 @@
 ---
-title: "Signs of Attention-Seeking Behavior and How to Break the Pattern"
-slug: "signs-of-attention-seeking-behavior"
-date: "2024-12-12 23:53:29"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-fauxels-3184298.jpg"
+title: Signs of Attention-Seeking Behavior and How to Break the Pattern
+slug: signs-of-attention-seeking-behavior
+date: '2024-12-12 23:53:29'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-fauxels-3184298.jpg
+metaDescription: >-
+  Attention-seeking behavior in adults is a conscious attempt to capture
+  attention, often driven by a need for validation, admiration, or a sense of...
 ---
+# Signs of Attention-Seeking Behavior and How to Break the Pattern
+
+![Signs of Attention-Seeking Behavior and How to Break the Pattern](https://empathyhealthclinic.com/wp-content/uploads/2024/12/pexels-fauxels-3184298.jpg)
+
+
 
 Attention-seeking behavior in adults is a conscious attempt to capture attention, often driven by a need for validation, admiration, or a sense of importance.
 

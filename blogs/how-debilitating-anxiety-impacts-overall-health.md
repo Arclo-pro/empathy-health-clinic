@@ -1,10 +1,19 @@
 ---
-title: "How Debilitating Anxiety Impacts Overall Health"
-slug: "how-debilitating-anxiety-impacts-overall-health"
-date: "2024-11-30 13:07:50"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-pavel-danilyuk-8057362.jpg"
+title: How Debilitating Anxiety Impacts Overall Health
+slug: how-debilitating-anxiety-impacts-overall-health
+date: '2024-11-30 13:07:50'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-pavel-danilyuk-8057362.jpg
+metaDescription: >-
+  Living with debilitating anxiety, often referred to as crippling anxiety, is
+  one of the worst feelings a person can experience.
 ---
+# How Debilitating Anxiety Impacts Overall Health
+
+![How Debilitating Anxiety Impacts Overall Health](https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-pavel-danilyuk-8057362.jpg)
+
+
 
 Living with debilitating anxiety, often referred to as crippling anxiety, is one of the worst feelings a person can experience.
 
@@ -201,7 +210,15 @@ Take the first step today—reach out for support, whether it’s through our cl
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [6 Effective Tips for Fighting Anxiety and Regaining Control](/blog/6-effective-tips-for-fighting-anxiety-and-regaining-control)
+- [How Does Art Therapy Help Manage Anxiety](/blog/anxiety-art-therapy-transformative-power)
+- [Top 5 Factors to Consider When Choosing Anxiety Treatment Centers](/blog/choosing-anxiety-treatment-centers-factors)
+
+Facebook									
 															
 										Twitter									
 															

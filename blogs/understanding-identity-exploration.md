@@ -1,10 +1,20 @@
 ---
-title: "Identity Exploration: What It Is and Why It Matters"
-slug: "understanding-identity-exploration"
-date: "2025-05-27 11:39:26"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/05/identity-exploration.jpeg"
+title: 'Identity Exploration: What It Is and Why It Matters'
+slug: understanding-identity-exploration
+date: '2025-05-27 11:39:26'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/05/identity-exploration.jpeg
+metaDescription: >-
+  Identity exploration is the process of discovering who you are. It involves
+  trying new things, questioning your beliefs, and figuring out what matters
+  most...
 ---
+# Identity Exploration: What It Is and Why It Matters
+
+![Identity Exploration: What It Is and Why It Matters](https://empathyhealthclinic.com/wp-content/uploads/2025/05/identity-exploration.jpeg)
+
+
 
 Identity exploration is the process of discovering who you are. It involves trying new things, questioning your beliefs, and figuring out what matters most to you.
 

@@ -1,10 +1,17 @@
 ---
-title: "Being Unburdened: The Key to Mental Clarity and Productivity"
-slug: "unburdened-the-key-to-mental-clarity"
-date: "2025-05-13 14:52:05"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/05/Unburdened-By-What-Has-Been.jpeg"
+title: 'Being Unburdened: The Key to Mental Clarity and Productivity'
+slug: unburdened-the-key-to-mental-clarity
+date: '2025-05-13 14:52:05'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/05/Unburdened-By-What-Has-Been.jpeg
+metaDescription: "We recently got a question from one of our clients. \"How can I feel unburdened? My past mistakes are weighing me down at work.\"\r\n\r\nThis got us thinking..."
 ---
+# Being Unburdened: The Key to Mental Clarity and Productivity
+
+![Being Unburdened: The Key to Mental Clarity and Productivity](https://empathyhealthclinic.com/wp-content/uploads/2025/05/Unburdened-By-What-Has-Been.jpeg)
+
+
 
 We recently got a question from one of our clients. **"How can I feel unburdened?** *My past mistakes are weighing me down at work."*
 

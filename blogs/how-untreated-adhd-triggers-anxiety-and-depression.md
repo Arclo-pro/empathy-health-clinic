@@ -1,10 +1,17 @@
 ---
-title: "How Untreated ADHD Can Trigger Anxiety and Depression Symptoms"
-slug: "how-untreated-adhd-triggers-anxiety-and-depression"
-date: "2024-11-18 14:53:00"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-felipesantt-3029699.jpg"
+title: How Untreated ADHD Can Trigger Anxiety and Depression Symptoms
+slug: how-untreated-adhd-triggers-anxiety-and-depression
+date: '2024-11-18 14:53:00'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-felipesantt-3029699.jpg
+metaDescription: 'Introduction: Why We Need to Talk About This'
 ---
+# How Untreated ADHD Can Trigger Anxiety and Depression Symptoms
+
+![How Untreated ADHD Can Trigger Anxiety and Depression Symptoms](https://empathyhealthclinic.com/wp-content/uploads/2024/11/pexels-felipesantt-3029699.jpg)
+
+
 
 Introduction: Why We Need to Talk About This
 
@@ -334,7 +341,15 @@ This is your story, and you have the power to make it a hopeful one.
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [How EMDR Helps With Anxiety & Depression](/blog/how-emdr-helps-with-anxiety-depression)
+- [6 Effective Tips for Fighting Anxiety and Regaining Control](/blog/6-effective-tips-for-fighting-anxiety-and-regaining-control)
+- [How Does Art Therapy Help Manage Anxiety](/blog/anxiety-art-therapy-transformative-power)
+
+Facebook									
 															
 										Twitter									
 															

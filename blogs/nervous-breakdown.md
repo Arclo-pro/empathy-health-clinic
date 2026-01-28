@@ -1,10 +1,17 @@
 ---
-title: "What Is a Nervous Breakdown? Real Signs You Shouldn't Ignore"
-slug: "nervous-breakdown"
-date: "2025-07-04 08:32:46"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/Image-8-4-25-at-8.05-PM.jpeg"
+title: What Is a Nervous Breakdown? Real Signs You Shouldn't Ignore
+slug: nervous-breakdown
+date: '2025-07-04 08:32:46'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/08/Image-8-4-25-at-8.05-PM.jpeg
+metaDescription: "A closer look at the signs of a nervous breakdown and what they really mean.\r\n\r\nSarah felt like she was drowning. After months of caring for her sick mother..."
 ---
+# What Is a Nervous Breakdown? Real Signs You Shouldn't Ignore
+
+![What Is a Nervous Breakdown? Real Signs You Shouldn't Ignore](https://empathyhealthclinic.com/wp-content/uploads/2025/08/Image-8-4-25-at-8.05-PM.jpeg)
+
+
 
 A closer look at the signs of a nervous breakdown and what they really mean.
 

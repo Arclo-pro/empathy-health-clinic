@@ -1,12 +1,19 @@
 ---
-title: "How to Stay Grounded Through Major Life Changes"
-slug: "how-to-stay-grounded-through-major-life-changes"
-date: "2025-10-15 09:17:46"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-tim-samuel-5835253.jpg"
+title: How to Stay Grounded Through Major Life Changes
+slug: how-to-stay-grounded-through-major-life-changes
+date: '2025-10-15 09:17:46'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-tim-samuel-5835253.jpg
+metaDescription: >-
+  Life doesn’t knock — it barges in. One day you’re coasting, the next you’re
+  rerouting everything from your income to your identity. These aren’t gentle...
 ---
 
 # How to Stay Grounded Through Major Life Changes
+
+![How to Stay Grounded Through Major Life Changes](https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-tim-samuel-5835253.jpg)
+
 
 Life doesn’t knock — it barges in. One day you’re coasting, the next you’re rerouting everything from your income to your identity. These aren’t gentle nudges; they’re full-body pivots — the kind that flood your nervous system with too many questions and not enough ground. Whether it’s a career upheaval, personal loss, cross-country move, or unexpected diagnosis, adaptation isn’t just about logic — it’s about friction. Most advice skips straight to the part where you’re supposed to cope. But real transitions start somewhere messier: the part where you still want the old thing to work. To endure change, you don’t need perfect answers. You need rhythm, ritual, and routes back to yourself.
 

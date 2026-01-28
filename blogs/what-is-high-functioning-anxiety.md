@@ -1,10 +1,17 @@
 ---
-title: "Do I Have High Functioning Anxiety? Recognizing the Signs & Getting Support"
-slug: "what-is-high-functioning-anxiety"
-date: "2025-02-14 12:17:46"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-olly-3212791.jpg"
+title: Do I Have High Functioning Anxiety? Recognizing the Signs & Getting Support
+slug: what-is-high-functioning-anxiety
+date: '2025-02-14 12:17:46'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-olly-3212791.jpg
+metaDescription: "Curious about is\_what is high functioning anxiety. It’s the most disturbing kind of anxiety.\_But, why?Unlike\_generalized anxiety disorder\_(GAD), which can..."
 ---
+# Do I Have High Functioning Anxiety? Recognizing the Signs & Getting Support
+
+![Do I Have High Functioning Anxiety? Recognizing the Signs & Getting Support](https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-olly-3212791.jpg)
+
+
 
 Curious about is **what is high functioning anxiety**. It’s the most disturbing kind of anxiety. **But, why?**Unlike [generalized anxiety disorder](https://empathyhealthclinic.com/blog/demystifying-generalized-anxiety-disorder-gad/) (GAD), which can make daily life very hard, people with high functioning anxiety seem to be doing fine on the outside. But underneath, they are dealing with **constant worry,** **stress**, and **self-doubt**.This type of anxiety is often masked by traits like perfectionism, a strong drive to succeed, or being labeled a “worrier.”While they may excel in work or school, it often comes at a personal cost, leading to mental exhaustion, burnout, and reduced quality of life.**Why is High Functioning Anxiety Often Overlooked?**[According to the Mayo Clinic](https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/managing-high-functioning-anxiety), high functioning or **masked anxiety** is frequently ignored because individuals meet their responsibilities and appear capable.However, the internal struggle can harm both mental and physical health, leading to fatigue, emotional burnout, and a diminished sense of well-being if left unaddressed.**How is High Functioning Anxiety Different from GAD?****Generalized Anxiety Disorder (GAD):**A recognized mental health condition.Causes constant, intense worry about everyday issues like work, health, or relationships.Often comes with physical symptoms such as fatigue, restlessness, muscle tension, or difficulty concentrating.Typically requires medical treatment as it can severely impair daily life. **High Functioning Anxiety:**Not a formal medical diagnosis but a behavioral pattern.Causes persistent worry and perfectionism but motivates individuals to overachieve rather than paralyze them.Symptoms, such as racing thoughts or insomnia, are less visible and often mistaken for personality traits like being detail-oriented.Though less disruptive than GAD, it can still take a significant toll if unaddressed.** ****Why is High Functioning Anxiety So Common?**Experts point to factors like the fast-paced nature of modern life, societal pressures, and lingering stigma around mental health. Many people with high-functioning anxiety don’t recognize their symptoms, assuming it’s normal to feel constantly stressed while pushing through without seeking help.**The Impact of High Functioning Anxiety**Even though people with high-functioning anxiety may seem calm and successful, the constant internal worry and overthinking can lead to serious consequences, including:Chronic stress and fatigue.Insomnia and racing thoughts.Difficulty enjoying life or relaxing.*Did you know that over [40 million adults in the U.S. experience anxiety](https://adaa.org/understanding-anxiety/facts-statistics) every year? However only a fraction of these individuals seek treatment, even though anxiety disorders are highly treatable. *Ignoring these symptoms can lead to long-term issues, but with the right help, individuals can learn effective ways to manage anxiety and improve their quality of life.**Good Read:** [Top 5 Factors to Consider When Choosing Anxiety Treatment Centers](https://empathyhealthclinic.com/choosing-anxiety-treatment-centers-factors/)If you or someone you know struggles with anxiety, **whether high-functioning or GAD, **consulting a mental health professional can provide guidance and support.		
 																														
@@ -43,7 +50,15 @@ Remember, with the right support, it’s possible to regain balance, reduce anxi
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [6 Effective Tips for Fighting Anxiety and Regaining Control](/blog/6-effective-tips-for-fighting-anxiety-and-regaining-control)
+- [How Does Art Therapy Help Manage Anxiety](/blog/anxiety-art-therapy-transformative-power)
+- [Top 5 Factors to Consider When Choosing Anxiety Treatment Centers](/blog/choosing-anxiety-treatment-centers-factors)
+
+Facebook									
 															
 										Twitter									
 															

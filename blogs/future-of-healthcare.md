@@ -1,10 +1,20 @@
 ---
-title: "Future of Healthcare: How Advanced Practice Nurses Are Trained for a Changing World"
-slug: "future-of-healthcare"
-date: "2025-08-04 14:24:45"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/healthcare.webp"
+title: >-
+  Future of Healthcare: How Advanced Practice Nurses Are Trained for a Changing
+  World
+slug: future-of-healthcare
+date: '2025-08-04 14:24:45'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/08/healthcare.webp'
+metaDescription: >-
+  Healthcare never stands still. It grows, adapts, and often transforms in
+  response to global events, emerging diseases, policy changes, and advancing...
 ---
+# Future of Healthcare: How Advanced Practice Nurses Are Trained for a Changing World
+
+![Future of Healthcare: How Advanced Practice Nurses Are Trained for a Changing World](https://empathyhealthclinic.com/wp-content/uploads/2025/08/healthcare.webp)
+
+
 
 Healthcare never stands still. It grows, adapts, and often transforms in response to global events, emerging diseases, policy changes, and advancing technologies. As the world evolves, the professionals at the front lines of patient care must evolve too, especially nurses.
 

@@ -1,10 +1,18 @@
 ---
-title: "How to Leave a Toxic Relationship: Find Support and Begin Healing"
-slug: "how-to-leave-toxic-relationship"
-date: "2025-03-28 18:24:40"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-6.jpg"
+title: 'How to Leave a Toxic Relationship: Find Support and Begin Healing'
+slug: how-to-leave-toxic-relationship
+date: '2025-03-28 18:24:40'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-6.jpg'
+metaDescription: >-
+  How to leave a toxic relationship is a question that signals a crucial turning
+  point. If you've reached this stage, know that you're taking a brave step...
 ---
+# How to Leave a Toxic Relationship: Find Support and Begin Healing
+
+![How to Leave a Toxic Relationship: Find Support and Begin Healing](https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog-6.jpg)
+
+
 
 How to leave a toxic relationship is a question that signals a crucial turning point. If you've reached this stage, know that you're taking a brave step towards a better future.
 

@@ -1,10 +1,16 @@
 ---
-title: "Mindfulness and Relaxation Exercises"
-slug: "mindfulness-and-relaxation-exercises"
-date: "2024-03-22 20:40:08"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-9.jpg"
+title: Mindfulness and Relaxation Exercises
+slug: mindfulness-and-relaxation-exercises
+date: '2024-03-22 20:40:08'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-9.jpg'
+metaDescription: '- Sit or lie down comfortably.'
 ---
+# Mindfulness and Relaxation Exercises
+
+![Mindfulness and Relaxation Exercises](https://empathyhealthclinic.com/wp-content/uploads/2024/03/blog-9.jpg)
+
+
 
 ## **Deep Breathing (Diaphragmatic Breathing):**
 

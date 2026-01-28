@@ -1,10 +1,20 @@
 ---
-title: "CPR First Aid Certification That Covers Medical and Non-Medical Scenarios"
-slug: "cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios"
-date: "2025-08-23 13:07:29"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/CPR-First-Aid-Certification.webp"
+title: CPR First Aid Certification That Covers Medical and Non-Medical Scenarios
+slug: cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios
+date: '2025-08-23 13:07:29'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/08/CPR-First-Aid-Certification.webp
+metaDescription: >-
+  During work, a team leader happened to see a colleague spill scalding coffee
+  all over their hand. Immediately, they took them to the break room. They
+  rinsed...
 ---
+# CPR First Aid Certification That Covers Medical and Non-Medical Scenarios
+
+![CPR First Aid Certification That Covers Medical and Non-Medical Scenarios](https://empathyhealthclinic.com/wp-content/uploads/2025/08/CPR-First-Aid-Certification.webp)
+
+
 
 During work, a team leader happened to see a colleague spill scalding coffee all over their hand. Immediately, they took them to the break room. They rinsed the burn with cool water and cleaned it with a new bandage. Because of the recent CPR and First Aid courses, they just knew what to do and were calm the whole time.
 

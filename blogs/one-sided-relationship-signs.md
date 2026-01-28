@@ -1,10 +1,20 @@
 ---
-title: "7 Signs of a One Sided Relationship & What to Do Next"
-slug: "one-sided-relationship-signs"
-date: "2025-03-26 19:24:59"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-josh-hild-1270765-4606770.webp"
+title: 7 Signs of a One Sided Relationship & What to Do Next
+slug: one-sided-relationship-signs
+date: '2025-03-26 19:24:59'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-josh-hild-1270765-4606770.webp
+metaDescription: >-
+  A one sided relationship happens when one person puts in more effort, time,
+  and energy than the other. This relationship can lead to becoming toxic,
+  causing...
 ---
+# 7 Signs of a One Sided Relationship & What to Do Next
+
+![7 Signs of a One Sided Relationship & What to Do Next](https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-josh-hild-1270765-4606770.webp)
+
+
 
 A one sided relationship happens when one person puts in more effort, time, and energy than the other. This relationship can lead to becoming toxic, causing emotional harm and negatively impacting your well-being.
 

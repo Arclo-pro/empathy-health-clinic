@@ -1,10 +1,20 @@
 ---
-title: "What Is an LTR Relationship? Meaning, Signs & How to Build One"
-slug: "ltr-relationship-meaning-guide"
-date: "2025-05-27 17:01:25"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/05/LTR-relationship.jpeg"
+title: 'What Is an LTR Relationship? Meaning, Signs & How to Build One'
+slug: ltr-relationship-meaning-guide
+date: '2025-05-27 17:01:25'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/05/LTR-relationship.jpeg
+metaDescription: >-
+  LTR, or "Long-Term Relationship," is a romantic partnership where both people
+  commit to staying together for a long period, often with shared life goals
+  and...
 ---
+# What Is an LTR Relationship? Meaning, Signs & How to Build One
+
+![What Is an LTR Relationship? Meaning, Signs & How to Build One](https://empathyhealthclinic.com/wp-content/uploads/2025/05/LTR-relationship.jpeg)
+
+
 
 **LTR, or "Long-Term Relationship," is a romantic partnership where both people commit to staying together for a long period, often with shared life goals and emotional investment.**
 ## What is an LTR relationship?

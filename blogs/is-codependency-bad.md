@@ -1,10 +1,19 @@
 ---
-title: "Is Codependency Bad? Understand the Effects & Break Free Now"
-slug: "is-codependency-bad"
-date: "2025-03-28 15:30:10"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog.jpg"
+title: Is Codependency Bad? Understand the Effects & Break Free Now
+slug: is-codependency-bad
+date: '2025-03-28 15:30:10'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog.jpg'
+metaDescription: >-
+  Is codependency bad? You might wonder. It's when you need someone too much,
+  and they need you too much. It can feel like love, but it's not always
+  healthy....
 ---
+# Is Codependency Bad? Understand the Effects & Break Free Now
+
+![Is Codependency Bad? Understand the Effects & Break Free Now](https://empathyhealthclinic.com/wp-content/uploads/2025/03/image-blog.jpg)
+
+
 
 Is codependency bad? You might wonder. It's when you need someone too much, and they need you too much. It can feel like love, but it's not always healthy. We'll talk about what it is, and if it's okay, as we go.
 

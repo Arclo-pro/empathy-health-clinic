@@ -1,10 +1,19 @@
 ---
-title: "How to Get Over Someone and Move On With Your Life"
-slug: "how-to-get-over-someone-and-move-on-with-your-life"
-date: "2025-04-14 05:43:03"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-to-get-over-someone.jpeg"
+title: How to Get Over Someone and Move On With Your Life
+slug: how-to-get-over-someone-and-move-on-with-your-life
+date: '2025-04-14 05:43:03'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-to-get-over-someone.jpeg
+metaDescription: >-
+  The struggle of how to get over someone is real. You've probably read a ton of
+  these articles since you broke up. You must be tired of figuring out how to...
 ---
+# How to Get Over Someone and Move On With Your Life
+
+![How to Get Over Someone and Move On With Your Life](https://empathyhealthclinic.com/wp-content/uploads/2025/04/How-to-get-over-someone.jpeg)
+
+
 
 The struggle of how to get over someone is real. You've probably read a ton of these articles since you broke up. You must be tired of figuring out how to stop missing that person.
 

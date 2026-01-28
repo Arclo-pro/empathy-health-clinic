@@ -1,10 +1,21 @@
 ---
-title: "What is Love Bombing: Recognizing the Manipulation Tactic & Protecting Your Mental Health"
-slug: "what-is-love-bombing"
-date: "2025-05-27 09:57:11"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-Love-Bombing.jpeg"
+title: >-
+  What is Love Bombing: Recognizing the Manipulation Tactic & Protecting Your
+  Mental Health
+slug: what-is-love-bombing
+date: '2025-05-27 09:57:11'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-Love-Bombing.jpeg
+metaDescription: >-
+  Are you wondering what is love bombing? Maybe a friend mentioned that your new
+  partner's intense affection feels too much, too soon. Love bombing is a...
 ---
+# What is Love Bombing: Recognizing the Manipulation Tactic & Protecting Your Mental Health
+
+![What is Love Bombing: Recognizing the Manipulation Tactic & Protecting Your Mental Health](https://empathyhealthclinic.com/wp-content/uploads/2025/05/What-is-Love-Bombing.jpeg)
+
+
 
 Are you wondering what is love bombing? Maybe a friend mentioned that your new partner's intense affection feels too much, too soon. **Love bombing is a manipulation tactic** often used in toxic or abusive relationships.
 *(Where someone overwhelms you with excessive attention, flattery, and gifts early on to gain control or **[create dependency](https://empathyhealthclinic.com/is-codependency-bad/).)*
@@ -258,3 +269,10 @@ Your mental health and well-being matter. Take the time you need to build relati
 If you're feeling overwhelmed in a relationship or unsure about the signs of emotional manipulation, we can help. Our team at Empathy Health offers compassionate, judgment-free support through individual therapy, [anxiety treatment](https://empathyhealthclinic.com/treatments/anxiety-treatment/), and couples counseling.
 
 Let’s talk. Reach out today to take the first step toward healthier connections and emotional clarity.
+
+
+## Related Articles
+
+- [CBT Therapy: Improving Mental Health in Winter Park](/blog/cbt-therapy-improving-mental-health-in-winter-park)
+- [Depression Treatment Orlando: Expert Mental Health Care](/blog/depression-treatment-orlando-expert-mental-health-care)
+- [Find Expert Therapy Near Me: Mental Health Treatment](/blog/find-expert-therapy-near-me-mental-health-treatment)

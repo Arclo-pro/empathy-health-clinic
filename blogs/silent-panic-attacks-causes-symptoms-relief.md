@@ -1,10 +1,17 @@
 ---
-title: "Silent Panic Attacks: Signs, Causes, and How to Regain Control"
-slug: "silent-panic-attacks-causes-symptoms-relief"
-date: "2025-01-31 08:10:53"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-alexandre-saraiva-carniato-583650-3057504.jpg"
+title: 'Silent Panic Attacks: Signs, Causes, and How to Regain Control'
+slug: silent-panic-attacks-causes-symptoms-relief
+date: '2025-01-31 08:10:53'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-alexandre-saraiva-carniato-583650-3057504.jpg
+metaDescription: "Silent Panic Attacks: What to Know \r\n\r\nPanic attacks don't always look the same. While some involve visible signs like shaking or crying, silent panic..."
 ---
+# Silent Panic Attacks: Signs, Causes, and How to Regain Control
+
+![Silent Panic Attacks: Signs, Causes, and How to Regain Control](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-alexandre-saraiva-carniato-583650-3057504.jpg)
+
+
 
 Silent Panic Attacks: What to Know 
 

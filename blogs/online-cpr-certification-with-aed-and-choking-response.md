@@ -1,10 +1,17 @@
 ---
-title: "Online CPR Certification That Includes AED and Choking Response"
-slug: "online-cpr-certification-with-aed-and-choking-response"
-date: "2025-08-23 13:35:06"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/Online-CPR-Certification.webp"
+title: Online CPR Certification That Includes AED and Choking Response
+slug: online-cpr-certification-with-aed-and-choking-response
+date: '2025-08-23 13:35:06'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/08/Online-CPR-Certification.webp
+metaDescription: "At the workplace, being ready to respond in case of emergencies can save the day.\r\n\r\nGaining an online Cardiopulmonary resuscitation (CPR) certification..."
 ---
+# Online CPR Certification That Includes AED and Choking Response
+
+![Online CPR Certification That Includes AED and Choking Response](https://empathyhealthclinic.com/wp-content/uploads/2025/08/Online-CPR-Certification.webp)
+
+
 
 At the workplace, being ready to respond in case of emergencies can save the day.
 

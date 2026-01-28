@@ -1,10 +1,20 @@
 ---
-title: "How to Break Free From People Pleasing: Overcome Fear & Set Limits"
-slug: "how-to-stop-people-pleasing"
-date: "2025-03-25 15:57:32"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-olia-danilevich-8145330.jpg"
+title: 'How to Break Free From People Pleasing: Overcome Fear & Set Limits'
+slug: how-to-stop-people-pleasing
+date: '2025-03-25 15:57:32'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-olia-danilevich-8145330.jpg
+metaDescription: >-
+  Constantly prioritizing others' happiness and seeking their approval over your
+  needs could mean you're a people pleaser. While it’s admirable to be kind
+  and...
 ---
+# How to Break Free From People Pleasing: Overcome Fear & Set Limits
+
+![How to Break Free From People Pleasing: Overcome Fear & Set Limits](https://empathyhealthclinic.com/wp-content/uploads/2025/03/pexels-olia-danilevich-8145330.jpg)
+
+
 
 ## Is your habit of people pleasing taking a toll on your mental well-being? If so, it’s time to stop.
 Constantly prioritizing others' happiness and seeking their approval over your needs could mean you're a people pleaser. While it’s admirable to be kind and considerate, overextending yourself for others can leave you feeling drained, stressed, and anxious.

@@ -1,0 +1,4962 @@
+{
+  "timestamp": "2026-01-28T01:51:49.291Z",
+  "summary": {
+    "totalBlogs": 165,
+    "criticalIssues": 84,
+    "warnings": 386,
+    "averageScore": 91,
+    "failedBlogs": [
+      "6-effective-tips-for-fighting-anxiety-and-regaining-control.md",
+      "8-foods-make-you-happy.md",
+      "balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses.md",
+      "bbp-certification-worker-safety.md",
+      "best-dental-implants-kingston-smiles-ny.md",
+      "bpd-vs-npd.md",
+      "coping-with-grief-during-holidays.md",
+      "cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios.md",
+      "dating-someone-with-bpd.md",
+      "deciphering-the-differences-therapy-vs-counseling.md",
+      "demystifying-generalized-anxiety-disorder-gad.md",
+      "dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing.md",
+      "discover-your-path-to-inner-peace-and-healing-through-therapy.md",
+      "effective-strategies-for-managing-bipolar-disorder.md",
+      "from-tension-to-relief-everyday-tips-for-a-healthier-body.md",
+      "future-of-healthcare.md",
+      "holiday-anxiety-effective-treatment-in-orlando.md",
+      "how-bipolar-disorder-impacts-interpersonal-dynamics.md",
+      "how-long-does-it-take-to-fall-in-love-timelines-what-to-expect.md",
+      "how-social-workers-make-a-difference-every-single-day.md",
+      "how-to-be-productive.md",
+      "how-to-feel-better-every-day.md",
+      "how-to-get-over-someone-and-move-on-with-your-life.md",
+      "how-to-get-wife-more-intimate.md",
+      "how-to-leave-toxic-relationship.md",
+      "how-to-stay-grounded-through-major-life-changes.md",
+      "how-to-stop-panic-attacks-at-night.md",
+      "how-to-stop-people-pleasing.md",
+      "is-codependency-bad.md",
+      "is-more-espresso-less-depresso-true.md",
+      "it-service-providers-driving-healthcare-innovation-2025.md",
+      "ltr-relationship-meaning-guide.md",
+      "mindfulness-and-relaxation-exercises.md",
+      "narcissistic-behavior-in-a-relationship.md",
+      "navigating-adhd-your-comprehensive-guide-to-effective-treatment-options.md",
+      "navigating-life-with-agoraphobia.md",
+      "nervous-breakdown.md",
+      "neuropharmacology-dmaa-nefiracetam-comparative-insights.md",
+      "one-sided-relationship-signs.md",
+      "online-cpr-certification-with-aed-and-choking-response.md",
+      "open-relationship-guide.md",
+      "outsource-billing-practice.md",
+      "overcoming-anxiety-with-cognitive-behavioral-therapy.md",
+      "overcoming-social-anxiety.md",
+      "practical-strategies-for-managing-anxiety-in-daily-life.md",
+      "psychiatrist-vs-psychologist-whats-the-difference.md",
+      "psychotherapy-vs-counseling-therapy-what-is-the-difference.md",
+      "reactive-attachment-disorder-in-adults.md",
+      "recognize-and-manage-hair-pulling-disorder.md",
+      "signs-guy-pretending-straight.md",
+      "signs-of-attention-seeking-behavior.md",
+      "signs-of-being-gay.md",
+      "silent-panic-attacks-causes-symptoms-relief.md",
+      "the-growing-importance-of-public-health-in-modern-healthcare.md",
+      "the-power-of-cognitive-behavioral-therapy-cbt.md",
+      "the-rise-of-online-therapy-a-game-changer-for-mental-health.md",
+      "the-role-of-therapy-in-managing-bipolar-disorder.md",
+      "the-transformative-power-of-counseling-understanding-its-benefits.md",
+      "title-understanding-the-different-types-of-anxiety-disorders.md",
+      "top-5-ai-scribes-psychiatrists-are-actually-using-in-2025.md",
+      "unburdened-the-key-to-mental-clarity.md",
+      "understanding-adhd-diagnosis-treatment-and-coping-strategies.md",
+      "understanding-anxiety-disorder-symptoms-types-and-diagnosis.md",
+      "understanding-bipolar-disorder-demystifying-a-complex-mental-health-condition.md",
+      "understanding-bipolar-disorder-types-symptoms-and-diagnosis.md",
+      "understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness.md",
+      "understanding-identity-exploration.md",
+      "understanding-obsessive-compulsive-disorder-ocd-causes-symptoms-and-treatment.md",
+      "understanding-the-anatomy-of-a-panic-attack.md",
+      "varicose-veins-and-mental-health.md",
+      "what-is-a-psychotherapist-vs-psychologist.md",
+      "what-is-a-short-term-relationship.md",
+      "what-is-mental-breakdown.md",
+      "what-is-time-blindness.md",
+      "who-cheats-more-men-or-women.md",
+      "why-healthcare-practices-need-a-good-credentialing-partner.md"
+    ],
+    "topIssues": {
+      "Content Length: Word count is 706, minimum is 800 words": 1,
+      "Content Length: Word count is 1068, target is 1200-2500 words": 1,
+      "Meta Title: Title is 68 characters, recommended 50-60": 4,
+      "Internal Linking: Only 0 internal links found, minimum is 3-5": 46,
+      "Images: Only 1 images for 1068 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Readability: Many long paragraphs detected, consider breaking them up": 74,
+      "Readability: Few bullet lists found, consider using lists for better readability": 36,
+      "Featured Snippet: Consider adding numbered lists or tables for featured snippet optimization": 120,
+      "Content Length: Word count is 1098, target is 1200-2500 words": 1,
+      "Meta Title: Title is 46 characters, recommended 50-60": 3,
+      "Images: Only 1 images for 1098 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 40 characters, recommended 50-60": 4,
+      "Meta Description: Meta description is 125 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 2782 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1123, target is 1200-2500 words": 2,
+      "Meta Title: Title is 69 characters, recommended 50-60": 4,
+      "Images: Only 1 images for 1123 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "URL Structure: Slug is 67 characters, keep it short and keyword-focused": 1,
+      "Content Length: Word count is 817, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 817 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 412, minimum is 800 words": 1,
+      "Meta Title: Title is 72 characters, recommended 50-60": 3,
+      "Meta Title: Title is 74 characters, recommended 50-60": 3,
+      "Meta Description: Meta description is 138 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 3205 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2464 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1209 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 75 characters, recommended 50-60": 4,
+      "Images: Only 1 images for 1843 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 61 characters, keep it short and keyword-focused": 3,
+      "Meta Title: Title is 62 characters, recommended 50-60": 9,
+      "Heading Structure: Only 1 H2 headings found, consider adding more for better structure": 12,
+      "Images: Only 1 images for 2207 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1943 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Meta Title: Title is 37 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2306 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2017 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 65 characters, recommended 50-60": 4,
+      "Meta Description: Meta description is 96 characters, recommended 140-160": 2,
+      "Meta Title: Title is 42 characters, recommended 50-60": 2,
+      "Images: Only 1 images for 1308 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Internal Linking: Only 2 internal links found, minimum is 3-5": 1,
+      "Images: Only 1 images for 1972 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2037 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1027, target is 1200-2500 words": 1,
+      "Meta Title: Title is 44 characters, recommended 50-60": 4,
+      "Images: Only 1 images for 1027 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2009 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2032 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 73 characters, recommended 50-60": 2,
+      "Images: Only 1 images for 1223 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 73 characters, keep it short and keyword-focused": 2,
+      "Heading Structure: Only 0 H2 headings found, consider adding more for better structure": 2,
+      "Images: Only 1 images for 2282 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2619 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 549, minimum is 800 words": 1,
+      "Content Length: Word count is 606, minimum is 800 words": 1,
+      "Meta Title: Title is 47 characters, recommended 50-60": 6,
+      "Images: Only 1 images for 1757 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 62 characters, keep it short and keyword-focused": 3,
+      "Images: Only 1 images for 2074 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1652 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 654, minimum is 800 words": 1,
+      "URL Structure: Slug is 65 characters, keep it short and keyword-focused": 2,
+      "Content Length: Word count is 752, minimum is 800 words": 1,
+      "Meta Title: Title is 61 characters, recommended 50-60": 4,
+      "Content Length: Word count is 382, minimum is 800 words": 1,
+      "Images: No images found in content": 4,
+      "Featured Image: Missing featured image": 4,
+      "Images: Only 1 images for 1985 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 48 characters, recommended 50-60": 3,
+      "Images: Only 1 images for 2344 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1727 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1571 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2826 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 67 characters, recommended 50-60": 4,
+      "URL Structure: Slug is 66 characters, keep it short and keyword-focused": 2,
+      "Content Length: Word count is 905, target is 1200-2500 words": 1,
+      "H1: Multiple H1 headings found (5), should have exactly 1": 1,
+      "Images: Only 1 images for 905 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 83 characters, recommended 50-60": 2,
+      "Images: Only 1 images for 1204 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1886 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1313 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1141, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1141 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1724 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 3570 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 792, minimum is 800 words": 1,
+      "Images: Only 1 images for 2042 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Content Length: Word count is 625, minimum is 800 words": 1,
+      "Images: Only 1 images for 2013 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 127 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 2380 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 969, target is 1200-2500 words": 1,
+      "Meta Title: Title is 28 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 969 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 87 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1716 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1598 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1260 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 31 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 2435 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 64 characters, recommended 50-60": 4,
+      "Images: Only 1 images for 3006 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2281 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2445 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Content Length: Word count is 939, target is 1200-2500 words": 2,
+      "Images: Only 1 images for 939 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Content Length: Word count is 1087, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1087 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 898, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 898 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1606 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1006, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1006 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1868 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2313 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 3032 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2304 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2479 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1643 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1181, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1181 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 61 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 2884 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 66 characters, recommended 50-60": 2,
+      "Images: Only 1 images for 2436 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1052, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1052 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 44 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 2670 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2046 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1555 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Meta Title: Title is 38 characters, recommended 50-60": 2,
+      "Meta Description: Meta description is 45 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1447 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1211 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2481 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2269 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 3011 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 92 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 1776 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1051, target is 1200-2500 words": 2,
+      "Images: Only 1 images for 1051 words, consider adding more (target: 1 per 300-500 words)": 2,
+      "Images: Only 1 images for 2126 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 413, minimum is 800 words": 2,
+      "Meta Title: Title is 36 characters, recommended 50-60": 2,
+      "Meta Description: Meta description is 30 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1888 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 645, minimum is 800 words": 1,
+      "URL Structure: Slug is 71 characters, keep it short and keyword-focused": 1,
+      "Content Length: Word count is 581, minimum is 800 words": 1,
+      "Meta Title: Title is 32 characters, recommended 50-60": 1,
+      "Content Length: Word count is 1037, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1037 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2251 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 63 characters, recommended 50-60": 4,
+      "Images: Only 1 images for 1244 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1882 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 811, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 811 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 267, minimum is 800 words": 1,
+      "Images: Only 1 images for 1874 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 639, minimum is 800 words": 1,
+      "Meta Title: Title is 25 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2025 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 77 characters, recommended 50-60": 2,
+      "Images: Only 1 images for 1621 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 72 characters, keep it short and keyword-focused": 1,
+      "Content Length: Word count is 571, minimum is 800 words": 1,
+      "Images: Only 1 images for 3176 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1342 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 771, minimum is 800 words": 1,
+      "Images: Only 1 images for 1554 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1780 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1913 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 763, minimum is 800 words": 1,
+      "Images: Only 1 images for 2085 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2253 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2438 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 838, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 838 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2713 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1066, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1066 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 84 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2780 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2625 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2497 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1701 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2360 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1090, target is 1200-2500 words": 1,
+      "Meta Description: Meta description is 60 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1090 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1094, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1094 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 70 characters, keep it short and keyword-focused": 1,
+      "Content Length: Word count is 1072, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1072 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 525, minimum is 800 words": 1,
+      "Images: Only 1 images for 2029 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 637, minimum is 800 words": 2,
+      "Content Length: Word count is 497, minimum is 800 words": 1,
+      "Content Length: Word count is 622, minimum is 800 words": 1,
+      "Images: Only 1 images for 1676 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 532, minimum is 800 words": 1,
+      "Images: Only 1 images for 2993 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "H1: Multiple H1 headings found (2), should have exactly 1": 1,
+      "Images: Only 1 images for 1312 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2775 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 611, minimum is 800 words": 1,
+      "Images: Only 1 images for 1761 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 737, minimum is 800 words": 1,
+      "Meta Title: Title is 78 characters, recommended 50-60": 1,
+      "URL Structure: Slug is 77 characters, keep it short and keyword-focused": 2,
+      "Content Length: Word count is 940, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 940 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "URL Structure: Slug is 64 characters, keep it short and keyword-focused": 1,
+      "Content Length: Word count is 429, minimum is 800 words": 1,
+      "Content Length: Word count is 647, minimum is 800 words": 1,
+      "Meta Title: Title is 76 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2271 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2021 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 82 characters, recommended 50-60": 1,
+      "Meta Title: Title is 71 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 3046 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2195 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 587, minimum is 800 words": 1,
+      "Meta Title: Title is 43 characters, recommended 50-60": 2,
+      "Content Length: Word count is 1030, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1030 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 795, minimum is 800 words": 1,
+      "Meta Title: Title is 45 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2034 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 876, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 876 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2534 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 703, minimum is 800 words": 1,
+      "Meta Title: Title is 80 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2621 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Description: Meta description is 111 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1657 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2163 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 89 characters, recommended 50-60": 1,
+      "Images: Only 1 images for 2490 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2500 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Meta Title: Title is 22 characters, recommended 50-60": 1,
+      "Meta Description: Meta description is 42 characters, recommended 140-160": 1,
+      "Images: Only 1 images for 1600 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 1017, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 1017 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 1258 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Images: Only 1 images for 2124 words, consider adding more (target: 1 per 300-500 words)": 1,
+      "Content Length: Word count is 806, target is 1200-2500 words": 1,
+      "Images: Only 1 images for 806 words, consider adding more (target: 1 per 300-500 words)": 1
+    }
+  },
+  "results": [
+    {
+      "file": "6-effective-tips-for-fighting-anxiety-and-regaining-control.md",
+      "title": "6 Effective Tips for Fighting Anxiety and Regaining Control",
+      "slug": "6-effective-tips-for-fighting-anxiety-and-regaining-control",
+      "wordCount": 706,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 706, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "8-foods-make-you-happy.md",
+      "title": "8 Foods That Can Make You Feel Happy: Simple Ways to Boost Your Mood",
+      "slug": "8-foods-make-you-happy",
+      "wordCount": 1068,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1068, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 68 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1068 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 71
+    },
+    {
+      "file": "8-physical-signs-stress-is-impacting-your-body.md",
+      "title": "8 Physical Signs Stress Is Impacting Your Body",
+      "slug": "8-physical-signs-stress-is-impacting-your-body",
+      "wordCount": 1098,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1098, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 46 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1098 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "anxiety-art-therapy-transformative-power.md",
+      "title": "How Does Art Therapy Help Manage Anxiety",
+      "slug": "anxiety-art-therapy-transformative-power",
+      "wordCount": 2782,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 40 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 125 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2782 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses.md",
+      "title": "Balancing Career Growth with a Busy Life: A Guide for  Working Nurses",
+      "slug": "balancing-career-growth-with-a-busy-life-a-guide-for-working-nurses",
+      "wordCount": 1123,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1123, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 69 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1123 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 67 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 66
+    },
+    {
+      "file": "bbp-certification-worker-safety.md",
+      "title": "BBP Certification for First Responders and Safety Workers",
+      "slug": "bbp-certification-worker-safety",
+      "wordCount": 817,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 817, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 817 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        }
+      ],
+      "seoScore": 78
+    },
+    {
+      "file": "best-dental-implants-kingston-smiles-ny.md",
+      "title": "Best Dental Implants in New York: Why Patients Choose Kingston Smiles NY",
+      "slug": "best-dental-implants-kingston-smiles-ny",
+      "wordCount": 412,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 412, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 72 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        }
+      ],
+      "seoScore": 80
+    },
+    {
+      "file": "best-jobs-for-people-with-depression.md",
+      "title": "15 Best Jobs for People with Depression: Flexibility When You Need It Most",
+      "slug": "best-jobs-for-people-with-depression",
+      "wordCount": 3205,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 74 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 138 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3205 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "bipolar-psychosis-symptoms-treatment-recovery.md",
+      "title": "Bipolar Psychosis: Symptoms, Treatment, and Recovery",
+      "slug": "bipolar-psychosis-symptoms-treatment-recovery",
+      "wordCount": 2464,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2464 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "blog-wellness-guide-for-counselors.md",
+      "title": "Healing the Healer: A Wellness Guide for Counselors",
+      "slug": "blog-wellness-guide-for-counselors",
+      "wordCount": 1209,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1209 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "borderline-personality-disorder-treatment-winter-park-orlando.md",
+      "title": "Borderline Personality Disorder Treatment Winter Park Orlando - BPD Therapy",
+      "slug": "borderline-personality-disorder-treatment-winter-park-orlando",
+      "wordCount": 1843,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 75 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1843 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 61 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "bpd-men-guide.md",
+      "title": "BPD in Men: Understanding and Addressing the Unique Challenges",
+      "slug": "bpd-men-guide",
+      "wordCount": 2207,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2207 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "bpd-vs-npd.md",
+      "title": "BPD or NPD: Which One Am I Dealing With?",
+      "slug": "bpd-vs-npd",
+      "wordCount": 1943,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 40 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1943 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "can-you-pass-out-from-a-panic-attack.md",
+      "title": "Can You Pass Out from a Panic Attack?",
+      "slug": "can-you-pass-out-from-a-panic-attack",
+      "wordCount": 2306,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 37 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2306 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "cbt-therapy-improving-mental-health-in-winter-park.md",
+      "title": "CBT Therapy: Improving Mental Health in Winter Park",
+      "slug": "cbt-therapy-improving-mental-health-in-winter-park",
+      "wordCount": 2017,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2017 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "choosing-anxiety-treatment-centers-factors.md",
+      "title": "Top 5 Factors to Consider When Choosing Anxiety Treatment Centers",
+      "slug": "choosing-anxiety-treatment-centers-factors",
+      "wordCount": 1943,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 65 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 96 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1943 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "choosing-the-right-psychiatrist-in-orlando.md",
+      "title": "Choosing the Right Psychiatrist in Orlando",
+      "slug": "choosing-the-right-psychiatrist-in-orlando",
+      "wordCount": 1308,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 42 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1308 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "coping-with-grief-during-holidays.md",
+      "title": "Why Coping with Grief During the Holidays After a Child Loss Matters",
+      "slug": "coping-with-grief-during-holidays",
+      "wordCount": 1972,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 68 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 2 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1972 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "counseling-for-growth-finding-clarity-and-inner-peace.md",
+      "title": "Counseling for Growth: Finding Clarity and Inner Peace",
+      "slug": "counseling-for-growth-finding-clarity-and-inner-peace",
+      "wordCount": 2037,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2037 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "couples-counseling-strengthens-relationships.md",
+      "title": "Couples Counseling Strengthens Relationships",
+      "slug": "couples-counseling-strengthens-relationships",
+      "wordCount": 1027,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1027, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 44 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1027 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "couples-therapy-improve-relationships-in-winter-park.md",
+      "title": "Couples Therapy: Improve Relationships in Winter Park",
+      "slug": "couples-therapy-improve-relationships-in-winter-park",
+      "wordCount": 2009,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2009 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "couples-therapy-in-orlando-rekindle-your-relationship.md",
+      "title": "Couples Therapy in Orlando: Rekindle Your Relationship",
+      "slug": "couples-therapy-in-orlando-rekindle-your-relationship",
+      "wordCount": 2032,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2032 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios.md",
+      "title": "CPR First Aid Certification That Covers Medical and Non-Medical Scenarios",
+      "slug": "cpr-first-aid-certification-that-covers-medical-and-non-medical-scenarios",
+      "wordCount": 1223,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 73 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1223 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 73 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "dating-someone-with-bpd.md",
+      "title": "How To Know if You Are Dating Someone with BPD",
+      "slug": "dating-someone-with-bpd",
+      "wordCount": 2282,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 46 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 0 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2282 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "dbt-therapy-winter-park-emotional-regulation-skills.md",
+      "title": "DBT Therapy Winter Park: Emotional Regulation Skills",
+      "slug": "dbt-therapy-winter-park-emotional-regulation-skills",
+      "wordCount": 2619,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2619 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "deciphering-the-differences-therapy-vs-counseling.md",
+      "title": "Deciphering the Differences: Therapy vs. Counseling",
+      "slug": "deciphering-the-differences-therapy-vs-counseling",
+      "wordCount": 549,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 549, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "demystifying-generalized-anxiety-disorder-gad.md",
+      "title": "Demystifying Generalized Anxiety Disorder (GAD)",
+      "slug": "demystifying-generalized-anxiety-disorder-gad",
+      "wordCount": 606,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 606, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "dental-anxiety-treatment-for-stress-free-visits-in-maitland-fl.md",
+      "title": "Dental Anxiety Treatment: Tips for Stress-Free Visits in Maitland, FL",
+      "slug": "dental-anxiety-treatment-for-stress-free-visits-in-maitland-fl",
+      "wordCount": 1757,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 69 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1757 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 62 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "depression-treatment-options-in-orlando-fl.md",
+      "title": "Depression Treatment: Options in Orlando, FL",
+      "slug": "depression-treatment-options-in-orlando-fl",
+      "wordCount": 2074,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 44 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2074 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "depression-treatment-orlando-expert-mental-health-care.md",
+      "title": "Depression Treatment Orlando: Expert Mental Health Care",
+      "slug": "depression-treatment-orlando-expert-mental-health-care",
+      "wordCount": 1652,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1652 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing.md",
+      "title": "Dialectical Behavior Therapy (DBT): A Comprehensive Guide to Healing",
+      "slug": "dialectical-behavior-therapy-dbt-a-comprehensive-guide-to-healing",
+      "wordCount": 654,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 654, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 68 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 65 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "discover-your-path-to-inner-peace-and-healing-through-therapy.md",
+      "title": "Discover Your Path to Inner Peace and Healing Through Therapy",
+      "slug": "discover-your-path-to-inner-peace-and-healing-through-therapy",
+      "wordCount": 752,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 752, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 61 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 61 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "effective-strategies-for-managing-bipolar-disorder.md",
+      "title": "Effective Strategies for Managing Bipolar Disorder",
+      "slug": "effective-strategies-for-managing-bipolar-disorder",
+      "wordCount": 382,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 382, minimum is 800 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Images",
+          "message": "No images found in content"
+        },
+        {
+          "severity": "warning",
+          "category": "Featured Image",
+          "message": "Missing featured image"
+        }
+      ],
+      "seoScore": 80
+    },
+    {
+      "file": "effectiveness-virtual-mental-health-services-florida.md",
+      "title": "Can Virtual Therapy Be as Effective as In-Person Sessions?",
+      "slug": "effectiveness-virtual-mental-health-services-florida",
+      "wordCount": 1985,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1985 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "emdr-therapy-near-me-trauma-recovery-in-orlando.md",
+      "title": "EMDR Therapy Near Me: Trauma Recovery in Orlando",
+      "slug": "emdr-therapy-near-me-trauma-recovery-in-orlando",
+      "wordCount": 2344,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 48 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2344 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "esa-letter-in-orlando-your-complete-guide-3.md",
+      "title": "ESA Letter in Orlando: Your Complete Guide",
+      "slug": "esa-letter-in-orlando-your-complete-guide-3",
+      "wordCount": 1727,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 42 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1727 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "find-expert-therapy-near-me-mental-health-treatment.md",
+      "title": "Find Expert Therapy Near Me: Mental Health Treatment",
+      "slug": "find-expert-therapy-near-me-mental-health-treatment",
+      "wordCount": 1571,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1571 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "finding-comfort-self-care-tips-for-those-who-are-grieving.md",
+      "title": "Finding Comfort: Self-Care Tips for Those Who Are Grieving",
+      "slug": "finding-comfort-self-care-tips-for-those-who-are-grieving",
+      "wordCount": 2826,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2826 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "finding-the-right-psychiatrist-near-me-orlando-mental-health-guide.md",
+      "title": "Finding the Right Psychiatrist Near Me: Orlando Mental Health Guide",
+      "slug": "finding-the-right-psychiatrist-near-me-orlando-mental-health-guide",
+      "wordCount": 1123,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1123, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 67 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1123 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 66 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "from-tension-to-relief-everyday-tips-for-a-healthier-body.md",
+      "title": "From Tension to Relief: Everyday Tips for a Healthier Body",
+      "slug": "from-tension-to-relief-everyday-tips-for-a-healthier-body",
+      "wordCount": 905,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 905, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "H1",
+          "message": "Multiple H1 headings found (5), should have exactly 1"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 905 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 85
+    },
+    {
+      "file": "future-of-healthcare.md",
+      "title": "Future of Healthcare: How Advanced Practice Nurses Are Trained for a Changing World",
+      "slug": "future-of-healthcare",
+      "wordCount": 1204,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 83 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1204 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "grief-counseling-guide.md",
+      "title": "What to Expect in Grief Counseling: A Beginner’s Guide",
+      "slug": "grief-counseling-guide",
+      "wordCount": 1886,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1886 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "guide-to-getting-an-emotional-support-animal-in-orlando.md",
+      "title": "Guide to Getting an Emotional Support Animal in Orlando",
+      "slug": "guide-to-getting-an-emotional-support-animal-in-orlando",
+      "wordCount": 1313,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1313 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "head-trauma-memory-loss-recovery.md",
+      "title": "Head Trauma and Memory Loss: Supporting Brain Recovery and Mental Health",
+      "slug": "head-trauma-memory-loss-recovery",
+      "wordCount": 1141,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1141, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 72 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1141 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "hidden-anxiety-treatment-dbt-skills-you-can-use-at-home.md",
+      "title": "The Anxiety Treatment Hidden in Plain Sight: DBT Skills You Can Use at Home",
+      "slug": "hidden-anxiety-treatment-dbt-skills-you-can-use-at-home",
+      "wordCount": 1724,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 75 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1724 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "high-functioning-depression.md",
+      "title": "High-Functioning Depression: Everything You Need to Know",
+      "slug": "high-functioning-depression",
+      "wordCount": 3570,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3570 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "holiday-anxiety-effective-treatment-in-orlando.md",
+      "title": "Holiday Anxiety: Effective Treatment in Orlando",
+      "slug": "holiday-anxiety-effective-treatment-in-orlando",
+      "wordCount": 792,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 792, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "holiday-stress-stress-management-treatment-orlando.md",
+      "title": "Holiday Stress: Stress Management Treatment Orlando",
+      "slug": "holiday-stress-stress-management-treatment-orlando",
+      "wordCount": 2042,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2042 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-bipolar-disorder-impacts-interpersonal-dynamics.md",
+      "title": "How Bipolar Disorder Impacts Interpersonal Dynamics",
+      "slug": "how-bipolar-disorder-impacts-interpersonal-dynamics",
+      "wordCount": 625,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 625, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "how-couples-therapy-can-improve-your-relationship.md",
+      "title": "How couples therapy can improve your relationship?",
+      "slug": "how-couples-therapy-can-improve-your-relationship",
+      "wordCount": 2013,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2013 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-debilitating-anxiety-impacts-overall-health.md",
+      "title": "How Debilitating Anxiety Impacts Overall Health",
+      "slug": "how-debilitating-anxiety-impacts-overall-health",
+      "wordCount": 2380,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 127 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2380 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "how-does-phsychotherapy-work.md",
+      "title": "How Does Psychotherapy Work?",
+      "slug": "how-does-phsychotherapy-work",
+      "wordCount": 969,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 969, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 28 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 969 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "how-effective-is-virtual-couples-therapy.md",
+      "title": "How Effective Is Virtual Couples Therapy",
+      "slug": "how-effective-is-virtual-couples-therapy",
+      "wordCount": 1716,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 40 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 87 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1716 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "how-emdr-helps-with-anxiety-depression.md",
+      "title": "How EMDR Helps With Anxiety & Depression",
+      "slug": "how-emdr-helps-with-anxiety-depression",
+      "wordCount": 1598,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 40 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1598 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-green-spaces-transform-your-mental-health.md",
+      "title": "Bringing Nature Home: How Green Spaces Transform Your Mental Health",
+      "slug": "how-green-spaces-transform-your-mental-health",
+      "wordCount": 1260,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 67 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1260 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "how-introverts-with-adhd-can-excel-in-the-workplace.md",
+      "title": "How Introverts with ADHD Can Excel in the Workplace",
+      "slug": "how-introverts-with-adhd-can-excel-in-the-workplace",
+      "wordCount": 2435,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 31 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2435 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-long-after-car-accident-can-you-claim-injury.md",
+      "title": "How Long After Car Accident Can You Claim Injury: Complete Guide",
+      "slug": "how-long-after-car-accident-can-you-claim-injury",
+      "wordCount": 3006,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 64 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3006 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "how-long-does-it-take-to-fall-in-love-timelines-what-to-expect.md",
+      "title": "How Long Does It Take to Fall in Love? Timelines & What to Expect",
+      "slug": "how-long-does-it-take-to-fall-in-love-timelines-what-to-expect",
+      "wordCount": 2281,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 65 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2281 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 62 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 78
+    },
+    {
+      "file": "how-much-is-couples-therapy.md",
+      "title": "How Much is Couples Therapy? Costs, Factors & What to Expect",
+      "slug": "how-much-is-couples-therapy",
+      "wordCount": 2445,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2445 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-psychiatry-clinics-improve-revenue.md",
+      "title": "How Psychiatry Clinics Can Improve Revenue Without Sacrificing Care",
+      "slug": "how-psychiatry-clinics-improve-revenue",
+      "wordCount": 939,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 939, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 67 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 939 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "how-social-workers-make-a-difference-every-single-day.md",
+      "title": "How Social Workers Make a Difference Every Single Day",
+      "slug": "how-social-workers-make-a-difference-every-single-day",
+      "wordCount": 1087,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1087, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1087 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "how-stress-affects-your-smile-the-science-behind-it.md",
+      "title": "How Stress Affects Your Smile: The Science Behind It",
+      "slug": "how-stress-affects-your-smile-the-science-behind-it",
+      "wordCount": 898,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 898, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 898 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-to-be-productive.md",
+      "title": "How to Be Productive: Simple Steps That Actually Work",
+      "slug": "how-to-be-productive",
+      "wordCount": 1606,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1606 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "how-to-feel-better-every-day.md",
+      "title": "How to Feel Better Every Day Without Reinventing Your Life",
+      "slug": "how-to-feel-better-every-day",
+      "wordCount": 1006,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1006, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1006 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "how-to-focus-better-with-adhd.md",
+      "title": "How to Focus Better with ADHD: 5 Proven Strategies to Improve Concentration",
+      "slug": "how-to-focus-better-with-adhd",
+      "wordCount": 1868,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 75 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1868 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-to-get-over-someone-and-move-on-with-your-life.md",
+      "title": "How to Get Over Someone and Move On With Your Life",
+      "slug": "how-to-get-over-someone-and-move-on-with-your-life",
+      "wordCount": 2313,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2313 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "how-to-get-wife-more-intimate.md",
+      "title": "How To Get Your Wife To Be More Intimate: Rebuilding Connection and Desire",
+      "slug": "how-to-get-wife-more-intimate",
+      "wordCount": 3032,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 74 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3032 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "how-to-improve-concentration-and-focus-expert-tips.md",
+      "title": "How to Improve Concentration and Focus | Expert Tips",
+      "slug": "how-to-improve-concentration-and-focus-expert-tips",
+      "wordCount": 2304,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2304 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-to-leave-toxic-relationship.md",
+      "title": "How to Leave a Toxic Relationship: Find Support and Begin Healing",
+      "slug": "how-to-leave-toxic-relationship",
+      "wordCount": 2479,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 65 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2479 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "how-to-prepare-for-your-first-virtual-counseling-session.md",
+      "title": "How to Prepare for Your First Virtual Counseling Session",
+      "slug": "how-to-prepare-for-your-first-virtual-counseling-session",
+      "wordCount": 1643,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1643 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "how-to-stay-grounded-through-major-life-changes.md",
+      "title": "How to Stay Grounded Through Major Life Changes",
+      "slug": "how-to-stay-grounded-through-major-life-changes",
+      "wordCount": 1181,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1181, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1181 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 71
+    },
+    {
+      "file": "how-to-stop-panic-attacks-at-night.md",
+      "title": "Effective Ways On How To Stop Panic Attacks at Night",
+      "slug": "how-to-stop-panic-attacks-at-night",
+      "wordCount": 2884,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 61 characters, recommended 140-160"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2884 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "how-to-stop-people-pleasing.md",
+      "title": "How to Break Free From People Pleasing: Overcome Fear & Set Limits",
+      "slug": "how-to-stop-people-pleasing",
+      "wordCount": 2436,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 66 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2436 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "how-understanding-patient-perspectives-improves-care-quality.md",
+      "title": "How Understanding Patient Perspectives Improves Care Quality",
+      "slug": "how-understanding-patient-perspectives-improves-care-quality",
+      "wordCount": 1052,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1052, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1052 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "how-untreated-adhd-triggers-anxiety-and-depression.md",
+      "title": "How Untreated ADHD Can Trigger Anxiety and Depression Symptoms",
+      "slug": "how-untreated-adhd-triggers-anxiety-and-depression",
+      "wordCount": 2670,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 44 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2670 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "in-person-meaning-therapy-guide.md",
+      "title": "What Does In Person Mean and Why It Matters for Your Mental Health",
+      "slug": "in-person-meaning-therapy-guide",
+      "wordCount": 2046,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 66 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2046 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "is-codependency-bad.md",
+      "title": "Is Codependency Bad? Understand the Effects & Break Free Now",
+      "slug": "is-codependency-bad",
+      "wordCount": 1555,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1555 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "is-more-espresso-less-depresso-true.md",
+      "title": "Is \"more espresso less depresso\" true?",
+      "slug": "is-more-espresso-less-depresso-true",
+      "wordCount": 1447,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 38 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 45 characters, recommended 140-160"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1447 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "it-service-providers-driving-healthcare-innovation-2025.md",
+      "title": "Top 6 IT Service Providers Driving Healthcare Innovation in 2025",
+      "slug": "it-service-providers-driving-healthcare-innovation-2025",
+      "wordCount": 1211,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 64 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1211 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "jobs-for-people-with-anxiety.md",
+      "title": "Jobs for People with Anxiety: Finding Your Calm and Productive Career Path",
+      "slug": "jobs-for-people-with-anxiety",
+      "wordCount": 2481,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 74 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2481 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "lgbtqia2s-identity-explained.md",
+      "title": "LGBTQIA2S+ Identities Explained: Fostering Understanding and Inclusivity",
+      "slug": "lgbtqia2s-identity-explained",
+      "wordCount": 2269,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 72 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2269 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "ltr-relationship-meaning-guide.md",
+      "title": "What Is an LTR Relationship? Meaning, Signs & How to Build One",
+      "slug": "ltr-relationship-meaning-guide",
+      "wordCount": 3011,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3011 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 78
+    },
+    {
+      "file": "managing-holiday-anxiety-effective-treatment-in-orlando.md",
+      "title": "Managing Holiday Anxiety: Effective Treatment in Orlando",
+      "slug": "managing-holiday-anxiety-effective-treatment-in-orlando",
+      "wordCount": 2042,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2042 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "medication-management-guide-psychiatry.md",
+      "title": "Mastering the Art of Balancing: A Comprehensive Guide to Medication Management in Psychiatry",
+      "slug": "medication-management-guide-psychiatry",
+      "wordCount": 1776,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 92 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1776 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "mental-health-challenges-in-nursing-how-to-overcome-them.md",
+      "title": "Mental Health Challenges in Nursing & How to Overcome Them",
+      "slug": "mental-health-challenges-in-nursing-how-to-overcome-them",
+      "wordCount": 1051,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1051, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1051 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "mental-health-clinic-orlando-expert-care-you-can-trust.md",
+      "title": "Mental Health Clinic Orlando: Expert Care You Can Trust",
+      "slug": "mental-health-clinic-orlando-expert-care-you-can-trust",
+      "wordCount": 2126,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2126 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "mindfulness-and-relaxation-exercises.md",
+      "title": "Mindfulness and Relaxation Exercises",
+      "slug": "mindfulness-and-relaxation-exercises",
+      "wordCount": 413,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 413, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 36 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 30 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        }
+      ],
+      "seoScore": 70
+    },
+    {
+      "file": "narcissistic-behavior-in-a-relationship.md",
+      "title": "How To Spot Narcissistic Behavior in a Relationship",
+      "slug": "narcissistic-behavior-in-a-relationship",
+      "wordCount": 1888,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1888 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "navigating-adhd-your-comprehensive-guide-to-effective-treatment-options.md",
+      "title": "Your Comprehensive Guide to Effective Treatment Options for ADHD",
+      "slug": "navigating-adhd-your-comprehensive-guide-to-effective-treatment-options",
+      "wordCount": 645,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 645, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 64 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 71 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 85
+    },
+    {
+      "file": "navigating-life-with-agoraphobia.md",
+      "title": "Navigating Life with Agoraphobia",
+      "slug": "navigating-life-with-agoraphobia",
+      "wordCount": 581,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 581, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 32 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "critical",
+          "category": "Images",
+          "message": "No images found in content"
+        },
+        {
+          "severity": "warning",
+          "category": "Featured Image",
+          "message": "Missing featured image"
+        }
+      ],
+      "seoScore": 60
+    },
+    {
+      "file": "nervous-breakdown.md",
+      "title": "What Is a Nervous Breakdown? Real Signs You Shouldn't Ignore",
+      "slug": "nervous-breakdown",
+      "wordCount": 1555,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1555 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "neuropharmacology-dmaa-nefiracetam-comparative-insights.md",
+      "title": "Exploring the Neuropharmacology of DMAA and Nefiracetam",
+      "slug": "neuropharmacology-dmaa-nefiracetam-comparative-insights",
+      "wordCount": 1051,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1051, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1051 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 83
+    },
+    {
+      "file": "nutritional-approaches-to-adhd-management-which-ones-are-effective.md",
+      "title": "Nutritional Approaches to ADHD Management: Which Ones are Effective?",
+      "slug": "nutritional-approaches-to-adhd-management-which-ones-are-effective",
+      "wordCount": 1037,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1037, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 68 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1037 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 66 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 85
+    },
+    {
+      "file": "one-sided-relationship-signs.md",
+      "title": "7 Signs of a One Sided Relationship & What to Do Next",
+      "slug": "one-sided-relationship-signs",
+      "wordCount": 2251,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2251 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "online-cpr-certification-with-aed-and-choking-response.md",
+      "title": "Online CPR Certification That Includes AED and Choking Response",
+      "slug": "online-cpr-certification-with-aed-and-choking-response",
+      "wordCount": 1244,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 63 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1244 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "open-relationship-guide.md",
+      "title": "What Is an Open Relationship: Is It For You?",
+      "slug": "open-relationship-guide",
+      "wordCount": 2445,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 44 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2445 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "orlando-psychiatrist-comprehensive-mental-healthcare.md",
+      "title": "Orlando Psychiatrist: Comprehensive Mental Healthcare",
+      "slug": "orlando-psychiatrist-comprehensive-mental-healthcare",
+      "wordCount": 1882,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1882 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "outsource-billing-practice.md",
+      "title": "Why Your Practice Needs an Outsource Billing Company",
+      "slug": "outsource-billing-practice",
+      "wordCount": 811,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 811, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 811 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        }
+      ],
+      "seoScore": 83
+    },
+    {
+      "file": "overcoming-anxiety-with-cognitive-behavioral-therapy.md",
+      "title": "Overcoming Anxiety with Cognitive Behavioral Therapy",
+      "slug": "overcoming-anxiety-with-cognitive-behavioral-therapy",
+      "wordCount": 267,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 267, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help.md",
+      "title": "Overcoming Flight Anxiety in Orlando FL: How Treatment Can Help",
+      "slug": "overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help",
+      "wordCount": 1874,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 63 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1874 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 62 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "overcoming-social-anxiety.md",
+      "title": "Overcoming Social Anxiety",
+      "slug": "overcoming-social-anxiety",
+      "wordCount": 639,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 639, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 25 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "petulant-bpd-symptoms-and-treatment.md",
+      "title": "What Is Petulant BPD? Traits, Symptoms, and Coping Strategies",
+      "slug": "petulant-bpd-symptoms-and-treatment",
+      "wordCount": 2025,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 61 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2025 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "post-traumatic-stress-disorder-ptsd-understanding-symptoms-and-treatment.md",
+      "title": "Post-Traumatic Stress Disorder (PTSD): Understanding, Symptoms, And Treatment",
+      "slug": "post-traumatic-stress-disorder-ptsd-understanding-symptoms-and-treatment",
+      "wordCount": 1621,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 77 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1621 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 72 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "practical-strategies-for-managing-anxiety-in-daily-life.md",
+      "title": "Practical Strategies for Managing Anxiety in Daily Life",
+      "slug": "practical-strategies-for-managing-anxiety-in-daily-life",
+      "wordCount": 571,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 571, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "prodromal-stage-mental-health.md",
+      "title": "How to Identify the Prodromal Stage of Mental Health Disorders",
+      "slug": "prodromal-stage-mental-health",
+      "wordCount": 3176,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3176 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "psychiatrist-or-psychiatric-nurse-practitioner-similar-care-2.md",
+      "title": "Psychiatrist or Psychiatric Nurse Practitioner: Similar Care",
+      "slug": "psychiatrist-or-psychiatric-nurse-practitioner-similar-care-2",
+      "wordCount": 1342,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1342 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 61 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "psychiatrist-vs-psychologist-whats-the-difference.md",
+      "title": "Psychiatrist vs Psychologist: What’s the Difference?",
+      "slug": "psychiatrist-vs-psychologist-whats-the-difference",
+      "wordCount": 771,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 771, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "psychiatrist-vs-therapist.md",
+      "title": "Psychiatrist vs Therapist: A Guide to Choosing the Right Mental Health Professional",
+      "slug": "psychiatrist-vs-therapist",
+      "wordCount": 1554,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 83 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1554 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "psychiatrist-winter-park-comprehensive-care.md",
+      "title": "Psychiatrist Winter Park: Comprehensive Care",
+      "slug": "psychiatrist-winter-park-comprehensive-care",
+      "wordCount": 1780,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 44 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1780 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "psychotherapist-services-types-benefits-what-to-expect.md",
+      "title": "Psychotherapist Services: Types, Benefits & What to Expect",
+      "slug": "psychotherapist-services-types-benefits-what-to-expect",
+      "wordCount": 1913,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1913 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "psychotherapy-vs-counseling-therapy-what-is-the-difference.md",
+      "title": "Psychotherapy vs. Counseling Therapy: What is the Difference?",
+      "slug": "psychotherapy-vs-counseling-therapy-what-is-the-difference",
+      "wordCount": 763,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 763, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 61 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "reactive-attachment-disorder-in-adults.md",
+      "title": "How Reactive Attachment Disorder Affects Relationships in Adulthood",
+      "slug": "reactive-attachment-disorder-in-adults",
+      "wordCount": 2085,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 67 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2085 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "recognize-and-manage-hair-pulling-disorder.md",
+      "title": "How to Recognize and Manage Hair Pulling Disorder Effectively",
+      "slug": "recognize-and-manage-hair-pulling-disorder",
+      "wordCount": 2253,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 61 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2253 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "rehab-for-depression.md",
+      "title": "Signs You Should Consider Rehab for Depression: When Therapy Isn't Enough",
+      "slug": "rehab-for-depression",
+      "wordCount": 2438,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 73 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2438 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "relationship-counseling-treatment-orlando-winter-park.md",
+      "title": "Relationship Counseling Treatment Orlando, Winter Park",
+      "slug": "relationship-counseling-treatment-orlando-winter-park",
+      "wordCount": 838,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 838, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 838 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "schizoaffective-disorder-vs-schizophrenia-difference.md",
+      "title": "Difference Between Schizoaffective Disorder vs Schizophrenia",
+      "slug": "schizoaffective-disorder-vs-schizophrenia-difference",
+      "wordCount": 2713,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 96 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2713 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "school-psychology-career-guide.md",
+      "title": "The Growing Need for Mental Health Professionals in Schools",
+      "slug": "school-psychology-career-guide",
+      "wordCount": 1066,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1066, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1066 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "signs-guy-pretending-straight.md",
+      "title": "10 Signs Someone Might Be Hiding Their True Self: Understanding Sexuality & Conflict",
+      "slug": "signs-guy-pretending-straight",
+      "wordCount": 2780,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 84 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2780 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "signs-of-attention-seeking-behavior.md",
+      "title": "Signs of Attention-Seeking Behavior and How to Break the Pattern",
+      "slug": "signs-of-attention-seeking-behavior",
+      "wordCount": 2625,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 64 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2625 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "signs-of-being-gay.md",
+      "title": "Beyond the Signs of Being Gay: Exploring Your Sexuality",
+      "slug": "signs-of-being-gay",
+      "wordCount": 2497,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2497 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "signs-of-crippling-anxiety.md",
+      "title": "How to Know If You Have Crippling Anxiety: Signs and Solutions",
+      "slug": "signs-of-crippling-anxiety",
+      "wordCount": 1701,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1701 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "silent-panic-attacks-causes-symptoms-relief.md",
+      "title": "Silent Panic Attacks: Signs, Causes, and How to Regain Control",
+      "slug": "silent-panic-attacks-causes-symptoms-relief",
+      "wordCount": 2360,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2360 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "the-growing-importance-of-public-health-in-modern-healthcare.md",
+      "title": "The Growing Importance of Public Health in Modern Healthcare",
+      "slug": "the-growing-importance-of-public-health-in-modern-healthcare",
+      "wordCount": 1090,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1090, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 60 characters, recommended 140-160"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1090 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "the-importance-of-continued-nursing-education-in-providing-better-care.md",
+      "title": "The Importance of Continued Nursing Education | Providing Better Care",
+      "slug": "the-importance-of-continued-nursing-education-in-providing-better-care",
+      "wordCount": 1094,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1094, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 69 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1094 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 70 characters, keep it short and keyword-focused"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 88
+    },
+    {
+      "file": "the-overlooked-role-of-nurses-in-mental-health-recovery.md",
+      "title": "The Overlooked Role of Nurses in Mental Health Recovery",
+      "slug": "the-overlooked-role-of-nurses-in-mental-health-recovery",
+      "wordCount": 1072,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1072, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1072 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "the-power-of-cognitive-behavioral-therapy-cbt.md",
+      "title": "The Power of Cognitive Behavioral Therapy (CBT)",
+      "slug": "the-power-of-cognitive-behavioral-therapy-cbt",
+      "wordCount": 525,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 525, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "the-power-of-grief-counseling-in-healing-the-heart-2.md",
+      "title": "The Power of Grief Counseling in Healing the Heart",
+      "slug": "the-power-of-grief-counseling-in-healing-the-heart-2",
+      "wordCount": 2029,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2029 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "the-rise-of-online-therapy-a-game-changer-for-mental-health.md",
+      "title": "The Rise of Online Therapy: A Game-Changer for Mental Health",
+      "slug": "the-rise-of-online-therapy-a-game-changer-for-mental-health",
+      "wordCount": 637,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 637, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "the-role-of-therapy-in-managing-bipolar-disorder.md",
+      "title": "The Role of Therapy in Managing Bipolar Disorder",
+      "slug": "the-role-of-therapy-in-managing-bipolar-disorder",
+      "wordCount": 497,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 497, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 48 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Images",
+          "message": "No images found in content"
+        },
+        {
+          "severity": "warning",
+          "category": "Featured Image",
+          "message": "Missing featured image"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 70
+    },
+    {
+      "file": "the-transformative-power-of-counseling-understanding-its-benefits.md",
+      "title": "The Transformative Power of Counseling",
+      "slug": "the-transformative-power-of-counseling-understanding-its-benefits",
+      "wordCount": 622,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 622, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 38 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 65 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "therapy-services-orlando-mental-health-support.md",
+      "title": "Therapy Services Orlando: Mental Health Support",
+      "slug": "therapy-services-orlando-mental-health-support",
+      "wordCount": 1676,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 47 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1676 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "title-understanding-the-different-types-of-anxiety-disorders.md",
+      "title": "Understanding the Different Types of Anxiety Disorders",
+      "slug": "title-understanding-the-different-types-of-anxiety-disorders",
+      "wordCount": 532,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 532, minimum is 800 words"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "top-10-best-low-stress-jobs.md",
+      "title": "Top 10 Best Low Stress Jobs: Great Pay, Happy Mental Health",
+      "slug": "top-10-best-low-stress-jobs",
+      "wordCount": 2993,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2993 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "top-5-ai-scribes-psychiatrists-are-actually-using-in-2025.md",
+      "title": "Top 5 AI Scribes Psychiatrists Are Actually Using in 2025",
+      "slug": "top-5-ai-scribes-psychiatrists-are-actually-using-in-2025",
+      "wordCount": 1312,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "H1",
+          "message": "Multiple H1 headings found (2), should have exactly 1"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1312 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "unburdened-the-key-to-mental-clarity.md",
+      "title": "Being Unburdened: The Key to Mental Clarity and Productivity",
+      "slug": "unburdened-the-key-to-mental-clarity",
+      "wordCount": 2775,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2775 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 83
+    },
+    {
+      "file": "understanding-adhd-diagnosis-treatment-and-coping-strategies.md",
+      "title": "Understanding ADHD: Diagnosis, Treatment, and Coping Strategies",
+      "slug": "understanding-adhd-diagnosis-treatment-and-coping-strategies",
+      "wordCount": 611,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 611, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 63 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "understanding-adhd-masking.md",
+      "title": "Recognizing ADHD Masking: Examples, Effects & Coping Strategies",
+      "slug": "understanding-adhd-masking",
+      "wordCount": 1761,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 63 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1761 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "understanding-anxiety-disorder-symptoms-types-and-diagnosis.md",
+      "title": "Understanding Anxiety Disorder: Symptoms, Types, and Diagnosis",
+      "slug": "understanding-anxiety-disorder-symptoms-types-and-diagnosis",
+      "wordCount": 637,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 637, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 1 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "critical",
+          "category": "Images",
+          "message": "No images found in content"
+        },
+        {
+          "severity": "warning",
+          "category": "Featured Image",
+          "message": "Missing featured image"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 65
+    },
+    {
+      "file": "understanding-bipolar-disorder-demystifying-a-complex-mental-health-condition.md",
+      "title": "Understanding Bipolar Disorder: Demystifying a Complex Mental Health Condition",
+      "slug": "understanding-bipolar-disorder-demystifying-a-complex-mental-health-condition",
+      "wordCount": 737,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 737, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 78 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 77 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "understanding-bipolar-disorder-management-new-hope-and-solutions.md",
+      "title": "Understanding Bipolar Disorder Management: New Hope and Solutions",
+      "slug": "understanding-bipolar-disorder-management-new-hope-and-solutions",
+      "wordCount": 940,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 940, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 65 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 940 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 64 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "understanding-bipolar-disorder-types-symptoms-and-diagnosis.md",
+      "title": "Understanding Bipolar Disorder: Types, Symptoms, and Diagnosis",
+      "slug": "understanding-bipolar-disorder-types-symptoms-and-diagnosis",
+      "wordCount": 429,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 429, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness.md",
+      "title": "Understanding Cognitive Behavioral Therapy (CBT): A Guide to Mental Wellness",
+      "slug": "understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness",
+      "wordCount": 647,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 647, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 76 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 73 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "understanding-identity-exploration.md",
+      "title": "Identity Exploration: What It Is and Why It Matters",
+      "slug": "understanding-identity-exploration",
+      "wordCount": 2271,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2271 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 86
+    },
+    {
+      "file": "understanding-mental-health-treatment-in-orlando.md",
+      "title": "Understanding Mental Health Treatment in Orlando",
+      "slug": "understanding-mental-health-treatment-in-orlando",
+      "wordCount": 2021,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 48 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2021 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "understanding-obsessive-compulsive-disorder-ocd-causes-symptoms-and-treatment.md",
+      "title": "Understanding Obsessive-Compulsive Disorder (OCD): Causes, Symptoms, And Treatment",
+      "slug": "understanding-obsessive-compulsive-disorder-ocd-causes-symptoms-and-treatment",
+      "wordCount": 413,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 413, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 82 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "URL Structure",
+          "message": "Slug is 77 characters, keep it short and keyword-focused"
+        }
+      ],
+      "seoScore": 90
+    },
+    {
+      "file": "understanding-social-exhaustion-adhd-brain.md",
+      "title": "Beyond Introversion: Understanding Social Exhaustion and the ADHD Brain",
+      "slug": "understanding-social-exhaustion-adhd-brain",
+      "wordCount": 3046,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 71 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 3046 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "understanding-the-4-types-of-bpd.md",
+      "title": "Exploring the 4 Types of BPD: What You Need to Know",
+      "slug": "understanding-the-4-types-of-bpd",
+      "wordCount": 2195,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2195 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "understanding-the-anatomy-of-a-panic-attack.md",
+      "title": "Understanding the Anatomy of a Panic Attack",
+      "slug": "understanding-the-anatomy-of-a-panic-attack",
+      "wordCount": 587,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 587, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 43 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        }
+      ],
+      "seoScore": 80
+    },
+    {
+      "file": "upskilling-healthcare-professionals.md",
+      "title": "Why Upskilling Is Essential for Healthcare Professionals Today",
+      "slug": "upskilling-healthcare-professionals",
+      "wordCount": 1030,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1030, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 62 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1030 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "varicose-veins-and-mental-health.md",
+      "title": "Varicose Veins and Mental Health: An Overlooked Connection",
+      "slug": "varicose-veins-and-mental-health",
+      "wordCount": 795,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 795, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "what-a-mental-health-counselor-can-do-for-you.md",
+      "title": "What a Mental Health Counselor Can Do for You",
+      "slug": "what-a-mental-health-counselor-can-do-for-you",
+      "wordCount": 2034,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 45 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2034 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "what-are-the-goals-of-psychotherapy.md",
+      "title": "What Are the Goals of Psychotherapy?",
+      "slug": "what-are-the-goals-of-psychotherapy",
+      "wordCount": 876,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 876, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 36 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 876 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "what-is-a-mental-health-walk-in-clinic.md",
+      "title": "What Is a Mental Health Walk-In Clinic? Full Guide Inside",
+      "slug": "what-is-a-mental-health-walk-in-clinic",
+      "wordCount": 2534,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2534 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "what-is-a-psychotherapist-vs-psychologist.md",
+      "title": "What is a Psychotherapist vs. Psychologist?",
+      "slug": "what-is-a-psychotherapist-vs-psychologist",
+      "wordCount": 703,
+      "issues": [
+        {
+          "severity": "critical",
+          "category": "Content Length",
+          "message": "Word count is 703, minimum is 800 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 43 characters, recommended 50-60"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "what-is-a-short-term-relationship.md",
+      "title": "What is a Short Term Relationship? Defining Its Key Characteristics and Duration",
+      "slug": "what-is-a-short-term-relationship",
+      "wordCount": 2621,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 80 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2621 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 76
+    },
+    {
+      "file": "what-is-functional-depression.md",
+      "title": "Overcoming Functional Depression: Signs, Causes & Effective Treatment",
+      "slug": "what-is-functional-depression",
+      "wordCount": 1657,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 69 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 111 characters, recommended 140-160"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1657 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "what-is-high-functioning-anxiety.md",
+      "title": "Do I Have High Functioning Anxiety? Recognizing the Signs & Getting Support",
+      "slug": "what-is-high-functioning-anxiety",
+      "wordCount": 2163,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 75 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2163 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "what-is-love-bombing.md",
+      "title": "What is Love Bombing: Recognizing the Manipulation Tactic & Protecting Your Mental Health",
+      "slug": "what-is-love-bombing",
+      "wordCount": 2490,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 89 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2490 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 98
+    },
+    {
+      "file": "what-is-mental-breakdown.md",
+      "title": "What is a Mental Breakdown? Symptoms, Causes, and Recovery",
+      "slug": "what-is-mental-breakdown",
+      "wordCount": 2500,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Heading Structure",
+          "message": "Only 0 H2 headings found, consider adding more for better structure"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2500 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "what-is-psychotherapy.md",
+      "title": "What is Psychotherapy?",
+      "slug": "what-is-psychotherapy",
+      "wordCount": 939,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 939, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 22 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 939 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 95
+    },
+    {
+      "file": "what-is-time-blindness.md",
+      "title": "What is Time Blindness? Tips for Overcoming It",
+      "slug": "what-is-time-blindness",
+      "wordCount": 1600,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 46 characters, recommended 50-60"
+        },
+        {
+          "severity": "warning",
+          "category": "Meta Description",
+          "message": "Meta description is 42 characters, recommended 140-160"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1600 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "info",
+          "category": "Readability",
+          "message": "Few bullet lists found, consider using lists for better readability"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 81
+    },
+    {
+      "file": "what-to-expect-at-your-first-psychiatrist-appointment.md",
+      "title": "What to Expect at Your First Psychiatrist Appointment",
+      "slug": "what-to-expect-at-your-first-psychiatrist-appointment",
+      "wordCount": 1017,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 1017, target is 1200-2500 words"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1017 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 93
+    },
+    {
+      "file": "who-cheats-more-men-or-women.md",
+      "title": "Who Cheats More, Men or Women? Understanding the Psychology Behind Infidelity",
+      "slug": "who-cheats-more-men-or-women",
+      "wordCount": 1258,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Meta Title",
+          "message": "Title is 77 characters, recommended 50-60"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 1258 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 83
+    },
+    {
+      "file": "why-are-so-many-young-adults-struggling-with-mental-health.md",
+      "title": "Why Are So Many Young Adults Struggling with Mental Health?",
+      "slug": "why-are-so-many-young-adults-struggling-with-mental-health",
+      "wordCount": 2124,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 2124 words, consider adding more (target: 1 per 300-500 words)"
+        },
+        {
+          "severity": "warning",
+          "category": "Readability",
+          "message": "Many long paragraphs detected, consider breaking them up"
+        },
+        {
+          "severity": "info",
+          "category": "Featured Snippet",
+          "message": "Consider adding numbered lists or tables for featured snippet optimization"
+        }
+      ],
+      "seoScore": 100
+    },
+    {
+      "file": "why-healthcare-practices-need-a-good-credentialing-partner.md",
+      "title": "Why Healthcare Practices Need a Good Credentialing Partner",
+      "slug": "why-healthcare-practices-need-a-good-credentialing-partner",
+      "wordCount": 806,
+      "issues": [
+        {
+          "severity": "warning",
+          "category": "Content Length",
+          "message": "Word count is 806, target is 1200-2500 words"
+        },
+        {
+          "severity": "critical",
+          "category": "Internal Linking",
+          "message": "Only 0 internal links found, minimum is 3-5"
+        },
+        {
+          "severity": "warning",
+          "category": "Images",
+          "message": "Only 1 images for 806 words, consider adding more (target: 1 per 300-500 words)"
+        }
+      ],
+      "seoScore": 85
+    }
+  ]
+}

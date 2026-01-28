@@ -1,10 +1,19 @@
 ---
-title: "BBP Certification for First Responders and Safety Workers"
-slug: "bbp-certification-worker-safety"
-date: "2025-08-07 00:25:56"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/08/BBP-certification.webp"
+title: BBP Certification for First Responders and Safety Workers
+slug: bbp-certification-worker-safety
+date: '2025-08-07 00:25:56'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/08/BBP-certification.webp
+metaDescription: >-
+  It was a rainy night on a stretch of highway outside Columbus. An SUV had
+  flipped, and a first responder was the first on the scene. The driver was...
 ---
+# BBP Certification for First Responders and Safety Workers
+
+![BBP Certification for First Responders and Safety Workers](https://empathyhealthclinic.com/wp-content/uploads/2025/08/BBP-certification.webp)
+
+
 
 It was a rainy night on a stretch of highway outside Columbus. An SUV had flipped, and a first responder was the first on the scene. The driver was bleeding, disoriented, and trapped. Without missing a beat, they stepped in calm, focused, hands steady until EMS arrived.
 

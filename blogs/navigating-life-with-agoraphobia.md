@@ -1,10 +1,16 @@
 ---
-title: "Navigating Life with Agoraphobia"
-slug: "navigating-life-with-agoraphobia"
-date: "2024-04-05 19:05:39"
-excerpt: ""
-featured_image: ""
+title: Navigating Life with Agoraphobia
+slug: navigating-life-with-agoraphobia
+date: '2024-04-05 19:05:39'
+excerpt: ''
+featured_image: ''
+metaDescription: >-
+  Gain insights into agoraphobia, learn coping strategies, and discover how to
+  seek support for managing symptoms. Explore effective techniques to
+  navigate...
 ---
+# Navigating Life with Agoraphobia
+
 
 Gain insights into agoraphobia, learn coping strategies, and discover how to seek support for managing symptoms. Explore effective techniques to navigate life with greater ease and confidence.
 

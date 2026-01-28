@@ -1,10 +1,19 @@
 ---
-title: "What Does In Person Mean and Why It Matters for Your Mental Health"
-slug: "in-person-meaning-therapy-guide"
-date: "2025-06-22 21:50:39"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/06/in-person.jpeg"
+title: What Does In Person Mean and Why It Matters for Your Mental Health
+slug: in-person-meaning-therapy-guide
+date: '2025-06-22 21:50:39'
+excerpt: ''
+featured_image: 'https://empathyhealthclinic.com/wp-content/uploads/2025/06/in-person.jpeg'
+metaDescription: >-
+  You've probably heard the words “in person" a lot lately. But what does in
+  person mean? Simply put, in person means being physically present in the
+  same...
 ---
+# What Does In Person Mean and Why It Matters for Your Mental Health
+
+![What Does In Person Mean and Why It Matters for Your Mental Health](https://empathyhealthclinic.com/wp-content/uploads/2025/06/in-person.jpeg)
+
+
 
 You've probably heard the words “in person" a lot lately. But what does in person mean? Simply put, in person means being physically present in the same place as someone else. It's the opposite of virtual or online interactions.
 
@@ -148,3 +157,10 @@ Related Articles
 [Signs You Should Consider Rehab for Depression: When Therapy Isn’t Enough](https://empathyhealthclinic.com/rehab-for-depression/)
 
 [Top 5 Factors to Consider When Choosing Anxiety Treatment Centers](https://empathyhealthclinic.com/choosing-anxiety-treatment-centers-factors/)
+
+
+## Related Articles
+
+- [CBT Therapy: Improving Mental Health in Winter Park](/blog/cbt-therapy-improving-mental-health-in-winter-park)
+- [Find Expert Therapy Near Me: Mental Health Treatment](/blog/find-expert-therapy-near-me-mental-health-treatment)
+- [The Rise of Online Therapy: A Game-Changer for Mental Health](/blog/the-rise-of-online-therapy-a-game-changer-for-mental-health)

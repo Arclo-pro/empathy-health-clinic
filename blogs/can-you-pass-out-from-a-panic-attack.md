@@ -1,10 +1,20 @@
 ---
-title: "Can You Pass Out from a Panic Attack?"
-slug: "can-you-pass-out-from-a-panic-attack"
-date: "2025-01-29 10:51:34"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-olly-3760774.jpg"
+title: Can You Pass Out from a Panic Attack?
+slug: can-you-pass-out-from-a-panic-attack
+date: '2025-01-29 10:51:34'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-olly-3760774.jpg
+metaDescription: >-
+  Panic attacks can be really overwhelming and scary, often bringing on extreme
+  anxiety. A lot of people feel dizzy during a panic attack, and that can
+  lead...
 ---
+# Can You Pass Out from a Panic Attack?
+
+![Can You Pass Out from a Panic Attack?](https://empathyhealthclinic.com/wp-content/uploads/2025/01/pexels-olly-3760774.jpg)
+
+
 
 Panic attacks can be really overwhelming and scary, often bringing on [extreme anxiety](https://empathyhealthclinic.com/how-debilitating-anxiety-impacts-overall-health/). A lot of people feel dizzy during a panic attack, and that can lead to worrying they might pass out. But does that happen?
 
@@ -178,7 +188,15 @@ If anxiety feels like it’s taking over your life, don’t hesitate to check [a
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [6 Effective Tips for Fighting Anxiety and Regaining Control](/blog/6-effective-tips-for-fighting-anxiety-and-regaining-control)
+- [How Does Art Therapy Help Manage Anxiety](/blog/anxiety-art-therapy-transformative-power)
+- [Top 5 Factors to Consider When Choosing Anxiety Treatment Centers](/blog/choosing-anxiety-treatment-centers-factors)
+
+Facebook									
 															
 										Twitter									
 															

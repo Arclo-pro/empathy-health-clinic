@@ -1,12 +1,19 @@
 ---
-title: "How Social Workers Make a Difference Every Single Day"
-slug: "how-social-workers-make-a-difference-every-single-day"
-date: "2025-10-14 13:41:52"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-pavel-danilyuk-8204992.jpg"
+title: How Social Workers Make a Difference Every Single Day
+slug: how-social-workers-make-a-difference-every-single-day
+date: '2025-10-14 13:41:52'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-pavel-danilyuk-8204992.jpg
+metaDescription: >-
+  Social workers are at the heart of care and compassion within society. They
+  bring steadiness and understanding to people facing uncertainty and help...
 ---
 
 # **How Social Workers Make a Difference Every Single Day**
+
+![How Social Workers Make a Difference Every Single Day](https://empathyhealthclinic.com/wp-content/uploads/2025/10/pexels-pavel-danilyuk-8204992.jpg)
+
 
 Social workers are at the heart of care and compassion within society. They bring steadiness and understanding to people facing uncertainty and help individuals and families find strength through empathy and clear guidance. Their support makes it easier for people to cope with challenges and move toward stability.
 

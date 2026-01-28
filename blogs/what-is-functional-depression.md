@@ -1,10 +1,19 @@
 ---
-title: "Overcoming Functional Depression: Signs, Causes & Effective Treatment"
-slug: "what-is-functional-depression"
-date: "2025-02-14 12:25:02"
-excerpt: ""
-featured_image: "https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-dmitriy-tarasenko-70199286-8480423.jpg"
+title: 'Overcoming Functional Depression: Signs, Causes & Effective Treatment'
+slug: what-is-functional-depression
+date: '2025-02-14 12:25:02'
+excerpt: ''
+featured_image: >-
+  https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-dmitriy-tarasenko-70199286-8480423.jpg
+metaDescription: >-
+  Functional depression is a term gaining attention in mental health
+  conversations, but what does it really mean?
 ---
+# Overcoming Functional Depression: Signs, Causes & Effective Treatment
+
+![Overcoming Functional Depression: Signs, Causes & Effective Treatment](https://empathyhealthclinic.com/wp-content/uploads/2025/02/pexels-dmitriy-tarasenko-70199286-8480423.jpg)
+
+
 
 Functional depression is a term gaining attention in mental health conversations, but what does it really mean?
 
@@ -79,7 +88,15 @@ If you think you might be dealing with depression, it’s important to get help.
 
 		
 															
-										Facebook									
+										
+
+## Related Articles
+
+- [Depression Treatment Orlando: Expert Mental Health Care](/blog/depression-treatment-orlando-expert-mental-health-care)
+- [Depression Treatment: Options in Orlando, FL](/blog/depression-treatment-options-in-orlando-fl)
+- [Find Expert Therapy Near Me: Mental Health Treatment](/blog/find-expert-therapy-near-me-mental-health-treatment)
+
+Facebook									
 															
 										Twitter									
 															
