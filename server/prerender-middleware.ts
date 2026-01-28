@@ -33,7 +33,6 @@ const EXCLUDED_PATHS = [
   '/src/',
   '/@vite/',
   '/@react-refresh',
-  '/@replit/',
   '/@fs/',
   '/node_modules/',
 ];

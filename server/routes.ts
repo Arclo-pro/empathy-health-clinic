@@ -4,8 +4,7 @@ import rateLimit from "express-rate-limit";
 import { storage, initBlogSlugCache, isBlogPostSlug } from "./storage";
 import { sendLeadNotification } from "./email";
 import * as googleAdsService from "./google-ads-service";
-import { blogGeneratorService } from "./blog-generator-service";
-import { ContentAnalyzerService } from "./content-analyzer-service";
+// AI content generation moved to Hermes - empathy-health-clinic is now read-only for blogs
 import { db } from "./db";
 import { sql } from "drizzle-orm";
 import { contentRedirectMap, normalizePath, setBlogSlugChecker } from './redirect-config';
@@ -147,8 +146,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       robotsHash = crypto.default.createHash('md5').update(robotsContent).digest('hex').slice(0, 8);
     }
     
-    // Get git SHA if available
-    let gitSha = process.env.REPLIT_DEPLOYMENT_SHA || 'unknown';
+    // Get git SHA if available (Vercel provides VERCEL_GIT_COMMIT_SHA)
+    let gitSha = process.env.VERCEL_GIT_COMMIT_SHA || process.env.GIT_COMMIT_SHA || 'unknown';
     
     const healthy = prerenderExists && prerenderFileCount >= 100 && homepageLinkCount >= 50;
     
@@ -1974,231 +1973,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Generate clickbait titles from keywords
-  app.post("/api/generate-title", async (req, res) => {
-    try {
-      const { keywords, city } = req.body;
+  // ============================================
+  // AI Content Generation - MOVED TO HERMES
+  // ============================================
+  // The following endpoints have been moved to Hermes for centralized AI management:
+  // - POST /api/generate-title -> Hermes: POST /api/content/generate-title
+  // - GET /api/content-gaps -> Hermes: POST /api/content/analyze-gaps
+  // - GET /api/suggest-topic -> Hermes: POST /api/content/suggest-topic
+  // - POST /api/auto-generate-blog -> Hermes: POST /api/content/generate-blog
+  // - POST /api/generate-blog-progressive -> Removed (deprecated)
+  // - POST /api/generate-blog -> Hermes: POST /api/content/generate-blog
+  // - POST /api/improve-blog -> Hermes: POST /api/content/improve-blog
+  //
+  // empathy-health-clinic is now a read-only frontend for blog content.
+  // All content generation should go through Hermes at your-hermes-url.vercel.app
+  // ============================================
 
-      if (!keywords) {
-        return res.status(400).json({ error: "Keywords are required" });
-      }
-
-      console.log(`📝 Generating title for keywords: ${keywords}`);
-      
-      const title = await blogGeneratorService.generateTitle(keywords, city);
-
-      res.json({
-        success: true,
-        title,
-      });
-    } catch (error: any) {
-      console.error("❌ Title generation error:", error);
-      res.status(500).json({ 
-        error: error.message || "Title generation failed",
-      });
-    }
-  });
-
-  // Autonomous content analysis routes
-  const contentAnalyzer = new ContentAnalyzerService(storage);
-
-  // Get all content gaps (strategic blog opportunities)
-  app.get("/api/content-gaps", async (_req, res) => {
-    try {
-      console.log("🔍 Analyzing content gaps...");
-      const gaps = await contentAnalyzer.getContentGaps();
-      
-      res.json({
-        success: true,
-        gaps,
-        count: gaps.length,
-      });
-    } catch (error: any) {
-      console.error("❌ Content gap analysis error:", error);
-      res.status(500).json({ 
-        error: error.message || "Content gap analysis failed",
-      });
-    }
-  });
-
-  // Auto-suggest next strategic blog topic
-  app.get("/api/suggest-topic", async (_req, res) => {
-    try {
-      console.log("🎯 Auto-suggesting strategic blog topic...");
-      const suggestion = await contentAnalyzer.analyzeSiteAndSuggestTopic();
-      
-      res.json({
-        success: true,
-        suggestion,
-      });
-    } catch (error: any) {
-      console.error("❌ Topic suggestion error:", error);
-      res.status(500).json({ 
-        error: error.message || "Topic suggestion failed",
-      });
-    }
-  });
-
-  // Auto-generate blog with suggested topic (fully autonomous)
-  app.post("/api/auto-generate-blog", async (_req, res) => {
-    try {
-      console.log("🤖 Starting autonomous blog generation...");
-      
-      // Step 1: Analyze site and suggest best topic
-      const suggestion = await contentAnalyzer.analyzeSiteAndSuggestTopic();
-      console.log(`✨ Selected topic: "${suggestion.topic}"`);
-      console.log(`   Keywords: ${suggestion.keywords}`);
-      console.log(`   Reasoning: ${suggestion.reasoning}`);
-      
-      // Step 2: Generate blog with suggested topic
-      const result = await blogGeneratorService.generateBlog({
-        topic: suggestion.topic,
-        keywords: suggestion.keywords,
-        city: 'Orlando',
-        imageStyle: 'professional mental health therapy',
-      });
-
-      // CRITICAL: Quality & HIPAA gate - reject low-quality or non-compliant blogs
-      const MINIMUM_QUALITY_SCORE = 80;
-      const validationResults = result.validationResults as any;
-      const hasHIPAAViolation = validationResults?.noHIPAAViolations === false;
-      const issues = validationResults?.issues || [];
-
-      if (result.seoScore < MINIMUM_QUALITY_SCORE) {
-        console.error(`❌ QUALITY GATE FAILED: Score ${result.seoScore}/100 is below minimum threshold of ${MINIMUM_QUALITY_SCORE}`);
-        return res.status(400).json({
-          success: false,
-          error: `Blog quality too low (${result.seoScore}/100). Minimum required: ${MINIMUM_QUALITY_SCORE}/100`,
-          seoScore: result.seoScore,
-          issues,
-          suggestion,
-        });
-      }
-
-      if (hasHIPAAViolation) {
-        console.error("❌ HIPAA GATE FAILED: Content contains patient identifiers");
-        return res.status(400).json({
-          success: false,
-          error: "CRITICAL: Generated content contains HIPAA violations (patient identifiers). Generation aborted for compliance.",
-          seoScore: result.seoScore,
-          issues,
-          suggestion,
-        });
-      }
-
-      // Only return success if quality and compliance checks pass
-      console.log(`✅ QUALITY GATE PASSED: Score ${result.seoScore}/100, HIPAA compliant`);
-
-      res.json({
-        success: true,
-        data: result,
-        suggestion,
-        message: `Autonomous blog generated! Topic: "${suggestion.topic}" | SEO Score: ${result.seoScore}/100`,
-      });
-    } catch (error: any) {
-      console.error("❌ Autonomous blog generation error:", error);
-      res.status(500).json({ 
-        error: error.message || "Autonomous blog generation failed",
-        details: error instanceof Error ? error.stack : undefined
-      });
-    }
-  });
-
-  // ⚠️ EXPERIMENTAL: Progressive blog generation - NOT RECOMMENDED FOR PRODUCTION
-  // Adds validation rules incrementally across 8 separate API calls, but produces poor quality
-  // (typically 0-20/100 score vs 80+/100 from 3-stage generator) due to context loss.
-  // Use /api/generate-blog instead for production-quality blogs.
-  app.post("/api/generate-blog-progressive", async (req, res) => {
-    try {
-      const { topic, keywords, city, imageStyle } = req.body;
-
-      if (!topic || !keywords) {
-        return res.status(400).json({ error: "Topic and keywords are required" });
-      }
-
-      console.log(`⚠️ EXPERIMENTAL: PROGRESSIVE blog generation: ${topic}`);
-      console.log(`   This is an experimental endpoint that typically produces low-quality output`);
-      console.log(`   Recommend using /api/generate-blog instead`);
-      
-      const result = await blogGeneratorService.generateBlogProgressive({
-        topic,
-        keywords,
-        city,
-        imageStyle,
-      });
-
-      res.json(result);
-    } catch (error: any) {
-      console.error("❌ Progressive blog generation failed:", error);
-      res.status(500).json({ error: error.message });
-    }
-  });
-
-  // Blog generation with AI (follows all 32 best practices)
-  app.post("/api/generate-blog", async (req, res) => {
-    try {
-      const { topic, keywords, city, imageStyle } = req.body;
-
-      if (!topic || !keywords) {
-        return res.status(400).json({ error: "Topic and keywords are required" });
-      }
-
-      console.log(`📝 Generating blog: ${topic}`);
-      
-      const result = await blogGeneratorService.generateBlog({
-        topic,
-        keywords,
-        city,
-        imageStyle,
-      });
-
-      res.json({
-        success: true,
-        data: result,
-        message: `Blog generated successfully! SEO Score: ${result.seoScore}/100`,
-      });
-    } catch (error: any) {
-      console.error("❌ Blog generation error:", error);
-      res.status(500).json({ 
-        error: error.message || "Blog generation failed",
-        details: error instanceof Error ? error.stack : undefined
-      });
-    }
-  });
-
-  // Improve existing blog with user-provided instructions
-  app.post("/api/improve-blog", async (req, res) => {
-    try {
-      const { currentBlog, improvementInstructions, keywords } = req.body;
-
-      if (!currentBlog || !improvementInstructions) {
-        return res.status(400).json({ error: "Current blog and improvement instructions are required" });
-      }
-
-      console.log(`🔧 Improving blog: ${currentBlog.title}`);
-      console.log(`   Instructions: ${improvementInstructions.substring(0, 100)}...`);
-      
-      const result = await blogGeneratorService.improveBlog(
-        currentBlog,
-        improvementInstructions,
-        keywords
-      );
-
-      res.json({
-        success: true,
-        data: result,
-        message: `Blog improved! New SEO Score: ${result.seoScore}/100`,
-      });
-    } catch (error: any) {
-      console.error("❌ Blog improvement error:", error);
-      res.status(500).json({ 
-        error: error.message || "Blog improvement failed",
-        details: error instanceof Error ? error.stack : undefined
-      });
-    }
-  });
-
-  // Publish generated blog directly to CMS
+  // Publish generated blog directly to CMS (kept for Hermes to call)
   app.post("/api/publish-generated-blog", async (req, res) => {
     try {
       const blogData = req.body;

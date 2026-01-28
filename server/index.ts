@@ -13,7 +13,6 @@ import path from "path";
 const app = express();
 
 // Health check endpoint - MUST be first for fast deployment health checks
-// Replit deployments timeout if health checks take too long
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: Date.now() });
 });
@@ -75,18 +74,12 @@ app.use((req, res, next) => {
     return res.status(410).send('Gone - This WordPress resource no longer exists after site migration.');
   }
   
-  // Block Replit dev/workspace iframes from being tracked
-  if (req.path.includes('__replco') || req.path.includes('workspace_iframe')) {
-    return res.status(404).send('Not Found');
-  }
-  
-  // Block Vite/Replit dev paths in production only - these should never be indexed
+  // Block Vite dev paths in production only - these should never be indexed
   // Screaming Frog reported these as accessible in production crawls
   // In development, Vite needs these paths to serve client-side HMR assets
   if (process.env.NODE_ENV === 'production') {
     if (
       req.path.startsWith('/@vite/') ||
-      req.path.startsWith('/@replit/') ||
       req.path.startsWith('/@fs/') ||
       req.path.startsWith('/@id/') ||
       req.path.startsWith('/__vite') ||
@@ -111,9 +104,7 @@ app.use(canonicalizationMiddleware);
 // NOTE: /tag/ and /author/ URLs are NOT blocked here because they 301 redirect to /blog
 // The redirect itself handles duplicate content prevention - no need for noindex
 // 
-// NOTE: In development (*.replit.dev domains), Replit infrastructure automatically
-// adds "X-Robots-Tag: none, noindex, noarchive, nofollow, nositelinkssearchbox, noimageindex"
-// to ALL pages. This is expected behavior to prevent dev environments from being indexed.
+// NOTE: In development or Vercel preview deployments, preview URLs should not be indexed.
 // When published to production (custom domain), this middleware ensures ONLY admin routes
 // and date archives are excluded from indexing while public pages remain indexable.
 app.use((req, res, next) => {
@@ -129,7 +120,7 @@ app.use((req, res, next) => {
     path.startsWith('/examples') ||
     path.startsWith('/test') ||
     path.startsWith('/api/') ||
-    path.startsWith('/@') ||  // All @-prefixed paths (Vite dev: @react-refresh, @vite, @replit, etc.)
+    path.startsWith('/@') ||  // All @-prefixed paths (Vite dev: @react-refresh, @vite, etc.)
     path.startsWith('/__') ||  // All __-prefixed paths (dev artifacts: __dummy__, __vite, etc.)
     path.endsWith('/feed') ||  // RSS feeds should never be indexed
     path.endsWith('/feed/') ||

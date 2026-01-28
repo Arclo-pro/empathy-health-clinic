@@ -714,10 +714,10 @@ export function getCanonicalUrl(
   const canonicalProtocol = isLocalhost ? protocol : 'https';
   
   // Step 2: Ensure www subdomain (www is canonical host)
-  // Skip for localhost, replit.app, and replit.dev domains
-  const isReplitDomain = host.includes('.replit.app') || host.includes('.replit.dev');
+  // Skip for localhost and Vercel preview domains
+  const isVercelPreview = host.includes('.vercel.app');
   let canonicalHost = host;
-  if (!isLocalhost && !isReplitDomain) {
+  if (!isLocalhost && !isVercelPreview) {
     // For production domain, ensure www prefix
     canonicalHost = host.startsWith('www.') ? host : `www.${host}`;
   }

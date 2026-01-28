@@ -273,14 +273,11 @@ function cleanHtml(html: string, route: string): string {
     .replace(/<script[^>]*src="\/src\/main\.tsx[^"]*"[^>]*><\/script>/g, '')
     // Remove development modulepreload for main.tsx
     .replace(/<link[^>]*rel="modulepreload"[^>]*href="\/src\/[^"]*"[^>]*>/g, '')
-    // Remove Replit dev banner script
-    .replace(/<script[^>]*src="\/@replit\/[^"]*"[^>]*><\/script>/g, '')
     // Remove Cloudflare challenge iframe
     .replace(/<script>\(function\(\)\{function c\(\)[\s\S]*?<\/script>/g, '')
     // Remove inline script for tracking params
     .replace(/<script>\s*\(function\(\)\s*\{\s*const qs[\s\S]*?<\/script>/g, '')
-    // Remove replit dev metadata attributes
-    .replace(/ data-replit-metadata="[^"]*"/g, '')
+    // Remove dev metadata attributes
     .replace(/ data-component-name="[^"]*"/g, '')
     // Add marker comment for debugging
     .replace('</head>', '<!-- Prerendered by Puppeteer -->\n</head>');
