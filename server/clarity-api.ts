@@ -1,11 +1,62 @@
-import { z } from "zod";
-
 const CLARITY_API_TOKEN = process.env.CLARITY_API_TOKEN;
 const CLARITY_PROJECT_ID = "u21s08irgz";
 const CACHE_DURATION_MS = 24 * 60 * 60 * 1000; // 24 hours (to respect 10 calls/day limit)
 
-interface ClarityCache {
-  data: any;
+/**
+ * Clarity API response types
+ * Note: These interfaces are based on typical Clarity API response structures.
+ * The actual API response may vary, so we use optional fields and allow
+ * additional properties via index signatures where appropriate.
+ */
+
+export interface ClarityError {
+  url: string;
+  errorType: string;
+  count: number;
+  lastSeen?: string;
+  message?: string;
+}
+
+export interface ClarityDeadLinksResponse {
+  errors?: ClarityError[];
+  totalErrors?: number;
+  dateRange?: {
+    start: string;
+    end: string;
+  };
+  [key: string]: unknown; // Allow additional properties from API
+}
+
+export interface ClarityPageMetric {
+  url: string;
+  pageViews?: number;
+  uniqueVisitors?: number;
+  avgTimeOnPage?: number;
+  bounceRate?: number;
+  scrollDepth?: number;
+  deadClicks?: number;
+  rageClicks?: number;
+  quickbacks?: number;
+}
+
+export interface ClarityPageMetricsResponse {
+  pages?: ClarityPageMetric[];
+  summary?: {
+    totalPageViews?: number;
+    totalUniqueVisitors?: number;
+    avgSessionDuration?: number;
+  };
+  dateRange?: {
+    start: string;
+    end: string;
+  };
+  [key: string]: unknown; // Allow additional properties from API
+}
+
+type ClarityApiResponse = ClarityDeadLinksResponse | ClarityPageMetricsResponse | Record<string, unknown>;
+
+interface ClarityCache<T = ClarityApiResponse> {
+  data: T;
   timestamp: number;
 }
 
@@ -16,7 +67,7 @@ const cacheStore: Map<string, ClarityCache> = new Map();
  * Fetch data from Microsoft Clarity API with intelligent caching
  * Rate limit: 10 calls per day, so we cache for 24 hours
  */
-export async function fetchClarityData(endpoint: string): Promise<any> {
+export async function fetchClarityData<T extends ClarityApiResponse = ClarityApiResponse>(endpoint: string): Promise<T> {
   if (!CLARITY_API_TOKEN) {
     throw new Error("CLARITY_API_TOKEN environment variable not set");
   }
@@ -27,7 +78,7 @@ export async function fetchClarityData(endpoint: string): Promise<any> {
   // Check if cached data is still valid
   if (cached && cached.timestamp && Date.now() - cached.timestamp < CACHE_DURATION_MS) {
     console.log(`[Clarity API] Using cached data for ${endpoint} (age: ${Math.round((Date.now() - cached.timestamp) / 1000 / 60)} minutes)`);
-    return cached.data;
+    return cached.data as T;
   }
 
   console.log(`[Clarity API] Fetching fresh data from endpoint: ${endpoint}`);
@@ -48,8 +99,8 @@ export async function fetchClarityData(endpoint: string): Promise<any> {
       throw new Error(`Clarity API error (${response.status}): ${errorText}`);
     }
 
-    const data = await response.json();
-    
+    const data = await response.json() as T;
+
     // Update cache for this specific endpoint
     cacheStore.set(cacheKey, {
       data,
@@ -67,11 +118,9 @@ export async function fetchClarityData(endpoint: string): Promise<any> {
 /**
  * Get 404 errors and dead link data from Clarity
  */
-export async function getClarityDeadLinks(): Promise<any> {
+export async function getClarityDeadLinks(): Promise<ClarityDeadLinksResponse | null> {
   try {
-    // Note: Clarity's API structure may vary - this is a placeholder
-    // You may need to adjust based on actual API response structure
-    const data = await fetchClarityData('errors');
+    const data = await fetchClarityData<ClarityDeadLinksResponse>('errors');
     return data;
   } catch (error) {
     console.error('[Clarity] Error fetching dead links:', error);
@@ -82,9 +131,9 @@ export async function getClarityDeadLinks(): Promise<any> {
 /**
  * Get page performance metrics from Clarity
  */
-export async function getClarityPageMetrics(): Promise<any> {
+export async function getClarityPageMetrics(): Promise<ClarityPageMetricsResponse | null> {
   try {
-    const data = await fetchClarityData('pages');
+    const data = await fetchClarityData<ClarityPageMetricsResponse>('pages');
     return data;
   } catch (error) {
     console.error('[Clarity] Error fetching page metrics:', error);
