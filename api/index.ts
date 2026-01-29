@@ -188,6 +188,363 @@ www.empathyhealthclinic.com
   return results;
 }
 
+// ============================================================
+// SEO file handlers (robots.txt, sitemap.xml, etc.)
+// These MUST be served by the serverless function because
+// Vercel's catch-all route sends everything to index.html (SPA).
+// Without these handlers, Google receives HTML instead of
+// robots.txt/sitemap XML, causing complete de-indexing.
+// ============================================================
+
+function generateRobotsTxt(): string {
+  const baseUrl = "https://www.empathyhealthclinic.com";
+  return `# Empathy Health Clinic - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and utility pages
+Disallow: /admin/
+Disallow: /login
+Disallow: /auth/
+Disallow: /config/
+Disallow: /debug/
+Disallow: /examples/
+Disallow: /test/
+
+# Disallow search and filter pages (crawl waste)
+Disallow: /search
+Disallow: /*?search=
+Disallow: /*?q=
+
+# Allow blog pagination (for rel=prev/next SEO)
+Allow: /blog?page=
+
+# Disallow other pagination (crawl waste on non-blog pages)
+Disallow: /*?page=
+Disallow: /*?tag=
+Disallow: /*?category=
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Disallow legacy WordPress paths
+Disallow: /wp-*
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+
+# Disallow attachment and media pages (WordPress legacy)
+Disallow: /attachment/
+Disallow: /uploads/
+Disallow: /media/
+
+# Disallow UTM and tracking parameters
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?ref=
+Disallow: /*?source=
+
+# Allow AI crawlers for AI Search visibility
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+# Sitemaps
+Sitemap: ${baseUrl}/sitemap_index.xml
+Sitemap: ${baseUrl}/sitemap.xml
+Sitemap: ${baseUrl}/image-sitemap.xml
+
+# AI Crawler Resources (LLMs.txt standard)
+# https://llmstxt.org/
+LLM: ${baseUrl}/llms.txt
+LLM-Full: ${baseUrl}/llms-full.txt
+`;
+}
+
+function generateSitemapIndex(): string {
+  const baseUrl = "https://www.empathyhealthclinic.com";
+  const today = new Date().toISOString().split('T')[0];
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${baseUrl}/sitemap.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${baseUrl}/image-sitemap.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+</sitemapindex>`;
+}
+
+async function generateSitemapXml(sql: ReturnType<typeof neon>): Promise<string> {
+  const baseUrl = "https://www.empathyhealthclinic.com";
+  const today = new Date().toISOString().split('T')[0];
+  const addedUrls = new Set<string>();
+
+  const NOINDEX_PATHS = [
+    '/admin', '/login', '/auth', '/config', '/debug',
+    '/examples', '/test', '/preview',
+    '/privacy', '/terms', '/disclaimer',
+    '/thank-you', '/confirmed', '/appointment-confirmed',
+    '/404', '/500', '/error',
+    '/search', '/filter',
+    '/api', '/attachment', '/uploads', '/media',
+    '/wp-includes', '/wp-content', '/wp-admin',
+  ];
+
+  const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
+    '/psychiatry-orlando': '/psychiatrist-orlando',
+    '/psychiatry-clinic-orlando': '/psychiatrist-orlando',
+  };
+
+  const shouldInclude = (path: string): boolean => {
+    const normalized = path.toLowerCase().replace(/\/+$/, '');
+    if (NOINDEX_PATHS.some(p => normalized.startsWith(p))) return false;
+    if (normalized in CANONICAL_CONSOLIDATION_PATHS) return false;
+    if (normalized.includes('page=')) return false;
+    if (normalized.includes('?')) return false;
+    if (normalized.includes('attachment')) return false;
+    if (normalized.includes('wp-')) return false;
+    return true;
+  };
+
+  const escapeXml = (text: string): string => {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&apos;');
+  };
+
+  const addUrl = (path: string, changefreq: string, priority: number, lastmod?: string): string => {
+    const fullUrl = `${baseUrl}${path}`;
+    if (addedUrls.has(fullUrl)) return '';
+    if (!shouldInclude(path)) return '';
+    addedUrls.add(fullUrl);
+
+    let xml = `  <url>\n`;
+    xml += `    <loc>${escapeXml(fullUrl)}</loc>\n`;
+    if (lastmod) {
+      xml += `    <lastmod>${lastmod}</lastmod>\n`;
+    }
+    xml += `    <changefreq>${changefreq}</changefreq>\n`;
+    xml += `    <priority>${priority.toFixed(1)}</priority>\n`;
+    xml += `    <xhtml:link rel="alternate" hreflang="en-us" href="${escapeXml(fullUrl)}" />\n`;
+    xml += `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(fullUrl)}" />\n`;
+    xml += `  </url>\n`;
+    return xml;
+  };
+
+  const PAGE_LASTMOD: Record<string, string> = {
+    '/': today,
+    '/services': '2025-11-15',
+    '/psychiatrist-orlando': '2025-11-20',
+    '/therapist-orlando': '2025-11-18',
+    '/team': '2025-11-25',
+    '/insurance': '2025-11-10',
+    '/blog': today,
+    '/new-patients': '2025-11-01',
+    '/virtual-therapy': '2025-11-12',
+    '/request-appointment': '2025-11-05',
+    '/therapy': '2025-11-08',
+    '/psychotherapist-orlando': '2025-11-15',
+    '/couples-counseling': '2025-10-20',
+    '/counselor-near-me': '2025-10-25',
+    '/mental-health-near-me': '2025-10-25',
+    '/therapy-near-me': '2025-10-25',
+    '/psychiatrist-near-me': '2025-11-22',
+    '/counseling-orlando': '2025-10-15',
+    '/adhd-psychiatrist-orlando': '2025-11-18',
+    '/anxiety-psychiatrist-orlando': '2025-11-18',
+    '/depression-psychiatrist-orlando': '2025-11-18',
+    '/bipolar-psychiatrist-orlando': '2025-11-18',
+    '/telepsychiatry-orlando': '2025-11-18',
+    '/same-day-psychiatrist-orlando': '2025-11-18',
+    '/medication-management-orlando': '2025-11-18',
+    '/ptsd-psychiatrist-orlando': '2025-11-28',
+    '/urgent-psychiatric-care-orlando': '2025-11-28',
+    '/psychiatrist-orlando-accepts-umr': '2025-11-28',
+    '/anxiety-therapy': '2025-10-10',
+    '/depression-counseling': '2025-10-10',
+    '/cognitive-behavioral-therapy': '2025-09-15',
+    '/emdr-therapy': '2025-09-20',
+    '/tms-treatment': '2025-11-01',
+    '/adhd-testing-orlando': '2025-11-15',
+    '/depression-treatment': '2025-10-05',
+    '/psychiatric-services': '2025-10-01',
+    '/psychiatrist-winter-park': '2025-10-20',
+    '/therapy-oviedo': '2025-09-01',
+    '/therapist-maitland': '2025-09-01',
+    '/providers': today,
+    '/providers/orlando': today,
+    '/what-we-treat': today,
+    '/what-we-treat/adhd': today,
+    '/what-we-treat/anxiety': today,
+    '/what-we-treat/depression': today,
+    '/what-we-treat/bipolar-disorder': today,
+    '/what-we-treat/ptsd': today,
+    '/what-we-treat/ocd': today,
+    '/psychiatrist-lake-nona': today,
+    '/psychiatrist-winter-garden': today,
+    '/psychiatrist-casselberry': today,
+    '/psychiatrist-longwood': today,
+    '/psychiatrist-downtown-orlando': today,
+    '/telehealth': today,
+    '/adult-adhd-treatment-orlando': today,
+    '/suboxone-treatment-orlando': today,
+    '/medicaid-psychiatrist-orlando': today,
+  };
+
+  const staticPages = [
+    { path: '/services', changefreq: 'weekly', priority: 0.9 },
+    { path: '/psychiatrist-orlando', changefreq: 'weekly', priority: 0.95 },
+    { path: '/therapist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/team', changefreq: 'weekly', priority: 0.85 },
+    { path: '/insurance', changefreq: 'weekly', priority: 0.8 },
+    { path: '/blog', changefreq: 'daily', priority: 0.8 },
+    { path: '/new-patients', changefreq: 'weekly', priority: 0.8 },
+    { path: '/virtual-therapy', changefreq: 'weekly', priority: 0.8 },
+    { path: '/request-appointment', changefreq: 'weekly', priority: 0.85 },
+    { path: '/therapy', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychotherapist-orlando', changefreq: 'weekly', priority: 0.8 },
+    { path: '/couples-counseling', changefreq: 'weekly', priority: 0.75 },
+    { path: '/counselor-near-me', changefreq: 'weekly', priority: 0.75 },
+    { path: '/mental-health-near-me', changefreq: 'weekly', priority: 0.75 },
+    { path: '/therapy-near-me', changefreq: 'weekly', priority: 0.75 },
+    { path: '/psychiatrist-near-me', changefreq: 'weekly', priority: 0.9 },
+    { path: '/counseling-orlando', changefreq: 'weekly', priority: 0.75 },
+    { path: '/adhd-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/anxiety-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/depression-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/bipolar-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/telepsychiatry-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/same-day-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/medication-management-orlando', changefreq: 'weekly', priority: 0.8 },
+    { path: '/ptsd-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/urgent-psychiatric-care-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/psychiatrist-orlando-accepts-umr', changefreq: 'weekly', priority: 0.8 },
+    { path: '/anxiety-therapy', changefreq: 'weekly', priority: 0.8 },
+    { path: '/depression-counseling', changefreq: 'weekly', priority: 0.8 },
+    { path: '/cognitive-behavioral-therapy', changefreq: 'monthly', priority: 0.75 },
+    { path: '/emdr-therapy', changefreq: 'monthly', priority: 0.8 },
+    { path: '/tms-treatment', changefreq: 'monthly', priority: 0.8 },
+    { path: '/adhd-testing-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/depression-treatment', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatric-services', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatrist-winter-park', changefreq: 'weekly', priority: 0.8 },
+    { path: '/therapy-oviedo', changefreq: 'monthly', priority: 0.7 },
+    { path: '/therapist-maitland', changefreq: 'monthly', priority: 0.7 },
+    { path: '/providers', changefreq: 'weekly', priority: 0.85 },
+    { path: '/providers/orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat', changefreq: 'weekly', priority: 0.9 },
+    { path: '/what-we-treat/adhd', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat/anxiety', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat/depression', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat/bipolar-disorder', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat/ptsd', changefreq: 'weekly', priority: 0.85 },
+    { path: '/what-we-treat/ocd', changefreq: 'weekly', priority: 0.85 },
+    { path: '/psychiatrist-lake-nona', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatrist-winter-garden', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatrist-casselberry', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatrist-longwood', changefreq: 'weekly', priority: 0.8 },
+    { path: '/psychiatrist-downtown-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/telehealth', changefreq: 'weekly', priority: 0.85 },
+    { path: '/adult-adhd-treatment-orlando', changefreq: 'weekly', priority: 0.85 },
+    { path: '/suboxone-treatment-orlando', changefreq: 'weekly', priority: 0.8 },
+    { path: '/medicaid-psychiatrist-orlando', changefreq: 'weekly', priority: 0.8 },
+  ];
+
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
+  xml += '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
+
+  xml += addUrl('/', 'daily', 1.0, today);
+
+  staticPages.forEach(page => {
+    xml += addUrl(page.path, page.changefreq, page.priority, PAGE_LASTMOD[page.path] || today);
+  });
+
+  // Dynamic content from database
+  try {
+    const [treatments, therapies, conditions, insuranceProviders, blogPosts, locations, teamMembers] = await Promise.all([
+      sql`SELECT slug FROM treatments ORDER BY "order"`,
+      sql`SELECT slug FROM therapies ORDER BY "order"`,
+      sql`SELECT slug FROM conditions ORDER BY "order"`,
+      sql`SELECT slug FROM insurance_providers ORDER BY "order"`,
+      sql`SELECT slug, published_at, updated_at FROM blog_posts WHERE status = 'published' ORDER BY published_at DESC`,
+      sql`SELECT slug FROM locations ORDER BY title`,
+      sql`SELECT slug FROM team_members ORDER BY "order", name`,
+    ]);
+
+    treatments.forEach((t: any) => { xml += addUrl(`/${t.slug}`, 'monthly', 0.7, today); });
+    therapies.forEach((t: any) => { xml += addUrl(`/${t.slug}`, 'monthly', 0.7, today); });
+    conditions.forEach((c: any) => { xml += addUrl(`/${c.slug}`, 'monthly', 0.7, today); });
+    insuranceProviders.forEach((p: any) => { xml += addUrl(`/${p.slug}`, 'monthly', 0.6, today); });
+    blogPosts.forEach((post: any) => {
+      const lastMod = post.updated_at || post.published_at;
+      const lastModStr = lastMod ? new Date(lastMod).toISOString().split('T')[0] : today;
+      xml += addUrl(`/blog/${post.slug}`, 'weekly', 0.5, lastModStr);
+    });
+    locations.forEach((l: any) => { xml += addUrl(`/locations/${l.slug}`, 'monthly', 0.7, today); });
+    teamMembers.forEach((m: any) => { xml += addUrl(`/team/${m.slug}`, 'monthly', 0.7, today); });
+  } catch (dbError) {
+    console.error('Sitemap: Database query failed, serving static pages only:', dbError);
+  }
+
+  xml += '</urlset>';
+  return xml;
+}
+
+async function generateImageSitemap(sql: ReturnType<typeof neon>): Promise<string> {
+  const baseUrl = "https://www.empathyhealthclinic.com";
+
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n';
+  xml += '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
+
+  try {
+    const teamMembers = await sql`SELECT name, slug, image FROM team_members WHERE image IS NOT NULL ORDER BY "order", name`;
+    teamMembers.forEach((member: any) => {
+      if (member.image) {
+        const imageUrl = member.image.startsWith('http') ? member.image : `${baseUrl}${member.image}`;
+        xml += `  <url>\n`;
+        xml += `    <loc>${baseUrl}/team/${member.slug}</loc>\n`;
+        xml += `    <image:image>\n`;
+        xml += `      <image:loc>${imageUrl}</image:loc>\n`;
+        xml += `      <image:title>${member.name} - Empathy Health Clinic</image:title>\n`;
+        xml += `    </image:image>\n`;
+        xml += `  </url>\n`;
+      }
+    });
+  } catch (dbError) {
+    console.error('Image sitemap: Database query failed:', dbError);
+  }
+
+  xml += '</urlset>';
+  return xml;
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { url, method } = req;
   const path = url?.split('?')[0] || '';
@@ -201,6 +558,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    // ---- SEO files (routed here via vercel.json) ----
+    if (path === '/robots.txt') {
+      res.setHeader('Content-Type', 'text/plain');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.status(200).send(generateRobotsTxt());
+    }
+
+    if (path === '/sitemap_index.xml') {
+      res.setHeader('Content-Type', 'application/xml');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.status(200).send(generateSitemapIndex());
+    }
+
+    if (path === '/sitemap.xml') {
+      const sql = getDb();
+      const xml = await generateSitemapXml(sql);
+      res.setHeader('Content-Type', 'application/xml');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.status(200).send(xml);
+    }
+
+    if (path === '/image-sitemap.xml') {
+      const sql = getDb();
+      const xml = await generateImageSitemap(sql);
+      res.setHeader('Content-Type', 'application/xml');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.status(200).send(xml);
+    }
+
+    // ---- API routes ----
     if (path === '/api/health') {
       return res.status(200).json({
         ok: true,
