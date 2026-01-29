@@ -233,17 +233,26 @@ export const initGA = () => {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   const adsConversionId = import.meta.env.VITE_GOOGLE_ADS_CONVERSION_ID;
 
-  if (!measurementId) {
-    console.warn('⚠️ Google Analytics: Missing VITE_GA_MEASUREMENT_ID environment variable');
+  // gtag.js can load with either a GA4 measurement ID or a Google Ads conversion ID
+  const gtagId = measurementId || adsConversionId;
+
+  if (!gtagId) {
+    console.warn('⚠️ Google Analytics: Missing both VITE_GA_MEASUREMENT_ID and VITE_GOOGLE_ADS_CONVERSION_ID');
+    // Resolve gtagReady so conversion tracking doesn't hang forever
+    if (gtagReadyResolve) {
+      gtagReadyResolve();
+    }
     return;
   }
 
-  console.log('✅ Google Analytics: Initializing with Measurement ID:', measurementId.substring(0, 8) + '...');
+  if (measurementId) {
+    console.log('✅ Google Analytics: Initializing with Measurement ID:', measurementId.substring(0, 8) + '...');
+  }
 
   const script1 = document.createElement('script');
   script1.async = true;
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-  
+  script1.src = `https://www.googletagmanager.com/gtag/js?id=${gtagId}`;
+
   // CRITICAL: Attach onload/onerror BEFORE appending to prevent race condition
   script1.onload = () => {
     // Wait a brief moment for gtag to be defined
@@ -264,7 +273,7 @@ export const initGA = () => {
       }
     }, 100);
   };
-  
+
   script1.onerror = () => {
     console.error('❌ Google Analytics: Failed to load gtag script');
     if (gtagReadyResolve) {
@@ -272,19 +281,19 @@ export const initGA = () => {
       gtagReadyResolve();
     }
   };
-  
+
   document.head.appendChild(script1);
 
-  const script2 = document.createElement('script');
-  script2.textContent = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${measurementId}');
-    ${adsConversionId ? `gtag('config', '${adsConversionId}');` : ''}
-  `;
-  document.head.appendChild(script2);
-  
+  // Configure gtag — the stub is already defined in index.html,
+  // so we only need to push config commands (no need to redeclare dataLayer/gtag)
+  if (measurementId) {
+    window.gtag('config', measurementId);
+  }
+  if (adsConversionId) {
+    // send_page_view: false prevents the Ads tag from firing a redundant page view beacon
+    window.gtag('config', adsConversionId, { 'send_page_view': false });
+  }
+
   console.log('✅ Google Analytics: Scripts loaded');
   if (adsConversionId) {
     console.log('✅ Google Ads: Conversion ID configured:', adsConversionId);
