@@ -180,6 +180,13 @@ export function render(url: string): string {
     },
   });
 
+  // Prefill API data so data-dependent pages render content instead of spinners.
+  // During SSR there's no API server, so useQuery would stay in "loading" state.
+  // Empty arrays let pages render their static structure (headings, SEO, hero sections).
+  queryClient.setQueryData(["/api/treatments"], []);
+  queryClient.setQueryData(["/api/therapies"], []);
+  queryClient.setQueryData(["/api/insurance-providers"], []);
+
   // Create a static memory location for SSR
   const { hook } = memoryLocation({ path: url, static: true });
 
