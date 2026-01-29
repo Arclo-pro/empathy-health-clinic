@@ -69,6 +69,11 @@ else
 fi
 echo ""
 
+# Step 2c: Generate sitemaps with database content
+echo "Step 2c: Generating sitemaps..."
+npx tsx scripts/generate-sitemap.ts 2>&1 || echo "  WARNING: Sitemap generation failed (static fallback in public/)"
+echo ""
+
 # If prerender mode is off, we're done with the blocking phase
 if [ "$PRERENDER_MODE" = "off" ]; then
     echo "=========================================="
