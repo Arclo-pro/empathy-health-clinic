@@ -122,7 +122,11 @@ export function buildOrganizationSchema() {
     ],
     "founder": {
       "@type": "Person",
-      "name": CLINIC_INFO.founderName
+      "name": CLINIC_INFO.founderName,
+      "jobTitle": "Founder & Physician Assistant",
+      "credential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "board certification", "name": "PA-C (Physician Assistant - Certified)" }
+      ]
     },
     "foundingDate": CLINIC_INFO.foundingDate,
     "priceRange": CLINIC_INFO.priceRange,
@@ -135,7 +139,12 @@ export function buildOrganizationSchema() {
       "opens": OPENING_HOURS.opens,
       "closes": OPENING_HOURS.closes
     }],
-    "medicalSpecialty": ["Psychiatric", "MentalHealth"],
+    "medicalSpecialty": ["Psychiatric", "MentalHealth", "ClinicalPsychology"],
+    "knowsAbout": [
+      "Anxiety Disorders", "Depression", "ADHD", "Bipolar Disorder", "PTSD",
+      "OCD", "Medication Management", "Psychotherapy", "Cognitive Behavioral Therapy",
+      "EMDR Therapy", "TMS Treatment", "Psychiatric Evaluation", "Telepsychiatry"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
@@ -443,7 +452,9 @@ export function buildMedicalWebPageSchema(options: {
     "lastReviewed": new Date().toISOString().split('T')[0],
     "reviewedBy": {
       "@type": "Person",
-      "name": CLINIC_INFO.founderName
+      "name": CLINIC_INFO.founderName,
+      "jobTitle": "Physician Assistant - Certified",
+      "affiliation": { "@type": "Organization", "name": CLINIC_INFO.name }
     },
     "isPartOf": {
       "@type": "WebSite",

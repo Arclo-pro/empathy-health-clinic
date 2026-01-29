@@ -14,12 +14,25 @@ import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
 import TextUsButton from "@/components/TextUsButton";
+import FAQSchema from "@/components/FAQSchema";
 import { trackEvent } from "@/lib/analytics";
 import { formatH1, formatH2 } from "@/lib/seoHelpers";
 import type { LandingPageConfig } from "@/types/landingPage";
 
 interface LandingPageTemplateProps {
   config: LandingPageConfig;
+}
+
+function deriveBreadcrumbs(canonicalPath: string): Array<{ name: string; path: string }> | undefined {
+  const path = canonicalPath.toLowerCase();
+  if (path.startsWith('/what-we-treat/')) return [{ name: "What We Treat", path: "/what-we-treat" }];
+  if (path.startsWith('/providers/')) return [{ name: "Providers", path: "/providers" }];
+  if (path.startsWith('/team/')) return [{ name: "Our Team", path: "/team" }];
+  if (path.startsWith('/blog/')) return [{ name: "Blog", path: "/blog" }];
+  if (path.startsWith('/locations/')) return [{ name: "Locations", path: "/locations" }];
+  if (path.includes('psychiatrist') || path.includes('therapy') || path.includes('counseling') || path.includes('treatment') || path.includes('testing'))
+    return [{ name: "Services", path: "/services" }];
+  return undefined;
 }
 
 export default function LandingPageTemplate({ config }: LandingPageTemplateProps) {
@@ -40,6 +53,7 @@ export default function LandingPageTemplate({ config }: LandingPageTemplateProps
         keywords={config.seo.keywords}
         canonicalPath={config.seo.canonicalPath}
         jsonLd={config.jsonLd}
+        breadcrumbItems={deriveBreadcrumbs(config.seo.canonicalPath)}
       />
       <SiteHeader />
       <main className="flex-1">
@@ -298,6 +312,7 @@ export default function LandingPageTemplate({ config }: LandingPageTemplateProps
               {/* FAQs */}
               {config.faqs && config.faqs.length > 0 && (
                 <section>
+                  <FAQSchema faqs={config.faqs} />
                   <h2 className="text-2xl font-sans font-bold text-foreground mb-4" data-testid="text-faq-heading">
                     {formatH2("Frequently Asked Questions About Our Services")}
                   </h2>

@@ -497,6 +497,7 @@ interface SEOHeadProps {
   pageDesignType?: string;
   preloadImage?: string;
   breadcrumbTitle?: string;
+  breadcrumbItems?: Array<{ name: string; path: string }>;
   pagination?: {
     currentPage: number;
     totalPages: number;
@@ -518,6 +519,7 @@ export default function SEOHead({
   pageDesignType,
   preloadImage,
   breadcrumbTitle,
+  breadcrumbItems,
   pagination,
 }: SEOHeadProps) {
   useEffect(() => {
@@ -863,23 +865,28 @@ export default function SEOHead({
     
     // Only add breadcrumbs for non-homepage pages
     if (currentPagePath !== '/') {
+      let breadcrumbListItems;
+      if (breadcrumbItems && breadcrumbItems.length > 0) {
+        breadcrumbListItems = [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": preferredDomain },
+          ...breadcrumbItems.map((item, idx) => ({
+            "@type": "ListItem",
+            "position": idx + 2,
+            "name": item.name,
+            "item": `${preferredDomain}${item.path}`
+          })),
+          { "@type": "ListItem", "position": breadcrumbItems.length + 2, "name": pageTitle, "item": actualPageUrl }
+        ];
+      } else {
+        breadcrumbListItems = [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": preferredDomain },
+          { "@type": "ListItem", "position": 2, "name": pageTitle, "item": actualPageUrl }
+        ];
+      }
       const breadcrumbSchema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": preferredDomain
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": pageTitle,
-            "item": actualPageUrl
-          }
-        ]
+        "itemListElement": breadcrumbListItems
       };
       
       if (!breadcrumbScript) {

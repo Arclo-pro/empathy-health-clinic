@@ -401,7 +401,7 @@ export default function Home() {
         </Suspense>
 
         {/* H) FAQ */}
-        <FAQSection />
+        <FAQSection includeSchema={true} />
 
         {/* I) LOCATION + HOURS */}
         <Suspense fallback={<div className="min-h-[400px] py-16 bg-background" />}>
