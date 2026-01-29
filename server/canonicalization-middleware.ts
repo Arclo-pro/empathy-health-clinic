@@ -24,7 +24,16 @@ export function canonicalizationMiddleware(
   if (req.path.startsWith('/api/')) {
     return next();
   }
-  
+
+  // Skip SEO-critical files - must be served without redirects
+  // These have their own Express routes that return proper content-types
+  if (req.path === '/sitemap.xml' ||
+      req.path === '/sitemap_index.xml' ||
+      req.path === '/image-sitemap.xml' ||
+      req.path === '/robots.txt') {
+    return next();
+  }
+
   // Skip Vite dev server routes (development only)
   if (req.path.startsWith('/@') || req.path.startsWith('/src/') || req.path.startsWith('/node_modules/')) {
     return next();
