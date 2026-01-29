@@ -376,6 +376,114 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json(result[0] || {});
     }
 
+    // Test email endpoint for debugging
+    if (path === '/api/test-email' && method === 'POST') {
+      const timestamp = new Date().toISOString();
+      console.log(`[${timestamp}] 🧪 Test email endpoint called`);
+
+      const sendGridKey = process.env.SENDGRID_API_KEY;
+
+      // Diagnostic info
+      const diagnostics = {
+        hasSendGridKey: !!sendGridKey,
+        keyLength: sendGridKey?.length || 0,
+        keyPrefix: sendGridKey?.substring(0, 3) || 'N/A',
+        keyValid: sendGridKey?.startsWith('SG.') || false,
+        recipients: EMAIL_RECIPIENTS,
+        fromEmail: 'noreply@empathyhealthclinic.com',
+        timestamp
+      };
+
+      if (!sendGridKey) {
+        return res.status(400).json({
+          success: false,
+          error: 'SENDGRID_API_KEY not configured',
+          diagnostics
+        });
+      }
+
+      if (!sendGridKey.startsWith('SG.')) {
+        return res.status(400).json({
+          success: false,
+          error: 'SENDGRID_API_KEY is malformed (should start with SG.)',
+          diagnostics
+        });
+      }
+
+      // Initialize SendGrid
+      sgMail.setApiKey(sendGridKey);
+
+      // Send test email to kevin.mease@gmail.com only
+      const testRecipient = 'kevin.mease@gmail.com';
+      const msg = {
+        to: testRecipient,
+        from: {
+          email: 'noreply@empathyhealthclinic.com',
+          name: 'Empathy Health Clinic'
+        },
+        subject: `[TEST] Email Configuration Test - ${timestamp}`,
+        text: `This is a test email sent at ${timestamp} to verify email delivery is working.`,
+        html: `
+          <div style="font-family: Arial, sans-serif; padding: 20px;">
+            <h2 style="color: #2563eb;">Email Configuration Test</h2>
+            <p>This is a test email sent at <strong>${timestamp}</strong> to verify email delivery is working.</p>
+            <p>If you received this email, your SendGrid configuration is correct!</p>
+            <hr style="margin: 20px 0;">
+            <p style="color: #666; font-size: 12px;">Sent from Empathy Health Clinic Vercel deployment</p>
+          </div>
+        `
+      };
+
+      try {
+        console.log(`[${timestamp}] 📤 Sending test email to ${testRecipient}...`);
+        const response = await sgMail.send(msg);
+        const statusCode = response[0]?.statusCode;
+        const messageId = response[0]?.headers?.['x-message-id'];
+
+        console.log(`[${timestamp}] ✅ Test email sent successfully!`);
+        console.log(`[${timestamp}]    Status: ${statusCode}`);
+        console.log(`[${timestamp}]    Message ID: ${messageId}`);
+
+        return res.status(200).json({
+          success: true,
+          message: 'Test email sent successfully!',
+          details: {
+            recipient: testRecipient,
+            statusCode,
+            messageId,
+            timestamp
+          },
+          diagnostics
+        });
+      } catch (error: any) {
+        const errorMessage = error?.message || 'Unknown error';
+        const errorCode = error?.code || 'unknown';
+        const sendGridErrors = error?.response?.body?.errors || [];
+
+        console.error(`[${timestamp}] ❌ Test email FAILED`);
+        console.error(`[${timestamp}]    Error: ${errorMessage}`);
+        console.error(`[${timestamp}]    Code: ${errorCode}`);
+        if (error?.response?.body) {
+          console.error(`[${timestamp}]    SendGrid Response:`, JSON.stringify(error.response.body));
+        }
+
+        return res.status(500).json({
+          success: false,
+          error: errorMessage,
+          errorCode,
+          sendGridErrors,
+          fullError: error?.response?.body || null,
+          diagnostics,
+          troubleshooting: [
+            'Check that your SendGrid API key has "Mail Send" permissions',
+            'Verify that noreply@empathyhealthclinic.com is verified as a sender in SendGrid',
+            'Check if your domain empathyhealthclinic.com is authenticated in SendGrid',
+            'Ensure your SendGrid account is not suspended or restricted'
+          ]
+        });
+      }
+    }
+
     if (path === '/api/leads' && method === 'POST') {
       const body = req.body;
       
