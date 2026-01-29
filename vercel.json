@@ -1,18 +1,13 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "redirects": [
-    { "source": "/cigna-cigna-coverage", "destination": "/psychiatrist-orlando-accepts-cigna", "statusCode": 308 },
-    { "source": "/aetna-aetna-coverage", "destination": "/psychiatrist-orlando-accepts-aetna", "statusCode": 308 },
-    { "source": "/medicare-medicare-coverage", "destination": "/medicare-psychiatrist-orlando", "statusCode": 308 },
-    { "source": "/blue-cross-blue-shield-blue-cross-blue-shield-coverage", "destination": "/blue-cross-blue-shield-therapy-orlando", "statusCode": 308 }
-  ],
-  "rewrites": [
-    { "source": "/robots.txt", "destination": "/api/index" },
-    { "source": "/sitemap.xml", "destination": "/api/index" },
-    { "source": "/sitemap_index.xml", "destination": "/api/index" },
-    { "source": "/image-sitemap.xml", "destination": "/api/index" },
-    { "source": "/api/(.*)", "destination": "/api/index" },
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/cigna-cigna-coverage", "status": 308, "headers": { "Location": "/psychiatrist-orlando-accepts-cigna" } },
+    { "src": "/aetna-aetna-coverage", "status": 308, "headers": { "Location": "/psychiatrist-orlando-accepts-aetna" } },
+    { "src": "/medicare-medicare-coverage", "status": 308, "headers": { "Location": "/medicare-psychiatrist-orlando" } },
+    { "src": "/blue-cross-blue-shield-blue-cross-blue-shield-coverage", "status": 308, "headers": { "Location": "/blue-cross-blue-shield-therapy-orlando" } },
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/api/index" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

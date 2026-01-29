@@ -1,0 +1,79 @@
+# Empathy Health Clinic - robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin and utility pages
+Disallow: /admin/
+Disallow: /login
+Disallow: /auth/
+Disallow: /config/
+Disallow: /debug/
+Disallow: /examples/
+Disallow: /test/
+
+# Disallow search and filter pages (crawl waste)
+Disallow: /search
+Disallow: /*?search=
+Disallow: /*?q=
+
+# Allow blog pagination (for rel=prev/next SEO)
+Allow: /blog?page=
+
+# Disallow other pagination (crawl waste on non-blog pages)
+Disallow: /*?page=
+Disallow: /*?tag=
+Disallow: /*?category=
+
+# Disallow API endpoints
+Disallow: /api/
+
+# Disallow legacy WordPress paths
+Disallow: /wp-*
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+
+# Disallow attachment and media pages (WordPress legacy)
+Disallow: /attachment/
+Disallow: /uploads/
+Disallow: /media/
+
+# Disallow UTM and tracking parameters
+Disallow: /*?utm_*
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?ref=
+Disallow: /*?source=
+
+# Allow AI crawlers for AI Search visibility
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.empathyhealthclinic.com/sitemap_index.xml
+Sitemap: https://www.empathyhealthclinic.com/sitemap.xml
+Sitemap: https://www.empathyhealthclinic.com/image-sitemap.xml
+
+# AI Crawler Resources (LLMs.txt standard)
+# https://llmstxt.org/
+LLM: https://www.empathyhealthclinic.com/llms.txt
+LLM-Full: https://www.empathyhealthclinic.com/llms-full.txt
