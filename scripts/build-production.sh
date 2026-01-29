@@ -74,14 +74,40 @@ echo "Step 2c: Generating sitemaps..."
 npx tsx scripts/generate-sitemap.ts 2>&1 || echo "  WARNING: Sitemap generation failed (static fallback in public/)"
 echo ""
 
-# If prerender mode is off, we're done with the blocking phase
+# If prerender mode is off, run lightweight SSR prerender (no Puppeteer needed)
 if [ "$PRERENDER_MODE" = "off" ]; then
     echo "=========================================="
-    echo "BUILD COMPLETE (PRERENDER_MODE=off)"
+    echo "PHASE 2: Lightweight SSR Prerender"
+    echo "=========================================="
+    echo "Generating static HTML using React renderToString (no Chrome needed)"
+    echo ""
+
+    # Build the SSR bundle
+    echo "Step 3: Building SSR bundle..."
+    if npx vite build --config vite.config.ssr.ts 2>&1; then
+        echo "  SSR bundle built"
+    else
+        echo "  WARNING: SSR build failed — site will serve SPA shell"
+        echo ""
+        echo "=========================================="
+        echo "BUILD COMPLETE (SSR prerender failed)"
+        echo "=========================================="
+        exit 0
+    fi
+    echo ""
+
+    # Run the lightweight SSR prerender
+    echo "Step 4: Prerendering routes with SSR..."
+    node scripts/prerender-ssr.mjs 2>&1 || echo "  WARNING: SSR prerender had errors (SPA fallback active)"
+    echo ""
+
+    SSR_COUNT=$(find dist/public -name "index.html" -not -path "dist/public/index.html" 2>/dev/null | wc -l | tr -d ' ' || echo "0")
+    echo "=========================================="
+    echo "BUILD COMPLETE (SSR prerender)"
     echo "=========================================="
     echo "  Backend: dist/index.js"
     echo "  Frontend: dist/public/"
-    echo "  Prerender: SKIPPED"
+    echo "  SSR Prerendered: $SSR_COUNT pages"
     echo ""
     exit 0
 fi
