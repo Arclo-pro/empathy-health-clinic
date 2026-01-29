@@ -2570,15 +2570,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         '/wp-includes', '/wp-content', '/wp-admin',
       ];
 
+      // Only exclude pages that are ALSO in the redirect map (seoConfig.ts CANONICAL_CONSOLIDATION_PATHS)
+      // Pages like /adhd-psychiatrist-orlando, /telepsychiatry-orlando etc. are self-canonical
+      // per seoConfig.ts and should NOT be excluded from the sitemap
       const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
         '/psychiatry-orlando': '/psychiatrist-orlando',
         '/psychiatry-clinic-orlando': '/psychiatrist-orlando',
-        '/anxiety-psychiatrist-orlando': '/psychiatrist-orlando',
-        '/depression-psychiatrist-orlando': '/psychiatrist-orlando',
-        '/medication-management-orlando': '/psychiatrist-orlando',
-        '/telepsychiatry-orlando': '/psychiatrist-orlando',
-        '/bipolar-psychiatrist-orlando': '/psychiatrist-orlando',
-        '/same-day-psychiatrist-orlando': '/psychiatrist-orlando',
       };
 
       const shouldInclude = (path: string): boolean => {
@@ -2646,8 +2643,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         '/therapy-near-me': '2025-10-25',
         '/psychiatrist-near-me': '2025-11-22',
         '/counseling-orlando': '2025-10-15',
-        '/child-psychiatrist-orlando': '2025-11-18',
         '/adhd-psychiatrist-orlando': '2025-11-18',
+        '/anxiety-psychiatrist-orlando': '2025-11-18',
+        '/depression-psychiatrist-orlando': '2025-11-18',
+        '/bipolar-psychiatrist-orlando': '2025-11-18',
+        '/telepsychiatry-orlando': '2025-11-18',
+        '/same-day-psychiatrist-orlando': '2025-11-18',
+        '/medication-management-orlando': '2025-11-18',
         '/ptsd-psychiatrist-orlando': '2025-11-28',
         '/urgent-psychiatric-care-orlando': '2025-11-28',
         '/psychiatrist-orlando-accepts-umr': '2025-11-28',
@@ -2701,8 +2703,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { path: '/therapy-near-me', changefreq: 'weekly', priority: 0.75 },
         { path: '/psychiatrist-near-me', changefreq: 'weekly', priority: 0.9 },
         { path: '/counseling-orlando', changefreq: 'weekly', priority: 0.75 },
-        { path: '/child-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
         { path: '/adhd-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/anxiety-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/depression-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/bipolar-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/telepsychiatry-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/same-day-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
+        { path: '/medication-management-orlando', changefreq: 'weekly', priority: 0.8 },
         { path: '/ptsd-psychiatrist-orlando', changefreq: 'weekly', priority: 0.85 },
         { path: '/urgent-psychiatric-care-orlando', changefreq: 'weekly', priority: 0.85 },
         { path: '/psychiatrist-orlando-accepts-umr', changefreq: 'weekly', priority: 0.8 },

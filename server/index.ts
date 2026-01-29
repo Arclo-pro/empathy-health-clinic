@@ -6,7 +6,7 @@ import { setupVite, serveStatic, log } from "./vite";
 import { canonicalizationMiddleware } from "./canonicalization-middleware";
 import { createPrerenderMiddleware, prerenderStatusHandler } from "./prerender-middleware";
 import { createAssetProxyMiddleware, logAssetConfig } from "./asset-proxy-middleware";
-import { initBlogSlugCache } from "./storage";
+import { initBlogSlugCache, initContentSlugCaches } from "./storage";
 import { initializeDatabase } from "./db";
 import path from "path";
 
@@ -277,14 +277,17 @@ app.get('/api/prerender-status', prerenderStatusHandler(prerenderedDir));
   }, () => {
     log(`serving on port ${port}`);
     
-    // Initialize blog slug cache AFTER server is listening
-    // This is non-critical and can happen asynchronously
+    // Initialize slug caches AFTER server is listening
+    // These are needed for route validation (soft 404 prevention)
     setImmediate(async () => {
       try {
-        await initBlogSlugCache();
-        log('Blog slug cache initialized');
+        await Promise.all([
+          initBlogSlugCache(),
+          initContentSlugCaches(),
+        ]);
+        log('All slug caches initialized');
       } catch (err) {
-        console.error('Failed to initialize blog slug cache:', err);
+        console.error('Failed to initialize slug caches:', err);
       }
     });
   });

@@ -6,6 +6,7 @@ import { type Server } from "http";
 import viteConfig from "../vite.config";
 import { nanoid } from "nanoid";
 import { contentRedirectMap } from "./redirect-config";
+import { isValidContentSlug, isValidLocationSlug, isValidTeamMemberSlug, isBlogPostSlug } from "./storage";
 
 const viteLogger = createLogger();
 
@@ -217,18 +218,43 @@ const VALID_STATIC_ROUTES = new Set([
 ]);
 
 /**
- * Valid dynamic route patterns (regex)
- * These are routes with slugs that need to be validated
+ * Valid dynamic route patterns
+ * For /team/:slug, /blog/:slug, /locations/:slug we validate against database caches
+ * Other patterns use regex matching
  */
-const VALID_DYNAMIC_PATTERNS = [
-  /^\/team\/[\w-]+$/,           // /team/:slug
-  /^\/blog\/[\w-]+$/,           // /blog/:slug
-  /^\/locations\/[\w-]+$/,      // /locations/:slug
+const VALID_DYNAMIC_REGEX_PATTERNS = [
   /^\/conditions\/[\w-]+\/[\w-]+$/, // /conditions/:condition/:type
   /^\/insurance\/[\w-]+\/[\w-]+$/,  // /insurance/:provider/:condition
   /^\/compare\/[\w-]+$/,        // /compare/:comparison
   /^\/symptoms\/[\w-]+$/,       // /symptoms/:symptom
 ];
+
+/**
+ * Validate dynamic routes with database-backed slug checking
+ * Returns true if the slug exists in the database
+ */
+function isValidDynamicRoute(normalizedPath: string): boolean {
+  // /blog/:slug - validate against blog slug cache
+  const blogMatch = normalizedPath.match(/^\/blog\/([\w-]+)$/);
+  if (blogMatch) {
+    return isBlogPostSlug(blogMatch[1]);
+  }
+
+  // /team/:slug - validate against team member cache
+  const teamMatch = normalizedPath.match(/^\/team\/([\w-]+)$/);
+  if (teamMatch) {
+    return isValidTeamMemberSlug(teamMatch[1]);
+  }
+
+  // /locations/:slug - validate against location cache
+  const locationMatch = normalizedPath.match(/^\/locations\/([\w-]+)$/);
+  if (locationMatch) {
+    return isValidLocationSlug(locationMatch[1]);
+  }
+
+  // Check remaining regex patterns
+  return VALID_DYNAMIC_REGEX_PATTERNS.some(pattern => pattern.test(normalizedPath));
+}
 
 /**
  * WordPress legacy URL patterns that should return 410 Gone
@@ -264,30 +290,28 @@ function isValidRoute(urlPath: string): boolean {
     return true;
   }
 
-  // Check dynamic patterns
-  if (VALID_DYNAMIC_PATTERNS.some(pattern => pattern.test(normalizedPath))) {
+  // Check dynamic patterns (with database-backed slug validation)
+  if (isValidDynamicRoute(normalizedPath)) {
     return true;
   }
 
-  // Check catch-all slug pattern (single segment paths that might be insurance/treatment pages)
-  // These are handled by the PageBySlug component in the SPA
+  // Check single-segment paths against known database content slugs
+  // This prevents soft 404s by only serving the SPA for URLs with real content
   if (/^\/[\w-]+$/.test(normalizedPath)) {
-    // Allow single-segment paths if they look like valid slugs
-    // But filter out obvious invalid patterns
     const slug = normalizedPath.slice(1);
 
-    // Block numeric-only slugs (usually WordPress IDs)
-    if (/^\d+$/.test(slug)) {
-      return false;
+    // Validate against database content caches
+    if (isValidContentSlug(slug)) {
+      return true;
     }
 
-    // Block very short slugs (likely typos)
-    if (slug.length < 3) {
-      return false;
+    // Check if it's a blog post at root level (will be redirected to /blog/:slug)
+    if (isBlogPostSlug(slug)) {
+      return true;
     }
 
-    // Allow slug-style paths to be handled by the SPA
-    return true;
+    // Not a known content slug - return false to trigger 404
+    return false;
   }
 
   return false;

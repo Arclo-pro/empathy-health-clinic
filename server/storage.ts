@@ -37,6 +37,12 @@ import {
   pageViews,
   blogPosts,
   emailFailures,
+  treatments,
+  therapies,
+  conditions,
+  insuranceProviders,
+  locations,
+  teamMembers,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 import blogPostsData from "./blog-posts-data.json";
@@ -2428,6 +2434,15 @@ export const storage = new MemStorage();
 // This cache is loaded at startup and kept in sync with storage operations
 const blogSlugCache = new Set<string>();
 
+// Content slug caches for server-side route validation
+// These prevent soft 404s by validating slugs before serving the SPA
+const treatmentSlugCache = new Set<string>();
+const therapySlugCache = new Set<string>();
+const conditionSlugCache = new Set<string>();
+const insuranceSlugCache = new Set<string>();
+const locationSlugCache = new Set<string>();
+const teamMemberSlugCache = new Set<string>();
+
 /**
  * Initialize the blog slug cache by loading all blog post slugs from the database
  * Call this at application startup
@@ -2441,6 +2456,68 @@ export async function initBlogSlugCache(): Promise<void> {
   } catch (error) {
     console.error('[Blog Slug Cache] Failed to initialize:', error);
   }
+}
+
+/**
+ * Initialize all content slug caches for server-side route validation
+ * This prevents soft 404s by only serving the SPA for URLs with real content
+ */
+export async function initContentSlugCaches(): Promise<void> {
+  try {
+    const [treatmentRows, therapyRows, conditionRows, insuranceRows, locationRows, teamRows] = await Promise.all([
+      db.select({ slug: treatments.slug }).from(treatments),
+      db.select({ slug: therapies.slug }).from(therapies),
+      db.select({ slug: conditions.slug }).from(conditions),
+      db.select({ slug: insuranceProviders.slug }).from(insuranceProviders),
+      db.select({ slug: locations.slug }).from(locations),
+      db.select({ slug: teamMembers.slug }).from(teamMembers),
+    ]);
+
+    treatmentSlugCache.clear();
+    therapySlugCache.clear();
+    conditionSlugCache.clear();
+    insuranceSlugCache.clear();
+    locationSlugCache.clear();
+    teamMemberSlugCache.clear();
+
+    treatmentRows.forEach(r => treatmentSlugCache.add(r.slug));
+    therapyRows.forEach(r => therapySlugCache.add(r.slug));
+    conditionRows.forEach(r => conditionSlugCache.add(r.slug));
+    insuranceRows.forEach(r => insuranceSlugCache.add(r.slug));
+    locationRows.forEach(r => locationSlugCache.add(r.slug));
+    teamRows.forEach(r => teamMemberSlugCache.add(r.slug));
+
+    const total = treatmentSlugCache.size + therapySlugCache.size + conditionSlugCache.size +
+      insuranceSlugCache.size + locationSlugCache.size + teamMemberSlugCache.size;
+    console.log(`[Content Slug Cache] Loaded ${total} content slugs (${treatmentSlugCache.size} treatments, ${therapySlugCache.size} therapies, ${conditionSlugCache.size} conditions, ${insuranceSlugCache.size} insurance, ${locationSlugCache.size} locations, ${teamMemberSlugCache.size} team)`);
+  } catch (error) {
+    console.error('[Content Slug Cache] Failed to initialize:', error);
+  }
+}
+
+/**
+ * Check if a slug corresponds to valid content (treatment, therapy, condition, or insurance provider)
+ * Used by server-side route validation to prevent soft 404s
+ */
+export function isValidContentSlug(slug: string): boolean {
+  return treatmentSlugCache.has(slug) ||
+    therapySlugCache.has(slug) ||
+    conditionSlugCache.has(slug) ||
+    insuranceSlugCache.has(slug);
+}
+
+/**
+ * Check if a slug corresponds to a valid location
+ */
+export function isValidLocationSlug(slug: string): boolean {
+  return locationSlugCache.has(slug);
+}
+
+/**
+ * Check if a slug corresponds to a valid team member
+ */
+export function isValidTeamMemberSlug(slug: string): boolean {
+  return teamMemberSlugCache.has(slug);
 }
 
 /**
