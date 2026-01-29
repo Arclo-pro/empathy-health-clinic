@@ -8,6 +8,7 @@ import { useAnalytics } from "@/hooks/use-analytics";
 import { Loader2 } from "lucide-react";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Only load Home page immediately for fast initial render
 import Home from "@/pages/Home";
@@ -1045,6 +1046,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <SpeedInsights />
         </TooltipProvider>
       </AuthProvider>
     </QueryClientProvider>
