@@ -2682,6 +2682,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
         '/telehealth': today,
         '/adult-adhd-treatment-orlando': today,
         '/suboxone-treatment-orlando': today,
+        '/addiction-treatment-orlando': today,
+        '/anger-management-therapy-orlando': today,
+        '/eating-disorder-treatment-orlando': today,
+        '/dementia-treatment-orlando': today,
+        '/paranoia-treatment-orlando': today,
+        '/pharmacogenetic-testing-orlando': today,
+        '/neuropsychological-testing-orlando': today,
+        '/therapist-sanford': today,
+        '/therapist-lake-mary': today,
+        '/therapist-casselberry': today,
+        '/therapist-longwood': today,
+        '/couples-therapy-toxic-relationships': today,
+        // Phase 5: Compliance & Trust pages
+        '/hipaa': today,
+        '/no-surprises-act': today,
+        '/cookies-policy': today,
+        '/careers': today,
         '/medicaid-psychiatrist-orlando': today,
       };
 
@@ -2749,6 +2766,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { path: '/psychiatrist-lake-mary', changefreq: 'weekly', priority: 0.8 },
         { path: '/psychiatrist-college-park', changefreq: 'weekly', priority: 0.8 },
         { path: '/psychiatrist-maitland', changefreq: 'weekly', priority: 0.8 },
+        // Phase 2: Condition/service pages (January 2026)
+        { path: '/addiction-treatment-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/anger-management-therapy-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/eating-disorder-treatment-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/dementia-treatment-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/paranoia-treatment-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/pharmacogenetic-testing-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/neuropsychological-testing-orlando', changefreq: 'monthly', priority: 0.8 },
+        // Phase 4: Therapist location pages (January 2026)
+        { path: '/therapist-sanford', changefreq: 'monthly', priority: 0.8 },
+        { path: '/therapist-lake-mary', changefreq: 'monthly', priority: 0.8 },
+        { path: '/therapist-casselberry', changefreq: 'monthly', priority: 0.8 },
+        { path: '/therapist-longwood', changefreq: 'monthly', priority: 0.8 },
+        { path: '/couples-therapy-toxic-relationships', changefreq: 'monthly', priority: 0.8 },
+        // Phase 5: Compliance & Trust pages (January 2026)
+        { path: '/hipaa', changefreq: 'yearly', priority: 0.4 },
+        { path: '/no-surprises-act', changefreq: 'yearly', priority: 0.4 },
+        { path: '/cookies-policy', changefreq: 'yearly', priority: 0.3 },
+        { path: '/careers', changefreq: 'monthly', priority: 0.5 },
       ];
       
       staticPages.forEach(page => {

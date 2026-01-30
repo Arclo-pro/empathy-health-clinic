@@ -155,6 +155,28 @@ const MentalHealthDoctorOrlando = lazy(() => import("@/pages/MentalHealthDoctorO
 const TraumaPsychiatristOrlando = lazy(() => import("@/pages/TraumaPsychiatristOrlando"));
 const PsychiatristNearUcf = lazy(() => import("@/pages/PsychiatristNearUcf"));
 
+// Phase 2: Condition/Service Pages
+const AddictionTreatmentOrlando = lazy(() => import("@/pages/AddictionTreatmentOrlando"));
+const AngerManagementOrlando = lazy(() => import("@/pages/AngerManagementOrlando"));
+const EatingDisorderOrlando = lazy(() => import("@/pages/EatingDisorderOrlando"));
+const DementiaOrlando = lazy(() => import("@/pages/DementiaOrlando"));
+const ParanoiaTreatmentOrlando = lazy(() => import("@/pages/ParanoiaTreatmentOrlando"));
+const PharmacogeneticTestingOrlando = lazy(() => import("@/pages/PharmacogeneticTestingOrlando"));
+const NeuropsychTestingOrlando = lazy(() => import("@/pages/NeuropsychTestingOrlando"));
+
+// Phase 4: Therapist Location Pages
+const TherapistSanford = lazy(() => import("@/pages/TherapistSanford"));
+const TherapistLakeMary = lazy(() => import("@/pages/TherapistLakeMary"));
+const TherapistCasselberry = lazy(() => import("@/pages/TherapistCasselberry"));
+const TherapistLongwood = lazy(() => import("@/pages/TherapistLongwood"));
+const CouplesTherapyToxicRelationships = lazy(() => import("@/pages/CouplesTherapyToxicRelationships"));
+
+// Phase 5: Compliance & Trust Pages
+const HipaaNotice = lazy(() => import("@/pages/HipaaNotice"));
+const NoSurprisesAct = lazy(() => import("@/pages/NoSurprisesAct"));
+const CookiesPolicy = lazy(() => import("@/pages/CookiesPolicy"));
+const Careers = lazy(() => import("@/pages/Careers"));
+
 // Legal & Info Pages
 const About = lazy(() => import("@/pages/About"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
@@ -774,6 +796,66 @@ function Router() {
             <SuboxoneTreatmentOrlando />
           </Suspense>
         </Route>
+        <Route path="/addiction-treatment-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <AddictionTreatmentOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/anger-management-therapy-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <AngerManagementOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/eating-disorder-treatment-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <EatingDisorderOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/dementia-treatment-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <DementiaOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/paranoia-treatment-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <ParanoiaTreatmentOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/pharmacogenetic-testing-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <PharmacogeneticTestingOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/neuropsychological-testing-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <NeuropsychTestingOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-sanford">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistSanford />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-lake-mary">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistLakeMary />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-casselberry">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistCasselberry />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-longwood">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistLongwood />
+          </Suspense>
+        </Route>
+        <Route path="/couples-therapy-toxic-relationships">
+          <Suspense fallback={<LoadingFallback />}>
+            <CouplesTherapyToxicRelationships />
+          </Suspense>
+        </Route>
         <Route path="/medicaid-psychiatrist-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <MedicaidPsychiatristOrlando />
@@ -802,6 +884,26 @@ function Router() {
         <Route path="/medical-disclaimer">
           <Suspense fallback={<LoadingFallback />}>
             <MedicalDisclaimer />
+          </Suspense>
+        </Route>
+        <Route path="/hipaa">
+          <Suspense fallback={<LoadingFallback />}>
+            <HipaaNotice />
+          </Suspense>
+        </Route>
+        <Route path="/no-surprises-act">
+          <Suspense fallback={<LoadingFallback />}>
+            <NoSurprisesAct />
+          </Suspense>
+        </Route>
+        <Route path="/cookies-policy">
+          <Suspense fallback={<LoadingFallback />}>
+            <CookiesPolicy />
+          </Suspense>
+        </Route>
+        <Route path="/careers">
+          <Suspense fallback={<LoadingFallback />}>
+            <Careers />
           </Suspense>
         </Route>
         <Route path="/what-we-treat">

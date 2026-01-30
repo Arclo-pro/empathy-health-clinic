@@ -6913,3 +6913,1112 @@ export const psychiatristMaitlandConfig: LandingPageConfig = {
     conversionCategory: "psychiatrist_maitland",
   },
 };
+
+// ============================================================
+// PHASE 2: Missing Condition & Service Pages (7 new pages)
+// ============================================================
+
+const treatmentJsonLdBase = {
+  "@context": "https://schema.org",
+  "@type": ["MedicalBusiness", "LocalBusiness"],
+  "telephone": "+1-386-848-8751",
+  "email": "providers@empathyhealthclinic.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2281 Lee Rd Suite 102",
+    "addressLocality": "Winter Park",
+    "addressRegion": "FL",
+    "postalCode": "32810",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.59544,
+    "longitude": -81.36537
+  },
+  "sameAs": [
+    "https://www.facebook.com/empathyhealthclinic",
+    "https://www.instagram.com/empathyhealthclinic",
+    "https://www.linkedin.com/company/empathy-health-clinic"
+  ]
+};
+
+export const addictionTreatmentOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Addiction Treatment Orlando | Psychiatric Support for Substance Use",
+    description: "Psychiatric support for addiction and substance use disorders in Orlando. Evidence-based treatment including Suboxone, medication management, and dual diagnosis care.",
+    keywords: ["addiction treatment orlando", "addiction psychiatrist orlando", "substance abuse treatment orlando", "dual diagnosis orlando", "substance use disorder treatment"],
+    canonicalPath: "/addiction-treatment-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Addiction Treatment Orlando - Empathy Health Clinic",
+    "description": "Psychiatric addiction treatment and substance use disorder care in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/addiction-treatment-orlando",
+    "medicalSpecialty": ["Psychiatry", "Addiction Medicine"],
+  },
+  hero: {
+    title: "Addiction Treatment in Orlando",
+    subtitle: "Compassionate, evidence-based psychiatric support for substance use disorders and addiction. Our board-certified psychiatrists provide medication-assisted treatment, dual diagnosis care, and ongoing recovery support.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Medication-Assisted Treatment", "Dual Diagnosis Care"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Comprehensive Addiction Treatment in Orlando",
+    introduction: [
+      "Addiction is a medical condition that responds to evidence-based treatment. At Empathy Health Clinic, our psychiatrists provide comprehensive care for substance use disorders, combining medication-assisted treatment with ongoing psychiatric support.",
+      "We specialize in dual diagnosis care, treating addiction alongside co-occurring conditions like anxiety, depression, PTSD, and ADHD. Our approach focuses on sustainable recovery through personalized treatment plans.",
+    ],
+    conditionsHeading: "Substance Use Conditions We Treat",
+    conditions: [
+      { name: "Alcohol Use Disorder" },
+      { name: "Opioid Use Disorder" },
+      { name: "Stimulant Use Disorder" },
+      { name: "Cannabis Use Disorder" },
+      { name: "Dual Diagnosis (Addiction + Mental Health)" },
+      { name: "Prescription Drug Dependence" },
+    ],
+    servicesHeading: "Our Addiction Treatment Approach",
+    services: [
+      {
+        icon: Brain,
+        title: "Medication-Assisted Treatment (MAT)",
+        description: "FDA-approved medications including Suboxone (buprenorphine/naloxone) for opioid use disorder, along with other evidence-based pharmacological approaches to support recovery."
+      },
+      {
+        icon: FileText,
+        title: "Comprehensive Psychiatric Evaluation",
+        description: "Thorough assessment of substance use patterns, mental health history, and co-occurring conditions to develop a personalized treatment plan."
+      },
+      {
+        icon: Heart,
+        title: "Dual Diagnosis Treatment",
+        description: "Integrated care for addiction alongside anxiety, depression, PTSD, ADHD, and other psychiatric conditions. Treating both simultaneously leads to better outcomes."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Follow-Up",
+        description: "Convenient virtual appointments for ongoing medication management and recovery support from the comfort of your home."
+      },
+    ],
+    authoritativeSources: [
+      { source: "SAMHSA" as const, topic: "Substance Abuse Treatment" },
+      { source: "NIMH" as const, topic: "Substance Use and Mental Health" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "What is medication-assisted treatment (MAT)?", answer: "MAT combines FDA-approved medications with counseling and behavioral therapies to treat substance use disorders. Medications like Suboxone help reduce cravings and withdrawal symptoms, allowing you to focus on recovery." },
+    { question: "Do you treat both addiction and mental health together?", answer: "Yes, we specialize in dual diagnosis care. Many people with substance use disorders also have conditions like anxiety, depression, or PTSD. Treating both simultaneously leads to significantly better outcomes." },
+    { question: "Is addiction treatment covered by insurance?", answer: "Most insurance plans cover addiction treatment including medication-assisted treatment. We accept most major insurance plans. Contact us at 386-848-8751 to verify your specific coverage." },
+    { question: "Do I need a referral?", answer: "No referral is needed. You can contact us directly to schedule an evaluation and begin treatment." },
+  ],
+  sidebar: {
+    formHeading: "Start Addiction Treatment",
+    formSubheading: "Confidential, compassionate care for substance use disorders.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/suboxone-treatment-orlando", label: "Suboxone Treatment" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/conditions/depression/orlando", label: "Depression Treatment" },
+      { href: "/conditions/anxiety/orlando", label: "Anxiety Treatment" },
+      { href: "/conditions/ptsd/orlando", label: "PTSD Treatment" },
+    ],
+  },
+  analytics: {
+    pageName: "Addiction Treatment Orlando Page",
+    conversionCategory: "addiction_treatment_orlando",
+  },
+};
+
+export const angerManagementOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Anger Management Therapy Orlando | Expert Counseling",
+    description: "Anger management therapy in Orlando with licensed therapists. Learn to understand triggers, manage reactions, and build healthier communication patterns.",
+    keywords: ["anger management therapy orlando", "anger management orlando", "anger management counseling", "anger therapist orlando", "anger management classes orlando"],
+    canonicalPath: "/anger-management-therapy-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Anger Management Therapy Orlando - Empathy Health Clinic",
+    "description": "Professional anger management therapy and counseling in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/anger-management-therapy-orlando",
+    "medicalSpecialty": "Psychotherapy",
+  },
+  hero: {
+    title: "Anger Management Therapy in Orlando",
+    subtitle: "Anger is a normal emotion, but when it becomes overwhelming or destructive, professional support can help. Our licensed therapists use evidence-based approaches to help you understand your triggers and develop healthier responses.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Licensed Therapists", "Evidence-Based Approach", "Telehealth Available"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Professional Anger Management Support in Orlando",
+    introduction: [
+      "Anger that feels out of control can damage relationships, careers, and your own well-being. At Empathy Health Clinic, our licensed therapists help you understand the root causes of anger and develop practical skills for managing intense emotions.",
+      "Our approach combines cognitive-behavioral therapy (CBT), dialectical behavior therapy (DBT) skills, and other evidence-based techniques to help you respond to frustration in healthier ways.",
+    ],
+    conditionsHeading: "When Anger Management Therapy Helps",
+    conditions: [
+      { name: "Frequent angry outbursts" },
+      { name: "Difficulty controlling temper" },
+      { name: "Relationship conflict from anger" },
+      { name: "Workplace anger issues" },
+      { name: "Road rage or public outbursts" },
+      { name: "Anger related to trauma or PTSD" },
+    ],
+    servicesHeading: "Our Anger Management Approach",
+    services: [
+      {
+        icon: Brain,
+        title: "Cognitive-Behavioral Therapy (CBT)",
+        description: "Identify thought patterns that fuel anger and learn to reframe them. CBT helps you recognize triggers before they escalate and develop healthier responses."
+      },
+      {
+        icon: Heart,
+        title: "DBT Skills for Emotional Regulation",
+        description: "Practical skills from dialectical behavior therapy for managing intense emotions, including distress tolerance, mindfulness, and interpersonal effectiveness."
+      },
+      {
+        icon: FileText,
+        title: "Underlying Condition Assessment",
+        description: "Anger is often connected to anxiety, depression, PTSD, or ADHD. We evaluate for underlying conditions that may be contributing to anger problems."
+      },
+      {
+        icon: Video,
+        title: "In-Person & Telehealth Options",
+        description: "Flexible scheduling with both in-person sessions at our Winter Park office and secure telehealth appointments."
+      },
+    ],
+    authoritativeSources: [
+      { source: "APA" as const, topic: "Anger Management" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Is anger a mental health condition?", answer: "Anger itself is a normal emotion. However, chronic or uncontrollable anger can be a symptom of underlying conditions like depression, anxiety, PTSD, or ADHD. An evaluation can help determine if there is a contributing condition." },
+    { question: "How long does anger management therapy take?", answer: "Many clients see improvement within 8-12 sessions. The length of treatment depends on your goals, the severity of anger issues, and any underlying conditions being addressed." },
+    { question: "Do you provide anger management for court requirements?", answer: "We provide clinical anger management therapy. If you need documentation for court-ordered anger management, contact us to discuss your specific requirements." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telehealth appointments for anger management therapy." },
+  ],
+  sidebar: {
+    formHeading: "Start Anger Management Therapy",
+    formSubheading: "Take the first step toward healthier emotional responses.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/dbt-therapy-orlando", label: "DBT Therapy" },
+      { href: "/cognitive-behavioral-therapy", label: "CBT Therapy" },
+      { href: "/conditions/anxiety/orlando", label: "Anxiety Treatment" },
+      { href: "/therapist-orlando", label: "Therapist Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Anger Management Therapy Orlando Page",
+    conversionCategory: "anger_management_orlando",
+  },
+};
+
+export const eatingDisorderOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Eating Disorder Treatment Orlando | Psychiatric Support",
+    description: "Eating disorder treatment in Orlando for adults. Psychiatric evaluation, medication support, and coordinated care for anorexia, bulimia, binge eating, and ARFID.",
+    keywords: ["eating disorder treatment orlando", "eating disorder psychiatrist orlando", "anorexia treatment orlando", "bulimia treatment orlando", "binge eating treatment orlando"],
+    canonicalPath: "/eating-disorder-treatment-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Eating Disorder Treatment Orlando - Empathy Health Clinic",
+    "description": "Psychiatric eating disorder treatment for adults in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/eating-disorder-treatment-orlando",
+    "medicalSpecialty": "Psychiatry",
+  },
+  hero: {
+    title: "Eating Disorder Treatment in Orlando",
+    subtitle: "Compassionate psychiatric care for adults with eating disorders. Our team provides evaluation, medication support when appropriate, and coordinated care with your treatment team.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Adult-Focused Care", "Coordinated Treatment"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Adult Eating Disorder Treatment in Orlando",
+    introduction: [
+      "Eating disorders are serious medical conditions that affect both physical and mental health. At Empathy Health Clinic, our psychiatrists provide psychiatric evaluation and support for adults with eating disorders, including medication management for co-occurring conditions.",
+      "We work collaboratively with therapists, dietitians, and primary care providers to ensure coordinated, comprehensive care. Our focus is on the psychiatric aspects of eating disorder recovery.",
+    ],
+    conditionsHeading: "Eating Disorders We Help With",
+    conditions: [
+      { name: "Anorexia Nervosa" },
+      { name: "Bulimia Nervosa" },
+      { name: "Binge Eating Disorder" },
+      { name: "ARFID (Avoidant/Restrictive Food Intake)" },
+      { name: "Co-occurring Anxiety or Depression" },
+      { name: "Body Dysmorphia" },
+    ],
+    servicesHeading: "Our Approach to Eating Disorder Care",
+    services: [
+      {
+        icon: FileText,
+        title: "Comprehensive Psychiatric Evaluation",
+        description: "Thorough assessment of eating disorder symptoms, co-occurring mental health conditions, and medication needs to create an appropriate treatment plan."
+      },
+      {
+        icon: Brain,
+        title: "Medication Management",
+        description: "When appropriate, medication can help manage anxiety, depression, OCD, or other conditions that contribute to disordered eating patterns."
+      },
+      {
+        icon: Heart,
+        title: "Coordinated Care",
+        description: "We work with your therapist, dietitian, and medical team to ensure all aspects of your eating disorder treatment are aligned and effective."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Options",
+        description: "Convenient virtual appointments for ongoing psychiatric support and medication management."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Eating Disorders" },
+      { source: "APA" as const, topic: "Eating Disorder Treatment" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you treat eating disorders in adults?", answer: "Yes, we provide psychiatric evaluation and medication management for adults with eating disorders. We focus on the psychiatric aspects of care and coordinate with your broader treatment team." },
+    { question: "Do I need to see a therapist too?", answer: "Eating disorder treatment is most effective with a multidisciplinary approach. We recommend working with both a therapist specializing in eating disorders and our psychiatric team for medication support when needed." },
+    { question: "What role does medication play in eating disorder treatment?", answer: "Medication can help manage co-occurring conditions like anxiety, depression, or OCD that often accompany eating disorders. The decision to use medication is individualized and discussed collaboratively." },
+  ],
+  sidebar: {
+    formHeading: "Get Eating Disorder Support",
+    formSubheading: "Compassionate psychiatric care for adults with eating disorders.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/anxiety/orlando", label: "Anxiety Treatment" },
+      { href: "/conditions/depression/orlando", label: "Depression Treatment" },
+      { href: "/conditions/ocd/orlando", label: "OCD Treatment" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Eating Disorder Treatment Orlando Page",
+    conversionCategory: "eating_disorder_orlando",
+  },
+};
+
+export const dementiaOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Dementia & Cognitive Decline Treatment Orlando | Psychiatric Care",
+    description: "Psychiatric care for dementia and cognitive decline in Orlando. Evaluation, behavioral management, medication support, and caregiver guidance for adults.",
+    keywords: ["dementia treatment orlando", "dementia psychiatrist orlando", "cognitive decline treatment orlando", "memory loss treatment orlando", "geriatric psychiatry orlando"],
+    canonicalPath: "/dementia-treatment-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Dementia Treatment Orlando - Empathy Health Clinic",
+    "description": "Psychiatric care for dementia and cognitive decline in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/dementia-treatment-orlando",
+    "medicalSpecialty": ["Psychiatry", "Geriatric Psychiatry"],
+  },
+  hero: {
+    title: "Dementia & Cognitive Decline Care in Orlando",
+    subtitle: "Psychiatric support for adults experiencing cognitive decline, memory changes, and behavioral symptoms related to dementia. Evaluation, medication management, and caregiver guidance.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Comprehensive Evaluation", "Caregiver Support"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Psychiatric Care for Dementia & Cognitive Decline",
+    introduction: [
+      "Cognitive changes and memory concerns can be distressing for individuals and families. Our psychiatrists provide comprehensive evaluation to understand cognitive symptoms, manage behavioral changes, and coordinate care with your medical team.",
+      "We help distinguish between normal aging, mild cognitive impairment, depression-related cognitive changes, and dementia-related conditions, ensuring you receive the right diagnosis and treatment approach.",
+    ],
+    conditionsHeading: "Conditions We Evaluate & Treat",
+    conditions: [
+      { name: "Alzheimer's Disease" },
+      { name: "Mild Cognitive Impairment" },
+      { name: "Vascular Dementia" },
+      { name: "Depression-Related Cognitive Changes" },
+      { name: "Behavioral Symptoms of Dementia" },
+      { name: "Caregiver Burnout & Support" },
+    ],
+    servicesHeading: "Our Cognitive Care Services",
+    services: [
+      {
+        icon: FileText,
+        title: "Cognitive Evaluation",
+        description: "Comprehensive psychiatric assessment to evaluate memory concerns, distinguish between depression and dementia, and identify contributing factors."
+      },
+      {
+        icon: Brain,
+        title: "Behavioral Symptom Management",
+        description: "Medication and behavioral strategies for managing agitation, anxiety, sleep disturbances, and mood changes associated with cognitive decline."
+      },
+      {
+        icon: Heart,
+        title: "Caregiver Guidance",
+        description: "Support and guidance for family members and caregivers navigating the challenges of caring for someone with cognitive decline."
+      },
+      {
+        icon: Video,
+        title: "Telehealth Appointments",
+        description: "Virtual appointments available for follow-up care and caregiver consultations."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIH" as const, topic: "Alzheimer's & Dementia" },
+      { source: "NIMH" as const, topic: "Older Adults and Mental Health" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "When should I see a psychiatrist about memory changes?", answer: "If you or a loved one notice persistent memory problems, difficulty with familiar tasks, confusion about time or place, or personality changes, a psychiatric evaluation can help determine the cause and appropriate next steps." },
+    { question: "Can depression cause memory problems?", answer: "Yes, depression can cause significant cognitive symptoms including memory difficulties, trouble concentrating, and slower thinking. This is sometimes called pseudodementia and responds well to depression treatment." },
+    { question: "Do you work with neurologists?", answer: "Yes, we coordinate care with neurologists and primary care physicians to ensure comprehensive evaluation and management of cognitive conditions." },
+  ],
+  sidebar: {
+    formHeading: "Schedule a Cognitive Evaluation",
+    formSubheading: "Comprehensive psychiatric assessment for memory and cognitive concerns.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/depression/orlando", label: "Depression Treatment" },
+      { href: "/conditions/anxiety/orlando", label: "Anxiety Treatment" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/neuropsychological-testing-orlando", label: "Neuropsych Testing" },
+    ],
+  },
+  analytics: {
+    pageName: "Dementia Treatment Orlando Page",
+    conversionCategory: "dementia_orlando",
+  },
+};
+
+export const paranoiaTreatmentOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Paranoia Treatment Orlando | Psychiatric Evaluation & Care",
+    description: "Psychiatric evaluation and treatment for paranoia in Orlando. Compassionate care for paranoid thoughts, suspicion, and related symptoms from board-certified psychiatrists.",
+    keywords: ["paranoia treatment orlando", "paranoia psychiatrist orlando", "paranoid thoughts treatment", "paranoia help orlando"],
+    canonicalPath: "/paranoia-treatment-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Paranoia Treatment Orlando - Empathy Health Clinic",
+    "description": "Psychiatric paranoia treatment and evaluation in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/paranoia-treatment-orlando",
+    "medicalSpecialty": "Psychiatry",
+  },
+  hero: {
+    title: "Paranoia Treatment in Orlando",
+    subtitle: "Paranoid thoughts can be isolating and distressing. Our board-certified psychiatrists provide compassionate evaluation to understand the root cause and develop an effective treatment plan.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Comprehensive Evaluation", "Compassionate Care"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Understanding and Treating Paranoia",
+    introduction: [
+      "Paranoia involves persistent, unfounded beliefs that others intend to harm, deceive, or exploit you. These experiences are distressing and can significantly impact relationships, work, and daily functioning.",
+      "Our psychiatrists conduct thorough evaluations to understand the underlying causes of paranoid thinking, which may include anxiety disorders, PTSD, depression, psychotic conditions, or other psychiatric factors. Accurate diagnosis leads to effective treatment.",
+    ],
+    conditionsHeading: "Conditions Associated With Paranoia",
+    conditions: [
+      { name: "Paranoid Personality Disorder" },
+      { name: "Delusional Disorder" },
+      { name: "Schizophrenia Spectrum Disorders" },
+      { name: "Severe Anxiety with Paranoid Features" },
+      { name: "PTSD-Related Hypervigilance" },
+      { name: "Substance-Induced Paranoia" },
+    ],
+    servicesHeading: "Our Treatment Approach",
+    services: [
+      {
+        icon: FileText,
+        title: "Comprehensive Evaluation",
+        description: "Detailed psychiatric assessment to determine the cause of paranoid symptoms and rule out medical contributors."
+      },
+      {
+        icon: Brain,
+        title: "Medication Management",
+        description: "When appropriate, medication can help reduce paranoid thinking and improve daily functioning. We carefully monitor effectiveness and side effects."
+      },
+      {
+        icon: Heart,
+        title: "Therapy Coordination",
+        description: "We coordinate with therapists specializing in anxiety, trauma, and psychosis to provide comprehensive care."
+      },
+      {
+        icon: Video,
+        title: "Flexible Appointment Options",
+        description: "In-person and telehealth appointments available to support ongoing care."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Psychosis and Mental Health" },
+      { source: "APA" as const, topic: "Understanding Paranoia" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "What causes paranoia?", answer: "Paranoia can stem from various sources including anxiety disorders, PTSD, psychotic conditions, substance use, sleep deprivation, or significant stress. A psychiatric evaluation helps identify the specific cause in your case." },
+    { question: "Is paranoia treatable?", answer: "Yes, paranoia is treatable. The approach depends on the underlying cause. Treatment may include medication, therapy, or both, and many people see significant improvement with appropriate care." },
+    { question: "Should I bring a family member to my appointment?", answer: "You are welcome to bring a trusted family member or friend. Their perspective can be helpful during the evaluation, but this is entirely your choice." },
+  ],
+  sidebar: {
+    formHeading: "Schedule an Evaluation",
+    formSubheading: "Compassionate psychiatric care for paranoia and related symptoms.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/schizophrenia-psychiatrist-orlando", label: "Schizophrenia Treatment" },
+      { href: "/conditions/anxiety/orlando", label: "Anxiety Treatment" },
+      { href: "/conditions/ptsd/orlando", label: "PTSD Treatment" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Paranoia Treatment Orlando Page",
+    conversionCategory: "paranoia_orlando",
+  },
+};
+
+export const pharmacogeneticTestingOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Pharmacogenetic Testing Orlando | GeneSight & Medication Guidance",
+    description: "Pharmacogenetic testing in Orlando to guide psychiatric medication choices. DNA-based insight into how your body processes medications for better treatment outcomes.",
+    keywords: ["pharmacogenetic testing orlando", "genesight testing orlando", "genetic testing for medication orlando", "pharmacogenomics orlando", "dna testing psychiatric medication"],
+    canonicalPath: "/pharmacogenetic-testing-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Pharmacogenetic Testing Orlando - Empathy Health Clinic",
+    "description": "Pharmacogenetic testing for psychiatric medication guidance in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/pharmacogenetic-testing-orlando",
+    "medicalSpecialty": "Psychiatry",
+  },
+  hero: {
+    title: "Pharmacogenetic Testing in Orlando",
+    subtitle: "Take the guesswork out of psychiatric medication. Pharmacogenetic testing analyzes how your DNA affects medication response, helping your psychiatrist choose the right medication and dosage from the start.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["DNA-Guided Prescribing", "Board-Certified Psychiatrists", "Insurance Often Covers"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "DNA-Guided Psychiatric Medication with Pharmacogenetic Testing",
+    introduction: [
+      "Finding the right psychiatric medication can involve trial and error. Pharmacogenetic testing uses a simple cheek swab to analyze your DNA and provide insight into how your body metabolizes different medications, helping your psychiatrist make more informed prescribing decisions.",
+      "At Empathy Health Clinic, our psychiatrists use pharmacogenetic test results alongside clinical evaluation to optimize your medication plan. This approach can reduce side effects and improve treatment outcomes.",
+    ],
+    conditionsHeading: "When Pharmacogenetic Testing Helps",
+    conditions: [
+      { name: "Previous medication side effects or poor response" },
+      { name: "Starting psychiatric medication for the first time" },
+      { name: "Treatment-resistant depression or anxiety" },
+      { name: "Taking multiple medications" },
+      { name: "Wanting to reduce trial-and-error prescribing" },
+      { name: "Family history of medication sensitivity" },
+    ],
+    servicesHeading: "How Pharmacogenetic Testing Works",
+    services: [
+      {
+        icon: FileText,
+        title: "Simple Cheek Swab Collection",
+        description: "Testing requires only a painless cheek swab that can be done in our office during a regular appointment. No blood draw needed."
+      },
+      {
+        icon: Brain,
+        title: "Comprehensive Gene Analysis",
+        description: "The test analyzes genes that affect how your body processes psychiatric medications including antidepressants, anti-anxiety medications, mood stabilizers, and ADHD medications."
+      },
+      {
+        icon: Heart,
+        title: "Personalized Medication Guidance",
+        description: "Your psychiatrist reviews the results and uses them alongside your clinical assessment to select medications most likely to work well for you."
+      },
+      {
+        icon: CreditCard,
+        title: "Insurance & Affordability",
+        description: "Many insurance plans cover pharmacogenetic testing. Testing companies also offer financial assistance programs for patients without coverage."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIH" as const, topic: "Pharmacogenomics" },
+      { source: "APA" as const, topic: "Precision Medicine in Psychiatry" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "What is pharmacogenetic testing?", answer: "Pharmacogenetic testing analyzes specific genes that affect how your body processes medications. The results help your psychiatrist choose medications and dosages that are more likely to be effective and cause fewer side effects." },
+    { question: "Is pharmacogenetic testing covered by insurance?", answer: "Many insurance plans cover pharmacogenetic testing, especially when there is clinical justification such as previous medication failures. Testing companies like GeneSight also offer financial assistance programs." },
+    { question: "How long does it take to get results?", answer: "Results typically take 3-5 business days after the sample is received by the laboratory. Your psychiatrist will review the results with you at a follow-up appointment." },
+    { question: "Does the test tell me exactly which medication to take?", answer: "The test provides guidance on how your body processes different medications, categorizing them into groups based on expected response. Your psychiatrist uses this information alongside your clinical assessment to make the best medication choice." },
+  ],
+  sidebar: {
+    formHeading: "Ask About Pharmacogenetic Testing",
+    formSubheading: "DNA-guided medication guidance for better treatment outcomes.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/medication-management/orlando", label: "Medication Management" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/conditions/depression/orlando", label: "Depression Treatment" },
+      { href: "/conditions/adhd/orlando", label: "ADHD Treatment" },
+    ],
+  },
+  analytics: {
+    pageName: "Pharmacogenetic Testing Orlando Page",
+    conversionCategory: "pharmacogenetic_testing_orlando",
+  },
+};
+
+export const neuropsychTestingOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Neuropsychological Testing Orlando | Cognitive Assessment",
+    description: "Neuropsychological testing in Orlando for ADHD, memory concerns, learning difficulties, and cognitive evaluation. Comprehensive assessments by qualified providers.",
+    keywords: ["neuropsychological testing orlando", "neuropsych testing orlando", "cognitive testing orlando", "neuropsychological evaluation orlando", "psychological testing orlando"],
+    canonicalPath: "/neuropsychological-testing-orlando",
+  },
+  jsonLd: {
+    ...treatmentJsonLdBase,
+    "name": "Neuropsychological Testing Orlando - Empathy Health Clinic",
+    "description": "Neuropsychological testing and cognitive assessment in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/neuropsychological-testing-orlando",
+    "medicalSpecialty": "Neuropsychology",
+  },
+  hero: {
+    title: "Neuropsychological Testing in Orlando",
+    subtitle: "Comprehensive cognitive and neuropsychological assessments to evaluate attention, memory, executive function, and learning. Our evaluations provide clear answers and actionable recommendations.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Comprehensive Assessment", "Detailed Reports", "Actionable Recommendations"],
+  },
+  location: locationBase,
+  content: {
+    mainHeading: "Comprehensive Neuropsychological Assessment",
+    introduction: [
+      "Neuropsychological testing provides objective, detailed assessment of cognitive abilities including attention, memory, processing speed, executive function, and academic skills. These evaluations help diagnose conditions and guide treatment planning.",
+      "At Empathy Health Clinic, our evaluations provide clear diagnostic answers and practical recommendations for treatment, accommodations, or workplace strategies.",
+    ],
+    conditionsHeading: "Common Reasons for Neuropsychological Testing",
+    conditions: [
+      { name: "ADHD Evaluation (Adults)" },
+      { name: "Memory Concerns & Cognitive Changes" },
+      { name: "Learning Disability Assessment" },
+      { name: "Post-Concussion Cognitive Evaluation" },
+      { name: "Executive Function Difficulties" },
+      { name: "Academic or Workplace Accommodations" },
+    ],
+    servicesHeading: "What Our Testing Includes",
+    services: [
+      {
+        icon: FileText,
+        title: "Clinical Interview",
+        description: "Detailed review of your concerns, medical history, developmental history, and current functioning to guide the assessment process."
+      },
+      {
+        icon: Brain,
+        title: "Standardized Cognitive Testing",
+        description: "Research-validated tests measuring attention, memory, processing speed, executive function, language, and other cognitive domains."
+      },
+      {
+        icon: Heart,
+        title: "Detailed Written Report",
+        description: "Comprehensive report with diagnosis, test results, and practical recommendations for treatment, accommodations, or strategies."
+      },
+      {
+        icon: Video,
+        title: "Feedback Session",
+        description: "Personal feedback session to review results, answer questions, and discuss next steps and recommendations."
+      },
+    ],
+    authoritativeSources: [
+      { source: "APA" as const, topic: "Neuropsychological Testing" },
+      { source: "NIH" as const, topic: "Cognitive Assessment" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "How long does neuropsychological testing take?", answer: "A comprehensive evaluation typically takes 3-6 hours, including the clinical interview and cognitive testing. Testing may be completed in one session or split across two sessions." },
+    { question: "Is neuropsychological testing covered by insurance?", answer: "Many insurance plans cover neuropsychological testing when there is a clinical need. Contact us at 386-848-8751 to discuss coverage for your specific plan." },
+    { question: "What is the difference between neuropsych testing and a psychiatric evaluation?", answer: "A psychiatric evaluation focuses on diagnosis and treatment planning for mental health conditions. Neuropsychological testing provides detailed, objective measurement of specific cognitive abilities like memory, attention, and processing speed." },
+    { question: "Can adults be tested for ADHD with neuropsych testing?", answer: "Yes, neuropsychological testing is one of the most thorough ways to evaluate adult ADHD. It measures attention, executive function, and processing speed while ruling out other conditions." },
+  ],
+  sidebar: {
+    formHeading: "Schedule Testing",
+    formSubheading: "Comprehensive neuropsychological assessment in Orlando.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/adhd-testing-orlando", label: "ADHD Testing" },
+      { href: "/conditions/adhd/orlando", label: "ADHD Treatment" },
+      { href: "/dementia-treatment-orlando", label: "Dementia Care" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Neuropsychological Testing Orlando Page",
+    conversionCategory: "neuropsych_testing_orlando",
+  },
+};
+
+// ─── Phase 4: Therapist Location Pages ────────────────────────────────
+
+const therapistJsonLdBase = {
+  ...locationJsonLdBase,
+  "@type": ["Psychologist", "MedicalBusiness", "LocalBusiness"],
+  "medicalSpecialty": ["Psychotherapy", "MentalHealth", "Counseling"],
+};
+
+const therapistConditions = [
+  { name: "Anxiety Disorders & Panic Attacks" },
+  { name: "Depression & Mood Disorders" },
+  { name: "Trauma & PTSD" },
+  { name: "Relationship Issues" },
+  { name: "Grief & Loss" },
+  { name: "Stress & Life Transitions" },
+  { name: "Self-Esteem & Identity Issues" },
+  { name: "OCD & Related Disorders" },
+];
+
+const therapistServices = [
+  {
+    icon: MessageCircle,
+    title: "Individual Therapy",
+    description: "One-on-one counseling using evidence-based approaches like CBT, DBT, and psychodynamic therapy tailored to your unique needs."
+  },
+  {
+    icon: Brain,
+    title: "Anxiety & Depression Therapy",
+    description: "Specialized treatment for generalized anxiety, panic disorder, social anxiety, and depression using proven cognitive-behavioral techniques."
+  },
+  {
+    icon: Shield,
+    title: "Trauma & PTSD Therapy",
+    description: "Trauma-focused treatment including EMDR therapy to help you process traumatic experiences and reclaim your sense of safety."
+  },
+  {
+    icon: Users,
+    title: "Couples & Family Counseling",
+    description: "Relationship therapy to improve communication, resolve conflicts, rebuild trust, and strengthen your connection."
+  },
+  {
+    icon: Video,
+    title: "Telehealth Therapy",
+    description: "Convenient, secure online therapy sessions from home with the same quality care as in-person visits."
+  },
+];
+
+export const therapistSanfordConfig: LandingPageConfig = {
+  seo: {
+    title: "Therapist in Sanford FL | Licensed Counselors | Same-Week Apts",
+    description: "Licensed therapist serving Sanford, FL. Expert counseling for anxiety, depression, trauma & relationships. Same-week appointments. Call 386-848-8751.",
+    keywords: ["therapist sanford fl", "sanford therapist", "therapist in sanford", "counselor sanford fl", "therapy sanford florida", "mental health therapist sanford"],
+    canonicalPath: "/therapist-sanford",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Therapist Serving Sanford, FL",
+    "url": "https://empathyhealthclinic.com/therapist-sanford",
+    "areaServed": [
+      { "@type": "City", "name": "Sanford", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Longwood" },
+    ],
+  },
+  hero: {
+    title: "Therapist in Sanford, FL",
+    subtitle: "Licensed therapists serving Sanford and the greater Seminole County area. Evidence-based therapy for anxiety, depression, trauma, and relationship issues. Same-week appointments available — most Sanford residents see a therapist within days.",
+    ctaText: "Schedule Your Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Insurance Accepted"],
+  },
+  location: { ...locationBase, title: "Serving Sanford from Winter Park" },
+  content: {
+    mainHeading: "Therapy Services for Sanford Residents",
+    introduction: "Our licensed therapists provide comprehensive mental health counseling for adults throughout Sanford and Seminole County. Located in nearby Winter Park, our office is a convenient drive from downtown Sanford, Seminole Town Center, and the 417 corridor. We offer both in-person and telehealth sessions to fit your schedule.",
+    conditions: therapistConditions,
+    services: therapistServices,
+    authoritativeSources: [
+      { text: "National Institute of Mental Health — Psychotherapy", url: "https://www.nimh.nih.gov/health/topics/psychotherapies" },
+      { text: "American Psychological Association — Finding a Therapist", url: "https://www.apa.org/topics/psychotherapy/understanding" },
+    ],
+  },
+  faqs: [
+    { question: "What types of therapy do you offer for Sanford residents?", answer: "We provide CBT, DBT, EMDR, psychodynamic therapy, couples counseling, grief counseling, and stress management. Each treatment plan is tailored to your individual needs and goals." },
+    { question: "How quickly can I see a therapist near Sanford?", answer: "Most clients can schedule their first therapy session within the same week. Call 386-848-8751 or request an appointment online to get started." },
+    { question: "Do you accept insurance for therapy?", answer: "Yes. We accept most major insurance plans including Medicare, Medicaid, BCBS, Cigna, Aetna, United Healthcare, and UMR. Contact us to verify your specific plan." },
+    { question: "Do you offer telehealth therapy for Sanford residents?", answer: "Yes. We offer secure telehealth therapy sessions for all Florida residents, allowing you to attend sessions from the comfort of your home in Sanford." },
+    { question: "How far is your office from Sanford?", answer: "Our Winter Park office is approximately 20 minutes from downtown Sanford via I-4 or the 417, and we also offer telehealth sessions for added convenience." },
+  ],
+  sidebar: {
+    formHeading: "Start Therapy Today",
+    formSubheading: "Licensed therapists serving Sanford, FL.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-sanford", label: "Psychiatrist Sanford" },
+      { href: "/therapy", label: "Therapy Services" },
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/insurance", label: "Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "Therapist Sanford Page",
+    conversionCategory: "therapist_sanford",
+  },
+};
+
+export const therapistLakeMaryConfig: LandingPageConfig = {
+  seo: {
+    title: "Therapist in Lake Mary FL | Licensed Counselors | Same-Week Apts",
+    description: "Licensed therapist serving Lake Mary, FL. Expert counseling for anxiety, depression, trauma & relationships. Same-week appointments. Call 386-848-8751.",
+    keywords: ["therapist lake mary fl", "lake mary therapist", "therapist in lake mary", "counselor lake mary fl", "therapy lake mary florida", "mental health therapist lake mary"],
+    canonicalPath: "/therapist-lake-mary",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Therapist Serving Lake Mary, FL",
+    "url": "https://empathyhealthclinic.com/therapist-lake-mary",
+    "areaServed": [
+      { "@type": "City", "name": "Lake Mary", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Sanford" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Longwood" },
+    ],
+  },
+  hero: {
+    title: "Therapist in Lake Mary, FL",
+    subtitle: "Licensed therapists serving Lake Mary and surrounding Seminole County communities. Evidence-based therapy for anxiety, depression, trauma, and relationship concerns. Same-week appointments available.",
+    ctaText: "Schedule Your Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Insurance Accepted"],
+  },
+  location: { ...locationBase, title: "Serving Lake Mary from Winter Park" },
+  content: {
+    mainHeading: "Therapy Services for Lake Mary Residents",
+    introduction: "Our licensed therapists provide comprehensive mental health counseling for adults in Lake Mary and the greater Seminole County area. Located in nearby Winter Park, our office is easily accessible from Colonial Town Park, the Lake Mary SunRail station, and the I-4/417 interchange. We offer both in-person and telehealth sessions.",
+    conditions: therapistConditions,
+    services: therapistServices,
+    authoritativeSources: [
+      { text: "National Institute of Mental Health — Psychotherapy", url: "https://www.nimh.nih.gov/health/topics/psychotherapies" },
+      { text: "American Psychological Association — Finding a Therapist", url: "https://www.apa.org/topics/psychotherapy/understanding" },
+    ],
+  },
+  faqs: [
+    { question: "What types of therapy do you offer for Lake Mary residents?", answer: "We provide CBT, DBT, EMDR, psychodynamic therapy, couples counseling, grief counseling, and stress management. Treatment plans are customized to your specific needs." },
+    { question: "How quickly can I see a therapist near Lake Mary?", answer: "Most clients can schedule their first session within the same week. Call 386-848-8751 to get started." },
+    { question: "Do you accept insurance for therapy?", answer: "Yes. We accept most major insurance plans including Medicare, Medicaid, BCBS, Cigna, Aetna, United Healthcare, and UMR." },
+    { question: "Is telehealth therapy available for Lake Mary residents?", answer: "Yes. We provide secure telehealth sessions for all Florida residents, giving Lake Mary clients the flexibility to attend therapy from home." },
+    { question: "How far is your office from Lake Mary?", answer: "Our Winter Park office is approximately 20 minutes from Lake Mary via I-4. We also offer telehealth for added convenience." },
+  ],
+  sidebar: {
+    formHeading: "Start Therapy Today",
+    formSubheading: "Licensed therapists serving Lake Mary, FL.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-lake-mary", label: "Psychiatrist Lake Mary" },
+      { href: "/therapy", label: "Therapy Services" },
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/insurance", label: "Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "Therapist Lake Mary Page",
+    conversionCategory: "therapist_lake_mary",
+  },
+};
+
+export const therapistCasselberryConfig: LandingPageConfig = {
+  seo: {
+    title: "Therapist in Casselberry FL | Licensed Counselors | Same-Week Apts",
+    description: "Licensed therapist serving Casselberry, FL. Expert counseling for anxiety, depression, trauma & relationships. Same-week appointments. Call 386-848-8751.",
+    keywords: ["therapist casselberry fl", "casselberry therapist", "therapist in casselberry", "counselor casselberry fl", "therapy casselberry florida", "mental health therapist casselberry"],
+    canonicalPath: "/therapist-casselberry",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Therapist Serving Casselberry, FL",
+    "url": "https://empathyhealthclinic.com/therapist-casselberry",
+    "areaServed": [
+      { "@type": "City", "name": "Casselberry", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Fern Park" },
+    ],
+  },
+  hero: {
+    title: "Therapist in Casselberry, FL",
+    subtitle: "Licensed therapists serving Casselberry and surrounding communities. Evidence-based therapy for anxiety, depression, trauma, and relationship concerns. Same-week appointments — most Casselberry residents see a therapist within days.",
+    ctaText: "Schedule Your Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Insurance Accepted"],
+  },
+  location: { ...locationBase, title: "Serving Casselberry from Winter Park" },
+  content: {
+    mainHeading: "Therapy Services for Casselberry Residents",
+    introduction: "Our licensed therapists provide comprehensive mental health counseling for adults in Casselberry and nearby communities. Located in Winter Park — just minutes from Casselberry via 436 or 17-92 — our office offers convenient access to quality therapy. Both in-person and telehealth sessions are available.",
+    conditions: therapistConditions,
+    services: therapistServices,
+    authoritativeSources: [
+      { text: "National Institute of Mental Health — Psychotherapy", url: "https://www.nimh.nih.gov/health/topics/psychotherapies" },
+      { text: "American Psychological Association — Finding a Therapist", url: "https://www.apa.org/topics/psychotherapy/understanding" },
+    ],
+  },
+  faqs: [
+    { question: "What types of therapy do you offer for Casselberry residents?", answer: "We provide CBT, DBT, EMDR, psychodynamic therapy, couples counseling, grief counseling, and stress management. Each plan is customized to your individual needs." },
+    { question: "How quickly can I see a therapist near Casselberry?", answer: "Most clients can schedule their first therapy session within the same week. Call 386-848-8751 to get started." },
+    { question: "Do you accept insurance for therapy?", answer: "Yes. We accept most major insurance plans including Medicare, Medicaid, BCBS, Cigna, Aetna, United Healthcare, and UMR." },
+    { question: "Is telehealth therapy available for Casselberry residents?", answer: "Yes. We offer secure telehealth sessions for all Florida residents, giving you the flexibility to attend therapy from your Casselberry home." },
+    { question: "How far is your office from Casselberry?", answer: "Our Winter Park office is approximately 10 minutes from Casselberry via SR 436 or US 17-92. Telehealth is also available." },
+  ],
+  sidebar: {
+    formHeading: "Start Therapy Today",
+    formSubheading: "Licensed therapists serving Casselberry, FL.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-casselberry", label: "Psychiatrist Casselberry" },
+      { href: "/therapy", label: "Therapy Services" },
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/insurance", label: "Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "Therapist Casselberry Page",
+    conversionCategory: "therapist_casselberry",
+  },
+};
+
+export const therapistLongwoodConfig: LandingPageConfig = {
+  seo: {
+    title: "Therapist in Longwood FL | Licensed Counselors | Same-Week Apts",
+    description: "Licensed therapist serving Longwood, FL. Expert counseling for anxiety, depression, trauma & relationships. Same-week appointments. Call 386-848-8751.",
+    keywords: ["therapist longwood fl", "longwood therapist", "therapist in longwood", "counselor longwood fl", "therapy longwood florida", "mental health therapist longwood"],
+    canonicalPath: "/therapist-longwood",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Therapist Serving Longwood, FL",
+    "url": "https://empathyhealthclinic.com/therapist-longwood",
+    "areaServed": [
+      { "@type": "City", "name": "Longwood", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Lake Mary" },
+    ],
+  },
+  hero: {
+    title: "Therapist in Longwood, FL",
+    subtitle: "Licensed therapists serving Longwood and surrounding Seminole County communities. Evidence-based therapy for anxiety, depression, trauma, and relationship issues. Same-week appointments available.",
+    ctaText: "Schedule Your Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Insurance Accepted"],
+  },
+  location: { ...locationBase, title: "Serving Longwood from Winter Park" },
+  content: {
+    mainHeading: "Therapy Services for Longwood Residents",
+    introduction: "Our licensed therapists provide comprehensive mental health counseling for adults in Longwood and the greater Seminole County area. Located in nearby Winter Park, our office is easily accessible from Longwood via I-4 or 434. We offer both in-person and telehealth sessions for your convenience.",
+    conditions: therapistConditions,
+    services: therapistServices,
+    authoritativeSources: [
+      { text: "National Institute of Mental Health — Psychotherapy", url: "https://www.nimh.nih.gov/health/topics/psychotherapies" },
+      { text: "American Psychological Association — Finding a Therapist", url: "https://www.apa.org/topics/psychotherapy/understanding" },
+    ],
+  },
+  faqs: [
+    { question: "What types of therapy do you offer for Longwood residents?", answer: "We provide CBT, DBT, EMDR, psychodynamic therapy, couples counseling, grief counseling, and stress management. Treatment is personalized to your goals." },
+    { question: "How quickly can I see a therapist near Longwood?", answer: "Most clients can schedule their first therapy session within the same week. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance for therapy?", answer: "Yes. We accept most major insurance plans including Medicare, Medicaid, BCBS, Cigna, Aetna, United Healthcare, and UMR." },
+    { question: "Is telehealth therapy available for Longwood residents?", answer: "Yes. We offer secure telehealth sessions for all Florida residents, so Longwood clients can attend therapy from home." },
+    { question: "How far is your office from Longwood?", answer: "Our Winter Park office is approximately 15 minutes from Longwood via I-4 or SR 434. Telehealth sessions are also available." },
+  ],
+  sidebar: {
+    formHeading: "Start Therapy Today",
+    formSubheading: "Licensed therapists serving Longwood, FL.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-longwood", label: "Psychiatrist Longwood" },
+      { href: "/therapy", label: "Therapy Services" },
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/insurance", label: "Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "Therapist Longwood Page",
+    conversionCategory: "therapist_longwood",
+  },
+};
+
+export const couplesTherapyToxicRelationshipsConfig: LandingPageConfig = {
+  seo: {
+    title: "Toxic Relationship Therapy Orlando | Couples Counseling",
+    description: "Specialized couples therapy for toxic relationship patterns in Orlando. Licensed therapists help break unhealthy cycles. Same-week appointments. Call 386-848-8751.",
+    keywords: ["toxic relationship therapy orlando", "couples therapy toxic relationship", "unhealthy relationship counseling", "toxic relationship patterns therapy", "couples counseling orlando", "relationship therapy orlando"],
+    canonicalPath: "/couples-therapy-toxic-relationships",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Toxic Relationship Therapy Orlando",
+    "url": "https://empathyhealthclinic.com/couples-therapy-toxic-relationships",
+    "areaServed": [
+      { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Maitland" },
+    ],
+  },
+  hero: {
+    title: "Couples Therapy for Toxic Relationships",
+    subtitle: "Toxic relationship patterns don't have to define your future. Our licensed therapists in Orlando specialize in helping couples break destructive cycles, rebuild trust, and create healthier connections — or safely navigate separation when that's the healthier path.",
+    ctaText: "Schedule a Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Confidential & Judgment-Free"],
+  },
+  location: { ...locationBase, title: "Serving Greater Orlando" },
+  content: {
+    mainHeading: "Breaking Free From Toxic Relationship Patterns",
+    introduction: "A toxic relationship involves persistent patterns that undermine one or both partners' mental health, self-esteem, and well-being. These patterns — manipulation, control, constant criticism, gaslighting, emotional withdrawal, or escalating conflict — can feel impossible to escape, especially when love is still present. Our licensed therapists at Empathy Health Clinic provide specialized couples therapy that addresses these dynamics directly, with compassion and clinical expertise.",
+    conditions: [
+      { name: "Emotional Manipulation & Gaslighting" },
+      { name: "Controlling or Jealous Behavior" },
+      { name: "Constant Criticism & Contempt" },
+      { name: "Stonewalling & Emotional Withdrawal" },
+      { name: "Codependency & Enmeshment" },
+      { name: "Betrayal Trauma & Trust Violations" },
+      { name: "Cycle of Breaking Up & Reconciling" },
+      { name: "Narcissistic Relationship Dynamics" },
+    ],
+    services: [
+      {
+        icon: Users,
+        title: "Couples Therapy",
+        description: "Structured sessions to identify toxic patterns, improve communication, set healthy boundaries, and rebuild or reassess the relationship foundation."
+      },
+      {
+        icon: Shield,
+        title: "Individual Therapy for Relationship Trauma",
+        description: "One-on-one sessions to process the emotional impact of a toxic relationship, rebuild self-worth, and develop healthier relationship patterns."
+      },
+      {
+        icon: Brain,
+        title: "Pattern Recognition & CBT",
+        description: "Cognitive behavioral approaches to identify and interrupt destructive communication patterns, cognitive distortions, and unhealthy coping mechanisms."
+      },
+      {
+        icon: Heart,
+        title: "Attachment-Based Therapy",
+        description: "Exploring how attachment styles contribute to toxic dynamics and learning to develop secure attachment patterns for healthier relationships."
+      },
+      {
+        icon: MessageCircle,
+        title: "Communication Skills Training",
+        description: "Practical tools for expressing needs without escalation, active listening, conflict de-escalation, and assertive boundary-setting."
+      },
+    ],
+    authoritativeSources: [
+      { text: "The Gottman Institute — Research on Relationships", url: "https://www.gottman.com/about/research/" },
+      { text: "National Domestic Violence Hotline", url: "https://www.thehotline.org/" },
+    ],
+  },
+  faqs: [
+    { question: "Can couples therapy help a toxic relationship?", answer: "Yes, when both partners are willing to engage honestly in the process. Couples therapy can help identify toxic patterns, improve communication, and rebuild the relationship on a healthier foundation. However, therapy is not appropriate in situations involving active domestic violence — safety must come first." },
+    { question: "What if only one partner is willing to attend therapy?", answer: "Individual therapy can be highly effective even if your partner won't attend. You can learn to set boundaries, process the relationship's impact, and make informed decisions about your future — whether that includes the relationship or not." },
+    { question: "How do I know if my relationship is toxic?", answer: "Common signs include persistent criticism, contempt, manipulation, controlling behavior, emotional withdrawal, gaslighting, jealousy that restricts your freedom, and feeling worse about yourself over time. If you regularly feel anxious, drained, or diminished by your relationship, it may be toxic." },
+    { question: "Is it possible to fix a toxic relationship?", answer: "Some toxic relationships can be transformed when both partners commit to change, seek professional help, and do the difficult work of breaking old patterns. Others are healthier to leave. A therapist can help you assess your specific situation honestly." },
+    { question: "Do you offer individual therapy for people leaving toxic relationships?", answer: "Yes. Many of our clients seek individual therapy to heal from the effects of a toxic relationship, rebuild their self-esteem, and develop healthier patterns for future relationships." },
+  ],
+  sidebar: {
+    formHeading: "Get Help Today",
+    formSubheading: "Confidential support for toxic relationship patterns.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/therapy", label: "Individual Therapy" },
+      { href: "/therapist-orlando", label: "Therapist Orlando" },
+      { href: "/request-appointment", label: "Book Appointment" },
+    ],
+  },
+  analytics: {
+    pageName: "Couples Therapy Toxic Relationships Page",
+    conversionCategory: "couples_therapy_toxic_relationships",
+  },
+};
