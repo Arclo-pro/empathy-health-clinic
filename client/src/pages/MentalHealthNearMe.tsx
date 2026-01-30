@@ -110,7 +110,7 @@ export default function MentalHealthNearMe() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Mental Health Clinic Orlando | Near Me | 2025"
+        title="Mental Health Clinic Orlando | Near Me | 2026"
         description="Mental health clinic Orlando providing comprehensive care. Board-certified psychiatrists & therapists with same-week appointments for anxiety, depression, ADHD. BCBS, Cigna accepted. Call 386-848-8751."
         keywords={["mental health clinic orlando", "mental health near me", "mental health services near me", "mental health clinic near me", "mental health orlando", "mental health winter park", "psychiatrist near me", "therapist near me", "mental health help near me"]}
         canonicalPath="/mental-health-near-me"

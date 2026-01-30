@@ -20,7 +20,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="In-Person Psychiatry & Therapy Pricing Winter Park FL | Empathy Health Clinic"
+        title="Psychiatry & Therapy Pricing | Empathy Health Clinic"
         description="Transparent pricing for in-person psychiatry and therapy services at our Winter Park, FL clinic. Face-to-face care, insurance accepted, sliding scale fees available. Call 386-848-8751."
         keywords={["psychiatry pricing Winter Park", "in-person therapy Winter Park", "face-to-face mental health care", "psychiatrist fees Winter Park", "therapy rates Florida", "affordable mental health care"]}
         canonicalPath="/pricing"

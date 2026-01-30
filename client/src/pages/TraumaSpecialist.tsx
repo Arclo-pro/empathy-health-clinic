@@ -223,8 +223,8 @@ export default function TraumaSpecialist() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Trauma Specialist Near Me | PTSD Treatment & Trauma Therapy Orlando"
-        description="Expert trauma specialists in Winter Park & Orlando, FL. EMDR, trauma-focused CBT, PTSD treatment. Licensed professionals with specialized trauma training. Same-week appointments. Most insurance accepted. Call 386-848-8751."
+        title="Trauma Specialist Near Me | PTSD Treatment Orlando"
+        description="Expert trauma specialists in Orlando, FL. EMDR, trauma-focused CBT, PTSD treatment. Same-week appointments. Most insurance accepted. Call 386-848-8751."
         keywords={[
           "trauma specialist near me",
           "trauma therapist Orlando",

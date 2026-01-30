@@ -297,7 +297,7 @@ export const therapistOrlandoConfig: LandingPageConfig = {
 
 export const mentalHealthClinicConfig: LandingPageConfig = {
   seo: {
-    title: "Mental Health Clinic Orlando FL | #1 Rated 2025",
+    title: "Mental Health Clinic Orlando FL | #1 Rated 2026",
     description: "Looking for a mental health clinic in Orlando? Board-certified psychiatrists & licensed therapists. Same-week appointments for anxiety, depression, ADHD. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["mental health clinic orlando", "mental health clinic orlando fl", "psychiatric clinic orlando", "mental health center orlando", "orlando mental health clinic", "mental health services orlando", "mental health clinic near me", "best mental health clinic orlando"],
     canonicalPath: "/mental-health-clinic-orlando",
@@ -865,8 +865,8 @@ function createInsuranceTherapyConfig(
 ): LandingPageConfig {
   return {
     seo: {
-      title: `${insuranceName} Therapy Orlando FL | Therapist Accepting ${insuranceName} | Same-Week Appointments`,
-      description: `Therapy services in Orlando, FL accepting ${insuranceName} insurance. Licensed therapists provide CBT, EMDR, trauma therapy, and more. In-network providers, same-week appointments. Call 386-848-8751 to verify ${insuranceName} coverage.`,
+      title: `${insuranceName} Therapy Orlando FL | In-Network Therapists`,
+      description: `Therapy in Orlando, FL accepting ${insuranceName}. Licensed therapists for CBT, EMDR, trauma therapy. In-network, same-week appointments. Call 386-848-8751.`,
       keywords: [`${insuranceName.toLowerCase()} therapy orlando`, `therapist accepts ${insuranceName.toLowerCase()} orlando`, `${insuranceName.toLowerCase()} mental health orlando`],
       canonicalPath: `/${urlSlug}`,
     },
@@ -1007,7 +1007,7 @@ function createInsuranceTherapyConfig(
 // UMR Psychiatry Orlando - Optimized for "psychiatrist orlando accepts umr" (Rank 5)
 export const umrTherapyOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Orlando Accepts UMR | In-Network 2025",
+    title: "Psychiatrist Orlando Accepts UMR | In-Network 2026",
     description: "Psychiatrist Orlando accepts UMR insurance - In-network for anxiety, depression, ADHD, bipolar disorder. Same-week appointments available. Call (386) 848-8751.",
     keywords: ["psychiatrist orlando accepts umr", "umr psychiatrist orlando", "psychiatrist takes umr orlando fl", "umr mental health orlando", "in-network psychiatrist umr orlando", "umr covered psychiatrist orlando", "psychiatrist near me umr insurance", "psychiatrist that accepts umr orlando"],
     canonicalPath: "/therapist-accepts-umr",
@@ -1429,7 +1429,7 @@ export const aetnaPsychiatristOrlandoConfig: LandingPageConfig = {
 // BCBS Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts bcbs" (Rank 11)
 export const bcbsPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Orlando Accepts BCBS | In-Network 2025",
+    title: "Psychiatrist Orlando Accepts BCBS | In-Network 2026",
     description: "Psychiatrist Orlando accepts BCBS - In-network Blue Cross Blue Shield provider for anxiety, depression, ADHD. Same-week appointments. Call (386) 848-8751.",
     keywords: ["psychiatrist orlando accepts bcbs", "bcbs psychiatrist orlando", "blue cross blue shield psychiatrist orlando", "psychiatrist takes bcbs orlando fl", "bcbs mental health orlando", "in-network psychiatrist bcbs orlando"],
     canonicalPath: "/psychiatrist-orlando-accepts-bcbs",
@@ -1581,7 +1581,7 @@ export const bcbsPsychiatristOrlandoConfig: LandingPageConfig = {
 // Psychiatry Orlando - Optimized for "psychiatry orlando" (720 volume)
 export const psychiatryOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatry Orlando FL | #1 Rated | Accepting Patients 2025",
+    title: "Psychiatry Orlando FL | #1 Rated | Accepting Patients 2026",
     description: "Looking for psychiatry in Orlando? Top-rated psychiatry clinic with board-certified psychiatrists. ADHD, anxiety, depression, bipolar treatment. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["psychiatry orlando", "psychiatry orlando fl", "psychiatric services orlando", "orlando psychiatry", "psychiatry clinic orlando", "psychiatric care orlando", "mental health psychiatry orlando", "best psychiatry orlando", "psychiatry near me orlando", "orlando psychiatric services", "psychiatry accepting new patients orlando"],
     canonicalPath: "/psychiatry-orlando",
@@ -2318,7 +2318,7 @@ export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
 // Medication Management Orlando - Optimized for "medication management orlando" (480 volume)
 export const medicationManagementOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Medication Management Orlando FL | 2025",
+    title: "Medication Management Orlando FL | 2026",
     description: "Looking for medication management in Orlando? Board-certified psychiatrists for psychiatric medication prescribing & monitoring. Anxiety, depression, ADHD, bipolar. Same-week appointments. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["medication management orlando", "medication management psychiatrist orlando", "psychiatric medication management orlando fl", "medication management orlando fl", "psychiatric medication management orlando", "mental health medication orlando", "psych meds orlando", "medication monitoring orlando", "psychiatric medication prescribing orlando", "medication management near me"],
     canonicalPath: "/medication-management-orlando",
@@ -2693,7 +2693,7 @@ export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
 // United Healthcare Psychiatrist Orlando - Optimized for "psychiatrist orlando accepts united healthcare"
 export const unitedHealthcarePsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Orlando Accepts United Healthcare | 2025",
+    title: "Psychiatrist Orlando Accepts United Healthcare | 2026",
     description: "Psychiatrist Orlando accepts United Healthcare - In-network UHC provider for anxiety, ADHD, depression, bipolar. Same-week appointments. Call (386) 848-8751.",
     keywords: ["psychiatrist orlando accepts united healthcare", "united healthcare psychiatrist orlando", "uhc psychiatrist orlando", "psychiatrist takes united healthcare orlando fl", "united healthcare mental health orlando", "in-network psychiatrist uhc orlando", "psychiatrist that accepts uhc orlando"],
     canonicalPath: "/psychiatrist-orlando-accepts-united-healthcare",
@@ -3278,7 +3278,7 @@ export const psychiatristOrlandoAcceptsUmrConfig: LandingPageConfig = {
 // Psychiatrist for Anxiety Near Me - Optimized for "psychiatrist for anxiety near me" (1,300 volume)
 export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist for Anxiety Near Me | Orlando 2025",
+    title: "Psychiatrist for Anxiety Near Me | Orlando 2026",
     description: "Looking for a psychiatrist for anxiety near me? Board-certified anxiety specialists in Orlando, FL. Expert treatment for GAD, panic attacks, social anxiety. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare accepted. Call (386) 848-8751.",
     keywords: ["psychiatrist for anxiety near me", "anxiety psychiatrist near me", "psychiatrist anxiety near me", "anxiety psychiatrist", "psychiatrist for anxiety", "anxiety doctor near me", "psychiatrist for panic attacks near me", "anxiety medication psychiatrist", "psychiatrist for social anxiety near me", "best anxiety psychiatrist near me", "anxiety specialist near me"],
     canonicalPath: "/psychiatrist-for-anxiety-near-me",
@@ -3469,7 +3469,7 @@ export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
 
 export const psychiatristForDepressionNearMeConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist for Depression Near Me | Orlando 2025",
+    title: "Psychiatrist for Depression Near Me | Orlando 2026",
     description: "Looking for a psychiatrist for depression near me? Board-certified depression specialists in Orlando, FL. Expert antidepressant medication management. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare accepted. Call (386) 848-8751.",
     keywords: ["psychiatrist for depression near me", "depression psychiatrist near me", "psychiatrist depression near me", "depression medication doctor near me", "antidepressant psychiatrist near me", "major depression psychiatrist", "treatment resistant depression doctor", "best depression psychiatrist near me", "depression doctor near me"],
     canonicalPath: "/psychiatrist-for-depression-near-me",
@@ -3641,7 +3641,7 @@ export const psychiatristForDepressionNearMeConfig: LandingPageConfig = {
 
 export const depressionPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Depression Psychiatrist Orlando FL | #1 Rated | 2025",
+    title: "Depression Psychiatrist Orlando FL | #1 Rated | 2026",
     description: "Looking for a depression psychiatrist in Orlando? Board-certified depression specialists. Expert treatment for major depression, treatment-resistant depression. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["depression psychiatrist orlando", "depression psychiatrist orlando fl", "psychiatrist for depression orlando", "depression doctor orlando", "depression specialist orlando", "antidepressant psychiatrist orlando", "major depression treatment orlando", "best depression psychiatrist orlando"],
     canonicalPath: "/depression-psychiatrist-orlando",
@@ -3816,7 +3816,7 @@ export const depressionPsychiatristOrlandoConfig: LandingPageConfig = {
 // Psychiatrist Accepting New Patients Orlando
 export const psychiatristAcceptingNewPatientsOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrist Accepting New Patients Orlando | 2025",
+    title: "Psychiatrist Accepting New Patients Orlando | 2026",
     description: "Orlando psychiatrist accepting new patients now. No waitlist, same-week appointments available. Board-certified psychiatrists for anxiety, depression, ADHD. Call 386-848-8751.",
     keywords: ["psychiatrist accepting new patients orlando", "psychiatrist taking new patients orlando", "psychiatrist near me accepting new patients", "orlando psychiatrist accepting patients", "new patient psychiatrist orlando fl", "psychiatrist open to new patients orlando"],
     canonicalPath: "/psychiatrist-accepting-new-patients-orlando",
@@ -3968,7 +3968,7 @@ export const psychiatristAcceptingNewPatientsOrlandoConfig: LandingPageConfig = 
 // Online Psychiatrist Orlando - Optimized for "online psychiatrist orlando" (390 volume)
 export const onlinePsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Online Psychiatrist Orlando FL | Telehealth | Same-Week 2025",
+    title: "Online Psychiatrist Orlando FL | Telehealth | Same-Week 2026",
     description: "Looking for an online psychiatrist in Orlando? HIPAA-compliant telehealth psychiatry. Same-week video appointments for anxiety, depression, ADHD. 4.8★ rating. BCBS, Cigna, Medicare. Prescriptions sent same day. Call (386) 848-8751.",
     keywords: ["online psychiatrist orlando", "telepsychiatry orlando", "virtual psychiatrist orlando", "telehealth psychiatrist orlando fl", "online psychiatric services orlando", "video psychiatry orlando", "remote psychiatrist orlando", "online psychiatrist near me"],
     canonicalPath: "/online-psychiatrist-orlando",
@@ -4122,7 +4122,7 @@ export const onlinePsychiatristOrlandoConfig: LandingPageConfig = {
 // Best Psychiatrist Orlando - Optimized for "best psychiatrist orlando" (320 volume)
 export const bestPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Best Psychiatrist Orlando FL | 4.8★ Rated | 2025",
+    title: "Best Psychiatrist Orlando FL | 4.8★ Rated | 2026",
     description: "Looking for the best psychiatrist in Orlando? 4.8-star rated, board-certified psychiatrists. 200+ positive reviews. Expert care for anxiety, depression, ADHD. Same-week appointments. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["best psychiatrist orlando", "top psychiatrist orlando", "top rated psychiatrist orlando fl", "best psychiatrist near me", "highly rated psychiatrist orlando", "best mental health doctor orlando", "orlando best psychiatrist", "#1 psychiatrist orlando"],
     canonicalPath: "/best-psychiatrist-orlando",
@@ -4281,7 +4281,7 @@ export const bestPsychiatristOrlandoConfig: LandingPageConfig = {
 // Online Psychiatrist Florida - Optimized for "online psychiatrist florida" (260 volume)
 export const onlinePsychiatristFloridaConfig: LandingPageConfig = {
   seo: {
-    title: "Online Psychiatrist Florida | Statewide Telehealth | 2025",
+    title: "Online Psychiatrist Florida | Statewide Telehealth | 2026",
     description: "Looking for an online psychiatrist in Florida? Florida-licensed psychiatrists serving all FL residents via telehealth. Orlando, Miami, Tampa, Jacksonville. Same-week appointments. 4.8★ rating. Most insurance. Call (386) 848-8751.",
     keywords: ["online psychiatrist florida", "florida online psychiatrist", "telehealth psychiatrist florida", "virtual psychiatrist fl", "online mental health florida", "psychiatrist telehealth florida", "florida telepsychiatry", "online psychiatrist fl"],
     canonicalPath: "/online-psychiatrist-florida",
@@ -4441,7 +4441,7 @@ export const onlinePsychiatristFloridaConfig: LandingPageConfig = {
 // Mental Health Doctor Orlando - Optimized for "mental health doctor orlando" (210 volume)
 export const mentalHealthDoctorOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Mental Health Doctor Orlando FL | #1 Rated | 2025",
+    title: "Mental Health Doctor Orlando FL | #1 Rated | 2026",
     description: "Looking for a mental health doctor in Orlando? Board-certified psychiatric physicians for depression, anxiety, ADHD treatment. Same-week appointments. 4.8★ rating. BCBS, Cigna, Medicare. Call (386) 848-8751.",
     keywords: ["mental health doctor orlando", "mental health doctor near me", "mental health physician orlando", "psychiatric doctor orlando", "doctor for mental health orlando", "mental health md orlando", "orlando mental health doctor", "best mental health doctor orlando"],
     canonicalPath: "/mental-health-doctor-orlando",
@@ -4896,7 +4896,7 @@ export const psychiatristNearUcfConfig: LandingPageConfig = {
 // OCD Psychiatrist Orlando
 export const ocdPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "OCD Psychiatrist Orlando FL | Expert Treatment 2025",
+    title: "OCD Psychiatrist Orlando FL | Expert Treatment 2026",
     description: "Expert OCD psychiatrist in Orlando, FL. Specialized treatment for obsessive-compulsive disorder including medication management and ERP therapy support. Same-week appointments. Call 386-848-8751.",
     keywords: ["ocd psychiatrist orlando", "ocd treatment orlando", "ocd therapy orlando", "obsessive compulsive disorder orlando", "ocd specialist orlando", "ocd medication orlando", "ocd doctor orlando", "ocd psychiatrist near me"],
     canonicalPath: "/ocd-psychiatrist-orlando",
@@ -5049,7 +5049,7 @@ export const ocdPsychiatristOrlandoConfig: LandingPageConfig = {
 
 export const schizophreniaPsychiatristOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Schizophrenia Psychiatrist Orlando | Treatment 2025",
+    title: "Schizophrenia Psychiatrist Orlando | Treatment 2026",
     description: "Compassionate schizophrenia treatment in Orlando by board-certified psychiatrists. Antipsychotic medication management, family support. Call 386-848-8751.",
     keywords: ["schizophrenia psychiatrist orlando", "schizophrenia treatment orlando", "psychosis treatment orlando", "schizoaffective disorder orlando"],
     canonicalPath: "/schizophrenia-psychiatrist-orlando",
@@ -5510,7 +5510,7 @@ export const telehealthConfig: LandingPageConfig = {
 // Adult ADHD Treatment Orlando Config
 export const adultADHDTreatmentOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Adult ADHD Treatment Orlando FL | Expert Psychiatrist 2025",
+    title: "Adult ADHD Treatment Orlando FL | Expert Psychiatrist 2026",
     description: "Specialized adult ADHD treatment in Orlando. Board-certified psychiatrists for ADHD diagnosis, medication management, and comprehensive care. Call 386-848-8751.",
     keywords: ["adult adhd treatment orlando", "adult adhd psychiatrist orlando", "adhd medication management adults", "adult adhd diagnosis orlando", "adhd treatment for adults orlando fl", "adult add treatment orlando"],
     canonicalPath: "/adult-adhd-treatment-orlando",
@@ -5977,7 +5977,7 @@ export const medicaidPsychiatristOrlandoConfig: LandingPageConfig = {
 // Psychiatrists Orlando (plural) - Google Ads Quality Score page
 export const psychiatristsOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychiatrists in Orlando FL | Board-Certified 2025",
+    title: "Psychiatrists in Orlando FL | Board-Certified 2026",
     description: "Find experienced psychiatrists in Orlando, FL. Board-certified psychiatric care for anxiety, depression, ADHD, bipolar disorder. Same-week appointments. BCBS, Cigna, Medicare accepted. Call (386) 848-8751.",
     keywords: ["psychiatrists orlando", "psychiatrists in orlando", "orlando psychiatrists", "psychiatrists orlando fl", "psychiatrist doctors orlando", "mental health psychiatrists orlando"],
     canonicalPath: "/psychiatrists-orlando",
@@ -6122,7 +6122,7 @@ export const psychiatristsOrlandoConfig: LandingPageConfig = {
 // Psychology Orlando - Google Ads Quality Score page
 export const psychologyOrlandoConfig: LandingPageConfig = {
   seo: {
-    title: "Psychology in Orlando FL | Mental Health Services 2025",
+    title: "Psychology in Orlando FL | Mental Health Services 2026",
     description: "Psychology services in Orlando, FL. Expert psychological care including therapy, psychiatric evaluations, and mental health treatment. Board-certified providers. Same-week appointments. Call (386) 848-8751.",
     keywords: ["psychology orlando", "psychology services orlando", "orlando psychology", "psychology orlando fl", "mental health psychology orlando", "psychological services orlando"],
     canonicalPath: "/psychology-orlando",

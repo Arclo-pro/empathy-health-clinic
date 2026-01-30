@@ -91,6 +91,13 @@ function SiteHeaderContent() {
   ];
 
   return (
+    <>
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:text-sm focus:font-medium"
+    >
+      Skip to main content
+    </a>
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/95 border-b border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
@@ -264,6 +271,7 @@ function SiteHeaderContent() {
         </div>
       )}
     </header>
+    </>
   );
 }
 

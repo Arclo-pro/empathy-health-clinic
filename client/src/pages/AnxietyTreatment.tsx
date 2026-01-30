@@ -270,7 +270,7 @@ export default function AnxietyTreatment() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Anxiety Treatment in Orlando | Empathy Health Clinic"
-        description="Expert anxiety treatment in Orlando, FL. Board-certified psychiatrists for GAD, panic disorder, social anxiety, and phobias. Medication management + therapy coordination. Same-week appointments. Call 386-848-8751."
+        description="Expert anxiety treatment in Orlando, FL. Board-certified psychiatrists for GAD, panic disorder, social anxiety. Same-week appointments. Call 386-848-8751."
         keywords={["anxiety treatment", "anxiety treatment orlando", "anxiety treatment near me", "anxiety doctor orlando", "anxiety specialist orlando", "anxiety medication orlando", "panic disorder treatment", "GAD treatment", "social anxiety treatment"]}
         canonicalPath="/anxiety-treatment"
         jsonLd={jsonLd}

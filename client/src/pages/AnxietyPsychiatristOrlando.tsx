@@ -114,7 +114,7 @@ export default function AnxietyPsychiatristOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Anxiety Psychiatrist Orlando | #1 Rated 2025"
+        title="Anxiety Psychiatrist Orlando | #1 Rated 2026"
         description="Anxiety psychiatrist Orlando - #1 rated specialists for panic, GAD, social anxiety & phobias. Same-week appointments, most insurance accepted. 4.8★ rating. Call (386) 848-8751."
         keywords={["anxiety psychiatrist orlando", "anxiety psychiatrist orlando fl", "anxiety doctor orlando", "orlando anxiety psychiatrist", "panic disorder psychiatrist orlando", "social anxiety doctor orlando", "GAD treatment orlando", "anxiety medication management orlando", "OCD psychiatrist orlando", "best anxiety psychiatrist orlando"]}
         canonicalPath="/anxiety-psychiatrist-orlando"

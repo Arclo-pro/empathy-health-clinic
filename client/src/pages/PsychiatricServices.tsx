@@ -115,7 +115,7 @@ export default function PsychiatricServices() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Medication Management Orlando | Psychiatrist | 2025"
+        title="Medication Management Orlando | Psychiatrist | 2026"
         description="Medication management Orlando at our psychiatric clinic Orlando. Board-certified psychiatrists with same-week appointments for anxiety, depression, ADHD. BCBS, Aetna, Cigna. Call 386-848-8751."
         keywords={["medication management orlando", "psychiatric clinic orlando", "psychiatric medication management", "medication management near me", "psychiatric services orlando", "psychiatrist medication management", "mental health medication orlando"]}
         canonicalPath="/psychiatric-services"

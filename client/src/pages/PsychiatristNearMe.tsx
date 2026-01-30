@@ -223,7 +223,7 @@ export default function PsychiatristNearMe() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Psychiatrist Near Me | Find Local Psychiatry in Orlando FL"
-        description="Psychiatrist near me - find board-certified psychiatrists in Orlando FL. Accepting new patients with same-week availability. ADHD, anxiety, depression treatment. Insurance: BCBS, Cigna, Aetna, Medicare. Call (386) 848-8751."
+        description="Find a psychiatrist near you in Orlando, FL. Board-certified, accepting new patients. ADHD, anxiety, depression treatment. Same-week appointments. Call (386) 848-8751."
         keywords={["psychiatrist near me", "psychiatry near me", "find psychiatrist near me", "psychiatrist near me orlando", "psychiatrist accepting new patients near me", "best psychiatrist near me", "psychiatrist orlando", "psychiatrist winter park", "medication management near me", "psychiatrist accepting medicare", "psychiatrist accepting cigna", "psychiatrist accepting aetna", "psychiatrist near me that takes my insurance", "mental health near me"]}
         canonicalPath="/psychiatrist-near-me"
         jsonLd={jsonLd}

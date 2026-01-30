@@ -55,7 +55,11 @@ export default function SiteFooter() {
   const legalLinks = [
     { label: "About Us", href: "/team" },
     { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Medical Disclaimer", href: "/medical-disclaimer" }
+    { label: "Medical Disclaimer", href: "/medical-disclaimer" },
+    { label: "HIPAA Notice", href: "/hipaa" },
+    { label: "No Surprises Act", href: "/no-surprises-act" },
+    { label: "Cookies Policy", href: "/cookies-policy" },
+    { label: "Careers", href: "/careers" },
   ];
 
   const servicesLinks = [

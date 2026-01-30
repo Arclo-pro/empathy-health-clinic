@@ -44,7 +44,7 @@ export default function BlueCrossBlueShieldTherapy() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Blue Cross Blue Shield Therapy Orlando | BCBS Therapists | Empathy Health"
+        title="BCBS Therapy Orlando | Blue Cross Therapists"
         description="Find Blue Cross Blue Shield therapists in Orlando, FL. BCBS-covered therapy for anxiety, depression, trauma. Verify copays and coverage. Same-week appointments. Call 386-848-8751."
         keywords={["blue cross blue shield therapy orlando", "bcbs therapist orlando", "therapist that takes blue cross blue shield orlando", "blue cross blue shield counseling orlando", "bcbs therapy near me"]}
         canonicalPath="/blue-cross-blue-shield-therapy-orlando"

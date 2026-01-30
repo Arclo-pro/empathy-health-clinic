@@ -35,8 +35,8 @@ export default function TherapyPage() {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Therapist Near You | Winter Park & Orlando, FL | Licensed Counselors"
-        description="Find a licensed therapist near you in Winter Park & Orlando. Expert CBT, DBT, EMDR therapy. Same-week appointments, in-person & telehealth. 1155 Louisiana Ave Suite 202. Call 386-848-8751."
+        title="Therapist Near You | Winter Park & Orlando, FL"
+        description="Licensed therapists in Winter Park & Orlando. Expert CBT, DBT, EMDR therapy. Same-week appointments, in-person & telehealth. Call 386-848-8751."
         keywords={["therapist near me", "good therapist near me", "therapist Winter Park", "therapist Orlando FL", "counselor near me", "therapy near me", "CBT therapist near me", "licensed therapist near me"]}
         canonicalPath="/therapy"
       />

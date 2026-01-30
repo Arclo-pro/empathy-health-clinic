@@ -117,7 +117,7 @@ export default function SchizophreniaPsychiatristOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Schizophrenia Psychiatrist Orlando FL | Expert Treatment 2025"
+        title="Schizophrenia Psychiatrist Orlando FL | Expert Treatment 2026"
         description="Schizophrenia psychiatrist Orlando FL - expert schizophrenia treatment Orlando with antipsychotic medication management. Same-week appointments, insurance accepted. Compassionate care. Call (386) 848-8751."
         keywords={["schizophrenia psychiatrist orlando", "schizophrenia treatment orlando", "schizophrenia psychiatrist orlando fl", "schizophrenia doctor orlando", "antipsychotic medication management orlando", "psychosis treatment orlando", "schizophrenia medication orlando", "best schizophrenia psychiatrist orlando"]}
         canonicalPath="/schizophrenia-psychiatrist-orlando"

@@ -260,8 +260,8 @@ export default function Psychiatrist() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Near Me | Mental Health Treatment & Medication Management"
-        description="Board-certified psychiatrists providing expert mental health treatment, medication management, and psychiatric evaluations. Same-week appointments available. Telehealth options. Most insurance accepted including BCBS, Cigna, Medicare. Call 386-848-8751 today."
+        title="Psychiatrist Near Me | Medication Management"
+        description="Board-certified psychiatrists for medication management and psychiatric evaluations. Same-week appointments. Telehealth options. Most insurance accepted. Call 386-848-8751."
         keywords={["psychiatrist", "psychiatrist near me", "psychiatric services", "mental health psychiatrist", "medication management psychiatrist", "psychiatrist orlando", "board certified psychiatrist", "telepsychiatry", "psychiatric evaluation"]}
         canonicalPath="/psychiatrist"
         jsonLd={jsonLd}

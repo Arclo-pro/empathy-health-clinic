@@ -56,7 +56,7 @@ export default function LandingPageTemplate({ config }: LandingPageTemplateProps
         breadcrumbItems={deriveBreadcrumbs(config.seo.canonicalPath)}
       />
       <SiteHeader />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero Section */}
         <HeroBackground imageSrc={config.hero.heroImage}>
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-sans font-bold mb-4 text-white" data-testid="text-hero-title">

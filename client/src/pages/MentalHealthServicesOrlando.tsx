@@ -209,8 +209,8 @@ export default function MentalHealthServicesOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Mental Health Clinic Orlando | Psychiatry & Therapy | 2025"
-        description="Top mental health clinic in Orlando, FL. Board-certified psychiatrists and licensed therapists. Expert treatment for anxiety, depression, ADHD, trauma. Same-week appointments. Most insurance accepted. Call 386-848-8751."
+        title="Mental Health Clinic Orlando | Psychiatry & Therapy | 2026"
+        description="Mental health clinic in Orlando, FL. Board-certified psychiatrists and therapists for anxiety, depression, ADHD, trauma. Same-week appointments. Call 386-848-8751."
         keywords={[
           "mental health clinic orlando",
           "mental health clinic orlando fl",

@@ -19,7 +19,7 @@ export default function CignaOrlandoPage() {
   return (
     <>
       <SEOHead
-        title="Psychiatrist Orlando Accepts Cigna | In-Network 2025"
+        title="Psychiatrist Orlando Accepts Cigna | In-Network 2026"
         description="Psychiatrist Orlando accepts Cigna - In-network provider for anxiety, depression, ADHD, bipolar. Same-week appointments, verified benefits. Call (386) 848-8751."
         keywords={["Orlando psychiatrist Cigna", "Cigna mental health Orlando", "psychiatry Cigna coverage", "Orlando Cigna psychiatrist"]}
         canonicalPath="/psychiatrist-orlando-takes-cigna"

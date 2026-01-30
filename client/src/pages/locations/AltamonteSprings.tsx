@@ -78,7 +78,7 @@ export default function PsychiatristAltamonteSprings() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Altamonte Springs FL | Board-Certified | Empathy Health Clinic"
+        title="Psychiatrist Altamonte Springs FL | Empathy Health"
         description="Top-rated psychiatrists serving Altamonte Springs, FL. Same-week appointments for medication management, ADHD, anxiety, depression treatment. Convenient to I-4. Most insurance accepted. Call 386-848-8751."
         keywords={["psychiatrist altamonte springs", "psychiatrist altamonte springs fl", "altamonte springs psychiatrist", "psychiatrists near altamonte springs", "best psychiatrist altamonte springs", "altamonte springs fl psychiatrist", "psychiatry altamonte springs"]}
         canonicalPath="/locations/altamonte-springs"

@@ -166,7 +166,7 @@ export default function ADHDTestingOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="ADHD Psychiatrist Orlando | Testing & Treatment 2025"
+        title="ADHD Psychiatrist Orlando | Testing & Treatment 2026"
         description="ADHD psychiatrist Orlando providing comprehensive testing & treatment for adults 18+. Board-certified specialists. Same-week appointments. BCBS, Aetna, Cigna accepted. Call 386-848-8751."
         keywords={["adhd psychiatrist orlando", "adhd testing orlando", "adhd testing", "adhd testing near me", "adhd evaluation", "adhd testing winter park", "adult adhd testing", "adhd assessment orlando", "adhd diagnosis orlando", "add testing orlando", "adhd doctor orlando"]}
         canonicalPath="/adhd-testing-orlando"

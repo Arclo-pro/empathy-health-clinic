@@ -47,7 +47,7 @@ export default function ConditionPageTemplate({ config }: ConditionPageTemplateP
       />
       <SiteHeader />
       
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-primary/10 to-background py-16 md:py-24">
           <div className="container mx-auto px-4 max-w-6xl">

@@ -216,7 +216,7 @@ export default function DepressionTreatment() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Depression Treatment in Orlando | Empathy Health Clinic"
-        description="Expert depression treatment in Orlando, FL. Board-certified psychiatrists offering medication management, therapy coordination, and TMS for major depression. Insurance accepted. Same-week appointments. Call 386-848-8751."
+        description="Expert depression treatment in Orlando, FL. Medication management, therapy, and TMS for major depression. Insurance accepted. Same-week appointments. Call 386-848-8751."
         keywords={["depression treatment orlando", "depression treatment", "depression treatment near me", "depression doctor orlando", "depression medication orlando", "major depression treatment", "clinical depression treatment", "depression psychiatrist orlando"]}
         canonicalPath="/depression-treatment"
         jsonLd={jsonLd}

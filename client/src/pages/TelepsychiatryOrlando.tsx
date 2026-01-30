@@ -57,8 +57,8 @@ export default function TelepsychiatryOrlando() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Telepsychiatry Orlando FL | Online Psychiatrist | Virtual Mental Health"
-        description="Top-rated telepsychiatry services in Orlando, FL. See a board-certified psychiatrist online for medication management, psychiatric evaluations, ADHD, anxiety, depression treatment. Call 386-848-8751."
+        title="Telepsychiatry Orlando FL | Online Psychiatrist"
+        description="Telepsychiatry in Orlando, FL. Board-certified online psychiatrist for medication management, ADHD, anxiety, depression. Same-week appointments. Call 386-848-8751."
         keywords={["telepsychiatry orlando", "online psychiatrist orlando", "virtual psychiatrist orlando fl", "telehealth psychiatry orlando", "online mental health orlando", "virtual psychiatry florida", "online psychiatrist florida"]}
         canonicalPath="/telepsychiatry-orlando"
         jsonLd={jsonLd}

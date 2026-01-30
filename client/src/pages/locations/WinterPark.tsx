@@ -93,7 +93,7 @@ export default function PsychiatristWinterPark() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Psychiatrist Winter Park FL | Board-Certified | Same-Week"
-        description="Top-rated psychiatrist in Winter Park, FL. Board-certified psychiatrists for medication management, ADHD, anxiety, depression. Located on Lee Rd. Same-week appointments. BCBS, Cigna, Aetna, Medicare accepted. Call (386) 848-8751."
+        description="Board-certified psychiatrist in Winter Park, FL. Medication management, ADHD, anxiety, depression. Same-week appointments. Insurance accepted. Call (386) 848-8751."
         keywords={["psychiatrist winter park", "psychiatrist winter park fl", "winter park psychiatrist", "psychiatrists near winter park", "best psychiatrist winter park", "winter park fl psychiatrist", "psychiatry winter park", "medication management winter park"]}
         canonicalPath="/psychiatrist-winter-park"
         jsonLd={jsonLd}

@@ -11,7 +11,7 @@ export default function NewPatients() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
-        title="Psychiatrist Accepting New Patients Orlando | 2025"
+        title="Psychiatrist Accepting New Patients Orlando | 2026"
         description="Find a psychiatrist accepting new patients in Orlando, FL. Same-week appointments available for psychiatry, therapy & counseling. Board-certified providers, most insurance accepted. Call (386) 848-8751."
         keywords={["psychiatrist accepting new patients orlando", "psychiatrist accepting new patients", "new patient psychiatrist orlando", "psychiatrist taking new patients orlando", "mental health accepting new patients", "therapist accepting patients orlando"]}
         canonicalPath="/new-patients"
