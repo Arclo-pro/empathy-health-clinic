@@ -2743,6 +2743,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { path: '/adult-adhd-treatment-orlando', changefreq: 'weekly', priority: 0.85 },
         { path: '/suboxone-treatment-orlando', changefreq: 'weekly', priority: 0.8 },
         { path: '/medicaid-psychiatrist-orlando', changefreq: 'weekly', priority: 0.8 },
+        // New city hub pages (January 2026)
+        { path: '/psychiatrist-oviedo', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-sanford', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-lake-mary', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-college-park', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-maitland', changefreq: 'weekly', priority: 0.8 },
       ];
       
       staticPages.forEach(page => {
@@ -2777,6 +2783,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       teamMembers.forEach(member => {
         xml += addUrl(`/team/${member.slug}`, 'monthly', 0.7, today);
+      });
+
+      // Programmatic SEO condition pages — condition × treatment
+      const conditionTreatmentPaths = [
+        '/conditions/adhd/psychiatry', '/conditions/adhd/therapy', '/conditions/adhd/telepsychiatry',
+        '/conditions/adhd/online-treatment', '/conditions/adhd/adult-adhd-treatment',
+        '/conditions/anxiety/psychiatry', '/conditions/anxiety/therapy', '/conditions/anxiety/telepsychiatry',
+        '/conditions/anxiety/online-treatment', '/conditions/anxiety/panic-attacks-treatment',
+        '/conditions/depression/psychiatry', '/conditions/depression/therapy', '/conditions/depression/telepsychiatry',
+        '/conditions/depression/online-treatment', '/conditions/depression/burnout-vs-depression',
+        '/conditions/bipolar/psychiatry', '/conditions/bipolar/therapy',
+        '/conditions/ocd/psychiatry', '/conditions/ocd/therapy',
+        '/conditions/ptsd/psychiatry', '/conditions/ptsd/therapy',
+        '/conditions/medication-management/psychiatry',
+      ];
+      conditionTreatmentPaths.forEach(path => {
+        xml += addUrl(path, 'monthly', 0.7, today);
+      });
+
+      // Programmatic SEO condition pages — condition × location (105 pages)
+      const conditionSlugs = ['adhd', 'anxiety', 'depression', 'bipolar', 'ocd', 'ptsd', 'medication-management'];
+      const locationSlugs = [
+        'orlando', 'winter-park', 'lake-nona', 'maitland', 'college-park',
+        'altamonte-springs', 'casselberry', 'kissimmee', 'apopka', 'longwood',
+        'winter-garden', 'oviedo', 'sanford', 'lake-mary', 'downtown-orlando',
+      ];
+      conditionSlugs.forEach(condition => {
+        locationSlugs.forEach(location => {
+          xml += addUrl(`/conditions/${condition}/${location}`, 'monthly', 0.6, today);
+        });
+      });
+
+      // Insurance × condition pages
+      const insuranceConditionPaths = [
+        '/insurance/aetna/adhd', '/insurance/aetna/anxiety',
+        '/insurance/blue-cross/adhd', '/insurance/blue-cross/depression',
+        '/insurance/cigna/anxiety', '/insurance/uhc/depression',
+      ];
+      insuranceConditionPaths.forEach(path => {
+        xml += addUrl(path, 'monthly', 0.5, today);
+      });
+
+      // Comparison pages
+      const comparisonPaths = [
+        '/compare/psychiatry-vs-therapy', '/compare/telepsychiatry-vs-in-person',
+        '/compare/psychiatrist-vs-psychologist', '/compare/online-psychiatry-vs-in-person',
+        '/compare/therapy-vs-coaching',
+      ];
+      comparisonPaths.forEach(path => {
+        xml += addUrl(path, 'monthly', 0.5, today);
+      });
+
+      // Symptom pages
+      const symptomPaths = [
+        '/symptoms/cant-focus-at-work', '/symptoms/racing-thoughts-at-night',
+        '/symptoms/panic-attacks', '/symptoms/feeling-burned-out',
+      ];
+      symptomPaths.forEach(path => {
+        xml += addUrl(path, 'monthly', 0.5, today);
       });
 
       xml += '</urlset>';

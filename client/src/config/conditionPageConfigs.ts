@@ -487,311 +487,363 @@ const conditionTreatmentPages: ConditionPageConfig[] = [
     },
     keywords: ['burnout vs depression', 'burnout symptoms', 'am i burned out or depressed'],
   },
+  // PTSD condition-treatment pages
+  {
+    slug: 'ptsd-psychiatry',
+    path: '/conditions/ptsd/psychiatry',
+    title: 'PTSD Psychiatry in Orlando | Empathy Health Clinic',
+    description: 'Trauma-informed psychiatric evaluation and PTSD treatment in Orlando. Evidence-based care with compassionate, structured support.',
+    h1: 'PTSD Psychiatry in Orlando',
+    pageType: 'condition-treatment',
+    outline: [
+      'What PTSD looks like in adults',
+      'Trauma-informed psychiatric evaluation',
+      'Treatment planning and approach',
+      'When therapy is also recommended',
+      'Telepsychiatry options for PTSD',
+    ],
+    faqs: [
+      { question: 'How is PTSD diagnosed?', answer: 'PTSD diagnosis involves a comprehensive evaluation of your trauma history, current symptoms, and how they affect your daily life. We use evidence-based assessment tools in a safe, supportive environment.' },
+      { question: 'Can PTSD develop years after a traumatic event?', answer: 'Yes, PTSD symptoms can emerge months or even years after a trauma. Life changes, stress, or new reminders can trigger symptoms that were previously manageable.' },
+      { question: 'Do you offer EMDR for PTSD?', answer: 'Yes, we offer EMDR (Eye Movement Desensitization and Reprocessing) along with other evidence-based approaches for PTSD treatment.' },
+    ],
+    internalLinks: {
+      up: '/conditions/ptsd',
+      siblings: ['/conditions/ptsd/therapy'],
+      down: ['/conditions/ptsd/orlando'],
+    },
+    keywords: ['ptsd psychiatry orlando', 'ptsd psychiatrist', 'ptsd evaluation', 'trauma treatment orlando'],
+  },
+  {
+    slug: 'ptsd-therapy',
+    path: '/conditions/ptsd/therapy',
+    title: 'Therapy for PTSD in Orlando | Empathy Health Clinic',
+    description: 'PTSD therapy in Orlando with evidence-based approaches including EMDR and trauma-focused CBT. In-person or online.',
+    h1: 'Therapy for PTSD in Orlando',
+    pageType: 'condition-treatment',
+    outline: [
+      'How therapy helps PTSD',
+      'Evidence-based approaches we use',
+      'What sessions look like',
+      'Online therapy options for PTSD',
+    ],
+    faqs: [
+      { question: 'What type of therapy works best for PTSD?', answer: 'Evidence-based therapies like EMDR and trauma-focused CBT have strong research support for PTSD. We work with you to find the approach that fits your needs and goals.' },
+      { question: 'How long does PTSD therapy take?', answer: 'Treatment length varies by individual. Some clients see significant improvement within 8-16 sessions, while others benefit from longer-term support. We work at a pace that feels safe for you.' },
+    ],
+    internalLinks: {
+      up: '/conditions/ptsd',
+      siblings: ['/conditions/ptsd/psychiatry'],
+      cross: ['/compare/psychiatry-vs-therapy'],
+    },
+    keywords: ['ptsd therapy orlando', 'trauma therapy', 'emdr therapy orlando', 'ptsd counseling'],
+  },
+  // Medication Management condition-treatment pages
+  {
+    slug: 'medication-management-psychiatry',
+    path: '/conditions/medication-management/psychiatry',
+    title: 'Psychiatric Medication Management in Orlando | Empathy Health Clinic',
+    description: 'Expert psychiatric medication management in Orlando. Ongoing monitoring, dosage optimization, and coordinated care from board-certified psychiatrists.',
+    h1: 'Psychiatric Medication Management in Orlando',
+    pageType: 'condition-treatment',
+    outline: [
+      'What medication management includes',
+      'How we approach medication decisions',
+      'Ongoing monitoring and adjustments',
+      'Coordinating with your care team',
+      'Telehealth medication management',
+    ],
+    faqs: [
+      { question: 'What conditions do you manage medications for?', answer: 'We provide medication management for ADHD, anxiety, depression, bipolar disorder, OCD, PTSD, insomnia, and other psychiatric conditions. Our psychiatrists create personalized medication plans for each patient.' },
+      { question: 'How often will I have follow-up appointments?', answer: 'Initially, follow-ups are typically every 2-4 weeks to monitor your response. Once stable, appointments move to monthly or quarterly depending on your needs.' },
+      { question: 'Can I do medication management via telehealth?', answer: 'Yes, medication management appointments work very well through our secure telehealth platform. Many patients prefer the convenience of virtual follow-ups.' },
+    ],
+    internalLinks: {
+      up: '/conditions/medication-management',
+      cross: ['/compare/psychiatry-vs-therapy', '/conditions/adhd/psychiatry'],
+    },
+    keywords: ['medication management orlando', 'psychiatric medication management', 'psychiatrist medication management orlando'],
+  },
 ];
 
-// B) CONDITION × LOCATION PAGES (15 pages)
-const conditionLocationPages: ConditionPageConfig[] = [
+// B) CONDITION × LOCATION PAGES — Generated from city/condition matrix
+// Covers all service-area cities × 7 conditions (ADHD, Anxiety, Depression, Bipolar, OCD, PTSD, Medication Management)
+
+interface CityData {
+  slug: string;
+  name: string;
+  isOfficeLocation: boolean; // true for Winter Park (our office)
+  nearbyNote: string; // how we serve this city
+}
+
+interface ConditionData {
+  slug: string;
+  name: string;
+  fullName: string; // e.g., "Bipolar Disorder" vs "Bipolar"
+  descriptions: Record<string, string>; // city-type specific descriptions
+  outlines: {
+    office: string[];
+    nearby: string[];
+  };
+  faqs: {
+    general: FAQ[];
+    remote: FAQ[];
+  };
+  treatmentLinks: string[];
+  keywords: (city: string, citySlug: string) => string[];
+}
+
+const serviceCities: CityData[] = [
+  { slug: 'orlando', name: 'Orlando', isOfficeLocation: false, nearbyNote: 'Our Winter Park office is centrally located to serve Orlando residents, with same-week telehealth also available.' },
+  { slug: 'winter-park', name: 'Winter Park', isOfficeLocation: true, nearbyNote: 'Visit us at our Winter Park office at 2281 Lee Rd Suite 102, or connect through secure telehealth.' },
+  { slug: 'lake-nona', name: 'Lake Nona', isOfficeLocation: false, nearbyNote: 'We serve Lake Nona residents through our Winter Park office and convenient telehealth appointments.' },
+  { slug: 'maitland', name: 'Maitland', isOfficeLocation: false, nearbyNote: 'Maitland is just minutes from our Winter Park office, and telehealth appointments are also available.' },
+  { slug: 'college-park', name: 'College Park', isOfficeLocation: false, nearbyNote: 'We serve College Park residents through our nearby Winter Park office and secure telehealth visits.' },
+  { slug: 'altamonte-springs', name: 'Altamonte Springs', isOfficeLocation: false, nearbyNote: 'Altamonte Springs residents can visit our Winter Park office or connect through telehealth.' },
+  { slug: 'casselberry', name: 'Casselberry', isOfficeLocation: false, nearbyNote: 'Casselberry is a short drive from our Winter Park clinic, and we also offer telehealth appointments.' },
+  { slug: 'kissimmee', name: 'Kissimmee', isOfficeLocation: false, nearbyNote: 'We serve Kissimmee residents through telehealth and in-person visits at our Winter Park location.' },
+  { slug: 'apopka', name: 'Apopka', isOfficeLocation: false, nearbyNote: 'Apopka residents can access care through our telehealth platform or visit our Winter Park office.' },
+  { slug: 'longwood', name: 'Longwood', isOfficeLocation: false, nearbyNote: 'Longwood is close to our Winter Park office, and telehealth is available for added convenience.' },
+  { slug: 'winter-garden', name: 'Winter Garden', isOfficeLocation: false, nearbyNote: 'We serve Winter Garden residents through telehealth and in-person visits at our Winter Park clinic.' },
+  { slug: 'oviedo', name: 'Oviedo', isOfficeLocation: false, nearbyNote: 'Oviedo residents can connect through our telehealth platform or visit our Winter Park location.' },
+  { slug: 'sanford', name: 'Sanford', isOfficeLocation: false, nearbyNote: 'We serve Sanford residents through convenient telehealth and in-person visits at our Winter Park office.' },
+  { slug: 'lake-mary', name: 'Lake Mary', isOfficeLocation: false, nearbyNote: 'Lake Mary residents can access care through telehealth or at our Winter Park office location.' },
+  { slug: 'downtown-orlando', name: 'Downtown Orlando', isOfficeLocation: false, nearbyNote: 'Downtown Orlando is a short drive from our Winter Park clinic, and telehealth is always available.' },
+];
+
+const conditionDefinitions: ConditionData[] = [
   {
-    slug: 'adhd-orlando',
-    path: '/conditions/adhd/orlando',
-    title: 'ADHD Treatment in Orlando | Empathy Health Clinic',
-    description: 'ADHD support for adults and families in Orlando. Evaluation and care planning with in-person and online options.',
-    h1: 'ADHD Treatment in Orlando',
-    pageType: 'condition-location',
-    outline: [
-      'ADHD care in Orlando',
-      'Evaluation and next steps',
-      'Therapy and psychiatry options',
-      'Online appointments for Orlando',
-    ],
-    faqs: [
-      { question: 'Do you treat adult ADHD in Orlando?', answer: 'Yes, we specialize in adult ADHD evaluation and treatment. Our Orlando-area clinic provides comprehensive care for adults of all ages.' },
-      { question: 'Can I start online?', answer: 'Yes, you can begin your ADHD care entirely online through our telepsychiatry platform, or visit us in person at our Winter Park location.' },
-    ],
-    internalLinks: {
-      up: '/conditions/adhd',
-      down: ['/conditions/adhd/psychiatry', '/conditions/adhd/therapy', '/conditions/adhd/telepsychiatry'],
+    slug: 'adhd',
+    name: 'ADHD',
+    fullName: 'ADHD',
+    descriptions: {
+      office: 'Comprehensive ADHD evaluation and treatment at our Winter Park clinic. Personalized care plans with in-person and telehealth options.',
+      nearby: 'ADHD evaluation and supportive care for {city} residents. Evidence-based treatment with in-person and telehealth flexibility.',
     },
-    keywords: ['adhd treatment orlando', 'adhd orlando', 'adhd doctor orlando', 'adhd specialist orlando'],
+    outlines: {
+      office: ['ADHD care at our Winter Park clinic', 'Comprehensive evaluation process', 'Therapy and psychiatry options', 'Telehealth appointments available'],
+      nearby: ['ADHD care for {city} residents', 'Evaluation and next steps', 'Therapy and psychiatry options', 'Telehealth and in-person flexibility'],
+    },
+    faqs: {
+      general: [
+        { question: 'Do you treat adult ADHD?', answer: 'Yes, we specialize in adult ADHD evaluation and treatment. Our team provides comprehensive care including evaluation, therapy, and ongoing support.' },
+        { question: 'What does an ADHD evaluation involve?', answer: 'An ADHD evaluation includes a detailed discussion of your symptoms, history, and daily challenges. We use evidence-based assessment tools to provide an accurate diagnosis and personalized treatment plan.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and convenient telehealth appointments.' },
+        { question: 'Can I start ADHD care online?', answer: 'Yes, you can begin your ADHD evaluation and treatment entirely through our secure telehealth platform from {city}.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/adhd/psychiatry', '/conditions/adhd/therapy', '/conditions/adhd/telepsychiatry'],
+    keywords: (city, citySlug) => [`adhd treatment ${citySlug.replace(/-/g, ' ')}`, `adhd ${citySlug.replace(/-/g, ' ')}`, `adhd doctor ${citySlug.replace(/-/g, ' ')}`, `adhd specialist ${city.toLowerCase()}`],
   },
   {
-    slug: 'adhd-winter-park',
-    path: '/conditions/adhd/winter-park',
-    title: 'ADHD Treatment in Winter Park | Empathy Health Clinic',
-    description: 'ADHD evaluation and supportive care for Winter Park clients. Clear next steps and flexible appointment options.',
-    h1: 'ADHD Treatment in Winter Park',
-    pageType: 'condition-location',
-    outline: [
-      'ADHD care in Winter Park',
-      'Evaluation and next steps',
-      'Therapy and psychiatry options',
-      'Online appointments available',
-    ],
-    faqs: [
-      { question: 'Do you treat adult ADHD in Winter Park?', answer: 'Yes, our Winter Park clinic specializes in adult ADHD evaluation and treatment with comprehensive care options.' },
-      { question: 'Can I start online?', answer: 'Yes, we offer convenient telepsychiatry appointments for Winter Park residents.' },
-    ],
-    internalLinks: {
-      up: '/conditions/adhd',
-      siblings: ['/conditions/adhd/orlando', '/conditions/adhd/lake-nona'],
+    slug: 'anxiety',
+    name: 'Anxiety',
+    fullName: 'Anxiety',
+    descriptions: {
+      office: 'Anxiety treatment at our Winter Park clinic including therapy, psychiatry, and panic disorder support. Same-week appointments available.',
+      nearby: 'Anxiety care for {city} residents with therapy and psychiatry options. Support for worry, panic symptoms, and overwhelm.',
     },
-    keywords: ['adhd treatment winter park', 'adhd winter park', 'adhd doctor winter park'],
+    outlines: {
+      office: ['Anxiety care at our Winter Park clinic', 'Therapy vs psychiatry for anxiety', 'Panic symptom support', 'Telehealth and in-person options'],
+      nearby: ['Anxiety care for {city} residents', 'Therapy and psychiatry options', 'Panic and overwhelm support', 'Telehealth availability'],
+    },
+    faqs: {
+      general: [
+        { question: 'Do you help with panic attacks?', answer: 'Yes, we specialize in treating panic attacks and panic disorder. Our team provides comprehensive anxiety and panic care with therapy and psychiatry options.' },
+        { question: 'What types of anxiety do you treat?', answer: 'We treat generalized anxiety, social anxiety, panic disorder, health anxiety, and other anxiety-related conditions. An evaluation helps determine the best approach for your symptoms.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and secure telehealth appointments for anxiety care.' },
+        { question: 'Is online anxiety treatment available?', answer: 'Yes, we offer telepsychiatry and online therapy for {city} residents who prefer virtual appointments.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/anxiety/therapy', '/conditions/anxiety/psychiatry', '/conditions/anxiety/telepsychiatry'],
+    keywords: (city, citySlug) => [`anxiety treatment ${citySlug.replace(/-/g, ' ')}`, `anxiety ${citySlug.replace(/-/g, ' ')}`, `anxiety doctor ${citySlug.replace(/-/g, ' ')}`, `anxiety therapist ${city.toLowerCase()}`],
   },
   {
-    slug: 'adhd-lake-nona',
-    path: '/conditions/adhd/lake-nona',
-    title: 'ADHD Treatment in Lake Nona | Empathy Health Clinic',
-    description: 'ADHD evaluation and support for Lake Nona clients with convenient online options and clear care planning.',
-    h1: 'ADHD Treatment in Lake Nona',
-    pageType: 'condition-location',
-    outline: [
-      'ADHD care for Lake Nona residents',
-      'Evaluation and next steps',
-      'Telepsychiatry options',
-      'Getting started',
-    ],
-    faqs: [
-      { question: 'Do you serve Lake Nona?', answer: 'Yes, we serve Lake Nona residents through our convenient telepsychiatry platform and our Winter Park office.' },
-      { question: 'Can I start online?', answer: 'Yes, telepsychiatry makes it easy to begin ADHD care from Lake Nona.' },
-    ],
-    internalLinks: {
-      up: '/conditions/adhd',
-      cross: ['/conditions/adhd/telepsychiatry'],
+    slug: 'depression',
+    name: 'Depression',
+    fullName: 'Depression',
+    descriptions: {
+      office: 'Depression treatment at our Winter Park clinic with therapy and psychiatry options. Compassionate care and clear next steps.',
+      nearby: 'Depression support for {city} residents with therapy and psychiatry options. Compassionate evaluation and flexible scheduling.',
     },
-    keywords: ['adhd treatment lake nona', 'adhd lake nona', 'adhd doctor lake nona'],
+    outlines: {
+      office: ['Depression care at our Winter Park clinic', 'Burnout vs depression', 'Therapy and psychiatry pathways', 'Online appointment options'],
+      nearby: ['Depression care for {city} residents', 'Recognizing depression vs burnout', 'Treatment options available', 'Telehealth and in-person flexibility'],
+    },
+    faqs: {
+      general: [
+        { question: "How do I know if it's depression?", answer: 'Persistent sadness, loss of interest in activities, changes in sleep or appetite, and difficulty functioning are common signs. An evaluation can help clarify your symptoms and guide treatment.' },
+        { question: 'Can I start with therapy?', answer: 'Yes, therapy is often an excellent starting point for depression treatment. You can add other approaches as needed based on your progress.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and convenient telehealth options for depression care.' },
+        { question: 'Can I do depression treatment online?', answer: 'Yes, we offer secure telehealth appointments for depression evaluation and ongoing care from {city}.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/depression/therapy', '/conditions/depression/psychiatry', '/conditions/depression/telepsychiatry'],
+    keywords: (city, citySlug) => [`depression treatment ${citySlug.replace(/-/g, ' ')}`, `depression ${citySlug.replace(/-/g, ' ')}`, `depression doctor ${citySlug.replace(/-/g, ' ')}`, `depression therapist ${city.toLowerCase()}`],
   },
   {
-    slug: 'anxiety-orlando',
-    path: '/conditions/anxiety/orlando',
-    title: 'Anxiety Treatment in Orlando | Empathy Health Clinic',
-    description: 'Anxiety care in Orlando with therapy and psychiatry options. Support for worry, panic symptoms, and overwhelm.',
-    h1: 'Anxiety Treatment in Orlando',
-    pageType: 'condition-location',
-    outline: [
-      'Anxiety care in Orlando',
-      'Therapy vs psychiatry',
-      'Panic symptom support',
-      'Online options',
-    ],
-    faqs: [
-      { question: 'Do you help with panic attacks?', answer: 'Yes, we specialize in treating panic attacks and panic disorder. Our Orlando team provides comprehensive anxiety and panic care.' },
-      { question: 'Is online care available?', answer: 'Yes, we offer telepsychiatry and online therapy for Orlando-area residents who prefer virtual appointments.' },
-    ],
-    internalLinks: {
-      up: '/conditions/anxiety',
-      down: ['/conditions/anxiety/therapy', '/conditions/anxiety/psychiatry', '/conditions/anxiety/telepsychiatry'],
+    slug: 'bipolar',
+    name: 'Bipolar',
+    fullName: 'Bipolar Disorder',
+    descriptions: {
+      office: 'Bipolar disorder evaluation and ongoing psychiatry support at our Winter Park clinic. Structured care plans and consistent follow-up.',
+      nearby: 'Bipolar disorder support for {city} residents with structured evaluation, ongoing monitoring, and telehealth options.',
     },
-    keywords: ['anxiety treatment orlando', 'anxiety orlando', 'anxiety doctor orlando', 'anxiety specialist orlando'],
+    outlines: {
+      office: ['Bipolar care at our Winter Park clinic', 'Evaluation and ongoing monitoring', 'Therapy coordination', 'Telehealth follow-up options'],
+      nearby: ['Bipolar care for {city} residents', 'Evaluation and monitoring', 'Treatment coordination options', 'Telehealth availability'],
+    },
+    faqs: {
+      general: [
+        { question: 'How is bipolar disorder diagnosed?', answer: 'Bipolar diagnosis involves a comprehensive evaluation of your mood patterns, history, and symptoms. We look for patterns of mood episodes and their impact on your life.' },
+        { question: 'What should I track between visits?', answer: 'Tracking mood, sleep, energy levels, and any triggers helps us monitor your progress and adjust your care plan as needed.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and convenient telehealth options for bipolar care.' },
+        { question: 'Can I do bipolar treatment online?', answer: 'Yes, we offer secure telehealth appointments for bipolar evaluation and ongoing monitoring from {city}.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/bipolar/psychiatry', '/conditions/bipolar/therapy'],
+    keywords: (city, citySlug) => [`bipolar treatment ${citySlug.replace(/-/g, ' ')}`, `bipolar ${citySlug.replace(/-/g, ' ')}`, `bipolar doctor ${citySlug.replace(/-/g, ' ')}`, `bipolar specialist ${city.toLowerCase()}`],
   },
   {
-    slug: 'anxiety-winter-park',
-    path: '/conditions/anxiety/winter-park',
-    title: 'Anxiety Treatment in Winter Park | Empathy Health Clinic',
-    description: 'Anxiety support for Winter Park clients with therapy and psychiatry options plus convenient telehealth visits.',
-    h1: 'Anxiety Treatment in Winter Park',
-    pageType: 'condition-location',
-    outline: [
-      'Anxiety care in Winter Park',
-      'Therapy and psychiatry options',
-      'Panic symptom support',
-      'Telehealth availability',
-    ],
-    faqs: [
-      { question: 'Do you help with panic attacks?', answer: 'Yes, we provide comprehensive care for panic attacks and anxiety disorders at our Winter Park clinic.' },
-      { question: 'Is online care available?', answer: 'Yes, we offer telehealth appointments for all anxiety services.' },
-    ],
-    internalLinks: {
-      up: '/conditions/anxiety',
-      siblings: ['/conditions/anxiety/orlando', '/conditions/anxiety/maitland'],
+    slug: 'ocd',
+    name: 'OCD',
+    fullName: 'OCD',
+    descriptions: {
+      office: 'OCD evaluation and therapy at our Winter Park clinic. Structured treatment plans for obsessions, compulsions, and related symptoms.',
+      nearby: 'OCD evaluation and therapy support for {city} residents. Learn what OCD looks like and how structured treatment helps.',
     },
-    keywords: ['anxiety treatment winter park', 'anxiety winter park', 'anxiety therapist winter park'],
+    outlines: {
+      office: ['OCD care at our Winter Park clinic', 'Evaluation process', 'Therapy-focused treatment', 'Telehealth options available'],
+      nearby: ['OCD care for {city} residents', 'Evaluation process', 'Therapy options', 'Telehealth availability'],
+    },
+    faqs: {
+      general: [
+        { question: 'Is this OCD or anxiety?', answer: 'OCD and anxiety can overlap, but OCD specifically involves obsessions (intrusive thoughts) and compulsions (repetitive behaviors). An evaluation can help distinguish between them.' },
+        { question: 'How effective is OCD treatment?', answer: 'OCD treatment is highly effective. Many clients see significant improvement with structured therapy, and our team creates personalized plans for each individual.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and secure telehealth appointments for OCD care.' },
+        { question: 'Can OCD therapy be done online?', answer: 'Yes, OCD therapy is highly effective through our secure telehealth platform for {city} residents.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/ocd/therapy', '/conditions/ocd/psychiatry'],
+    keywords: (city, citySlug) => [`ocd treatment ${citySlug.replace(/-/g, ' ')}`, `ocd ${citySlug.replace(/-/g, ' ')}`, `ocd doctor ${citySlug.replace(/-/g, ' ')}`, `ocd therapist ${city.toLowerCase()}`],
   },
   {
-    slug: 'anxiety-maitland',
-    path: '/conditions/anxiety/maitland',
-    title: 'Anxiety Treatment in Maitland | Empathy Health Clinic',
-    description: 'Anxiety care for Maitland clients with supportive evaluation, therapy options, and secure telehealth appointments.',
-    h1: 'Anxiety Treatment in Maitland',
-    pageType: 'condition-location',
-    outline: [
-      'Anxiety care for Maitland residents',
-      'Evaluation and treatment options',
-      'Telehealth availability',
-      'Getting started',
-    ],
-    faqs: [
-      { question: 'Do you serve Maitland?', answer: 'Yes, we serve Maitland residents through our Winter Park office and convenient telehealth options.' },
-      { question: 'Can I do appointments online?', answer: 'Yes, we offer secure telehealth appointments for anxiety care.' },
-    ],
-    internalLinks: {
-      up: '/conditions/anxiety',
-      cross: ['/conditions/anxiety/telepsychiatry'],
+    slug: 'ptsd',
+    name: 'PTSD',
+    fullName: 'PTSD',
+    descriptions: {
+      office: 'PTSD evaluation and trauma-informed treatment at our Winter Park clinic. Evidence-based care with therapy and psychiatry options.',
+      nearby: 'PTSD treatment for {city} residents with trauma-informed evaluation, therapy, and psychiatry support.',
     },
-    keywords: ['anxiety treatment maitland', 'anxiety maitland', 'anxiety therapist maitland'],
+    outlines: {
+      office: ['PTSD care at our Winter Park clinic', 'Trauma-informed evaluation process', 'Therapy and psychiatry options', 'Telehealth appointments available'],
+      nearby: ['PTSD care for {city} residents', 'Trauma-informed evaluation', 'Therapy and psychiatry options', 'Telehealth and in-person flexibility'],
+    },
+    faqs: {
+      general: [
+        { question: 'What does PTSD treatment involve?', answer: 'PTSD treatment typically includes a comprehensive evaluation followed by evidence-based therapy approaches. We create personalized treatment plans that address your specific trauma history and symptoms.' },
+        { question: 'Do I need a formal diagnosis to start?', answer: 'No, you do not need a prior diagnosis. We can evaluate your symptoms during your first appointment and determine the best treatment approach for your situation.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and secure telehealth appointments for PTSD care.' },
+        { question: 'Can PTSD treatment be done online?', answer: 'Yes, many aspects of PTSD treatment can be effectively delivered through our secure telehealth platform for {city} residents.' },
+      ],
+    },
+    treatmentLinks: ['/conditions/ptsd/psychiatry', '/conditions/ptsd/therapy'],
+    keywords: (city, citySlug) => [`ptsd treatment ${citySlug.replace(/-/g, ' ')}`, `ptsd ${citySlug.replace(/-/g, ' ')}`, `ptsd doctor ${citySlug.replace(/-/g, ' ')}`, `trauma therapist ${city.toLowerCase()}`],
   },
   {
-    slug: 'depression-orlando',
-    path: '/conditions/depression/orlando',
-    title: 'Depression Treatment in Orlando | Empathy Health Clinic',
-    description: 'Depression support in Orlando with therapy and psychiatry options. Compassionate care and clear next steps.',
-    h1: 'Depression Treatment in Orlando',
-    pageType: 'condition-location',
-    outline: [
-      'Depression care in Orlando',
-      'Burnout vs depression',
-      'Therapy and psychiatry pathways',
-      'Online options',
-    ],
-    faqs: [
-      { question: "How do I know if it's depression?", answer: 'Persistent sadness, loss of interest, sleep changes, and difficulty functioning are common signs. An evaluation can help clarify your symptoms and guide treatment.' },
-      { question: 'Can I start with therapy?', answer: 'Yes, you can begin with therapy and add other treatment approaches as needed based on your progress and preferences.' },
-    ],
-    internalLinks: {
-      up: '/conditions/depression',
-      down: ['/conditions/depression/therapy', '/conditions/depression/psychiatry'],
-      cross: ['/conditions/depression/burnout-vs-depression'],
+    slug: 'medication-management',
+    name: 'Medication Management',
+    fullName: 'Medication Management',
+    descriptions: {
+      office: 'Psychiatric medication management at our Winter Park clinic. Ongoing monitoring, dosage adjustments, and coordinated care with your treatment team.',
+      nearby: 'Medication management for {city} residents with ongoing psychiatric monitoring, dosage adjustments, and coordinated care.',
     },
-    keywords: ['depression treatment orlando', 'depression orlando', 'depression doctor orlando', 'depression specialist orlando'],
-  },
-  {
-    slug: 'depression-winter-park',
-    path: '/conditions/depression/winter-park',
-    title: 'Depression Treatment in Winter Park | Empathy Health Clinic',
-    description: 'Depression care for Winter Park clients with therapy and psychiatry options and flexible telehealth scheduling.',
-    h1: 'Depression Treatment in Winter Park',
-    pageType: 'condition-location',
-    outline: [
-      'Depression care in Winter Park',
-      'Therapy and psychiatry options',
-      'Burnout vs depression',
-      'Telehealth availability',
-    ],
-    faqs: [
-      { question: "How do I know if it's depression?", answer: 'Common signs include persistent sadness, loss of interest, and changes in sleep or energy. We can help you understand your symptoms through an evaluation.' },
-      { question: 'Can I start with therapy?', answer: 'Yes, therapy is often an excellent starting point for depression treatment.' },
-    ],
-    internalLinks: {
-      up: '/conditions/depression',
-      siblings: ['/conditions/depression/orlando', '/conditions/depression/college-park'],
+    outlines: {
+      office: ['Medication management at our Winter Park clinic', 'What medication management includes', 'Ongoing monitoring and adjustments', 'Telehealth follow-up options'],
+      nearby: ['Medication management for {city} residents', 'What to expect from medication management', 'Ongoing monitoring and adjustments', 'Telehealth and in-person flexibility'],
     },
-    keywords: ['depression treatment winter park', 'depression winter park', 'depression therapist winter park'],
-  },
-  {
-    slug: 'depression-college-park',
-    path: '/conditions/depression/college-park',
-    title: 'Depression Treatment in College Park | Empathy Health Clinic',
-    description: 'Depression support for College Park clients. Evaluation and therapy options with secure online visits available.',
-    h1: 'Depression Treatment in College Park',
-    pageType: 'condition-location',
-    outline: [
-      'Depression care for College Park residents',
-      'Evaluation and treatment options',
-      'Telehealth availability',
-      'Getting started',
-    ],
-    faqs: [
-      { question: 'Do you serve College Park?', answer: 'Yes, we serve College Park residents through our Winter Park office and convenient telehealth options.' },
-      { question: 'Can I do appointments online?', answer: 'Yes, we offer secure telehealth appointments for depression care.' },
-    ],
-    internalLinks: {
-      up: '/conditions/depression',
-      cross: ['/conditions/depression/telepsychiatry'],
+    faqs: {
+      general: [
+        { question: 'What is psychiatric medication management?', answer: 'Medication management involves working with a psychiatrist to find the right medication and dosage for your condition. It includes regular follow-up appointments to monitor effectiveness, adjust dosages, and manage any side effects.' },
+        { question: 'How often are medication management appointments?', answer: 'Initially, appointments may be every 2-4 weeks as we find the right approach. Once stabilized, follow-up visits are typically monthly or quarterly depending on your needs.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and convenient telehealth appointments for medication management.' },
+        { question: 'Can medication management be done via telehealth?', answer: 'Yes, medication management appointments work well through our secure telehealth platform, making it convenient for {city} residents.' },
+      ],
     },
-    keywords: ['depression treatment college park', 'depression college park', 'depression therapist college park'],
-  },
-  {
-    slug: 'bipolar-orlando',
-    path: '/conditions/bipolar/orlando',
-    title: 'Bipolar Disorder Treatment in Orlando | Empathy Health Clinic',
-    description: 'Bipolar evaluation and ongoing support in Orlando with structured follow-up and therapy coordination options.',
-    h1: 'Bipolar Disorder Treatment in Orlando',
-    pageType: 'condition-location',
-    outline: [
-      'Bipolar care in Orlando',
-      'Evaluation and ongoing monitoring',
-      'Therapy support',
-      'Online options',
-    ],
-    faqs: [
-      { question: 'How is bipolar diagnosed?', answer: 'Bipolar diagnosis involves a comprehensive evaluation of your mood patterns, history, and symptoms. We look for patterns of mood episodes over time.' },
-      { question: 'What should I track between visits?', answer: 'Tracking mood, sleep, energy levels, and any triggers helps us monitor your progress and adjust your care plan as needed.' },
-    ],
-    internalLinks: {
-      up: '/conditions/bipolar',
-      down: ['/conditions/bipolar/psychiatry', '/conditions/bipolar/therapy'],
-    },
-    keywords: ['bipolar treatment orlando', 'bipolar orlando', 'bipolar doctor orlando', 'bipolar specialist orlando'],
-  },
-  {
-    slug: 'bipolar-altamonte-springs',
-    path: '/conditions/bipolar/altamonte-springs',
-    title: 'Bipolar Treatment in Altamonte Springs | Empathy Health Clinic',
-    description: 'Bipolar support for Altamonte Springs clients with structured evaluation and secure telehealth options.',
-    h1: 'Bipolar Disorder Treatment in Altamonte Springs',
-    pageType: 'condition-location',
-    outline: [
-      'Bipolar care for Altamonte Springs residents',
-      'Evaluation and monitoring',
-      'Telehealth options',
-      'Getting started',
-    ],
-    faqs: [
-      { question: 'Do you serve Altamonte Springs?', answer: 'Yes, we serve Altamonte Springs residents through our Winter Park office and convenient telehealth options.' },
-      { question: 'Can I do appointments online?', answer: 'Yes, we offer secure telehealth appointments for bipolar care.' },
-    ],
-    internalLinks: {
-      up: '/conditions/bipolar',
-      cross: ['/conditions/bipolar/psychiatry'],
-    },
-    keywords: ['bipolar treatment altamonte springs', 'bipolar altamonte springs', 'bipolar doctor altamonte springs'],
-  },
-  {
-    slug: 'ocd-orlando',
-    path: '/conditions/ocd/orlando',
-    title: 'OCD Treatment in Orlando | Empathy Health Clinic',
-    description: 'OCD evaluation and therapy support in Orlando. Learn what OCD looks like and how treatment can help.',
-    h1: 'OCD Treatment in Orlando',
-    pageType: 'condition-location',
-    outline: [
-      'OCD care in Orlando',
-      'Evaluation process',
-      'Therapy options',
-      'Online options',
-    ],
-    faqs: [
-      { question: 'Is this OCD or anxiety?', answer: 'OCD and anxiety can overlap, but OCD specifically involves obsessions and compulsions. An evaluation can help distinguish between them.' },
-      { question: 'Can therapy be online?', answer: 'Yes, OCD therapy is highly effective through our telehealth platform.' },
-    ],
-    internalLinks: {
-      up: '/conditions/ocd',
-      down: ['/conditions/ocd/therapy', '/conditions/ocd/psychiatry'],
-    },
-    keywords: ['ocd treatment orlando', 'ocd orlando', 'ocd doctor orlando', 'ocd specialist orlando'],
-  },
-  {
-    slug: 'ocd-winter-park',
-    path: '/conditions/ocd/winter-park',
-    title: 'OCD Treatment in Winter Park | Empathy Health Clinic',
-    description: 'OCD support for Winter Park clients with evaluation and therapy options plus secure online visits.',
-    h1: 'OCD Treatment in Winter Park',
-    pageType: 'condition-location',
-    outline: [
-      'OCD care in Winter Park',
-      'Evaluation and treatment options',
-      'Therapy options',
-      'Telehealth availability',
-    ],
-    faqs: [
-      { question: 'Is this OCD or anxiety?', answer: 'We can help distinguish between OCD and anxiety through a comprehensive evaluation.' },
-      { question: 'Can therapy be online?', answer: 'Yes, we offer secure telehealth appointments for OCD treatment.' },
-    ],
-    internalLinks: {
-      up: '/conditions/ocd',
-      siblings: ['/conditions/ocd/orlando'],
-    },
-    keywords: ['ocd treatment winter park', 'ocd winter park', 'ocd therapist winter park'],
+    treatmentLinks: ['/conditions/medication-management/psychiatry'],
+    keywords: (city, citySlug) => [`medication management ${citySlug.replace(/-/g, ' ')}`, `psychiatric medication ${citySlug.replace(/-/g, ' ')}`, `psychiatrist medication management ${city.toLowerCase()}`],
   },
 ];
+
+function generateConditionLocationPages(): ConditionPageConfig[] {
+  const pages: ConditionPageConfig[] = [];
+
+  for (const condition of conditionDefinitions) {
+    const citySlugs = serviceCities.map(c => c.slug);
+
+    for (const city of serviceCities) {
+      const slug = `${condition.slug}-${city.slug}`;
+      const path = `/conditions/${condition.slug}/${city.slug}`;
+
+      const descTemplate = city.isOfficeLocation ? condition.descriptions.office : condition.descriptions.nearby;
+      const description = descTemplate.replace(/\{city\}/g, city.name);
+
+      const outlineTemplate = city.isOfficeLocation ? condition.outlines.office : condition.outlines.nearby;
+      const outline = outlineTemplate.map(item => item.replace(/\{city\}/g, city.name));
+
+      const faqs = [
+        ...condition.faqs.general,
+        ...(city.isOfficeLocation ? [] : condition.faqs.remote.map(faq => ({
+          question: faq.question.replace(/\{city\}/g, city.name),
+          answer: faq.answer.replace(/\{city\}/g, city.name),
+        }))),
+      ];
+
+      // Build sibling links (other cities for same condition, max 4)
+      const siblingCities = citySlugs.filter(s => s !== city.slug).slice(0, 4);
+      const siblings = siblingCities.map(s => `/conditions/${condition.slug}/${s}`);
+
+      const titleName = condition.fullName === 'Bipolar Disorder'
+        ? `Bipolar Disorder Treatment in ${city.name}`
+        : `${condition.name} Treatment in ${city.name}`;
+
+      pages.push({
+        slug,
+        path,
+        title: `${titleName} | Empathy Health Clinic`,
+        description,
+        h1: titleName,
+        pageType: 'condition-location',
+        outline,
+        faqs,
+        internalLinks: {
+          up: `/conditions/${condition.slug}`,
+          siblings,
+          down: condition.treatmentLinks,
+        },
+        keywords: condition.keywords(city.name, city.slug),
+      });
+    }
+  }
+
+  return pages;
+}
+
+const conditionLocationPages: ConditionPageConfig[] = generateConditionLocationPages();
 
 // C) INSURANCE × CONDITION PAGES (6 pages)
 const insuranceConditionPages: ConditionPageConfig[] = [

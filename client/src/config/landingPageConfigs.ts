@@ -6458,3 +6458,458 @@ export const dbtTherapyOrlandoConfig: LandingPageConfig = {
     conversionCategory: "dbt_therapy_orlando",
   },
 };
+
+// ============================================================
+// LOCATION HUB PAGES — New service-area cities
+// ============================================================
+
+const locationJsonLdBase = {
+  "@context": "https://schema.org",
+  "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
+  "telephone": "+1-386-848-8751",
+  "email": "providers@empathyhealthclinic.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2281 Lee Rd Suite 102",
+    "addressLocality": "Winter Park",
+    "addressRegion": "FL",
+    "postalCode": "32810",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.59544,
+    "longitude": -81.36537
+  },
+  "medicalSpecialty": "Psychiatry",
+  "sameAs": [
+    "https://www.facebook.com/empathyhealthclinic",
+    "https://www.instagram.com/empathyhealthclinic",
+    "https://www.linkedin.com/company/empathy-health-clinic",
+    "https://www.psychologytoday.com/us/psychiatrists/empathy-health-clinic-winter-park-fl",
+    "https://www.healthgrades.com/group-directory/fl-florida/winter-park/empathy-health-clinic",
+    "https://www.zocdoc.com/practice/empathy-health-clinic"
+  ]
+};
+
+const locationBase = {
+  title: "Office Location",
+  address: "2281 Lee Rd Suite 102",
+  city: "Winter Park",
+  state: "FL",
+  zip: "32810",
+  phone: "3868488751",
+  phoneDisplay: "386-848-8751",
+  hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
+  mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
+};
+
+const standardConditions = [
+  { name: "Anxiety Disorders & Panic Attacks" },
+  { name: "Depression & Mood Disorders" },
+  { name: "ADHD (Adult)" },
+  { name: "Bipolar Disorder" },
+  { name: "OCD & Related Disorders" },
+  { name: "PTSD & Trauma-Related Disorders" },
+  { name: "Insomnia & Sleep Disorders" },
+  { name: "Medication Management" },
+];
+
+const standardServices = [
+  {
+    icon: FileText,
+    title: "Comprehensive Psychiatric Evaluations",
+    description: "Thorough mental health assessments to accurately diagnose your condition and create an effective, personalized treatment plan."
+  },
+  {
+    icon: Brain,
+    title: "Medication Management",
+    description: "Expert psychiatric medication prescribing and ongoing monitoring to find the right medication and dosage for your needs."
+  },
+  {
+    icon: Brain,
+    title: "ADHD Treatment",
+    description: "Specialized adult ADHD diagnosis and treatment with both stimulant and non-stimulant medication options."
+  },
+  {
+    icon: Heart,
+    title: "Anxiety & Depression Care",
+    description: "Evidence-based treatment for all types of anxiety and depression, customized to your specific diagnosis and symptoms."
+  },
+  {
+    icon: Video,
+    title: "Telepsychiatry",
+    description: "Convenient virtual appointments from the comfort of your home. Same quality care as in-person visits with added flexibility."
+  },
+];
+
+export const psychiatristOviedoConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Oviedo FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Oviedo, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist oviedo", "psychiatrist oviedo fl", "oviedo psychiatrist", "mental health oviedo", "adhd doctor oviedo", "anxiety treatment oviedo"],
+    canonicalPath: "/psychiatrist-oviedo",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Oviedo FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Oviedo, FL with comprehensive mental health treatment and medication management.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-oviedo",
+    "areaServed": [
+      { "@type": "City", "name": "Oviedo" },
+      { "@type": "City", "name": "Winter Springs" },
+      { "@type": "City", "name": "Chuluota" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Oviedo, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Oviedo residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments available with in-person and telehealth options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Oviedo from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Oviedo Residents",
+    introduction: [
+      "Oviedo residents can access board-certified psychiatric care at Empathy Health Clinic in nearby Winter Park. Our experienced psychiatrists provide comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "Whether you prefer in-person visits at our Winter Park office or the convenience of secure telehealth appointments from Oviedo, we offer flexible scheduling to fit your needs. Same-week appointments are available for new patients.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Oviedo",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Oviedo?", answer: "Yes, we serve Oviedo residents through our Winter Park office and convenient telehealth appointments. Our Winter Park location is easily accessible from Oviedo via SR-417 or Alafaya Trail." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule your first visit." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, and more. Contact us to verify your specific coverage." },
+    { question: "Is telehealth available for Oviedo residents?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive expert psychiatric care from the comfort of your Oviedo home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Oviedo residents. Same-week appointments available.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/oviedo", label: "ADHD Treatment Oviedo" },
+      { href: "/conditions/anxiety/oviedo", label: "Anxiety Treatment Oviedo" },
+      { href: "/conditions/depression/oviedo", label: "Depression Treatment Oviedo" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-winter-park", label: "Psychiatrist Winter Park" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Oviedo Page",
+    conversionCategory: "psychiatrist_oviedo",
+  },
+};
+
+export const psychiatristSanfordConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Sanford FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Sanford, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist sanford", "psychiatrist sanford fl", "sanford psychiatrist", "mental health sanford", "adhd doctor sanford", "anxiety treatment sanford"],
+    canonicalPath: "/psychiatrist-sanford",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Sanford FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Sanford, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-sanford",
+    "areaServed": [
+      { "@type": "City", "name": "Sanford" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Deltona" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Sanford, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Sanford residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Sanford from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Sanford Residents",
+    introduction: [
+      "Sanford residents can access board-certified psychiatric care at Empathy Health Clinic. Our experienced psychiatrists provide comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "We offer flexible scheduling with in-person visits at our Winter Park office and secure telehealth appointments that make quality psychiatric care convenient for Sanford residents. Same-week appointments are available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Sanford",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Sanford?", answer: "Yes, we serve Sanford residents through our Winter Park office and convenient telehealth appointments. Telehealth makes it easy to access quality psychiatric care from Sanford." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Sanford home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Sanford residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/sanford", label: "ADHD Treatment Sanford" },
+      { href: "/conditions/anxiety/sanford", label: "Anxiety Treatment Sanford" },
+      { href: "/conditions/depression/sanford", label: "Depression Treatment Sanford" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-lake-mary", label: "Psychiatrist Lake Mary" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Sanford Page",
+    conversionCategory: "psychiatrist_sanford",
+  },
+};
+
+export const psychiatristLakeMaryConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Lake Mary FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Lake Mary, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist lake mary", "psychiatrist lake mary fl", "lake mary psychiatrist", "mental health lake mary", "adhd doctor lake mary", "anxiety treatment lake mary"],
+    canonicalPath: "/psychiatrist-lake-mary",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Lake Mary FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Lake Mary, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-lake-mary",
+    "areaServed": [
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Sanford" },
+      { "@type": "City", "name": "Heathrow" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Lake Mary, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Lake Mary residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Lake Mary from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Lake Mary Residents",
+    introduction: [
+      "Lake Mary residents can access board-certified psychiatric care at Empathy Health Clinic. Our experienced team provides comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "With flexible scheduling options including in-person visits at our Winter Park office and secure telehealth appointments, quality psychiatric care is convenient for Lake Mary residents. Same-week appointments available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Lake Mary",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Lake Mary?", answer: "Yes, we serve Lake Mary residents through our Winter Park office and convenient telehealth appointments. Lake Mary is easily accessible to our clinic via I-4." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive care from your Lake Mary home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Lake Mary residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/lake-mary", label: "ADHD Treatment Lake Mary" },
+      { href: "/conditions/anxiety/lake-mary", label: "Anxiety Treatment Lake Mary" },
+      { href: "/conditions/depression/lake-mary", label: "Depression Treatment Lake Mary" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-sanford", label: "Psychiatrist Sanford" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Lake Mary Page",
+    conversionCategory: "psychiatrist_lake_mary",
+  },
+};
+
+export const psychiatristCollegeParkConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist College Park FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving College Park, Orlando. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments available.",
+    keywords: ["psychiatrist college park orlando", "psychiatrist college park fl", "college park psychiatrist", "mental health college park", "adhd doctor college park orlando"],
+    canonicalPath: "/psychiatrist-college-park",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist College Park Orlando - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving College Park, Orlando with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-college-park",
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "College Park" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Downtown Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving College Park, Orlando",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for College Park residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving College Park from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for College Park Residents",
+    introduction: [
+      "College Park residents can access board-certified psychiatric care at Empathy Health Clinic in nearby Winter Park. Our psychiatrists provide comprehensive mental health treatment for adults including medication management, psychiatric evaluations, and ongoing support.",
+      "Our Winter Park office is a short drive from College Park, and we also offer secure telehealth appointments for added convenience. Same-week appointments are available for new patients.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for College Park",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in College Park?", answer: "Yes, we serve College Park residents through our Winter Park office and convenient telehealth appointments." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive care from your College Park home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for College Park residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/college-park", label: "ADHD Treatment College Park" },
+      { href: "/conditions/anxiety/college-park", label: "Anxiety Treatment College Park" },
+      { href: "/conditions/depression/college-park", label: "Depression Treatment College Park" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-downtown-orlando", label: "Psychiatrist Downtown Orlando" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist College Park Page",
+    conversionCategory: "psychiatrist_college_park",
+  },
+};
+
+export const psychiatristMaitlandConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Maitland FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Maitland, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Minutes from Maitland.",
+    keywords: ["psychiatrist maitland", "psychiatrist maitland fl", "maitland psychiatrist", "mental health maitland", "adhd doctor maitland", "anxiety treatment maitland"],
+    canonicalPath: "/psychiatrist-maitland",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Maitland FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Maitland, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-maitland",
+    "areaServed": [
+      { "@type": "City", "name": "Maitland" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Altamonte Springs" },
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Eatonville" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Maitland, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Maitland residents. Our Winter Park office is just minutes from Maitland. Treatment for anxiety, depression, ADHD, bipolar disorder, and more.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Minutes from Maitland"],
+  },
+  location: { ...locationBase, title: "Minutes from Maitland — Winter Park Office" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Maitland Residents",
+    introduction: [
+      "Maitland residents are just minutes from our Winter Park psychiatric clinic. Our board-certified psychiatrists provide comprehensive mental health treatment for adults including medication management, psychiatric evaluations, and ongoing support.",
+      "Located on Lee Road in Winter Park, our office is easily accessible from Maitland via Maitland Boulevard. We also offer secure telehealth appointments for added convenience. Same-week appointments available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Maitland",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "How close is your office to Maitland?", answer: "Our Winter Park office is approximately 5 minutes from Maitland via Maitland Boulevard and Lee Road. We are located at 2281 Lee Rd Suite 102, Winter Park, FL 32810." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive care from your Maitland home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care minutes from Maitland.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/maitland", label: "ADHD Treatment Maitland" },
+      { href: "/conditions/anxiety/maitland", label: "Anxiety Treatment Maitland" },
+      { href: "/conditions/depression/maitland", label: "Depression Treatment Maitland" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-winter-park", label: "Psychiatrist Winter Park" },
+      { href: "/therapist-maitland", label: "Therapist Maitland" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Maitland Page",
+    conversionCategory: "psychiatrist_maitland",
+  },
+};
