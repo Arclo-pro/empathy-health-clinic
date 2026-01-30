@@ -52,6 +52,8 @@ export default function TeamMemberDetail() {
                     alt={member.name}
                     className="w-full h-full object-cover"
                     data-testid="img-provider-photo"
+                    width="400"
+                    height="400"
                   />
                 </div>
               </div>

@@ -119,10 +119,12 @@ export default function Providers() {
                   >
                     <div className="aspect-[4/5] rounded-t-lg overflow-hidden bg-muted">
                       {member.image ? (
-                        <img 
-                          src={member.image} 
-                          alt={member.name} 
-                          className="w-full h-full object-cover object-top" 
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover object-top"
+                          width="300"
+                          height="375"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">

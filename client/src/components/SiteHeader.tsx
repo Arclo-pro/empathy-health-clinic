@@ -32,7 +32,7 @@ class HeaderErrorBoundary extends Component<{ children: ReactNode }, HeaderError
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex items-center justify-between h-20">
               <a href="/" className="flex items-center">
-                <img src={logoImage} alt="Empathy Health Clinic psychiatrist Orlando FL logo" className="h-16 w-auto" />
+                <img src={logoImage} alt="Empathy Health Clinic psychiatrist Orlando FL logo" className="h-16 w-auto" width="240" height="64" />
               </a>
               <nav className="flex items-center gap-4">
                 <a href="/services" className="text-gray-800 hover:text-orange-500">Services</a>

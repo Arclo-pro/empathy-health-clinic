@@ -100,78 +100,6 @@ function WinterParkTeamSection() {
 }
 
 // Curated Winter Park Testimonials - showing first 3 reviews
-function WinterParkTestimonialsSection() {
-  const { data: testimonials } = useQuery<{ id: string; name: string; rating: number; text: string; date: string; verified: boolean; }[]>({
-    queryKey: ["/api/testimonials"],
-  });
-
-  const featuredTestimonials = testimonials?.slice(0, 3); // Show first 3 testimonials
-
-  return (
-    <section className="py-12 md:py-16 lg:py-20 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-sans font-bold text-center mb-3">
-          Our Testimonials
-        </h2>
-        <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-10">
-          Real reviews from patients who've received care at Empathy Health Clinic
-        </p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-8">
-          {featuredTestimonials?.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className="rounded-xl border bg-card p-6 hover-elevate transition-all"
-              data-testid={`testimonial-${index}`}
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold ${
-                  index % 6 === 0 ? 'bg-blue-500' :
-                  index % 6 === 1 ? 'bg-purple-500' :
-                  index % 6 === 2 ? 'bg-pink-500' :
-                  index % 6 === 3 ? 'bg-green-500' :
-                  index % 6 === 4 ? 'bg-orange-500' : 'bg-teal-500'
-                }`}>
-                  {testimonial.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground">{testimonial.name}</h3>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-4 w-4 ${
-                          i < testimonial.rating
-                            ? 'fill-yellow-400 text-yellow-400'
-                            : 'fill-muted text-muted'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                "{testimonial.text}"
-              </p>
-              {testimonial.verified && (
-                <div className="flex items-center gap-1 text-xs text-primary">
-                  <CheckCircle className="h-3 w-3" />
-                  <span>Verified Patient</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <p className="text-sm text-muted-foreground">
-            Trusted by hundreds of patients in Winter Park and Central Florida
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function WinterPark() {
   const handlePhoneClick = () => {
@@ -641,7 +569,7 @@ export default function WinterPark() {
           
           {/* Testimonials - Featured Reviews */}
           <div className="border-t" />
-          <WinterParkTestimonialsSection />
+          <TestimonialsSection limit={3} />
         </Suspense>
 
         {/* Contact CTA Section */}

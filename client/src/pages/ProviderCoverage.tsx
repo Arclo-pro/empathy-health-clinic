@@ -87,6 +87,8 @@ export default function ProviderCoverage() {
                 alt={`${provider.name} logo`}
                 className="max-h-16 max-w-full object-contain"
                 data-testid="img-provider-logo"
+                width="128"
+                height="64"
               />
             </div>
             <div>
