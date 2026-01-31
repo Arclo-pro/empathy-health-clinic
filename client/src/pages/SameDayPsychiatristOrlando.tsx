@@ -10,20 +10,20 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function SameDayPsychiatristOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-    "@id": "https://empathyhealthclinic.com/same-day-psychiatrist-orlando#organization",
+    "@id": "https://www.empathyhealthclinic.com/same-day-psychiatrist-orlando#organization",
     "name": "Empathy Health Clinic - Same Day Psychiatrist Orlando FL",
     "parentOrganization": {
-      "@id": "https://empathyhealthclinic.com/#organization"
+      "@id": "https://www.empathyhealthclinic.com/#organization"
     },
     "description": "Same-day psychiatrist appointments in Orlando, FL. Urgent psychiatric care for depression, anxiety, panic attacks, medication management. Board-certified psychiatrists available today.",
-    "url": "https://empathyhealthclinic.com/same-day-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/same-day-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",

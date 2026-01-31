@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function PsychiatryClinicOrlando() {
@@ -19,16 +19,16 @@ export default function PsychiatryClinicOrlando() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/#organization",
+        "@id": "https://www.empathyhealthclinic.com/#organization",
         "name": "Empathy Health Clinic - Psychiatry Clinic Orlando",
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -95,29 +95,29 @@ export default function PsychiatryClinicOrlando() {
           }
         ],
         "priceRange": "$$",
-        "image": "https://empathyhealthclinic.com" + heroImage
+        "image": "https://www.empathyhealthclinic.com" + heroImage
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/psychiatry-clinic-orlando/#webpage",
-        "url": "https://empathyhealthclinic.com/psychiatry-clinic-orlando",
+        "@id": "https://www.empathyhealthclinic.com/psychiatry-clinic-orlando/#webpage",
+        "url": "https://www.empathyhealthclinic.com/psychiatry-clinic-orlando",
         "name": "Psychiatry Clinic in Orlando | Empathy Health Clinic",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Leading psychiatry clinic in Orlando, FL. Board-certified psychiatrists, comprehensive mental health services, medication management. Same-week appointments. Most insurance accepted.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/psychiatry-clinic-orlando/#faq",
+        "@id": "https://www.empathyhealthclinic.com/psychiatry-clinic-orlando/#faq",
         "mainEntity": [
           {
             "@type": "Question",

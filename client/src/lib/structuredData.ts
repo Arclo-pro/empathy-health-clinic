@@ -257,7 +257,7 @@ export function buildPhysicianSchema(physician: PhysicianInfo) {
     "@context": "https://schema.org",
     "@type": "Physician",
     "name": physician.name,
-    "image": physician.image || `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "image": physician.image || `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.webp`,
     "url": `${PREFERRED_DOMAIN}/team/${physician.slug}`,
     "description": physician.bio || `${physician.name} is a mental health provider at Empathy Health Clinic.`,
     "worksFor": {
@@ -322,7 +322,7 @@ export function buildLocalBusinessSchema(options: LocalBusinessOptions) {
     "description": options.description,
     "url": `${PREFERRED_DOMAIN}/locations/${options.slug}`,
     "logo": `${PREFERRED_DOMAIN}/site-assets/logos/empathy-logo.png`,
-    "image": `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "image": `${PREFERRED_DOMAIN}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.webp`,
     "telephone": CLINIC_INFO.telephone,
     "email": CLINIC_INFO.email,
     "address": {

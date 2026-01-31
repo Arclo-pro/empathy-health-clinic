@@ -1,5 +1,5 @@
 import type { LandingPageConfig } from "@/types/landingPage";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { FileText, Brain, Shield, Award, Calendar, Video, MessageCircle, Users, CheckCircle, Heart, DollarSign, CreditCard, Clock } from "lucide-react";
 
 export const psychiatricEvaluationConfig: LandingPageConfig = {
@@ -14,7 +14,7 @@ export const psychiatricEvaluationConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Psychiatric Evaluation Orlando FL - Empathy Health Clinic",
     "description": "Comprehensive psychiatric evaluations in Orlando, FL by board-certified psychiatrists.",
-    "url": "https://empathyhealthclinic.com/psychiatric-evaluation-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychiatric-evaluation-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -159,7 +159,7 @@ export const therapistOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
     "name": "Therapist Orlando FL - Empathy Health Clinic",
     "description": "Licensed therapists in Orlando providing CBT, DBT, EMDR therapy for anxiety, depression, trauma, and couples counseling.",
-    "url": "https://empathyhealthclinic.com/therapist-orlando",
+    "url": "https://www.empathyhealthclinic.com/therapist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -307,7 +307,7 @@ export const mentalHealthClinicConfig: LandingPageConfig = {
     "@type": ["MedicalClinic", "LocalBusiness"],
     "name": "Mental Health Clinic Orlando FL - Empathy Health Clinic",
     "description": "Comprehensive mental health services including psychiatry and therapy in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/mental-health-clinic-orlando",
+    "url": "https://www.empathyhealthclinic.com/mental-health-clinic-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -458,7 +458,7 @@ export const medicareTherapyOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Medicare Therapy Orlando FL - Empathy Health Clinic",
     "description": "Therapy services in Orlando accepting Medicare Part B coverage.",
-    "url": "https://empathyhealthclinic.com/medicare-therapy-orlando",
+    "url": "https://www.empathyhealthclinic.com/medicare-therapy-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -594,7 +594,7 @@ export const medicarePsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Medicare Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting Medicare Part B for psychiatric care.",
-    "url": "https://empathyhealthclinic.com/medicare-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/medicare-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -730,7 +730,7 @@ export const psychologistOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
     "name": "Psychologist Orlando FL - Empathy Health Clinic",
     "description": "Licensed clinical psychologists providing testing and therapy in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/psychologist-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychologist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -875,7 +875,7 @@ function createInsuranceTherapyConfig(
       "@type": ["MedicalBusiness", "LocalBusiness"],
       "name": `${insuranceName} Therapy Orlando FL - Empathy Health Clinic`,
       "description": `Therapy services in Orlando accepting ${insuranceName} insurance.`,
-      "url": `https://empathyhealthclinic.com/${urlSlug}`,
+      "url": `https://www.empathyhealthclinic.com/${urlSlug}`,
       "telephone": "+1-386-848-8751",
       "email": "providers@empathyhealthclinic.com",
       "address": {
@@ -1017,7 +1017,7 @@ export const umrTherapyOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "UMR Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting UMR insurance for medication management and psychiatric care.",
-    "url": "https://empathyhealthclinic.com/therapist-accepts-umr",
+    "url": "https://www.empathyhealthclinic.com/therapist-accepts-umr",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1174,7 +1174,7 @@ export const cignaPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Cigna Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting Cigna insurance for medication management and psychiatric care.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-cigna",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-cigna",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1313,7 +1313,7 @@ export const aetnaPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Aetna Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting Aetna insurance for medication management and psychiatric care.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-aetna",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-aetna",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1439,7 +1439,7 @@ export const bcbsPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "BCBS Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting Blue Cross Blue Shield (BCBS) insurance for medication management and psychiatric care.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-bcbs",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-bcbs",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1591,7 +1591,7 @@ export const psychiatryOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Psychiatry Orlando FL - Empathy Health Clinic",
     "description": "Comprehensive psychiatry services in Orlando, FL including medication management, psychiatric evaluations, and expert mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatry-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychiatry-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1795,7 +1795,7 @@ export const psychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando, FL providing expert mental health treatment and medication management.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -1980,7 +1980,7 @@ export const adhdPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "ADHD Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Specialized ADHD diagnosis and treatment in Orlando, FL for adults by board-certified psychiatrists.",
-    "url": "https://empathyhealthclinic.com/adhd-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/adhd-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -2154,7 +2154,7 @@ export const bipolarPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Bipolar Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Specialized bipolar disorder treatment in Orlando, FL by board-certified psychiatrists with expertise in mood stabilization.",
-    "url": "https://empathyhealthclinic.com/bipolar-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/bipolar-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -2328,7 +2328,7 @@ export const medicationManagementOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Medication Management Orlando FL - Empathy Health Clinic",
     "description": "Expert psychiatric medication management in Orlando, FL by board-certified psychiatrists for mental health conditions.",
-    "url": "https://empathyhealthclinic.com/medication-management-orlando",
+    "url": "https://www.empathyhealthclinic.com/medication-management-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -2503,7 +2503,7 @@ export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
     "name": "CBT Therapy Orlando FL - Empathy Health Clinic",
     "description": "Evidence-based cognitive behavioral therapy (CBT) in Orlando for anxiety, depression, OCD, PTSD, and other mental health conditions.",
-    "url": "https://empathyhealthclinic.com/cognitive-behavioral-therapy",
+    "url": "https://www.empathyhealthclinic.com/cognitive-behavioral-therapy",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -2703,7 +2703,7 @@ export const unitedHealthcarePsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "United Healthcare Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando accepting United Healthcare (UHC) insurance for medication management and psychiatric care.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-united-healthcare",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-united-healthcare",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -2833,7 +2833,7 @@ export const ptsdPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "PTSD Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Specialized PTSD and trauma treatment in Orlando, FL by board-certified psychiatrists with expertise in trauma-informed care.",
-    "url": "https://empathyhealthclinic.com/ptsd-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/ptsd-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -2990,7 +2990,7 @@ export const urgentPsychiatricCareOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Urgent Psychiatric Care Orlando FL - Empathy Health Clinic",
     "description": "Same-day and urgent psychiatric care in Orlando, FL for crisis stabilization and immediate mental health needs.",
-    "url": "https://empathyhealthclinic.com/urgent-psychiatric-care-orlando",
+    "url": "https://www.empathyhealthclinic.com/urgent-psychiatric-care-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -3147,7 +3147,7 @@ export const psychiatristOrlandoAcceptsUmrConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "UMR Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "In-network UMR psychiatrist in Orlando, FL providing covered psychiatric services including medication management and evaluations.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-orlando-accepts-umr",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando-accepts-umr",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -3288,7 +3288,7 @@ export const psychiatristForAnxietyNearMeConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Psychiatrist for Anxiety Near Me - Empathy Health Clinic Orlando",
     "description": "Board-certified psychiatrists specializing in anxiety disorders including GAD, panic disorder, and social anxiety in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-for-anxiety-near-me",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-for-anxiety-near-me",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -3479,7 +3479,7 @@ export const psychiatristForDepressionNearMeConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Psychiatrist for Depression Near Me - Empathy Health Clinic Orlando",
     "description": "Board-certified psychiatrists specializing in depression treatment, antidepressant medication management, and treatment-resistant depression care in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-for-depression-near-me",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-for-depression-near-me",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -3651,7 +3651,7 @@ export const depressionPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Depression Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Expert depression treatment in Orlando, FL by board-certified psychiatrists specializing in major depression and treatment-resistant depression.",
-    "url": "https://empathyhealthclinic.com/depression-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/depression-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",
@@ -3826,7 +3826,7 @@ export const psychiatristAcceptingNewPatientsOrlandoConfig: LandingPageConfig = 
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Psychiatrist Accepting New Patients Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrist in Orlando accepting new patients with same-week appointment availability.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-accepting-new-patients-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-accepting-new-patients-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -3978,7 +3978,7 @@ export const onlinePsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Online Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "HIPAA-compliant online psychiatry services for Orlando residents via secure video appointments.",
-    "url": "https://empathyhealthclinic.com/online-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/online-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4132,7 +4132,7 @@ export const bestPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Best Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Top-rated, board-certified psychiatrists in Orlando, FL with excellent patient reviews and extensive experience.",
-    "url": "https://empathyhealthclinic.com/best-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/best-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4291,7 +4291,7 @@ export const onlinePsychiatristFloridaConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Online Psychiatrist Florida - Empathy Health Clinic",
     "description": "Florida-licensed online psychiatrists providing statewide telehealth psychiatric care to residents throughout Florida.",
-    "url": "https://empathyhealthclinic.com/online-psychiatrist-florida",
+    "url": "https://www.empathyhealthclinic.com/online-psychiatrist-florida",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4451,7 +4451,7 @@ export const mentalHealthDoctorOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Physician"],
     "name": "Mental Health Doctor Orlando FL - Empathy Health Clinic",
     "description": "Board-certified mental health doctors providing medical psychiatric treatment in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/mental-health-doctor-orlando",
+    "url": "https://www.empathyhealthclinic.com/mental-health-doctor-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4606,7 +4606,7 @@ export const traumaPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Trauma Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified trauma psychiatrist in Orlando providing specialized treatment for PTSD, complex trauma, and childhood trauma.",
-    "url": "https://empathyhealthclinic.com/trauma-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/trauma-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4756,7 +4756,7 @@ export const psychiatristNearUcfConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Psychiatrist Near UCF - Empathy Health Clinic",
     "description": "Board-certified psychiatrist serving UCF students, faculty, and the Orlando community. Expert treatment for ADHD, anxiety, depression, and more.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-near-ucf",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-near-ucf",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -4906,7 +4906,7 @@ export const ocdPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "OCD Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists specializing in OCD treatment in Orlando, FL. Expert medication management for obsessive-compulsive disorder.",
-    "url": "https://empathyhealthclinic.com/ocd-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/ocd-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5059,7 +5059,7 @@ export const schizophreniaPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Schizophrenia Psychiatrist Orlando - Empathy Health Clinic",
     "description": "Expert schizophrenia and psychosis treatment in Orlando, FL by board-certified psychiatrists.",
-    "url": "https://empathyhealthclinic.com/schizophrenia-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/schizophrenia-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5208,7 +5208,7 @@ export const insomniaPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Insomnia Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrist specializing in insomnia and sleep disorder treatment in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/insomnia-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/insomnia-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5359,7 +5359,7 @@ export const telehealthConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Telehealth Psychiatry & Therapy - Empathy Health Clinic",
     "description": "Virtual psychiatry and therapy appointments in Florida. Board-certified psychiatrists and licensed therapists available online.",
-    "url": "https://empathyhealthclinic.com/telehealth",
+    "url": "https://www.empathyhealthclinic.com/telehealth",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5520,7 +5520,7 @@ export const adultADHDTreatmentOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Adult ADHD Treatment Orlando FL - Empathy Health Clinic",
     "description": "Specialized adult ADHD diagnosis and treatment in Orlando by board-certified psychiatrists.",
-    "url": "https://empathyhealthclinic.com/adult-adhd-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/adult-adhd-treatment-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5679,7 +5679,7 @@ export const suboxoneTreatmentOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Suboxone Treatment Orlando FL - Empathy Health Clinic",
     "description": "Medication-assisted treatment (MAT) for opioid addiction using Suboxone in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/suboxone-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/suboxone-treatment-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5831,7 +5831,7 @@ export const medicaidPsychiatristOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Medicaid Psychiatrist Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrist in Orlando accepting Florida Medicaid plans.",
-    "url": "https://empathyhealthclinic.com/medicaid-psychiatrist-orlando",
+    "url": "https://www.empathyhealthclinic.com/medicaid-psychiatrist-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -5987,7 +5987,7 @@ export const psychiatristsOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychiatrist"],
     "name": "Psychiatrists in Orlando FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists in Orlando providing comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrists-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychiatrists-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -6132,7 +6132,7 @@ export const psychologyOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Psychology Services Orlando FL - Empathy Health Clinic",
     "description": "Comprehensive psychology and mental health services in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/psychology-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychology-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -6272,7 +6272,7 @@ export const dbtTherapyOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
     "name": "DBT Therapy Orlando FL - Empathy Health Clinic",
     "description": "Evidence-based dialectical behavior therapy (DBT) in Orlando for emotion regulation, borderline personality disorder, self-harm, and crisis management.",
-    "url": "https://empathyhealthclinic.com/dbt-therapy-orlando",
+    "url": "https://www.empathyhealthclinic.com/dbt-therapy-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -6555,7 +6555,7 @@ export const psychiatristOviedoConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Oviedo FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Oviedo, FL with comprehensive mental health treatment and medication management.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-oviedo",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-oviedo",
     "areaServed": [
       { "@type": "City", "name": "Oviedo" },
       { "@type": "City", "name": "Winter Springs" },
@@ -6629,7 +6629,7 @@ export const psychiatristSanfordConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Sanford FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Sanford, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-sanford",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-sanford",
     "areaServed": [
       { "@type": "City", "name": "Sanford" },
       { "@type": "City", "name": "Lake Mary" },
@@ -6703,7 +6703,7 @@ export const psychiatristLakeMaryConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Lake Mary FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Lake Mary, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-lake-mary",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-lake-mary",
     "areaServed": [
       { "@type": "City", "name": "Lake Mary" },
       { "@type": "City", "name": "Sanford" },
@@ -6777,7 +6777,7 @@ export const psychiatristCollegeParkConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist College Park Orlando - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving College Park, Orlando with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-college-park",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-college-park",
     "areaServed": [
       { "@type": "City", "name": "Orlando" },
       { "@type": "City", "name": "College Park" },
@@ -6850,7 +6850,7 @@ export const psychiatristMaitlandConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Maitland FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Maitland, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-maitland",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-maitland",
     "areaServed": [
       { "@type": "City", "name": "Maitland" },
       { "@type": "City", "name": "Winter Park" },
@@ -6955,7 +6955,7 @@ export const addictionTreatmentOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Addiction Treatment Orlando - Empathy Health Clinic",
     "description": "Psychiatric addiction treatment and substance use disorder care in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/addiction-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/addiction-treatment-orlando",
     "medicalSpecialty": ["Psychiatry", "Addiction Medicine"],
   },
   hero: {
@@ -7051,7 +7051,7 @@ export const angerManagementOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Anger Management Therapy Orlando - Empathy Health Clinic",
     "description": "Professional anger management therapy and counseling in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/anger-management-therapy-orlando",
+    "url": "https://www.empathyhealthclinic.com/anger-management-therapy-orlando",
     "medicalSpecialty": "Psychotherapy",
   },
   hero: {
@@ -7146,7 +7146,7 @@ export const eatingDisorderOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Eating Disorder Treatment Orlando - Empathy Health Clinic",
     "description": "Psychiatric eating disorder treatment for adults in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/eating-disorder-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/eating-disorder-treatment-orlando",
     "medicalSpecialty": "Psychiatry",
   },
   hero: {
@@ -7240,7 +7240,7 @@ export const dementiaOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Dementia Treatment Orlando - Empathy Health Clinic",
     "description": "Psychiatric care for dementia and cognitive decline in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/dementia-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/dementia-treatment-orlando",
     "medicalSpecialty": ["Psychiatry", "Geriatric Psychiatry"],
   },
   hero: {
@@ -7334,7 +7334,7 @@ export const paranoiaTreatmentOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Paranoia Treatment Orlando - Empathy Health Clinic",
     "description": "Psychiatric paranoia treatment and evaluation in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/paranoia-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/paranoia-treatment-orlando",
     "medicalSpecialty": "Psychiatry",
   },
   hero: {
@@ -7428,7 +7428,7 @@ export const pharmacogeneticTestingOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Pharmacogenetic Testing Orlando - Empathy Health Clinic",
     "description": "Pharmacogenetic testing for psychiatric medication guidance in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/pharmacogenetic-testing-orlando",
+    "url": "https://www.empathyhealthclinic.com/pharmacogenetic-testing-orlando",
     "medicalSpecialty": "Psychiatry",
   },
   hero: {
@@ -7523,7 +7523,7 @@ export const neuropsychTestingOrlandoConfig: LandingPageConfig = {
     ...treatmentJsonLdBase,
     "name": "Neuropsychological Testing Orlando - Empathy Health Clinic",
     "description": "Neuropsychological testing and cognitive assessment in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/neuropsychological-testing-orlando",
+    "url": "https://www.empathyhealthclinic.com/neuropsychological-testing-orlando",
     "medicalSpecialty": "Neuropsychology",
   },
   hero: {
@@ -7664,7 +7664,7 @@ export const therapistSanfordConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Therapist Serving Sanford, FL",
-    "url": "https://empathyhealthclinic.com/therapist-sanford",
+    "url": "https://www.empathyhealthclinic.com/therapist-sanford",
     "areaServed": [
       { "@type": "City", "name": "Sanford", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Lake Mary" },
@@ -7731,7 +7731,7 @@ export const therapistLakeMaryConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Therapist Serving Lake Mary, FL",
-    "url": "https://empathyhealthclinic.com/therapist-lake-mary",
+    "url": "https://www.empathyhealthclinic.com/therapist-lake-mary",
     "areaServed": [
       { "@type": "City", "name": "Lake Mary", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Sanford" },
@@ -7798,7 +7798,7 @@ export const therapistCasselberryConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Therapist Serving Casselberry, FL",
-    "url": "https://empathyhealthclinic.com/therapist-casselberry",
+    "url": "https://www.empathyhealthclinic.com/therapist-casselberry",
     "areaServed": [
       { "@type": "City", "name": "Casselberry", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Winter Park" },
@@ -7865,7 +7865,7 @@ export const therapistLongwoodConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Therapist Serving Longwood, FL",
-    "url": "https://empathyhealthclinic.com/therapist-longwood",
+    "url": "https://www.empathyhealthclinic.com/therapist-longwood",
     "areaServed": [
       { "@type": "City", "name": "Longwood", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Winter Park" },
@@ -7932,7 +7932,7 @@ export const couplesTherapyToxicRelationshipsConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Toxic Relationship Therapy Orlando",
-    "url": "https://empathyhealthclinic.com/couples-therapy-toxic-relationships",
+    "url": "https://www.empathyhealthclinic.com/couples-therapy-toxic-relationships",
     "areaServed": [
       { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Winter Park" },
@@ -8034,7 +8034,7 @@ export const psychiatristHeathrowConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Heathrow FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Heathrow, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-heathrow",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-heathrow",
     "areaServed": [
       { "@type": "City", "name": "Heathrow" },
       { "@type": "City", "name": "Sanford" },
@@ -8108,7 +8108,7 @@ export const psychiatristBaldwinParkConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Baldwin Park Orlando - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Baldwin Park, Orlando with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-baldwin-park",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-baldwin-park",
     "areaServed": [
       { "@type": "City", "name": "Orlando" },
       { "@type": "City", "name": "Baldwin Park" },
@@ -8182,7 +8182,7 @@ export const psychiatristUnionParkConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Union Park Orlando - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Union Park, Orlando with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-union-park",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-union-park",
     "areaServed": [
       { "@type": "City", "name": "Orlando" },
       { "@type": "City", "name": "Union Park" },
@@ -8256,7 +8256,7 @@ export const psychiatristAudubonParkConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Audubon Park Orlando - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Audubon Park, Orlando with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-audubon-park",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-audubon-park",
     "areaServed": [
       { "@type": "City", "name": "Orlando" },
       { "@type": "City", "name": "Audubon Park" },
@@ -8330,7 +8330,7 @@ export const psychiatristGoldenrodConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Goldenrod FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Goldenrod, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-goldenrod",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-goldenrod",
     "areaServed": [
       { "@type": "City", "name": "Goldenrod" },
       { "@type": "City", "name": "Orlando" },
@@ -8404,7 +8404,7 @@ export const psychiatristAlafayaConfig: LandingPageConfig = {
     ...locationJsonLdBase,
     "name": "Psychiatrist Alafaya FL - Empathy Health Clinic",
     "description": "Board-certified psychiatrists serving Alafaya, FL with comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-alafaya",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-alafaya",
     "areaServed": [
       { "@type": "City", "name": "Alafaya" },
       { "@type": "City", "name": "Orlando" },
@@ -8479,7 +8479,7 @@ export const traumaTherapyOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Trauma Therapy Orlando FL - Empathy Health Clinic",
     "description": "Evidence-based trauma therapy in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/trauma-therapy-orlando",
+    "url": "https://www.empathyhealthclinic.com/trauma-therapy-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -8601,7 +8601,7 @@ export const psychosisTreatmentOrlandoConfig: LandingPageConfig = {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Psychosis Treatment Orlando FL - Empathy Health Clinic",
     "description": "Expert psychosis evaluation and treatment in Orlando, FL.",
-    "url": "https://empathyhealthclinic.com/psychosis-treatment-orlando",
+    "url": "https://www.empathyhealthclinic.com/psychosis-treatment-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -8720,7 +8720,7 @@ export const therapistOviedoConfig: LandingPageConfig = {
   jsonLd: {
     ...therapistJsonLdBase,
     "name": "Empathy Health Clinic - Therapist Serving Oviedo, FL",
-    "url": "https://empathyhealthclinic.com/therapist-oviedo",
+    "url": "https://www.empathyhealthclinic.com/therapist-oviedo",
     "areaServed": [
       { "@type": "City", "name": "Oviedo", "containedInPlace": { "@type": "State", "name": "Florida" } },
       { "@type": "City", "name": "Winter Springs" },

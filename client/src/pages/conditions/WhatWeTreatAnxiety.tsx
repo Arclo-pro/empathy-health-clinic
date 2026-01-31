@@ -6,7 +6,7 @@ import { AlertTriangle, CheckCircle, Phone, Clock, Users, Award } from "lucide-r
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
-const forestBg = "/site-assets/stock_images/misty_forest_morning_dffbe3b2.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_dffbe3b2.webp";
 import { trackEvent } from "@/lib/analytics";
 
 const symptoms = [

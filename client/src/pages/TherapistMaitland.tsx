@@ -11,7 +11,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function TherapistMaitland() {
@@ -20,16 +20,16 @@ export default function TherapistMaitland() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["MedicalBusiness", "MedicalClinic", "Psychologist"],
-        "@id": "https://empathyhealthclinic.com/#organization",
+        "@id": "https://www.empathyhealthclinic.com/#organization",
         "name": "Empathy Health Clinic - Therapist in Maitland, FL",
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -93,7 +93,7 @@ export default function TherapistMaitland() {
           }
         ],
         "priceRange": "$$",
-        "image": "https://empathyhealthclinic.com" + heroImage,
+        "image": "https://www.empathyhealthclinic.com" + heroImage,
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
@@ -102,25 +102,25 @@ export default function TherapistMaitland() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/therapist-maitland/#webpage",
-        "url": "https://empathyhealthclinic.com/therapist-maitland",
+        "@id": "https://www.empathyhealthclinic.com/therapist-maitland/#webpage",
+        "url": "https://www.empathyhealthclinic.com/therapist-maitland",
         "name": "Therapist in Maitland, FL | Licensed Counselors | Empathy Health Clinic",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Expert therapists and counselors serving Maitland, FL. Licensed mental health professionals specializing in anxiety, depression, trauma, relationship counseling, and family therapy. Same-week appointments available.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/therapist-maitland/#faq",
+        "@id": "https://www.empathyhealthclinic.com/therapist-maitland/#faq",
         "mainEntity": [
           {
             "@type": "Question",

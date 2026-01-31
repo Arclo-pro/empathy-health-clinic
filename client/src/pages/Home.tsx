@@ -32,11 +32,11 @@ export default function Home() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
-          "@id": "https://empathyhealthclinic.com/#organization",
+          "@id": "https://www.empathyhealthclinic.com/#organization",
           "name": "Empathy Health Clinic",
           "alternateName": "Empathy Health",
           "description": "Mental health clinic providing psychiatric services, therapy, and medication management serving Orlando and Winter Park, Florida.",
-          "url": "https://empathyhealthclinic.com",
+          "url": "https://www.empathyhealthclinic.com",
           "telephone": "+13868488751",
           "email": "providers@empathyhealthclinic.com",
           "priceRange": "$$",

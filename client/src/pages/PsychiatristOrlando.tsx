@@ -21,9 +21,9 @@ import TextUsButton from "@/components/TextUsButton";
 
 export default function PsychiatristOrlando() {
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Services", url: "https://empathyhealthclinic.com/services" },
-    { name: "Psychiatrist Orlando", url: "https://empathyhealthclinic.com/psychiatrist-orlando" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Services", url: "https://www.empathyhealthclinic.com/services" },
+    { name: "Psychiatrist Orlando", url: "https://www.empathyhealthclinic.com/psychiatrist-orlando" }
   ]);
 
   const jsonLd = {
@@ -32,9 +32,9 @@ export default function PsychiatristOrlando() {
       breadcrumbSchema,
       {
         "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/psychiatrist-orlando/#organization",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist-orlando/#organization",
         "name": "Psychiatrist Orlando - Empathy Health Clinic",
-        "url": "https://empathyhealthclinic.com/psychiatrist-orlando",
+        "url": "https://www.empathyhealthclinic.com/psychiatrist-orlando",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",

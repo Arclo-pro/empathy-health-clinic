@@ -13,7 +13,7 @@ import ShortContactForm from "@/components/ShortContactForm";
 import LocalizedContent from "@/components/LocalizedContent";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function PsychiatristWinterGarden() {
@@ -22,7 +22,7 @@ export default function PsychiatristWinterGarden() {
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
     "name": "Empathy Health Clinic - Psychiatrist Winter Garden FL",
     "description": "Board-certified psychiatrists serving Winter Garden, FL. Medication management, psychiatric evaluations, ADHD, anxiety, depression treatment. Same-week appointments. Most insurance accepted.",
-    "url": "https://empathyhealthclinic.com/psychiatrist-winter-garden",
+    "url": "https://www.empathyhealthclinic.com/psychiatrist-winter-garden",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",

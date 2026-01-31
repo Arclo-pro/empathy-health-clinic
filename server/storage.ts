@@ -227,7 +227,7 @@ export class MemStorage implements IStorage {
       id: randomUUID(),
       heroTitle: "Healing Begins with Empathy",
       heroSubtitle: "Psychiatry, Psychotherapy & Counseling Clinic Serving Orlando and Winter Park, Florida",
-      heroImage: "/site-assets/stock_images/professional_therapi_f037aa5d.jpg",
+      heroImage: "/site-assets/stock_images/professional_therapi_f037aa5d.webp",
       reviewCount: 65,
       reviewRating: "EXCELLENT",
       footerPhone: "386-848-8751",
@@ -520,7 +520,7 @@ export class MemStorage implements IStorage {
       {
         name: "Batese Mitchell",
         credentials: "LMHC",
-        image: "/site-assets/providers/Headshot (1)_1764630281211.jpg",
+        image: "/site-assets/providers/Headshot (1)_1764630281211.webp",
         doxyUrl: "https://doxy.me/empathy1",
         slug: "batese-mitchell",
         pageTitle: "Batese Mitchell, LMHC | Licensed Mental Health Counselor | Winter Park, FL",
@@ -702,7 +702,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "First Health", 
-        logo: "/site-assets/logos/firsthealth.jpg",
+        logo: "/site-assets/logos/firsthealth.webp",
         slug: "first-health-first-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts First Health",
         heroTitle: "Find a Psychiatrist That Accepts First Health",
@@ -736,7 +736,7 @@ export class MemStorage implements IStorage {
       },
       { 
         name: "Curative Health", 
-        logo: "/site-assets/logos/curative.jpg",
+        logo: "/site-assets/logos/curative.webp",
         slug: "curative-health-curative-health-coverage",
         pageTitle: "Find a Psychiatrist That Accepts Curative Health",
         heroTitle: "Find a Psychiatrist That Accepts Curative Health",

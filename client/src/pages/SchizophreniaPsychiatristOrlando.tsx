@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function SchizophreniaPsychiatristOrlando() {
@@ -74,13 +74,13 @@ export default function SchizophreniaPsychiatristOrlando() {
     "@graph": [
       {
         "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/schizophrenia-psychiatrist-orlando#organization",
+        "@id": "https://www.empathyhealthclinic.com/schizophrenia-psychiatrist-orlando#organization",
         "name": "Empathy Health Clinic - Schizophrenia Psychiatrist Orlando FL",
         "parentOrganization": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Board-certified schizophrenia psychiatrists in Orlando, FL specializing in schizophrenia treatment, antipsychotic medication management, and comprehensive psychiatric care for adults.",
-        "url": "https://empathyhealthclinic.com/schizophrenia-psychiatrist-orlando",
+        "url": "https://www.empathyhealthclinic.com/schizophrenia-psychiatrist-orlando",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",

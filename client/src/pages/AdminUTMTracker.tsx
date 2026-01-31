@@ -84,8 +84,8 @@ export default function AdminUTMTracker() {
     });
   };
 
-  const googleAdsTemplate = "https://empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={creative}";
-  const manualTemplate = "https://empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc&utm_campaign=psychiatry_orlando&utm_term=psychiatrist+orlando";
+  const googleAdsTemplate = "https://www.empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={creative}";
+  const manualTemplate = "https://www.empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc&utm_campaign=psychiatry_orlando&utm_term=psychiatrist+orlando";
 
   const recentLeadsWithUTM = leads?.filter(lead => 
     lead.utmSource || lead.utmMedium || lead.utmCampaign
@@ -277,7 +277,7 @@ export default function AdminUTMTracker() {
           <CardContent className="space-y-4">
             <div className="flex gap-2">
               <Input
-                placeholder="https://empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc..."
+                placeholder="https://www.empathyhealthclinic.com/request-appointment?utm_source=google&utm_medium=cpc..."
                 value={testUrl}
                 onChange={(e) => setTestUrl(e.target.value)}
                 data-testid="input-test-url"

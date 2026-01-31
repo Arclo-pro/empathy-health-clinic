@@ -12,7 +12,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_b118766b.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_b118766b.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function AnxietyTreatment() {
@@ -24,7 +24,7 @@ export default function AnxietyTreatment() {
     "@graph": [
       {
         "@type": "MedicalCondition",
-        "@id": "https://empathyhealthclinic.com/anxiety-treatment/#gad",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#gad",
         "name": "Generalized Anxiety Disorder",
         "alternateName": ["GAD", "Chronic Anxiety"],
         "description": "A mental health disorder characterized by persistent and excessive worry about various aspects of life, often accompanied by physical symptoms like restlessness, fatigue, and muscle tension.",
@@ -45,7 +45,7 @@ export default function AnxietyTreatment() {
       },
       {
         "@type": "MedicalCondition",
-        "@id": "https://empathyhealthclinic.com/anxiety-treatment/#panic",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#panic",
         "name": "Panic Disorder",
         "description": "An anxiety disorder characterized by recurrent, unexpected panic attacks - sudden episodes of intense fear accompanied by physical symptoms like racing heart, shortness of breath, and chest pain.",
         "code": {
@@ -65,7 +65,7 @@ export default function AnxietyTreatment() {
       },
       {
         "@type": "MedicalCondition",
-        "@id": "https://empathyhealthclinic.com/anxiety-treatment/#social",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#social",
         "name": "Social Anxiety Disorder",
         "alternateName": ["Social Phobia"],
         "description": "An intense, persistent fear of being watched and judged by others in social or performance situations that causes significant distress and impairs daily functioning.",
@@ -77,10 +77,10 @@ export default function AnxietyTreatment() {
       },
       {
         "@type": ["MedicalClinic", "LocalBusiness", "MedicalOrganization"],
-        "@id": "https://empathyhealthclinic.com/anxiety-treatment/#organization",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#organization",
         "name": "Empathy Health Clinic - Anxiety Treatment Orlando",
         "description": "Expert anxiety treatment in Orlando, FL. Board-certified psychiatrists providing comprehensive care for generalized anxiety, panic disorder, social anxiety, and phobias.",
-        "url": "https://empathyhealthclinic.com/anxiety-treatment",
+        "url": "https://www.empathyhealthclinic.com/anxiety-treatment",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",
@@ -116,11 +116,11 @@ export default function AnxietyTreatment() {
       },
       {
         "@type": "Physician",
-        "@id": "https://empathyhealthclinic.com/anxiety-treatment/#physician",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#physician",
         "name": "Dr. Marna Morrow",
         "description": "Board-certified psychiatrist specializing in anxiety disorders with expertise in medication management and evidence-based treatments.",
         "medicalSpecialty": "Psychiatry",
-        "worksFor": { "@id": "https://empathyhealthclinic.com/anxiety-treatment/#organization" },
+        "worksFor": { "@id": "https://www.empathyhealthclinic.com/anxiety-treatment/#organization" },
         "knowsAbout": ["Generalized Anxiety Disorder", "Panic Disorder", "Social Anxiety", "Medication Management", "CBT Coordination"]
       },
       {

@@ -9,7 +9,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function BlueCrossBlueShieldTherapy() {
@@ -18,7 +18,7 @@ export default function BlueCrossBlueShieldTherapy() {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     "name": "Empathy Health Clinic - Blue Cross Blue Shield Therapy Orlando",
     "description": "Find BCBS-covered therapists in Orlando, FL. Blue Cross Blue Shield therapy services including individual counseling, family therapy, and mental health treatment. Verify coverage and copays.",
-    "url": "https://empathyhealthclinic.com/blue-cross-blue-shield-therapy-orlando",
+    "url": "https://www.empathyhealthclinic.com/blue-cross-blue-shield-therapy-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",

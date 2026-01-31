@@ -9,7 +9,7 @@ import InsuranceSection from "@/components/InsuranceSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 const services = [
@@ -63,9 +63,9 @@ export default function PsychiatryNearMe() {
     "@graph": [
       {
         "@type": ["MedicalBusiness", "MedicalClinic", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/psychiatry-near-me/#organization",
+        "@id": "https://www.empathyhealthclinic.com/psychiatry-near-me/#organization",
         "name": "Psychiatry Near Me - Empathy Health Clinic",
-        "url": "https://empathyhealthclinic.com/psychiatry-near-me",
+        "url": "https://www.empathyhealthclinic.com/psychiatry-near-me",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "description": "Comprehensive psychiatry services near you in Orlando and Central Florida. Expert medication management and psychiatric evaluations.",

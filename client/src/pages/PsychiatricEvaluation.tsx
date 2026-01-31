@@ -16,7 +16,7 @@ export default function PsychiatricEvaluation() {
     "@type": ["MedicalBusiness", "Psychiatrist", "LocalBusiness"],
     "name": "Psychiatric Evaluation - Empathy Health Clinic",
     "description": "Comprehensive psychiatric evaluations in Winter Park & Orlando, FL. Expert mental health assessments by board-certified psychiatrists for accurate diagnosis and treatment planning. Same-week appointments available.",
-    "url": "https://empathyhealthclinic.com/psychiatric-evaluation",
+    "url": "https://www.empathyhealthclinic.com/psychiatric-evaluation",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {

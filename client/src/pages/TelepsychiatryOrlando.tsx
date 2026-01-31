@@ -10,20 +10,20 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function TelepsychiatryOrlando() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-    "@id": "https://empathyhealthclinic.com/telepsychiatry-orlando#organization",
+    "@id": "https://www.empathyhealthclinic.com/telepsychiatry-orlando#organization",
     "name": "Empathy Health Clinic - Telepsychiatry Orlando FL",
     "parentOrganization": {
-      "@id": "https://empathyhealthclinic.com/#organization"
+      "@id": "https://www.empathyhealthclinic.com/#organization"
     },
     "description": "Board-certified telepsychiatry services in Orlando, FL. Virtual psychiatrist appointments for medication management, psychiatric evaluations, and mental health treatment from home.",
-    "url": "https://empathyhealthclinic.com/telepsychiatry-orlando",
+    "url": "https://www.empathyhealthclinic.com/telepsychiatry-orlando",
     "telephone": "+1-386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "priceRange": "$$",

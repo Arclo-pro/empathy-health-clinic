@@ -26,7 +26,7 @@ export default function CignaOrlandoPage() {
       />
       <InsuranceSchema 
         insuranceName="Cigna" 
-        url="https://empathyhealthclinic.com/psychiatrist-orlando-takes-cigna" 
+        url="https://www.empathyhealthclinic.com/psychiatrist-orlando-takes-cigna" 
       />
 
       <SiteHeader />

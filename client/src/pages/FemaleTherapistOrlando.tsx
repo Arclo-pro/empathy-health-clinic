@@ -25,33 +25,33 @@ export default function FemaleTherapistOrlando() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "description": "Mental Health & Psychiatry Services in Orlando",
         "publisher": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         }
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/female-therapist-orlando#webpage",
-        "url": "https://empathyhealthclinic.com/female-therapist-orlando",
+        "@id": "https://www.empathyhealthclinic.com/female-therapist-orlando#webpage",
+        "url": "https://www.empathyhealthclinic.com/female-therapist-orlando",
         "name": "Female Therapist Orlando | Women's Mental Health Specialists",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Find a compassionate female therapist in Orlando specializing in women's mental health. Board-certified therapists offering anxiety, depression, trauma, and relationship therapy."
       },
       {
         "@type": ["Physician", "MedicalBusiness"],
-        "@id": "https://empathyhealthclinic.com/#organization",
+        "@id": "https://www.empathyhealthclinic.com/#organization",
         "name": "Empathy Health Clinic",
-        "image": "https://empathyhealthclinic.com/logo.png",
-        "url": "https://empathyhealthclinic.com/female-therapist-orlando",
+        "image": "https://www.empathyhealthclinic.com/logo.png",
+        "url": "https://www.empathyhealthclinic.com/female-therapist-orlando",
         "telephone": "+1-386-848-8751",
         "priceRange": "$$",
         "address": {

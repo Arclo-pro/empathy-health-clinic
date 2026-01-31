@@ -138,7 +138,7 @@ export default function SEMrushOptimizer() {
     const results = semrushData.map(data => {
       let normalizedPath = data.url;
       try {
-        const urlObj = new URL(data.url, 'https://empathyhealthclinic.com');
+        const urlObj = new URL(data.url, 'https://www.empathyhealthclinic.com');
         normalizedPath = urlObj.pathname.toLowerCase().trim().replace(/\/$/, '');
       } catch {
         normalizedPath = data.url.toLowerCase().trim().replace(/\/$/, '');

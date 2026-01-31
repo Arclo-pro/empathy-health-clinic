@@ -166,10 +166,17 @@ export function getCanonicalUrl(path: string): string | null {
  */
 export function getRobotsContent(path: string): string {
   const normalizedPath = path.replace(/\/$/, '') || '/';
-  
+
   if (isNoindexPath(normalizedPath)) {
     return 'noindex, follow';
   }
-  
+
+  // Consolidated pages get noindex to prevent duplicate content
+  const isConsolidated = !isSelfCanonicalPath(normalizedPath) &&
+                         CANONICAL_CONSOLIDATION_PATHS[normalizedPath] !== undefined;
+  if (isConsolidated) {
+    return 'noindex, follow';
+  }
+
   return 'index, follow';
 }

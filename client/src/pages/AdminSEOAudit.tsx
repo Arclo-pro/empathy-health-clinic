@@ -293,7 +293,7 @@ export default function AdminSEOAudit() {
                               </div>
                               <div className="flex items-center gap-2 text-sm">
                                 <code className="text-xs bg-muted px-2 py-1 rounded">
-                                  {issue.url.replace('https://empathyhealthclinic.com', '')}
+                                  {issue.url.replace('https://www.empathyhealthclinic.com', '')}
                                 </code>
                                 <a
                                   href={issue.url}
@@ -341,7 +341,7 @@ export default function AdminSEOAudit() {
                                   <span className="text-sm font-medium truncate">{issue.title}</span>
                                 </div>
                                 <code className="text-xs text-muted-foreground">
-                                  {issue.url.replace('https://empathyhealthclinic.com', '')}
+                                  {issue.url.replace('https://www.empathyhealthclinic.com', '')}
                                 </code>
                               </div>
                             </div>
@@ -372,7 +372,7 @@ export default function AdminSEOAudit() {
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2 mb-1">
                                 <code className="text-sm font-mono break-all">
-                                  {url.url.replace('https://empathyhealthclinic.com', '')}
+                                  {url.url.replace('https://www.empathyhealthclinic.com', '')}
                                 </code>
                                 <a
                                   href={url.url}

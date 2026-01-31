@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_ae20056a.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function DepressionTreatment() {
@@ -20,7 +20,7 @@ export default function DepressionTreatment() {
     "@graph": [
       {
         "@type": "MedicalCondition",
-        "@id": "https://empathyhealthclinic.com/depression-treatment/#condition",
+        "@id": "https://www.empathyhealthclinic.com/depression-treatment/#condition",
         "name": "Depression",
         "alternateName": ["Major Depressive Disorder", "Clinical Depression", "MDD"],
         "description": "Depression is a serious mental health condition characterized by persistent feelings of sadness, hopelessness, and loss of interest in activities. It affects how you feel, think, and handle daily activities.",
@@ -59,10 +59,10 @@ export default function DepressionTreatment() {
       },
       {
         "@type": ["MedicalClinic", "LocalBusiness", "MedicalOrganization"],
-        "@id": "https://empathyhealthclinic.com/depression-treatment/#organization",
+        "@id": "https://www.empathyhealthclinic.com/depression-treatment/#organization",
         "name": "Empathy Health Clinic - Depression Treatment Orlando",
         "description": "Expert depression treatment in Orlando, FL. Board-certified psychiatrists providing medication management, therapy coordination, and comprehensive care for major depression and mood disorders.",
-        "url": "https://empathyhealthclinic.com/depression-treatment",
+        "url": "https://www.empathyhealthclinic.com/depression-treatment",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",
@@ -98,11 +98,11 @@ export default function DepressionTreatment() {
       },
       {
         "@type": "Physician",
-        "@id": "https://empathyhealthclinic.com/depression-treatment/#physician",
+        "@id": "https://www.empathyhealthclinic.com/depression-treatment/#physician",
         "name": "Dr. Marna Morrow",
         "description": "Founder and lead psychiatrist specializing in depression treatment with over 15 years of experience in mood disorders.",
         "medicalSpecialty": "Psychiatry",
-        "worksFor": { "@id": "https://empathyhealthclinic.com/depression-treatment/#organization" },
+        "worksFor": { "@id": "https://www.empathyhealthclinic.com/depression-treatment/#organization" },
         "knowsAbout": ["Depression", "Major Depressive Disorder", "Treatment-Resistant Depression", "Medication Management"]
       },
       {

@@ -10,9 +10,9 @@ import InsuranceSection from "@/components/InsuranceSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ShortContactForm from "@/components/ShortContactForm";
-const forestBg = "/site-assets/stock_images/calm_forest_trees_me_62fae749.jpg";
-const darkTherapyBg = "/site-assets/stock_images/calm_peaceful_therap_b118766b.jpg";
-const professionalTherapyBg = "/site-assets/stock_images/therapy_session_coun_12fe243b.jpg";
+const forestBg = "/site-assets/stock_images/calm_forest_trees_me_62fae749.webp";
+const darkTherapyBg = "/site-assets/stock_images/calm_peaceful_therap_b118766b.webp";
+const professionalTherapyBg = "/site-assets/stock_images/therapy_session_coun_12fe243b.webp";
 import HeroBackground from "@/components/HeroBackground";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
@@ -115,7 +115,7 @@ export default function TreatmentDetail() {
     "@type": "MedicalClinic",
     "name": "Empathy Health Clinic",
     "description": `${treatment.title} services in Winter Park, Orlando, FL. Professional mental health care and psychiatric treatment.`,
-    "url": `https://empathyhealthclinic.com/${treatment.slug}`,
+    "url": `https://www.empathyhealthclinic.com/${treatment.slug}`,
     "telephone": "386-848-8751",
     "address": {
       "@type": "PostalAddress",

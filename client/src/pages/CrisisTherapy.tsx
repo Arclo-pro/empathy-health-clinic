@@ -6,7 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import TrustFactors from "@/components/TrustFactors";
 import HeroBackground from "@/components/HeroBackground";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_c2e99a65.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_c2e99a65.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 
@@ -27,7 +27,7 @@ export default function CrisisTherapy() {
     "telephone": "+1-386-848-8751",
     "url": window.location.origin,
     "priceRange": "$$",
-    "image": `${window.location.origin}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`,
+    "image": `${window.location.origin}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.webp`,
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": "28.5983",

@@ -18,9 +18,9 @@ import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function TherapistOrlando() {
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Services", url: "https://empathyhealthclinic.com/services" },
-    { name: "Therapist Orlando", url: "https://empathyhealthclinic.com/therapist-orlando" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Services", url: "https://www.empathyhealthclinic.com/services" },
+    { name: "Therapist Orlando", url: "https://www.empathyhealthclinic.com/therapist-orlando" }
   ]);
 
   const jsonLd = {
@@ -31,7 +31,7 @@ export default function TherapistOrlando() {
         "@type": ["MedicalBusiness", "LocalBusiness", "Psychologist"],
         "name": "Therapist Orlando FL - Empathy Health Clinic",
         "description": "Licensed therapists in Orlando providing CBT, DBT, EMDR therapy for anxiety, depression, trauma, and couples counseling. Same-week appointments available.",
-        "url": "https://empathyhealthclinic.com/therapist-orlando",
+        "url": "https://www.empathyhealthclinic.com/therapist-orlando",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "address": {

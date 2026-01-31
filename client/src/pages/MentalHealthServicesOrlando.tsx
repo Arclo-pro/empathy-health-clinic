@@ -13,7 +13,7 @@ import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 import ReviewSchema, { PAGE_TESTIMONIALS } from "@/components/ReviewSchema";
 
@@ -23,16 +23,16 @@ export default function MentalHealthServicesOrlando() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/#organization",
+        "@id": "https://www.empathyhealthclinic.com/#organization",
         "name": "Empathy Health Clinic - Mental Health Services Orlando",
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -100,7 +100,7 @@ export default function MentalHealthServicesOrlando() {
           }
         ],
         "priceRange": "$$",
-        "image": "https://empathyhealthclinic.com" + heroImage,
+        "image": "https://www.empathyhealthclinic.com" + heroImage,
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.8",
@@ -109,25 +109,25 @@ export default function MentalHealthServicesOrlando() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/mental-health-services-orlando/#webpage",
-        "url": "https://empathyhealthclinic.com/mental-health-services-orlando",
+        "@id": "https://www.empathyhealthclinic.com/mental-health-services-orlando/#webpage",
+        "url": "https://www.empathyhealthclinic.com/mental-health-services-orlando",
         "name": "Mental Health Services Orlando | Comprehensive Care | Empathy Health Clinic",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Comprehensive mental health services in Orlando, FL. Expert psychiatrists, therapists, and counselors. Treatment for anxiety, depression, ADHD, trauma, and more. Same-week appointments available.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/mental-health-services-orlando/#faq",
+        "@id": "https://www.empathyhealthclinic.com/mental-health-services-orlando/#faq",
         "mainEntity": [
           {
             "@type": "Question",

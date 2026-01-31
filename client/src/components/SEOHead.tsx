@@ -1,4 +1,10 @@
 import { useEffect } from "react";
+import {
+  CANONICAL_CONSOLIDATION_PATHS,
+  SELF_CANONICAL_EXACT_PATHS,
+  SELF_CANONICAL_PREFIXES,
+  NOINDEX_PATHS,
+} from "@shared/seoConfig";
 
 const BRAND_SUFFIX = "Empathy Health Clinic";
 const MAX_TITLE_LENGTH = 60;
@@ -133,82 +139,9 @@ function formatDescription(description: string, title: string): string {
  * - /bipolar-psychiatrist-orlando - condition-specific intent
  * - /psychiatric-evaluation-orlando - service-specific intent
  */
-const CANONICAL_CONSOLIDATION_PATHS: Record<string, string> = {
-  // ONLY thin synonym pages that would cannibalize each other
-  // /same-day-psychiatrist-orlando REMOVED - has unique urgent-care search intent, should rank independently
-  "/psychiatry-orlando": "/psychiatrist-orlando",
-  "/psychiatry-clinic-orlando": "/psychiatrist-orlando",
-};
-
-/**
- * Pages that MUST be self-canonical (never consolidate)
- * These are EXACT path matches or start-with patterns to avoid substring false positives
- * Example: "/ptsd" should not match "/about-ptsd-treatment"
- * 
- * HIGH-VOLUME SEO PAGES (must rank independently):
- */
-const SELF_CANONICAL_EXACT_PATHS = [
-  // Core site pages (must be self-canonical)
-  '/', '/about', '/services', '/new-patients', '/request-appointment',
-  '/therapy', '/what-we-treat', '/blog', '/contact-us', '/insurance', '/team',
-  // High-volume SEO target pages (unique search intent)
-  '/psychiatrist-near-me', '/psychiatrist-orlando', '/psychiatry-near-me',
-  '/adhd-psychiatrist-orlando', '/anxiety-psychiatrist-orlando', '/depression-psychiatrist-orlando',
-  '/telepsychiatry-orlando', '/bipolar-psychiatrist-orlando',
-  '/psychiatric-evaluation-orlando', '/mental-health-clinic-orlando', '/medication-management-orlando',
-  '/psychiatrist-for-anxiety-near-me', '/psychiatrist-for-depression-near-me',
-  '/same-day-psychiatrist-orlando', '/psychiatrists-orlando', '/psychology-orlando',
-  '/ptsd-psychiatrist-orlando', '/ocd-psychiatrist-orlando', '/urgent-psychiatric-care-orlando',
-  // Location pages
-  '/winter-park', '/lake-mary', '/altamonte-springs', '/sanford',
-  '/kissimmee', '/apopka', '/maitland', '/casselberry', '/oviedo',
-  // Treatment/therapy pages
-  '/depression-counseling', '/anxiety-therapy', '/adhd-testing-orlando',
-  '/ocd-treatment', '/ptsd-treatment', '/emdr-therapy', '/tms-treatment',
-  '/trauma-specialist', '/stress-management', '/couples-counseling',
-  '/virtual-therapy', '/virtual-visit', '/teletherapy', '/adhd-treatment', '/bipolar-disorder-treatment',
-  '/depression-treatment', '/cognitive-behavioral-therapy', '/dbt-therapy-orlando', '/in-person-therapy',
-  '/intimacy-therapy', '/lgbtq-therapy', '/therapy-services-orlando',
-  // Near-me pages
-  '/counselor-near-me', '/therapist-near-me', '/mental-health-near-me',
-  // Specialty pages
-  '/female-therapist-orlando', '/black-psychiatrist-orlando', '/psychotherapist-orlando',
-  '/therapist-orlando', '/psychologist-orlando',
-];
-
-/**
- * Path prefixes for self-canonical pages (match start of path)
- */
-const SELF_CANONICAL_PREFIXES = [
-  '/insurance', '/accepts-', '/psychiatrist-winter-park', '/psychiatrist-lake-mary',
-  '/psychiatrist-altamonte', '/psychiatrist-sanford', '/psychiatrist-kissimmee',
-  '/psychiatrist-apopka', '/psychiatrist-maitland', '/psychiatrist-casselberry',
-  '/psychiatrist-lake-nona', '/psychiatrist-winter-garden', '/psychiatrist-downtown',
-  '/psychiatrist-longwood', '/psychiatrist-oviedo',
-  '/therapist-winter-park', '/therapist-lake-mary', '/therapist-altamonte',
-  '/therapist-accepts-', '/therapist-orlando',
-  '/blog/', // All blog posts should be self-canonical
-  '/locations/', // All location pages should be self-canonical
-];
-
-/**
- * Noindex utility pages that should NOT have canonical tags
- * These pages should be excluded from search engine indexing
- */
-const NOINDEX_PATHS = [
-  // Admin and auth pages
-  '/admin', '/login', '/auth', '/config', '/debug',
-  // Legal/utility pages
-  '/privacy-policy', '/privacy', '/terms', '/medical-disclaimer',
-  // Confirmation/thank-you pages
-  '/thank-you', '/appointment-confirmed', '/success', '/confirmation',
-  // Error pages
-  '/404', '/not-found',
-  // Development/test pages
-  '/examples', '/test', '/demo',
-  // Media/attachment pages (WordPress legacy)
-  '/attachment', '/uploads', '/media',
-];
+// SEO configuration constants (CANONICAL_CONSOLIDATION_PATHS, SELF_CANONICAL_EXACT_PATHS,
+// SELF_CANONICAL_PREFIXES, NOINDEX_PATHS) are imported from @shared/seoConfig
+// to maintain a single source of truth across client and server.
 
 /**
  * Check if a path should be self-canonical (never consolidated)
@@ -612,18 +545,21 @@ export default function SEOHead({
     const isConsolidated = !isSelfCanonicalPath(normalizedPath) && 
                            CANONICAL_CONSOLIDATION_PATHS[normalizedPath] !== undefined;
     
-    // CRITICAL: Canonical + Robots alignment
-    // - Noindex pages should NOT have canonical pointing to another URL (SEO contradiction)
-    // - Consolidated pages get noindex, so they should NOT have canonical at all
-    // - Search/filter pages should NOT have canonical
-    const shouldHaveCanonical = !isNoindex && !isSearchFilter && !isConsolidated;
-    
-    // NOTE: We do NOT apply canonical consolidation anymore since consolidated pages get noindex
-    // They will have no canonical tag instead of a cross-URL canonical (which is a contradiction)
-    
-    const canonicalUrl = `${preferredDomain}${normalizedPath}`;
+    // Canonical + Robots alignment:
+    // - Noindex utility pages: no canonical (admin, privacy, etc.)
+    // - Search/filter pages: no canonical
+    // - Consolidated pages: canonical points to the TARGET URL (e.g. /psychiatry-orlando → /psychiatrist-orlando)
+    //   Google supports noindex + canonical together — the canonical tells Google which URL to
+    //   prefer if it decides to index content from this page, while noindex prevents duplicate indexing.
+    const shouldHaveCanonical = !isNoindex && !isSearchFilter;
+
+    // For consolidated pages, canonical points to the consolidation target
+    const consolidationTarget = CANONICAL_CONSOLIDATION_PATHS[normalizedPath];
+    const canonicalUrl = isConsolidated && consolidationTarget
+      ? `${preferredDomain}${consolidationTarget}`
+      : `${preferredDomain}${normalizedPath}`;
     const currentUrl = canonicalUrl;
-    const defaultOgImage = ogImage || `${preferredDomain}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.jpg`;
+    const defaultOgImage = ogImage || `${preferredDomain}/site-assets/stock_images/peaceful_green_fores_98e1a8d8.webp`;
 
     // Set robots based on page type:
     // - noindex for utility pages (admin, privacy-policy, etc.)
@@ -644,6 +580,8 @@ export default function SEOHead({
       { property: "og:url", content: currentUrl },
       { property: "og:type", content: type },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@clinicempathy12" },
+      { name: "twitter:creator", content: "@clinicempathy12" },
       { name: "twitter:title", content: formattedTitle },
       { name: "twitter:description", content: formattedDescription },
       { name: "twitter:image", content: defaultOgImage },
@@ -728,7 +666,7 @@ export default function SEOHead({
     
     if (shouldHaveHreflang) {
       // Hreflang URL must match canonical URL exactly
-      // canonicalUrl is already normalized using preferredDomain (https://empathyhealthclinic.com)
+      // canonicalUrl is already normalized using preferredDomain (https://www.empathyhealthclinic.com)
       // so we can use it directly - no additional sanitization needed
       const hreflangUrl = canonicalUrl;
       

@@ -9,7 +9,7 @@ import type { BlogPost } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
-const forestBg = "/site-assets/stock_images/calm_forest_trees_me_c92dd644.jpg";
+const forestBg = "/site-assets/stock_images/calm_forest_trees_me_c92dd644.webp";
 
 const CATEGORIES = ["Mental Health", "Wellness", "Therapy", "Anxiety", "Depression"];
 

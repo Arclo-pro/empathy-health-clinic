@@ -18,9 +18,9 @@ import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function CouplesCounseling() {
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Therapy", url: "https://empathyhealthclinic.com/therapy" },
-    { name: "Couples Counseling", url: "https://empathyhealthclinic.com/couples-counseling" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Therapy", url: "https://www.empathyhealthclinic.com/therapy" },
+    { name: "Couples Counseling", url: "https://www.empathyhealthclinic.com/couples-counseling" }
   ]);
 
   const jsonLd = {
@@ -30,7 +30,7 @@ export default function CouplesCounseling() {
         "@type": ["MedicalBusiness", "LocalBusiness"],
         "name": "Couples Counseling Orlando - Empathy Health Clinic",
         "description": "Licensed marriage and couples therapists in Orlando providing Gottman Method, EFT, and evidence-based relationship counseling. Same-week appointments available.",
-        "url": "https://empathyhealthclinic.com/couples-counseling",
+        "url": "https://www.empathyhealthclinic.com/couples-counseling",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "address": {

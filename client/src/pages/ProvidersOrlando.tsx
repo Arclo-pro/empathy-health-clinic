@@ -6,7 +6,7 @@ import type { TeamMember } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
-const forestBg = "/site-assets/stock_images/misty_forest_morning_dffbe3b2.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_dffbe3b2.webp";
 import { trackEvent } from "@/lib/analytics";
 
 const localBusinessSchema = {
@@ -14,7 +14,7 @@ const localBusinessSchema = {
   "@type": "MedicalBusiness",
   "name": "Empathy Health Clinic - Orlando Mental Health Providers",
   "description": "Board-certified psychiatrists and licensed therapists in Orlando, FL. Same-week appointments available. Most insurance accepted.",
-  "url": "https://empathyhealthclinic.com/providers/orlando",
+  "url": "https://www.empathyhealthclinic.com/providers/orlando",
   "telephone": "+1-386-848-8751",
   "email": "providers@empathyhealthclinic.com",
   "address": {

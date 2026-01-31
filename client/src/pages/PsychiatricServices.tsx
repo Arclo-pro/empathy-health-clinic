@@ -18,9 +18,9 @@ import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function PsychiatricServices() {
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Services", url: "https://empathyhealthclinic.com/services" },
-    { name: "Psychiatric Services", url: "https://empathyhealthclinic.com/psychiatric-services" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Services", url: "https://www.empathyhealthclinic.com/services" },
+    { name: "Psychiatric Services", url: "https://www.empathyhealthclinic.com/psychiatric-services" }
   ]);
 
   const jsonLd = {
@@ -30,7 +30,7 @@ export default function PsychiatricServices() {
         "@type": ["MedicalBusiness", "Psychiatrist", "LocalBusiness"],
         "name": "Empathy Health Clinic - Psychiatric Services",
         "description": "Board-certified psychiatrists in Orlando & Winter Park, FL. Comprehensive psychiatric care including medication management, psychiatric evaluations, and mental health treatment. Same-week appointments available.",
-        "url": "https://empathyhealthclinic.com/psychiatric-services",
+        "url": "https://www.empathyhealthclinic.com/psychiatric-services",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "address": {

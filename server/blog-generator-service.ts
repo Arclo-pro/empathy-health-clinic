@@ -175,7 +175,7 @@ export class BlogGeneratorService {
       const timestamp = Date.now();
       const randomId = Math.random().toString(36).substring(7);
       return Array(count).fill(null).map((_, i) => ({
-        url: `/site-assets/stock_images/fallback-${timestamp}-${randomId}-${i}.jpg`,
+        url: `/site-assets/stock_images/fallback-${timestamp}-${randomId}-${i}.webp`,
         description: query,
       }));
     }

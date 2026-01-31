@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function AnxietyPsychiatristOrlando() {
@@ -19,13 +19,13 @@ export default function AnxietyPsychiatristOrlando() {
     "@graph": [
       {
         "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/anxiety-psychiatrist-orlando#organization",
+        "@id": "https://www.empathyhealthclinic.com/anxiety-psychiatrist-orlando#organization",
         "name": "Empathy Health Clinic - Anxiety Psychiatrist Orlando FL",
         "parentOrganization": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Board-certified anxiety psychiatrists in Orlando, FL specializing in anxiety disorder treatment, panic disorder, social anxiety, GAD, and phobias. Medication management and comprehensive care.",
-        "url": "https://empathyhealthclinic.com/anxiety-psychiatrist-orlando",
+        "url": "https://www.empathyhealthclinic.com/anxiety-psychiatrist-orlando",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",

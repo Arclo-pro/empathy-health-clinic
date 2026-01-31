@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_3749281a.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_3749281a.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 

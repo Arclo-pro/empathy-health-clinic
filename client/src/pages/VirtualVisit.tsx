@@ -7,7 +7,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import { trackEvent } from "@/lib/analytics";
-const forestBg = "/site-assets/stock_images/peaceful_green_fores_0af17587.jpg";
+const forestBg = "/site-assets/stock_images/peaceful_green_fores_0af17587.webp";
 
 export default function VirtualVisit() {
   const { data: allTeamMembers, isLoading } = useQuery<TeamMember[]>({

@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_ae20056a.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_ae20056a.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 
@@ -20,7 +20,7 @@ export default function DepressionCounseling() {
     "@type": "MedicalClinic",
     "name": "Empathy Health Clinic",
     "description": "Depression counseling and psychiatric treatment in Winter Park and Orlando, FL. Evidence-based therapy, medication management, and comprehensive mental health care for depression.",
-    "url": "https://empathyhealthclinic.com/depression-counseling",
+    "url": "https://www.empathyhealthclinic.com/depression-counseling",
     "telephone": "386-848-8751",
     "address": {
       "@type": "PostalAddress",

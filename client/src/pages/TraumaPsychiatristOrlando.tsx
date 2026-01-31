@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function TraumaPsychiatristOrlando() {
@@ -74,13 +74,13 @@ export default function TraumaPsychiatristOrlando() {
     "@graph": [
       {
         "@type": ["Psychiatrist", "MedicalBusiness", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/trauma-psychiatrist-orlando#organization",
+        "@id": "https://www.empathyhealthclinic.com/trauma-psychiatrist-orlando#organization",
         "name": "Empathy Health Clinic - Trauma Psychiatrist Orlando FL",
         "parentOrganization": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Board-certified trauma psychiatrists in Orlando, FL specializing in PTSD treatment, trauma-related disorders, and evidence-based medication management for adults affected by traumatic experiences.",
-        "url": "https://empathyhealthclinic.com/trauma-psychiatrist-orlando",
+        "url": "https://www.empathyhealthclinic.com/trauma-psychiatrist-orlando",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",

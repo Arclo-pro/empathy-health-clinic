@@ -12,7 +12,7 @@ import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { LocalizedContentMultiple } from "@/components/LocalizedContent";
 import InternalLinkBlock from "@/components/InternalLinkBlock";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 import ReviewSchema, { PAGE_TESTIMONIALS } from "@/components/ReviewSchema";
 
@@ -22,16 +22,16 @@ export default function PsychiatristNearMe() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["MedicalClinic", "Psychiatrist", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#organization",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist-near-me/#organization",
         "name": "Empathy Health Clinic - Psychiatrist in Orlando & Winter Park",
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -94,7 +94,7 @@ export default function PsychiatristNearMe() {
           }
         ],
         "priceRange": "$$",
-        "image": "https://empathyhealthclinic.com" + heroImage,
+        "image": "https://www.empathyhealthclinic.com" + heroImage,
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Psychiatric Services",
@@ -126,25 +126,25 @@ export default function PsychiatristNearMe() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#webpage",
-        "url": "https://empathyhealthclinic.com/psychiatrist-near-me",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist-near-me/#webpage",
+        "url": "https://www.empathyhealthclinic.com/psychiatrist-near-me",
         "name": "Psychiatrist Near Me in Orlando & Winter Park | Appointments This Week",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#organization"
+          "@id": "https://www.empathyhealthclinic.com/psychiatrist-near-me/#organization"
         },
         "description": "Need a psychiatrist near you? Board-certified psychiatrists in Orlando & Winter Park. Medication management, same-week appointments. Accepting BCBS, Cigna, UMR, Medicare. Call 386-848-8751.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#faq",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist-near-me/#faq",
         "mainEntity": [
           {
             "@type": "Question",
@@ -198,7 +198,7 @@ export default function PsychiatristNearMe() {
       },
       {
         "@type": "Physician",
-        "@id": "https://empathyhealthclinic.com/psychiatrist-near-me/#physician",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist-near-me/#physician",
         "name": "Dr. Marna Morrow",
         "jobTitle": "Board-Certified Psychiatrist",
         "medicalSpecialty": "Psychiatry",

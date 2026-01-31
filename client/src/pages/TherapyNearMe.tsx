@@ -25,7 +25,7 @@ export default function TherapyNearMe() {
     "@type": ["MedicalBusiness", "LocalBusiness", "HealthAndBeautyBusiness"],
     "name": "Empathy Health Clinic - Therapy Services",
     "description": "Professional therapy services near you in Orlando & Winter Park, FL. Licensed therapists providing CBT, EMDR, DBT, trauma therapy, and more. Same-week appointments available.",
-    "url": "https://empathyhealthclinic.com/therapy-near-me",
+    "url": "https://www.empathyhealthclinic.com/therapy-near-me",
     "telephone": "+1-386-848-8751",
     "email": "info@empathyhealthclinic.com",
     "address": {
@@ -136,9 +136,9 @@ export default function TherapyNearMe() {
   };
 
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Services", url: "https://empathyhealthclinic.com/services" },
-    { name: "Therapy Near Me", url: "https://empathyhealthclinic.com/therapy-near-me" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Services", url: "https://www.empathyhealthclinic.com/services" },
+    { name: "Therapy Near Me", url: "https://www.empathyhealthclinic.com/therapy-near-me" }
   ]);
 
   return (

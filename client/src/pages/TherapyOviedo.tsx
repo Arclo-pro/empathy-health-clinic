@@ -19,7 +19,7 @@ export default function TherapyOviedo() {
     "@type": ["MedicalBusiness", "LocalBusiness", "HealthAndBeautyBusiness"],
     "name": "Empathy Health Clinic - Therapy Oviedo",
     "description": "Professional therapy services for Oviedo, FL residents. Licensed therapists providing CBT, EMDR, anxiety treatment, depression counseling, and more. Same-week appointments available.",
-    "url": "https://empathyhealthclinic.com/therapy-oviedo",
+    "url": "https://www.empathyhealthclinic.com/therapy-oviedo",
     "telephone": "+1-386-848-8751",
     "email": "info@empathyhealthclinic.com",
     "address": {

@@ -14,7 +14,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Shield, Users, Heart, CheckCircle, Stethoscope, Brain, Star } from "lucide-react";
-const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.jpg";
+const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.webp";
 import { trackEvent } from "@/lib/analytics";
 
 const TeamSection = lazy(() => import("@/components/TeamSection"));
@@ -114,7 +114,7 @@ export default function Orlando() {
     "@type": "LocalBusiness",
     "name": "Empathy Health Clinic - Psychiatrist in Orlando, FL",
     "description": "Board-certified psychiatrists providing expert psychiatric care in Orlando, FL. Specializing in depression, anxiety, ADHD, PTSD, and comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/locations/orlando",
+    "url": "https://www.empathyhealthclinic.com/locations/orlando",
     "telephone": "386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {
@@ -144,7 +144,7 @@ export default function Orlando() {
     "@type": "MedicalClinic",
     "name": "Empathy Health Clinic - Psychiatrist in Orlando, FL",
     "description": "Board-certified psychiatrists providing expert psychiatric care in Orlando, FL. Specializing in depression, anxiety, ADHD, PTSD, and comprehensive mental health treatment.",
-    "url": "https://empathyhealthclinic.com/locations/orlando",
+    "url": "https://www.empathyhealthclinic.com/locations/orlando",
     "telephone": "386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {

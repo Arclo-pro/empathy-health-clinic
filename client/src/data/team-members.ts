@@ -130,7 +130,7 @@ export const teamMembers: TeamMember[] = [
     id: "9",
     name: "Batese Mitchell",
     credentials: "LMHC",
-    image: "/site-assets/providers/Headshot (1)_1764630281211.jpg",
+    image: "/site-assets/providers/Headshot (1)_1764630281211.webp",
     doxyUrl: "https://doxy.me/empathy1",
     slug: "batese-mitchell",
     pageTitle: "Batese Mitchell, LMHC | Licensed Mental Health Counselor | Winter Park, FL",

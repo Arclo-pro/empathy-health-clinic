@@ -13,7 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Shield, Users, Heart, CheckCircle, Stethoscope, Brain, Star } from "lucide-react";
-const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.jpg";
+const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.webp";
 import { trackEvent } from "@/lib/analytics";
 
 const TeamSection = lazy(() => import("@/components/TeamSection"));
@@ -112,7 +112,7 @@ export default function Kissimmee() {
     "@type": "MedicalBusiness",
     "name": "Empathy Health Clinic - Kissimmee",
     "description": "Mental health clinic providing psychiatric services, therapy, and counseling serving Kissimmee, FL. Expert treatment for anxiety, depression, ADHD, and more.",
-    "url": "https://empathyhealthclinic.com/locations/kissimmee",
+    "url": "https://www.empathyhealthclinic.com/locations/kissimmee",
     "telephone": "386-848-8751",
     "email": "providers@empathyhealthclinic.com",
     "address": {

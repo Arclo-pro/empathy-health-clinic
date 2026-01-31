@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { DollarSign, Heart, Shield, Users, CheckCircle, Phone, Mail } from "lucide-react";
-const forestBg = "/site-assets/stock_images/misty_forest_morning_c7552d0a.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_c7552d0a.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function AffordableCare() {

@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_3749281a.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_3749281a.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 
@@ -20,19 +20,19 @@ export default function TraumaSpecialist() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["MedicalBusiness", "Physician", "LocalBusiness"],
-        "@id": "https://empathyhealthclinic.com/trauma-specialist-near-me#organization",
+        "@id": "https://www.empathyhealthclinic.com/trauma-specialist-near-me#organization",
         "name": "Empathy Health Clinic - Trauma Specialist",
         "parentOrganization": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -131,25 +131,25 @@ export default function TraumaSpecialist() {
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/trauma-specialist-near-me/#webpage",
-        "url": "https://empathyhealthclinic.com/trauma-specialist-near-me",
+        "@id": "https://www.empathyhealthclinic.com/trauma-specialist-near-me/#webpage",
+        "url": "https://www.empathyhealthclinic.com/trauma-specialist-near-me",
         "name": "Trauma Specialist Near Me | PTSD Treatment & Trauma Therapy Orlando",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Expert trauma specialists in Winter Park & Orlando, FL. EMDR, trauma-focused CBT, PTSD treatment. Licensed professionals with specialized trauma training. Same-week appointments. Most insurance accepted.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/trauma-specialist-near-me#faq",
+        "@id": "https://www.empathyhealthclinic.com/trauma-specialist-near-me#faq",
         "mainEntity": [
           {
             "@type": "Question",

@@ -10,7 +10,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function Psychiatrist() {
@@ -19,16 +19,16 @@ export default function Psychiatrist() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "inLanguage": "en"
       },
       {
         "@type": ["Physician", "MedicalBusiness", "Psychiatrist", "MedicalClinic"],
-        "@id": "https://empathyhealthclinic.com/psychiatrist#organization",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist#organization",
         "name": "Empathy Health Clinic - Board-Certified Psychiatrists",
-        "url": "https://empathyhealthclinic.com/",
+        "url": "https://www.empathyhealthclinic.com/",
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
@@ -139,30 +139,30 @@ export default function Psychiatrist() {
           }
         ],
         "priceRange": "$$",
-        "image": "https://empathyhealthclinic.com" + heroImage,
+        "image": "https://www.empathyhealthclinic.com" + heroImage,
         "paymentAccepted": ["BCBS", "Cigna", "UMR", "Medicare", "Aetna", "United Healthcare", "Most Major Insurance"]
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/psychiatrist/#webpage",
-        "url": "https://empathyhealthclinic.com/psychiatrist",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist/#webpage",
+        "url": "https://www.empathyhealthclinic.com/psychiatrist",
         "name": "Psychiatrist Near Me | Mental Health Treatment & Medication Management",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "inLanguage": "en",
         "about": {
-          "@id": "https://empathyhealthclinic.com/psychiatrist#organization"
+          "@id": "https://www.empathyhealthclinic.com/psychiatrist#organization"
         },
         "description": "Board-certified psychiatrists providing mental health treatment, medication management, and psychiatric evaluations. Same-week appointments, telehealth available, most insurance accepted. Call 386-848-8751.",
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://empathyhealthclinic.com" + heroImage
+          "url": "https://www.empathyhealthclinic.com" + heroImage
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://empathyhealthclinic.com/psychiatrist/#faq",
+        "@id": "https://www.empathyhealthclinic.com/psychiatrist/#faq",
         "mainEntity": [
           {
             "@type": "Question",

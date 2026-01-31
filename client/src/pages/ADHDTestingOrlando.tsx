@@ -11,7 +11,7 @@ import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
 import ShortContactForm from "@/components/ShortContactForm";
 import { AuthoritativeSourcesBlock } from "@/components/AuthoritativeSource";
-const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.jpg";
+const heroImage = "/site-assets/stock_images/professional_healthc_955227e9.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function ADHDTestingOrlando() {
@@ -20,7 +20,7 @@ export default function ADHDTestingOrlando() {
     "@graph": [
       {
         "@type": "MedicalTest",
-        "@id": "https://empathyhealthclinic.com/adhd-testing-orlando/#test",
+        "@id": "https://www.empathyhealthclinic.com/adhd-testing-orlando/#test",
         "name": "ADHD Testing & Evaluation",
         "alternateName": ["ADHD Assessment", "ADHD Evaluation", "Attention Deficit Hyperactivity Disorder Testing"],
         "description": "Comprehensive ADHD testing for adults 18+ including clinical interviews, standardized rating scales (ASRS, Conners), and differential diagnosis to accurately identify ADHD and co-occurring conditions.",
@@ -44,10 +44,10 @@ export default function ADHDTestingOrlando() {
       },
       {
         "@type": ["MedicalClinic", "LocalBusiness", "MedicalOrganization"],
-        "@id": "https://empathyhealthclinic.com/adhd-testing-orlando/#organization",
+        "@id": "https://www.empathyhealthclinic.com/adhd-testing-orlando/#organization",
         "name": "Empathy Health Clinic - ADHD Testing Winter Park & Orlando",
         "description": "Professional ADHD testing and evaluation in Winter Park and Orlando, FL. Board-certified psychiatrists providing comprehensive assessments for adults 18+. Same-week appointments. Most insurance accepted.",
-        "url": "https://empathyhealthclinic.com/adhd-testing-orlando",
+        "url": "https://www.empathyhealthclinic.com/adhd-testing-orlando",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "priceRange": "$$",
@@ -83,16 +83,16 @@ export default function ADHDTestingOrlando() {
         "isAcceptingNewPatients": true,
         "availableService": {
           "@type": "MedicalTest",
-          "@id": "https://empathyhealthclinic.com/adhd-testing-orlando/#test"
+          "@id": "https://www.empathyhealthclinic.com/adhd-testing-orlando/#test"
         }
       },
       {
         "@type": "Physician",
-        "@id": "https://empathyhealthclinic.com/adhd-testing-orlando/#physician",
+        "@id": "https://www.empathyhealthclinic.com/adhd-testing-orlando/#physician",
         "name": "Dr. Marna Morrow",
         "description": "Board-certified psychiatrist specializing in ADHD evaluation and treatment with expertise in adult ADHD diagnosis.",
         "medicalSpecialty": "Psychiatry",
-        "worksFor": { "@id": "https://empathyhealthclinic.com/adhd-testing-orlando/#organization" },
+        "worksFor": { "@id": "https://www.empathyhealthclinic.com/adhd-testing-orlando/#organization" },
         "knowsAbout": ["ADHD Diagnosis", "Adult ADHD", "ADHD Medication Management", "Stimulant Medications", "Non-Stimulant ADHD Treatment"]
       },
       {

@@ -75,7 +75,7 @@ export default function PsychotherapistOrlando() {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "Empathy Health Clinic - Psychotherapy Services Orlando",
-    "image": "https://empathyhealthclinic.com/logo.png",
+    "image": "https://www.empathyhealthclinic.com/logo.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "2281 Lee Rd Suite 102",

@@ -18,9 +18,9 @@ import InternalLinkBlock from "@/components/InternalLinkBlock";
 
 export default function MentalHealthNearMe() {
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Home", url: "https://empathyhealthclinic.com" },
-    { name: "Services", url: "https://empathyhealthclinic.com/services" },
-    { name: "Mental Health Near Me", url: "https://empathyhealthclinic.com/mental-health-near-me" }
+    { name: "Home", url: "https://www.empathyhealthclinic.com" },
+    { name: "Services", url: "https://www.empathyhealthclinic.com/services" },
+    { name: "Mental Health Near Me", url: "https://www.empathyhealthclinic.com/mental-health-near-me" }
   ]);
 
   const jsonLd = {
@@ -31,7 +31,7 @@ export default function MentalHealthNearMe() {
         "@type": ["MedicalBusiness", "LocalBusiness", "MedicalClinic"],
         "name": "Mental Health Services Near Me - Empathy Health Clinic",
         "description": "Comprehensive mental health services in Orlando & Winter Park, FL. Psychiatry, therapy, and counseling for anxiety, depression, ADHD, and more. Same-week appointments available.",
-        "url": "https://empathyhealthclinic.com/mental-health-near-me",
+        "url": "https://www.empathyhealthclinic.com/mental-health-near-me",
         "telephone": "+1-386-848-8751",
         "email": "providers@empathyhealthclinic.com",
         "address": {

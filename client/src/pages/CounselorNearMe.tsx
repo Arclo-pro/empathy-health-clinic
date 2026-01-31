@@ -9,7 +9,7 @@ import InsuranceSection from "@/components/InsuranceSection";
 import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import HeroBackground from "@/components/HeroBackground";
-const heroImage = "/site-assets/stock_images/calm_peaceful_therap_b118766b.jpg";
+const heroImage = "/site-assets/stock_images/calm_peaceful_therap_b118766b.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 

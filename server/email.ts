@@ -319,7 +319,7 @@ export async function sendNewsletterEmail(
             <p style="color: #4b5563; font-size: 15px; line-height: 1.6; margin: 0 0 15px 0;">
               ${post.excerpt}
             </p>
-            <a href="https://empathyhealthclinic.com/blog/${post.slug}" 
+            <a href="https://www.empathyhealthclinic.com/blog/${post.slug}" 
                style="display: inline-block; background-color: #2563eb; color: white; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; font-size: 14px;">
               Read More
             </a>
@@ -332,7 +332,7 @@ export async function sendNewsletterEmail(
           <p style="color: #4b5563; margin: 0 0 20px 0; font-size: 15px;">
             Our team is here to help with psychiatric evaluation, therapy, and counseling services.
           </p>
-          <a href="https://empathyhealthclinic.com/request-appointment" 
+          <a href="https://www.empathyhealthclinic.com/request-appointment" 
              style="display: inline-block; background-color: #2563eb; color: white; text-decoration: none; padding: 14px 28px; border-radius: 5px; font-weight: bold; font-size: 15px; margin: 0 10px 10px 0;">
             Request Appointment
           </a>
@@ -353,7 +353,7 @@ export async function sendNewsletterEmail(
         </p>
         <p style="margin: 15px 0 0 0; color: #9ca3af; font-size: 12px;">
           You're receiving this email because you subscribed to our newsletter.<br>
-          <a href="https://empathyhealthclinic.com" style="color: #2563eb; text-decoration: none;">Visit Website</a>
+          <a href="https://www.empathyhealthclinic.com" style="color: #2563eb; text-decoration: none;">Visit Website</a>
         </p>
       </div>
     </div>
@@ -370,7 +370,7 @@ ${new Date(post.publishedDate).toLocaleDateString('en-US', { year: 'numeric', mo
 
 ${post.excerpt}
 
-Read more: https://empathyhealthclinic.com/blog/${post.slug}
+Read more: https://www.empathyhealthclinic.com/blog/${post.slug}
 `).join('\n---\n\n')}
 
 ---
@@ -378,7 +378,7 @@ Read more: https://empathyhealthclinic.com/blog/${post.slug}
 Need Support?
 Our team is here to help with psychiatric evaluation, therapy, and counseling services.
 
-Request Appointment: https://empathyhealthclinic.com/request-appointment
+Request Appointment: https://www.empathyhealthclinic.com/request-appointment
 Call: 386-848-8751
 
 Empathy Health Clinic
@@ -387,7 +387,7 @@ Orlando, FL 32810
 (386) 848-8751
 
 You're receiving this email because you subscribed to our newsletter.
-Visit Website: https://empathyhealthclinic.com
+Visit Website: https://www.empathyhealthclinic.com
   `.trim();
 
   // Send to all subscribers

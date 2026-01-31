@@ -19,7 +19,7 @@ export default function CounselingOrlando() {
     "@type": ["MedicalBusiness", "LocalBusiness", "HealthAndBeautyBusiness"],
     "name": "Empathy Health Clinic - Counseling Orlando",
     "description": "Professional counseling services in Orlando, FL. Licensed counselors providing therapy for anxiety, depression, trauma, relationships, and more. Same-week appointments available.",
-    "url": "https://empathyhealthclinic.com/counseling-orlando",
+    "url": "https://www.empathyhealthclinic.com/counseling-orlando",
     "telephone": "+1-386-848-8751",
     "email": "info@empathyhealthclinic.com",
     "address": {

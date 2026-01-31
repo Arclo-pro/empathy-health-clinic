@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { MapPin, Phone, Mail, Clock, Shield, Users, Heart, CheckCircle, Stethoscope, Brain } from "lucide-react";
-const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.jpg";
+const healthcareBg = "/site-assets/stock_images/healthcare_professio_70df12ba.webp";
 import { trackEvent } from "@/lib/analytics";
 
 export default function AltamonteSprings() {

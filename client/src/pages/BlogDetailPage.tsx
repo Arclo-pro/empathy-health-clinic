@@ -11,7 +11,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import SEOHead from "@/components/SEOHead";
 import FAQSchema from "@/components/FAQSchema";
-const forestBg = "/site-assets/stock_images/misty_forest_morning_c7552d0a.jpg";
+const forestBg = "/site-assets/stock_images/misty_forest_morning_c7552d0a.webp";
 
 function optimizeUnsplashUrl(url: string, width: number, height: number, quality: number = 60): string {
   if (!url || !url.includes('unsplash.com')) {
@@ -379,21 +379,30 @@ export default function BlogDetailPage() {
   useEffect(() => {
     if (blogPost) {
       const canonicalSlug = blogPost.canonicalSlug || blogPost.slug;
-      const blogUrl = `https://empathyhealthclinic.com/blog/${canonicalSlug}`;
+      const blogUrl = `https://www.empathyhealthclinic.com/blog/${canonicalSlug}`;
+      const plainTextContent = (blogPost.content || "").replace(/<[^>]*>/g, "").trim();
       const jsonLd: Record<string, unknown> = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": (blogPost.metaTitle || blogPost.title).slice(0, 110),
         "url": blogUrl,
+        "articleBody": plainTextContent.slice(0, 5000),
+        "wordCount": plainTextContent.split(/\s+/).length,
         "author": {
           "@type": "Person",
           "name": blogPost.author,
-          "url": "https://empathyhealthclinic.com",
+          "url": "https://www.empathyhealthclinic.com/team",
+          "jobTitle": "Mental Health Provider",
           "affiliation": {
             "@type": "MedicalOrganization",
-            "name": "Empathy Health Clinic"
+            "name": "Empathy Health Clinic",
+            "url": "https://www.empathyhealthclinic.com"
           },
-          "knowsAbout": ["Mental Health", "Psychiatry", "Psychology", "Psychotherapy"]
+          "knowsAbout": ["Mental Health", "Psychiatry", "Psychology", "Psychotherapy"],
+          "sameAs": [
+            "https://x.com/clinicempathy12",
+            "https://www.facebook.com/empathyhealthclinic"
+          ]
         },
         "datePublished": blogPost.publishedDate,
         "dateModified": blogPost.lastUpdated || blogPost.publishedDate,
@@ -406,7 +415,7 @@ export default function BlogDetailPage() {
           "name": "Empathy Health Clinic",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://empathyhealthclinic.com/site-assets/logos/empathy-logo.png"
+            "url": "https://www.empathyhealthclinic.com/site-assets/logos/empathy-logo.webp"
           }
         },
         "description": blogPost.metaDescription || blogPost.excerpt,
@@ -417,7 +426,7 @@ export default function BlogDetailPage() {
         "isPartOf": {
           "@type": "WebSite",
           "name": "Empathy Health Clinic",
-          "url": "https://empathyhealthclinic.com"
+          "url": "https://www.empathyhealthclinic.com"
         }
       };
 

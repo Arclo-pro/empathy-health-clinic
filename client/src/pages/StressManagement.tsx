@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Brain, Heart, Shield, Users, CheckCircle, Phone, Mail, Target, Zap, AlertCircle } from "lucide-react";
-const meditationBg = "/site-assets/stock_images/meditation_mindfulne_859e45be.jpg";
+const meditationBg = "/site-assets/stock_images/meditation_mindfulne_859e45be.webp";
 import { trackEvent } from "@/lib/analytics";
 import TherapyFAQ from "@/components/TherapyFAQ";
 import InternalLinkBlock from "@/components/InternalLinkBlock";

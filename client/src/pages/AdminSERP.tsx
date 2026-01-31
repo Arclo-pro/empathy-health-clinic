@@ -904,7 +904,7 @@ export default function AdminSERP() {
                               rel="noopener noreferrer"
                               className="text-primary hover:underline text-xs truncate block max-w-xs"
                             >
-                              {data.url.replace("https://empathyhealthclinic.com", "")}
+                              {data.url.replace("https://www.empathyhealthclinic.com", "")}
                             </a>
                           ) : (
                             <span className="text-muted-foreground">-</span>

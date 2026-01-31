@@ -26,33 +26,33 @@ export default function BlackPsychiatristOrlando() {
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://empathyhealthclinic.com/#website",
-        "url": "https://empathyhealthclinic.com/",
+        "@id": "https://www.empathyhealthclinic.com/#website",
+        "url": "https://www.empathyhealthclinic.com/",
         "name": "Empathy Health Clinic",
         "description": "Mental Health & Psychiatry Services in Orlando",
         "publisher": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         }
       },
       {
         "@type": "WebPage",
-        "@id": "https://empathyhealthclinic.com/black-psychiatrist-orlando#webpage",
-        "url": "https://empathyhealthclinic.com/black-psychiatrist-orlando",
+        "@id": "https://www.empathyhealthclinic.com/black-psychiatrist-orlando#webpage",
+        "url": "https://www.empathyhealthclinic.com/black-psychiatrist-orlando",
         "name": "Black Psychiatrist Orlando | Culturally Competent Mental Health Care",
         "isPartOf": {
-          "@id": "https://empathyhealthclinic.com/#website"
+          "@id": "https://www.empathyhealthclinic.com/#website"
         },
         "about": {
-          "@id": "https://empathyhealthclinic.com/#organization"
+          "@id": "https://www.empathyhealthclinic.com/#organization"
         },
         "description": "Find a culturally competent Black psychiatrist in Orlando. Board-certified psychiatrists providing mental health care with understanding of cultural experiences, racial trauma, and community-specific needs."
       },
       {
         "@type": ["Physician", "MedicalBusiness"],
-        "@id": "https://empathyhealthclinic.com/#organization",
+        "@id": "https://www.empathyhealthclinic.com/#organization",
         "name": "Empathy Health Clinic",
-        "image": "https://empathyhealthclinic.com/logo.png",
-        "url": "https://empathyhealthclinic.com/black-psychiatrist-orlando",
+        "image": "https://www.empathyhealthclinic.com/logo.png",
+        "url": "https://www.empathyhealthclinic.com/black-psychiatrist-orlando",
         "telephone": "+1-386-848-8751",
         "priceRange": "$$",
         "address": {

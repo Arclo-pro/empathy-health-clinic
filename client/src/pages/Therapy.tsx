@@ -13,7 +13,7 @@ import ReviewsAndBadges from "@/components/ReviewsAndBadges";
 import VerifiedOnBadge from "@/components/VerifiedOnBadge";
 import ShortContactForm from "@/components/ShortContactForm";
 import { trackEvent } from "@/lib/analytics";
-const therapyImage = "/site-assets/stock_images/professional_therapy_f11c950a.jpg";
+const therapyImage = "/site-assets/stock_images/professional_therapy_f11c950a.webp";
 import TherapyFAQ from "@/components/TherapyFAQ";
 import TextUsButton from "@/components/TextUsButton";
 
