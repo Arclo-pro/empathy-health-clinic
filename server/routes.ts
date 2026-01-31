@@ -2780,6 +2780,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
         { path: '/therapist-casselberry', changefreq: 'monthly', priority: 0.8 },
         { path: '/therapist-longwood', changefreq: 'monthly', priority: 0.8 },
         { path: '/couples-therapy-toxic-relationships', changefreq: 'monthly', priority: 0.8 },
+        // New location hub pages + condition/therapist pages (January 2026)
+        { path: '/psychiatrist-heathrow', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-baldwin-park', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-union-park', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-audubon-park', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-goldenrod', changefreq: 'weekly', priority: 0.8 },
+        { path: '/psychiatrist-alafaya', changefreq: 'weekly', priority: 0.8 },
+        { path: '/trauma-therapy-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/psychosis-treatment-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/therapist-oviedo', changefreq: 'monthly', priority: 0.8 },
+        { path: '/dbt-therapy-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/schizophrenia-psychiatrist-orlando', changefreq: 'monthly', priority: 0.8 },
+        { path: '/insomnia-psychiatrist-orlando', changefreq: 'monthly', priority: 0.8 },
         // Phase 5: Compliance & Trust pages (January 2026)
         { path: '/hipaa', changefreq: 'yearly', priority: 0.4 },
         { path: '/no-surprises-act', changefreq: 'yearly', priority: 0.4 },
@@ -2839,11 +2852,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       // Programmatic SEO condition pages — condition × location (105 pages)
-      const conditionSlugs = ['adhd', 'anxiety', 'depression', 'bipolar', 'ocd', 'ptsd', 'medication-management'];
+      const conditionSlugs = ['adhd', 'anxiety', 'depression', 'bipolar', 'ocd', 'ptsd', 'medication-management', 'couples-therapy'];
       const locationSlugs = [
         'orlando', 'winter-park', 'lake-nona', 'maitland', 'college-park',
         'altamonte-springs', 'casselberry', 'kissimmee', 'apopka', 'longwood',
         'winter-garden', 'oviedo', 'sanford', 'lake-mary', 'downtown-orlando',
+        'heathrow', 'baldwin-park', 'union-park', 'audubon-park', 'goldenrod', 'alafaya',
       ];
       conditionSlugs.forEach(condition => {
         locationSlugs.forEach(location => {

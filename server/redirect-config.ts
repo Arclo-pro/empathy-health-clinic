@@ -70,8 +70,8 @@ export const contentRedirectMap: Record<string, string> = {
   // Removed service pages (adults only, no child services)
   '/child-psychiatrist-orlando': '/psychiatrist-orlando',
   
-  // Old treatment/therapy URLs
-  '/trauma-therapy': '/therapy',
+  // Old treatment/therapy URLs — /trauma-therapy now redirects to dedicated trauma page
+  '/trauma-therapy': '/trauma-therapy-orlando',
   '/supplements': '/services',
   '/faq': '/services',
   
@@ -546,6 +546,19 @@ export const contentRedirectMap: Record<string, string> = {
   // Treatment pages - redirect to canonical standalone pages
   '/treatments/ptsd-treatment': '/ptsd-treatment',
   '/treatments/intimacy-therapy-sexual-wellness': '/couples-counseling',
+  '/treatments/cognitive-behavioral-therapy': '/cognitive-behavioral-therapy',
+  '/treatments/trauma-therapy': '/trauma-therapy-orlando',
+  '/treatments/psychosis': '/psychosis-treatment-orlando',
+  '/treatments/schizophrenia': '/schizophrenia-psychiatrist-orlando',
+  '/treatments/sleep-disorders': '/insomnia-psychiatrist-orlando',
+  '/treatments/eating-disorders': '/eating-disorder-treatment-orlando',
+  '/treatments/anger-management': '/anger-management-therapy-orlando',
+  '/treatments/addiction-treatment': '/addiction-treatment-orlando',
+  '/treatments/paranoia': '/paranoia-treatment-orlando',
+  '/treatments/pharmacogenetic-testing': '/pharmacogenetic-testing-orlando',
+  '/treatments/neuropsychological-testing': '/neuropsychological-testing-orlando',
+  '/treatments/dbt-therapy': '/dbt-therapy-orlando',
+  '/treatments/cognitive-decline': '/dementia-treatment-orlando',
   
   // NOTE: Do NOT add redirects for location pages - they should be self-canonical
   // and handled by LocationDetail.tsx or dedicated static pages

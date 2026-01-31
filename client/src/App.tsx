@@ -143,6 +143,12 @@ const PsychiatristSanford = lazy(() => import("@/pages/locations/Sanford"));
 const PsychiatristLakeMary = lazy(() => import("@/pages/locations/LakeMary"));
 const PsychiatristCollegePark = lazy(() => import("@/pages/locations/CollegePark"));
 const PsychiatristMaitland = lazy(() => import("@/pages/locations/Maitland"));
+const PsychiatristHeathrow = lazy(() => import("@/pages/locations/Heathrow"));
+const PsychiatristBaldwinPark = lazy(() => import("@/pages/locations/BaldwinPark"));
+const PsychiatristUnionPark = lazy(() => import("@/pages/locations/UnionPark"));
+const PsychiatristAudubonPark = lazy(() => import("@/pages/locations/AudubonPark"));
+const PsychiatristGoldenrod = lazy(() => import("@/pages/locations/Goldenrod"));
+const PsychiatristAlafaya = lazy(() => import("@/pages/locations/Alafaya"));
 
 // Additional Landing Pages
 const ADHDTestingOrlando = lazy(() => import("@/pages/ADHDTestingOrlando"));
@@ -163,6 +169,8 @@ const DementiaOrlando = lazy(() => import("@/pages/DementiaOrlando"));
 const ParanoiaTreatmentOrlando = lazy(() => import("@/pages/ParanoiaTreatmentOrlando"));
 const PharmacogeneticTestingOrlando = lazy(() => import("@/pages/PharmacogeneticTestingOrlando"));
 const NeuropsychTestingOrlando = lazy(() => import("@/pages/NeuropsychTestingOrlando"));
+const TraumaTherapyOrlando = lazy(() => import("@/pages/TraumaTherapyOrlando"));
+const PsychosisTreatmentOrlando = lazy(() => import("@/pages/PsychosisTreatmentOrlando"));
 
 // Phase 4: Therapist Location Pages
 const TherapistSanford = lazy(() => import("@/pages/TherapistSanford"));
@@ -170,6 +178,7 @@ const TherapistLakeMary = lazy(() => import("@/pages/TherapistLakeMary"));
 const TherapistCasselberry = lazy(() => import("@/pages/TherapistCasselberry"));
 const TherapistLongwood = lazy(() => import("@/pages/TherapistLongwood"));
 const CouplesTherapyToxicRelationships = lazy(() => import("@/pages/CouplesTherapyToxicRelationships"));
+const TherapistOviedo = lazy(() => import("@/pages/TherapistOviedo"));
 
 // Phase 5: Compliance & Trust Pages
 const HipaaNotice = lazy(() => import("@/pages/HipaaNotice"));
@@ -445,6 +454,24 @@ function Router() {
         </Route>
         <Route path="/psychiatrist-maitland">
           <Suspense fallback={<LoadingFallback />}><PsychiatristMaitland /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-heathrow">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristHeathrow /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristBaldwinPark /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-union-park">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristUnionPark /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-audubon-park">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristAudubonPark /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-goldenrod">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristGoldenrod /></Suspense>
+        </Route>
+        <Route path="/psychiatrist-alafaya">
+          <Suspense fallback={<LoadingFallback />}><PsychiatristAlafaya /></Suspense>
         </Route>
         <Route path="/thank-you">
           <Suspense fallback={<LoadingFallback />}>
@@ -829,6 +856,21 @@ function Router() {
         <Route path="/neuropsychological-testing-orlando">
           <Suspense fallback={<LoadingFallback />}>
             <NeuropsychTestingOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/trauma-therapy-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <TraumaTherapyOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/psychosis-treatment-orlando">
+          <Suspense fallback={<LoadingFallback />}>
+            <PsychosisTreatmentOrlando />
+          </Suspense>
+        </Route>
+        <Route path="/therapist-oviedo">
+          <Suspense fallback={<LoadingFallback />}>
+            <TherapistOviedo />
           </Suspense>
         </Route>
         <Route path="/therapist-sanford">
@@ -1331,6 +1373,203 @@ function Router() {
           <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
         </Route>
         <Route path="/conditions/medication-management/downtown-orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — ADHD */}
+        <Route path="/conditions/adhd/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/adhd/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — Anxiety */}
+        <Route path="/conditions/anxiety/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/anxiety/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — Depression */}
+        <Route path="/conditions/depression/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/depression/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — Bipolar */}
+        <Route path="/conditions/bipolar/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/bipolar/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — OCD */}
+        <Route path="/conditions/ocd/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ocd/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — PTSD */}
+        <Route path="/conditions/ptsd/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ptsd/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ptsd/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ptsd/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ptsd/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/ptsd/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* New cities — Medication Management */}
+        <Route path="/conditions/medication-management/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/medication-management/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/medication-management/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/medication-management/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/medication-management/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/medication-management/alafaya">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        {/* Couples Therapy — all cities */}
+        <Route path="/conditions/couples-therapy/orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/winter-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/lake-nona">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/maitland">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/college-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/altamonte-springs">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/casselberry">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/kissimmee">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/apopka">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/longwood">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/winter-garden">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/oviedo">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/sanford">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/lake-mary">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/downtown-orlando">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/heathrow">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/baldwin-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/union-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/audubon-park">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/goldenrod">
+          <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
+        </Route>
+        <Route path="/conditions/couples-therapy/alafaya">
           <Suspense fallback={<LoadingFallback />}><ConditionPage /></Suspense>
         </Route>
         {/* Insurance × Condition Pages */}

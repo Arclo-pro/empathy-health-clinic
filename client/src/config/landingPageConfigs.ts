@@ -8022,3 +8022,757 @@ export const couplesTherapyToxicRelationshipsConfig: LandingPageConfig = {
     conversionCategory: "couples_therapy_toxic_relationships",
   },
 };
+
+export const psychiatristHeathrowConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Heathrow FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Heathrow, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist heathrow", "psychiatrist heathrow fl", "heathrow psychiatrist", "mental health heathrow", "adhd doctor heathrow", "anxiety treatment heathrow"],
+    canonicalPath: "/psychiatrist-heathrow",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Heathrow FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Heathrow, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-heathrow",
+    "areaServed": [
+      { "@type": "City", "name": "Heathrow" },
+      { "@type": "City", "name": "Sanford" },
+      { "@type": "City", "name": "Lake Mary" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Heathrow, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Heathrow residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Heathrow from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Heathrow Residents",
+    introduction: [
+      "Heathrow residents can access board-certified psychiatric care at Empathy Health Clinic. Our experienced psychiatrists provide comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "We offer flexible scheduling with in-person visits at our Winter Park office and secure telehealth appointments that make quality psychiatric care convenient for Heathrow residents. Same-week appointments are available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Heathrow",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Heathrow?", answer: "Yes, we serve Heathrow residents through our Winter Park office and convenient telehealth appointments. Heathrow is easily accessible to our clinic via I-4." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Heathrow home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Heathrow residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/heathrow", label: "ADHD Treatment Heathrow" },
+      { href: "/conditions/anxiety/heathrow", label: "Anxiety Treatment Heathrow" },
+      { href: "/conditions/depression/heathrow", label: "Depression Treatment Heathrow" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-sanford", label: "Psychiatrist Sanford" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Heathrow Page",
+    conversionCategory: "psychiatrist_heathrow",
+  },
+};
+
+export const psychiatristBaldwinParkConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Baldwin Park, Orlando | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Baldwin Park, Orlando. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist baldwin park", "psychiatrist baldwin park fl", "baldwin park psychiatrist", "mental health baldwin park", "adhd doctor baldwin park", "anxiety treatment baldwin park"],
+    canonicalPath: "/psychiatrist-baldwin-park",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Baldwin Park Orlando - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Baldwin Park, Orlando with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-baldwin-park",
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Baldwin Park" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Downtown Orlando" },
+      { "@type": "City", "name": "College Park" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Baldwin Park, Orlando",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Baldwin Park residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Baldwin Park from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Baldwin Park Residents",
+    introduction: [
+      "Baldwin Park residents can access board-certified psychiatric care at Empathy Health Clinic in nearby Winter Park. Our psychiatrists provide comprehensive mental health treatment for adults including medication management, psychiatric evaluations, and ongoing support.",
+      "Our Winter Park office is just minutes from Baldwin Park, and we also offer secure telehealth appointments for added convenience. Same-week appointments are available for new patients.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Baldwin Park",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Baldwin Park?", answer: "Yes, we serve Baldwin Park residents through our Winter Park office and convenient telehealth appointments. Our office is just a short drive from Baldwin Park." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Baldwin Park home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Baldwin Park residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/baldwin-park", label: "ADHD Treatment Baldwin Park" },
+      { href: "/conditions/anxiety/baldwin-park", label: "Anxiety Treatment Baldwin Park" },
+      { href: "/conditions/depression/baldwin-park", label: "Depression Treatment Baldwin Park" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-college-park", label: "Psychiatrist College Park" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Baldwin Park Page",
+    conversionCategory: "psychiatrist_baldwin_park",
+  },
+};
+
+export const psychiatristUnionParkConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Union Park, Orlando | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Union Park, Orlando. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist union park", "psychiatrist union park fl", "union park psychiatrist", "mental health union park", "adhd doctor union park", "anxiety treatment union park"],
+    canonicalPath: "/psychiatrist-union-park",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Union Park Orlando - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Union Park, Orlando with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-union-park",
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Union Park" },
+      { "@type": "City", "name": "Waterford Lakes" },
+      { "@type": "City", "name": "Oviedo" },
+      { "@type": "City", "name": "Winter Park" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Union Park, Orlando",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Union Park residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Union Park from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Union Park Residents",
+    introduction: [
+      "Union Park residents can access board-certified psychiatric care at Empathy Health Clinic in nearby Winter Park. Our psychiatrists provide comprehensive mental health treatment for adults including medication management, psychiatric evaluations, and ongoing support.",
+      "Our Winter Park office is conveniently located for Union Park residents, and we also offer secure telehealth appointments for added flexibility. Same-week appointments are available for new patients.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Union Park",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Union Park?", answer: "Yes, we serve Union Park residents through our Winter Park office and convenient telehealth appointments. Our office is easily accessible from Union Park." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Union Park home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Union Park residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/union-park", label: "ADHD Treatment Union Park" },
+      { href: "/conditions/anxiety/union-park", label: "Anxiety Treatment Union Park" },
+      { href: "/conditions/depression/union-park", label: "Depression Treatment Union Park" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-oviedo", label: "Psychiatrist Oviedo" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Union Park Page",
+    conversionCategory: "psychiatrist_union_park",
+  },
+};
+
+export const psychiatristAudubonParkConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Audubon Park, Orlando | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Audubon Park, Orlando. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist audubon park", "psychiatrist audubon park fl", "audubon park psychiatrist", "mental health audubon park", "adhd doctor audubon park", "anxiety treatment audubon park"],
+    canonicalPath: "/psychiatrist-audubon-park",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Audubon Park Orlando - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Audubon Park, Orlando with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-audubon-park",
+    "areaServed": [
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Audubon Park" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "College Park" },
+      { "@type": "City", "name": "Downtown Orlando" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Audubon Park, Orlando",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Audubon Park residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Audubon Park from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Audubon Park Residents",
+    introduction: [
+      "Audubon Park residents can access board-certified psychiatric care at Empathy Health Clinic in nearby Winter Park. Our psychiatrists provide comprehensive mental health treatment for adults including medication management, psychiatric evaluations, and ongoing support.",
+      "Our Winter Park office is just minutes from Audubon Park, and we also offer secure telehealth appointments for added convenience. Same-week appointments are available for new patients.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Audubon Park",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Audubon Park?", answer: "Yes, we serve Audubon Park residents through our Winter Park office and convenient telehealth appointments. Our office is just a short drive from Audubon Park." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Audubon Park home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Audubon Park residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/audubon-park", label: "ADHD Treatment Audubon Park" },
+      { href: "/conditions/anxiety/audubon-park", label: "Anxiety Treatment Audubon Park" },
+      { href: "/conditions/depression/audubon-park", label: "Depression Treatment Audubon Park" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-college-park", label: "Psychiatrist College Park" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Audubon Park Page",
+    conversionCategory: "psychiatrist_audubon_park",
+  },
+};
+
+export const psychiatristGoldenrodConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Goldenrod FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Goldenrod, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist goldenrod", "psychiatrist goldenrod fl", "goldenrod psychiatrist", "mental health goldenrod", "adhd doctor goldenrod", "anxiety treatment goldenrod"],
+    canonicalPath: "/psychiatrist-goldenrod",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Goldenrod FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Goldenrod, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-goldenrod",
+    "areaServed": [
+      { "@type": "City", "name": "Goldenrod" },
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Casselberry" },
+      { "@type": "City", "name": "Oviedo" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Goldenrod, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Goldenrod residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Goldenrod from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Goldenrod Residents",
+    introduction: [
+      "Goldenrod residents can access board-certified psychiatric care at Empathy Health Clinic. Our experienced psychiatrists provide comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "We offer flexible scheduling with in-person visits at our Winter Park office and secure telehealth appointments that make quality psychiatric care convenient for Goldenrod residents. Same-week appointments are available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Goldenrod",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Goldenrod?", answer: "Yes, we serve Goldenrod residents through our Winter Park office and convenient telehealth appointments. Our office is just minutes from Goldenrod." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Goldenrod home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Goldenrod residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/goldenrod", label: "ADHD Treatment Goldenrod" },
+      { href: "/conditions/anxiety/goldenrod", label: "Anxiety Treatment Goldenrod" },
+      { href: "/conditions/depression/goldenrod", label: "Depression Treatment Goldenrod" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-casselberry", label: "Psychiatrist Casselberry" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Goldenrod Page",
+    conversionCategory: "psychiatrist_goldenrod",
+  },
+};
+
+export const psychiatristAlafayaConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychiatrist Alafaya FL | Anxiety, ADHD & Depression Treatment",
+    description: "Board-certified psychiatrist serving Alafaya, FL. Expert treatment for anxiety, ADHD, depression & more. Same-week appointments. Telehealth available.",
+    keywords: ["psychiatrist alafaya", "psychiatrist alafaya fl", "alafaya psychiatrist", "mental health alafaya", "adhd doctor alafaya", "anxiety treatment alafaya"],
+    canonicalPath: "/psychiatrist-alafaya",
+  },
+  jsonLd: {
+    ...locationJsonLdBase,
+    "name": "Psychiatrist Alafaya FL - Empathy Health Clinic",
+    "description": "Board-certified psychiatrists serving Alafaya, FL with comprehensive mental health treatment.",
+    "url": "https://empathyhealthclinic.com/psychiatrist-alafaya",
+    "areaServed": [
+      { "@type": "City", "name": "Alafaya" },
+      { "@type": "City", "name": "Orlando" },
+      { "@type": "City", "name": "Oviedo" },
+      { "@type": "City", "name": "Waterford Lakes" },
+      { "@type": "City", "name": "UCF" }
+    ],
+  },
+  hero: {
+    title: "Psychiatrist Serving Alafaya, FL",
+    subtitle: "Board-certified psychiatrists providing expert mental health care for Alafaya residents. Treatment for anxiety, depression, ADHD, bipolar disorder, and more. Same-week appointments with telehealth and in-person options.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Serving Alafaya from Winter Park" },
+  content: {
+    mainHeading: "Expert Psychiatric Care for Alafaya Residents",
+    introduction: [
+      "Alafaya residents can access board-certified psychiatric care at Empathy Health Clinic. Our experienced psychiatrists provide comprehensive mental health treatment for adults, including medication management, psychiatric evaluations, and ongoing support.",
+      "We offer flexible scheduling with in-person visits at our Winter Park office and secure telehealth appointments that make quality psychiatric care convenient for Alafaya residents. Same-week appointments are available.",
+    ],
+    conditionsHeading: "Mental Health Conditions We Treat",
+    conditions: standardConditions,
+    servicesHeading: "Psychiatric Services for Alafaya",
+    services: standardServices,
+    authoritativeSources: [
+      { source: "APA" as const, topic: "What is a Psychiatrist?" },
+      { source: "NIMH" as const, topic: "Mental Health Information" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "Do you serve patients in Alafaya?", answer: "Yes, we serve Alafaya residents through our Winter Park office and convenient telehealth appointments. Telehealth makes it easy to access quality psychiatric care from Alafaya." },
+    { question: "How quickly can I get an appointment?", answer: "We offer same-week appointments for new patients. Call 386-848-8751 to schedule." },
+    { question: "Do you accept insurance?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more." },
+    { question: "Is telehealth available?", answer: "Yes, we offer secure telepsychiatry appointments so you can receive psychiatric care from the comfort of your Alafaya home." },
+  ],
+  sidebar: {
+    formHeading: "Schedule with a Psychiatrist",
+    formSubheading: "Expert psychiatric care for Alafaya residents.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/conditions/adhd/alafaya", label: "ADHD Treatment Alafaya" },
+      { href: "/conditions/anxiety/alafaya", label: "Anxiety Treatment Alafaya" },
+      { href: "/conditions/depression/alafaya", label: "Depression Treatment Alafaya" },
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/psychiatrist-oviedo", label: "Psychiatrist Oviedo" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychiatrist Alafaya Page",
+    conversionCategory: "psychiatrist_alafaya",
+  },
+};
+
+export const traumaTherapyOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Trauma Therapy Orlando FL | Evidence-Based Treatment",
+    description: "Expert trauma therapy in Orlando by licensed therapists. EMDR, CBT, and trauma-focused approaches. Same-week appointments. Most insurance accepted.",
+    keywords: ["trauma therapy orlando", "trauma therapist orlando", "trauma treatment orlando", "ptsd therapy orlando", "trauma counseling orlando fl"],
+    canonicalPath: "/trauma-therapy-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["MedicalBusiness", "LocalBusiness"],
+    "name": "Trauma Therapy Orlando FL - Empathy Health Clinic",
+    "description": "Evidence-based trauma therapy in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/trauma-therapy-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Trauma Therapy in Orlando, FL",
+    subtitle: "Evidence-based trauma treatment from licensed therapists and board-certified psychiatrists. We use EMDR, CBT, and trauma-focused approaches to help you heal. Same-week appointments available.",
+    ctaPrimary: "Schedule Appointment",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Evidence-Based Approaches", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Orlando Metro Location" },
+  content: {
+    mainHeading: "Comprehensive Trauma Therapy in Orlando",
+    introduction: [
+      "Trauma can affect every aspect of your life — from relationships and work to sleep and self-worth. At Empathy Health Clinic, our licensed therapists and psychiatrists provide compassionate, evidence-based trauma treatment to help you process difficult experiences and reclaim your well-being.",
+      "Whether you're dealing with a single traumatic event, childhood trauma, complex PTSD, or ongoing emotional distress, we create personalized treatment plans using proven therapeutic approaches including EMDR, CBT, and trauma-focused therapy.",
+      "Same-week appointments are available with both in-person and telehealth options, because healing shouldn't have to wait."
+    ],
+    conditionsHeading: "Types of Trauma We Treat",
+    conditions: [
+      { name: "PTSD & Complex PTSD" },
+      { name: "Childhood Trauma & Adverse Experiences" },
+      { name: "Sexual Assault & Abuse Trauma" },
+      { name: "Domestic Violence & Relationship Trauma" },
+      { name: "Grief & Loss Trauma" },
+      { name: "Accident & Medical Trauma" },
+      { name: "Military & Combat Trauma" },
+      { name: "Emotional & Psychological Abuse" },
+    ],
+    servicesHeading: "Our Trauma Treatment Approaches",
+    services: [
+      {
+        icon: Brain,
+        title: "EMDR Therapy",
+        description: "Eye Movement Desensitization and Reprocessing helps your brain process traumatic memories, reducing their emotional charge and distressing symptoms."
+      },
+      {
+        icon: Shield,
+        title: "Trauma-Focused CBT",
+        description: "Cognitive Behavioral Therapy adapted for trauma helps identify and change thought patterns that keep you stuck in cycles of distress."
+      },
+      {
+        icon: Heart,
+        title: "Psychiatric Medication Support",
+        description: "When therapy alone isn't enough, our psychiatrists can provide medication to manage anxiety, depression, insomnia, and other trauma-related symptoms."
+      },
+    ],
+    whyChooseHeading: "Why Choose Empathy Health for Trauma Care?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Trauma-Trained Clinicians",
+        description: "Our therapists and psychiatrists have specialized training in trauma-informed care and evidence-based trauma treatment modalities."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "We understand that waiting months for trauma care isn't acceptable. Most new patients are seen within the same week."
+      },
+      {
+        icon: Video,
+        title: "Telehealth & In-Person",
+        description: "Choose the setting that feels safest for you. Our secure telehealth platform provides the same quality trauma care as in-person sessions."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Post-Traumatic Stress Disorder" },
+      { source: "APA" as const, topic: "Trauma" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "What is the difference between trauma therapy and regular therapy?", answer: "Trauma therapy uses specialized, evidence-based techniques like EMDR and trauma-focused CBT that are specifically designed to help process traumatic memories and reduce their emotional impact. Regular therapy may not address trauma-specific symptoms as effectively." },
+    { question: "How do I know if I need trauma therapy?", answer: "If you experience flashbacks, nightmares, hypervigilance, emotional numbness, avoidance of reminders, or persistent anxiety and depression related to past experiences, trauma therapy may be beneficial. An evaluation can help determine the best approach." },
+    { question: "How long does trauma therapy take?", answer: "Treatment duration varies by individual. Some people see significant improvement in 8-12 sessions, while others with complex trauma histories may benefit from longer-term care. We work at your pace." },
+    { question: "Do you accept insurance for trauma therapy?", answer: "Yes, we accept most major insurance plans including BCBS, Aetna, Cigna, UnitedHealthcare, and more. We can verify your benefits before your first appointment." },
+  ],
+  sidebar: {
+    formHeading: "Get Trauma Support",
+    formSubheading: "Compassionate, evidence-based trauma care.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/emdr-therapy", label: "EMDR Therapy" },
+      { href: "/trauma-specialist-near-me", label: "Trauma Specialist" },
+      { href: "/anxiety-therapy", label: "Anxiety Therapy" },
+      { href: "/request-appointment", label: "Book Appointment" },
+    ],
+  },
+  analytics: {
+    pageName: "Trauma Therapy Orlando Page",
+    conversionCategory: "trauma_therapy_orlando",
+  },
+};
+
+export const psychosisTreatmentOrlandoConfig: LandingPageConfig = {
+  seo: {
+    title: "Psychosis Treatment Orlando FL | Board-Certified Psychiatrists",
+    description: "Expert psychosis evaluation and treatment in Orlando. Board-certified psychiatrists, evidence-based approaches. Same-week appointments. Call 386-848-8751.",
+    keywords: ["psychosis treatment orlando", "psychosis psychiatrist orlando", "psychotic disorder treatment orlando", "schizophrenia treatment orlando fl"],
+    canonicalPath: "/psychosis-treatment-orlando",
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": ["MedicalBusiness", "LocalBusiness"],
+    "name": "Psychosis Treatment Orlando FL - Empathy Health Clinic",
+    "description": "Expert psychosis evaluation and treatment in Orlando, FL.",
+    "url": "https://empathyhealthclinic.com/psychosis-treatment-orlando",
+    "telephone": "+1-386-848-8751",
+    "email": "providers@empathyhealthclinic.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2281 Lee Rd Suite 102",
+      "addressLocality": "Winter Park",
+      "addressRegion": "FL",
+      "postalCode": "32810",
+      "addressCountry": "US"
+    },
+    "medicalSpecialty": "Psychiatry"
+  },
+  hero: {
+    title: "Psychosis Treatment in Orlando, FL",
+    subtitle: "Board-certified psychiatrists providing comprehensive psychosis evaluation and treatment. Evidence-based medication management, ongoing monitoring, and compassionate care. Same-week appointments available.",
+    ctaPrimary: "Schedule Evaluation",
+    ctaSecondary: "Call 386-848-8751",
+    heroImage,
+  },
+  proofBar: {
+    googleRating: 4.8,
+    showVerifiedBadge: true,
+    highlights: ["Board-Certified Psychiatrists", "Same-Week Appointments", "Telehealth Available"],
+  },
+  location: { ...locationBase, title: "Orlando Metro Location" },
+  content: {
+    mainHeading: "Comprehensive Psychosis Treatment in Orlando",
+    introduction: [
+      "Psychotic disorders can be frightening and disorienting — both for those experiencing symptoms and for their loved ones. At Empathy Health Clinic, our board-certified psychiatrists provide thorough evaluation and evidence-based treatment for psychotic disorders in a safe, nonjudgmental environment.",
+      "We specialize in accurate diagnosis and effective medication management for conditions involving hallucinations, delusions, disorganized thinking, and other psychotic symptoms. Our approach combines the latest antipsychotic medications with ongoing monitoring to optimize outcomes while minimizing side effects.",
+      "Whether you're experiencing a first episode or managing a chronic condition, we offer same-week appointments and both in-person and telehealth options to ensure timely access to care."
+    ],
+    conditionsHeading: "Psychotic Conditions We Treat",
+    conditions: [
+      { name: "Schizophrenia" },
+      { name: "Schizoaffective Disorder" },
+      { name: "Brief Psychotic Episodes" },
+      { name: "Drug-Induced Psychosis" },
+      { name: "Psychotic Depression" },
+      { name: "Delusional Disorder" },
+      { name: "First-Episode Psychosis" },
+    ],
+    servicesHeading: "Our Psychosis Treatment Services",
+    services: [
+      {
+        icon: FileText,
+        title: "Comprehensive Psychiatric Evaluation",
+        description: "Thorough diagnostic assessment to accurately identify the type and severity of psychotic symptoms, rule out medical causes, and develop an individualized treatment plan."
+      },
+      {
+        icon: Shield,
+        title: "Antipsychotic Medication Management",
+        description: "Expert prescribing and monitoring of antipsychotic medications, with careful attention to efficacy, side effects, and your overall quality of life."
+      },
+      {
+        icon: Heart,
+        title: "Ongoing Monitoring & Support",
+        description: "Regular follow-up appointments to track symptom response, adjust medications as needed, and provide continuous psychiatric support for long-term stability."
+      },
+    ],
+    whyChooseHeading: "Why Choose Empathy Health for Psychosis Care?",
+    whyChoosePoints: [
+      {
+        icon: Award,
+        title: "Board-Certified Psychiatrists",
+        description: "Our psychiatrists are board-certified with specialized experience in evaluating and treating psychotic disorders using the latest evidence-based approaches."
+      },
+      {
+        icon: Calendar,
+        title: "Same-Week Appointments",
+        description: "Psychosis requires prompt attention. We prioritize timely access so most new patients can be seen within the same week."
+      },
+      {
+        icon: Video,
+        title: "Telehealth & In-Person Options",
+        description: "Flexible appointment formats to meet your needs. Our secure telehealth platform allows you to receive psychiatric care from the comfort of home."
+      },
+    ],
+    authoritativeSources: [
+      { source: "NIMH" as const, topic: "Schizophrenia" },
+      { source: "APA" as const, topic: "Psychosis" },
+    ],
+    internalLinksCategory: "conditions" as const,
+    showTrustFactors: true,
+  },
+  faqs: [
+    { question: "What are the signs of psychosis?", answer: "Common signs include hearing voices or seeing things that aren't there (hallucinations), strongly held false beliefs (delusions), confused or disorganized thinking, difficulty concentrating, social withdrawal, and changes in sleep or hygiene. Early intervention leads to better outcomes." },
+    { question: "How is psychosis treated?", answer: "Psychosis is primarily treated with antipsychotic medications, which help reduce hallucinations, delusions, and disorganized thinking. Our psychiatrists carefully select and monitor medications to balance effectiveness with minimal side effects, and may combine medication with supportive therapy." },
+    { question: "Can family members be involved in treatment?", answer: "Yes, with the patient's consent, we encourage family involvement. Psychoeducation helps families understand the condition, recognize warning signs, and provide effective support. We can provide guidance and resources for family members." },
+    { question: "Is telehealth available for psychosis treatment?", answer: "Yes, we offer secure telehealth appointments for ongoing medication management and follow-up care. Initial evaluations may be conducted in-person or via telehealth depending on clinical needs." },
+  ],
+  sidebar: {
+    formHeading: "Get Psychosis Treatment",
+    formSubheading: "Board-certified psychiatrists. Same-week appointments.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-orlando", label: "Psychiatrist Orlando" },
+      { href: "/schizophrenia-treatment", label: "Schizophrenia Treatment" },
+      { href: "/medication-management", label: "Medication Management" },
+      { href: "/request-appointment", label: "Book Appointment" },
+    ],
+  },
+  analytics: {
+    pageName: "Psychosis Treatment Orlando Page",
+    conversionCategory: "psychosis_treatment_orlando",
+  },
+};
+
+export const therapistOviedoConfig: LandingPageConfig = {
+  seo: {
+    title: "Therapist Oviedo FL | Anxiety, Depression & Couples Counseling",
+    description: "Licensed therapist serving Oviedo, FL. Expert therapy for anxiety, depression, PTSD, relationship issues & more. Same-week appointments. Telehealth available.",
+    keywords: ["therapist oviedo", "therapist oviedo fl", "oviedo therapist", "counselor oviedo", "therapy oviedo fl"],
+    canonicalPath: "/therapist-oviedo",
+  },
+  jsonLd: {
+    ...therapistJsonLdBase,
+    "name": "Empathy Health Clinic - Therapist Serving Oviedo, FL",
+    "url": "https://empathyhealthclinic.com/therapist-oviedo",
+    "areaServed": [
+      { "@type": "City", "name": "Oviedo", "containedInPlace": { "@type": "State", "name": "Florida" } },
+      { "@type": "City", "name": "Winter Springs" },
+      { "@type": "City", "name": "Winter Park" },
+      { "@type": "City", "name": "Chuluota" },
+    ],
+  },
+  hero: {
+    title: "Therapist in Oviedo, FL",
+    subtitle: "Licensed therapists serving Oviedo and the greater Seminole County area. Evidence-based therapy for anxiety, depression, trauma, and relationship issues. Same-week appointments available — most Oviedo residents see a therapist within days.",
+    ctaText: "Schedule Your Session",
+    ctaLink: "#contact-form",
+    secondaryCtaText: "Call 386-848-8751",
+    secondaryCtaLink: "tel:386-848-8751",
+    backgroundImage: heroImage,
+  },
+  proofBar: {
+    rating: "4.8",
+    ratingSource: "Google Reviews",
+    badges: ["Licensed Therapists", "Same-Week Appointments", "Insurance Accepted"],
+  },
+  location: { ...locationBase, title: "Serving Oviedo from Winter Park" },
+  content: {
+    mainHeading: "Therapy Services for Oviedo Residents",
+    introduction: "Our licensed therapists provide comprehensive mental health counseling for adults throughout Oviedo and Seminole County. Located in nearby Winter Park, our office is a convenient drive from downtown Oviedo, Oviedo on the Park, and the 417 corridor. We offer both in-person and telehealth sessions to fit your schedule.",
+    conditions: therapistConditions,
+    services: therapistServices,
+    authoritativeSources: [
+      { text: "National Institute of Mental Health — Psychotherapy", url: "https://www.nimh.nih.gov/health/topics/psychotherapies" },
+      { text: "American Psychological Association — Finding a Therapist", url: "https://www.apa.org/topics/psychotherapy/understanding" },
+    ],
+  },
+  faqs: [
+    { question: "What types of therapy do you offer for Oviedo residents?", answer: "We provide CBT, DBT, EMDR, psychodynamic therapy, couples counseling, grief counseling, and stress management. Each treatment plan is tailored to your individual needs and goals." },
+    { question: "How quickly can I see a therapist near Oviedo?", answer: "Most clients can schedule their first therapy session within the same week. Call 386-848-8751 or request an appointment online to get started." },
+    { question: "Do you accept insurance for therapy?", answer: "Yes. We accept most major insurance plans including Medicare, Medicaid, BCBS, Cigna, Aetna, United Healthcare, and UMR. Contact us to verify your specific plan." },
+    { question: "Do you offer telehealth therapy for Oviedo residents?", answer: "Yes. We offer secure telehealth therapy sessions for all Florida residents, allowing you to attend sessions from the comfort of your home in Oviedo." },
+    { question: "How far is your office from Oviedo?", answer: "Our Winter Park office is approximately 20 minutes from downtown Oviedo via the 417, and we also offer telehealth sessions for added convenience." },
+  ],
+  sidebar: {
+    formHeading: "Start Therapy Today",
+    formSubheading: "Licensed therapists serving Oviedo, FL.",
+    formType: "contact",
+    quickLinks: [
+      { href: "/psychiatrist-oviedo", label: "Psychiatrist Oviedo" },
+      { href: "/therapy", label: "Therapy Services" },
+      { href: "/couples-counseling", label: "Couples Counseling" },
+      { href: "/insurance", label: "Insurance Accepted" },
+    ],
+  },
+  analytics: {
+    pageName: "Therapist Oviedo Page",
+    conversionCategory: "therapist_oviedo",
+  },
+};

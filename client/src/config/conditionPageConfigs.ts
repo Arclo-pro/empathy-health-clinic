@@ -609,6 +609,12 @@ const serviceCities: CityData[] = [
   { slug: 'sanford', name: 'Sanford', isOfficeLocation: false, nearbyNote: 'We serve Sanford residents through convenient telehealth and in-person visits at our Winter Park office.' },
   { slug: 'lake-mary', name: 'Lake Mary', isOfficeLocation: false, nearbyNote: 'Lake Mary residents can access care through telehealth or at our Winter Park office location.' },
   { slug: 'downtown-orlando', name: 'Downtown Orlando', isOfficeLocation: false, nearbyNote: 'Downtown Orlando is a short drive from our Winter Park clinic, and telehealth is always available.' },
+  { slug: 'heathrow', name: 'Heathrow', isOfficeLocation: false, nearbyNote: 'We serve Heathrow residents through convenient telehealth and in-person visits at our Winter Park office.' },
+  { slug: 'baldwin-park', name: 'Baldwin Park', isOfficeLocation: false, nearbyNote: 'Baldwin Park residents can access care at our nearby Winter Park office or through secure telehealth appointments.' },
+  { slug: 'union-park', name: 'Union Park', isOfficeLocation: false, nearbyNote: 'We serve Union Park residents through our Winter Park office and convenient telehealth appointments.' },
+  { slug: 'audubon-park', name: 'Audubon Park', isOfficeLocation: false, nearbyNote: 'Audubon Park is close to our Winter Park office, and telehealth appointments are also available.' },
+  { slug: 'goldenrod', name: 'Goldenrod', isOfficeLocation: false, nearbyNote: 'Goldenrod residents can visit our nearby Winter Park clinic or connect through secure telehealth.' },
+  { slug: 'alafaya', name: 'Alafaya', isOfficeLocation: false, nearbyNote: 'We serve Alafaya residents through telehealth and in-person visits at our Winter Park location.' },
 ];
 
 const conditionDefinitions: ConditionData[] = [
@@ -786,6 +792,31 @@ const conditionDefinitions: ConditionData[] = [
     },
     treatmentLinks: ['/conditions/medication-management/psychiatry'],
     keywords: (city, citySlug) => [`medication management ${citySlug.replace(/-/g, ' ')}`, `psychiatric medication ${citySlug.replace(/-/g, ' ')}`, `psychiatrist medication management ${city.toLowerCase()}`],
+  },
+  {
+    slug: 'couples-therapy',
+    name: 'Couples Therapy',
+    fullName: 'Couples Therapy',
+    descriptions: {
+      office: 'Couples therapy at our Winter Park clinic. Strengthen communication, resolve conflict, and rebuild connection with experienced therapists.',
+      nearby: 'Couples therapy for {city} residents. Expert support for communication, conflict resolution, and relationship growth.',
+    },
+    outlines: {
+      office: ['Couples therapy at our Winter Park clinic', 'What to expect in sessions', 'Common relationship challenges we address', 'Telehealth and in-person options'],
+      nearby: ['Couples therapy for {city} residents', 'What to expect in sessions', 'Relationship challenges we address', 'Telehealth and in-person flexibility'],
+    },
+    faqs: {
+      general: [
+        { question: 'What does couples therapy involve?', answer: 'Couples therapy involves working with a therapist to improve communication, resolve conflicts, and strengthen your relationship. Sessions focus on identifying patterns and building healthier dynamics.' },
+        { question: 'Do both partners need to attend?', answer: 'Ideally, yes. Couples therapy works best when both partners participate. However, individual sessions can also help when one partner is not yet ready to attend.' },
+      ],
+      remote: [
+        { question: 'Do you serve {city}?', answer: 'Yes, we serve {city} residents through our Winter Park office and convenient telehealth appointments for couples therapy.' },
+        { question: 'Can couples therapy be done online?', answer: 'Yes, couples therapy is highly effective through our secure telehealth platform, making it convenient for {city} residents.' },
+      ],
+    },
+    treatmentLinks: ['/couples-counseling'],
+    keywords: (city, citySlug) => [`couples therapy ${citySlug.replace(/-/g, ' ')}`, `couples counseling ${citySlug.replace(/-/g, ' ')}`, `marriage counseling ${citySlug.replace(/-/g, ' ')}`, `relationship therapy ${city.toLowerCase()}`],
   },
 ];
 
