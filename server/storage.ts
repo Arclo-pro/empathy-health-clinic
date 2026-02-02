@@ -389,7 +389,7 @@ export class MemStorage implements IStorage {
         title: "ESA Letter",
         shortDescription: "Emotional Support Animal documentation for housing and travel accommodations.",
         icon: "Heart",
-        slug: "services",
+        slug: "esa-letter",
         pageTitle: "ESA Letter in Winter Park, FL | Emotional Support Animal Letter",
         heroTitle: "Emotional Support Animal (ESA) Letter",
         heroDescription: "Get your legitimate ESA letter from licensed mental health professionals in Winter Park, FL. Our compassionate providers evaluate your need for an emotional support animal and provide proper documentation for housing and travel accommodations.",

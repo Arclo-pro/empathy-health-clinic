@@ -22,7 +22,10 @@
     "check:assets": "bash scripts/check-assets.sh",
     "check:all": "bash scripts/check-all.sh",
     "postbuild": "node scripts/fix-prerender-assets.mjs && node scripts/verify-asset-integrity.mjs",
-    "fix-assets": "node scripts/fix-prerender-assets.mjs && node scripts/verify-asset-integrity.mjs"
+    "fix-assets": "node scripts/fix-prerender-assets.mjs && node scripts/verify-asset-integrity.mjs",
+    "sync:redirects": "npx tsx scripts/sync-vercel-redirects.ts",
+    "check:soft404": "npx tsx scripts/monitor-soft-404s.ts",
+    "check:soft404:prod": "npx tsx scripts/monitor-soft-404s.ts --production --verbose"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

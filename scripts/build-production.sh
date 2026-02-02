@@ -44,6 +44,11 @@ echo "=========================================="
 echo "These steps MUST succeed for deployment"
 echo ""
 
+# Step 0: Sync redirects to vercel.json (BLOCKING - critical for SEO)
+echo "Step 0: Syncing redirects to vercel.json..."
+npx tsx scripts/sync-vercel-redirects.ts 2>&1 || echo "  WARNING: Redirect sync failed - existing vercel.json will be used"
+echo ""
+
 # Step 1: Database setup (non-blocking - runtime will handle it)
 echo "Step 1: Database setup..."
 if [ "${SKIP_DB_CHECK}" != "true" ]; then

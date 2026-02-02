@@ -391,7 +391,6 @@ export const contentRedirectMap: Record<string, string> = {
   '/discover-your-path-to-inner-peace-and-healing-through-therapy': '/blog/discover-your-path-to-inner-peace-and-healing-through-therapy',
   '/effective-strategies-for-managing-bipolar-disorder': '/blog/effective-strategies-for-managing-bipolar-disorder',
   '/emdr-therapy-a-guide-to-healing-from-past-relationship-trauma': '/emdr-therapy',
-  '/esa-letter': '/services',
   '/find-a-psychiatrist-that-takes-adventhealth-adventhealth-coverage': '/insurance',
   '/find-a-psychiatrist-that-takes-humana-humana-coverage': '/insurance',
   '/find-a-psychiatrist-that-takes-unitedhealthcare-uhc-coverage': '/insurance',
@@ -439,7 +438,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/the-role-of-therapy-in-managing-bipolar-disorder': '/blog/the-role-of-therapy-in-managing-bipolar-disorder',
   '/top-10-best-low-stress-jobs': '/blog/top-10-best-low-stress-jobs',
   '/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025': '/blog/top-5-ai-scribes-psychiatrists-are-actually-using-in-2025',
-  '/treatments/anger-management': '/stress-management',
+  // NOTE: '/treatments/anger-management' moved to line ~554 → '/anger-management-therapy-orlando'
   '/treatments/depression-therapy': '/depression-treatment',
   '/trust-after-trauma-a-guide-to-creating-secure-attachments': '/therapy',
   '/unburdened-the-key-to-mental-clarity': '/blog/unburdened-the-key-to-mental-clarity',
@@ -618,6 +617,33 @@ export const contentRedirectMap: Record<string, string> = {
   '/doctors': '/team',
   '/therapists': '/team',
   '/psychiatrists': '/team',
+
+  // Google Search Console - Soft 404 Fixes (February 2026)
+  // Root-level blog slugs that need explicit redirects (not caught by dynamic blog slug checker in production)
+  '/mindful-dating-a-guide-to-building-strong-connections': '/couples-counseling',
+  '/grief-self-care-tips-for-grieving': '/blog/the-power-of-grief-counseling-in-healing-the-heart-2',
+  '/neuropharmacology-dmaa-nefiracetam-comparative-insights': '/blog/neuropharmacology-dmaa-nefiracetam-comparative-insights',
+  '/managing-holiday-anxiety-effective-treatment-in-orlando': '/anxiety-therapy',
+  '/holiday-anxiety-effective-treatment-in-orlando': '/anxiety-therapy',
+  '/hidden-anxiety-treatment-dbt-skills-you-can-use-at-home': '/anxiety-therapy',
+  '/mental-health-challenges-in-nursing-how-to-overcome-them': '/blog/mental-health-challenges-in-nursing-how-to-overcome-them',
+  '/from-tension-to-relief-everyday-tips-for-a-healthier-body': '/blog/from-tension-to-relief-everyday-tips-for-a-healthier-body',
+  '/the-transformative-power-of-counseling-understanding-its-benefits': '/blog/the-transformative-power-of-counseling-understanding-its-benefits',
+  '/lgbtqia2s-identity-explained': '/therapy',
+  '/8-physical-signs-stress-is-impacting-your-body': '/blog/8-physical-signs-stress-is-impacting-your-body',
+  '/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness': '/blog/understanding-cognitive-behavioral-therapy-cbt-a-guide-to-mental-wellness',
+  '/overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help': '/blog/overcoming-flight-anxiety-in-orlando-fl-how-treatment-can-help',
+  '/psychiatrist-vs-psychologist-whats-the-difference': '/blog/psychiatrist-vs-psychologist-whats-the-difference',
+  '/psychotherapist-services-types-benefits-what-to-expect': '/blog/psychotherapist-services-types-benefits-what-to-expect',
+  '/how-to-get-over-someone-and-move-on-with-your-life': '/blog/how-to-get-over-someone-and-move-on-with-your-life',
+
+  // Treatment/therapy page variants
+  '/concentration-and-focus-therapy': '/adhd-treatment',
+  '/virtual-counseling-services': '/virtual-therapy',
+  '/ocd-therapy': '/ocd-treatment',
+
+  // Insurance variant
+  '/optum-optum-coverage': '/insurance',
 };
 
 /**
@@ -684,6 +710,8 @@ const STRIP_QUERY_PARAMS = new Set([
   // Misc tracking
   'oly_enc_id', 'oly_anon_id', 'vero_id', 'sc_src', 'sc_cid', 'sscid',
   'mktcid', 'mkt_tok', 'trk', 'mtm_source', 'mtm_medium', 'mtm_campaign',
+  // WordPress legacy query params (should never affect page content)
+  'page_id', 'p', 'attachment_id', 'preview', 'preview_id', 'preview_nonce',
 ]);
 
 /**
