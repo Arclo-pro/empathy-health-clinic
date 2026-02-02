@@ -712,6 +712,8 @@ const STRIP_QUERY_PARAMS = new Set([
   'mktcid', 'mkt_tok', 'trk', 'mtm_source', 'mtm_medium', 'mtm_campaign',
   // WordPress legacy query params (should never affect page content)
   'page_id', 'p', 'attachment_id', 'preview', 'preview_id', 'preview_nonce',
+  // WordPress search parameter (no search feature on this site)
+  's',
 ]);
 
 /**
