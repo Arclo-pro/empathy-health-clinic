@@ -143,13 +143,8 @@ export default function HeroSection() {
             </h1>
             
             {/* Location Subheading */}
-            <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/90 mb-4 drop-shadow-md">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/90 mb-8 drop-shadow-md">
               in Orlando, FL
-            </p>
-
-            {/* Insurance Clarity Message */}
-            <p className="text-sm md:text-base text-white/80 mb-8 drop-shadow-md bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">
-              We serve commercial insurance and self-pay patients and do not accept Medicaid or Sunshine Health.
             </p>
 
             {/* Mobile Trust Indicators */}
