@@ -94,6 +94,7 @@ export default function ServicesPage() {
         description="Local mental health clinic serving Winter Park & Orlando. Board-certified psychiatrists & therapists near you. Same-week appointments, in-person & telehealth. 1155 Louisiana Ave Suite 202. Call 386-848-8751."
         keywords={["mental health clinic near me", "mental health clinic Winter Park", "mental health clinic Orlando", "psychiatric clinic near me", "therapy near me", "psychiatrist near me", "mental health services near me"]}
         canonicalPath="/services"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

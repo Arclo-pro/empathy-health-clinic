@@ -17,6 +17,7 @@ export default function TeamPage() {
         description="Female therapists and psychiatrists in Orlando and Winter Park, FL. Compassionate women's mental health care for anxiety, depression, trauma & more. Call 386-848-8751."
         keywords={["female therapist Orlando", "female psychiatrist Orlando FL", "women therapists Winter Park", "female mental health professionals Orlando", "women's therapy Orlando", "female counselor Orlando"]}
         canonicalPath="/team"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

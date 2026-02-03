@@ -51,6 +51,7 @@ export default function TherapyPage() {
         description="Licensed therapists in Winter Park & Orlando. Expert CBT, DBT, EMDR therapy. Same-week appointments, in-person & telehealth. Call 386-848-8751."
         keywords={["therapist near me", "good therapist near me", "therapist Winter Park", "therapist Orlando FL", "counselor near me", "therapy near me", "CBT therapist near me", "licensed therapist near me"]}
         canonicalPath="/therapy"
+        preloadImage={therapyImage}
       />
       <SiteHeader />
       

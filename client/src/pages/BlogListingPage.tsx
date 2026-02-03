@@ -110,6 +110,7 @@ export default function BlogListingPage() {
         keywords={["mental health blog", "therapy advice", "wellness tips", "mental health resources", "psychiatric care", "counseling insights"]}
         canonicalPath="/blog"
         type="website"
+        preloadImage={forestBg}
         pagination={totalPages > 1 ? {
           currentPage,
           totalPages,

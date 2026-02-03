@@ -32,6 +32,7 @@ export default function Insurance() {
         description="Psychiatry & therapy insurance Winter Park, FL. We accept Aetna, BCBS, Cigna, UnitedHealthcare & more. Mental health parity benefits. Call 386-848-8751."
         keywords={["psychiatry insurance Winter Park", "therapy insurance Florida", "mental health insurance Winter Park", "Aetna Winter Park", "BCBS Florida", "UnitedHealthcare Orlando"]}
         canonicalPath="/insurance"
+        preloadImage={heroImage}
       />
       <SiteHeader />
       
