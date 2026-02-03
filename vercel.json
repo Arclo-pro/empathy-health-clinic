@@ -1,5 +1,31 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/sitemap_index.xml",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/image-sitemap.xml",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }
