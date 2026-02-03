@@ -74,9 +74,11 @@ else
 fi
 echo ""
 
-# Step 2c: Generate sitemaps with database content
-echo "Step 2c: Generating sitemaps..."
-npx tsx scripts/generate-sitemap.ts 2>&1 || echo "  WARNING: Sitemap generation failed (static fallback in public/)"
+# Step 2c: Sitemaps handled dynamically by server routes
+# The /sitemap.xml route in routes.ts generates the sitemap dynamically from the database
+# This ensures blog posts, treatments, and other dynamic content is always included
+echo "Step 2c: Sitemaps handled dynamically (skipping static generation)"
+echo "  Dynamic sitemap route at /sitemap.xml queries database at runtime"
 echo ""
 
 # If prerender mode is off, run lightweight SSR prerender (no Puppeteer needed)
