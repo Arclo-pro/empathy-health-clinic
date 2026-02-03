@@ -95,6 +95,7 @@ export default function PsychiatristLakeNona() {
         keywords={["psychiatrist lake nona", "lake nona psychiatrist", "lake nona fl psychiatrist", "psychiatrists near lake nona", "best psychiatrist lake nona", "lake nona medical city psychiatrist", "psychiatry lake nona", "medication management lake nona"]}
         canonicalPath="/psychiatrist-lake-nona"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

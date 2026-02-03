@@ -178,6 +178,7 @@ export default function PsychiatryNearMe() {
         keywords={["psychiatry near me", "psychiatry services near me", "find psychiatry near me", "psychiatry clinic near me", "psychiatry orlando", "psychiatric services orlando", "mental health psychiatry near me", "best psychiatry near me", "psychiatry accepting new patients", "psychiatry same day appointment"]}
         canonicalPath="/psychiatry-near-me"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -58,6 +58,7 @@ export default function CrisisTherapy() {
         keywords={["crisis counseling Orlando FL", "urgent therapy appointment", "same day therapy session", "mental health emergency Orlando", "crisis intervention Winter Park", "urgent psychiatric care", "same day psychiatrist Orlando"]}
         canonicalPath="/crisis-therapy"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -24,6 +24,7 @@ export default function AltamonteSprings() {
         description="Expert psychiatrists & therapists serving Altamonte Springs, FL. Depression, anxiety, ADHD treatment. Insurance accepted. Call 386-848-8751."
         keywords={["psychiatrist Altamonte Springs", "therapist Altamonte Springs FL", "mental health Altamonte Springs", "anxiety treatment Altamonte", "depression therapy Altamonte Springs", "psychiatry near Altamonte"]}
         canonicalPath="/locations/altamonte-springs"
+        preloadImage={healthcareBg}
       />
       <SiteHeader />
       <main className="flex-1">

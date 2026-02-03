@@ -56,6 +56,7 @@ export default function DepressionCounseling() {
         keywords={["depression counseling Orlando FL", "depression counseling Winter Park FL", "depression treatment Orlando", "depression therapy Florida", "therapist for depression near me", "depression psychiatrist Orlando", "antidepressant medication management"]}
         canonicalPath="/depression-counseling"
         jsonLd={localBusinessSchema}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

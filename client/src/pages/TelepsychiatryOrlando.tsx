@@ -62,6 +62,7 @@ export default function TelepsychiatryOrlando() {
         keywords={["telepsychiatry orlando", "online psychiatrist orlando", "virtual psychiatrist orlando fl", "telehealth psychiatry orlando", "online mental health orlando", "virtual psychiatry florida", "online psychiatrist florida"]}
         canonicalPath="/telepsychiatry-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

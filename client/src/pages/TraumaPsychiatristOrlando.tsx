@@ -122,6 +122,7 @@ export default function TraumaPsychiatristOrlando() {
         keywords={["trauma psychiatrist orlando", "trauma psychiatrist orlando fl", "ptsd psychiatrist orlando", "ptsd treatment orlando", "trauma doctor orlando", "ptsd medication management orlando", "trauma therapy orlando", "complex ptsd treatment orlando", "best trauma psychiatrist orlando"]}
         canonicalPath="/trauma-psychiatrist-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

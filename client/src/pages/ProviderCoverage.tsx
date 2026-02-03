@@ -66,6 +66,7 @@ export default function ProviderCoverage() {
         description={provider.heroDescription}
         keywords={[provider.name, "insurance coverage", "mental health insurance", "Florida psychiatry", "therapy insurance"]}
         canonicalPath={`/${provider.slug}`}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <div className="relative py-16 px-4">

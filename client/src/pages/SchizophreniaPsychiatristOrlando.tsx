@@ -122,6 +122,7 @@ export default function SchizophreniaPsychiatristOrlando() {
         keywords={["schizophrenia psychiatrist orlando", "schizophrenia treatment orlando", "schizophrenia psychiatrist orlando fl", "schizophrenia doctor orlando", "antipsychotic medication management orlando", "psychosis treatment orlando", "schizophrenia medication orlando", "best schizophrenia psychiatrist orlando"]}
         canonicalPath="/schizophrenia-psychiatrist-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

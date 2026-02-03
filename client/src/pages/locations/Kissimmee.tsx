@@ -83,6 +83,7 @@ export default function PsychiatristKissimmee() {
         keywords={["psychiatrist kissimmee", "psychiatrist kissimmee fl", "kissimmee psychiatrist", "psychiatrists near kissimmee", "best psychiatrist kissimmee", "kissimmee fl psychiatrist", "psychiatry kissimmee"]}
         canonicalPath="/locations/kissimmee"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

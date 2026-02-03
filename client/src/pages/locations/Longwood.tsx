@@ -72,6 +72,7 @@ export default function PsychiatristLongwood() {
         keywords={["psychiatrist longwood", "longwood psychiatrist", "longwood fl psychiatrist", "psychiatrists near longwood", "best psychiatrist longwood", "lake mary psychiatrist", "psychiatry longwood", "medication management longwood"]}
         canonicalPath="/psychiatrist-longwood"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

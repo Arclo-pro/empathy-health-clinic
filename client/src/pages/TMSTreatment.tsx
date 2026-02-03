@@ -42,6 +42,7 @@ export default function TMSTreatment() {
         keywords={["TMS therapy Orlando", "transcranial magnetic stimulation", "TMS treatment Orlando FL", "treatment-resistant depression", "TMS for depression", "TMS therapy near me", "brain stimulation therapy", "TMS Orlando Florida"]}
         canonicalPath="/tms-treatment"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

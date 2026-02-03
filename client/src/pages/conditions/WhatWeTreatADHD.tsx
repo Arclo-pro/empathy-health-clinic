@@ -105,6 +105,7 @@ export default function WhatWeTreatADHD() {
         keywords={["ADHD treatment Orlando", "ADHD psychiatrist Orlando FL", "adult ADHD treatment", "child ADHD specialist Orlando", "ADHD medication management", "ADHD diagnosis Orlando"]}
         canonicalPath="/what-we-treat/adhd"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

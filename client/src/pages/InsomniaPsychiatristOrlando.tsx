@@ -62,6 +62,7 @@ export default function InsomniaPsychiatristOrlando() {
         keywords={["insomnia psychiatrist orlando", "sleep psychiatrist orlando", "sleep disorder treatment orlando", "sleep medication orlando", "chronic insomnia treatment orlando", "sleep anxiety psychiatrist orlando", "insomnia doctor orlando", "sleep specialist psychiatrist orlando"]}
         canonicalPath="/insomnia-psychiatrist-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

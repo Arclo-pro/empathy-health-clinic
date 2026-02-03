@@ -32,6 +32,7 @@ export default function VirtualVisit() {
         description="Connect with your mental health provider from anywhere in Florida through our secure telehealth platform. Convenient online psychiatry and therapy appointments available."
         keywords={["telehealth", "virtual visit", "online therapy", "online psychiatry", "telepsychiatry", "remote mental health", "Florida telehealth"]}
         canonicalPath="/virtual-visit"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -84,6 +84,7 @@ export default function VirtualTherapy() {
         description="Online psychiatry and therapy throughout Florida. Secure telehealth appointments for medication management, counseling, and mental health treatment. Same-week availability. Most insurance accepted."
         keywords={["virtual psychiatry Florida", "telehealth psychiatry", "online therapy Florida", "virtual mental health", "telepsychiatry Orlando", "online psychiatrist Florida", "blue cross blue shield telehealth psychiatry", "cigna therapy online", "virtual EMDR therapy"]}
         canonicalPath="/virtual-therapy"
+        preloadImage={heroImage}
       />
       <script
         type="application/ld+json"

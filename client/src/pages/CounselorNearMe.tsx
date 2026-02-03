@@ -69,6 +69,7 @@ export default function CounselorNearMe() {
         keywords={["counselor near me", "counselors near me", "counseling near me", "mental health counselor near me", "licensed counselor Orlando", "counselor Winter Park FL", "therapist near me", "find a counselor", "local counselor Orlando"]}
         canonicalPath="/counselor-near-me"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

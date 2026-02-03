@@ -29,6 +29,7 @@ export default function Providers() {
         description="Find psychiatrists, therapists, and psychiatric nurse practitioners in Orlando and Central Florida. Board-certified providers accepting new patients. Call 386-848-8751."
         keywords={["mental health providers Orlando", "psychiatrists Orlando FL", "therapists Orlando", "psychiatric nurse practitioners Orlando", "mental health professionals Central Florida"]}
         canonicalPath="/providers"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

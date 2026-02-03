@@ -95,6 +95,7 @@ export default function PsychiatristCasselberry() {
         keywords={["psychiatrist casselberry", "casselberry psychiatrist", "casselberry fl psychiatrist", "psychiatrists near casselberry", "best psychiatrist casselberry", "fern park psychiatrist", "psychiatry casselberry", "medication management casselberry"]}
         canonicalPath="/psychiatrist-casselberry"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

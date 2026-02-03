@@ -83,6 +83,7 @@ export default function PsychiatristApopka() {
         keywords={["psychiatrist apopka", "psychiatrist apopka fl", "apopka psychiatrist", "psychiatrists near apopka", "best psychiatrist apopka", "apopka fl psychiatrist", "psychiatry apopka"]}
         canonicalPath="/locations/apopka"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

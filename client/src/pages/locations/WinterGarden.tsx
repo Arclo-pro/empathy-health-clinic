@@ -95,6 +95,7 @@ export default function PsychiatristWinterGarden() {
         keywords={["psychiatrist winter garden", "winter garden psychiatrist", "winter garden fl psychiatrist", "psychiatrists near winter garden", "best psychiatrist winter garden", "windermere psychiatrist", "psychiatry winter garden", "medication management winter garden"]}
         canonicalPath="/psychiatrist-winter-garden"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

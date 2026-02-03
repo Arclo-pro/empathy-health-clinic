@@ -83,6 +83,7 @@ export default function PsychiatristAltamonteSprings() {
         keywords={["psychiatrist altamonte springs", "psychiatrist altamonte springs fl", "altamonte springs psychiatrist", "psychiatrists near altamonte springs", "best psychiatrist altamonte springs", "altamonte springs fl psychiatrist", "psychiatry altamonte springs"]}
         canonicalPath="/locations/altamonte-springs"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -114,6 +114,7 @@ export default function TherapyDetail() {
         description={getMetaDescription()}
         keywords={[therapy.title, `${therapy.title} Winter Park`, "therapist Winter Park FL", "counseling Orlando", "therapy Florida"]}
         canonicalPath={`/${therapy.slug}`}
+        preloadImage={forestBg}
       />
       <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />

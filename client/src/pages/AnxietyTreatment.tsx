@@ -274,6 +274,7 @@ export default function AnxietyTreatment() {
         keywords={["anxiety treatment", "anxiety treatment orlando", "anxiety treatment near me", "anxiety doctor orlando", "anxiety specialist orlando", "anxiety medication orlando", "panic disorder treatment", "GAD treatment", "social anxiety treatment"]}
         canonicalPath="/anxiety-treatment"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

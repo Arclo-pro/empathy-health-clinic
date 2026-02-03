@@ -78,6 +78,7 @@ export default function LocationDetail() {
         description={location.metaDescription}
         keywords={[location.city, location.serviceType, "mental health", "Florida", "therapy", "psychiatry", "counseling"]}
         canonicalPath={`/locations/${location.slug}`}
+        preloadImage={forestBg}
       />
       <LocalBusinessSchema 
         city={location.city}

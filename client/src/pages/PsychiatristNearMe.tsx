@@ -227,6 +227,7 @@ export default function PsychiatristNearMe() {
         keywords={["psychiatrist near me", "psychiatry near me", "find psychiatrist near me", "psychiatrist near me orlando", "psychiatrist accepting new patients near me", "best psychiatrist near me", "psychiatrist orlando", "psychiatrist winter park", "medication management near me", "psychiatrist accepting medicare", "psychiatrist accepting cigna", "psychiatrist accepting aetna", "psychiatrist near me that takes my insurance", "mental health near me"]}
         canonicalPath="/psychiatrist-near-me"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

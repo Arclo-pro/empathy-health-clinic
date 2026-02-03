@@ -155,6 +155,7 @@ export default function TreatmentDetail() {
         keywords={[treatment.title, `${treatment.title} Winter Park`, `${treatment.title} Florida`, "psychiatric services Orlando", "mental health treatment Winter Park"]}
         canonicalPath={`/${treatment.slug}`}
         jsonLd={localBusinessSchema}
+        preloadImage={forestBg}
       />
       <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />

@@ -265,6 +265,7 @@ export default function Psychiatrist() {
         keywords={["psychiatrist", "psychiatrist near me", "psychiatric services", "mental health psychiatrist", "medication management psychiatrist", "psychiatrist orlando", "board certified psychiatrist", "telepsychiatry", "psychiatric evaluation"]}
         canonicalPath="/psychiatrist"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

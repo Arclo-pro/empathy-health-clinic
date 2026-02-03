@@ -49,6 +49,7 @@ export default function BlueCrossBlueShieldTherapy() {
         keywords={["blue cross blue shield therapy orlando", "bcbs therapist orlando", "therapist that takes blue cross blue shield orlando", "blue cross blue shield counseling orlando", "bcbs therapy near me"]}
         canonicalPath="/blue-cross-blue-shield-therapy-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

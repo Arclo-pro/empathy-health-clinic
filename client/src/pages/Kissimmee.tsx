@@ -178,6 +178,7 @@ export default function Kissimmee() {
         ]}
         canonicalPath="/locations/kissimmee"
         jsonLd={localBusinessSchema}
+        preloadImage={healthcareBg}
       />
 
       <SiteHeader />

@@ -69,6 +69,7 @@ export default function WhatWeTreat() {
         description="Comprehensive treatment for ADHD, anxiety, depression, bipolar disorder, PTSD, OCD and more. Board-certified psychiatrists in Orlando, FL. Call 386-848-8751."
         keywords={["mental health treatment Orlando", "ADHD treatment Orlando", "anxiety treatment Orlando FL", "depression psychiatrist Orlando", "bipolar disorder treatment", "PTSD therapy Orlando", "OCD treatment Orlando"]}
         canonicalPath="/what-we-treat"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

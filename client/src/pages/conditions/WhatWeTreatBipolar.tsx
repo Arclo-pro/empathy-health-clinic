@@ -105,6 +105,7 @@ export default function WhatWeTreatBipolar() {
         keywords={["bipolar disorder treatment Orlando", "bipolar psychiatrist Orlando FL", "mood stabilizers Orlando", "Bipolar I treatment", "Bipolar II treatment", "manic depression Orlando"]}
         canonicalPath="/what-we-treat/bipolar-disorder"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

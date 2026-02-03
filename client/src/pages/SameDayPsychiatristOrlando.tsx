@@ -62,6 +62,7 @@ export default function SameDayPsychiatristOrlando() {
         keywords={["same day psychiatrist orlando", "urgent psychiatrist orlando", "psychiatrist today orlando", "same day psychiatric appointment orlando", "walk in psychiatrist orlando", "emergency psychiatrist orlando", "psychiatrist same day orlando fl"]}
         canonicalPath="/same-day-psychiatrist-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

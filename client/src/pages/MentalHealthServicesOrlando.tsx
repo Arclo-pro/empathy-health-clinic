@@ -224,6 +224,7 @@ export default function MentalHealthServicesOrlando() {
         ]}
         canonicalPath="/mental-health-services-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

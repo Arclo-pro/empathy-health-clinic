@@ -109,6 +109,7 @@ export default function WhatWeTreatPTSD() {
         keywords={["PTSD treatment Orlando", "trauma therapy Orlando FL", "EMDR therapy Orlando", "trauma psychiatrist Orlando", "PTSD therapist Orlando", "veteran PTSD treatment"]}
         canonicalPath="/what-we-treat/ptsd"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

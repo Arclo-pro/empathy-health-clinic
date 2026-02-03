@@ -105,6 +105,7 @@ export default function WhatWeTreatDepression() {
         keywords={["depression treatment Orlando", "depression psychiatrist Orlando FL", "major depression treatment", "antidepressant medication Orlando", "depression therapy Orlando", "treatment-resistant depression"]}
         canonicalPath="/what-we-treat/depression"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

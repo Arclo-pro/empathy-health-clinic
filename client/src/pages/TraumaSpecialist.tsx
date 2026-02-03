@@ -237,6 +237,7 @@ export default function TraumaSpecialist() {
         ]}
         canonicalPath="/trauma-specialist-near-me"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

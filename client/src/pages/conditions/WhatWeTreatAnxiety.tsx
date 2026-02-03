@@ -105,6 +105,7 @@ export default function WhatWeTreatAnxiety() {
         keywords={["anxiety treatment Orlando", "anxiety therapist Orlando FL", "panic disorder treatment", "social anxiety Orlando", "anxiety medication management", "GAD treatment Orlando"]}
         canonicalPath="/what-we-treat/anxiety"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

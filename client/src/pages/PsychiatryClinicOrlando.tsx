@@ -160,6 +160,7 @@ export default function PsychiatryClinicOrlando() {
         keywords={["psychiatric clinic orlando", "psychiatry clinic orlando", "orlando psychiatry clinic", "mental health clinic orlando", "psychiatry clinic orlando fl", "orlando mental health clinic", "best psychiatric clinic orlando", "psychiatry practice orlando", "psychiatry services orlando"]}
         canonicalPath="/psychiatry-clinic-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

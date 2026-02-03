@@ -43,6 +43,7 @@ export default function EMDRTherapy() {
         keywords={["EMDR therapy Winter Park FL", "EMDR therapy Orlando", "EMDR therapy near me", "EMDR for PTSD", "EMDR for trauma", "trauma therapy Orlando FL", "EMDR for childhood trauma", "eye movement therapy Florida"]}
         canonicalPath="/emdr-therapy"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

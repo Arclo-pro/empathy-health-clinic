@@ -95,6 +95,7 @@ export default function ESALetter() {
         keywords={["ESA letter", "emotional support animal letter", "ESA letter Orlando", "ESA letter Winter Park FL", "emotional support animal documentation", "ESA evaluation", "ESA letter Florida", "legitimate ESA letter"]}
         canonicalPath="/esa-letter"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -97,6 +97,7 @@ export default function PsychiatristWinterPark() {
         keywords={["psychiatrist winter park", "psychiatrist winter park fl", "winter park psychiatrist", "psychiatrists near winter park", "best psychiatrist winter park", "winter park fl psychiatrist", "psychiatry winter park", "medication management winter park"]}
         canonicalPath="/psychiatrist-winter-park"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

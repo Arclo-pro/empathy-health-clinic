@@ -171,6 +171,7 @@ export default function ADHDTestingOrlando() {
         keywords={["adhd psychiatrist orlando", "adhd testing orlando", "adhd testing", "adhd testing near me", "adhd evaluation", "adhd testing winter park", "adult adhd testing", "adhd assessment orlando", "adhd diagnosis orlando", "add testing orlando", "adhd doctor orlando"]}
         canonicalPath="/adhd-testing-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

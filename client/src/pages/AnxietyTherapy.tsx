@@ -43,6 +43,7 @@ export default function AnxietyTherapy() {
         keywords={["anxiety treatment near me", "anxiety counseling near me", "anxiety counseling Orlando", "anxiety therapy near me", "panic attack treatment near me", "anxiety treatment Winter Park", "anxiety therapist near me"]}
         canonicalPath="/anxiety-therapy"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -154,6 +154,7 @@ export default function WinterPark() {
         description="Top-rated psychiatrists and therapists in Winter Park, FL. Expert treatment for depression, anxiety, ADHD, trauma. Insurance accepted. Call 386-848-8751 today."
         keywords={["psychiatrist Winter Park", "therapist Winter Park FL", "mental health Winter Park", "anxiety treatment Winter Park", "depression therapy Winter Park", "ADHD psychiatrist Winter Park", "counseling Winter Park FL"]}
         canonicalPath="/locations/winter-park"
+        preloadImage={healthcareBg}
       />
       <script
         type="application/ld+json"

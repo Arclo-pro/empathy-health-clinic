@@ -72,6 +72,7 @@ export default function PsychiatristDowntownOrlando() {
         keywords={["psychiatrist downtown orlando", "downtown orlando psychiatrist", "orlando downtown psychiatrist", "psychiatrists near downtown orlando", "best psychiatrist downtown orlando", "sodo psychiatrist", "thornton park psychiatrist", "psychiatry downtown orlando"]}
         canonicalPath="/psychiatrist-downtown-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

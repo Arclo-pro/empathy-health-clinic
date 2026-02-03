@@ -26,6 +26,7 @@ export default function StressManagement() {
         description="Expert stress management counseling in Winter Park, FL. Learn coping strategies for work stress, chronic stress, and burnout. Evidence-based stress therapy. Call 386-848-8751."
         keywords={["stress management counseling", "stress therapy Winter Park", "stress counseling Orlando", "workplace stress therapy", "burnout treatment", "chronic stress help", "stress management near me"]}
         canonicalPath="/stress-management"
+        preloadImage={meditationBg}
       />
       <SiteHeader />
       <main className="flex-1">

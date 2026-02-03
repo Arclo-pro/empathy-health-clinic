@@ -68,6 +68,7 @@ export default function ProvidersOrlando() {
         keywords={["Orlando psychiatrists", "Orlando therapists", "mental health providers Orlando FL", "psychiatrists accepting new patients Orlando", "therapists Winter Park", "mental health Altamonte Springs"]}
         canonicalPath="/providers/orlando"
         jsonLd={localBusinessSchema}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

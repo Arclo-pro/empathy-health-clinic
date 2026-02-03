@@ -109,6 +109,7 @@ export default function WhatWeTreatOCD() {
         keywords={["OCD treatment Orlando", "OCD psychiatrist Orlando FL", "ERP therapy Orlando", "obsessive compulsive disorder treatment", "OCD therapist Orlando", "OCD medication management"]}
         canonicalPath="/what-we-treat/ocd"
         jsonLd={jsonLd}
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

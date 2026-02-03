@@ -140,6 +140,7 @@ export default function ConditionDetail() {
         description={getMetaDescription()}
         keywords={[condition.title, `${condition.title} treatment Winter Park`, `${condition.title} therapy Florida`, "psychiatrist Orlando", "mental health Winter Park FL"]}
         canonicalPath={`/${condition.slug}`}
+        preloadImage={forestBg}
       />
       <FAQSchema faqs={parsedFaqs} />
       <SiteHeader />

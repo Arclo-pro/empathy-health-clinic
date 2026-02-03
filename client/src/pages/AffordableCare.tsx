@@ -24,6 +24,7 @@ export default function AffordableCare() {
         description="Affordable mental health care in Winter Park, FL. Sliding scale fees, insurance accepted, payment plans available. Quality therapy accessible to all. Call 386-848-8751."
         keywords={["affordable therapy Winter Park", "sliding scale therapy Florida", "low cost mental health Orlando", "affordable psychiatrist Winter Park", "payment plans therapy", "uninsured mental health care"]}
         canonicalPath="/affordable-care"
+        preloadImage={forestBg}
       />
       <SiteHeader />
       <main className="flex-1">

@@ -119,6 +119,7 @@ export default function AnxietyPsychiatristOrlando() {
         keywords={["anxiety psychiatrist orlando", "anxiety psychiatrist orlando fl", "anxiety doctor orlando", "orlando anxiety psychiatrist", "panic disorder psychiatrist orlando", "social anxiety doctor orlando", "GAD treatment orlando", "anxiety medication management orlando", "OCD psychiatrist orlando", "best anxiety psychiatrist orlando"]}
         canonicalPath="/anxiety-psychiatrist-orlando"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

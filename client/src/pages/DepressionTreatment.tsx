@@ -220,6 +220,7 @@ export default function DepressionTreatment() {
         keywords={["depression treatment orlando", "depression treatment", "depression treatment near me", "depression doctor orlando", "depression medication orlando", "major depression treatment", "clinical depression treatment", "depression psychiatrist orlando"]}
         canonicalPath="/depression-treatment"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

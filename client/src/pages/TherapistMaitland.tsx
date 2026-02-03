@@ -217,6 +217,7 @@ export default function TherapistMaitland() {
         ]}
         canonicalPath="/therapist-maitland"
         jsonLd={jsonLd}
+        preloadImage={heroImage}
       />
       <SiteHeader />
       <main className="flex-1">

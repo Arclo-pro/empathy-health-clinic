@@ -177,6 +177,7 @@ export default function Orlando() {
         description="Top-rated psychiatrist in Orlando, FL. Board-certified psychiatric care for depression, anxiety, ADHD, PTSD & more. Same-week appointments. Insurance accepted. Call 386-848-8751."
         keywords={["psychiatrist Orlando", "psychiatrist in Orlando FL", "Orlando psychiatrist", "psychiatry Orlando", "psychiatrist near me Orlando", "anxiety psychiatrist Orlando", "depression psychiatrist Orlando", "ADHD psychiatrist Orlando", "psychiatry services Orlando"]}
         canonicalPath="/locations/orlando"
+        preloadImage={healthcareBg}
       />
       <script
         type="application/ld+json"
