@@ -44,9 +44,9 @@ echo "=========================================="
 echo "These steps MUST succeed for deployment"
 echo ""
 
-# Step 0: Sync redirects to vercel.json (BLOCKING - critical for SEO)
-echo "Step 0: Syncing redirects to vercel.json..."
-npx tsx scripts/sync-vercel-redirects.ts 2>&1 || echo "  WARNING: Redirect sync failed - existing vercel.json will be used"
+# Step 0: Skip redirect sync - redirects handled server-side by canonicalization middleware
+# The sync script was adding 400+ redirects to vercel.json which blocked deployments
+echo "Step 0: Redirects handled server-side (skipping vercel.json sync)"
 echo ""
 
 # Step 1: Database setup (non-blocking - runtime will handle it)
