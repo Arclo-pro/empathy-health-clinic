@@ -2,8 +2,20 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2, CheckCircle2, MapPin, Phone, Clock, Star, CheckCircle, Mail } from "lucide-react";
-import * as Icons from "lucide-react";
+import {
+  Loader2, CheckCircle2, MapPin, Phone, Clock, Star, CheckCircle, Mail,
+  // Commonly used therapy icons - curated list for bundle optimization
+  Heart, Brain, Users, Shield, Activity, MessageCircle, Calendar, Award,
+  Stethoscope, Target, Zap, AlertCircle, Pill, Video, Building2, Sparkles,
+  Lightbulb, HandHeart, Smile, Frown, type LucideIcon
+} from "lucide-react";
+
+// Icon map for dynamic icon rendering - prevents importing all 1000+ lucide icons
+const TherapyIconMap: Record<string, LucideIcon> = {
+  Heart, Brain, Users, Shield, Activity, MessageCircle, Calendar, Award,
+  Stethoscope, Target, Zap, AlertCircle, Pill, Video, Building2, Sparkles,
+  Lightbulb, HandHeart, Smile, Frown, CheckCircle, CheckCircle2, Star, Clock
+};
 import type { Therapy } from "@shared/schema";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -259,7 +271,7 @@ export default function TherapyPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {sortedTherapies.map((therapy) => {
-            const IconComponent = (Icons as any)[therapy.icon] || Icons.Heart;
+            const IconComponent = TherapyIconMap[therapy.icon] || Heart;
             
             return (
               <Link 
