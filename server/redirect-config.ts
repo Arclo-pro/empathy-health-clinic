@@ -102,7 +102,7 @@ export const contentRedirectMap: Record<string, string> = {
   '/about-us': '/about',
   // NOTE: /about is a core page - do NOT redirect
   '/affordable-care': '/insurance',
-  '/affordable-emotional-support-letter-online': '/services',
+  '/affordable-emotional-support-letter-online': '/esa-letter',
   
   // SEMrush orphaned pages - Old assessment/test pages
   '/autism-assessment': '/services',
@@ -350,7 +350,7 @@ export const contentRedirectMap: Record<string, string> = {
   // NOTE: Removed incorrect blog redirects - posts exist in database
   
   // ESA letter page
-  '/florida-esa-letter-get-your-emotional-support-animal-letter-empathy-health-clinic-2': '/services',
+  '/florida-esa-letter-get-your-emotional-support-animal-letter-empathy-health-clinic-2': '/esa-letter',
   
   // Google Search Console - Crawled but not indexed (November 2025)
   // Malformed URL redirects
