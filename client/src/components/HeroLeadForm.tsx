@@ -8,6 +8,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { Calendar } from "lucide-react";
 import type { Treatment } from "@shared/schema";
+import { InsurancePrequalification, validateInsurancePrequalification, type InsuranceType } from "./InsurancePrequalification";
 
 export default function HeroLeadForm() {
   const [name, setName] = useState("");
@@ -15,6 +16,9 @@ export default function HeroLeadForm() {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [hpWebsite, setHpWebsite] = useState(""); // Honeypot field
+  const [insuranceType, setInsuranceType] = useState<InsuranceType>("");
+  const [medicationAcknowledged, setMedicationAcknowledged] = useState(false);
+  const [prequalError, setPrequalError] = useState<string | null>(null);
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
@@ -38,6 +42,7 @@ export default function HeroLeadForm() {
         source: window.location.pathname,
         smsOptIn: "false",
         hp_website: hpWebsite, // Honeypot field
+        insuranceType: insuranceType,
       });
     },
     onSuccess: () => {
@@ -54,7 +59,15 @@ export default function HeroLeadForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    // Validate insurance prequalification
+    const prequalValidation = validateInsurancePrequalification(insuranceType, medicationAcknowledged);
+    if (prequalValidation) {
+      setPrequalError(prequalValidation);
+      return;
+    }
+    setPrequalError(null);
+
     if (!name.trim() || !email.trim() || !phone.trim()) {
       toast({
         title: "Missing Information",
@@ -70,9 +83,9 @@ export default function HeroLeadForm() {
   const topServices = treatments?.slice(0, 8) || [];
 
   return (
-    <form 
+    <form
       onSubmit={handleSubmit}
-      className="bg-white/95 backdrop-blur-md rounded-2xl md:rounded-full shadow-2xl p-3 md:p-2 w-full"
+      className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-4 md:p-6 w-full"
       data-testid="form-hero-lead"
     >
       {/* Honeypot field - hidden from users, catches bots */}
@@ -89,7 +102,12 @@ export default function HeroLeadForm() {
         />
       </div>
 
-      <div className="flex flex-col md:flex-row gap-3 md:gap-2">
+      {/* Clarity Message */}
+      <p className="text-xs text-gray-600 mb-4 text-center">
+        We serve commercial insurance and self-pay patients and do not accept Medicaid or Sunshine Health.
+      </p>
+
+      <div className="flex flex-col md:flex-row gap-3 md:gap-2 mb-4">
         {/* Name Input */}
         <div className="flex-1 min-w-0">
           <Input
@@ -155,18 +173,42 @@ export default function HeroLeadForm() {
           </Select>
         </div>
 
-        {/* Submit Button */}
-        <Button
-          type="submit"
-          size="lg"
-          disabled={submitLead.isPending}
-          className="h-12 px-8 bg-primary text-primary-foreground border border-primary-border rounded-full whitespace-nowrap font-semibold w-full md:w-auto"
-          data-testid="button-hero-submit"
-        >
-          <Calendar className="w-5 h-5 mr-2" />
-          {submitLead.isPending ? "Submitting..." : "Book Now"}
-        </Button>
       </div>
+
+      {/* Insurance Pre-qualification */}
+      <div className="bg-gray-50 rounded-lg p-3 border border-gray-200 mb-4">
+        <InsurancePrequalification
+          insuranceType={insuranceType}
+          onInsuranceTypeChange={(value) => {
+            setInsuranceType(value);
+            setPrequalError(null);
+          }}
+          medicationAcknowledged={medicationAcknowledged}
+          onMedicationAcknowledgedChange={(value) => {
+            setMedicationAcknowledged(value);
+            setPrequalError(null);
+          }}
+          compact={true}
+        />
+      </div>
+
+      {prequalError && (
+        <p className="text-sm text-red-600 mb-4 text-center" data-testid="text-prequal-error-hero">
+          {prequalError}
+        </p>
+      )}
+
+      {/* Submit Button */}
+      <Button
+        type="submit"
+        size="lg"
+        disabled={submitLead.isPending}
+        className="h-12 px-8 bg-primary text-primary-foreground border border-primary-border rounded-full whitespace-nowrap font-semibold w-full"
+        data-testid="button-hero-submit"
+      >
+        <Calendar className="w-5 h-5 mr-2" />
+        {submitLead.isPending ? "Submitting..." : "Book Now"}
+      </Button>
     </form>
   );
 }

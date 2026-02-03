@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle2, Shield, Phone } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { getUTMDataForLead } from "@/lib/utm-tracker";
+import { InsurancePrequalification, validateInsurancePrequalification, type InsuranceType } from "./InsurancePrequalification";
 
 const leadFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -38,6 +39,9 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
   const [submitted, setSubmitted] = useState(false);
   const [, setLocation] = useLocation();
   const formStartedTracked = useRef(false);
+  const [insuranceType, setInsuranceType] = useState<InsuranceType>("");
+  const [medicationAcknowledged, setMedicationAcknowledged] = useState(false);
+  const [prequalError, setPrequalError] = useState<string | null>(null);
 
   const handleFormStarted = () => {
     if (!formStartedTracked.current) {
@@ -64,10 +68,10 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       const nameParts = data.name.trim().split(' ');
       const firstName = nameParts[0] || data.name;
       const lastName = nameParts.slice(1).join(' ') || ' ';
-      
+
       // Get UTM parameters for Google Ads attribution
       const utmData = getUTMDataForLead();
-      
+
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,6 +85,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
           smsOptIn: "false",
           conditions: '[]',
           symptoms: '[]',
+          insuranceType: insuranceType,
           // Include UTM tracking data and click IDs
           landingPage: utmData.landingPage,
           utmSource: utmData.utmSource,
@@ -103,6 +108,17 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       setLocation('/thank-you');
     },
   });
+
+  const handleSubmit = (data: LeadFormData) => {
+    // Validate insurance prequalification
+    const prequalValidation = validateInsurancePrequalification(insuranceType, medicationAcknowledged);
+    if (prequalValidation) {
+      setPrequalError(prequalValidation);
+      return;
+    }
+    setPrequalError(null);
+    mutation.mutate(data);
+  };
 
   if (submitted) {
     return (
@@ -170,8 +186,8 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
         <div className="flex items-start gap-3 mb-3">
           <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
           <div>
-            <p className="text-sm text-foreground font-medium">Most Insurance Accepted</p>
-            <p className="text-xs text-muted-foreground">Verify your coverage today</p>
+            <p className="text-sm text-foreground font-medium">Commercial Insurance & Self-Pay</p>
+            <p className="text-xs text-muted-foreground">We do not accept Medicaid or Sunshine Health</p>
           </div>
         </div>
         <div className="flex items-start gap-3 mb-3">
@@ -191,7 +207,7 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
           {/* Honeypot field - hidden from users, catches bots */}
           <div className="hp-field" aria-hidden="true">
             <label htmlFor="hp_website">Website</label>
@@ -291,6 +307,27 @@ export function LeadCaptureForm({ therapyName }: LeadCaptureFormProps) {
               </FormItem>
             )}
           />
+
+          {/* Insurance Pre-qualification */}
+          <InsurancePrequalification
+            insuranceType={insuranceType}
+            onInsuranceTypeChange={(value) => {
+              setInsuranceType(value);
+              setPrequalError(null);
+            }}
+            medicationAcknowledged={medicationAcknowledged}
+            onMedicationAcknowledgedChange={(value) => {
+              setMedicationAcknowledged(value);
+              setPrequalError(null);
+            }}
+            compact={true}
+          />
+
+          {prequalError && (
+            <p className="text-sm text-destructive" data-testid="text-prequal-error">
+              {prequalError}
+            </p>
+          )}
 
           <Button
             type="submit"

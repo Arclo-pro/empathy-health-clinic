@@ -18,6 +18,7 @@ import { useToast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 import { useRef, useState } from "react";
 import { CheckCircle2, Shield, Lock, Calendar, Clock } from "lucide-react";
+import { InsurancePrequalification, validateInsurancePrequalification, type InsuranceType } from "./InsurancePrequalification";
 
 const shortFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -40,6 +41,9 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const formStartedTracked = useRef(false);
+  const [insuranceType, setInsuranceType] = useState<InsuranceType>("");
+  const [medicationAcknowledged, setMedicationAcknowledged] = useState(false);
+  const [prequalError, setPrequalError] = useState<string | null>(null);
   
   const form = useForm<ShortFormValues>({
     resolver: zodResolver(shortFormSchema),
@@ -68,6 +72,7 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
         smsOptIn: data.smsOptIn ? "true" : "false",
         formType: "short",
         hp_website: data.hp_website || '', // Honeypot field
+        insuranceType: insuranceType,
       });
     },
     onSuccess: () => {
@@ -84,6 +89,13 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
   });
 
   const onSubmit = (data: ShortFormValues) => {
+    // Validate insurance prequalification
+    const prequalValidation = validateInsurancePrequalification(insuranceType, medicationAcknowledged);
+    if (prequalValidation) {
+      setPrequalError(prequalValidation);
+      return;
+    }
+    setPrequalError(null);
     submitLead.mutate(data);
   };
 
@@ -151,8 +163,11 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
           <h3 className="text-2xl font-sans font-bold text-foreground mb-2">
             Request an Appointment
           </h3>
-          <p className="text-muted-foreground text-sm mb-6">
-            Most patients scheduled within 24 hours • All insurance accepted
+          <p className="text-muted-foreground text-sm mb-2">
+            Most patients scheduled within 24 hours
+          </p>
+          <p className="text-xs text-muted-foreground mb-6 bg-muted/50 rounded px-2 py-1.5">
+            We serve commercial insurance and self-pay patients and do not accept Medicaid or Sunshine Health.
           </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -250,6 +265,27 @@ export default function ShortContactForm({ service, className = "" }: ShortConta
                   </FormItem>
                 )}
               />
+
+              {/* Insurance Pre-qualification */}
+              <InsurancePrequalification
+                insuranceType={insuranceType}
+                onInsuranceTypeChange={(value) => {
+                  setInsuranceType(value);
+                  setPrequalError(null);
+                }}
+                medicationAcknowledged={medicationAcknowledged}
+                onMedicationAcknowledgedChange={(value) => {
+                  setMedicationAcknowledged(value);
+                  setPrequalError(null);
+                }}
+                compact={true}
+              />
+
+              {prequalError && (
+                <p className="text-sm text-destructive" data-testid="text-prequal-error">
+                  {prequalError}
+                </p>
+              )}
 
               <FormField
                 control={form.control}

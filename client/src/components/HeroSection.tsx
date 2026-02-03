@@ -15,6 +15,7 @@ import {
 
 import { useToast } from "@/hooks/use-toast";
 import type { InsuranceProvider } from "@shared/schema";
+import { InsurancePrequalification, validateInsurancePrequalification, type InsuranceType } from "./InsurancePrequalification";
 
 export const heroImage = "/site-assets/hero-sunset-florida.webp";
 
@@ -36,6 +37,9 @@ export default function HeroSection() {
   const [phone, setPhone] = useState("");
   const [service, setService] = useState("");
   const [hpWebsite, setHpWebsite] = useState(""); // Honeypot field
+  const [insuranceType, setInsuranceType] = useState<InsuranceType>("");
+  const [medicationAcknowledged, setMedicationAcknowledged] = useState(false);
+  const [prequalError, setPrequalError] = useState<string | null>(null);
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
@@ -62,6 +66,7 @@ export default function HeroSection() {
           source: window.location.pathname,
           smsOptIn: "false",
           hp_website: hpWebsite,
+          insuranceType: insuranceType,
         }),
       });
       if (!response.ok) {
@@ -83,7 +88,15 @@ export default function HeroSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    // Validate insurance prequalification
+    const prequalValidation = validateInsurancePrequalification(insuranceType, medicationAcknowledged);
+    if (prequalValidation) {
+      setPrequalError(prequalValidation);
+      return;
+    }
+    setPrequalError(null);
+
     if (!name.trim() || !email.trim() || !phone.trim()) {
       toast({
         title: "Missing Information",
@@ -130,8 +143,13 @@ export default function HeroSection() {
             </h1>
             
             {/* Location Subheading */}
-            <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/90 mb-8 drop-shadow-md">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-sans font-light text-white/90 mb-4 drop-shadow-md">
               in Orlando, FL
+            </p>
+
+            {/* Insurance Clarity Message */}
+            <p className="text-sm md:text-base text-white/80 mb-8 drop-shadow-md bg-black/20 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">
+              We serve commercial insurance and self-pay patients and do not accept Medicaid or Sunshine Health.
             </p>
 
             {/* Mobile Trust Indicators */}
@@ -243,7 +261,7 @@ export default function HeroSection() {
                   <div>
                     <label htmlFor="hero-service-mobile" className="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
                     <Select value={service} onValueChange={setService}>
-                      <SelectTrigger 
+                      <SelectTrigger
                         id="hero-service-mobile"
                         className="h-11 bg-gray-50 border-gray-200 rounded-lg text-base"
                         data-testid="select-hero-service-mobile"
@@ -259,7 +277,30 @@ export default function HeroSection() {
                       </SelectContent>
                     </Select>
                   </div>
-                  
+
+                  {/* Insurance Pre-qualification */}
+                  <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                    <InsurancePrequalification
+                      insuranceType={insuranceType}
+                      onInsuranceTypeChange={(value) => {
+                        setInsuranceType(value);
+                        setPrequalError(null);
+                      }}
+                      medicationAcknowledged={medicationAcknowledged}
+                      onMedicationAcknowledgedChange={(value) => {
+                        setMedicationAcknowledged(value);
+                        setPrequalError(null);
+                      }}
+                      compact={true}
+                    />
+                  </div>
+
+                  {prequalError && (
+                    <p className="text-sm text-red-600" data-testid="text-prequal-error-mobile">
+                      {prequalError}
+                    </p>
+                  )}
+
                   <Button
                     type="submit"
                     disabled={submitLead.isPending}
@@ -345,7 +386,7 @@ export default function HeroSection() {
                 <div>
                   <label htmlFor="hero-service" className="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
                   <Select value={service} onValueChange={setService}>
-                    <SelectTrigger 
+                    <SelectTrigger
                       id="hero-service"
                       className="h-12 bg-gray-50 border-gray-200 rounded-lg text-base"
                       data-testid="select-hero-service"
@@ -361,7 +402,30 @@ export default function HeroSection() {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
+                {/* Insurance Pre-qualification */}
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <InsurancePrequalification
+                    insuranceType={insuranceType}
+                    onInsuranceTypeChange={(value) => {
+                      setInsuranceType(value);
+                      setPrequalError(null);
+                    }}
+                    medicationAcknowledged={medicationAcknowledged}
+                    onMedicationAcknowledgedChange={(value) => {
+                      setMedicationAcknowledged(value);
+                      setPrequalError(null);
+                    }}
+                    compact={false}
+                  />
+                </div>
+
+                {prequalError && (
+                  <p className="text-sm text-red-600" data-testid="text-prequal-error-desktop">
+                    {prequalError}
+                  </p>
+                )}
+
                 <Button
                   type="submit"
                   disabled={submitLead.isPending}

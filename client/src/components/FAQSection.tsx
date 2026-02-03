@@ -19,7 +19,15 @@ const DEFAULT_FAQS: FAQItem[] = [
   },
   {
     question: "What insurance do you accept?",
-    answer: "We accept most major insurance providers, including Aetna, Cigna, United Healthcare, BlueCross BlueShield, Medicare, Tricare, UMR, and Oscar Health."
+    answer: "We accept most major commercial insurance providers, including Aetna, Cigna, United Healthcare, BlueCross BlueShield, Medicare, Tricare, UMR, and Oscar Health. We also welcome self-pay patients."
+  },
+  {
+    question: "Do you accept Medicaid or Sunshine Health?",
+    answer: "We are not able to accept Medicaid or Sunshine Health plans at this time. We serve patients with commercial/PPO insurance, Medicare, and self-pay options. If you have questions about your coverage, please call us at (386) 848-8751."
+  },
+  {
+    question: "Do you prescribe Xanax or other benzodiazepines?",
+    answer: "We do not prescribe benzodiazepines (such as Xanax, Klonopin, or Ativan) as a primary treatment. Our psychiatrists focus on evidence-based treatments including SSRIs, SNRIs, and other medications that provide effective, sustainable relief for anxiety and related conditions. We work with each patient to find the most appropriate treatment plan for their individual needs."
   },
   {
     question: "How quickly can I get an appointment?",

@@ -29,8 +29,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, AlertCircle } from "lucide-react";
 import type { InsuranceProvider } from "@shared/schema";
+import { Label } from "@/components/ui/label";
 
 const longFormSchema = z.object({
   service: z.string().min(1, "Please select a service"),
@@ -94,6 +95,8 @@ const CONCERNS = [
 export default function LongContactForm() {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [medicationAcknowledged, setMedicationAcknowledged] = useState(false);
+  const [medicaidSelected, setMedicaidSelected] = useState(false);
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const formStartedTracked = useRef(false);
@@ -186,17 +189,37 @@ export default function LongContactForm() {
 
   const nextStep = async () => {
     let fields: string[] = [];
-    
+
     if (step === 1) {
       fields = ["firstName", "lastName", "email", "phone", "service"];
     } else if (step === 2) {
       fields = ["paymentMethod"];
-      // If using insurance, also validate insurance fields
-      if (form.getValues("paymentMethod") === "insurance") {
+      // If using insurance, also validate insurance fields (but only if NOT Medicaid)
+      if (form.getValues("paymentMethod") === "insurance" && !medicaidSelected) {
         fields.push("insuranceProvider", "insuredDob");
       }
+
+      // Check for Medicaid selection - block if selected
+      if (form.getValues("paymentMethod") === "insurance" && medicaidSelected) {
+        toast({
+          variant: "destructive",
+          title: "Medicaid Not Accepted",
+          description: "We're unable to accept Medicaid or Sunshine Health plans. Please select self-pay to continue.",
+        });
+        return;
+      }
+
+      // Check for benzodiazepine acknowledgment
+      if (!medicationAcknowledged) {
+        toast({
+          variant: "destructive",
+          title: "Acknowledgment Required",
+          description: "Please acknowledge the medication policy to continue.",
+        });
+        return;
+      }
     }
-    
+
     const isValid = await form.trigger(fields as any);
     if (isValid) {
       // Track form started only when user advances from Step 1 to Step 2
@@ -338,7 +361,10 @@ export default function LongContactForm() {
         {/* Header with reassurance */}
         <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Request Your Appointment</h2>
-          <p className="text-sm text-muted-foreground mb-3">Takes less than a minute to complete</p>
+          <p className="text-sm text-muted-foreground mb-2">Takes less than a minute to complete</p>
+          <p className="text-xs text-muted-foreground bg-muted/50 rounded px-3 py-1.5 inline-block mb-3">
+            We serve commercial insurance and self-pay patients and do not accept Medicaid or Sunshine Health.
+          </p>
           <a 
             href="tel:386-848-8751"
             className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
@@ -576,64 +602,156 @@ export default function LongContactForm() {
 
               {form.watch("paymentMethod") === "insurance" && (
                 <>
-                  <FormField
-                    control={form.control}
-                    name="insuranceProvider"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Insurance Provider *</FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
-                          <FormControl>
-                            <SelectTrigger data-testid="select-insurance-provider">
-                              <SelectValue placeholder="Select your insurance" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            {insuranceProviders?.map((provider) => (
-                              <SelectItem 
-                                key={provider.id} 
-                                value={provider.name}
-                                data-testid={`select-option-${provider.slug}`}
-                              >
-                                {provider.name}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <FormField
-                      control={form.control}
-                      name="insuredDob"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Date of Birth *</FormLabel>
-                          <FormControl>
-                            <Input type="date" {...field} autoComplete="bday" data-testid="input-insured-dob" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="memberId"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Member ID (Optional)</FormLabel>
-                          <FormControl>
-                            <Input {...field} placeholder="ID#" data-testid="input-member-id" />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
+                  {/* Medicaid/Sunshine Health Check */}
+                  <div className="space-y-2">
+                    <Label className="text-foreground font-medium">
+                      Do you have Medicaid or Sunshine Health? *
+                    </Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div
+                        onClick={() => setMedicaidSelected(false)}
+                        className={`p-3 border-2 rounded-lg cursor-pointer transition-all hover-elevate ${
+                          !medicaidSelected
+                            ? 'border-primary bg-primary/5'
+                            : 'border-border bg-card hover:border-primary/50'
+                        }`}
+                        data-testid="radio-medicaid-no"
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                            !medicaidSelected
+                              ? 'border-primary bg-primary'
+                              : 'border-muted-foreground'
+                          }`}>
+                            {!medicaidSelected && (
+                              <CheckCircle2 className="h-2.5 w-2.5 text-primary-foreground" />
+                            )}
+                          </div>
+                          <span className="text-sm font-medium">No</span>
+                        </div>
+                      </div>
+                      <div
+                        onClick={() => setMedicaidSelected(true)}
+                        className={`p-3 border-2 rounded-lg cursor-pointer transition-all hover-elevate ${
+                          medicaidSelected
+                            ? 'border-primary bg-primary/5'
+                            : 'border-border bg-card hover:border-primary/50'
+                        }`}
+                        data-testid="radio-medicaid-yes"
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+                            medicaidSelected
+                              ? 'border-primary bg-primary'
+                              : 'border-muted-foreground'
+                          }`}>
+                            {medicaidSelected && (
+                              <CheckCircle2 className="h-2.5 w-2.5 text-primary-foreground" />
+                            )}
+                          </div>
+                          <span className="text-sm font-medium">Yes</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Medicaid rejection message */}
+                  {medicaidSelected && (
+                    <div
+                      className="flex items-start gap-2 p-3 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-sm"
+                      role="alert"
+                      data-testid="alert-medicaid-not-accepted"
+                    >
+                      <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                      <p>
+                        Thanks for checking — we're not able to accept Medicaid or Sunshine Health plans at this time.
+                        If you'd like to proceed as self-pay, please select that option above.
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Only show insurance fields if NOT Medicaid */}
+                  {!medicaidSelected && (
+                    <>
+                      <FormField
+                        control={form.control}
+                        name="insuranceProvider"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Insurance Provider *</FormLabel>
+                            <Select onValueChange={field.onChange} value={field.value}>
+                              <FormControl>
+                                <SelectTrigger data-testid="select-insurance-provider">
+                                  <SelectValue placeholder="Select your insurance" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                {insuranceProviders?.map((provider) => (
+                                  <SelectItem
+                                    key={provider.id}
+                                    value={provider.name}
+                                    data-testid={`select-option-${provider.slug}`}
+                                  >
+                                    {provider.name}
+                                  </SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <FormField
+                          control={form.control}
+                          name="insuredDob"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Date of Birth *</FormLabel>
+                              <FormControl>
+                                <Input type="date" {...field} autoComplete="bday" data-testid="input-insured-dob" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <FormField
+                          control={form.control}
+                          name="memberId"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Member ID (Optional)</FormLabel>
+                              <FormControl>
+                                <Input {...field} placeholder="ID#" data-testid="input-member-id" />
+                              </FormControl>
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </>
+                  )}
                 </>
+              )}
+
+              {/* Benzodiazepine Acknowledgment - Show for both insurance and self-pay, but not if Medicaid selected */}
+              {!medicaidSelected && (
+                <div className="flex items-start space-x-3 pt-2 border-t">
+                  <Checkbox
+                    id="medication-acknowledgment-long"
+                    checked={medicationAcknowledged}
+                    onCheckedChange={(checked) => setMedicationAcknowledged(checked === true)}
+                    data-testid="checkbox-medication-acknowledgment"
+                    className="mt-0.5"
+                  />
+                  <Label
+                    htmlFor="medication-acknowledgment-long"
+                    className="font-normal cursor-pointer leading-relaxed text-sm"
+                  >
+                    I understand this clinic does not prescribe benzodiazepines (Xanax, Klonopin, Ativan) as a primary treatment.
+                  </Label>
+                </div>
               )}
             </div>
           )}
