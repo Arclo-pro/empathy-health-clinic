@@ -1909,7 +1909,7 @@ export class MemStorage implements IStorage {
 
   // Blog post methods - NOW USING POSTGRESQL FOR PERSISTENCE
   async getAllBlogPosts(): Promise<BlogPost[]> {
-    const posts = await db.select().from(blogPosts).orderBy(desc(blogPosts.order));
+    const posts = await db.select().from(blogPosts).orderBy(desc(blogPosts.publishedDate));
     return posts;
   }
 
