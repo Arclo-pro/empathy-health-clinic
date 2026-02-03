@@ -2,30 +2,56 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "trailingSlash": false,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/robots.txt",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/sitemap_index.xml",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/image-sitemap.xml",
-      "destination": "/api/index"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/index"
+      "source": "/",
+      "has": [{ "type": "host", "value": "empathyhealthclinic.com" }],
+      "destination": "https://www.empathyhealthclinic.com/",
+      "permanent": true
     },
     {
       "source": "/:path*",
-      "destination": "/index.html"
-    }
+      "has": [{ "type": "host", "value": "empathyhealthclinic.com" }],
+      "destination": "https://www.empathyhealthclinic.com/:path*",
+      "permanent": true
+    },
+    { "source": "/treatments/psychiatric-services", "destination": "/psychiatric-services", "permanent": true },
+    { "source": "/treatments/medication-management", "destination": "/medication-management", "permanent": true },
+    { "source": "/treatments/virtual-counseling", "destination": "/virtual-therapy", "permanent": true },
+    { "source": "/treatments/couples-therapy", "destination": "/couples-counseling", "permanent": true },
+    { "source": "/treatments/anxiety", "destination": "/anxiety-therapy", "permanent": true },
+    { "source": "/treatments/anxiety-treatment", "destination": "/anxiety-therapy", "permanent": true },
+    { "source": "/anxiety-treatment", "destination": "/anxiety-therapy", "permanent": true },
+    { "source": "/anxiety", "destination": "/anxiety-therapy", "permanent": true },
+    { "source": "/depression", "destination": "/depression-treatment", "permanent": true },
+    { "source": "/adhd", "destination": "/adhd-treatment", "permanent": true },
+    { "source": "/bipolar-disorder", "destination": "/bipolar-disorder-treatment", "permanent": true },
+    { "source": "/psychiatry-orlando", "destination": "/psychiatrist-orlando", "permanent": true },
+    { "source": "/virtual-visit", "destination": "/virtual-therapy", "permanent": true },
+    { "source": "/book-appointment", "destination": "/request-appointment", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/contact", "destination": "/contact-us", "permanent": true },
+    { "source": "/pricing", "destination": "/insurance", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/couples-therapy", "destination": "/couples-counseling", "permanent": true },
+    { "source": "/affordable-emotional-support-letter-online", "destination": "/esa-letter", "permanent": true },
+    { "source": "/florida-esa-letter-get-your-emotional-support-animal-letter-empathy-health-clinic-2", "destination": "/esa-letter", "permanent": true },
+    { "source": "/our-team", "destination": "/team", "permanent": true },
+    { "source": "/therapists", "destination": "/team", "permanent": true },
+    { "source": "/psychiatrists", "destination": "/team", "permanent": true },
+    { "source": "/staff", "destination": "/team", "permanent": true },
+    { "source": "/treatments", "destination": "/services", "permanent": true },
+    { "source": "/conditions", "destination": "/services", "permanent": true },
+    { "source": "/locations", "destination": "/services", "permanent": true },
+    { "source": "/resources", "destination": "/blog", "permanent": true },
+    { "source": "/health-wellness-blog", "destination": "/blog", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/robots.txt", "destination": "/api/index" },
+    { "source": "/sitemap.xml", "destination": "/api/index" },
+    { "source": "/sitemap_index.xml", "destination": "/api/index" },
+    { "source": "/image-sitemap.xml", "destination": "/api/index" },
+    { "source": "/api/:path*", "destination": "/api/index" },
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
