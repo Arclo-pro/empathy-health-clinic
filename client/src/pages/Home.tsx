@@ -291,7 +291,7 @@ export default function Home() {
                     Same-week appointments
                   </li>
                 </ul>
-                <Link href="/anxiety-treatment">
+                <Link href="/anxiety-therapy">
                   <Button variant="outline" className="w-full">
                     Learn About Anxiety Treatment
                   </Button>
