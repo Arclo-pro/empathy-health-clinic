@@ -174,7 +174,7 @@ export default function DepressionTreatment() {
     {
       icon: Pill,
       title: "Medication Management",
-      description: "Our psychiatrists prescribe and carefully monitor FDA-approved antidepressants including SSRIs (Prozac, Zoloft, Lexapro), SNRIs (Effexor, Cymbalta), and other medications tailored to your specific symptoms and needs.",
+      description: "Our psychiatrists prescribe and carefully monitor FDA-approved antidepressants including SSRIs (Prozac, Lexapro), SNRIs (Effexor, Cymbalta), and other medications tailored to your specific symptoms and needs.",
       features: ["Personalized medication selection", "Regular dosage optimization", "Side effect management", "Drug interaction screening"]
     },
     {

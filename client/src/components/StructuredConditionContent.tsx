@@ -340,8 +340,8 @@ export const CONDITION_CONTENT: Record<string, ConditionSection> = {
     treatments: [
       "EMDR (Eye Movement Desensitization and Reprocessing)",
       "Trauma-focused cognitive behavioral therapy",
-      "SSRI/SNRI medications (Zoloft, Paxil, Effexor)",
-      "Prazosin for trauma-related nightmares",
+      "SSRI/SNRI medications (Effexor, Lexapro)",
+      "Targeted treatments for trauma-related sleep issues",
       "Prolonged exposure therapy",
       "Supportive counseling and group therapy"
     ],

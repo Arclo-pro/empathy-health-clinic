@@ -2914,7 +2914,7 @@ export const ptsdPsychiatristOrlandoConfig: LandingPageConfig = {
       {
         icon: Shield,
         title: "Medication Management",
-        description: "Expert prescribing of FDA-approved PTSD medications including SSRIs, prazosin for nightmares, and other targeted treatments."
+        description: "Expert prescribing of FDA-approved PTSD medications including SSRIs and targeted treatments for sleep disturbances."
       },
       {
         icon: Heart,
@@ -2944,7 +2944,7 @@ export const ptsdPsychiatristOrlandoConfig: LandingPageConfig = {
   faqs: [
     {
       question: "What medications are used to treat PTSD?",
-      answer: "FDA-approved medications for PTSD include sertraline (Zoloft) and paroxetine (Paxil). Our psychiatrists also prescribe prazosin for PTSD-related nightmares, and may recommend other medications based on your specific symptoms and needs."
+      answer: "FDA-approved medications for PTSD include several SSRIs. Our psychiatrists also prescribe targeted treatments for PTSD-related nightmares and sleep issues, and may recommend other medications based on your specific symptoms and needs."
     },
     {
       question: "How long does PTSD treatment take?",
@@ -3597,7 +3597,7 @@ export const psychiatristForDepressionNearMeConfig: LandingPageConfig = {
     },
     {
       question: "What medications do psychiatrists prescribe for depression?",
-      answer: "Psychiatrists commonly prescribe SSRIs (like Lexapro, Zoloft, Prozac, Celexa), SNRIs (like Effexor, Cymbalta, Pristiq), bupropion (Wellbutrin), mirtazapine (Remeron), and tricyclic antidepressants. For treatment-resistant depression, we may consider augmentation strategies or newer treatments. The choice depends on your specific symptoms, side effect concerns, other medications, and medical history."
+      answer: "Psychiatrists commonly prescribe SSRIs (like Lexapro, Prozac, Celexa), SNRIs (like Effexor, Cymbalta, Pristiq), bupropion (Wellbutrin), mirtazapine (Remeron), and tricyclic antidepressants. For treatment-resistant depression, we may consider augmentation strategies or newer treatments. The choice depends on your specific symptoms, side effect concerns, other medications, and medical history."
     },
     {
       question: "How quickly can I see a depression psychiatrist near me?",
@@ -3732,7 +3732,7 @@ export const depressionPsychiatristOrlandoConfig: LandingPageConfig = {
       {
         icon: Brain,
         title: "Antidepressant Medication Management",
-        description: "Expert prescribing and monitoring of antidepressants including SSRIs (Lexapro, Zoloft, Prozac), SNRIs (Effexor, Cymbalta), and other medications. We work with you to find the right medication and dosage for optimal symptom relief with minimal side effects."
+        description: "Expert prescribing and monitoring of antidepressants including SSRIs (Lexapro, Prozac), SNRIs (Effexor, Cymbalta), and other medications. We work with you to find the right medication and dosage for optimal symptom relief with minimal side effects."
       },
       {
         icon: Shield,
@@ -3767,7 +3767,7 @@ export const depressionPsychiatristOrlandoConfig: LandingPageConfig = {
   faqs: [
     {
       question: "What medications do psychiatrists prescribe for depression in Orlando?",
-      answer: "Our Orlando psychiatrists commonly prescribe SSRIs (Lexapro, Zoloft, Prozac, Celexa), SNRIs (Effexor, Cymbalta, Pristiq), bupropion (Wellbutrin), mirtazapine (Remeron), and other antidepressants. For treatment-resistant depression, we may use augmentation strategies or newer treatments. The choice depends on your specific symptoms, medical history, and any previous medication trials."
+      answer: "Our Orlando psychiatrists commonly prescribe SSRIs (Lexapro, Prozac, Celexa), SNRIs (Effexor, Cymbalta, Pristiq), bupropion (Wellbutrin), mirtazapine (Remeron), and other antidepressants. For treatment-resistant depression, we may use augmentation strategies or newer treatments. The choice depends on your specific symptoms, medical history, and any previous medication trials."
     },
     {
       question: "How quickly can I see a depression psychiatrist in Orlando?",
@@ -4672,7 +4672,7 @@ export const traumaPsychiatristOrlandoConfig: LandingPageConfig = {
       {
         icon: Shield,
         title: "PTSD Medication Management",
-        description: "Expert medication management using FDA-approved treatments for PTSD and trauma-related symptoms, including SSRIs, prazosin for nightmares, and other evidence-based options."
+        description: "Expert medication management using FDA-approved treatments for PTSD and trauma-related symptoms, including SSRIs and targeted treatments for sleep disturbances."
       },
       {
         icon: Heart,
@@ -4706,7 +4706,7 @@ export const traumaPsychiatristOrlandoConfig: LandingPageConfig = {
     },
     {
       question: "What medications help with PTSD and trauma?",
-      answer: "Several medications are FDA-approved or commonly used for PTSD treatment. These include SSRIs like sertraline (Zoloft) and paroxetine (Paxil), prazosin for nightmares, and other medications to address specific symptoms. Your trauma psychiatrist will work with you to find the right medication approach based on your specific symptoms and needs."
+      answer: "Several medications are FDA-approved or commonly used for PTSD treatment. These include SSRIs and other medications to address specific symptoms including sleep disturbances. Your trauma psychiatrist will work with you to find the right medication approach based on your specific symptoms and needs."
     },
     {
       question: "Do I need both a trauma psychiatrist and a therapist?",
@@ -5007,7 +5007,7 @@ export const ocdPsychiatristOrlandoConfig: LandingPageConfig = {
   faqs: [
     {
       question: "What medications are used to treat OCD?",
-      answer: "The first-line medications for OCD are SSRIs (selective serotonin reuptake inhibitors) such as fluoxetine (Prozac), sertraline (Zoloft), fluvoxamine (Luvox), paroxetine (Paxil), and escitalopram (Lexapro). Clomipramine (Anafranil), a tricyclic antidepressant, is also FDA-approved for OCD. OCD often requires higher doses than depression treatment, and it may take 8-12 weeks to see full benefits."
+      answer: "The first-line medications for OCD are SSRIs (selective serotonin reuptake inhibitors) such as fluoxetine (Prozac), fluvoxamine (Luvox), and escitalopram (Lexapro). Clomipramine (Anafranil), a tricyclic antidepressant, is also FDA-approved for OCD. OCD often requires higher doses than depression treatment, and it may take 8-12 weeks to see full benefits."
     },
     {
       question: "Do I need both medication and therapy for OCD?",

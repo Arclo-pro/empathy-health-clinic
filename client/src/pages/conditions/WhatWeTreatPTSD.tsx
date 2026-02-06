@@ -31,7 +31,7 @@ const treatments = [
   },
   {
     title: "Medication Management",
-    description: "When appropriate, medications like SSRIs and prazosin can help manage symptoms including anxiety, depression, and nightmares."
+    description: "When appropriate, medications like SSRIs can help manage symptoms including anxiety, depression, and sleep disturbances."
   },
   {
     title: "Integrated Care",
@@ -54,7 +54,7 @@ const faqs = [
   },
   {
     question: "What medications help with PTSD?",
-    answer: "SSRIs like sertraline (Zoloft) and paroxetine (Paxil) are FDA-approved for PTSD and can help with depression, anxiety, and sleep problems. Prazosin is often used for trauma-related nightmares. Your psychiatrist will recommend medications based on your specific symptoms."
+    answer: "SSRIs are FDA-approved for PTSD and can help with depression, anxiety, and sleep problems. Your psychiatrist will recommend medications based on your specific symptoms and may prescribe additional treatments for sleep disturbances."
   },
   {
     question: "How long does PTSD treatment take?",

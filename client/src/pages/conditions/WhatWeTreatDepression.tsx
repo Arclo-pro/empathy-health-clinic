@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     question: "What medications are used to treat depression?",
-    answer: "Common antidepressants include SSRIs (Prozac, Zoloft, Lexapro), SNRIs (Effexor, Cymbalta), bupropion (Wellbutrin), and others. Your psychiatrist will recommend the best option based on your symptoms, medical history, and potential side effects. It often takes 4-6 weeks to feel the full effect of antidepressants."
+    answer: "Common antidepressants include SSRIs (Prozac, Lexapro), SNRIs (Effexor, Cymbalta), bupropion (Wellbutrin), and others. Your psychiatrist will recommend the best option based on your symptoms, medical history, and potential side effects. It often takes 4-6 weeks to feel the full effect of antidepressants."
   },
   {
     question: "How long will I need to take antidepressants?",

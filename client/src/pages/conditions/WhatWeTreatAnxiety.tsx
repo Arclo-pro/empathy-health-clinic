@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     question: "What medications are used for anxiety treatment?",
-    answer: "Common medications for anxiety include SSRIs (like Lexapro and Zoloft), SNRIs (like Effexor and Cymbalta), benzodiazepines for short-term relief, and buspirone. Your psychiatrist will recommend the most appropriate medication based on your specific symptoms and medical history."
+    answer: "Common medications for anxiety include SSRIs (like Lexapro), SNRIs (like Effexor and Cymbalta), benzodiazepines for short-term relief, and buspirone. Your psychiatrist will recommend the most appropriate medication based on your specific symptoms and medical history."
   },
   {
     question: "How long does anxiety treatment take?",

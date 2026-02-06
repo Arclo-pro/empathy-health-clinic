@@ -31,7 +31,7 @@ export default function TraumaPsychiatristOrlando() {
         "name": "What medications do trauma psychiatrists prescribe for PTSD?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Trauma psychiatrists prescribe FDA-approved medications for PTSD including SSRIs like sertraline (Zoloft) and paroxetine (Paxil), SNRIs like venlafaxine (Effexor), and prazosin for trauma-related nightmares. Treatment is personalized based on your specific symptoms and medical history."
+          "text": "Trauma psychiatrists prescribe FDA-approved medications for PTSD including SSRIs and SNRIs like venlafaxine (Effexor). We also offer treatments for trauma-related sleep disturbances. Treatment is personalized based on your specific symptoms and medical history."
         }
       },
       {
@@ -60,10 +60,10 @@ export default function TraumaPsychiatristOrlando() {
       },
       {
         "@type": "Question",
-        "name": "Can prazosin help with PTSD nightmares?",
+        "name": "Can medication help with PTSD nightmares?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, prazosin is an effective medication for reducing trauma-related nightmares and improving sleep in PTSD patients. Our Orlando trauma psychiatrists frequently prescribe prazosin as part of comprehensive PTSD treatment. It works by blocking certain stress hormones that contribute to nightmare frequency and intensity."
+          "text": "Yes, there are effective medications for reducing trauma-related nightmares and improving sleep in PTSD patients. Our Orlando trauma psychiatrists offer comprehensive PTSD treatment including medications that can help reduce nightmare frequency and intensity."
         }
       }
     ]
@@ -336,7 +336,7 @@ export default function TraumaPsychiatristOrlando() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">PTSD Medication Management</h3>
                       <p className="text-muted-foreground">
-                        Expert prescribing and monitoring of evidence-based PTSD medications including SSRIs (sertraline, paroxetine), SNRIs (venlafaxine), and prazosin for trauma-related nightmares. We carefully select medications based on your specific symptoms, medical history, and treatment goals.
+                        Expert prescribing and monitoring of evidence-based PTSD medications including SSRIs and SNRIs (venlafaxine). We also offer targeted treatments for trauma-related sleep disturbances. We carefully select medications based on your specific symptoms, medical history, and treatment goals.
                       </p>
                     </div>
                   </div>
@@ -346,7 +346,7 @@ export default function TraumaPsychiatristOrlando() {
                     <div>
                       <h3 className="font-semibold text-lg text-foreground mb-2">Nightmare & Sleep Treatment</h3>
                       <p className="text-muted-foreground">
-                        Specialized treatment for trauma-related nightmares and insomnia. Prazosin has shown significant effectiveness in reducing nightmare frequency and improving sleep quality for PTSD patients. We also address hyperarousal symptoms that interfere with restful sleep.
+                        Specialized treatment for trauma-related nightmares and insomnia. We offer effective medications that can significantly reduce nightmare frequency and improve sleep quality for PTSD patients. We also address hyperarousal symptoms that interfere with restful sleep.
                       </p>
                     </div>
                   </div>
@@ -426,16 +426,16 @@ export default function TraumaPsychiatristOrlando() {
                     <div className="bg-card p-4 rounded-lg border">
                       <h3 className="font-semibold text-foreground mb-2">First-Line PTSD Medications:</h3>
                       <ul className="space-y-1 text-muted-foreground text-sm">
-                        <li>• Sertraline (Zoloft) - FDA-approved for PTSD</li>
-                        <li>• Paroxetine (Paxil) - FDA-approved for PTSD</li>
+                        <li>• SSRIs - FDA-approved for PTSD</li>
                         <li>• Venlafaxine (Effexor XR) - Effective SNRI</li>
                         <li>• Fluoxetine (Prozac) - Strong evidence base</li>
+                        <li>• Other evidence-based antidepressants</li>
                       </ul>
                     </div>
                     <div className="bg-card p-4 rounded-lg border">
                       <h3 className="font-semibold text-foreground mb-2">Targeted Symptom Medications:</h3>
                       <ul className="space-y-1 text-muted-foreground text-sm">
-                        <li>• Prazosin - For nightmares and sleep</li>
+                        <li>• Sleep medications for nightmares</li>
                         <li>• Trazodone - For trauma-related insomnia</li>
                         <li>• Hydroxyzine - For acute anxiety</li>
                         <li>• Propranolol - For hyperarousal symptoms</li>
@@ -492,13 +492,13 @@ export default function TraumaPsychiatristOrlando() {
                   <div>
                     <h3 className="font-semibold text-foreground mb-2">What medications help with PTSD?</h3>
                     <p className="text-muted-foreground">
-                      FDA-approved medications for PTSD include sertraline (Zoloft) and paroxetine (Paxil), both SSRIs. Venlafaxine (Effexor), an SNRI, is also effective. Prazosin is commonly prescribed for trauma-related nightmares. Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline">Orlando psychiatrists</Link> will work with you to find the best medication approach for your symptoms.
+                      FDA-approved medications for PTSD include several SSRIs. Venlafaxine (Effexor), an SNRI, is also effective. We also offer targeted treatments for trauma-related nightmares and sleep issues. Our <Link href="/psychiatrist-orlando" className="text-primary hover:underline">Orlando psychiatrists</Link> will work with you to find the best medication approach for your symptoms.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground mb-2">Can prazosin help with PTSD nightmares?</h3>
+                    <h3 className="font-semibold text-foreground mb-2">Can medication help with PTSD nightmares?</h3>
                     <p className="text-muted-foreground">
-                      Yes, prazosin is an effective medication for reducing trauma-related nightmares and improving sleep in PTSD patients. It works by blocking certain stress hormones that contribute to nightmare frequency and intensity. Many patients experience significant improvement in sleep quality within weeks of starting treatment.
+                      Yes, there are effective medications for reducing trauma-related nightmares and improving sleep in PTSD patients. These treatments work by addressing the physiological stress response that contributes to nightmare frequency and intensity. Many patients experience significant improvement in sleep quality within weeks of starting treatment.
                     </p>
                   </div>
                   <div>

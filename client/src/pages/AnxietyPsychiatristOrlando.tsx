@@ -67,7 +67,7 @@ export default function AnxietyPsychiatristOrlando() {
             "name": "What medications do anxiety psychiatrists prescribe?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Anxiety psychiatrists commonly prescribe SSRIs (like Zoloft, Lexapro), SNRIs (like Effexor, Cymbalta), buspirone, and in some cases benzodiazepines for short-term relief. The best medication depends on your specific symptoms and medical history."
+              "text": "Anxiety psychiatrists commonly prescribe SSRIs (like Lexapro), SNRIs (like Effexor, Cymbalta), buspirone, and in some cases benzodiazepines for short-term relief. The best medication depends on your specific symptoms and medical history."
             }
           },
           {
@@ -413,7 +413,7 @@ export default function AnxietyPsychiatristOrlando() {
                     <div className="bg-card p-4 rounded-lg border">
                       <h3 className="font-semibold text-foreground mb-2">Long-Term Anxiety Medications:</h3>
                       <ul className="space-y-1 text-muted-foreground text-sm">
-                        <li>• SSRIs (Lexapro, Zoloft, Prozac, Paxil)</li>
+                        <li>• SSRIs (Lexapro, Prozac)</li>
                         <li>• SNRIs (Effexor, Cymbalta, Pristiq)</li>
                         <li>• Non-benzodiazepine anti-anxiety medications</li>
                         <li>• Hydroxyzine (Vistaril)</li>

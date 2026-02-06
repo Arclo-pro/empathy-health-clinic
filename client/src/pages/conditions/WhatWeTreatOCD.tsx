@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     question: "What medications help with OCD?",
-    answer: "SSRIs like fluoxetine (Prozac), fluvoxamine (Luvox), sertraline (Zoloft), and paroxetine (Paxil) are FDA-approved for OCD and typically used at higher doses than for depression. Clomipramine (Anafranil) is also effective. Your psychiatrist will recommend the best option for you."
+    answer: "SSRIs like fluoxetine (Prozac) and fluvoxamine (Luvox) are FDA-approved for OCD and typically used at higher doses than for depression. Clomipramine (Anafranil) is also effective. Your psychiatrist will recommend the best option for you."
   },
   {
     question: "How long does OCD treatment take?",

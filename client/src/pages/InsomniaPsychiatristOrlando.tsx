@@ -360,7 +360,7 @@ export default function InsomniaPsychiatristOrlando() {
                       <ul className="space-y-1 text-muted-foreground text-sm">
                         <li>• SSRIs/SNRIs for anxiety and depression</li>
                         <li>• Buspirone for generalized anxiety</li>
-                        <li>• Prazosin for PTSD nightmares</li>
+                        <li>• Targeted treatments for PTSD-related sleep issues</li>
                         <li>• Gabapentin for certain cases</li>
                       </ul>
                       <p className="text-xs text-muted-foreground mt-2">

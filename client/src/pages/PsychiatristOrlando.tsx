@@ -695,7 +695,7 @@ export default function PsychiatristOrlando() {
                     <AccordionItem value="item-10">
                       <AccordionTrigger className="text-left">Do Orlando psychiatrists prescribe medication for anxiety?</AccordionTrigger>
                       <AccordionContent className="text-gray-600">
-                        Yes, Orlando psychiatrists at Empathy Health Clinic regularly prescribe medication for anxiety disorders including generalized anxiety disorder, panic disorder, social anxiety, and phobias. Our board-certified psychiatrists conduct thorough evaluations to determine the most appropriate treatment approach, which may include SSRIs (like Lexapro or Zoloft), SNRIs (like Effexor), buspirone, or other anxiety medications. We often recommend combining medication with therapy for the best outcomes.
+                        Yes, Orlando psychiatrists at Empathy Health Clinic regularly prescribe medication for anxiety disorders including generalized anxiety disorder, panic disorder, social anxiety, and phobias. Our board-certified psychiatrists conduct thorough evaluations to determine the most appropriate treatment approach, which may include SSRIs (like Lexapro), SNRIs (like Effexor), buspirone, or other anxiety medications. We often recommend combining medication with therapy for the best outcomes.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
