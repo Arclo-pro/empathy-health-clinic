@@ -35,9 +35,70 @@ const SEO_CRAWLER_PATTERNS = [
 // Check if user-agent is a known SEO crawler
 function isSeoCrawler(userAgent: string | undefined): boolean {
   if (!userAgent) return false;
-  return SEO_CRAWLER_PATTERNS.some(pattern => 
+  return SEO_CRAWLER_PATTERNS.some(pattern =>
     userAgent.toLowerCase().includes(pattern.toLowerCase())
   );
+}
+
+// Forward lead to Arclo for centralized lead management
+const ARCLO_WEBHOOK_URL = process.env.ARCLO_WEBHOOK_URL || 'https://arclo.io/api/leads/webhook';
+const ARCLO_API_KEY = process.env.ARCLO_API_KEY;
+
+interface ArcloLeadPayload {
+  name: string;
+  email?: string | null;
+  phone?: string | null;
+  serviceLine?: string;
+  formType?: string;
+  landingPagePath?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  utmCampaign?: string | null;
+  utmTerm?: string | null;
+  utmContent?: string | null;
+  notes?: string | null;
+}
+
+async function forwardLeadToArclo(payload: ArcloLeadPayload): Promise<void> {
+  if (!ARCLO_API_KEY) {
+    console.log('⏭️ Skipping Arclo webhook - ARCLO_API_KEY not configured');
+    return;
+  }
+
+  try {
+    const response = await fetch(ARCLO_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': ARCLO_API_KEY,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log(`✅ Lead forwarded to Arclo: ${result.leadId}`);
+    } else {
+      const error = await response.text();
+      console.error(`❌ Arclo webhook failed (${response.status}):`, error);
+    }
+  } catch (error: any) {
+    console.error('❌ Arclo webhook error:', error.message);
+    // Don't throw - webhook failure shouldn't break the main flow
+  }
+}
+
+// Map EHC service to Arclo service line
+function mapServiceToServiceLine(service: string | null | undefined): string {
+  if (!service) return 'general_inquiry';
+  const lower = service.toLowerCase();
+  if (lower.includes('psychiatr') || lower.includes('medication') || lower.includes('evaluation')) {
+    return 'psychiatric_services';
+  }
+  if (lower.includes('therap') || lower.includes('counsel') || lower.includes('emdr') || lower.includes('trauma')) {
+    return 'therapy';
+  }
+  return 'general_inquiry';
 }
 
 // Rate limiting for API endpoints (general protection)
@@ -1454,7 +1515,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         console.log(`📞 Phone click lead tracked: ${validated.phone || 'No phone'} from ${validated.source || 'Unknown source'}`);
       }
-      
+
+      // Forward lead to Arclo for centralized lead management
+      forwardLeadToArclo({
+        name: `${validated.firstName} ${validated.lastName}`.trim(),
+        email: validated.email,
+        phone: validated.phone,
+        serviceLine: mapServiceToServiceLine(validated.service),
+        formType: validated.formType || 'short',
+        landingPagePath: validated.landingPage,
+        utmSource: validated.utmSource,
+        utmMedium: validated.utmMedium,
+        utmCampaign: validated.utmCampaign,
+        utmTerm: validated.utmTerm,
+        utmContent: validated.utmContent,
+        notes: validated.conditions ? `Conditions: ${validated.conditions}` : null,
+      }).catch(err => console.error('Arclo forward error:', err));
+
       res.json(lead);
     } catch (error: any) {
       console.error(`❌ Lead submission failed:`, error.message, `| Body:`, JSON.stringify(req.body));
