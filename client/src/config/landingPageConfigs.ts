@@ -164,10 +164,10 @@ export const therapistOrlandoConfig: LandingPageConfig = {
     "email": "providers@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     }
   },
@@ -185,14 +185,14 @@ export const therapistOrlandoConfig: LandingPageConfig = {
   },
   location: {
     title: "Our Orlando Location",
-    address: "1155 Louisiana Ave Suite 202",
+    address: "2281 Lee Rd Suite 102",
     city: "Winter Park",
     state: "FL",
-    zip: "32789",
+    zip: "32810",
     phone: "3868488751",
     phoneDisplay: "386-848-8751",
     hours: "Mon-Fri: 9:00 AM - 6:00 PM\nTelehealth & in-person available",
-    mapUrl: "https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
   },
   content: {
     mainHeading: "Expert Therapy Services in Orlando",
@@ -2508,10 +2508,10 @@ export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
     "email": "providers@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "medicalSpecialty": "Psychology"
@@ -2530,14 +2530,14 @@ export const cognitiveBehavioralTherapyConfig: LandingPageConfig = {
   },
   location: {
     title: "Orlando CBT Therapy Location",
-    address: "1155 Louisiana Ave Suite 202",
+    address: "2281 Lee Rd Suite 102",
     city: "Winter Park",
     state: "FL",
-    zip: "32789",
+    zip: "32810",
     phone: "3868488751",
     phoneDisplay: "386-848-8751",
     hours: "Mon-Sat: 9:00 AM - 6:00 PM\nTelehealth & in-person CBT available",
-    mapUrl: "https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
   },
   content: {
     mainHeading: "What is Cognitive Behavioral Therapy (CBT)?",
@@ -6277,10 +6277,10 @@ export const dbtTherapyOrlandoConfig: LandingPageConfig = {
     "email": "providers@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "medicalSpecialty": "Psychology"
@@ -6299,14 +6299,14 @@ export const dbtTherapyOrlandoConfig: LandingPageConfig = {
   },
   location: {
     title: "Orlando DBT Therapy Location",
-    address: "1155 Louisiana Ave Suite 202",
+    address: "2281 Lee Rd Suite 102",
     city: "Winter Park",
     state: "FL",
-    zip: "32789",
+    zip: "32810",
     phone: "3868488751",
     phoneDisplay: "386-848-8751",
     hours: "Mon-Sat: 9:00 AM - 6:00 PM\nTelehealth & in-person DBT available",
-    mapUrl: "https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789",
+    mapUrl: "https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810",
   },
   content: {
     mainHeading: "What is Dialectical Behavior Therapy (DBT)?",

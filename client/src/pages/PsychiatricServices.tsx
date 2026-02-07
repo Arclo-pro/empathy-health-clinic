@@ -35,16 +35,16 @@ export default function PsychiatricServices() {
         "email": "providers@empathyhealthclinic.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "1155 Louisiana Ave Suite 202",
+          "streetAddress": "2281 Lee Rd Suite 102",
           "addressLocality": "Winter Park",
           "addressRegion": "FL",
-          "postalCode": "32789",
+          "postalCode": "32810",
           "addressCountry": "US"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 28.5997,
-          "longitude": -81.3392
+          "latitude": 28.59544,
+          "longitude": -81.36537
         },
         "medicalSpecialty": ["Psychiatry", "Mental Health", "Medication Management"],
         "priceRange": "$$",
@@ -206,8 +206,8 @@ export default function PsychiatricServices() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Our Psychiatry Location</h3>
-                  <p className="text-white/90">1155 Louisiana Ave Suite 202</p>
-                  <p className="text-white/90">Winter Park, FL 32789</p>
+                  <p className="text-white/90">2281 Lee Rd Suite 102</p>
+                  <p className="text-white/90">Winter Park, FL 32810</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -607,13 +607,13 @@ export default function PsychiatricServices() {
                     <div className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-[#2E5E4E] flex-shrink-0 mt-1" />
                       <div>
-                        <p className="font-medium">1155 Louisiana Ave Suite 202</p>
-                        <p className="text-gray-600">Winter Park, FL 32789</p>
+                        <p className="font-medium">2281 Lee Rd Suite 102</p>
+                        <p className="text-gray-600">Winter Park, FL 32810</p>
                         <p className="text-sm text-gray-500 mt-2">Near Orlando, easy parking available</p>
                       </div>
                     </div>
                     <a 
-                      href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                      href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="block mt-4"

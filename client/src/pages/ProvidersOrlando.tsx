@@ -22,13 +22,13 @@ const localBusinessSchema = {
     "streetAddress": "2281 Lee Rd Suite 102",
     "addressLocality": "Winter Park",
     "addressRegion": "FL",
-    "postalCode": "32789",
+    "postalCode": "32810",
     "addressCountry": "US"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "28.5997",
-    "longitude": "-81.3644"
+    "latitude": "28.59544",
+    "longitude": "-81.36537"
   },
   "areaServed": [
     { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },

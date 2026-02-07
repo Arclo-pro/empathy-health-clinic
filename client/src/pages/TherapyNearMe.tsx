@@ -30,16 +30,16 @@ export default function TherapyNearMe() {
     "email": "info@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 28.5997,
-      "longitude": -81.3392
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },
@@ -97,7 +97,7 @@ export default function TherapyNearMe() {
         "name": "How do I find therapy near me in Orlando?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Empathy Health Clinic is conveniently located at 1155 Louisiana Ave Suite 202 in Winter Park, serving Orlando and surrounding areas. We also offer telehealth therapy for all Florida residents. Call 386-848-8751 to schedule your first appointment."
+          "text": "Empathy Health Clinic is conveniently located at 2281 Lee Rd Suite 102 in Winter Park, serving Orlando and surrounding areas. We also offer telehealth therapy for all Florida residents. Call 386-848-8751 to schedule your first appointment."
         }
       },
       {
@@ -235,8 +235,8 @@ export default function TherapyNearMe() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Our Therapy Location Near You</h3>
-                  <p className="text-white/90">1155 Louisiana Ave Suite 202</p>
-                  <p className="text-white/90">Winter Park, FL 32789</p>
+                  <p className="text-white/90">2281 Lee Rd Suite 102</p>
+                  <p className="text-white/90">Winter Park, FL 32810</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -491,7 +491,7 @@ export default function TherapyNearMe() {
                     <AccordionItem value="item-2">
                       <AccordionTrigger className="text-left">How do I find therapy near me in Orlando?</AccordionTrigger>
                       <AccordionContent className="text-gray-600">
-                        Empathy Health Clinic is conveniently located at 1155 Louisiana Ave Suite 202 in Winter Park, serving Orlando and surrounding areas. We also offer telehealth therapy for all Florida residents. Call 386-848-8751 to schedule your first appointment.
+                        Empathy Health Clinic is conveniently located at 2281 Lee Rd Suite 102 in Winter Park, serving Orlando and surrounding areas. We also offer telehealth therapy for all Florida residents. Call 386-848-8751 to schedule your first appointment.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-3">
@@ -621,8 +621,8 @@ export default function TherapyNearMe() {
                     <div className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-[#2E5E4E] flex-shrink-0 mt-1" />
                       <div>
-                        <p className="font-medium">1155 Louisiana Ave Suite 202</p>
-                        <p className="text-gray-600">Winter Park, FL 32789</p>
+                        <p className="font-medium">2281 Lee Rd Suite 102</p>
+                        <p className="text-gray-600">Winter Park, FL 32810</p>
                         <p className="text-sm text-gray-500 mt-2">Near Orlando, easy parking available</p>
                       </div>
                     </div>

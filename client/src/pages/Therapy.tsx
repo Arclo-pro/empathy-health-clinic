@@ -138,11 +138,11 @@ export default function TherapyPage() {
               <div>
                 <h3 className="font-semibold text-foreground mb-1">Our Winter Park Location</h3>
                 <p className="text-sm text-muted-foreground">
-                  1155 Louisiana Ave Suite 202<br />
-                  Winter Park, FL 32789
+                  2281 Lee Rd Suite 102<br />
+                  Winter Park, FL 32810
                 </p>
                 <a 
-                  href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                  href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-sm text-primary hover:underline mt-1 inline-block"
@@ -339,11 +339,11 @@ export default function TherapyPage() {
                   <div className="border-t pt-4">
                     <h4 className="font-semibold text-foreground mb-2">Location</h4>
                     <p className="text-sm text-muted-foreground">
-                      1155 Louisiana Ave Suite 202<br />
-                      Winter Park, FL 32789
+                      2281 Lee Rd Suite 102<br />
+                      Winter Park, FL 32810
                     </p>
                     <a 
-                      href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                      href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm text-primary hover:underline mt-2 inline-block"

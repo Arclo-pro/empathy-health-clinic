@@ -27,16 +27,16 @@ export default function ESALetter() {
         "email": "providers@empathyhealthclinic.com",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "1155 Louisiana Ave Suite 202",
+          "streetAddress": "2281 Lee Rd Suite 102",
           "addressLocality": "Winter Park",
           "addressRegion": "FL",
-          "postalCode": "32789",
+          "postalCode": "32810",
           "addressCountry": "US"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 28.5997,
-          "longitude": -81.3392
+          "latitude": 28.59544,
+          "longitude": -81.36537
         },
         "areaServed": [
           { "@type": "City", "name": "Orlando", "containedInPlace": { "@type": "State", "name": "Florida" } },

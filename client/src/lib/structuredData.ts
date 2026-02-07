@@ -17,6 +17,7 @@ const CLINIC_INFO = {
 };
 
 const SOCIAL_PROFILES = [
+  "https://www.google.com/maps/place/Empathy+Health+Clinic/@28.59544,-81.36537,17z",
   "https://www.facebook.com/profile.php?id=100083226165903",
   "https://x.com/clinicempathy12",
   "https://www.instagram.com/empathyhealthfl/?hl=en",

@@ -24,16 +24,16 @@ export default function DepressionCounseling() {
     "telephone": "386-848-8751",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "2153 Park Center Drive",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32792",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "28.5989",
-      "longitude": "-81.3392"
+      "latitude": "28.59544",
+      "longitude": "-81.36537"
     },
     "openingHoursSpecification": [
       {

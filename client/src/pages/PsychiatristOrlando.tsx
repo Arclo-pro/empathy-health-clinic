@@ -38,16 +38,16 @@ export default function PsychiatristOrlando() {
         "telephone": "+1-386-848-8751",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "1155 Louisiana Ave Suite 202",
+          "streetAddress": "2281 Lee Rd Suite 102",
           "addressLocality": "Winter Park",
           "addressRegion": "FL",
-          "postalCode": "32789",
+          "postalCode": "32810",
           "addressCountry": "US"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 28.5997,
-          "longitude": -81.3392
+          "latitude": 28.59544,
+          "longitude": -81.36537
         },
         "medicalSpecialty": ["Psychiatry", "MedicationManagement", "MentalHealth"],
         "areaServed": [
@@ -79,6 +79,11 @@ export default function PsychiatristOrlando() {
         "hasCredential": [
           { "@type": "EducationalOccupationalCredential", "credentialCategory": "Board Certified Psychiatrist" },
           { "@type": "EducationalOccupationalCredential", "credentialCategory": "PMHNP-BC" }
+        ],
+        "sameAs": [
+          "https://www.google.com/maps/place/Empathy+Health+Clinic/@28.59544,-81.36537,17z",
+          "https://www.facebook.com/profile.php?id=100083226165903",
+          "https://www.instagram.com/empathyhealthfl"
         ]
       },
       {
@@ -305,8 +310,8 @@ export default function PsychiatristOrlando() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg">Our Orlando Psychiatry Location</h3>
-                  <p className="text-white/90">1155 Louisiana Ave Suite 202</p>
-                  <p className="text-white/90">Winter Park, FL 32789</p>
+                  <p className="text-white/90">2281 Lee Rd Suite 102</p>
+                  <p className="text-white/90">Winter Park, FL 32810</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -348,19 +353,19 @@ export default function PsychiatristOrlando() {
                 <div className="space-y-4 text-gray-700">
                   <div>
                     <h3 className="font-semibold text-lg">From Downtown Orlando:</h3>
-                    <p>Take I-4 East to Exit 87 (Fairbanks Ave). Head east on Fairbanks Ave, then turn right onto Louisiana Ave. Our office is on the right at 1155 Louisiana Ave, Suite 202.</p>
+                    <p>Take I-4 East to Exit 87 (Lee Rd). Head east on Lee Rd. Our office is on the right at 2281 Lee Rd, Suite 102.</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">From UCF / East Orlando:</h3>
-                    <p>Take SR-408 West toward Orlando. Exit onto I-4 West, then take Exit 87 (Fairbanks Ave). Turn right onto Fairbanks Ave, then left onto Louisiana Ave.</p>
+                    <p>Take SR-408 West toward Orlando. Exit onto I-4 West, then take Exit 87 (Lee Rd). Turn left onto Lee Rd.</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Parking:</h3>
                     <p>Free parking available in the building lot. Handicap accessible entrance at main building door.</p>
                   </div>
-                  <a 
-                    href="https://maps.google.com/?daddr=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
-                    target="_blank" 
+                  <a
+                    href="https://maps.google.com/?daddr=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[#E48F66] hover:underline font-semibold"
                     data-testid="link-get-directions"
@@ -372,7 +377,7 @@ export default function PsychiatristOrlando() {
               </div>
               <div className="rounded-xl overflow-hidden shadow-lg h-[300px] md:h-[350px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.8!2d-81.3392!3d28.5997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e76434f7e4f5f7%3A0x0!2s1155+Louisiana+Ave%2C+Winter+Park%2C+FL+32789!5e0!3m2!1sen!2sus!4v1704067200000"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.8!2d-81.36537!3d28.59544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s2281+Lee+Rd%2C+Winter+Park%2C+FL+32810!5e0!3m2!1sen!2sus!4v1704067200000"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -798,13 +803,13 @@ export default function PsychiatristOrlando() {
                     <div className="flex items-start gap-3">
                       <MapPin className="h-5 w-5 text-[#2E5E4E] flex-shrink-0 mt-1" />
                       <div>
-                        <p className="font-medium">1155 Louisiana Ave Suite 202</p>
-                        <p className="text-gray-600">Winter Park, FL 32789</p>
+                        <p className="font-medium">2281 Lee Rd Suite 102</p>
+                        <p className="text-gray-600">Winter Park, FL 32810</p>
                         <p className="text-sm text-gray-500 mt-2">Near Orlando, easy parking available</p>
                       </div>
                     </div>
                     <a 
-                      href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                      href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32810" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="block mt-4"

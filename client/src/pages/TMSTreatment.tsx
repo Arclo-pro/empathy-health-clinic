@@ -24,10 +24,10 @@ export default function TMSTreatment() {
       "name": "Empathy Health Clinic",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2153 Park Center Drive",
+        "streetAddress": "2281 Lee Rd Suite 102",
         "addressLocality": "Winter Park",
         "addressRegion": "FL",
-        "postalCode": "32792"
+        "postalCode": "32810"
       },
       "telephone": "386-848-8751"
     },

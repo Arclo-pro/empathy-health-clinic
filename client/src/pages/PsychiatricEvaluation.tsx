@@ -21,10 +21,10 @@ export default function PsychiatricEvaluation() {
     "email": "providers@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "medicalSpecialty": "Psychiatry",
@@ -370,11 +370,11 @@ export default function PsychiatricEvaluation() {
                   <div className="border-t pt-4">
                     <h4 className="font-semibold text-foreground mb-2">Location</h4>
                     <p className="text-sm text-muted-foreground">
-                      1155 Louisiana Ave Suite 202<br />
-                      Winter Park, FL 32789
+                      2281 Lee Rd Suite 102<br />
+                      Winter Park, FL 32810
                     </p>
                     <a 
-                      href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                      href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-sm text-primary hover:underline mt-2 inline-block"

@@ -142,7 +142,7 @@ export default function NoSurprisesAct() {
                 <p className="font-semibold text-foreground">
                   Empathy Health Clinic<br />
                   1850 Lee Road, Suite 215<br />
-                  Winter Park, FL 32789<br />
+                  Winter Park, FL 32810<br />
                   Phone: (407) 745-5915<br />
                   Email: contact@empathyhealthclinic.com
                 </p>

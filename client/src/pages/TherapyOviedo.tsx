@@ -24,16 +24,16 @@ export default function TherapyOviedo() {
     "email": "info@empathyhealthclinic.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "1155 Louisiana Ave Suite 202",
+      "streetAddress": "2281 Lee Rd Suite 102",
       "addressLocality": "Winter Park",
       "addressRegion": "FL",
-      "postalCode": "32789",
+      "postalCode": "32810",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 28.5997,
-      "longitude": -81.3392
+      "latitude": 28.59544,
+      "longitude": -81.36537
     },
     "areaServed": [
       {
@@ -102,7 +102,7 @@ export default function TherapyOviedo() {
         "name": "Where is your therapy office for Oviedo residents?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our office is located at 1155 Louisiana Ave Suite 202 in Winter Park, FL - just a short 15-minute drive from Oviedo via FL-417. We also offer convenient telehealth therapy sessions for Oviedo residents who prefer virtual appointments."
+          "text": "Our office is located at 2281 Lee Rd Suite 102 in Winter Park, FL - just a short 15-minute drive from Oviedo via FL-417. We also offer convenient telehealth therapy sessions for Oviedo residents who prefer virtual appointments."
         }
       },
       {
@@ -251,8 +251,8 @@ export default function TherapyOviedo() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Office Location</h3>
-                    <p className="text-gray-600">1155 Louisiana Ave Suite 202</p>
-                    <p className="text-gray-600">Winter Park, FL 32789</p>
+                    <p className="text-gray-600">2281 Lee Rd Suite 102</p>
+                    <p className="text-gray-600">Winter Park, FL 32810</p>
                     <p className="text-sm text-gray-500 mt-1">15 min from Oviedo via FL-417</p>
                   </div>
                 </CardContent>
@@ -506,7 +506,7 @@ export default function TherapyOviedo() {
                     <AccordionItem value="item-1">
                       <AccordionTrigger className="text-left">Where is your therapy office for Oviedo residents?</AccordionTrigger>
                       <AccordionContent className="text-gray-600">
-                        Our office is located at 1155 Louisiana Ave Suite 202 in Winter Park, FL - just a short 15-minute drive from Oviedo via FL-417. We also offer convenient telehealth therapy sessions for Oviedo residents who prefer virtual appointments.
+                        Our office is located at 2281 Lee Rd Suite 102 in Winter Park, FL - just a short 15-minute drive from Oviedo via FL-417. We also offer convenient telehealth therapy sessions for Oviedo residents who prefer virtual appointments.
                       </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">

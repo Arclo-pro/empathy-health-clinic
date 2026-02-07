@@ -25,10 +25,10 @@ export default function AnxietyTherapy() {
       "name": "Empathy Health Clinic",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "2153 Park Center Drive",
+        "streetAddress": "2281 Lee Rd Suite 102",
         "addressLocality": "Winter Park",
         "addressRegion": "FL",
-        "postalCode": "32792"
+        "postalCode": "32810"
       },
       "telephone": "386-848-8751"
     },
@@ -39,7 +39,7 @@ export default function AnxietyTherapy() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Anxiety Treatment Near You | Orlando & Winter Park FL"
-        description="Anxiety counseling near you in Orlando & Winter Park. Expert treatment for panic attacks, generalized anxiety, social anxiety. Same-day appointments. 1155 Louisiana Ave Suite 202. Call 386-848-8751."
+        description="Anxiety counseling near you in Orlando & Winter Park. Expert treatment for panic attacks, generalized anxiety, social anxiety. Same-day appointments. 2281 Lee Rd Suite 102. Call 386-848-8751."
         keywords={["anxiety treatment near me", "anxiety counseling near me", "anxiety counseling Orlando", "anxiety therapy near me", "panic attack treatment near me", "anxiety treatment Winter Park", "anxiety therapist near me"]}
         canonicalPath="/anxiety-therapy"
         jsonLd={jsonLd}
@@ -110,11 +110,11 @@ export default function AnxietyTherapy() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Our Winter Park Location</h3>
                   <p className="text-sm text-muted-foreground">
-                    1155 Louisiana Ave Suite 202<br />
-                    Winter Park, FL 32789
+                    2281 Lee Rd Suite 102<br />
+                    Winter Park, FL 32810
                   </p>
                   <a 
-                    href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                    href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm text-primary hover:underline mt-1 inline-block"

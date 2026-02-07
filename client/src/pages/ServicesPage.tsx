@@ -91,7 +91,7 @@ export default function ServicesPage() {
     <div className="min-h-screen flex flex-col bg-background">
       <SEOHead
         title="Mental Health Clinic Near You | Winter Park & Orlando FL"
-        description="Local mental health clinic serving Winter Park & Orlando. Board-certified psychiatrists & therapists near you. Same-week appointments, in-person & telehealth. 1155 Louisiana Ave Suite 202. Call 386-848-8751."
+        description="Local mental health clinic serving Winter Park & Orlando. Board-certified psychiatrists & therapists near you. Same-week appointments, in-person & telehealth. 2281 Lee Rd Suite 102. Call 386-848-8751."
         keywords={["mental health clinic near me", "mental health clinic Winter Park", "mental health clinic Orlando", "psychiatric clinic near me", "therapy near me", "psychiatrist near me", "mental health services near me"]}
         canonicalPath="/services"
         preloadImage={forestBg}
@@ -176,11 +176,11 @@ export default function ServicesPage() {
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">Our Winter Park Location</h3>
                   <p className="text-sm text-muted-foreground">
-                    1155 Louisiana Ave Suite 202<br />
-                    Winter Park, FL 32789
+                    2281 Lee Rd Suite 102<br />
+                    Winter Park, FL 32810
                   </p>
                   <a 
-                    href="https://maps.google.com/?q=1155+Louisiana+Ave+Suite+202+Winter+Park+FL+32789" 
+                    href="https://maps.google.com/?q=2281+Lee+Rd+Suite+102+Winter+Park+FL+32810" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-sm text-primary hover:underline mt-1 inline-block"
